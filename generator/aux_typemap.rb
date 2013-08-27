@@ -1,0 +1,62 @@
+# [NOTICE] Automatically generated file
+module OpenGL
+  GL_TYPE_MAP = {
+    'GLenum' => 'Fiddle::TYPE_INT',
+    'GLboolean' => 'Fiddle::TYPE_CHAR',
+    'GLbitfield' => 'Fiddle::TYPE_INT',
+    'GLvoid' => 'Fiddle::TYPE_VOID',
+    'GLbyte' => 'Fiddle::TYPE_CHAR',
+    'GLshort' => 'Fiddle::TYPE_SHORT',
+    'GLint' => 'Fiddle::TYPE_INT',
+    'GLclampx' => 'Fiddle::TYPE_INT',
+    'GLubyte' => 'Fiddle::TYPE_CHAR',
+    'GLushort' => 'Fiddle::TYPE_SHORT',
+    'GLuint' => 'Fiddle::TYPE_INT',
+    'GLsizei' => 'Fiddle::TYPE_INT',
+    'GLfloat' => 'Fiddle::TYPE_FLOAT',
+    'GLclampf' => 'Fiddle::TYPE_FLOAT',
+    'GLdouble' => 'Fiddle::TYPE_DOUBLE',
+    'GLclampd' => 'Fiddle::TYPE_DOUBLE',
+    'GLeglImageOES' => 'Fiddle::TYPE_VOIDP',
+    'GLchar' => 'Fiddle::TYPE_CHAR',
+    'GLcharARB' => 'Fiddle::TYPE_CHAR',
+    'GLhandleARB' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
+    'GLhalfARB' => 'Fiddle::TYPE_SHORT',
+    'GLhalf' => 'Fiddle::TYPE_SHORT',
+    'GLfixed' => 'Fiddle::TYPE_INT',
+    'GLintptr' => 'Fiddle::TYPE_PTRDIFF_T',
+    'GLsizeiptr' => 'Fiddle::TYPE_PTRDIFF_T',
+    'GLint64' => 'Fiddle::TYPE_LONG_LONG',
+    'GLuint64' => 'Fiddle::TYPE_LONG_LONG',
+    'GLintptrARB' => 'Fiddle::TYPE_PTRDIFF_T',
+    'GLsizeiptrARB' => 'Fiddle::TYPE_PTRDIFF_T',
+    'GLint64EXT' => 'Fiddle::TYPE_LONG_LONG',
+    'GLuint64EXT' => 'Fiddle::TYPE_LONG_LONG',
+    'GLsync' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
+    'struct _cl_context' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
+    'struct _cl_event' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
+    'GLDEBUGPROC' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
+    'GLDEBUGPROCARB' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
+    'GLDEBUGPROCKHR' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
+    'GLDEBUGPROCAMD' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
+    'GLhalfNV' => 'Fiddle::TYPE_SHORT',
+    'GLvdpauSurfaceNV' => 'Fiddle::TYPE_PTRDIFF_T',
+
+    'char' => 'Fiddle::TYPE_CHAR',
+    'signed char' => 'Fiddle::TYPE_CHAR',
+    'unsigned char' => 'Fiddle::TYPE_CHAR',
+    'short' => 'Fiddle::TYPE_SHORT',
+    'signed short' => 'Fiddle::TYPE_SHORT',
+    'unsigned short' => 'Fiddle::TYPE_SHORT',
+    'int' => 'Fiddle::TYPE_INT',
+    'signed int' => 'Fiddle::TYPE_INT',
+    'unsigned int' => 'Fiddle::TYPE_INT',
+    'int64_t' => 'Fiddle::TYPE_LONG_LONG',
+    'uint64_t' => 'Fiddle::TYPE_LONG_LONG',
+    'float' => 'Fiddle::TYPE_FLOAT',
+    'double' => 'Fiddle::TYPE_DOUBLE',
+    'ptrdiff_t' => 'Fiddle::TYPE_PTRDIFF_T',
+    'void' => 'Fiddle::TYPE_VOID',
+    'void *' => 'Fiddle::TYPE_VOIDP',
+  }
+end

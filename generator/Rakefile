@@ -1,0 +1,31 @@
+#
+# 'rake' to generate 'opengl_command.rb' and 'opengl_enum.rb'.
+#
+require_relative 'get_gl_xml'
+require_relative 'generate_enum'
+require_relative 'generate_command'
+
+task 'default' => 'wrapper'
+
+task 'wrapper' => ['enum', 'command']
+
+task 'enum' => '../opengl_enum.rb'
+
+task 'command' => '../opengl_command.rb'
+
+file '../opengl_enum.rb' => './gl.xml' do |t|
+  open('../opengl_enum.rb', 'wb') do |file|
+    generate_enum(file)
+  end
+end
+
+file '../opengl_command.rb' => './gl.xml' do |t|
+  open('../opengl_command.rb', 'wb') do |file|
+    generate_command(file)
+  end
+end
+
+file './gl.xml' do
+  get_gl_xml()
+end
+
