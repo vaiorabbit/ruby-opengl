@@ -5,6 +5,7 @@ require_relative '../opengl'
 include OpenGL
 include GLFW
 OpenGL.load_dll()
+GLFW.load_dll()
 
 
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|

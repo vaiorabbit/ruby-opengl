@@ -33,9 +33,6 @@ module GLFW
     f
   end
 
-  # Load native library.
-  dlload "libglfw.dylib"
-
   # defines
   GLFW_VERSION_MAJOR     = 3
   GLFW_VERSION_MINOR     = 0
@@ -270,7 +267,7 @@ module GLFW
   GLFW_DISCONNECTED  = 0x00040002
 
   # typedefs
-  @@cb_signature = {
+  @@glfw_cb_signature = {
     :GLFWglproc => "void GLFWglproc()",
     :GLFWerrorfun => "void GLFWerrorfun(int,const char*)",
     :GLFWwindowposfun => "void GLFWwindowposfun(void*,int,int)",
@@ -288,10 +285,9 @@ module GLFW
     :GLFWcharfun => "void GLFWcharfun(void*,unsigned int)",
     :GLFWmonitorfun => "void GLFWmonitorfun(void*,int)",
   }
-  def create_callback( sym, *opts, &blk )
-    return bind( @@cb_signature[sym], opts, &blk )
+  def self.create_callback( sym, *opts, &blk )
+    return bind( @@glfw_cb_signature[sym], opts, &blk )
   end
-  module_function :create_callback
 
   # struct
   GLFWvidmode = struct(["int width",
@@ -306,76 +302,89 @@ module GLFW
                           "unsigned short* blue",
                           "unsigned int size"])
 
-  # function
-  extern 'int glfwInit()'
-  extern 'void glfwTerminate()'
-  extern 'void glfwGetVersion(int*, int*, int*)'
-  extern 'const char* glfwGetVersionString()'
-  extern 'void* glfwSetErrorCallback(void*)'
-  extern 'void** glfwGetMonitors(int*)'
-  extern 'void* glfwGetPrimaryMonitor()'
-  extern 'void glfwGetMonitorPos(void*, int*, int*)'
-  extern 'void glfwGetMonitorPhysicalSize(void*, int*, int*)'
-  extern 'const char* glfwGetMonitorName(void*)'
-  extern 'void* glfwSetMonitorCallback(void*)'
-  extern 'const void* glfwGetVideoModes(void*, int*)'
-  extern 'const void* glfwGetVideoMode(void*)'
-  extern 'void glfwSetGamma(void*, float)'
-  extern 'const void* glfwGetGammaRamp(void*)'
-  extern 'void glfwSetGammaRamp(void*, const void*)'
-  extern 'void glfwDefaultWindowHints()'
-  extern 'void glfwWindowHint(int, int)'
-  extern 'void* glfwCreateWindow(int, int, const char*, void*, void*)'
-  extern 'void glfwDestroyWindow(void*)'
-  extern 'int glfwWindowShouldClose(void*)'
-  extern 'void glfwSetWindowShouldClose(void* window, int)'
-  extern 'void glfwSetWindowTitle(void*, const char*)'
-  extern 'void glfwGetWindowPos(void*, int*, int*)'
-  extern 'void glfwSetWindowPos(void*, int, int)'
-  extern 'void glfwGetWindowSize(void*, int*, int*)'
-  extern 'void glfwSetWindowSize(void*, int, int)'
-  extern 'void glfwGetFramebufferSize(void*, int*, int*)'
-  extern 'void glfwIconifyWindow(void*)'
-  extern 'void glfwRestoreWindow(void*)'
-  extern 'void glfwShowWindow(void*)'
-  extern 'void glfwHideWindow(void*)'
-  extern 'void* glfwGetWindowMonitor(void*)'
-  extern 'int glfwGetWindowAttrib(void*, int)'
-  extern 'void glfwSetWindowUserPointer(void*, void*)'
-  extern 'void* glfwGetWindowUserPointer(void*)'
-  extern 'void* glfwSetWindowPosCallback(void*, void*)'
-  extern 'void* glfwSetWindowSizeCallback(void*, void*)'
-  extern 'void* glfwSetWindowCloseCallback(void*, void*)'
-  extern 'void* glfwSetWindowRefreshCallback(void*, void*)'
-  extern 'void* glfwSetWindowFocusCallback(void*, void*)'
-  extern 'void* glfwSetWindowIconifyCallback(void*, void*)'
-  extern 'void* glfwSetFramebufferSizeCallback(void*, void*)'
-  extern 'void glfwPollEvents()'
-  extern 'void glfwWaitEvents()'
-  extern 'int glfwGetInputMode(void*, int)'
-  extern 'void glfwSetInputMode(void*, int, int)'
-  extern 'int glfwGetKey(void*, int)'
-  extern 'int glfwGetMouseButton(void*, int)'
-  extern 'void glfwGetCursorPos(void*, void*, void*)'
-  extern 'void glfwSetCursorPos(void*, double, double)'
-  extern 'void* glfwSetKeyCallback(void*, void*)'
-  extern 'void* glfwSetCharCallback(void*, void*)'
-  extern 'void* glfwSetMouseButtonCallback(void*, void*)'
-  extern 'void* glfwSetCursorPosCallback(void*, void*)'
-  extern 'void* glfwSetCursorEnterCallback(void*, void*)'
-  extern 'void* glfwSetScrollCallback(void*, void*)'
-  extern 'int glfwJoystickPresent(int)'
-  extern 'const float* glfwGetJoystickAxes(int, int*)'
-  extern 'const unsigned char* glfwGetJoystickButtons(int, int*)'
-  extern 'const char* glfwGetJoystickName(int)'
-  extern 'void glfwSetClipboardString(void*, const char*)'
-  extern 'const char* glfwGetClipboardString(void*)'
-  extern 'double glfwGetTime()'
-  extern 'void glfwSetTime(double)'
-  extern 'void glfwMakeContextCurrent(void*)'
-  extern 'void* glfwGetCurrentContext()'
-  extern 'void glfwSwapBuffers(void*)'
-  extern 'void glfwSwapInterval(int)'
-  extern 'int glfwExtensionSupported(const char*)'
-  extern 'void* glfwGetProcAddress(const char*)'
+  @@glfw_import_done = false
+
+  # Load native library.
+  def self.load_dll(lib = 'libglfw.dylib', path = '.')
+    dlload (path + '/' + lib)
+    import_symbols() unless @@glfw_import_done
+  end
+
+  def self.import_symbols
+    # function
+    extern 'int glfwInit()'
+    extern 'void glfwTerminate()'
+    extern 'void glfwGetVersion(int*, int*, int*)'
+    extern 'const char* glfwGetVersionString()'
+    extern 'void* glfwSetErrorCallback(void*)'
+    extern 'void** glfwGetMonitors(int*)'
+    extern 'void* glfwGetPrimaryMonitor()'
+    extern 'void glfwGetMonitorPos(void*, int*, int*)'
+    extern 'void glfwGetMonitorPhysicalSize(void*, int*, int*)'
+    extern 'const char* glfwGetMonitorName(void*)'
+    extern 'void* glfwSetMonitorCallback(void*)'
+    extern 'const void* glfwGetVideoModes(void*, int*)'
+    extern 'const void* glfwGetVideoMode(void*)'
+    extern 'void glfwSetGamma(void*, float)'
+    extern 'const void* glfwGetGammaRamp(void*)'
+    extern 'void glfwSetGammaRamp(void*, const void*)'
+    extern 'void glfwDefaultWindowHints()'
+    extern 'void glfwWindowHint(int, int)'
+    extern 'void* glfwCreateWindow(int, int, const char*, void*, void*)'
+    extern 'void glfwDestroyWindow(void*)'
+    extern 'int glfwWindowShouldClose(void*)'
+    extern 'void glfwSetWindowShouldClose(void* window, int)'
+    extern 'void glfwSetWindowTitle(void*, const char*)'
+    extern 'void glfwGetWindowPos(void*, int*, int*)'
+    extern 'void glfwSetWindowPos(void*, int, int)'
+    extern 'void glfwGetWindowSize(void*, int*, int*)'
+    extern 'void glfwSetWindowSize(void*, int, int)'
+    extern 'void glfwGetFramebufferSize(void*, int*, int*)'
+    extern 'void glfwIconifyWindow(void*)'
+    extern 'void glfwRestoreWindow(void*)'
+    extern 'void glfwShowWindow(void*)'
+    extern 'void glfwHideWindow(void*)'
+    extern 'void* glfwGetWindowMonitor(void*)'
+    extern 'int glfwGetWindowAttrib(void*, int)'
+    extern 'void glfwSetWindowUserPointer(void*, void*)'
+    extern 'void* glfwGetWindowUserPointer(void*)'
+    extern 'void* glfwSetWindowPosCallback(void*, void*)'
+    extern 'void* glfwSetWindowSizeCallback(void*, void*)'
+    extern 'void* glfwSetWindowCloseCallback(void*, void*)'
+    extern 'void* glfwSetWindowRefreshCallback(void*, void*)'
+    extern 'void* glfwSetWindowFocusCallback(void*, void*)'
+    extern 'void* glfwSetWindowIconifyCallback(void*, void*)'
+    extern 'void* glfwSetFramebufferSizeCallback(void*, void*)'
+    extern 'void glfwPollEvents()'
+    extern 'void glfwWaitEvents()'
+    extern 'int glfwGetInputMode(void*, int)'
+    extern 'void glfwSetInputMode(void*, int, int)'
+    extern 'int glfwGetKey(void*, int)'
+    extern 'int glfwGetMouseButton(void*, int)'
+    extern 'void glfwGetCursorPos(void*, void*, void*)'
+    extern 'void glfwSetCursorPos(void*, double, double)'
+    extern 'void* glfwSetKeyCallback(void*, void*)'
+    extern 'void* glfwSetCharCallback(void*, void*)'
+    extern 'void* glfwSetMouseButtonCallback(void*, void*)'
+    extern 'void* glfwSetCursorPosCallback(void*, void*)'
+    extern 'void* glfwSetCursorEnterCallback(void*, void*)'
+    extern 'void* glfwSetScrollCallback(void*, void*)'
+    extern 'int glfwJoystickPresent(int)'
+    extern 'const float* glfwGetJoystickAxes(int, int*)'
+    extern 'const unsigned char* glfwGetJoystickButtons(int, int*)'
+    extern 'const char* glfwGetJoystickName(int)'
+    extern 'void glfwSetClipboardString(void*, const char*)'
+    extern 'const char* glfwGetClipboardString(void*)'
+    extern 'double glfwGetTime()'
+    extern 'void glfwSetTime(double)'
+    extern 'void glfwMakeContextCurrent(void*)'
+    extern 'void* glfwGetCurrentContext()'
+    extern 'void glfwSwapBuffers(void*)'
+    extern 'void glfwSwapInterval(int)'
+    extern 'int glfwExtensionSupported(const char*)'
+    extern 'void* glfwGetProcAddress(const char*)'
+
+    @@glfw_import_done = true
+  end
+
 end

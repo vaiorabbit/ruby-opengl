@@ -14,8 +14,11 @@
 	*   'opengl_enum.rb' : OpenGL enum wrapper (GL_TRIANGLE_STRIP, etc.). Generated via generator/generate_enum.rb.
 	*   'opengl_common.rb' : Provies utilitiy funcitions.
 
-*   'glfw.rb'
-	*   My handwirtten GLFW wrapper (https://github.com/vaiorabbit/ruby-glfw).
+* 'glfw.rb'
+	* My handwirtten GLFW wrapper (https://github.com/vaiorabbit/ruby-glfw).
+
+* 'glu.rb'
+	* My handwirtten GLU wrapper.
 
 *   'generator/gl.xml'
 	*   Khronos' official XML API registry for OpenGL.
