@@ -110,7 +110,7 @@ def myinit
 	initlights() # for lighted version only
 end
 
-myReshape = proc do |w, h|
+size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do|window_handle, w, h|
 	glViewport(0, 0, w, h)
 	glMatrixMode(GL_PROJECTION)
 	glLoadIdentity()
@@ -137,18 +137,19 @@ if __FILE__ == $0
   glfwSetWindowPos( window, 100, 100 )
   glfwMakeContextCurrent( window )
   glfwSetKeyCallback( window, key_callback )
+  glfwSetWindowSizeCallback( window, size_callback )
 
   myinit()
 
-  while glfwWindowShouldClose( window ) == 0
-    width_ptr = '    '
-    height_ptr = '    '
-    glfwGetFramebufferSize(window, width_ptr, height_ptr)
-    width = width_ptr.unpack('L')[0]
-    height = height_ptr.unpack('L')[0]
-    myReshape.call( width, height )
-    display.call()
+  width_ptr = '    '
+  height_ptr = '    '
+  glfwGetFramebufferSize(window, width_ptr, height_ptr)
+  width = width_ptr.unpack('L')[0]
+  height = height_ptr.unpack('L')[0]
+  size_callback.call( window, width, height )
 
+  while glfwWindowShouldClose( window ) == 0
+    display.call()
     glfwSwapBuffers( window )
     glfwPollEvents()
   end

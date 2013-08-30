@@ -34,11 +34,8 @@
 #
 # OpenGL(R) is a registered trademark of Silicon Graphics, Inc.
 #
-# aapoly.c
-# This program draws filled polygons with antialiased
-# edges.  The special GL_SRC_ALPHA_SATURATE blending 
-# function is used.
-# Pressing the 't' key turns the antialiasing on and off.
+# varray.c
+# This program demonstrates vertex arrays.
 require_relative '../../opengl'
 require_relative '../../glu'
 require_relative '../../glfw'
@@ -50,99 +47,118 @@ include OpenGL
 include GLU
 include GLFW
 
-$polySmooth = true
+POINTER=1
+INTERLEAVED=2
+
+DRAWARRAY=1
+ARRAYELEMENT=2
+DRAWELEMENTS=3
+
+$setupMethod = POINTER
+$derefMethod = DRAWARRAY
+
+def setupPointers
+  $vertices = [25, 25,
+               100, 325,
+               175, 25,
+               175, 325,
+               250, 25,
+               325, 325].pack("i*")
+  $colors = [1.0, 0.2, 0.2,
+             0.2, 0.2, 1.0,
+             0.8, 1.0, 0.2,
+             0.75, 0.75, 0.75,
+             0.35, 0.35, 0.35,
+             0.5, 0.5, 0.5].pack("f*")
+
+  glEnableClientState(GL_VERTEX_ARRAY)
+  glEnableClientState(GL_COLOR_ARRAY)
+
+  glVertexPointer(2, GL_INT, 0, $vertices)
+  glColorPointer(3, GL_FLOAT, 0, $colors)
+end
+
+def  setupInterleave
+  $intertwined =
+    [1.0, 0.2, 1.0, 100.0, 100.0, 0.0,
+     1.0, 0.2, 0.2, 0.0, 200.0, 0.0,
+     1.0, 1.0, 0.2, 100.0, 300.0, 0.0,
+     0.2, 1.0, 0.2, 200.0, 300.0, 0.0,
+     0.2, 1.0, 1.0, 300.0, 200.0, 0.0,
+     0.2, 0.2, 1.0, 200.0, 100.0, 0.0].pack("f*")
+
+  glInterleavedArrays(GL_C3F_V3F, 0, $intertwined)
+end
 
 def init
-    glCullFace(GL_BACK)
-    glEnable(GL_CULL_FACE)
-    glBlendFunc(GL_SRC_ALPHA_SATURATE, GL_ONE)
-    glClearColor(0.0, 0.0, 0.0, 0.0)
+  glClearColor(0.0, 0.0, 0.0, 0.0)
+  glShadeModel(GL_SMOOTH)
+  setupPointers()
 end
 
-NFACE=6
-NVERT=8
-$indices = [
-    [4, 5, 6, 7], [2, 3, 7, 6], [0, 4, 7, 3],
-    [0, 1, 5, 4], [1, 5, 6, 2], [0, 3, 2, 1]
-]
-
-def drawCube(x0, x1, y0, y1, z0, z1)
-    v = [[],[],[],[],[],[],[],[]]
-    c = [
-        [0.0, 0.0, 0.0, 1.0], [1.0, 0.0, 0.0, 1.0],
-        [0.0, 1.0, 0.0, 1.0], [1.0, 1.0, 0.0, 1.0],
-        [0.0, 0.0, 1.0, 1.0], [1.0, 0.0, 1.0, 1.0],
-        [0.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0]
-    ]
-    
-    # indices of front, top, left, bottom, right, back faces
-    
-    v[0][0] = v[3][0] = v[4][0] = v[7][0] = x0
-    v[1][0] = v[2][0] = v[5][0] = v[6][0] = x1
-    v[0][1] = v[1][1] = v[4][1] = v[5][1] = y0
-    v[2][1] = v[3][1] = v[6][1] = v[7][1] = y1
-    v[0][2] = v[1][2] = v[2][2] = v[3][2] = z0
-    v[4][2] = v[5][2] = v[6][2] = v[7][2] = z1
-
-    glEnableClientState(GL_VERTEX_ARRAY)
-    glEnableClientState(GL_COLOR_ARRAY)
-    glVertexPointer(3, GL_FLOAT, 0, v.flatten!.pack("f*"))
-    glColorPointer(4, GL_FLOAT, 0, c.flatten!.pack("f*"))
-    glDrawElements(GL_QUADS, NFACE*4, GL_UNSIGNED_BYTE, $indices.flatten.pack("C*"))
-    glDisableClientState(GL_VERTEX_ARRAY)
-    glDisableClientState(GL_COLOR_ARRAY)
-end
-
-# Note:  polygons must be drawn from front to back
-# for proper blending.
 display = proc do
-    if ($polySmooth)
-        glClear(GL_COLOR_BUFFER_BIT)
-        glEnable(GL_BLEND)
-        glEnable(GL_POLYGON_SMOOTH)
-        glDisable(GL_DEPTH_TEST)
-    else
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        glDisable(GL_BLEND)
-        glDisable(GL_POLYGON_SMOOTH)
-        glEnable(GL_DEPTH_TEST)
-    end
-
-    glPushMatrix()
-    glTranslated(0.0, 0.0, -8.0)
-    glRotated(30.0, 1.0, 0.0, 0.0)
-    glRotated(60.0, 0.0, 1.0, 0.0)
-    drawCube(-0.5, 0.5, -0.5, 0.5, -0.5, 0.5)
-    glPopMatrix()
+  glClear(GL_COLOR_BUFFER_BIT)
+  if ($derefMethod == DRAWARRAY) 
+    glDrawArrays(GL_TRIANGLES, 0, 6)
+  elsif ($derefMethod == ARRAYELEMENT)
+    glBegin(GL_TRIANGLES)
+    glArrayElement(2)
+    glArrayElement(3)
+    glArrayElement(5)
+    glEnd()
+  elsif ($derefMethod == DRAWELEMENTS)
+    $indices = [0, 1, 3, 4].pack("I*")
+    glDrawElements(GL_POLYGON, 4, GL_UNSIGNED_INT, $indices)
+  end
 end
 
 size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do|window_handle, w, h|
-    glViewport(0, 0, w, h)
-    glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    gluPerspective(30.0,  w.to_f/ h.to_f, 1.0, 20.0)
-    glMatrixMode(GL_MODELVIEW)
-    glLoadIdentity()
+  glViewport(0, 0, w, h)
+  glMatrixMode(GL_PROJECTION)
+  glLoadIdentity()
+  gluOrtho2D(0.0, w, 0.0, h)
+end
+
+mouse_callback = GLFW::create_callback( :GLFWmousebuttonfun ) do |window_handle, button, action, mods|
+  case button
+  when GLFW_MOUSE_BUTTON_LEFT
+    if action == GLFW_PRESS
+      if $setupMethod == POINTER
+        $setupMethod = INTERLEAVED
+        setupInterleave()
+      elsif $setupMethod == INTERLEAVED
+        $setupMethod = POINTER
+        setupPointers()
+      end
+    end
+  when GLFW_MOUSE_BUTTON_MIDDLE,GLFW_MOUSE_BUTTON_RIGHT
+    if action == GLFW_PRESS
+      if $derefMethod == DRAWARRAY
+        $derefMethod = ARRAYELEMENT
+      elsif $derefMethod == ARRAYELEMENT
+        $derefMethod = DRAWELEMENTS
+      elsif $derefMethod == DRAWELEMENTS
+        $derefMethod = DRAWARRAY
+      end
+    end
+  end
 end
 
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
   case key
-  when GLFW_KEY_T
-    if action == GLFW_PRESS
-      $polySmooth = !$polySmooth
-    end
   when GLFW_KEY_ESCAPE
     glfwSetWindowShouldClose(window_handle, 1)
   end
 end
 
-# Main Loop
+
 if __FILE__ == $0
   glfwInit()
-  window = glfwCreateWindow( 500, 500, $0, nil, nil )
+  window = glfwCreateWindow( 350, 350, $0, nil, nil )
   glfwSetWindowPos( window, 100, 100 )
   glfwMakeContextCurrent( window )
   glfwSetKeyCallback( window, key_callback )
+  glfwSetMouseButtonCallback( window, mouse_callback )
   glfwSetWindowSizeCallback( window, size_callback )
 
   init()
@@ -155,12 +171,11 @@ if __FILE__ == $0
   size_callback.call( window, width, height )
 
   while glfwWindowShouldClose( window ) == 0
-    display.call
+    display.call()
     glfwSwapBuffers( window )
     glfwPollEvents()
   end
 
   glfwDestroyWindow( window )
   glfwTerminate()
-
 end
