@@ -1,5 +1,5 @@
 #
-# Copyright (c) 1993-1997, Silicon Graphics, Inc.
+# (c) Copyright 1993, Silicon Graphics, Inc.
 # ALL RIGHTS RESERVED 
 # Permission to use, copy, modify, and distribute this software for 
 # any purpose and without fee is hereby granted, provided that the above
@@ -32,13 +32,13 @@
 # United States.  Contractor/manufacturer is Silicon Graphics,
 # Inc., 2011 N.  Shoreline Blvd., Mountain View, CA 94039-7311.
 #
-# OpenGL(R) is a registered trademark of Silicon Graphics, Inc.
+# OpenGL(TM) is a trademark of Silicon Graphics, Inc.
 #
-# aapoly.c
-# This program draws filled polygons with antialiased
-# edges.  The special GL_SRC_ALPHA_SATURATE blending 
-# function is used.
-# Pressing the 't' key turns the antialiasing on and off.
+#
+# surface.c
+# This program draws a NURBS surface in the shape of a 
+# symmetrical hill.
+#
 require_relative '../../opengl'
 require_relative '../../glu'
 require_relative '../../glfw'
@@ -50,93 +50,112 @@ include OpenGL
 include GLU
 include GLFW
 
-$polySmooth = true
+$ctlpoints = Array.new(4).collect { Array.new(4).collect { Array.new(3, nil) } } # 4*4*3 array
+$showPoints = 0
 
-def init
-    glCullFace(GL_BACK)
-    glEnable(GL_CULL_FACE)
-    glBlendFunc(GL_SRC_ALPHA_SATURATE, GL_ONE)
-    glClearColor(0.0, 0.0, 0.0, 0.0)
+$theNurb = nil
+
+# Initializes the control points of the surface to a small hill.
+# The control points range from -3 to +3 in x, y, and z
+def init_surface
+	for u in 0..3
+		for v in 0..3
+			$ctlpoints[u][v][0] = 2.0*(u - 1.5)
+			$ctlpoints[u][v][1] = 2.0*(v - 1.5)
+			
+			if ( (u == 1 || u == 2) && (v == 1 || v == 2))
+				$ctlpoints[u][v][2] = 3
+			else
+				$ctlpoints[u][v][2] = -3
+			end
+		end
+	end
+end			
+			
+# Initialize material property and depth buffer.
+def myinit
+	mat_diffuse = [ 0.7, 0.7, 0.7, 1.0 ]
+	mat_specular = [ 1.0, 1.0, 1.0, 1.0 ]
+	mat_shininess = 100.0
+	
+	glClearColor(0.0, 0.0, 0.0, 1.0)
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse.pack('F*'))
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular.pack('F*'))
+	glMaterialf(GL_FRONT, GL_SHININESS, mat_shininess)
+	
+	glEnable(GL_LIGHTING)
+	glEnable(GL_LIGHT0)
+	glDepthFunc(GL_LESS)
+	glEnable(GL_DEPTH_TEST)
+	glEnable(GL_AUTO_NORMAL)
+	glEnable(GL_NORMALIZE)
+	
+	init_surface()
+	
+	$theNurb = gluNewNurbsRenderer()
+	gluNurbsProperty($theNurb, GLU_SAMPLING_TOLERANCE, 25.0)
+	gluNurbsProperty($theNurb, GLU_DISPLAY_MODE, GLU_FILL)
 end
 
-NFACE=6
-NVERT=8
-$indices = [
-    [4, 5, 6, 7], [2, 3, 7, 6], [0, 4, 7, 3],
-    [0, 1, 5, 4], [1, 5, 6, 2], [0, 3, 2, 1]
-]
-
-def drawCube(x0, x1, y0, y1, z0, z1)
-    v = [[],[],[],[],[],[],[],[]]
-    c = [
-        [0.0, 0.0, 0.0, 1.0], [1.0, 0.0, 0.0, 1.0],
-        [0.0, 1.0, 0.0, 1.0], [1.0, 1.0, 0.0, 1.0],
-        [0.0, 0.0, 1.0, 1.0], [1.0, 0.0, 1.0, 1.0],
-        [0.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0]
-    ]
-    
-    # indices of front, top, left, bottom, right, back faces
-    
-    v[0][0] = v[3][0] = v[4][0] = v[7][0] = x0
-    v[1][0] = v[2][0] = v[5][0] = v[6][0] = x1
-    v[0][1] = v[1][1] = v[4][1] = v[5][1] = y0
-    v[2][1] = v[3][1] = v[6][1] = v[7][1] = y1
-    v[0][2] = v[1][2] = v[2][2] = v[3][2] = z0
-    v[4][2] = v[5][2] = v[6][2] = v[7][2] = z1
-
-    glEnableClientState(GL_VERTEX_ARRAY)
-    glEnableClientState(GL_COLOR_ARRAY)
-    glVertexPointer(3, GL_FLOAT, 0, v.flatten!.pack("f*"))
-    glColorPointer(4, GL_FLOAT, 0, c.flatten!.pack("f*"))
-    glDrawElements(GL_QUADS, NFACE*4, GL_UNSIGNED_BYTE, $indices.flatten.pack("C*"))
-    glDisableClientState(GL_VERTEX_ARRAY)
-    glDisableClientState(GL_COLOR_ARRAY)
-end
-
-# Note:  polygons must be drawn from front to back
-# for proper blending.
-display = proc do
-    if ($polySmooth)
-        glClear(GL_COLOR_BUFFER_BIT)
-        glEnable(GL_BLEND)
-        glEnable(GL_POLYGON_SMOOTH)
-        glDisable(GL_DEPTH_TEST)
-    else
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        glDisable(GL_BLEND)
-        glDisable(GL_POLYGON_SMOOTH)
-        glEnable(GL_DEPTH_TEST)
-    end
-
-    glPushMatrix()
-    glTranslated(0.0, 0.0, -8.0)
-    glRotated(30.0, 1.0, 0.0, 0.0)
-    glRotated(60.0, 0.0, 1.0, 0.0)
-    drawCube(-0.5, 0.5, -0.5, 0.5, -0.5, 0.5)
-    glPopMatrix()
+display = Proc.new do
+	knots = [0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0]
+	
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+	
+	glPushMatrix()
+	glRotatef(330.0, 1.0,0.0,0.0)
+	glScalef(0.5, 0.5, 0.5)
+	
+	gluBeginSurface($theNurb)
+	gluNurbsSurface($theNurb, 
+		8, knots.pack('F*'),
+		8, knots.pack('F*'),
+		4 * 3,
+		3,
+		$ctlpoints.flatten.pack('F*'), 
+		4, 4,
+		GL_MAP2_VERTEX_3)
+	gluEndSurface($theNurb)
+	
+	if($showPoints==1)
+		glPointSize(5.0)
+		glDisable(GL_LIGHTING)
+		glColor3f(1.0, 1.0, 0.0)
+		glBegin(GL_POINTS)
+		for i in 0..3
+			for j in 0..3
+				glVertex3f($ctlpoints[i][j][0], $ctlpoints[i][j][1], $ctlpoints[i][j][2])
+			end
+		end
+		glEnd()
+		glEnable(GL_LIGHTING)
+	end
+		
+	glPopMatrix()
 end
 
 size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do|window_handle, w, h|
-    glViewport(0, 0, w, h)
-    glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    gluPerspective(30.0,  w.to_f/ h.to_f, 1.0, 20.0)
-    glMatrixMode(GL_MODELVIEW)
-    glLoadIdentity()
+	glViewport(0, 0, w, h)
+	glMatrixMode(GL_PROJECTION)
+	glLoadIdentity()
+	gluPerspective(45.0, w/h, 3.0, 8.0)
+	
+	glMatrixMode(GL_MODELVIEW)
+	glLoadIdentity()
+	glTranslatef(0.0, 0.0, -5.0)
 end
 
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
   case key
-  when GLFW_KEY_T
+  when GLFW_KEY_S
     if action == GLFW_PRESS
-      $polySmooth = !$polySmooth
+      $showPoints = ($showPoints == 0 ? 1 : 0)
     end
   when GLFW_KEY_ESCAPE
     glfwSetWindowShouldClose(window_handle, 1)
   end
 end
 
-# Main Loop
 if __FILE__ == $0
   glfwInit()
   window = glfwCreateWindow( 500, 500, $0, nil, nil )
@@ -145,7 +164,7 @@ if __FILE__ == $0
   glfwSetKeyCallback( window, key_callback )
   glfwSetWindowSizeCallback( window, size_callback )
 
-  init()
+  myinit()
 
   width_ptr = '    '
   height_ptr = '    '
