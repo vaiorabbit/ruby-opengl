@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2013-08-28
+*   Last modified : 2013-08-31
 
 ## Contents ##
 
@@ -29,7 +29,10 @@
 
 *   'sample/simple.rb'
 	*   Simple example.
-    *   You need to get glfw3.dll (Windows) or libglfw.dylib (Mac OS X). See sample/README.md.
+	*   You need to get glfw3.dll (Windows) or libglfw.dylib (Mac OS X). See sample/README.md.
+
+*   'sample/data', 'sample/util'
+	*   Data and utilities for sample programs.
 
 ## License ##
 
