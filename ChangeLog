@@ -1,3 +1,7 @@
+2013-09-03  vaiorabbit  <vaiorabbit@twitter.com>
+
+	* opengl_platform.rb, opengl_windows.rb: Added.
+
 2013-08-28  vaiorabbit  <vaiorabbit@twitter.com>
 
 	* glu.rb: Added.
