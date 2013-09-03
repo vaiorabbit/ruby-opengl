@@ -1,15 +1,6 @@
 # Ref.: /glfw-3.0.1/examples/simple.c
-require_relative '../glfw'
-require_relative '../opengl'
-require_relative '../glu'
-require_relative 'util/WavefrontOBJ'
-
-include GLFW
-include OpenGL
-include GLU
-OpenGL.load_dll()
-GLU.load_dll()
-GLFW.load_dll()
+require './util/setup_dll'
+require 'util/WavefrontOBJ'
 
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
   if key == GLFW_KEY_ESCAPE && action == GLFW_PRESS

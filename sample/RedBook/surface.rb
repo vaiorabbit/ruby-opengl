@@ -39,16 +39,7 @@
 # This program draws a NURBS surface in the shape of a 
 # symmetrical hill.
 #
-require_relative '../../opengl'
-require_relative '../../glu'
-require_relative '../../glfw'
-
-OpenGL.load_dll()
-GLU.load_dll()
-GLFW.load_dll('libglfw.dylib', '..')
-include OpenGL
-include GLU
-include GLFW
+require '../util/setup_dll'
 
 $ctlpoints = Array.new(4).collect { Array.new(4).collect { Array.new(3, nil) } } # 4*4*3 array
 $showPoints = 0

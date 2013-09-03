@@ -39,16 +39,7 @@
 # edges.  The special GL_SRC_ALPHA_SATURATE blending 
 # function is used.
 # Pressing the 't' key turns the antialiasing on and off.
-require_relative '../../opengl'
-require_relative '../../glu'
-require_relative '../../glfw'
-
-OpenGL.load_dll()
-GLU.load_dll()
-GLFW.load_dll('libglfw.dylib', '..')
-include OpenGL
-include GLU
-include GLFW
+require '../util/setup_dll'
 
 $polySmooth = true
 

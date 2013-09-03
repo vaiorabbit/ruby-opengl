@@ -39,14 +39,7 @@
 # teapots.c
 # This program demonstrates lots of material properties.
 # A single light source illuminates the objects.
-require_relative '../../opengl'
-require_relative '../../glfw'
-
-OpenGL.load_dll()
-GLFW.load_dll('libglfw.dylib', '..')
-include OpenGL
-include GLFW
-
+require '../util/setup_dll'
 require_relative '../util/WavefrontOBJ'
 $teapot = nil
 

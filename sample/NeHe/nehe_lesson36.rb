@@ -1,15 +1,6 @@
 # Nehe Lesson 36 Code
 # modified from immediate mode to use vertex arrays for helix drawing
-require_relative '../../opengl'
-require_relative '../../glu'
-require_relative '../../glfw'
-
-OpenGL.load_dll()
-GLU.load_dll()
-GLFW.load_dll('libglfw.dylib', '..')
-include OpenGL
-include GLU
-include GLFW
+require '../util/setup_dll'
 
 $window_width = nil
 $window_height = nil

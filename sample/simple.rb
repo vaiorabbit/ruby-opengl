@@ -1,12 +1,5 @@
 # Ref.: /glfw-3.0.1/examples/simple.c
-require_relative '../glfw'
-require_relative '../opengl'
-
-include OpenGL
-include GLFW
-OpenGL.load_dll()
-GLFW.load_dll()
-
+require './util/setup_dll'
 
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
   if key == GLFW_KEY_ESCAPE && action == GLFW_PRESS

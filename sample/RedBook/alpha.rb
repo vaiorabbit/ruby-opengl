@@ -38,16 +38,7 @@
 # This program draws several overlapping filled polygons
 # to demonstrate the effect order has on alpha blending results.
 # Use the 't' key to toggle the order of drawing polygons.
-require_relative '../../opengl'
-require_relative '../../glu'
-require_relative '../../glfw'
-
-OpenGL.load_dll()
-GLU.load_dll()
-GLFW.load_dll('libglfw.dylib', '..')
-include OpenGL
-include GLU
-include GLFW
+require '../util/setup_dll'
 
 $leftFirst = GL_TRUE
 

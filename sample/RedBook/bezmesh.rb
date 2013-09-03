@@ -40,15 +40,7 @@
 # This program renders a lighted, filled Bezier surface,
 # using two-dimensional evaluators.
 #
-
-require_relative '../../opengl'
-require_relative '../../glfw'
-
-OpenGL.load_dll()
-GLFW.load_dll('libglfw.dylib', '..')
-include OpenGL
-include GLFW
-
+require '../util/setup_dll'
 
 $ctrlpoints = [
 	[

@@ -34,14 +34,7 @@
 #
 # The source of the shaders itself are in plain text files. Files ending in
 # .vert are vertex shaders, and files ending in .frag are fragment shaders.
-
-require_relative '../../opengl'
-require_relative '../../glfw'
-
-OpenGL.load_dll()
-GLFW.load_dll('libglfw.dylib', '..')
-include OpenGL
-include GLFW
+require '../util/setup_dll'
 
 $cursor_within_window = 0
 
@@ -415,6 +408,7 @@ if __FILE__ == $0
 
   # Make sure that OpenGL 2.0 is supported by the driver
   major,minor,*rest = glGetString(GL_VERSION).to_s.split(/\.| /)
+  puts "Supports OpenGL Version #{major}.#{minor} #{rest}"
   if major.to_i < 2
     puts "GL_VERSION major=#{major} minor=#{minor}"
     puts "Support for OpenGL 2.0 is required for this demo...exiting"
@@ -426,7 +420,7 @@ if __FILE__ == $0
   nextClearColor()
 
   key_callback.call(window, GLFW_KEY_UNKNOWN, 0, 0, 0)
-  
+
   success = installBrickShaders("brick.vert","brick.frag")
   exit unless success
 
