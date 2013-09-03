@@ -249,7 +249,7 @@ module GLU
   @@glu_import_done = false
 
   # Load native library.
-  def self.load_dll(lib = 'libGLU.dylib', path = '/System/Library/Frameworks/OpenGL.framework/Libraries')
+  def self.load_dll(lib = 'GLU32.dll', path = 'C:/Windows/System32')
     dlload (path + '/' + lib)
     import_symbols() unless @@glu_import_done
   end
@@ -260,13 +260,13 @@ module GLU
     extern 'void gluBeginPolygon (void*)'
     extern 'void gluBeginSurface (void*)'
     extern 'void gluBeginTrim (void*)'
-    extern 'int gluBuild1DMipmapLevels (unsigned int, int, int, unsigned int, unsigned int, int, int, int, void*)'
+    # extern 'int gluBuild1DMipmapLevels (unsigned int, int, int, unsigned int, unsigned int, int, int, int, void*)' # Unavailable on Windows
     extern 'int gluBuild1DMipmaps (unsigned int, int, int, unsigned int, unsigned int,  void*)'
-    extern 'int gluBuild2DMipmapLevels (unsigned int, int, int, int, unsigned int, unsigned int, int, int, int,  void*)'
+    # extern 'int gluBuild2DMipmapLevels (unsigned int, int, int, int, unsigned int, unsigned int, int, int, int,  void*)' # Unavailable on Windows
     extern 'int gluBuild2DMipmaps (unsigned int, int, int, int, unsigned int, unsigned int,  void*)'
-    extern 'int gluBuild3DMipmapLevels (unsigned int, int, int, int, int, unsigned int, unsigned int, int, int, int,  void*)'
-    extern 'int gluBuild3DMipmaps (unsigned int, int, int, int, int, unsigned int, unsigned int,  void*)'
-    extern 'unsigned char gluCheckExtension ( unsigned char*,  unsigned char*)'
+    # extern 'int gluBuild3DMipmapLevels (unsigned int, int, int, int, int, unsigned int, unsigned int, int, int, int,  void*)' # Unavailable on Windows
+    # extern 'int gluBuild3DMipmaps (unsigned int, int, int, int, int, unsigned int, unsigned int,  void*)' # Unavailable on Windows
+    # extern 'unsigned char gluCheckExtension ( unsigned char*,  unsigned char*)' # Unavailable on Windows
     extern 'void gluCylinder (void*, double, double, double, int, int)'
     extern 'void gluDeleteNurbsRenderer (void*)'
     extern 'void gluDeleteQuadric (void*)'
@@ -287,8 +287,8 @@ module GLU
     extern 'void* gluNewTess ()'
     extern 'void gluNextContour (void*, unsigned int)'
     extern 'void gluNurbsCallback (void*, unsigned int, void*)'
-    extern 'void gluNurbsCallbackData (void*, void*)'
-    extern 'void gluNurbsCallbackDataEXT (void*, void*)'
+    # extern 'void gluNurbsCallbackData (void*, void*)' # Unavailable on Windows
+    # extern 'void gluNurbsCallbackDataEXT (void*, void*)' # Unavailable on Windows
     extern 'void gluNurbsCurve (void*, int, float *, int, float* , int, unsigned int)'
     extern 'void gluNurbsProperty (void*, unsigned int, float)'
     extern 'void gluNurbsSurface (void*, int, float*, int, float*, int, int, float*, int, int, unsigned int)'
@@ -314,7 +314,7 @@ module GLU
     extern 'void gluTessProperty (void*, unsigned int, double)'
     extern 'void gluTessVertex (void*, double *, void*)'
     extern 'int gluUnProject (double, double, double,  double *,  double *,  int *, double*, double*, double*)'
-    extern 'int gluUnProject4 (double, double, double, double,  double *,  double *,  int *, double, double, double*, double*, double*, double*)'
+    # extern 'int gluUnProject4 (double, double, double, double,  double *,  double *,  int *, double, double, double*, double*, double*, double*)' # Unavailable on Windows
 
     @@glu_import_done = true
   end
