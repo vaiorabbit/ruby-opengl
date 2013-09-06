@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2013-09-05
+*   Last modified : 2013-09-06
 
 ## Contents ##
 
@@ -33,6 +33,20 @@
 
 *   'sample/data', 'sample/util'
 	*   Data and utilities for sample programs.
+
+## Prerequisites ##
+
+### For sample ###
+
+*   GLFW
+    *   http://www.glfw.org/
+    *   http://www.glfw.org/download.html
+
+### For generator ###
+
+*   nokogiri XML parser
+    *   http://nokogiri.org
+    *   http://nokogiri.org/tutorials/installing_nokogiri.html
 
 ## License ##
 
