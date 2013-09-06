@@ -1,3 +1,7 @@
+2013-09-07  vaiorabbit  <vaiorabbit@twitter.com>
+
+	* opengl_command.rb, opengl_enum.rb: Updated using latest gl.xml.
+
 2013-09-05  vaiorabbit  <vaiorabbit@twitter.com>
 
 	* sample/ComputeShader: Added.

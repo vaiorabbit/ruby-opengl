@@ -13136,13 +13136,13 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto><ptype>GLuint</ptype> <name>glGetDebugMessageLog</name></proto>
             <param><ptype>GLuint</ptype> <name>count</name></param>
-            <param><ptype>GLsizei</ptype> <name>bufsize</name></param>
-            <param len="COMPSIZE(count)"><ptype>GLenum</ptype> *<name>sources</name></param>
-            <param len="COMPSIZE(count)"><ptype>GLenum</ptype> *<name>types</name></param>
-            <param len="COMPSIZE(count)"><ptype>GLuint</ptype> *<name>ids</name></param>
-            <param len="COMPSIZE(count)"><ptype>GLenum</ptype> *<name>severities</name></param>
-            <param len="COMPSIZE(count)"><ptype>GLsizei</ptype> *<name>lengths</name></param>
-            <param len="COMPSIZE(bufsize)"><ptype>GLchar</ptype> *<name>messageLog</name></param>
+            <param><ptype>GLsizei</ptype> <name>bufSize</name></param>
+            <param len="count"><ptype>GLenum</ptype> *<name>sources</name></param>
+            <param len="count"><ptype>GLenum</ptype> *<name>types</name></param>
+            <param len="count"><ptype>GLuint</ptype> *<name>ids</name></param>
+            <param len="count"><ptype>GLenum</ptype> *<name>severities</name></param>
+            <param len="count"><ptype>GLsizei</ptype> *<name>lengths</name></param>
+            <param len="bufSize"><ptype>GLchar</ptype> *<name>messageLog</name></param>
         </command>
         <command>
             <proto><ptype>GLuint</ptype> <name>glGetDebugMessageLogAMD</name></proto>
@@ -13157,25 +13157,25 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto><ptype>GLuint</ptype> <name>glGetDebugMessageLogARB</name></proto>
             <param><ptype>GLuint</ptype> <name>count</name></param>
-            <param><ptype>GLsizei</ptype> <name>bufsize</name></param>
+            <param><ptype>GLsizei</ptype> <name>bufSize</name></param>
             <param len="count"><ptype>GLenum</ptype> *<name>sources</name></param>
             <param len="count"><ptype>GLenum</ptype> *<name>types</name></param>
             <param len="count"><ptype>GLuint</ptype> *<name>ids</name></param>
             <param len="count"><ptype>GLenum</ptype> *<name>severities</name></param>
             <param len="count"><ptype>GLsizei</ptype> *<name>lengths</name></param>
-            <param len="COMPSIZE(lengths)"><ptype>GLchar</ptype> *<name>messageLog</name></param>
+            <param len="bufSize"><ptype>GLchar</ptype> *<name>messageLog</name></param>
             <alias name="glGetDebugMessageLog"/>
         </command>
         <command>
             <proto><ptype>GLuint</ptype> <name>glGetDebugMessageLogKHR</name></proto>
             <param><ptype>GLuint</ptype> <name>count</name></param>
-            <param><ptype>GLsizei</ptype> <name>bufsize</name></param>
-            <param><ptype>GLenum</ptype> *<name>sources</name></param>
-            <param><ptype>GLenum</ptype> *<name>types</name></param>
-            <param><ptype>GLuint</ptype> *<name>ids</name></param>
-            <param><ptype>GLenum</ptype> *<name>severities</name></param>
-            <param><ptype>GLsizei</ptype> *<name>lengths</name></param>
-            <param><ptype>GLchar</ptype> *<name>messageLog</name></param>
+            <param><ptype>GLsizei</ptype> <name>bufSize</name></param>
+            <param len="count"><ptype>GLenum</ptype> *<name>sources</name></param>
+            <param len="count"><ptype>GLenum</ptype> *<name>types</name></param>
+            <param len="count"><ptype>GLuint</ptype> *<name>ids</name></param>
+            <param len="count"><ptype>GLenum</ptype> *<name>severities</name></param>
+            <param len="count"><ptype>GLsizei</ptype> *<name>lengths</name></param>
+            <param len="bufSize"><ptype>GLchar</ptype> *<name>messageLog</name></param>
             <alias name="glGetDebugMessageLog"/>
         </command>
         <command>

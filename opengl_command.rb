@@ -6348,9 +6348,9 @@ module OpenGL
 
   GL_FUNCTIONS_ARGS_MAP[:glGetDebugMessageLog] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
   GL_FUNCTIONS_RETVAL_MAP[:glGetDebugMessageLog] = Fiddle::TYPE_INT
-  def glGetDebugMessageLog(_count_, _bufsize_, _sources_, _types_, _ids_, _severities_, _lengths_, _messageLog_)
+  def glGetDebugMessageLog(_count_, _bufSize_, _sources_, _types_, _ids_, _severities_, _lengths_, _messageLog_)
     f = OpenGL::get_command(:glGetDebugMessageLog)
-    f.call(_count_, _bufsize_, _sources_, _types_, _ids_, _severities_, _lengths_, _messageLog_)
+    f.call(_count_, _bufSize_, _sources_, _types_, _ids_, _severities_, _lengths_, _messageLog_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glPushDebugGroup] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
