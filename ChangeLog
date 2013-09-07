@@ -3,6 +3,7 @@
 	* opengl_command.rb: Updated using latest gl.xml.
 	* opengl_command.rb: Fixed some bugs.
 	* opengl_command.rb, glu.rb (load_dll): Updated platform detection.
+	* sample/report_env.rb : Added.
 
 2013-09-05  vaiorabbit  <vaiorabbit@twitter.com>
 

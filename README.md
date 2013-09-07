@@ -48,6 +48,12 @@
     *   http://nokogiri.org
     *   http://nokogiri.org/tutorials/installing_nokogiri.html
 
+## Tested Environment ##
+
+*   Windows 7 Home Premium, 64-bit (Service Pack 1)
+	*   NVIDIA GeForce GTX 560
+
+
 ## License ##
 
 The zlib/libpng License (http://opensource.org/licenses/Zlib).
