@@ -39,4 +39,10 @@ module OpenGL
       raise RuntimeError if GL_FUNCTIONS_MAP[sym] == nil
     end
   end
+
+  def self.check_extension( ext_name )
+    ext_strings = glGetString(GL_EXTENSIONS).to_s.split(/ /)
+    return ext_strings.include? ext_name
+  end
+
 end

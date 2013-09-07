@@ -4,6 +4,7 @@
 	* opengl_command.rb: Fixed some bugs.
 	* opengl_command.rb, glu.rb (load_dll): Updated platform detection.
 	* sample/report_env.rb : Added.
+	* opengl_common.rb (check_extension): Added.
 
 2013-09-05  vaiorabbit  <vaiorabbit@twitter.com>
 
