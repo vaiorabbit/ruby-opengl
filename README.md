@@ -117,3 +117,94 @@ The zlib/libpng License (http://opensource.org/licenses/Zlib).
        misrepresented as being the original software.
 
     3. This notice may not be removed or altered from any source distribution.
+
+
+-------------------------------------------------------------------------------
+
+# 自前 Ruby-OpenGL と自動生成スクリプト #
+
+## 特徴 ##
+
+*   標準ライブラリ Fiddle を使っています ⇒ 拡張ライブラリをビルドする必要がありません
+*   関数とenumのラッパーコードは Khronos の XML API registry (gl.xml) から自動生成しています
+
+## 使い方 ##
+
+sample/simple.rb を参照してください。
+
+## 内容 ##
+
+*   'opengl.rb' を require することで下記のスクリプトを取り込みます:
+    *   'opengl_command.rb'      : OpenGL 関数のラッパーコード (glDrawRangeElements, etc.)。 generator/generate_command.rb で自動生成されたものです。
+    *   'opengl_enum.rb'         : OpenGL enum のラッパーコード (GL_TRIANGLE_STRIP, etc.)。 generator/generate_enum.rb で自動生成されたものです。
+    *   'opengl_common.rb'       : 共通のユーティリティ関数を提供しています。
+    *   'opengl_platform.rb'     : 動作プラットフォームの判別機能を提供しています (OpneGL.get_platform)。
+    *   'opengl_windows.rb'      : Windows用の機能を提供しています (wglGetProcAddress)。
+
+*   'opengl_ext.rb' を require することで下記のスクリプトを取り込みます:
+    *   'opengl_ext_command.rb'      : OpenGL 拡張関数のラッパーコード。 generator/generate_ext_command.rb で自動生成されたものです。
+    *   'opengl_ext_enum.rb'         : OpenGL 拡張enumのラッパーコード。 generator/generate_ext_enum.rb で自動生成されたものです。
+
+* 'glfw.rb'
+    * GLFW のラッパーコードです(自動生成ではありません) (https://github.com/vaiorabbit/ruby-glfw)。
+
+* 'glu.rb'
+    * GLU のラッパーコードです(自動生成ではありません)。
+
+*   'generator/gl.xml'
+    *   Khronos 公式の XML API registry です。
+
+*   'generator/Rakefile'
+    *   自動生成関連のタスクを自動化するためのものです。'rake' と打てば gl.xml の取得とラッパーコードの生成を実行します。
+    *   gl.xml の取得だけなど、単体のタスクなら 'get_gl_xml.rb' などの個別Rubyスクリプトでも実行できます。
+
+*   'sample/simple.rb'
+    *   一番簡単なサンプルです。
+    *   同じ場所に glfw3.dll (Windows) もしくは libglfw.dylib (Mac OS X) を置いてください。詳細は sample/README.md に記載されています。
+
+*   'sample/data', 'sample/util'
+    *   サンプルで共有する機能・データの配置場所です。
+
+
+## 必要なもの ##
+
+*   Fiddle
+	*   libffi のラッパーです
+	*   Ruby 2.0.0 以降で標準ライブラリになりました
+
+### サンプル用 ###
+
+*   GLFW
+    *   http://www.glfw.org/
+    *   http://www.glfw.org/download.html
+
+### 自動生成スクリプト用 ###
+
+*   nokogiri XML パーサー
+    *   http://nokogiri.org
+    *   http://nokogiri.org/tutorials/installing_nokogiri.html
+
+## テストした環境 ##
+
+*   Ruby
+    *   ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
+
+
+*   Windows 7 Home Premium, 64-bit (Service Pack 1)
+    *   NVIDIA GeForce GTX 560
+        *   OpenGL 4.3
+
+                > ruby report_env.rb
+                4.3.0
+
+*   Mac OS X 10.8.4, 64-bit
+    *   NVIDIA GeForce 320M on Mac mini (Mid 2010)
+        *   OpenGL 2.1
+
+                $ ruby report_env.rb
+                2.1 NVIDIA-8.12.47 310.40.00.05f01
+
+## ライセンス ##
+
+zlib/libpng ライセンスです (http://opensource.org/licenses/Zlib)。
+
