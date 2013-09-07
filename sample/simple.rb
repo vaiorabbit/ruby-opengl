@@ -1,6 +1,20 @@
 # Ref.: /glfw-3.0.1/examples/simple.c
-require './util/setup_dll'
+require '../glfw'
+require '../opengl'
 
+include GLFW
+include OpenGL
+
+OpenGL.load_dll()
+
+case OpenGL.get_platform
+when :OPENGL_PLATFORM_WINDOWS
+  GLFW.load_dll('glfw3.dll', '.')
+when :OPENGL_PLATFORM_MACOSX
+  GLFW.load_dll('libglfw.dylib', '.')
+end
+
+# Press ESC to exit.
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
   if key == GLFW_KEY_ESCAPE && action == GLFW_PRESS
     glfwSetWindowShouldClose(window_handle, 1)
