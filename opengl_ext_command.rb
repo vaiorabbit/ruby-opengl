@@ -16,7 +16,6 @@ module OpenGL
         f.call(_mask_)
       end
     SRC_GL_3DFX_tbuffer
-
   end # define_command_GL_3DFX_tbuffer
 
   def define_command_GL_3DFX_texture_compression_FXT1
@@ -64,7 +63,6 @@ module OpenGL
         f.call(_count_, _bufsize_, _categories_, _severities_, _ids_, _lengths_, _message_)
       end
     SRC_GL_AMD_debug_output
-
   end # define_command_GL_AMD_debug_output
 
   def define_command_GL_AMD_depth_clamp_separate
@@ -106,7 +104,6 @@ module OpenGL
         f.call(_buf_, _modeRGB_, _modeAlpha_)
       end
     SRC_GL_AMD_draw_buffers_blend
-
   end # define_command_GL_AMD_draw_buffers_blend
 
   def define_command_GL_AMD_interleaved_elements
@@ -118,7 +115,6 @@ module OpenGL
         f.call(_index_, _pname_, _param_)
       end
     SRC_GL_AMD_interleaved_elements
-
   end # define_command_GL_AMD_interleaved_elements
 
   def define_command_GL_AMD_multi_draw_indirect
@@ -139,7 +135,6 @@ module OpenGL
         f.call(_mode_, _type_, _indirect_, _primcount_, _stride_)
       end
     SRC_GL_AMD_multi_draw_indirect
-
   end # define_command_GL_AMD_multi_draw_indirect
 
   def define_command_GL_AMD_name_gen_delete
@@ -169,7 +164,6 @@ module OpenGL
         f.call(_identifier_, _name_)
       end
     SRC_GL_AMD_name_gen_delete
-
   end # define_command_GL_AMD_name_gen_delete
 
   def define_command_GL_AMD_performance_monitor
@@ -271,7 +265,6 @@ module OpenGL
         f.call(_monitor_, _pname_, _dataSize_, _data_, _bytesWritten_)
       end
     SRC_GL_AMD_performance_monitor
-
   end # define_command_GL_AMD_performance_monitor
 
   def define_command_GL_AMD_pinned_memory
@@ -289,7 +282,6 @@ module OpenGL
         f.call(_pname_, _index_, _val_)
       end
     SRC_GL_AMD_sample_positions
-
   end # define_command_GL_AMD_sample_positions
 
   def define_command_GL_AMD_seamless_cubemap_per_texture
@@ -322,7 +314,6 @@ module OpenGL
         f.call(_texture_, _target_, _internalFormat_, _width_, _height_, _depth_, _layers_, _flags_)
       end
     SRC_GL_AMD_sparse_texture
-
   end # define_command_GL_AMD_sparse_texture
 
   def define_command_GL_AMD_stencil_operation_extended
@@ -334,7 +325,6 @@ module OpenGL
         f.call(_face_, _value_)
       end
     SRC_GL_AMD_stencil_operation_extended
-
   end # define_command_GL_AMD_stencil_operation_extended
 
   def define_command_GL_AMD_texture_texture4
@@ -364,7 +354,6 @@ module OpenGL
         f.call(_mode_)
       end
     SRC_GL_AMD_vertex_shader_tessellator
-
   end # define_command_GL_AMD_vertex_shader_tessellator
 
   def define_command_GL_AMD_vertex_shader_viewport_index
@@ -421,7 +410,6 @@ module OpenGL
         f.call(_mode_, _start_, _end_, _first_, _count_, _primcount_)
       end
     SRC_GL_APPLE_element_array
-
   end # define_command_GL_APPLE_element_array
 
   def define_command_GL_APPLE_fence
@@ -496,7 +484,6 @@ module OpenGL
         f.call(_object_, _name_)
       end
     SRC_GL_APPLE_fence
-
   end # define_command_GL_APPLE_fence
 
   def define_command_GL_APPLE_float_pixels
@@ -520,7 +507,6 @@ module OpenGL
         f.call(_target_, _offset_, _size_)
       end
     SRC_GL_APPLE_flush_buffer_range
-
   end # define_command_GL_APPLE_flush_buffer_range
 
   def define_command_GL_APPLE_object_purgeable
@@ -550,7 +536,6 @@ module OpenGL
         f.call(_objectType_, _name_, _pname_, _params_)
       end
     SRC_GL_APPLE_object_purgeable
-
   end # define_command_GL_APPLE_object_purgeable
 
   def define_command_GL_APPLE_rgb_422
@@ -580,7 +565,6 @@ module OpenGL
         f.call(_target_, _pname_, _params_)
       end
     SRC_GL_APPLE_texture_range
-
   end # define_command_GL_APPLE_texture_range
 
   def define_command_GL_APPLE_transform_hint
@@ -622,7 +606,6 @@ module OpenGL
         f.call(_array_)
       end
     SRC_GL_APPLE_vertex_array_object
-
   end # define_command_GL_APPLE_vertex_array_object
 
   def define_command_GL_APPLE_vertex_array_range
@@ -652,7 +635,6 @@ module OpenGL
         f.call(_pname_, _param_)
       end
     SRC_GL_APPLE_vertex_array_range
-
   end # define_command_GL_APPLE_vertex_array_range
 
   def define_command_GL_APPLE_vertex_program_evaluators
@@ -718,7 +700,6 @@ module OpenGL
         f.call(_index_, _size_, _u1_, _u2_, _ustride_, _uorder_, _v1_, _v2_, _vstride_, _vorder_, _points_)
       end
     SRC_GL_APPLE_vertex_program_evaluators
-
   end # define_command_GL_APPLE_vertex_program_evaluators
 
   def define_command_GL_APPLE_ycbcr_422
@@ -769,7 +750,6 @@ module OpenGL
         f.call(_d_)
       end
     SRC_GL_ARB_ES2_compatibility
-
   end # define_command_GL_ARB_ES2_compatibility
 
   def define_command_GL_ARB_ES3_compatibility
@@ -805,7 +785,6 @@ module OpenGL
         f.call(_mode_, _count_, _type_, _indices_, _instancecount_, _basevertex_, _baseinstance_)
       end
     SRC_GL_ARB_base_instance
-
   end # define_command_GL_ARB_base_instance
 
   def define_command_GL_ARB_bindless_texture
@@ -952,7 +931,6 @@ module OpenGL
         f.call(_index_, _pname_, _params_)
       end
     SRC_GL_ARB_bindless_texture
-
   end # define_command_GL_ARB_bindless_texture
 
   def define_command_GL_ARB_blend_func_extended
@@ -973,7 +951,6 @@ module OpenGL
         f.call(_program_, _name_)
       end
     SRC_GL_ARB_blend_func_extended
-
   end # define_command_GL_ARB_blend_func_extended
 
   def define_command_GL_ARB_buffer_storage
@@ -985,7 +962,6 @@ module OpenGL
         f.call(_target_, _size_, _data_, _flags_)
       end
     SRC_GL_ARB_buffer_storage
-
   end # define_command_GL_ARB_buffer_storage
 
   def define_command_GL_ARB_cl_event
@@ -997,7 +973,6 @@ module OpenGL
         f.call(_context_, _event_, _flags_)
       end
     SRC_GL_ARB_cl_event
-
   end # define_command_GL_ARB_cl_event
 
   def define_command_GL_ARB_clear_buffer_object
@@ -1018,7 +993,6 @@ module OpenGL
         f.call(_target_, _internalformat_, _offset_, _size_, _format_, _type_, _data_)
       end
     SRC_GL_ARB_clear_buffer_object
-
   end # define_command_GL_ARB_clear_buffer_object
 
   def define_command_GL_ARB_clear_texture
@@ -1039,7 +1013,6 @@ module OpenGL
         f.call(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _data_)
       end
     SRC_GL_ARB_clear_texture
-
   end # define_command_GL_ARB_clear_texture
 
   def define_command_GL_ARB_color_buffer_float
@@ -1051,7 +1024,6 @@ module OpenGL
         f.call(_target_, _clamp_)
       end
     SRC_GL_ARB_color_buffer_float
-
   end # define_command_GL_ARB_color_buffer_float
 
   def define_command_GL_ARB_compatibility
@@ -1078,7 +1050,6 @@ module OpenGL
         f.call(_indirect_)
       end
     SRC_GL_ARB_compute_shader
-
   end # define_command_GL_ARB_compute_shader
 
   def define_command_GL_ARB_compute_variable_group_size
@@ -1090,7 +1061,6 @@ module OpenGL
         f.call(_num_groups_x_, _num_groups_y_, _num_groups_z_, _group_size_x_, _group_size_y_, _group_size_z_)
       end
     SRC_GL_ARB_compute_variable_group_size
-
   end # define_command_GL_ARB_compute_variable_group_size
 
   def define_command_GL_ARB_conservative_depth
@@ -1105,7 +1075,6 @@ module OpenGL
         f.call(_readTarget_, _writeTarget_, _readOffset_, _writeOffset_, _size_)
       end
     SRC_GL_ARB_copy_buffer
-
   end # define_command_GL_ARB_copy_buffer
 
   def define_command_GL_ARB_copy_image
@@ -1117,7 +1086,6 @@ module OpenGL
         f.call(_srcName_, _srcTarget_, _srcLevel_, _srcX_, _srcY_, _srcZ_, _dstName_, _dstTarget_, _dstLevel_, _dstX_, _dstY_, _dstZ_, _srcWidth_, _srcHeight_, _srcDepth_)
       end
     SRC_GL_ARB_copy_image
-
   end # define_command_GL_ARB_copy_image
 
   def define_command_GL_ARB_debug_output
@@ -1156,7 +1124,6 @@ module OpenGL
         f.call(_count_, _bufSize_, _sources_, _types_, _ids_, _severities_, _lengths_, _messageLog_)
       end
     SRC_GL_ARB_debug_output
-
   end # define_command_GL_ARB_debug_output
 
   def define_command_GL_ARB_depth_buffer_float
@@ -1177,7 +1144,6 @@ module OpenGL
         f.call(_n_, _bufs_)
       end
     SRC_GL_ARB_draw_buffers
-
   end # define_command_GL_ARB_draw_buffers
 
   def define_command_GL_ARB_draw_buffers_blend
@@ -1216,7 +1182,6 @@ module OpenGL
         f.call(_buf_, _srcRGB_, _dstRGB_, _srcAlpha_, _dstAlpha_)
       end
     SRC_GL_ARB_draw_buffers_blend
-
   end # define_command_GL_ARB_draw_buffers_blend
 
   def define_command_GL_ARB_draw_elements_base_vertex
@@ -1255,7 +1220,6 @@ module OpenGL
         f.call(_mode_, _count_, _type_, _indices_, _drawcount_, _basevertex_)
       end
     SRC_GL_ARB_draw_elements_base_vertex
-
   end # define_command_GL_ARB_draw_elements_base_vertex
 
   def define_command_GL_ARB_draw_indirect
@@ -1276,7 +1240,6 @@ module OpenGL
         f.call(_mode_, _type_, _indirect_)
       end
     SRC_GL_ARB_draw_indirect
-
   end # define_command_GL_ARB_draw_indirect
 
   def define_command_GL_ARB_draw_instanced
@@ -1297,7 +1260,6 @@ module OpenGL
         f.call(_mode_, _count_, _type_, _indices_, _primcount_)
       end
     SRC_GL_ARB_draw_instanced
-
   end # define_command_GL_ARB_draw_instanced
 
   def define_command_GL_ARB_enhanced_layouts
@@ -1486,7 +1448,6 @@ module OpenGL
         f.call(_program_)
       end
     SRC_GL_ARB_fragment_program
-
   end # define_command_GL_ARB_fragment_program
 
   def define_command_GL_ARB_fragment_program_shadow
@@ -1513,7 +1474,6 @@ module OpenGL
         f.call(_target_, _pname_, _params_)
       end
     SRC_GL_ARB_framebuffer_no_attachments
-
   end # define_command_GL_ARB_framebuffer_no_attachments
 
   def define_command_GL_ARB_framebuffer_object
@@ -1696,7 +1656,6 @@ module OpenGL
         f.call(_target_, _attachment_, _texture_, _level_, _layer_)
       end
     SRC_GL_ARB_framebuffer_object
-
   end # define_command_GL_ARB_framebuffer_object
 
   def define_command_GL_ARB_framebuffer_sRGB
@@ -1738,7 +1697,6 @@ module OpenGL
         f.call(_target_, _attachment_, _texture_, _level_, _face_)
       end
     SRC_GL_ARB_geometry_shader4
-
   end # define_command_GL_ARB_geometry_shader4
 
   def define_command_GL_ARB_get_program_binary
@@ -1768,7 +1726,6 @@ module OpenGL
         f.call(_program_, _pname_, _value_)
       end
     SRC_GL_ARB_get_program_binary
-
   end # define_command_GL_ARB_get_program_binary
 
   def define_command_GL_ARB_gpu_shader5
@@ -1936,7 +1893,6 @@ module OpenGL
         f.call(_program_, _location_, _params_)
       end
     SRC_GL_ARB_gpu_shader_fp64
-
   end # define_command_GL_ARB_gpu_shader_fp64
 
   def define_command_GL_ARB_half_float_pixel
@@ -2251,7 +2207,6 @@ module OpenGL
         f.call(_target_)
       end
     SRC_GL_ARB_imaging
-
   end # define_command_GL_ARB_imaging
 
   def define_command_GL_ARB_indirect_parameters
@@ -2272,7 +2227,6 @@ module OpenGL
         f.call(_mode_, _type_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
       end
     SRC_GL_ARB_indirect_parameters
-
   end # define_command_GL_ARB_indirect_parameters
 
   def define_command_GL_ARB_instanced_arrays
@@ -2284,7 +2238,6 @@ module OpenGL
         f.call(_index_, _divisor_)
       end
     SRC_GL_ARB_instanced_arrays
-
   end # define_command_GL_ARB_instanced_arrays
 
   def define_command_GL_ARB_internalformat_query
@@ -2296,7 +2249,6 @@ module OpenGL
         f.call(_target_, _internalformat_, _pname_, _bufSize_, _params_)
       end
     SRC_GL_ARB_internalformat_query
-
   end # define_command_GL_ARB_internalformat_query
 
   def define_command_GL_ARB_internalformat_query2
@@ -2308,7 +2260,6 @@ module OpenGL
         f.call(_target_, _internalformat_, _pname_, _bufSize_, _params_)
       end
     SRC_GL_ARB_internalformat_query2
-
   end # define_command_GL_ARB_internalformat_query2
 
   def define_command_GL_ARB_invalidate_subdata
@@ -2365,7 +2316,6 @@ module OpenGL
         f.call(_target_, _numAttachments_, _attachments_, _x_, _y_, _width_, _height_)
       end
     SRC_GL_ARB_invalidate_subdata
-
   end # define_command_GL_ARB_invalidate_subdata
 
   def define_command_GL_ARB_map_buffer_alignment
@@ -2389,7 +2339,6 @@ module OpenGL
         f.call(_target_, _offset_, _length_)
       end
     SRC_GL_ARB_map_buffer_range
-
   end # define_command_GL_ARB_map_buffer_range
 
   def define_command_GL_ARB_matrix_palette
@@ -2437,7 +2386,6 @@ module OpenGL
         f.call(_size_, _type_, _stride_, _pointer_)
       end
     SRC_GL_ARB_matrix_palette
-
   end # define_command_GL_ARB_matrix_palette
 
   def define_command_GL_ARB_multi_bind
@@ -2494,7 +2442,6 @@ module OpenGL
         f.call(_first_, _count_, _buffers_, _offsets_, _strides_)
       end
     SRC_GL_ARB_multi_bind
-
   end # define_command_GL_ARB_multi_bind
 
   def define_command_GL_ARB_multi_draw_indirect
@@ -2515,7 +2462,6 @@ module OpenGL
         f.call(_mode_, _type_, _indirect_, _drawcount_, _stride_)
       end
     SRC_GL_ARB_multi_draw_indirect
-
   end # define_command_GL_ARB_multi_draw_indirect
 
   def define_command_GL_ARB_multisample
@@ -2527,7 +2473,6 @@ module OpenGL
         f.call(_value_, _invert_)
       end
     SRC_GL_ARB_multisample
-
   end # define_command_GL_ARB_multisample
 
   def define_command_GL_ARB_multitexture
@@ -2836,7 +2781,6 @@ module OpenGL
         f.call(_target_, _v_)
       end
     SRC_GL_ARB_multitexture
-
   end # define_command_GL_ARB_multitexture
 
   def define_command_GL_ARB_occlusion_query
@@ -2911,7 +2855,6 @@ module OpenGL
         f.call(_id_, _pname_, _params_)
       end
     SRC_GL_ARB_occlusion_query
-
   end # define_command_GL_ARB_occlusion_query
 
   def define_command_GL_ARB_occlusion_query2
@@ -2938,7 +2881,6 @@ module OpenGL
         f.call(_pname_, _params_)
       end
     SRC_GL_ARB_point_parameters
-
   end # define_command_GL_ARB_point_parameters
 
   def define_command_GL_ARB_point_sprite
@@ -2998,7 +2940,6 @@ module OpenGL
         f.call(_program_, _programInterface_, _name_)
       end
     SRC_GL_ARB_program_interface_query
-
   end # define_command_GL_ARB_program_interface_query
 
   def define_command_GL_ARB_provoking_vertex
@@ -3010,7 +2951,6 @@ module OpenGL
         f.call(_mode_)
       end
     SRC_GL_ARB_provoking_vertex
-
   end # define_command_GL_ARB_provoking_vertex
 
   def define_command_GL_ARB_query_buffer_object
@@ -3199,7 +3139,6 @@ module OpenGL
         f.call(_target_, _reset_, _format_, _type_, _bufSize_, _values_)
       end
     SRC_GL_ARB_robustness
-
   end # define_command_GL_ARB_robustness
 
   def define_command_GL_ARB_robustness_isolation
@@ -3214,7 +3153,6 @@ module OpenGL
         f.call(_value_)
       end
     SRC_GL_ARB_sample_shading
-
   end # define_command_GL_ARB_sample_shading
 
   def define_command_GL_ARB_sampler_objects
@@ -3343,7 +3281,6 @@ module OpenGL
         f.call(_sampler_, _pname_, _params_)
       end
     SRC_GL_ARB_sampler_objects
-
   end # define_command_GL_ARB_sampler_objects
 
   def define_command_GL_ARB_seamless_cube_map
@@ -3892,7 +3829,6 @@ module OpenGL
         f.call(_pipeline_, _bufSize_, _length_, _infoLog_)
       end
     SRC_GL_ARB_separate_shader_objects
-
   end # define_command_GL_ARB_separate_shader_objects
 
   def define_command_GL_ARB_shader_atomic_counters
@@ -3904,7 +3840,6 @@ module OpenGL
         f.call(_program_, _bufferIndex_, _pname_, _params_)
       end
     SRC_GL_ARB_shader_atomic_counters
-
   end # define_command_GL_ARB_shader_atomic_counters
 
   def define_command_GL_ARB_shader_bit_encoding
@@ -3934,7 +3869,6 @@ module OpenGL
         f.call(_barriers_)
       end
     SRC_GL_ARB_shader_image_load_store
-
   end # define_command_GL_ARB_shader_image_load_store
 
   def define_command_GL_ARB_shader_image_size
@@ -4291,7 +4225,6 @@ module OpenGL
         f.call(_obj_, _maxLength_, _length_, _source_)
       end
     SRC_GL_ARB_shader_objects
-
   end # define_command_GL_ARB_shader_objects
 
   def define_command_GL_ARB_shader_precision
@@ -4309,7 +4242,6 @@ module OpenGL
         f.call(_program_, _storageBlockIndex_, _storageBlockBinding_)
       end
     SRC_GL_ARB_shader_storage_buffer_object
-
   end # define_command_GL_ARB_shader_storage_buffer_object
 
   def define_command_GL_ARB_shader_subroutine
@@ -4384,7 +4316,6 @@ module OpenGL
         f.call(_program_, _shadertype_, _pname_, _values_)
       end
     SRC_GL_ARB_shader_subroutine
-
   end # define_command_GL_ARB_shader_subroutine
 
   def define_command_GL_ARB_shader_texture_lod
@@ -4450,7 +4381,6 @@ module OpenGL
         f.call(_namelen_, _name_, _pname_, _params_)
       end
     SRC_GL_ARB_shading_language_include
-
   end # define_command_GL_ARB_shading_language_include
 
   def define_command_GL_ARB_shading_language_packing
@@ -4471,7 +4401,6 @@ module OpenGL
         f.call(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _resident_)
       end
     SRC_GL_ARB_sparse_texture
-
   end # define_command_GL_ARB_sparse_texture
 
   def define_command_GL_ARB_stencil_texturing
@@ -4540,7 +4469,6 @@ module OpenGL
         f.call(_sync_, _pname_, _bufSize_, _length_, _values_)
       end
     SRC_GL_ARB_sync
-
   end # define_command_GL_ARB_sync
 
   def define_command_GL_ARB_tessellation_shader
@@ -4561,7 +4489,6 @@ module OpenGL
         f.call(_pname_, _values_)
       end
     SRC_GL_ARB_tessellation_shader
-
   end # define_command_GL_ARB_tessellation_shader
 
   def define_command_GL_ARB_texture_border_clamp
@@ -4576,7 +4503,6 @@ module OpenGL
         f.call(_target_, _internalformat_, _buffer_)
       end
     SRC_GL_ARB_texture_buffer_object
-
   end # define_command_GL_ARB_texture_buffer_object
 
   def define_command_GL_ARB_texture_buffer_object_rgb32
@@ -4591,7 +4517,6 @@ module OpenGL
         f.call(_target_, _internalformat_, _buffer_, _offset_, _size_)
       end
     SRC_GL_ARB_texture_buffer_range
-
   end # define_command_GL_ARB_texture_buffer_range
 
   def define_command_GL_ARB_texture_compression
@@ -4657,7 +4582,6 @@ module OpenGL
         f.call(_target_, _level_, _img_)
       end
     SRC_GL_ARB_texture_compression
-
   end # define_command_GL_ARB_texture_compression
 
   def define_command_GL_ARB_texture_compression_bptc
@@ -4732,7 +4656,6 @@ module OpenGL
         f.call(_index_, _mask_)
       end
     SRC_GL_ARB_texture_multisample
-
   end # define_command_GL_ARB_texture_multisample
 
   def define_command_GL_ARB_texture_non_power_of_two
@@ -4783,7 +4706,6 @@ module OpenGL
         f.call(_target_, _levels_, _internalformat_, _width_, _height_, _depth_)
       end
     SRC_GL_ARB_texture_storage
-
   end # define_command_GL_ARB_texture_storage
 
   def define_command_GL_ARB_texture_storage_multisample
@@ -4804,7 +4726,6 @@ module OpenGL
         f.call(_target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
       end
     SRC_GL_ARB_texture_storage_multisample
-
   end # define_command_GL_ARB_texture_storage_multisample
 
   def define_command_GL_ARB_texture_swizzle
@@ -4819,7 +4740,6 @@ module OpenGL
         f.call(_texture_, _target_, _origtexture_, _internalformat_, _minlevel_, _numlevels_, _minlayer_, _numlayers_)
       end
     SRC_GL_ARB_texture_view
-
   end # define_command_GL_ARB_texture_view
 
   def define_command_GL_ARB_timer_query
@@ -4849,7 +4769,6 @@ module OpenGL
         f.call(_id_, _pname_, _params_)
       end
     SRC_GL_ARB_timer_query
-
   end # define_command_GL_ARB_timer_query
 
   def define_command_GL_ARB_transform_feedback2
@@ -4915,7 +4834,6 @@ module OpenGL
         f.call(_mode_, _id_)
       end
     SRC_GL_ARB_transform_feedback2
-
   end # define_command_GL_ARB_transform_feedback2
 
   def define_command_GL_ARB_transform_feedback3
@@ -4954,7 +4872,6 @@ module OpenGL
         f.call(_target_, _index_, _pname_, _params_)
       end
     SRC_GL_ARB_transform_feedback3
-
   end # define_command_GL_ARB_transform_feedback3
 
   def define_command_GL_ARB_transform_feedback_instanced
@@ -4975,7 +4892,6 @@ module OpenGL
         f.call(_mode_, _id_, _stream_, _instancecount_)
       end
     SRC_GL_ARB_transform_feedback_instanced
-
   end # define_command_GL_ARB_transform_feedback_instanced
 
   def define_command_GL_ARB_transpose_matrix
@@ -5014,7 +4930,6 @@ module OpenGL
         f.call(_m_)
       end
     SRC_GL_ARB_transpose_matrix
-
   end # define_command_GL_ARB_transpose_matrix
 
   def define_command_GL_ARB_uniform_buffer_object
@@ -5080,7 +4995,6 @@ module OpenGL
         f.call(_program_, _uniformBlockIndex_, _uniformBlockBinding_)
       end
     SRC_GL_ARB_uniform_buffer_object
-
   end # define_command_GL_ARB_uniform_buffer_object
 
   def define_command_GL_ARB_vertex_array_bgra
@@ -5122,7 +5036,6 @@ module OpenGL
         f.call(_array_)
       end
     SRC_GL_ARB_vertex_array_object
-
   end # define_command_GL_ARB_vertex_array_object
 
   def define_command_GL_ARB_vertex_attrib_64bit
@@ -5215,7 +5128,6 @@ module OpenGL
         f.call(_index_, _pname_, _params_)
       end
     SRC_GL_ARB_vertex_attrib_64bit
-
   end # define_command_GL_ARB_vertex_attrib_64bit
 
   def define_command_GL_ARB_vertex_attrib_binding
@@ -5272,7 +5184,6 @@ module OpenGL
         f.call(_bindingindex_, _divisor_)
       end
     SRC_GL_ARB_vertex_attrib_binding
-
   end # define_command_GL_ARB_vertex_attrib_binding
 
   def define_command_GL_ARB_vertex_blend
@@ -5365,7 +5276,6 @@ module OpenGL
         f.call(_count_)
       end
     SRC_GL_ARB_vertex_blend
-
   end # define_command_GL_ARB_vertex_blend
 
   def define_command_GL_ARB_vertex_buffer_object
@@ -5467,7 +5377,6 @@ module OpenGL
         f.call(_target_, _pname_, _params_)
       end
     SRC_GL_ARB_vertex_buffer_object
-
   end # define_command_GL_ARB_vertex_buffer_object
 
   def define_command_GL_ARB_vertex_program
@@ -6028,7 +5937,6 @@ module OpenGL
         f.call(_program_)
       end
     SRC_GL_ARB_vertex_program
-
   end # define_command_GL_ARB_vertex_program
 
   def define_command_GL_ARB_vertex_shader
@@ -6445,7 +6353,6 @@ module OpenGL
         f.call(_index_, _pname_, _pointer_)
       end
     SRC_GL_ARB_vertex_shader
-
   end # define_command_GL_ARB_vertex_shader
 
   def define_command_GL_ARB_vertex_type_10f_11f_11f_rev
@@ -6793,7 +6700,6 @@ module OpenGL
         f.call(_type_, _color_)
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
-
   end # define_command_GL_ARB_vertex_type_2_10_10_10_rev
 
   def define_command_GL_ARB_viewport_array
@@ -6886,7 +6792,6 @@ module OpenGL
         f.call(_target_, _index_, _data_)
       end
     SRC_GL_ARB_viewport_array
-
   end # define_command_GL_ARB_viewport_array
 
   def define_command_GL_ARB_window_pos
@@ -7033,7 +6938,6 @@ module OpenGL
         f.call(_v_)
       end
     SRC_GL_ARB_window_pos
-
   end # define_command_GL_ARB_window_pos
 
   def define_command_GL_ATI_draw_buffers
@@ -7045,7 +6949,6 @@ module OpenGL
         f.call(_n_, _bufs_)
       end
     SRC_GL_ATI_draw_buffers
-
   end # define_command_GL_ATI_draw_buffers
 
   def define_command_GL_ATI_element_array
@@ -7075,7 +6978,6 @@ module OpenGL
         f.call(_mode_, _start_, _end_, _count_)
       end
     SRC_GL_ATI_element_array
-
   end # define_command_GL_ATI_element_array
 
   def define_command_GL_ATI_envmap_bumpmap
@@ -7114,7 +7016,6 @@ module OpenGL
         f.call(_pname_, _param_)
       end
     SRC_GL_ATI_envmap_bumpmap
-
   end # define_command_GL_ATI_envmap_bumpmap
 
   def define_command_GL_ATI_fragment_shader
@@ -7243,7 +7144,6 @@ module OpenGL
         f.call(_dst_, _value_)
       end
     SRC_GL_ATI_fragment_shader
-
   end # define_command_GL_ATI_fragment_shader
 
   def define_command_GL_ATI_map_object_buffer
@@ -7264,7 +7164,6 @@ module OpenGL
         f.call(_buffer_)
       end
     SRC_GL_ATI_map_object_buffer
-
   end # define_command_GL_ATI_map_object_buffer
 
   def define_command_GL_ATI_meminfo
@@ -7291,7 +7190,6 @@ module OpenGL
         f.call(_pname_, _param_)
       end
     SRC_GL_ATI_pn_triangles
-
   end # define_command_GL_ATI_pn_triangles
 
   def define_command_GL_ATI_separate_stencil
@@ -7312,7 +7210,6 @@ module OpenGL
         f.call(_frontfunc_, _backfunc_, _ref_, _mask_)
       end
     SRC_GL_ATI_separate_stencil
-
   end # define_command_GL_ATI_separate_stencil
 
   def define_command_GL_ATI_text_fragment_shader
@@ -7435,7 +7332,6 @@ module OpenGL
         f.call(_id_, _pname_, _params_)
       end
     SRC_GL_ATI_vertex_array_object
-
   end # define_command_GL_ATI_vertex_array_object
 
   def define_command_GL_ATI_vertex_attrib_array_object
@@ -7465,7 +7361,6 @@ module OpenGL
         f.call(_index_, _pname_, _params_)
       end
     SRC_GL_ATI_vertex_attrib_array_object
-
   end # define_command_GL_ATI_vertex_attrib_array_object
 
   def define_command_GL_ATI_vertex_streams
@@ -7873,7 +7768,6 @@ module OpenGL
         f.call(_pname_, _param_)
       end
     SRC_GL_ATI_vertex_streams
-
   end # define_command_GL_ATI_vertex_streams
 
   def define_command_GL_EXT_422_pixels
@@ -7912,7 +7806,6 @@ module OpenGL
         f.call(_program_, _location_)
       end
     SRC_GL_EXT_bindable_uniform
-
   end # define_command_GL_EXT_bindable_uniform
 
   def define_command_GL_EXT_blend_color
@@ -7924,7 +7817,6 @@ module OpenGL
         f.call(_red_, _green_, _blue_, _alpha_)
       end
     SRC_GL_EXT_blend_color
-
   end # define_command_GL_EXT_blend_color
 
   def define_command_GL_EXT_blend_equation_separate
@@ -7936,7 +7828,6 @@ module OpenGL
         f.call(_modeRGB_, _modeAlpha_)
       end
     SRC_GL_EXT_blend_equation_separate
-
   end # define_command_GL_EXT_blend_equation_separate
 
   def define_command_GL_EXT_blend_func_separate
@@ -7948,7 +7839,6 @@ module OpenGL
         f.call(_sfactorRGB_, _dfactorRGB_, _sfactorAlpha_, _dfactorAlpha_)
       end
     SRC_GL_EXT_blend_func_separate
-
   end # define_command_GL_EXT_blend_func_separate
 
   def define_command_GL_EXT_blend_logic_op
@@ -7963,7 +7853,6 @@ module OpenGL
         f.call(_mode_)
       end
     SRC_GL_EXT_blend_minmax
-
   end # define_command_GL_EXT_blend_minmax
 
   def define_command_GL_EXT_blend_subtract
@@ -7993,7 +7882,6 @@ module OpenGL
         f.call(_target_, _start_, _x_, _y_, _width_)
       end
     SRC_GL_EXT_color_subtable
-
   end # define_command_GL_EXT_color_subtable
 
   def define_command_GL_EXT_compiled_vertex_array
@@ -8014,7 +7902,6 @@ module OpenGL
         f.call()
       end
     SRC_GL_EXT_compiled_vertex_array
-
   end # define_command_GL_EXT_compiled_vertex_array
 
   def define_command_GL_EXT_convolution
@@ -8134,7 +8021,6 @@ module OpenGL
         f.call(_target_, _internalformat_, _width_, _height_, _format_, _type_, _row_, _column_)
       end
     SRC_GL_EXT_convolution
-
   end # define_command_GL_EXT_convolution
 
   def define_command_GL_EXT_coordinate_frame
@@ -8335,7 +8221,6 @@ module OpenGL
         f.call(_type_, _stride_, _pointer_)
       end
     SRC_GL_EXT_coordinate_frame
-
   end # define_command_GL_EXT_coordinate_frame
 
   def define_command_GL_EXT_copy_texture
@@ -8383,7 +8268,6 @@ module OpenGL
         f.call(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _x_, _y_, _width_, _height_)
       end
     SRC_GL_EXT_copy_texture
-
   end # define_command_GL_EXT_copy_texture
 
   def define_command_GL_EXT_cull_vertex
@@ -8404,7 +8288,6 @@ module OpenGL
         f.call(_pname_, _params_)
       end
     SRC_GL_EXT_cull_vertex
-
   end # define_command_GL_EXT_cull_vertex
 
   def define_command_GL_EXT_depth_bounds_test
@@ -8416,7 +8299,6 @@ module OpenGL
         f.call(_zmin_, _zmax_)
       end
     SRC_GL_EXT_depth_bounds_test
-
   end # define_command_GL_EXT_depth_bounds_test
 
   def define_command_GL_EXT_direct_state_access
@@ -10714,7 +10596,6 @@ module OpenGL
         f.call(_vaobj_, _index_, _divisor_)
       end
     SRC_GL_EXT_direct_state_access
-
   end # define_command_GL_EXT_direct_state_access
 
   def define_command_GL_EXT_draw_buffers2
@@ -10771,7 +10652,6 @@ module OpenGL
         f.call(_target_, _index_)
       end
     SRC_GL_EXT_draw_buffers2
-
   end # define_command_GL_EXT_draw_buffers2
 
   def define_command_GL_EXT_draw_instanced
@@ -10792,7 +10672,6 @@ module OpenGL
         f.call(_mode_, _count_, _type_, _indices_, _primcount_)
       end
     SRC_GL_EXT_draw_instanced
-
   end # define_command_GL_EXT_draw_instanced
 
   def define_command_GL_EXT_draw_range_elements
@@ -10804,7 +10683,6 @@ module OpenGL
         f.call(_mode_, _start_, _end_, _count_, _type_, _indices_)
       end
     SRC_GL_EXT_draw_range_elements
-
   end # define_command_GL_EXT_draw_range_elements
 
   def define_command_GL_EXT_fog_coord
@@ -10852,7 +10730,6 @@ module OpenGL
         f.call(_type_, _stride_, _pointer_)
       end
     SRC_GL_EXT_fog_coord
-
   end # define_command_GL_EXT_fog_coord
 
   def define_command_GL_EXT_framebuffer_blit
@@ -10864,7 +10741,6 @@ module OpenGL
         f.call(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
       end
     SRC_GL_EXT_framebuffer_blit
-
   end # define_command_GL_EXT_framebuffer_blit
 
   def define_command_GL_EXT_framebuffer_multisample
@@ -10876,7 +10752,6 @@ module OpenGL
         f.call(_target_, _samples_, _internalformat_, _width_, _height_)
       end
     SRC_GL_EXT_framebuffer_multisample
-
   end # define_command_GL_EXT_framebuffer_multisample
 
   def define_command_GL_EXT_framebuffer_multisample_blit_scaled
@@ -11035,7 +10910,6 @@ module OpenGL
         f.call(_target_)
       end
     SRC_GL_EXT_framebuffer_object
-
   end # define_command_GL_EXT_framebuffer_object
 
   def define_command_GL_EXT_framebuffer_sRGB
@@ -11050,7 +10924,6 @@ module OpenGL
         f.call(_program_, _pname_, _value_)
       end
     SRC_GL_EXT_geometry_shader4
-
   end # define_command_GL_EXT_geometry_shader4
 
   def define_command_GL_EXT_gpu_program_parameters
@@ -11071,7 +10944,6 @@ module OpenGL
         f.call(_target_, _index_, _count_, _params_)
       end
     SRC_GL_EXT_gpu_program_parameters
-
   end # define_command_GL_EXT_gpu_program_parameters
 
   def define_command_GL_EXT_gpu_shader4
@@ -11173,7 +11045,6 @@ module OpenGL
         f.call(_location_, _count_, _value_)
       end
     SRC_GL_EXT_gpu_shader4
-
   end # define_command_GL_EXT_gpu_shader4
 
   def define_command_GL_EXT_histogram
@@ -11266,7 +11137,6 @@ module OpenGL
         f.call(_target_)
       end
     SRC_GL_EXT_histogram
-
   end # define_command_GL_EXT_histogram
 
   def define_command_GL_EXT_index_array_formats
@@ -11281,7 +11151,6 @@ module OpenGL
         f.call(_func_, _ref_)
       end
     SRC_GL_EXT_index_func
-
   end # define_command_GL_EXT_index_func
 
   def define_command_GL_EXT_index_material
@@ -11293,7 +11162,6 @@ module OpenGL
         f.call(_face_, _mode_)
       end
     SRC_GL_EXT_index_material
-
   end # define_command_GL_EXT_index_material
 
   def define_command_GL_EXT_index_texture
@@ -11326,7 +11194,6 @@ module OpenGL
         f.call(_face_, _mode_)
       end
     SRC_GL_EXT_light_texture
-
   end # define_command_GL_EXT_light_texture
 
   def define_command_GL_EXT_misc_attribute
@@ -11350,7 +11217,6 @@ module OpenGL
         f.call(_mode_, _count_, _type_, _indices_, _primcount_)
       end
     SRC_GL_EXT_multi_draw_arrays
-
   end # define_command_GL_EXT_multi_draw_arrays
 
   def define_command_GL_EXT_multisample
@@ -11371,7 +11237,6 @@ module OpenGL
         f.call(_pattern_)
       end
     SRC_GL_EXT_multisample
-
   end # define_command_GL_EXT_multisample
 
   def define_command_GL_EXT_packed_depth_stencil
@@ -11419,7 +11284,6 @@ module OpenGL
         f.call(_target_, _pname_, _params_)
       end
     SRC_GL_EXT_paletted_texture
-
   end # define_command_GL_EXT_paletted_texture
 
   def define_command_GL_EXT_pixel_buffer_object
@@ -11479,7 +11343,6 @@ module OpenGL
         f.call(_target_, _pname_, _params_)
       end
     SRC_GL_EXT_pixel_transform
-
   end # define_command_GL_EXT_pixel_transform
 
   def define_command_GL_EXT_pixel_transform_color_table
@@ -11503,7 +11366,6 @@ module OpenGL
         f.call(_pname_, _params_)
       end
     SRC_GL_EXT_point_parameters
-
   end # define_command_GL_EXT_point_parameters
 
   def define_command_GL_EXT_polygon_offset
@@ -11515,7 +11377,6 @@ module OpenGL
         f.call(_factor_, _bias_)
       end
     SRC_GL_EXT_polygon_offset
-
   end # define_command_GL_EXT_polygon_offset
 
   def define_command_GL_EXT_provoking_vertex
@@ -11527,7 +11388,6 @@ module OpenGL
         f.call(_mode_)
       end
     SRC_GL_EXT_provoking_vertex
-
   end # define_command_GL_EXT_provoking_vertex
 
   def define_command_GL_EXT_rescale_normal
@@ -11686,7 +11546,6 @@ module OpenGL
         f.call(_size_, _type_, _stride_, _pointer_)
       end
     SRC_GL_EXT_secondary_color
-
   end # define_command_GL_EXT_secondary_color
 
   def define_command_GL_EXT_separate_shader_objects
@@ -11986,7 +11845,6 @@ module OpenGL
         f.call(_pipeline_)
       end
     SRC_GL_EXT_separate_shader_objects
-
   end # define_command_GL_EXT_separate_shader_objects
 
   def define_command_GL_EXT_separate_specular_color
@@ -12010,7 +11868,6 @@ module OpenGL
         f.call(_barriers_)
       end
     SRC_GL_EXT_shader_image_load_store
-
   end # define_command_GL_EXT_shader_image_load_store
 
   def define_command_GL_EXT_shadow_funcs
@@ -12028,7 +11885,6 @@ module OpenGL
         f.call(_stencilTagBits_, _stencilClearTag_)
       end
     SRC_GL_EXT_stencil_clear_tag
-
   end # define_command_GL_EXT_stencil_clear_tag
 
   def define_command_GL_EXT_stencil_two_side
@@ -12040,7 +11896,6 @@ module OpenGL
         f.call(_face_)
       end
     SRC_GL_EXT_stencil_two_side
-
   end # define_command_GL_EXT_stencil_two_side
 
   def define_command_GL_EXT_stencil_wrap
@@ -12064,7 +11919,6 @@ module OpenGL
         f.call(_target_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _type_, _pixels_)
       end
     SRC_GL_EXT_subtexture
-
   end # define_command_GL_EXT_subtexture
 
   def define_command_GL_EXT_texture
@@ -12088,7 +11942,6 @@ module OpenGL
         f.call(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _pixels_)
       end
     SRC_GL_EXT_texture3D
-
   end # define_command_GL_EXT_texture3D
 
   def define_command_GL_EXT_texture_array
@@ -12103,7 +11956,6 @@ module OpenGL
         f.call(_target_, _internalformat_, _buffer_)
       end
     SRC_GL_EXT_texture_buffer_object
-
   end # define_command_GL_EXT_texture_buffer_object
 
   def define_command_GL_EXT_texture_compression_latc
@@ -12184,7 +12036,6 @@ module OpenGL
         f.call(_red_, _green_, _blue_, _alpha_)
       end
     SRC_GL_EXT_texture_integer
-
   end # define_command_GL_EXT_texture_integer
 
   def define_command_GL_EXT_texture_lod_bias
@@ -12247,7 +12098,6 @@ module OpenGL
         f.call(_n_, _textures_, _priorities_)
       end
     SRC_GL_EXT_texture_object
-
   end # define_command_GL_EXT_texture_object
 
   def define_command_GL_EXT_texture_perturb_normal
@@ -12259,7 +12109,6 @@ module OpenGL
         f.call(_mode_)
       end
     SRC_GL_EXT_texture_perturb_normal
-
   end # define_command_GL_EXT_texture_perturb_normal
 
   def define_command_GL_EXT_texture_sRGB
@@ -12295,7 +12144,6 @@ module OpenGL
         f.call(_id_, _pname_, _params_)
       end
     SRC_GL_EXT_timer_query
-
   end # define_command_GL_EXT_timer_query
 
   def define_command_GL_EXT_transform_feedback
@@ -12361,7 +12209,6 @@ module OpenGL
         f.call(_program_, _index_, _bufSize_, _length_, _size_, _type_, _name_)
       end
     SRC_GL_EXT_transform_feedback
-
   end # define_command_GL_EXT_transform_feedback
 
   def define_command_GL_EXT_vertex_array
@@ -12445,7 +12292,6 @@ module OpenGL
         f.call(_size_, _type_, _stride_, _count_, _pointer_)
       end
     SRC_GL_EXT_vertex_array
-
   end # define_command_GL_EXT_vertex_array
 
   def define_command_GL_EXT_vertex_array_bgra
@@ -12541,7 +12387,6 @@ module OpenGL
         f.call(_index_, _pname_, _params_)
       end
     SRC_GL_EXT_vertex_attrib_64bit
-
   end # define_command_GL_EXT_vertex_attrib_64bit
 
   def define_command_GL_EXT_vertex_shader
@@ -12922,7 +12767,6 @@ module OpenGL
         f.call(_id_, _value_, _data_)
       end
     SRC_GL_EXT_vertex_shader
-
   end # define_command_GL_EXT_vertex_shader
 
   def define_command_GL_EXT_vertex_weighting
@@ -12952,7 +12796,6 @@ module OpenGL
         f.call(_size_, _type_, _stride_, _pointer_)
       end
     SRC_GL_EXT_vertex_weighting
-
   end # define_command_GL_EXT_vertex_weighting
 
   def define_command_GL_EXT_x11_sync_object
@@ -12964,7 +12807,6 @@ module OpenGL
         f.call(_external_sync_type_, _external_sync_, _flags_)
       end
     SRC_GL_EXT_x11_sync_object
-
   end # define_command_GL_EXT_x11_sync_object
 
   def define_command_GL_GREMEDY_frame_terminator
@@ -12976,7 +12818,6 @@ module OpenGL
         f.call()
       end
     SRC_GL_GREMEDY_frame_terminator
-
   end # define_command_GL_GREMEDY_frame_terminator
 
   def define_command_GL_GREMEDY_string_marker
@@ -12988,7 +12829,6 @@ module OpenGL
         f.call(_len_, _string_)
       end
     SRC_GL_GREMEDY_string_marker
-
   end # define_command_GL_GREMEDY_string_marker
 
   def define_command_GL_HP_convolution_border_modes
@@ -13048,7 +12888,6 @@ module OpenGL
         f.call(_target_, _pname_, _params_)
       end
     SRC_GL_HP_image_transform
-
   end # define_command_GL_HP_image_transform
 
   def define_command_GL_HP_occlusion_test
@@ -13078,7 +12917,6 @@ module OpenGL
         f.call(_mode_, _count_, _type_, _indices_, _primcount_, _modestride_)
       end
     SRC_GL_IBM_multimode_draw_arrays
-
   end # define_command_GL_IBM_multimode_draw_arrays
 
   def define_command_GL_IBM_rasterpos_clip
@@ -13093,7 +12931,6 @@ module OpenGL
         f.call(_target_)
       end
     SRC_GL_IBM_static_data
-
   end # define_command_GL_IBM_static_data
 
   def define_command_GL_IBM_texture_mirrored_repeat
@@ -13171,7 +13008,6 @@ module OpenGL
         f.call(_size_, _type_, _stride_, _pointer_, _ptrstride_)
       end
     SRC_GL_IBM_vertex_array_lists
-
   end # define_command_GL_IBM_vertex_array_lists
 
   def define_command_GL_INGR_blend_func_separate
@@ -13183,7 +13019,6 @@ module OpenGL
         f.call(_sfactorRGB_, _dfactorRGB_, _sfactorAlpha_, _dfactorAlpha_)
       end
     SRC_GL_INGR_blend_func_separate
-
   end # define_command_GL_INGR_blend_func_separate
 
   def define_command_GL_INGR_color_clamp
@@ -13219,7 +13054,6 @@ module OpenGL
         f.call(_texture_, _level_, _access_, _stride_, _layout_)
       end
     SRC_GL_INTEL_map_texture
-
   end # define_command_GL_INTEL_map_texture
 
   def define_command_GL_INTEL_parallel_arrays
@@ -13258,7 +13092,6 @@ module OpenGL
         f.call(_size_, _type_, _pointer_)
       end
     SRC_GL_INTEL_parallel_arrays
-
   end # define_command_GL_INTEL_parallel_arrays
 
   def define_command_GL_KHR_debug
@@ -13459,7 +13292,6 @@ module OpenGL
         f.call(_pname_, _params_)
       end
     SRC_GL_KHR_debug
-
   end # define_command_GL_KHR_debug
 
   def define_command_GL_KHR_texture_compression_astc_ldr
@@ -13480,7 +13312,6 @@ module OpenGL
         f.call()
       end
     SRC_GL_MESA_resize_buffers
-
   end # define_command_GL_MESA_resize_buffers
 
   def define_command_GL_MESA_window_pos
@@ -13699,7 +13530,6 @@ module OpenGL
         f.call(_v_)
       end
     SRC_GL_MESA_window_pos
-
   end # define_command_GL_MESA_window_pos
 
   def define_command_GL_MESA_ycbcr_texture
@@ -13723,7 +13553,6 @@ module OpenGL
         f.call()
       end
     SRC_GL_NVX_conditional_render
-
   end # define_command_GL_NVX_conditional_render
 
   def define_command_GL_NV_bindless_multi_draw_indirect
@@ -13744,7 +13573,6 @@ module OpenGL
         f.call(_mode_, _type_, _indirect_, _drawCount_, _stride_, _vertexBufferCount_)
       end
     SRC_GL_NV_bindless_multi_draw_indirect
-
   end # define_command_GL_NV_bindless_multi_draw_indirect
 
   def define_command_GL_NV_bindless_texture
@@ -13864,7 +13692,6 @@ module OpenGL
         f.call(_handle_)
       end
     SRC_GL_NV_bindless_texture
-
   end # define_command_GL_NV_bindless_texture
 
   def define_command_GL_NV_blend_equation_advanced
@@ -13885,7 +13712,6 @@ module OpenGL
         f.call()
       end
     SRC_GL_NV_blend_equation_advanced
-
   end # define_command_GL_NV_blend_equation_advanced
 
   def define_command_GL_NV_blend_equation_advanced_coherent
@@ -13915,7 +13741,6 @@ module OpenGL
         f.call()
       end
     SRC_GL_NV_conditional_render
-
   end # define_command_GL_NV_conditional_render
 
   def define_command_GL_NV_copy_depth_to_color
@@ -13930,7 +13755,6 @@ module OpenGL
         f.call(_srcName_, _srcTarget_, _srcLevel_, _srcX_, _srcY_, _srcZ_, _dstName_, _dstTarget_, _dstLevel_, _dstX_, _dstY_, _dstZ_, _width_, _height_, _depth_)
       end
     SRC_GL_NV_copy_image
-
   end # define_command_GL_NV_copy_image
 
   def define_command_GL_NV_deep_texture3D
@@ -13963,7 +13787,6 @@ module OpenGL
         f.call(_zmin_, _zmax_)
       end
     SRC_GL_NV_depth_buffer_float
-
   end # define_command_GL_NV_depth_buffer_float
 
   def define_command_GL_NV_depth_clamp
@@ -13978,7 +13801,6 @@ module OpenGL
         f.call(_texture_, _sampler_, _x0_, _y0_, _x1_, _y1_, _z_, _s0_, _t0_, _s1_, _t1_)
       end
     SRC_GL_NV_draw_texture
-
   end # define_command_GL_NV_draw_texture
 
   def define_command_GL_NV_evaluators
@@ -14062,7 +13884,6 @@ module OpenGL
         f.call(_target_, _mode_)
       end
     SRC_GL_NV_evaluators
-
   end # define_command_GL_NV_evaluators
 
   def define_command_GL_NV_explicit_multisample
@@ -14092,7 +13913,6 @@ module OpenGL
         f.call(_target_, _renderbuffer_)
       end
     SRC_GL_NV_explicit_multisample
-
   end # define_command_GL_NV_explicit_multisample
 
   def define_command_GL_NV_fence
@@ -14158,7 +13978,6 @@ module OpenGL
         f.call(_fence_, _condition_)
       end
     SRC_GL_NV_fence
-
   end # define_command_GL_NV_fence
 
   def define_command_GL_NV_float_buffer
@@ -14221,7 +14040,6 @@ module OpenGL
         f.call(_id_, _len_, _name_, _params_)
       end
     SRC_GL_NV_fragment_program
-
   end # define_command_GL_NV_fragment_program
 
   def define_command_GL_NV_fragment_program2
@@ -14242,7 +14060,6 @@ module OpenGL
         f.call(_target_, _coverageSamples_, _colorSamples_, _internalformat_, _width_, _height_)
       end
     SRC_GL_NV_framebuffer_multisample_coverage
-
   end # define_command_GL_NV_framebuffer_multisample_coverage
 
   def define_command_GL_NV_geometry_program4
@@ -14281,7 +14098,6 @@ module OpenGL
         f.call(_target_, _attachment_, _texture_, _level_, _face_)
       end
     SRC_GL_NV_geometry_program4
-
   end # define_command_GL_NV_geometry_program4
 
   def define_command_GL_NV_geometry_shader4
@@ -14431,7 +14247,6 @@ module OpenGL
         f.call(_target_, _index_, _params_)
       end
     SRC_GL_NV_gpu_program4
-
   end # define_command_GL_NV_gpu_program4
 
   def define_command_GL_NV_gpu_program5
@@ -14452,7 +14267,6 @@ module OpenGL
         f.call(_target_, _index_, _param_)
       end
     SRC_GL_NV_gpu_program5
-
   end # define_command_GL_NV_gpu_program5
 
   def define_command_GL_NV_gpu_program5_mem_extended
@@ -14755,7 +14569,6 @@ module OpenGL
         f.call(_program_, _location_, _count_, _value_)
       end
     SRC_GL_NV_gpu_shader5
-
   end # define_command_GL_NV_gpu_shader5
 
   def define_command_GL_NV_half_float
@@ -15172,7 +14985,6 @@ module OpenGL
         f.call(_index_, _n_, _v_)
       end
     SRC_GL_NV_half_float
-
   end # define_command_GL_NV_half_float
 
   def define_command_GL_NV_light_max_exponent
@@ -15247,7 +15059,6 @@ module OpenGL
         f.call(_id_, _pname_, _params_)
       end
     SRC_GL_NV_occlusion_query
-
   end # define_command_GL_NV_occlusion_query
 
   def define_command_GL_NV_packed_depth_stencil
@@ -15280,7 +15091,6 @@ module OpenGL
         f.call(_target_, _bindingIndex_, _wordIndex_, _count_, _params_)
       end
     SRC_GL_NV_parameter_buffer_object
-
   end # define_command_GL_NV_parameter_buffer_object
 
   def define_command_GL_NV_parameter_buffer_object2
@@ -15727,7 +15537,6 @@ module OpenGL
         f.call(_path_, _startSegment_, _numSegments_, _distance_, _x_, _y_, _tangentX_, _tangentY_)
       end
     SRC_GL_NV_path_rendering
-
   end # define_command_GL_NV_path_rendering
 
   def define_command_GL_NV_pixel_data_range
@@ -15748,7 +15557,6 @@ module OpenGL
         f.call(_target_)
       end
     SRC_GL_NV_pixel_data_range
-
   end # define_command_GL_NV_pixel_data_range
 
   def define_command_GL_NV_point_sprite
@@ -15769,7 +15577,6 @@ module OpenGL
         f.call(_pname_, _params_)
       end
     SRC_GL_NV_point_sprite
-
   end # define_command_GL_NV_point_sprite
 
   def define_command_GL_NV_present_video
@@ -15826,7 +15633,6 @@ module OpenGL
         f.call(_video_slot_, _pname_, _params_)
       end
     SRC_GL_NV_present_video
-
   end # define_command_GL_NV_present_video
 
   def define_command_GL_NV_primitive_restart
@@ -15847,7 +15653,6 @@ module OpenGL
         f.call(_index_)
       end
     SRC_GL_NV_primitive_restart
-
   end # define_command_GL_NV_primitive_restart
 
   def define_command_GL_NV_register_combiners
@@ -15967,7 +15772,6 @@ module OpenGL
         f.call(_variable_, _pname_, _params_)
       end
     SRC_GL_NV_register_combiners
-
   end # define_command_GL_NV_register_combiners
 
   def define_command_GL_NV_register_combiners2
@@ -15988,7 +15792,6 @@ module OpenGL
         f.call(_stage_, _pname_, _params_)
       end
     SRC_GL_NV_register_combiners2
-
   end # define_command_GL_NV_register_combiners2
 
   def define_command_GL_NV_shader_atomic_counters
@@ -16123,7 +15926,6 @@ module OpenGL
         f.call(_program_, _location_, _count_, _value_)
       end
     SRC_GL_NV_shader_buffer_load
-
   end # define_command_GL_NV_shader_buffer_load
 
   def define_command_GL_NV_shader_buffer_store
@@ -16150,7 +15952,6 @@ module OpenGL
         f.call()
       end
     SRC_GL_NV_texture_barrier
-
   end # define_command_GL_NV_texture_barrier
 
   def define_command_GL_NV_texture_compression_vtc
@@ -16216,7 +16017,6 @@ module OpenGL
         f.call(_texture_, _target_, _coverageSamples_, _colorSamples_, _internalFormat_, _width_, _height_, _depth_, _fixedSampleLocations_)
       end
     SRC_GL_NV_texture_multisample
-
   end # define_command_GL_NV_texture_multisample
 
   def define_command_GL_NV_texture_rectangle
@@ -16339,7 +16139,6 @@ module OpenGL
         f.call(_count_, _attribs_, _nbuffers_, _bufstreams_, _bufferMode_)
       end
     SRC_GL_NV_transform_feedback
-
   end # define_command_GL_NV_transform_feedback
 
   def define_command_GL_NV_transform_feedback2
@@ -16405,7 +16204,6 @@ module OpenGL
         f.call(_mode_, _id_)
       end
     SRC_GL_NV_transform_feedback2
-
   end # define_command_GL_NV_transform_feedback2
 
   def define_command_GL_NV_vdpau_interop
@@ -16498,7 +16296,6 @@ module OpenGL
         f.call(_numSurface_, _surfaces_)
       end
     SRC_GL_NV_vdpau_interop
-
   end # define_command_GL_NV_vdpau_interop
 
   def define_command_GL_NV_vertex_array_range
@@ -16519,7 +16316,6 @@ module OpenGL
         f.call(_length_, _pointer_)
       end
     SRC_GL_NV_vertex_array_range
-
   end # define_command_GL_NV_vertex_array_range
 
   def define_command_GL_NV_vertex_array_range2
@@ -16696,7 +16492,6 @@ module OpenGL
         f.call(_index_, _size_, _type_, _stride_)
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
-
   end # define_command_GL_NV_vertex_attrib_integer_64bit
 
   def define_command_GL_NV_vertex_buffer_unified_memory
@@ -16807,7 +16602,6 @@ module OpenGL
         f.call(_value_, _index_, _result_)
       end
     SRC_GL_NV_vertex_buffer_unified_memory
-
   end # define_command_GL_NV_vertex_buffer_unified_memory
 
   def define_command_GL_NV_vertex_program
@@ -17386,7 +17180,6 @@ module OpenGL
         f.call(_index_, _count_, _v_)
       end
     SRC_GL_NV_vertex_program
-
   end # define_command_GL_NV_vertex_program
 
   def define_command_GL_NV_vertex_program1_1
@@ -17608,7 +17401,6 @@ module OpenGL
         f.call(_index_, _pname_, _params_)
       end
     SRC_GL_NV_vertex_program4
-
   end # define_command_GL_NV_vertex_program4
 
   def define_command_GL_NV_video_capture
@@ -17719,7 +17511,6 @@ module OpenGL
         f.call(_video_capture_slot_, _stream_, _pname_, _params_)
       end
     SRC_GL_NV_video_capture
-
   end # define_command_GL_NV_video_capture
 
   def define_command_GL_OES_byte_coordinates
@@ -17920,7 +17711,6 @@ module OpenGL
         f.call(_coords_)
       end
     SRC_GL_OES_byte_coordinates
-
   end # define_command_GL_OES_byte_coordinates
 
   def define_command_GL_OES_compressed_paletted_texture
@@ -18898,7 +18688,6 @@ module OpenGL
         f.call(_coords_)
       end
     SRC_GL_OES_fixed_point
-
   end # define_command_GL_OES_fixed_point
 
   def define_command_GL_OES_query_matrix
@@ -18910,7 +18699,6 @@ module OpenGL
         f.call(_mantissa_, _exponent_)
       end
     SRC_GL_OES_query_matrix
-
   end # define_command_GL_OES_query_matrix
 
   def define_command_GL_OES_read_format
@@ -18970,7 +18758,6 @@ module OpenGL
         f.call(_l_, _r_, _b_, _t_, _n_, _f_)
       end
     SRC_GL_OES_single_precision
-
   end # define_command_GL_OES_single_precision
 
   def define_command_GL_OML_interlace
@@ -18991,7 +18778,6 @@ module OpenGL
         f.call(_target_, _mode_)
       end
     SRC_GL_PGI_misc_hints
-
   end # define_command_GL_PGI_misc_hints
 
   def define_command_GL_PGI_vertex_hints
@@ -19021,7 +18807,6 @@ module OpenGL
         f.call(_target_, _points_)
       end
     SRC_GL_SGIS_detail_texture
-
   end # define_command_GL_SGIS_detail_texture
 
   def define_command_GL_SGIS_fog_function
@@ -19042,7 +18827,6 @@ module OpenGL
         f.call(_points_)
       end
     SRC_GL_SGIS_fog_function
-
   end # define_command_GL_SGIS_fog_function
 
   def define_command_GL_SGIS_generate_mipmap
@@ -19066,7 +18850,6 @@ module OpenGL
         f.call(_pattern_)
       end
     SRC_GL_SGIS_multisample
-
   end # define_command_GL_SGIS_multisample
 
   def define_command_GL_SGIS_pixel_texture
@@ -19123,7 +18906,6 @@ module OpenGL
         f.call(_pname_, _params_)
       end
     SRC_GL_SGIS_pixel_texture
-
   end # define_command_GL_SGIS_pixel_texture
 
   def define_command_GL_SGIS_point_line_texgen
@@ -19147,7 +18929,6 @@ module OpenGL
         f.call(_pname_, _params_)
       end
     SRC_GL_SGIS_point_parameters
-
   end # define_command_GL_SGIS_point_parameters
 
   def define_command_GL_SGIS_sharpen_texture
@@ -19168,7 +18949,6 @@ module OpenGL
         f.call(_target_, _points_)
       end
     SRC_GL_SGIS_sharpen_texture
-
   end # define_command_GL_SGIS_sharpen_texture
 
   def define_command_GL_SGIS_texture4D
@@ -19189,7 +18969,6 @@ module OpenGL
         f.call(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _woffset_, _width_, _height_, _depth_, _size4d_, _format_, _type_, _pixels_)
       end
     SRC_GL_SGIS_texture4D
-
   end # define_command_GL_SGIS_texture4D
 
   def define_command_GL_SGIS_texture_border_clamp
@@ -19204,7 +18983,6 @@ module OpenGL
         f.call(_red_, _green_, _blue_, _alpha_)
       end
     SRC_GL_SGIS_texture_color_mask
-
   end # define_command_GL_SGIS_texture_color_mask
 
   def define_command_GL_SGIS_texture_edge_clamp
@@ -19228,7 +19006,6 @@ module OpenGL
         f.call(_target_, _filter_, _n_, _weights_)
       end
     SRC_GL_SGIS_texture_filter4
-
   end # define_command_GL_SGIS_texture_filter4
 
   def define_command_GL_SGIS_texture_lod
@@ -19291,7 +19068,6 @@ module OpenGL
         f.call(_marker_)
       end
     SRC_GL_SGIX_async
-
   end # define_command_GL_SGIX_async
 
   def define_command_GL_SGIX_async_histogram
@@ -19327,7 +19103,6 @@ module OpenGL
         f.call()
       end
     SRC_GL_SGIX_flush_raster
-
   end # define_command_GL_SGIX_flush_raster
 
   def define_command_GL_SGIX_fog_offset
@@ -19495,7 +19270,6 @@ module OpenGL
         f.call(_pname_, _param_)
       end
     SRC_GL_SGIX_fragment_lighting
-
   end # define_command_GL_SGIX_fragment_lighting
 
   def define_command_GL_SGIX_framezoom
@@ -19507,7 +19281,6 @@ module OpenGL
         f.call(_factor_)
       end
     SRC_GL_SGIX_framezoom
-
   end # define_command_GL_SGIX_framezoom
 
   def define_command_GL_SGIX_igloo_interface
@@ -19519,7 +19292,6 @@ module OpenGL
         f.call(_pname_, _params_)
       end
     SRC_GL_SGIX_igloo_interface
-
   end # define_command_GL_SGIX_igloo_interface
 
   def define_command_GL_SGIX_instruments
@@ -19576,7 +19348,6 @@ module OpenGL
         f.call(_marker_)
       end
     SRC_GL_SGIX_instruments
-
   end # define_command_GL_SGIX_instruments
 
   def define_command_GL_SGIX_interlace
@@ -19639,7 +19410,6 @@ module OpenGL
         f.call(_list_, _pname_, _params_)
       end
     SRC_GL_SGIX_list_priority
-
   end # define_command_GL_SGIX_list_priority
 
   def define_command_GL_SGIX_pixel_texture
@@ -19651,7 +19421,6 @@ module OpenGL
         f.call(_mode_)
       end
     SRC_GL_SGIX_pixel_texture
-
   end # define_command_GL_SGIX_pixel_texture
 
   def define_command_GL_SGIX_pixel_tiles
@@ -19693,7 +19462,6 @@ module OpenGL
         f.call(_mask_)
       end
     SRC_GL_SGIX_polynomial_ffd
-
   end # define_command_GL_SGIX_polynomial_ffd
 
   def define_command_GL_SGIX_reference_plane
@@ -19705,7 +19473,6 @@ module OpenGL
         f.call(_equation_)
       end
     SRC_GL_SGIX_reference_plane
-
   end # define_command_GL_SGIX_reference_plane
 
   def define_command_GL_SGIX_resample
@@ -19756,7 +19523,6 @@ module OpenGL
         f.call(_pname_, _params_)
       end
     SRC_GL_SGIX_sprite
-
   end # define_command_GL_SGIX_sprite
 
   def define_command_GL_SGIX_subsample
@@ -19771,7 +19537,6 @@ module OpenGL
         f.call()
       end
     SRC_GL_SGIX_tag_sample_buffer
-
   end # define_command_GL_SGIX_tag_sample_buffer
 
   def define_command_GL_SGIX_texture_add_env
@@ -19867,7 +19632,6 @@ module OpenGL
         f.call(_target_, _pname_, _params_)
       end
     SRC_GL_SGI_color_table
-
   end # define_command_GL_SGI_color_table
 
   def define_command_GL_SGI_texture_color_table
@@ -19882,7 +19646,6 @@ module OpenGL
         f.call()
       end
     SRC_GL_SUNX_constant_data
-
   end # define_command_GL_SUNX_constant_data
 
   def define_command_GL_SUN_convolution_border_modes
@@ -19960,7 +19723,6 @@ module OpenGL
         f.call(_factor_)
       end
     SRC_GL_SUN_global_alpha
-
   end # define_command_GL_SUN_global_alpha
 
   def define_command_GL_SUN_mesh_array
@@ -19972,7 +19734,6 @@ module OpenGL
         f.call(_mode_, _first_, _count_, _width_)
       end
     SRC_GL_SUN_mesh_array
-
   end # define_command_GL_SUN_mesh_array
 
   def define_command_GL_SUN_slice_accum
@@ -20041,7 +19802,6 @@ module OpenGL
         f.call(_type_, _stride_, _pointer_)
       end
     SRC_GL_SUN_triangle_list
-
   end # define_command_GL_SUN_triangle_list
 
   def define_command_GL_SUN_vertex
@@ -20404,7 +20164,6 @@ module OpenGL
         f.call(_rc_, _tc_, _c_, _n_, _v_)
       end
     SRC_GL_SUN_vertex
-
   end # define_command_GL_SUN_vertex
 
   def define_command_GL_WIN_phong_shading

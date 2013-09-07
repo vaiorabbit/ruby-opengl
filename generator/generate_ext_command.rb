@@ -1,16 +1,16 @@
 # # (Execution example)
-# $ ruby generate_command.rb > opengl_command.rb
-# $ head opengl_command.rb
+# $ ruby generate_ext_command.rb > opengl_ext_command.rb
+# $ head opengl_ext_command.rb
 # # [NOTICE] Automatically generated file
 #
 # require 'fiddle'
 #
 # module OpenGL
 #
-#   GL_FUNCTIONS_ARGS_MAP[:glCullFace] = [Fiddle::TYPE_INT]
-#   GL_FUNCTIONS_RETVAL_MAP[:glCullFace] = Fiddle::TYPE_VOID
-#   def glCullFace(_mode_)
-#     f = OpenGL::get_command(:glCullFace)
+#   def define_command_GL_3DFX_multisample
+#   end # define_command_GL_3DFX_multisample
+#
+#   def define_command_GL_3DFX_tbuffer
 # $
 
 require 'nokogiri'
@@ -77,6 +77,9 @@ def generate_ext_command( out )
   out.puts ""
   gl_ext_name_to_commands_map.each_pair do |ext_name, ext_commands|
     out.puts "  def define_command_#{ext_name}"
+
+    commands_count = ext_commands.size
+    command_index = 0
     ext_commands.each_pair do |api, map_entry|
 
       next if map_entry == nil
@@ -107,7 +110,8 @@ def generate_ext_command( out )
       out.puts "        f.call(#{vars})"
       out.puts "      end"
       out.puts "    SRC_#{ext_name}"
-      out.puts ""
+      out.puts "" if (command_index + 1) != commands_count
+      command_index += 1
     end
     out.puts "  end # define_command_#{ext_name}"
     out.puts ""
