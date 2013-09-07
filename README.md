@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2013-09-07
+*   Last modified : 2013-09-08
 
 ## Features ##
 
@@ -16,6 +16,11 @@
 	*   The command/enum wrapper codes are generated via 'gl.xml'
 
 
+## How to use ##
+
+See sample/simple.rb.
+
+
 ## Contents ##
 
 *   'opengl.rb' includes these scripts:
@@ -24,6 +29,10 @@
     *   'opengl_common.rb'       : Provies utilitiy funcitions.
     *   'opengl_platform.rb'     : Provies platform check funcitions (OpneGL.get_platform).
     *   'opengl_windows.rb'      : Provies funcitions for Windows platform (wglGetProcAddress).
+
+*   'opengl_ext.rb' includes these scripts:
+    *   'opengl_ext_command.rb'      : OpenGL extension command wrapper. Generated via generator/generate_ext_command.rb.
+    *   'opengl_ext_enum.rb'         : OpenGL extension enum wrapper Generated via generator/generate_ext_enum.rb.
 
 * 'glfw.rb'
     * My handwirtten GLFW wrapper (https://github.com/vaiorabbit/ruby-glfw).
