@@ -40,9 +40,4 @@ module OpenGL
     end
   end
 
-  def self.check_extension( ext_name )
-    ext_strings = glGetString(GL_EXTENSIONS).to_s.split(/ /)
-    return ext_strings.include? ext_name
-  end
-
 end
