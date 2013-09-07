@@ -1,6 +1,8 @@
 2013-09-07  vaiorabbit  <vaiorabbit@twitter.com>
 
-	* opengl_command.rb, opengl_enum.rb: Updated using latest gl.xml.
+	* opengl_command.rb: Updated using latest gl.xml.
+	* opengl_command.rb: Fixed some bugs.
+	* opengl_command.rb, glu.rb (load_dll): Updated platform detection.
 
 2013-09-05  vaiorabbit  <vaiorabbit@twitter.com>
 

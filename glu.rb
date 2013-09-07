@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'fiddle/import'
+require_relative 'opengl_platform'
 
 module GLU
 
@@ -249,7 +250,15 @@ module GLU
   @@glu_import_done = false
 
   # Load native library.
-  def self.load_dll(lib = 'GLU32.dll', path = 'C:/Windows/System32')
+  def self.load_dll(lib = nil, path = nil)
+    if lib == nil && path == nil
+      case OpenGL.get_platform
+      when :OPENGL_PLATFORM_WINDOWS
+        lib, path = 'GLU32.dll', 'C:/Windows/System32'
+      when :OPENGL_PLATFORM_MACOSX
+        lib, path = 'libGLU.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries'
+      end
+    end
     dlload (path + '/' + lib)
     import_symbols() unless @@glu_import_done
   end
