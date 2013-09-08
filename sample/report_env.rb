@@ -3,8 +3,14 @@ require '../opengl'
 
 include OpenGL
 include GLFW
+
 OpenGL.load_dll()
-GLFW.load_dll()
+case OpenGL.get_platform
+when :OPENGL_PLATFORM_WINDOWS
+  GLFW.load_dll('glfw3.dll', '.')
+when :OPENGL_PLATFORM_MACOSX
+  GLFW.load_dll('libglfw.dylib', '.')
+end
 
 if __FILE__ == $0
   glfwInit()
