@@ -6,17 +6,9 @@
 require '../util/setup_dll'
 require '../../opengl_ext'
 
-def checkErrors(desc)
-  e = glGetError()
-  if e != GL_NO_ERROR
-    $stderr.puts "OpenGL error in \"#{desc}\": #{gluErrorString(e)} (#{e})\n"
-    exit
-  end
-end
-
-$stroking = true #false
+$stroking = true
 $filling = true
-$underline = true #false
+$underline = true
 $regular_aspect = true
 $fill_gradient = 0
 $programName = "nvpr_hello_world"
@@ -248,6 +240,32 @@ key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scanco
   case key
   when GLFW_KEY_ESCAPE, GLFW_KEY_Q
     glfwSetWindowShouldClose(window_handle, 1)
+  when GLFW_KEY_S
+    if action == GLFW_PRESS
+      $stroking = !$stroking
+    end
+  when GLFW_KEY_A
+    if action == GLFW_PRESS
+      $regular_aspect = !$regular_aspect
+      configureProjection
+    end
+  when GLFW_KEY_F
+    if action == GLFW_PRESS
+      $filling = !$filling
+    end
+  when GLFW_KEY_U
+    if action == GLFW_PRESS
+      $underline = !$underline
+    end
+  when GLFW_KEY_B
+    if action == GLFW_PRESS
+      $background = ($background+1) % 4
+      setBackground
+    end
+  when GLFW_KEY_G
+    if action == GLFW_PRESS
+      $fill_gradient = ($fill_gradient+1) % 4
+    end
   end
 end
 
