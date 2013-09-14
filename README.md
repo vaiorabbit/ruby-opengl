@@ -190,7 +190,7 @@ sample/simple.rb を参照してください。
 
 *   Ruby
     *   ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
-
+    *   ruby 2.0.0p247 (2013-06-27) [i386-mingw32]
 
 *   Windows 7 Home Premium, 64-bit (Service Pack 1)
     *   NVIDIA GeForce GTX 560
