@@ -1,3 +1,4 @@
+# Ruby-OpenGL (http://github.com/vaiorabbit/ruby-opengl/)
 # [NOTICE] Automatically generated file
 
 require 'fiddle'

@@ -1,3 +1,4 @@
+# Ruby-OpenGL (http://github.com/vaiorabbit/ruby-opengl/)
 # [NOTICE] Automatically generated file
 
 module OpenGL
@@ -1705,6 +1706,7 @@ module OpenGL
   GL_MAX_VERTEX_ATTRIB_BINDINGS = 0x82DA
   GL_DISPLAY_LIST = 0x82E7
   GL_MAX_VERTEX_ATTRIB_STRIDE = 0x82E5
+  GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED = 0x8221
   GL_MAP_PERSISTENT_BIT = 0x0040
   GL_MAP_COHERENT_BIT = 0x0080
   GL_DYNAMIC_STORAGE_BIT = 0x0100

@@ -1,3 +1,4 @@
+# Ruby-OpenGL (http://github.com/vaiorabbit/ruby-opengl/)
 # [NOTICE] Automatically generated file
 
 module OpenGL
@@ -1454,6 +1455,7 @@ module OpenGL
     const_set('GL_TESS_GEN_POINT_MODE', 0x8E79)
     const_set('GL_TRIANGLES', 0x0004)
     const_set('GL_ISOLINES', 0x8E7A)
+    const_set('GL_QUADS', 0x0007)
     const_set('GL_EQUAL', 0x0202)
     const_set('GL_FRACTIONAL_ODD', 0x8E7B)
     const_set('GL_FRACTIONAL_EVEN', 0x8E7C)
@@ -1479,7 +1481,6 @@ module OpenGL
     const_set('GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_EVALUATION_SHADER', 0x84F1)
     const_set('GL_TESS_EVALUATION_SHADER', 0x8E87)
     const_set('GL_TESS_CONTROL_SHADER', 0x8E88)
-    const_set('GL_QUADS', 0x0007)
   end # define_enum_GL_ARB_tessellation_shader
 
   def define_enum_GL_ARB_texture_border_clamp

@@ -3677,7 +3677,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x821E" name="GL_CONTEXT_FLAGS"/>
         <enum value="0x821F" name="GL_BUFFER_IMMUTABLE_STORAGE"/>
         <enum value="0x8220" name="GL_BUFFER_STORAGE_FLAGS"/>
-            <unused start="0x8221"/>
+        <enum value="0x8221" name="GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED" comment="Proposed for Bug 10364"/>
         <enum value="0x8222" name="GL_INDEX"/>
             <unused start="0x8223" comment="GL_DEPTH_BUFFER = 0x8223 not actually used in the API"/>
             <unused start="0x8224" comment="GL_STENCIL_BUFFER = 0x8224 not actually used in the API"/>
@@ -29072,6 +29072,7 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_CLIENT_VERTEX_ARRAY_BIT"/>
             <enum name="GL_CLIENT_ALL_ATTRIB_BITS"/>
             <enum name="GL_QUAD_STRIP"/>
+            <enum name="GL_QUADS"/>
             <enum name="GL_POLYGON"/>
             <enum name="GL_ACCUM"/>
             <enum name="GL_LOAD"/>
@@ -29790,6 +29791,7 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_TESS_GEN_VERTEX_ORDER"/>
             <enum name="GL_TESS_GEN_POINT_MODE"/>
             <enum name="GL_ISOLINES"/>
+            <enum name="GL_QUADS"/>
             <enum name="GL_FRACTIONAL_ODD"/>
             <enum name="GL_FRACTIONAL_EVEN"/>
             <enum name="GL_MAX_PATCH_VERTICES"/>
@@ -30576,6 +30578,7 @@ typedef unsigned int GLhandleARB;
     <feature api="gl" name="GL_VERSION_4_4" number="4.4">
         <require>
             <enum name="GL_MAX_VERTEX_ATTRIB_STRIDE"/>
+            <enum name="GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED" comment="Proposed for Bug 10364"/>
         </require>
         <require comment="Reuse GL_ARB_buffer_storage">
             <enum name="GL_MAP_READ_BIT"/>
@@ -34176,6 +34179,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_TESS_GEN_POINT_MODE"/>
                 <enum name="GL_TRIANGLES"/>
                 <enum name="GL_ISOLINES"/>
+                <enum name="GL_QUADS"/>
                 <enum name="GL_EQUAL"/>
                 <enum name="GL_FRACTIONAL_ODD"/>
                 <enum name="GL_FRACTIONAL_EVEN"/>
@@ -34203,9 +34207,6 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_TESS_CONTROL_SHADER"/>
                 <command name="glPatchParameteri"/>
                 <command name="glPatchParameterfv"/>
-            </require>
-            <require api="gl" profile="compatibility">
-                <enum name="GL_QUADS"/>
             </require>
         </extension>
         <extension name="GL_ARB_texture_border_clamp" supported="gl">
