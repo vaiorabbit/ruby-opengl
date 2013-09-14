@@ -9,7 +9,7 @@ require_relative 'generate_ext_command'
 
 task 'default' => 'wrapper'
 
-task 'wrapper' => ['enum', 'ext_enum', 'command']
+task 'wrapper' => ['enum', 'ext_enum', 'command', 'ext_command']
 
 task 'enum' => '../opengl_enum.rb'
 

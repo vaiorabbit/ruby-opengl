@@ -36,9 +36,9 @@ CToFiddleTypeMap = {
 }
 
 GLToFiddleTypeMap = {
-  'GLenum' => 'Fiddle::TYPE_INT',
-  'GLboolean' => 'Fiddle::TYPE_CHAR',
-  'GLbitfield' => 'Fiddle::TYPE_INT',
+  'GLenum' => '-Fiddle::TYPE_INT',
+  'GLboolean' => '-Fiddle::TYPE_CHAR',
+  'GLbitfield' => '-Fiddle::TYPE_INT',
   'GLvoid' => 'Fiddle::TYPE_VOID',
   'GLbyte' => 'Fiddle::TYPE_CHAR',
   'GLshort' => 'Fiddle::TYPE_SHORT',
@@ -56,8 +56,8 @@ GLToFiddleTypeMap = {
   'GLchar' => 'Fiddle::TYPE_CHAR',
   'GLcharARB' => 'Fiddle::TYPE_CHAR',
   'GLhandleARB' => 'Fiddle::TYPE_VOIDP', # should be Fiddle::TYPE_INT for platforms other than __APPLE__
-  'GLhalfARB' => 'Fiddle::TYPE_SHORT',
-  'GLhalf' => 'Fiddle::TYPE_SHORT',
+  'GLhalfARB' => '-Fiddle::TYPE_SHORT',
+  'GLhalf' => '-Fiddle::TYPE_SHORT',
   'GLfixed' => 'Fiddle::TYPE_INT',
   'GLintptr' => 'Fiddle::TYPE_PTRDIFF_T',
   'GLsizeiptr' => 'Fiddle::TYPE_PTRDIFF_T',
@@ -74,7 +74,7 @@ GLToFiddleTypeMap = {
   'GLDEBUGPROCARB' => 'Fiddle::TYPE_VOIDP', # == void ( *GLDEBUGPROCARB)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam);
   'GLDEBUGPROCKHR' => 'Fiddle::TYPE_VOIDP', # == void ( *GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam);
   'GLDEBUGPROCAMD' => 'Fiddle::TYPE_VOIDP', # == void ( *GLDEBUGPROCAMD)(GLuint id,GLenum category,GLenum severity,GLsizei length,const GLchar *message,void *userParam);
-  'GLhalfNV' => 'Fiddle::TYPE_SHORT',
+  'GLhalfNV' => '-Fiddle::TYPE_SHORT',
   'GLvdpauSurfaceNV' => 'Fiddle::TYPE_PTRDIFF_T', # == GLintptr
 }
 
