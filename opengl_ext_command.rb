@@ -8,7 +8,7 @@ module OpenGL
   end # define_command_GL_3DFX_multisample
 
   def define_command_GL_3DFX_tbuffer
-    GL_FUNCTIONS_ARGS_MAP[:glTbufferMask3DFX] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTbufferMask3DFX] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTbufferMask3DFX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_3DFX_tbuffer)
       def glTbufferMask3DFX(_mask_)
@@ -28,7 +28,7 @@ module OpenGL
   end # define_command_GL_AMD_conservative_depth
 
   def define_command_GL_AMD_debug_output
-    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageEnableAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageEnableAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glDebugMessageEnableAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_debug_output)
       def glDebugMessageEnableAMD(_category_, _severity_, _count_, _ids_, _enabled_)
@@ -37,7 +37,7 @@ module OpenGL
       end
     SRC_GL_AMD_debug_output
 
-    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageInsertAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageInsertAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDebugMessageInsertAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_debug_output)
       def glDebugMessageInsertAMD(_category_, _severity_, _id_, _length_, _buf_)
@@ -55,8 +55,8 @@ module OpenGL
       end
     SRC_GL_AMD_debug_output
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetDebugMessageLogAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetDebugMessageLogAMD] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glGetDebugMessageLogAMD] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetDebugMessageLogAMD] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_AMD_debug_output)
       def glGetDebugMessageLogAMD(_count_, _bufsize_, _categories_, _severities_, _ids_, _lengths_, _message_)
         f = OpenGL::get_command(:glGetDebugMessageLogAMD)
@@ -69,7 +69,7 @@ module OpenGL
   end # define_command_GL_AMD_depth_clamp_separate
 
   def define_command_GL_AMD_draw_buffers_blend
-    GL_FUNCTIONS_ARGS_MAP[:glBlendFuncIndexedAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendFuncIndexedAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendFuncIndexedAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_draw_buffers_blend)
       def glBlendFuncIndexedAMD(_buf_, _src_, _dst_)
@@ -78,7 +78,7 @@ module OpenGL
       end
     SRC_GL_AMD_draw_buffers_blend
 
-    GL_FUNCTIONS_ARGS_MAP[:glBlendFuncSeparateIndexedAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendFuncSeparateIndexedAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendFuncSeparateIndexedAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_draw_buffers_blend)
       def glBlendFuncSeparateIndexedAMD(_buf_, _srcRGB_, _dstRGB_, _srcAlpha_, _dstAlpha_)
@@ -87,7 +87,7 @@ module OpenGL
       end
     SRC_GL_AMD_draw_buffers_blend
 
-    GL_FUNCTIONS_ARGS_MAP[:glBlendEquationIndexedAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendEquationIndexedAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendEquationIndexedAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_draw_buffers_blend)
       def glBlendEquationIndexedAMD(_buf_, _mode_)
@@ -96,7 +96,7 @@ module OpenGL
       end
     SRC_GL_AMD_draw_buffers_blend
 
-    GL_FUNCTIONS_ARGS_MAP[:glBlendEquationSeparateIndexedAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendEquationSeparateIndexedAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendEquationSeparateIndexedAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_draw_buffers_blend)
       def glBlendEquationSeparateIndexedAMD(_buf_, _modeRGB_, _modeAlpha_)
@@ -107,7 +107,7 @@ module OpenGL
   end # define_command_GL_AMD_draw_buffers_blend
 
   def define_command_GL_AMD_interleaved_elements
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribParameteriAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribParameteriAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribParameteriAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_interleaved_elements)
       def glVertexAttribParameteriAMD(_index_, _pname_, _param_)
@@ -118,7 +118,7 @@ module OpenGL
   end # define_command_GL_AMD_interleaved_elements
 
   def define_command_GL_AMD_multi_draw_indirect
-    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirectAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirectAMD] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawArraysIndirectAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_multi_draw_indirect)
       def glMultiDrawArraysIndirectAMD(_mode_, _indirect_, _primcount_, _stride_)
@@ -127,7 +127,7 @@ module OpenGL
       end
     SRC_GL_AMD_multi_draw_indirect
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsIndirectAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsIndirectAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawElementsIndirectAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_multi_draw_indirect)
       def glMultiDrawElementsIndirectAMD(_mode_, _type_, _indirect_, _primcount_, _stride_)
@@ -138,7 +138,7 @@ module OpenGL
   end # define_command_GL_AMD_multi_draw_indirect
 
   def define_command_GL_AMD_name_gen_delete
-    GL_FUNCTIONS_ARGS_MAP[:glGenNamesAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGenNamesAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGenNamesAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_name_gen_delete)
       def glGenNamesAMD(_identifier_, _num_, _names_)
@@ -147,7 +147,7 @@ module OpenGL
       end
     SRC_GL_AMD_name_gen_delete
 
-    GL_FUNCTIONS_ARGS_MAP[:glDeleteNamesAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glDeleteNamesAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDeleteNamesAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_name_gen_delete)
       def glDeleteNamesAMD(_identifier_, _num_, _names_)
@@ -156,8 +156,8 @@ module OpenGL
       end
     SRC_GL_AMD_name_gen_delete
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsNameAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsNameAMD] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsNameAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsNameAMD] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_AMD_name_gen_delete)
       def glIsNameAMD(_identifier_, _name_)
         f = OpenGL::get_command(:glIsNameAMD)
@@ -176,7 +176,7 @@ module OpenGL
       end
     SRC_GL_AMD_performance_monitor
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPerfMonitorCountersAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPerfMonitorCountersAMD] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPerfMonitorCountersAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_performance_monitor)
       def glGetPerfMonitorCountersAMD(_group_, _numCounters_, _maxActiveCounters_, _counterSize_, _counters_)
@@ -185,7 +185,7 @@ module OpenGL
       end
     SRC_GL_AMD_performance_monitor
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPerfMonitorGroupStringAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPerfMonitorGroupStringAMD] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPerfMonitorGroupStringAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_performance_monitor)
       def glGetPerfMonitorGroupStringAMD(_group_, _bufSize_, _length_, _groupString_)
@@ -194,7 +194,7 @@ module OpenGL
       end
     SRC_GL_AMD_performance_monitor
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPerfMonitorCounterStringAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPerfMonitorCounterStringAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPerfMonitorCounterStringAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_performance_monitor)
       def glGetPerfMonitorCounterStringAMD(_group_, _counter_, _bufSize_, _length_, _counterString_)
@@ -203,7 +203,7 @@ module OpenGL
       end
     SRC_GL_AMD_performance_monitor
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPerfMonitorCounterInfoAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPerfMonitorCounterInfoAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPerfMonitorCounterInfoAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_performance_monitor)
       def glGetPerfMonitorCounterInfoAMD(_group_, _counter_, _pname_, _data_)
@@ -230,7 +230,7 @@ module OpenGL
       end
     SRC_GL_AMD_performance_monitor
 
-    GL_FUNCTIONS_ARGS_MAP[:glSelectPerfMonitorCountersAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSelectPerfMonitorCountersAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSelectPerfMonitorCountersAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_performance_monitor)
       def glSelectPerfMonitorCountersAMD(_monitor_, _enable_, _group_, _numCounters_, _counterList_)
@@ -239,7 +239,7 @@ module OpenGL
       end
     SRC_GL_AMD_performance_monitor
 
-    GL_FUNCTIONS_ARGS_MAP[:glBeginPerfMonitorAMD] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBeginPerfMonitorAMD] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBeginPerfMonitorAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_performance_monitor)
       def glBeginPerfMonitorAMD(_monitor_)
@@ -248,7 +248,7 @@ module OpenGL
       end
     SRC_GL_AMD_performance_monitor
 
-    GL_FUNCTIONS_ARGS_MAP[:glEndPerfMonitorAMD] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEndPerfMonitorAMD] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEndPerfMonitorAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_performance_monitor)
       def glEndPerfMonitorAMD(_monitor_)
@@ -257,7 +257,7 @@ module OpenGL
       end
     SRC_GL_AMD_performance_monitor
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPerfMonitorCounterDataAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPerfMonitorCounterDataAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPerfMonitorCounterDataAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_performance_monitor)
       def glGetPerfMonitorCounterDataAMD(_monitor_, _pname_, _dataSize_, _data_, _bytesWritten_)
@@ -274,7 +274,7 @@ module OpenGL
   end # define_command_GL_AMD_query_buffer_object
 
   def define_command_GL_AMD_sample_positions
-    GL_FUNCTIONS_ARGS_MAP[:glSetMultisamplefvAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSetMultisamplefvAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSetMultisamplefvAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_sample_positions)
       def glSetMultisamplefvAMD(_pname_, _index_, _val_)
@@ -297,7 +297,7 @@ module OpenGL
   end # define_command_GL_AMD_shader_trinary_minmax
 
   def define_command_GL_AMD_sparse_texture
-    GL_FUNCTIONS_ARGS_MAP[:glTexStorageSparseAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexStorageSparseAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexStorageSparseAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_sparse_texture)
       def glTexStorageSparseAMD(_target_, _internalFormat_, _width_, _height_, _depth_, _layers_, _flags_)
@@ -306,7 +306,7 @@ module OpenGL
       end
     SRC_GL_AMD_sparse_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureStorageSparseAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureStorageSparseAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureStorageSparseAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_sparse_texture)
       def glTextureStorageSparseAMD(_texture_, _target_, _internalFormat_, _width_, _height_, _depth_, _layers_, _flags_)
@@ -317,7 +317,7 @@ module OpenGL
   end # define_command_GL_AMD_sparse_texture
 
   def define_command_GL_AMD_stencil_operation_extended
-    GL_FUNCTIONS_ARGS_MAP[:glStencilOpValueAMD] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glStencilOpValueAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glStencilOpValueAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_stencil_operation_extended)
       def glStencilOpValueAMD(_face_, _value_)
@@ -346,7 +346,7 @@ module OpenGL
       end
     SRC_GL_AMD_vertex_shader_tessellator
 
-    GL_FUNCTIONS_ARGS_MAP[:glTessellationModeAMD] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTessellationModeAMD] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTessellationModeAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_vertex_shader_tessellator)
       def glTessellationModeAMD(_mode_)
@@ -366,7 +366,7 @@ module OpenGL
   end # define_command_GL_APPLE_client_storage
 
   def define_command_GL_APPLE_element_array
-    GL_FUNCTIONS_ARGS_MAP[:glElementPointerAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glElementPointerAPPLE] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glElementPointerAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_element_array)
       def glElementPointerAPPLE(_type_, _pointer_)
@@ -375,7 +375,7 @@ module OpenGL
       end
     SRC_GL_APPLE_element_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawElementArrayAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawElementArrayAPPLE] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawElementArrayAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_element_array)
       def glDrawElementArrayAPPLE(_mode_, _first_, _count_)
@@ -384,7 +384,7 @@ module OpenGL
       end
     SRC_GL_APPLE_element_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawRangeElementArrayAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawRangeElementArrayAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawRangeElementArrayAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_element_array)
       def glDrawRangeElementArrayAPPLE(_mode_, _start_, _end_, _first_, _count_)
@@ -393,7 +393,7 @@ module OpenGL
       end
     SRC_GL_APPLE_element_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementArrayAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementArrayAPPLE] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawElementArrayAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_element_array)
       def glMultiDrawElementArrayAPPLE(_mode_, _first_, _count_, _primcount_)
@@ -402,7 +402,7 @@ module OpenGL
       end
     SRC_GL_APPLE_element_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawRangeElementArrayAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawRangeElementArrayAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawRangeElementArrayAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_element_array)
       def glMultiDrawRangeElementArrayAPPLE(_mode_, _start_, _end_, _first_, _count_, _primcount_)
@@ -431,7 +431,7 @@ module OpenGL
       end
     SRC_GL_APPLE_fence
 
-    GL_FUNCTIONS_ARGS_MAP[:glSetFenceAPPLE] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSetFenceAPPLE] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSetFenceAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_fence)
       def glSetFenceAPPLE(_fence_)
@@ -440,8 +440,8 @@ module OpenGL
       end
     SRC_GL_APPLE_fence
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsFenceAPPLE] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsFenceAPPLE] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsFenceAPPLE] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsFenceAPPLE] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_APPLE_fence)
       def glIsFenceAPPLE(_fence_)
         f = OpenGL::get_command(:glIsFenceAPPLE)
@@ -449,8 +449,8 @@ module OpenGL
       end
     SRC_GL_APPLE_fence
 
-    GL_FUNCTIONS_ARGS_MAP[:glTestFenceAPPLE] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glTestFenceAPPLE] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glTestFenceAPPLE] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glTestFenceAPPLE] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_APPLE_fence)
       def glTestFenceAPPLE(_fence_)
         f = OpenGL::get_command(:glTestFenceAPPLE)
@@ -458,7 +458,7 @@ module OpenGL
       end
     SRC_GL_APPLE_fence
 
-    GL_FUNCTIONS_ARGS_MAP[:glFinishFenceAPPLE] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFinishFenceAPPLE] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFinishFenceAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_fence)
       def glFinishFenceAPPLE(_fence_)
@@ -467,8 +467,8 @@ module OpenGL
       end
     SRC_GL_APPLE_fence
 
-    GL_FUNCTIONS_ARGS_MAP[:glTestObjectAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glTestObjectAPPLE] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glTestObjectAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glTestObjectAPPLE] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_APPLE_fence)
       def glTestObjectAPPLE(_object_, _name_)
         f = OpenGL::get_command(:glTestObjectAPPLE)
@@ -476,7 +476,7 @@ module OpenGL
       end
     SRC_GL_APPLE_fence
 
-    GL_FUNCTIONS_ARGS_MAP[:glFinishObjectAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFinishObjectAPPLE] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFinishObjectAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_fence)
       def glFinishObjectAPPLE(_object_, _name_)
@@ -490,7 +490,7 @@ module OpenGL
   end # define_command_GL_APPLE_float_pixels
 
   def define_command_GL_APPLE_flush_buffer_range
-    GL_FUNCTIONS_ARGS_MAP[:glBufferParameteriAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBufferParameteriAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBufferParameteriAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_flush_buffer_range)
       def glBufferParameteriAPPLE(_target_, _pname_, _param_)
@@ -499,7 +499,7 @@ module OpenGL
       end
     SRC_GL_APPLE_flush_buffer_range
 
-    GL_FUNCTIONS_ARGS_MAP[:glFlushMappedBufferRangeAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glFlushMappedBufferRangeAPPLE] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glFlushMappedBufferRangeAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_flush_buffer_range)
       def glFlushMappedBufferRangeAPPLE(_target_, _offset_, _size_)
@@ -510,8 +510,8 @@ module OpenGL
   end # define_command_GL_APPLE_flush_buffer_range
 
   def define_command_GL_APPLE_object_purgeable
-    GL_FUNCTIONS_ARGS_MAP[:glObjectPurgeableAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glObjectPurgeableAPPLE] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glObjectPurgeableAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glObjectPurgeableAPPLE] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_APPLE_object_purgeable)
       def glObjectPurgeableAPPLE(_objectType_, _name_, _option_)
         f = OpenGL::get_command(:glObjectPurgeableAPPLE)
@@ -519,8 +519,8 @@ module OpenGL
       end
     SRC_GL_APPLE_object_purgeable
 
-    GL_FUNCTIONS_ARGS_MAP[:glObjectUnpurgeableAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glObjectUnpurgeableAPPLE] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glObjectUnpurgeableAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glObjectUnpurgeableAPPLE] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_APPLE_object_purgeable)
       def glObjectUnpurgeableAPPLE(_objectType_, _name_, _option_)
         f = OpenGL::get_command(:glObjectUnpurgeableAPPLE)
@@ -528,7 +528,7 @@ module OpenGL
       end
     SRC_GL_APPLE_object_purgeable
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetObjectParameterivAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetObjectParameterivAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetObjectParameterivAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_object_purgeable)
       def glGetObjectParameterivAPPLE(_objectType_, _name_, _pname_, _params_)
@@ -548,7 +548,7 @@ module OpenGL
   end # define_command_GL_APPLE_specular_vector
 
   def define_command_GL_APPLE_texture_range
-    GL_FUNCTIONS_ARGS_MAP[:glTextureRangeAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureRangeAPPLE] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureRangeAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_texture_range)
       def glTextureRangeAPPLE(_target_, _length_, _pointer_)
@@ -557,7 +557,7 @@ module OpenGL
       end
     SRC_GL_APPLE_texture_range
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTexParameterPointervAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTexParameterPointervAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTexParameterPointervAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_texture_range)
       def glGetTexParameterPointervAPPLE(_target_, _pname_, _params_)
@@ -571,7 +571,7 @@ module OpenGL
   end # define_command_GL_APPLE_transform_hint
 
   def define_command_GL_APPLE_vertex_array_object
-    GL_FUNCTIONS_ARGS_MAP[:glBindVertexArrayAPPLE] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindVertexArrayAPPLE] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindVertexArrayAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_vertex_array_object)
       def glBindVertexArrayAPPLE(_array_)
@@ -598,8 +598,8 @@ module OpenGL
       end
     SRC_GL_APPLE_vertex_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsVertexArrayAPPLE] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsVertexArrayAPPLE] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsVertexArrayAPPLE] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsVertexArrayAPPLE] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_APPLE_vertex_array_object)
       def glIsVertexArrayAPPLE(_array_)
         f = OpenGL::get_command(:glIsVertexArrayAPPLE)
@@ -627,7 +627,7 @@ module OpenGL
       end
     SRC_GL_APPLE_vertex_array_range
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayParameteriAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayParameteriAPPLE] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayParameteriAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_vertex_array_range)
       def glVertexArrayParameteriAPPLE(_pname_, _param_)
@@ -638,7 +638,7 @@ module OpenGL
   end # define_command_GL_APPLE_vertex_array_range
 
   def define_command_GL_APPLE_vertex_program_evaluators
-    GL_FUNCTIONS_ARGS_MAP[:glEnableVertexAttribAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEnableVertexAttribAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEnableVertexAttribAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_vertex_program_evaluators)
       def glEnableVertexAttribAPPLE(_index_, _pname_)
@@ -647,7 +647,7 @@ module OpenGL
       end
     SRC_GL_APPLE_vertex_program_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glDisableVertexAttribAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDisableVertexAttribAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDisableVertexAttribAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_vertex_program_evaluators)
       def glDisableVertexAttribAPPLE(_index_, _pname_)
@@ -656,8 +656,8 @@ module OpenGL
       end
     SRC_GL_APPLE_vertex_program_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsVertexAttribEnabledAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsVertexAttribEnabledAPPLE] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsVertexAttribEnabledAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsVertexAttribEnabledAPPLE] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_APPLE_vertex_program_evaluators)
       def glIsVertexAttribEnabledAPPLE(_index_, _pname_)
         f = OpenGL::get_command(:glIsVertexAttribEnabledAPPLE)
@@ -665,7 +665,7 @@ module OpenGL
       end
     SRC_GL_APPLE_vertex_program_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glMapVertexAttrib1dAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMapVertexAttrib1dAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMapVertexAttrib1dAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_vertex_program_evaluators)
       def glMapVertexAttrib1dAPPLE(_index_, _size_, _u1_, _u2_, _stride_, _order_, _points_)
@@ -674,7 +674,7 @@ module OpenGL
       end
     SRC_GL_APPLE_vertex_program_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glMapVertexAttrib1fAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMapVertexAttrib1fAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMapVertexAttrib1fAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_vertex_program_evaluators)
       def glMapVertexAttrib1fAPPLE(_index_, _size_, _u1_, _u2_, _stride_, _order_, _points_)
@@ -683,7 +683,7 @@ module OpenGL
       end
     SRC_GL_APPLE_vertex_program_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glMapVertexAttrib2dAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMapVertexAttrib2dAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMapVertexAttrib2dAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_vertex_program_evaluators)
       def glMapVertexAttrib2dAPPLE(_index_, _size_, _u1_, _u2_, _ustride_, _uorder_, _v1_, _v2_, _vstride_, _vorder_, _points_)
@@ -692,7 +692,7 @@ module OpenGL
       end
     SRC_GL_APPLE_vertex_program_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glMapVertexAttrib2fAPPLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMapVertexAttrib2fAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMapVertexAttrib2fAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_vertex_program_evaluators)
       def glMapVertexAttrib2fAPPLE(_index_, _size_, _u1_, _u2_, _ustride_, _uorder_, _v1_, _v2_, _vstride_, _vorder_, _points_)
@@ -715,7 +715,7 @@ module OpenGL
       end
     SRC_GL_ARB_ES2_compatibility
 
-    GL_FUNCTIONS_ARGS_MAP[:glShaderBinary] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glShaderBinary] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glShaderBinary] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_ES2_compatibility)
       def glShaderBinary(_count_, _shaders_, _binaryformat_, _binary_, _length_)
@@ -724,7 +724,7 @@ module OpenGL
       end
     SRC_GL_ARB_ES2_compatibility
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetShaderPrecisionFormat] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetShaderPrecisionFormat] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetShaderPrecisionFormat] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_ES2_compatibility)
       def glGetShaderPrecisionFormat(_shadertype_, _precisiontype_, _range_, _precision_)
@@ -759,7 +759,7 @@ module OpenGL
   end # define_command_GL_ARB_arrays_of_arrays
 
   def define_command_GL_ARB_base_instance
-    GL_FUNCTIONS_ARGS_MAP[:glDrawArraysInstancedBaseInstance] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawArraysInstancedBaseInstance] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawArraysInstancedBaseInstance] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_base_instance)
       def glDrawArraysInstancedBaseInstance(_mode_, _first_, _count_, _instancecount_, _baseinstance_)
@@ -768,7 +768,7 @@ module OpenGL
       end
     SRC_GL_ARB_base_instance
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsInstancedBaseInstance] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsInstancedBaseInstance] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawElementsInstancedBaseInstance] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_base_instance)
       def glDrawElementsInstancedBaseInstance(_mode_, _count_, _type_, _indices_, _instancecount_, _baseinstance_)
@@ -777,7 +777,7 @@ module OpenGL
       end
     SRC_GL_ARB_base_instance
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsInstancedBaseVertexBaseInstance] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsInstancedBaseVertexBaseInstance] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawElementsInstancedBaseVertexBaseInstance] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_base_instance)
       def glDrawElementsInstancedBaseVertexBaseInstance(_mode_, _count_, _type_, _indices_, _instancecount_, _basevertex_, _baseinstance_)
@@ -788,8 +788,8 @@ module OpenGL
   end # define_command_GL_ARB_base_instance
 
   def define_command_GL_ARB_bindless_texture
-    GL_FUNCTIONS_ARGS_MAP[:glGetTextureHandleARB] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetTextureHandleARB] = Fiddle::TYPE_LONG_LONG
+    GL_FUNCTIONS_ARGS_MAP[:glGetTextureHandleARB] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetTextureHandleARB] = -Fiddle::TYPE_LONG_LONG
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glGetTextureHandleARB(_texture_)
         f = OpenGL::get_command(:glGetTextureHandleARB)
@@ -797,8 +797,8 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTextureSamplerHandleARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetTextureSamplerHandleARB] = Fiddle::TYPE_LONG_LONG
+    GL_FUNCTIONS_ARGS_MAP[:glGetTextureSamplerHandleARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetTextureSamplerHandleARB] = -Fiddle::TYPE_LONG_LONG
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glGetTextureSamplerHandleARB(_texture_, _sampler_)
         f = OpenGL::get_command(:glGetTextureSamplerHandleARB)
@@ -806,7 +806,7 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMakeTextureHandleResidentARB] = [Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glMakeTextureHandleResidentARB] = [-Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glMakeTextureHandleResidentARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glMakeTextureHandleResidentARB(_handle_)
@@ -815,7 +815,7 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMakeTextureHandleNonResidentARB] = [Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glMakeTextureHandleNonResidentARB] = [-Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glMakeTextureHandleNonResidentARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glMakeTextureHandleNonResidentARB(_handle_)
@@ -824,8 +824,8 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetImageHandleARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetImageHandleARB] = Fiddle::TYPE_LONG_LONG
+    GL_FUNCTIONS_ARGS_MAP[:glGetImageHandleARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetImageHandleARB] = -Fiddle::TYPE_LONG_LONG
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glGetImageHandleARB(_texture_, _level_, _layered_, _layer_, _format_)
         f = OpenGL::get_command(:glGetImageHandleARB)
@@ -833,7 +833,7 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMakeImageHandleResidentARB] = [Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMakeImageHandleResidentARB] = [-Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMakeImageHandleResidentARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glMakeImageHandleResidentARB(_handle_, _access_)
@@ -842,7 +842,7 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMakeImageHandleNonResidentARB] = [Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glMakeImageHandleNonResidentARB] = [-Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glMakeImageHandleNonResidentARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glMakeImageHandleNonResidentARB(_handle_)
@@ -851,7 +851,7 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformHandleui64ARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformHandleui64ARB] = [Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformHandleui64ARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glUniformHandleui64ARB(_location_, _value_)
@@ -869,7 +869,7 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformHandleui64ARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformHandleui64ARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformHandleui64ARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glProgramUniformHandleui64ARB(_program_, _location_, _value_)
@@ -878,7 +878,7 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformHandleui64vARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformHandleui64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformHandleui64vARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glProgramUniformHandleui64vARB(_program_, _location_, _count_, _values_)
@@ -887,8 +887,8 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsTextureHandleResidentARB] = [Fiddle::TYPE_LONG_LONG]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsTextureHandleResidentARB] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsTextureHandleResidentARB] = [-Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsTextureHandleResidentARB] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glIsTextureHandleResidentARB(_handle_)
         f = OpenGL::get_command(:glIsTextureHandleResidentARB)
@@ -896,8 +896,8 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsImageHandleResidentARB] = [Fiddle::TYPE_LONG_LONG]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsImageHandleResidentARB] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsImageHandleResidentARB] = [-Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsImageHandleResidentARB] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glIsImageHandleResidentARB(_handle_)
         f = OpenGL::get_command(:glIsImageHandleResidentARB)
@@ -905,7 +905,7 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1ui64ARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1ui64ARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL1ui64ARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glVertexAttribL1ui64ARB(_index_, _x_)
@@ -914,7 +914,7 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1ui64vARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1ui64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL1ui64vARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glVertexAttribL1ui64vARB(_index_, _v_)
@@ -923,7 +923,7 @@ module OpenGL
       end
     SRC_GL_ARB_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribLui64vARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribLui64vARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribLui64vARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_bindless_texture)
       def glGetVertexAttribLui64vARB(_index_, _pname_, _params_)
@@ -934,7 +934,7 @@ module OpenGL
   end # define_command_GL_ARB_bindless_texture
 
   def define_command_GL_ARB_blend_func_extended
-    GL_FUNCTIONS_ARGS_MAP[:glBindFragDataLocationIndexed] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glBindFragDataLocationIndexed] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glBindFragDataLocationIndexed] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_blend_func_extended)
       def glBindFragDataLocationIndexed(_program_, _colorNumber_, _index_, _name_)
@@ -943,7 +943,7 @@ module OpenGL
       end
     SRC_GL_ARB_blend_func_extended
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFragDataIndex] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFragDataIndex] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFragDataIndex] = Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ARB_blend_func_extended)
       def glGetFragDataIndex(_program_, _name_)
@@ -954,7 +954,7 @@ module OpenGL
   end # define_command_GL_ARB_blend_func_extended
 
   def define_command_GL_ARB_buffer_storage
-    GL_FUNCTIONS_ARGS_MAP[:glBufferStorage] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBufferStorage] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBufferStorage] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_buffer_storage)
       def glBufferStorage(_target_, _size_, _data_, _flags_)
@@ -965,7 +965,7 @@ module OpenGL
   end # define_command_GL_ARB_buffer_storage
 
   def define_command_GL_ARB_cl_event
-    GL_FUNCTIONS_ARGS_MAP[:glCreateSyncFromCLeventARB] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCreateSyncFromCLeventARB] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCreateSyncFromCLeventARB] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_ARB_cl_event)
       def glCreateSyncFromCLeventARB(_context_, _event_, _flags_)
@@ -976,7 +976,7 @@ module OpenGL
   end # define_command_GL_ARB_cl_event
 
   def define_command_GL_ARB_clear_buffer_object
-    GL_FUNCTIONS_ARGS_MAP[:glClearBufferData] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glClearBufferData] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glClearBufferData] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_clear_buffer_object)
       def glClearBufferData(_target_, _internalformat_, _format_, _type_, _data_)
@@ -985,7 +985,7 @@ module OpenGL
       end
     SRC_GL_ARB_clear_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glClearBufferSubData] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glClearBufferSubData] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glClearBufferSubData] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_clear_buffer_object)
       def glClearBufferSubData(_target_, _internalformat_, _offset_, _size_, _format_, _type_, _data_)
@@ -996,7 +996,7 @@ module OpenGL
   end # define_command_GL_ARB_clear_buffer_object
 
   def define_command_GL_ARB_clear_texture
-    GL_FUNCTIONS_ARGS_MAP[:glClearTexImage] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glClearTexImage] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glClearTexImage] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_clear_texture)
       def glClearTexImage(_texture_, _level_, _format_, _type_, _data_)
@@ -1005,7 +1005,7 @@ module OpenGL
       end
     SRC_GL_ARB_clear_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glClearTexSubImage] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glClearTexSubImage] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glClearTexSubImage] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_clear_texture)
       def glClearTexSubImage(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _data_)
@@ -1016,7 +1016,7 @@ module OpenGL
   end # define_command_GL_ARB_clear_texture
 
   def define_command_GL_ARB_color_buffer_float
-    GL_FUNCTIONS_ARGS_MAP[:glClampColorARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glClampColorARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glClampColorARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_color_buffer_float)
       def glClampColorARB(_target_, _clamp_)
@@ -1033,7 +1033,7 @@ module OpenGL
   end # define_command_GL_ARB_compressed_texture_pixel_storage
 
   def define_command_GL_ARB_compute_shader
-    GL_FUNCTIONS_ARGS_MAP[:glDispatchCompute] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDispatchCompute] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDispatchCompute] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_compute_shader)
       def glDispatchCompute(_num_groups_x_, _num_groups_y_, _num_groups_z_)
@@ -1053,7 +1053,7 @@ module OpenGL
   end # define_command_GL_ARB_compute_shader
 
   def define_command_GL_ARB_compute_variable_group_size
-    GL_FUNCTIONS_ARGS_MAP[:glDispatchComputeGroupSizeARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDispatchComputeGroupSizeARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDispatchComputeGroupSizeARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_compute_variable_group_size)
       def glDispatchComputeGroupSizeARB(_num_groups_x_, _num_groups_y_, _num_groups_z_, _group_size_x_, _group_size_y_, _group_size_z_)
@@ -1067,7 +1067,7 @@ module OpenGL
   end # define_command_GL_ARB_conservative_depth
 
   def define_command_GL_ARB_copy_buffer
-    GL_FUNCTIONS_ARGS_MAP[:glCopyBufferSubData] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyBufferSubData] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyBufferSubData] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_copy_buffer)
       def glCopyBufferSubData(_readTarget_, _writeTarget_, _readOffset_, _writeOffset_, _size_)
@@ -1078,7 +1078,7 @@ module OpenGL
   end # define_command_GL_ARB_copy_buffer
 
   def define_command_GL_ARB_copy_image
-    GL_FUNCTIONS_ARGS_MAP[:glCopyImageSubData] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyImageSubData] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyImageSubData] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_copy_image)
       def glCopyImageSubData(_srcName_, _srcTarget_, _srcLevel_, _srcX_, _srcY_, _srcZ_, _dstName_, _dstTarget_, _dstLevel_, _dstX_, _dstY_, _dstZ_, _srcWidth_, _srcHeight_, _srcDepth_)
@@ -1089,7 +1089,7 @@ module OpenGL
   end # define_command_GL_ARB_copy_image
 
   def define_command_GL_ARB_debug_output
-    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageControlARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageControlARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glDebugMessageControlARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_debug_output)
       def glDebugMessageControlARB(_source_, _type_, _severity_, _count_, _ids_, _enabled_)
@@ -1098,7 +1098,7 @@ module OpenGL
       end
     SRC_GL_ARB_debug_output
 
-    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageInsertARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageInsertARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDebugMessageInsertARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_debug_output)
       def glDebugMessageInsertARB(_source_, _type_, _id_, _severity_, _length_, _buf_)
@@ -1116,8 +1116,8 @@ module OpenGL
       end
     SRC_GL_ARB_debug_output
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetDebugMessageLogARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetDebugMessageLogARB] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glGetDebugMessageLogARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetDebugMessageLogARB] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ARB_debug_output)
       def glGetDebugMessageLogARB(_count_, _bufSize_, _sources_, _types_, _ids_, _severities_, _lengths_, _messageLog_)
         f = OpenGL::get_command(:glGetDebugMessageLogARB)
@@ -1147,7 +1147,7 @@ module OpenGL
   end # define_command_GL_ARB_draw_buffers
 
   def define_command_GL_ARB_draw_buffers_blend
-    GL_FUNCTIONS_ARGS_MAP[:glBlendEquationiARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendEquationiARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendEquationiARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_draw_buffers_blend)
       def glBlendEquationiARB(_buf_, _mode_)
@@ -1156,7 +1156,7 @@ module OpenGL
       end
     SRC_GL_ARB_draw_buffers_blend
 
-    GL_FUNCTIONS_ARGS_MAP[:glBlendEquationSeparateiARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendEquationSeparateiARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendEquationSeparateiARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_draw_buffers_blend)
       def glBlendEquationSeparateiARB(_buf_, _modeRGB_, _modeAlpha_)
@@ -1165,7 +1165,7 @@ module OpenGL
       end
     SRC_GL_ARB_draw_buffers_blend
 
-    GL_FUNCTIONS_ARGS_MAP[:glBlendFunciARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendFunciARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendFunciARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_draw_buffers_blend)
       def glBlendFunciARB(_buf_, _src_, _dst_)
@@ -1174,7 +1174,7 @@ module OpenGL
       end
     SRC_GL_ARB_draw_buffers_blend
 
-    GL_FUNCTIONS_ARGS_MAP[:glBlendFuncSeparateiARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendFuncSeparateiARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendFuncSeparateiARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_draw_buffers_blend)
       def glBlendFuncSeparateiARB(_buf_, _srcRGB_, _dstRGB_, _srcAlpha_, _dstAlpha_)
@@ -1185,7 +1185,7 @@ module OpenGL
   end # define_command_GL_ARB_draw_buffers_blend
 
   def define_command_GL_ARB_draw_elements_base_vertex
-    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsBaseVertex] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsBaseVertex] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawElementsBaseVertex] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_draw_elements_base_vertex)
       def glDrawElementsBaseVertex(_mode_, _count_, _type_, _indices_, _basevertex_)
@@ -1194,7 +1194,7 @@ module OpenGL
       end
     SRC_GL_ARB_draw_elements_base_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawRangeElementsBaseVertex] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawRangeElementsBaseVertex] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawRangeElementsBaseVertex] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_draw_elements_base_vertex)
       def glDrawRangeElementsBaseVertex(_mode_, _start_, _end_, _count_, _type_, _indices_, _basevertex_)
@@ -1203,7 +1203,7 @@ module OpenGL
       end
     SRC_GL_ARB_draw_elements_base_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsInstancedBaseVertex] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsInstancedBaseVertex] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawElementsInstancedBaseVertex] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_draw_elements_base_vertex)
       def glDrawElementsInstancedBaseVertex(_mode_, _count_, _type_, _indices_, _instancecount_, _basevertex_)
@@ -1212,7 +1212,7 @@ module OpenGL
       end
     SRC_GL_ARB_draw_elements_base_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsBaseVertex] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsBaseVertex] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawElementsBaseVertex] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_draw_elements_base_vertex)
       def glMultiDrawElementsBaseVertex(_mode_, _count_, _type_, _indices_, _drawcount_, _basevertex_)
@@ -1223,7 +1223,7 @@ module OpenGL
   end # define_command_GL_ARB_draw_elements_base_vertex
 
   def define_command_GL_ARB_draw_indirect
-    GL_FUNCTIONS_ARGS_MAP[:glDrawArraysIndirect] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawArraysIndirect] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawArraysIndirect] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_draw_indirect)
       def glDrawArraysIndirect(_mode_, _indirect_)
@@ -1232,7 +1232,7 @@ module OpenGL
       end
     SRC_GL_ARB_draw_indirect
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsIndirect] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsIndirect] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawElementsIndirect] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_draw_indirect)
       def glDrawElementsIndirect(_mode_, _type_, _indirect_)
@@ -1243,7 +1243,7 @@ module OpenGL
   end # define_command_GL_ARB_draw_indirect
 
   def define_command_GL_ARB_draw_instanced
-    GL_FUNCTIONS_ARGS_MAP[:glDrawArraysInstancedARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawArraysInstancedARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawArraysInstancedARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_draw_instanced)
       def glDrawArraysInstancedARB(_mode_, _first_, _count_, _primcount_)
@@ -1252,7 +1252,7 @@ module OpenGL
       end
     SRC_GL_ARB_draw_instanced
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsInstancedARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsInstancedARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawElementsInstancedARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_draw_instanced)
       def glDrawElementsInstancedARB(_mode_, _count_, _type_, _indices_, _primcount_)
@@ -1278,7 +1278,7 @@ module OpenGL
   end # define_command_GL_ARB_fragment_layer_viewport
 
   def define_command_GL_ARB_fragment_program
-    GL_FUNCTIONS_ARGS_MAP[:glProgramStringARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramStringARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramStringARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glProgramStringARB(_target_, _format_, _len_, _string_)
@@ -1287,7 +1287,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindProgramARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindProgramARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindProgramARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glBindProgramARB(_target_, _program_)
@@ -1314,7 +1314,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4dARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParameter4dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glProgramEnvParameter4dARB(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -1323,7 +1323,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4dvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParameter4dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glProgramEnvParameter4dvARB(_target_, _index_, _params_)
@@ -1332,7 +1332,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4fARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParameter4fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glProgramEnvParameter4fARB(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -1341,7 +1341,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4fvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParameter4fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glProgramEnvParameter4fvARB(_target_, _index_, _params_)
@@ -1350,7 +1350,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4dARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParameter4dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glProgramLocalParameter4dARB(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -1359,7 +1359,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4dvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParameter4dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glProgramLocalParameter4dvARB(_target_, _index_, _params_)
@@ -1368,7 +1368,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4fARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParameter4fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glProgramLocalParameter4fARB(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -1377,7 +1377,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4fvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParameter4fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glProgramLocalParameter4fvARB(_target_, _index_, _params_)
@@ -1386,7 +1386,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramEnvParameterdvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramEnvParameterdvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramEnvParameterdvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glGetProgramEnvParameterdvARB(_target_, _index_, _params_)
@@ -1395,7 +1395,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramEnvParameterfvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramEnvParameterfvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramEnvParameterfvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glGetProgramEnvParameterfvARB(_target_, _index_, _params_)
@@ -1404,7 +1404,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramLocalParameterdvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramLocalParameterdvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramLocalParameterdvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glGetProgramLocalParameterdvARB(_target_, _index_, _params_)
@@ -1413,7 +1413,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramLocalParameterfvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramLocalParameterfvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramLocalParameterfvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glGetProgramLocalParameterfvARB(_target_, _index_, _params_)
@@ -1422,7 +1422,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramivARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glGetProgramivARB(_target_, _pname_, _params_)
@@ -1431,7 +1431,7 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramStringARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramStringARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramStringARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glGetProgramStringARB(_target_, _pname_, _string_)
@@ -1440,8 +1440,8 @@ module OpenGL
       end
     SRC_GL_ARB_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsProgramARB] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsProgramARB] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsProgramARB] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsProgramARB] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_fragment_program)
       def glIsProgramARB(_program_)
         f = OpenGL::get_command(:glIsProgramARB)
@@ -1457,7 +1457,7 @@ module OpenGL
   end # define_command_GL_ARB_fragment_shader
 
   def define_command_GL_ARB_framebuffer_no_attachments
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferParameteri] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferParameteri] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferParameteri] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_no_attachments)
       def glFramebufferParameteri(_target_, _pname_, _param_)
@@ -1466,7 +1466,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_no_attachments
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFramebufferParameteriv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFramebufferParameteriv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFramebufferParameteriv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_no_attachments)
       def glGetFramebufferParameteriv(_target_, _pname_, _params_)
@@ -1477,8 +1477,8 @@ module OpenGL
   end # define_command_GL_ARB_framebuffer_no_attachments
 
   def define_command_GL_ARB_framebuffer_object
-    GL_FUNCTIONS_ARGS_MAP[:glIsRenderbuffer] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsRenderbuffer] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsRenderbuffer] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsRenderbuffer] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glIsRenderbuffer(_renderbuffer_)
         f = OpenGL::get_command(:glIsRenderbuffer)
@@ -1486,7 +1486,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindRenderbuffer] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindRenderbuffer] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindRenderbuffer] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glBindRenderbuffer(_target_, _renderbuffer_)
@@ -1513,7 +1513,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorage] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorage] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorage] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glRenderbufferStorage(_target_, _internalformat_, _width_, _height_)
@@ -1522,7 +1522,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetRenderbufferParameteriv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetRenderbufferParameteriv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetRenderbufferParameteriv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glGetRenderbufferParameteriv(_target_, _pname_, _params_)
@@ -1531,8 +1531,8 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsFramebuffer] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsFramebuffer] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsFramebuffer] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsFramebuffer] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glIsFramebuffer(_framebuffer_)
         f = OpenGL::get_command(:glIsFramebuffer)
@@ -1540,7 +1540,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindFramebuffer] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindFramebuffer] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindFramebuffer] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glBindFramebuffer(_target_, _framebuffer_)
@@ -1567,8 +1567,8 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glCheckFramebufferStatus] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glCheckFramebufferStatus] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glCheckFramebufferStatus] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glCheckFramebufferStatus] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glCheckFramebufferStatus(_target_)
         f = OpenGL::get_command(:glCheckFramebufferStatus)
@@ -1576,7 +1576,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTexture1D] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTexture1D] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTexture1D] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glFramebufferTexture1D(_target_, _attachment_, _textarget_, _texture_, _level_)
@@ -1585,7 +1585,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTexture2D] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTexture2D] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTexture2D] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glFramebufferTexture2D(_target_, _attachment_, _textarget_, _texture_, _level_)
@@ -1594,7 +1594,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTexture3D] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTexture3D] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTexture3D] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glFramebufferTexture3D(_target_, _attachment_, _textarget_, _texture_, _level_, _zoffset_)
@@ -1603,7 +1603,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferRenderbuffer] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferRenderbuffer] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferRenderbuffer] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glFramebufferRenderbuffer(_target_, _attachment_, _renderbuffertarget_, _renderbuffer_)
@@ -1612,7 +1612,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFramebufferAttachmentParameteriv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFramebufferAttachmentParameteriv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFramebufferAttachmentParameteriv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glGetFramebufferAttachmentParameteriv(_target_, _attachment_, _pname_, _params_)
@@ -1621,7 +1621,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGenerateMipmap] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glGenerateMipmap] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glGenerateMipmap] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glGenerateMipmap(_target_)
@@ -1630,7 +1630,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glBlitFramebuffer] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlitFramebuffer] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlitFramebuffer] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glBlitFramebuffer(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
@@ -1639,7 +1639,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisample] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisample] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorageMultisample] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glRenderbufferStorageMultisample(_target_, _samples_, _internalformat_, _width_, _height_)
@@ -1648,7 +1648,7 @@ module OpenGL
       end
     SRC_GL_ARB_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureLayer] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureLayer] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureLayer] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_framebuffer_object)
       def glFramebufferTextureLayer(_target_, _attachment_, _texture_, _level_, _layer_)
@@ -1662,7 +1662,7 @@ module OpenGL
   end # define_command_GL_ARB_framebuffer_sRGB
 
   def define_command_GL_ARB_geometry_shader4
-    GL_FUNCTIONS_ARGS_MAP[:glProgramParameteriARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramParameteriARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramParameteriARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_geometry_shader4)
       def glProgramParameteriARB(_program_, _pname_, _value_)
@@ -1671,7 +1671,7 @@ module OpenGL
       end
     SRC_GL_ARB_geometry_shader4
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_geometry_shader4)
       def glFramebufferTextureARB(_target_, _attachment_, _texture_, _level_)
@@ -1680,7 +1680,7 @@ module OpenGL
       end
     SRC_GL_ARB_geometry_shader4
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureLayerARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureLayerARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureLayerARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_geometry_shader4)
       def glFramebufferTextureLayerARB(_target_, _attachment_, _texture_, _level_, _layer_)
@@ -1689,7 +1689,7 @@ module OpenGL
       end
     SRC_GL_ARB_geometry_shader4
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureFaceARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureFaceARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureFaceARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_geometry_shader4)
       def glFramebufferTextureFaceARB(_target_, _attachment_, _texture_, _level_, _face_)
@@ -1700,7 +1700,7 @@ module OpenGL
   end # define_command_GL_ARB_geometry_shader4
 
   def define_command_GL_ARB_get_program_binary
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramBinary] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramBinary] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramBinary] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_get_program_binary)
       def glGetProgramBinary(_program_, _bufSize_, _length_, _binaryFormat_, _binary_)
@@ -1709,7 +1709,7 @@ module OpenGL
       end
     SRC_GL_ARB_get_program_binary
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramBinary] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramBinary] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramBinary] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_get_program_binary)
       def glProgramBinary(_program_, _binaryFormat_, _binary_, _length_)
@@ -1718,7 +1718,7 @@ module OpenGL
       end
     SRC_GL_ARB_get_program_binary
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramParameteri] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramParameteri] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramParameteri] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_get_program_binary)
       def glProgramParameteri(_program_, _pname_, _value_)
@@ -1804,7 +1804,7 @@ module OpenGL
       end
     SRC_GL_ARB_gpu_shader_fp64
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix2dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix2dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix2dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_gpu_shader_fp64)
       def glUniformMatrix2dv(_location_, _count_, _transpose_, _value_)
@@ -1813,7 +1813,7 @@ module OpenGL
       end
     SRC_GL_ARB_gpu_shader_fp64
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix3dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix3dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix3dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_gpu_shader_fp64)
       def glUniformMatrix3dv(_location_, _count_, _transpose_, _value_)
@@ -1822,7 +1822,7 @@ module OpenGL
       end
     SRC_GL_ARB_gpu_shader_fp64
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix4dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix4dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix4dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_gpu_shader_fp64)
       def glUniformMatrix4dv(_location_, _count_, _transpose_, _value_)
@@ -1831,7 +1831,7 @@ module OpenGL
       end
     SRC_GL_ARB_gpu_shader_fp64
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix2x3dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix2x3dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix2x3dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_gpu_shader_fp64)
       def glUniformMatrix2x3dv(_location_, _count_, _transpose_, _value_)
@@ -1840,7 +1840,7 @@ module OpenGL
       end
     SRC_GL_ARB_gpu_shader_fp64
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix2x4dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix2x4dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix2x4dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_gpu_shader_fp64)
       def glUniformMatrix2x4dv(_location_, _count_, _transpose_, _value_)
@@ -1849,7 +1849,7 @@ module OpenGL
       end
     SRC_GL_ARB_gpu_shader_fp64
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix3x2dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix3x2dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix3x2dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_gpu_shader_fp64)
       def glUniformMatrix3x2dv(_location_, _count_, _transpose_, _value_)
@@ -1858,7 +1858,7 @@ module OpenGL
       end
     SRC_GL_ARB_gpu_shader_fp64
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix3x4dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix3x4dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix3x4dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_gpu_shader_fp64)
       def glUniformMatrix3x4dv(_location_, _count_, _transpose_, _value_)
@@ -1867,7 +1867,7 @@ module OpenGL
       end
     SRC_GL_ARB_gpu_shader_fp64
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix4x2dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix4x2dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix4x2dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_gpu_shader_fp64)
       def glUniformMatrix4x2dv(_location_, _count_, _transpose_, _value_)
@@ -1876,7 +1876,7 @@ module OpenGL
       end
     SRC_GL_ARB_gpu_shader_fp64
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix4x3dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix4x3dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix4x3dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_gpu_shader_fp64)
       def glUniformMatrix4x3dv(_location_, _count_, _transpose_, _value_)
@@ -1885,7 +1885,7 @@ module OpenGL
       end
     SRC_GL_ARB_gpu_shader_fp64
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetUniformdv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetUniformdv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetUniformdv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_gpu_shader_fp64)
       def glGetUniformdv(_program_, _location_, _params_)
@@ -1911,7 +1911,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glBlendEquation] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendEquation] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendEquation] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glBlendEquation(_mode_)
@@ -1920,7 +1920,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorTable] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glColorTable] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glColorTable] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glColorTable(_target_, _internalformat_, _width_, _format_, _type_, _table_)
@@ -1929,7 +1929,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorTableParameterfv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glColorTableParameterfv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glColorTableParameterfv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glColorTableParameterfv(_target_, _pname_, _params_)
@@ -1938,7 +1938,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorTableParameteriv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glColorTableParameteriv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glColorTableParameteriv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glColorTableParameteriv(_target_, _pname_, _params_)
@@ -1947,7 +1947,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyColorTable] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyColorTable] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyColorTable] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glCopyColorTable(_target_, _internalformat_, _x_, _y_, _width_)
@@ -1956,7 +1956,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetColorTable] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetColorTable] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetColorTable] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glGetColorTable(_target_, _format_, _type_, _table_)
@@ -1965,7 +1965,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableParameterfv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableParameterfv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetColorTableParameterfv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glGetColorTableParameterfv(_target_, _pname_, _params_)
@@ -1974,7 +1974,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableParameteriv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableParameteriv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetColorTableParameteriv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glGetColorTableParameteriv(_target_, _pname_, _params_)
@@ -1983,7 +1983,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorSubTable] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glColorSubTable] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glColorSubTable] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glColorSubTable(_target_, _start_, _count_, _format_, _type_, _data_)
@@ -1992,7 +1992,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyColorSubTable] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyColorSubTable] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyColorSubTable] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glCopyColorSubTable(_target_, _start_, _x_, _y_, _width_)
@@ -2001,7 +2001,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionFilter1D] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionFilter1D] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionFilter1D] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glConvolutionFilter1D(_target_, _internalformat_, _width_, _format_, _type_, _image_)
@@ -2010,7 +2010,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionFilter2D] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionFilter2D] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionFilter2D] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glConvolutionFilter2D(_target_, _internalformat_, _width_, _height_, _format_, _type_, _image_)
@@ -2019,7 +2019,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterf] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterf] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionParameterf] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glConvolutionParameterf(_target_, _pname_, _params_)
@@ -2028,7 +2028,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterfv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterfv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionParameterfv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glConvolutionParameterfv(_target_, _pname_, _params_)
@@ -2037,7 +2037,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameteri] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameteri] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionParameteri] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glConvolutionParameteri(_target_, _pname_, _params_)
@@ -2046,7 +2046,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameteriv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameteriv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionParameteriv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glConvolutionParameteriv(_target_, _pname_, _params_)
@@ -2055,7 +2055,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyConvolutionFilter1D] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyConvolutionFilter1D] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyConvolutionFilter1D] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glCopyConvolutionFilter1D(_target_, _internalformat_, _x_, _y_, _width_)
@@ -2064,7 +2064,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyConvolutionFilter2D] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyConvolutionFilter2D] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyConvolutionFilter2D] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glCopyConvolutionFilter2D(_target_, _internalformat_, _x_, _y_, _width_, _height_)
@@ -2073,7 +2073,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionFilter] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionFilter] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetConvolutionFilter] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glGetConvolutionFilter(_target_, _format_, _type_, _image_)
@@ -2082,7 +2082,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionParameterfv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionParameterfv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetConvolutionParameterfv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glGetConvolutionParameterfv(_target_, _pname_, _params_)
@@ -2091,7 +2091,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionParameteriv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionParameteriv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetConvolutionParameteriv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glGetConvolutionParameteriv(_target_, _pname_, _params_)
@@ -2100,7 +2100,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetSeparableFilter] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetSeparableFilter] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetSeparableFilter] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glGetSeparableFilter(_target_, _format_, _type_, _row_, _column_, _span_)
@@ -2109,7 +2109,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glSeparableFilter2D] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSeparableFilter2D] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSeparableFilter2D] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glSeparableFilter2D(_target_, _internalformat_, _width_, _height_, _format_, _type_, _row_, _column_)
@@ -2118,7 +2118,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetHistogram] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetHistogram] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetHistogram] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glGetHistogram(_target_, _reset_, _format_, _type_, _values_)
@@ -2127,7 +2127,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetHistogramParameterfv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetHistogramParameterfv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetHistogramParameterfv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glGetHistogramParameterfv(_target_, _pname_, _params_)
@@ -2136,7 +2136,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetHistogramParameteriv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetHistogramParameteriv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetHistogramParameteriv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glGetHistogramParameteriv(_target_, _pname_, _params_)
@@ -2145,7 +2145,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMinmax] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMinmax] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMinmax] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glGetMinmax(_target_, _reset_, _format_, _type_, _values_)
@@ -2154,7 +2154,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMinmaxParameterfv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMinmaxParameterfv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMinmaxParameterfv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glGetMinmaxParameterfv(_target_, _pname_, _params_)
@@ -2163,7 +2163,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMinmaxParameteriv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMinmaxParameteriv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMinmaxParameteriv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glGetMinmaxParameteriv(_target_, _pname_, _params_)
@@ -2172,7 +2172,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glHistogram] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glHistogram] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glHistogram] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glHistogram(_target_, _width_, _internalformat_, _sink_)
@@ -2181,7 +2181,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glMinmax] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glMinmax] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glMinmax] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glMinmax(_target_, _internalformat_, _sink_)
@@ -2190,7 +2190,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glResetHistogram] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glResetHistogram] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glResetHistogram] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glResetHistogram(_target_)
@@ -2199,7 +2199,7 @@ module OpenGL
       end
     SRC_GL_ARB_imaging
 
-    GL_FUNCTIONS_ARGS_MAP[:glResetMinmax] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glResetMinmax] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glResetMinmax] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_imaging)
       def glResetMinmax(_target_)
@@ -2210,7 +2210,7 @@ module OpenGL
   end # define_command_GL_ARB_imaging
 
   def define_command_GL_ARB_indirect_parameters
-    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirectCountARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirectCountARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawArraysIndirectCountARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_indirect_parameters)
       def glMultiDrawArraysIndirectCountARB(_mode_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
@@ -2219,7 +2219,7 @@ module OpenGL
       end
     SRC_GL_ARB_indirect_parameters
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsIndirectCountARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsIndirectCountARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawElementsIndirectCountARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_indirect_parameters)
       def glMultiDrawElementsIndirectCountARB(_mode_, _type_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
@@ -2230,7 +2230,7 @@ module OpenGL
   end # define_command_GL_ARB_indirect_parameters
 
   def define_command_GL_ARB_instanced_arrays
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribDivisorARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribDivisorARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribDivisorARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_instanced_arrays)
       def glVertexAttribDivisorARB(_index_, _divisor_)
@@ -2241,7 +2241,7 @@ module OpenGL
   end # define_command_GL_ARB_instanced_arrays
 
   def define_command_GL_ARB_internalformat_query
-    GL_FUNCTIONS_ARGS_MAP[:glGetInternalformativ] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetInternalformativ] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetInternalformativ] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_internalformat_query)
       def glGetInternalformativ(_target_, _internalformat_, _pname_, _bufSize_, _params_)
@@ -2252,7 +2252,7 @@ module OpenGL
   end # define_command_GL_ARB_internalformat_query
 
   def define_command_GL_ARB_internalformat_query2
-    GL_FUNCTIONS_ARGS_MAP[:glGetInternalformati64v] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetInternalformati64v] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetInternalformati64v] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_internalformat_query2)
       def glGetInternalformati64v(_target_, _internalformat_, _pname_, _bufSize_, _params_)
@@ -2263,7 +2263,7 @@ module OpenGL
   end # define_command_GL_ARB_internalformat_query2
 
   def define_command_GL_ARB_invalidate_subdata
-    GL_FUNCTIONS_ARGS_MAP[:glInvalidateTexSubImage] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glInvalidateTexSubImage] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glInvalidateTexSubImage] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_invalidate_subdata)
       def glInvalidateTexSubImage(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_)
@@ -2272,7 +2272,7 @@ module OpenGL
       end
     SRC_GL_ARB_invalidate_subdata
 
-    GL_FUNCTIONS_ARGS_MAP[:glInvalidateTexImage] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glInvalidateTexImage] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glInvalidateTexImage] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_invalidate_subdata)
       def glInvalidateTexImage(_texture_, _level_)
@@ -2281,7 +2281,7 @@ module OpenGL
       end
     SRC_GL_ARB_invalidate_subdata
 
-    GL_FUNCTIONS_ARGS_MAP[:glInvalidateBufferSubData] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glInvalidateBufferSubData] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glInvalidateBufferSubData] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_invalidate_subdata)
       def glInvalidateBufferSubData(_buffer_, _offset_, _length_)
@@ -2290,7 +2290,7 @@ module OpenGL
       end
     SRC_GL_ARB_invalidate_subdata
 
-    GL_FUNCTIONS_ARGS_MAP[:glInvalidateBufferData] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glInvalidateBufferData] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glInvalidateBufferData] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_invalidate_subdata)
       def glInvalidateBufferData(_buffer_)
@@ -2299,7 +2299,7 @@ module OpenGL
       end
     SRC_GL_ARB_invalidate_subdata
 
-    GL_FUNCTIONS_ARGS_MAP[:glInvalidateFramebuffer] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glInvalidateFramebuffer] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glInvalidateFramebuffer] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_invalidate_subdata)
       def glInvalidateFramebuffer(_target_, _numAttachments_, _attachments_)
@@ -2308,7 +2308,7 @@ module OpenGL
       end
     SRC_GL_ARB_invalidate_subdata
 
-    GL_FUNCTIONS_ARGS_MAP[:glInvalidateSubFramebuffer] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glInvalidateSubFramebuffer] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glInvalidateSubFramebuffer] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_invalidate_subdata)
       def glInvalidateSubFramebuffer(_target_, _numAttachments_, _attachments_, _x_, _y_, _width_, _height_)
@@ -2322,7 +2322,7 @@ module OpenGL
   end # define_command_GL_ARB_map_buffer_alignment
 
   def define_command_GL_ARB_map_buffer_range
-    GL_FUNCTIONS_ARGS_MAP[:glMapBufferRange] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMapBufferRange] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMapBufferRange] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_ARB_map_buffer_range)
       def glMapBufferRange(_target_, _offset_, _length_, _access_)
@@ -2331,7 +2331,7 @@ module OpenGL
       end
     SRC_GL_ARB_map_buffer_range
 
-    GL_FUNCTIONS_ARGS_MAP[:glFlushMappedBufferRange] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glFlushMappedBufferRange] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glFlushMappedBufferRange] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_map_buffer_range)
       def glFlushMappedBufferRange(_target_, _offset_, _length_)
@@ -2378,7 +2378,7 @@ module OpenGL
       end
     SRC_GL_ARB_matrix_palette
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixIndexPointerARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixIndexPointerARB] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixIndexPointerARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_matrix_palette)
       def glMatrixIndexPointerARB(_size_, _type_, _stride_, _pointer_)
@@ -2389,7 +2389,7 @@ module OpenGL
   end # define_command_GL_ARB_matrix_palette
 
   def define_command_GL_ARB_multi_bind
-    GL_FUNCTIONS_ARGS_MAP[:glBindBuffersBase] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glBindBuffersBase] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glBindBuffersBase] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multi_bind)
       def glBindBuffersBase(_target_, _first_, _count_, _buffers_)
@@ -2398,7 +2398,7 @@ module OpenGL
       end
     SRC_GL_ARB_multi_bind
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindBuffersRange] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glBindBuffersRange] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glBindBuffersRange] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multi_bind)
       def glBindBuffersRange(_target_, _first_, _count_, _buffers_, _offsets_, _sizes_)
@@ -2407,7 +2407,7 @@ module OpenGL
       end
     SRC_GL_ARB_multi_bind
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindTextures] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glBindTextures] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glBindTextures] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multi_bind)
       def glBindTextures(_first_, _count_, _textures_)
@@ -2416,7 +2416,7 @@ module OpenGL
       end
     SRC_GL_ARB_multi_bind
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindSamplers] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glBindSamplers] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glBindSamplers] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multi_bind)
       def glBindSamplers(_first_, _count_, _samplers_)
@@ -2425,7 +2425,7 @@ module OpenGL
       end
     SRC_GL_ARB_multi_bind
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindImageTextures] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glBindImageTextures] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glBindImageTextures] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multi_bind)
       def glBindImageTextures(_first_, _count_, _textures_)
@@ -2434,7 +2434,7 @@ module OpenGL
       end
     SRC_GL_ARB_multi_bind
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindVertexBuffers] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glBindVertexBuffers] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glBindVertexBuffers] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multi_bind)
       def glBindVertexBuffers(_first_, _count_, _buffers_, _offsets_, _strides_)
@@ -2445,7 +2445,7 @@ module OpenGL
   end # define_command_GL_ARB_multi_bind
 
   def define_command_GL_ARB_multi_draw_indirect
-    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirect] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirect] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawArraysIndirect] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multi_draw_indirect)
       def glMultiDrawArraysIndirect(_mode_, _indirect_, _drawcount_, _stride_)
@@ -2454,7 +2454,7 @@ module OpenGL
       end
     SRC_GL_ARB_multi_draw_indirect
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsIndirect] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsIndirect] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawElementsIndirect] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multi_draw_indirect)
       def glMultiDrawElementsIndirect(_mode_, _type_, _indirect_, _drawcount_, _stride_)
@@ -2465,7 +2465,7 @@ module OpenGL
   end # define_command_GL_ARB_multi_draw_indirect
 
   def define_command_GL_ARB_multisample
-    GL_FUNCTIONS_ARGS_MAP[:glSampleCoverageARB] = [Fiddle::TYPE_FLOAT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glSampleCoverageARB] = [Fiddle::TYPE_FLOAT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glSampleCoverageARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multisample)
       def glSampleCoverageARB(_value_, _invert_)
@@ -2476,7 +2476,7 @@ module OpenGL
   end # define_command_GL_ARB_multisample
 
   def define_command_GL_ARB_multitexture
-    GL_FUNCTIONS_ARGS_MAP[:glActiveTextureARB] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glActiveTextureARB] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glActiveTextureARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glActiveTextureARB(_texture_)
@@ -2485,7 +2485,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glClientActiveTextureARB] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glClientActiveTextureARB] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glClientActiveTextureARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glClientActiveTextureARB(_texture_)
@@ -2494,7 +2494,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1dARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord1dARB(_target_, _s_)
@@ -2503,7 +2503,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1dvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord1dvARB(_target_, _v_)
@@ -2512,7 +2512,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1fARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord1fARB(_target_, _s_)
@@ -2521,7 +2521,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1fvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord1fvARB(_target_, _v_)
@@ -2530,7 +2530,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1iARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1iARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1iARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord1iARB(_target_, _s_)
@@ -2539,7 +2539,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1ivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1ivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1ivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord1ivARB(_target_, _v_)
@@ -2548,7 +2548,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1sARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1sARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1sARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord1sARB(_target_, _s_)
@@ -2557,7 +2557,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1svARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1svARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1svARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord1svARB(_target_, _v_)
@@ -2566,7 +2566,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2dARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord2dARB(_target_, _s_, _t_)
@@ -2575,7 +2575,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2dvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord2dvARB(_target_, _v_)
@@ -2584,7 +2584,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2fARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord2fARB(_target_, _s_, _t_)
@@ -2593,7 +2593,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2fvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord2fvARB(_target_, _v_)
@@ -2602,7 +2602,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2iARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2iARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2iARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord2iARB(_target_, _s_, _t_)
@@ -2611,7 +2611,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2ivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2ivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2ivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord2ivARB(_target_, _v_)
@@ -2620,7 +2620,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2sARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2sARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2sARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord2sARB(_target_, _s_, _t_)
@@ -2629,7 +2629,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2svARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2svARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2svARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord2svARB(_target_, _v_)
@@ -2638,7 +2638,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3dARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord3dARB(_target_, _s_, _t_, _r_)
@@ -2647,7 +2647,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3dvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord3dvARB(_target_, _v_)
@@ -2656,7 +2656,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3fARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord3fARB(_target_, _s_, _t_, _r_)
@@ -2665,7 +2665,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3fvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord3fvARB(_target_, _v_)
@@ -2674,7 +2674,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3iARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3iARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3iARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord3iARB(_target_, _s_, _t_, _r_)
@@ -2683,7 +2683,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3ivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3ivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3ivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord3ivARB(_target_, _v_)
@@ -2692,7 +2692,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3sARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3sARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3sARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord3sARB(_target_, _s_, _t_, _r_)
@@ -2701,7 +2701,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3svARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3svARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3svARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord3svARB(_target_, _v_)
@@ -2710,7 +2710,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4dARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord4dARB(_target_, _s_, _t_, _r_, _q_)
@@ -2719,7 +2719,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4dvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord4dvARB(_target_, _v_)
@@ -2728,7 +2728,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4fARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord4fARB(_target_, _s_, _t_, _r_, _q_)
@@ -2737,7 +2737,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4fvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord4fvARB(_target_, _v_)
@@ -2746,7 +2746,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4iARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4iARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4iARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord4iARB(_target_, _s_, _t_, _r_, _q_)
@@ -2755,7 +2755,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4ivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4ivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4ivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord4ivARB(_target_, _v_)
@@ -2764,7 +2764,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4sARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4sARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4sARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord4sARB(_target_, _s_, _t_, _r_, _q_)
@@ -2773,7 +2773,7 @@ module OpenGL
       end
     SRC_GL_ARB_multitexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4svARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4svARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4svARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_multitexture)
       def glMultiTexCoord4svARB(_target_, _v_)
@@ -2802,8 +2802,8 @@ module OpenGL
       end
     SRC_GL_ARB_occlusion_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsQueryARB] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsQueryARB] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsQueryARB] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsQueryARB] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_occlusion_query)
       def glIsQueryARB(_id_)
         f = OpenGL::get_command(:glIsQueryARB)
@@ -2811,7 +2811,7 @@ module OpenGL
       end
     SRC_GL_ARB_occlusion_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glBeginQueryARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBeginQueryARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBeginQueryARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_occlusion_query)
       def glBeginQueryARB(_target_, _id_)
@@ -2820,7 +2820,7 @@ module OpenGL
       end
     SRC_GL_ARB_occlusion_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glEndQueryARB] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEndQueryARB] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEndQueryARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_occlusion_query)
       def glEndQueryARB(_target_)
@@ -2829,7 +2829,7 @@ module OpenGL
       end
     SRC_GL_ARB_occlusion_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetQueryivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetQueryivARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetQueryivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_occlusion_query)
       def glGetQueryivARB(_target_, _pname_, _params_)
@@ -2838,7 +2838,7 @@ module OpenGL
       end
     SRC_GL_ARB_occlusion_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetQueryObjectivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetQueryObjectivARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetQueryObjectivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_occlusion_query)
       def glGetQueryObjectivARB(_id_, _pname_, _params_)
@@ -2847,7 +2847,7 @@ module OpenGL
       end
     SRC_GL_ARB_occlusion_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetQueryObjectuivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetQueryObjectuivARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetQueryObjectuivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_occlusion_query)
       def glGetQueryObjectuivARB(_id_, _pname_, _params_)
@@ -2864,7 +2864,7 @@ module OpenGL
   end # define_command_GL_ARB_pixel_buffer_object
 
   def define_command_GL_ARB_point_parameters
-    GL_FUNCTIONS_ARGS_MAP[:glPointParameterfARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glPointParameterfARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glPointParameterfARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_point_parameters)
       def glPointParameterfARB(_pname_, _param_)
@@ -2873,7 +2873,7 @@ module OpenGL
       end
     SRC_GL_ARB_point_parameters
 
-    GL_FUNCTIONS_ARGS_MAP[:glPointParameterfvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPointParameterfvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPointParameterfvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_point_parameters)
       def glPointParameterfvARB(_pname_, _params_)
@@ -2887,7 +2887,7 @@ module OpenGL
   end # define_command_GL_ARB_point_sprite
 
   def define_command_GL_ARB_program_interface_query
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramInterfaceiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramInterfaceiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramInterfaceiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_program_interface_query)
       def glGetProgramInterfaceiv(_program_, _programInterface_, _pname_, _params_)
@@ -2896,8 +2896,8 @@ module OpenGL
       end
     SRC_GL_ARB_program_interface_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceIndex] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetProgramResourceIndex] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceIndex] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetProgramResourceIndex] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ARB_program_interface_query)
       def glGetProgramResourceIndex(_program_, _programInterface_, _name_)
         f = OpenGL::get_command(:glGetProgramResourceIndex)
@@ -2905,7 +2905,7 @@ module OpenGL
       end
     SRC_GL_ARB_program_interface_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceName] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceName] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramResourceName] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_program_interface_query)
       def glGetProgramResourceName(_program_, _programInterface_, _index_, _bufSize_, _length_, _name_)
@@ -2914,7 +2914,7 @@ module OpenGL
       end
     SRC_GL_ARB_program_interface_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramResourceiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_program_interface_query)
       def glGetProgramResourceiv(_program_, _programInterface_, _index_, _propCount_, _props_, _bufSize_, _length_, _params_)
@@ -2923,7 +2923,7 @@ module OpenGL
       end
     SRC_GL_ARB_program_interface_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceLocation] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceLocation] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramResourceLocation] = Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ARB_program_interface_query)
       def glGetProgramResourceLocation(_program_, _programInterface_, _name_)
@@ -2932,7 +2932,7 @@ module OpenGL
       end
     SRC_GL_ARB_program_interface_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceLocationIndex] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceLocationIndex] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramResourceLocationIndex] = Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ARB_program_interface_query)
       def glGetProgramResourceLocationIndex(_program_, _programInterface_, _name_)
@@ -2943,7 +2943,7 @@ module OpenGL
   end # define_command_GL_ARB_program_interface_query
 
   def define_command_GL_ARB_provoking_vertex
-    GL_FUNCTIONS_ARGS_MAP[:glProvokingVertex] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProvokingVertex] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProvokingVertex] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_provoking_vertex)
       def glProvokingVertex(_mode_)
@@ -2961,7 +2961,7 @@ module OpenGL
 
   def define_command_GL_ARB_robustness
     GL_FUNCTIONS_ARGS_MAP[:glGetGraphicsResetStatusARB] = []
-    GL_FUNCTIONS_RETVAL_MAP[:glGetGraphicsResetStatusARB] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_RETVAL_MAP[:glGetGraphicsResetStatusARB] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetGraphicsResetStatusARB()
         f = OpenGL::get_command(:glGetGraphicsResetStatusARB)
@@ -2969,7 +2969,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnTexImageARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnTexImageARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnTexImageARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnTexImageARB(_target_, _level_, _format_, _type_, _bufSize_, _img_)
@@ -2978,7 +2978,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glReadnPixelsARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glReadnPixelsARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glReadnPixelsARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glReadnPixelsARB(_x_, _y_, _width_, _height_, _format_, _type_, _bufSize_, _data_)
@@ -2987,7 +2987,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnCompressedTexImageARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnCompressedTexImageARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnCompressedTexImageARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnCompressedTexImageARB(_target_, _lod_, _bufSize_, _img_)
@@ -2996,7 +2996,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformfvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformfvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnUniformfvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnUniformfvARB(_program_, _location_, _bufSize_, _params_)
@@ -3005,7 +3005,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnUniformivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnUniformivARB(_program_, _location_, _bufSize_, _params_)
@@ -3014,7 +3014,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformuivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformuivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnUniformuivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnUniformuivARB(_program_, _location_, _bufSize_, _params_)
@@ -3023,7 +3023,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformdvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformdvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnUniformdvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnUniformdvARB(_program_, _location_, _bufSize_, _params_)
@@ -3032,7 +3032,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnMapdvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnMapdvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnMapdvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnMapdvARB(_target_, _query_, _bufSize_, _v_)
@@ -3041,7 +3041,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnMapfvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnMapfvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnMapfvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnMapfvARB(_target_, _query_, _bufSize_, _v_)
@@ -3050,7 +3050,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnMapivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnMapivARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnMapivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnMapivARB(_target_, _query_, _bufSize_, _v_)
@@ -3059,7 +3059,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnPixelMapfvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnPixelMapfvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnPixelMapfvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnPixelMapfvARB(_map_, _bufSize_, _values_)
@@ -3068,7 +3068,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnPixelMapuivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnPixelMapuivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnPixelMapuivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnPixelMapuivARB(_map_, _bufSize_, _values_)
@@ -3077,7 +3077,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnPixelMapusvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnPixelMapusvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnPixelMapusvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnPixelMapusvARB(_map_, _bufSize_, _values_)
@@ -3095,7 +3095,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnColorTableARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnColorTableARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnColorTableARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnColorTableARB(_target_, _format_, _type_, _bufSize_, _table_)
@@ -3104,7 +3104,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnConvolutionFilterARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnConvolutionFilterARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnConvolutionFilterARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnConvolutionFilterARB(_target_, _format_, _type_, _bufSize_, _image_)
@@ -3113,7 +3113,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnSeparableFilterARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnSeparableFilterARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnSeparableFilterARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnSeparableFilterARB(_target_, _format_, _type_, _rowBufSize_, _row_, _columnBufSize_, _column_, _span_)
@@ -3122,7 +3122,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnHistogramARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnHistogramARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnHistogramARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnHistogramARB(_target_, _reset_, _format_, _type_, _bufSize_, _values_)
@@ -3131,7 +3131,7 @@ module OpenGL
       end
     SRC_GL_ARB_robustness
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetnMinmaxARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetnMinmaxARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetnMinmaxARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_robustness)
       def glGetnMinmaxARB(_target_, _reset_, _format_, _type_, _bufSize_, _values_)
@@ -3174,8 +3174,8 @@ module OpenGL
       end
     SRC_GL_ARB_sampler_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsSampler] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsSampler] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsSampler] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsSampler] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_sampler_objects)
       def glIsSampler(_sampler_)
         f = OpenGL::get_command(:glIsSampler)
@@ -3183,7 +3183,7 @@ module OpenGL
       end
     SRC_GL_ARB_sampler_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindSampler] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindSampler] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindSampler] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sampler_objects)
       def glBindSampler(_unit_, _sampler_)
@@ -3192,7 +3192,7 @@ module OpenGL
       end
     SRC_GL_ARB_sampler_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glSamplerParameteri] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSamplerParameteri] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSamplerParameteri] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sampler_objects)
       def glSamplerParameteri(_sampler_, _pname_, _param_)
@@ -3201,7 +3201,7 @@ module OpenGL
       end
     SRC_GL_ARB_sampler_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glSamplerParameteriv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSamplerParameteriv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSamplerParameteriv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sampler_objects)
       def glSamplerParameteriv(_sampler_, _pname_, _param_)
@@ -3210,7 +3210,7 @@ module OpenGL
       end
     SRC_GL_ARB_sampler_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glSamplerParameterf] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glSamplerParameterf] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glSamplerParameterf] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sampler_objects)
       def glSamplerParameterf(_sampler_, _pname_, _param_)
@@ -3219,7 +3219,7 @@ module OpenGL
       end
     SRC_GL_ARB_sampler_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glSamplerParameterfv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSamplerParameterfv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSamplerParameterfv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sampler_objects)
       def glSamplerParameterfv(_sampler_, _pname_, _param_)
@@ -3228,7 +3228,7 @@ module OpenGL
       end
     SRC_GL_ARB_sampler_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glSamplerParameterIiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSamplerParameterIiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSamplerParameterIiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sampler_objects)
       def glSamplerParameterIiv(_sampler_, _pname_, _param_)
@@ -3237,7 +3237,7 @@ module OpenGL
       end
     SRC_GL_ARB_sampler_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glSamplerParameterIuiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSamplerParameterIuiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSamplerParameterIuiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sampler_objects)
       def glSamplerParameterIuiv(_sampler_, _pname_, _param_)
@@ -3246,7 +3246,7 @@ module OpenGL
       end
     SRC_GL_ARB_sampler_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetSamplerParameteriv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetSamplerParameteriv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetSamplerParameteriv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sampler_objects)
       def glGetSamplerParameteriv(_sampler_, _pname_, _params_)
@@ -3255,7 +3255,7 @@ module OpenGL
       end
     SRC_GL_ARB_sampler_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetSamplerParameterIiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetSamplerParameterIiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetSamplerParameterIiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sampler_objects)
       def glGetSamplerParameterIiv(_sampler_, _pname_, _params_)
@@ -3264,7 +3264,7 @@ module OpenGL
       end
     SRC_GL_ARB_sampler_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetSamplerParameterfv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetSamplerParameterfv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetSamplerParameterfv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sampler_objects)
       def glGetSamplerParameterfv(_sampler_, _pname_, _params_)
@@ -3273,7 +3273,7 @@ module OpenGL
       end
     SRC_GL_ARB_sampler_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetSamplerParameterIuiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetSamplerParameterIuiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetSamplerParameterIuiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sampler_objects)
       def glGetSamplerParameterIuiv(_sampler_, _pname_, _params_)
@@ -3290,7 +3290,7 @@ module OpenGL
   end # define_command_GL_ARB_seamless_cubemap_per_texture
 
   def define_command_GL_ARB_separate_shader_objects
-    GL_FUNCTIONS_ARGS_MAP[:glUseProgramStages] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glUseProgramStages] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glUseProgramStages] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glUseProgramStages(_pipeline_, _stages_, _program_)
@@ -3299,7 +3299,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glActiveShaderProgram] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glActiveShaderProgram] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glActiveShaderProgram] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glActiveShaderProgram(_pipeline_, _program_)
@@ -3308,8 +3308,8 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glCreateShaderProgramv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glCreateShaderProgramv] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glCreateShaderProgramv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glCreateShaderProgramv] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glCreateShaderProgramv(_type_, _count_, _strings_)
         f = OpenGL::get_command(:glCreateShaderProgramv)
@@ -3317,7 +3317,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindProgramPipeline] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindProgramPipeline] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindProgramPipeline] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glBindProgramPipeline(_pipeline_)
@@ -3344,8 +3344,8 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsProgramPipeline] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsProgramPipeline] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsProgramPipeline] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsProgramPipeline] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glIsProgramPipeline(_pipeline_)
         f = OpenGL::get_command(:glIsProgramPipeline)
@@ -3353,7 +3353,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramPipelineiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramPipelineiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramPipelineiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glGetProgramPipelineiv(_pipeline_, _pname_, _params_)
@@ -3362,7 +3362,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1i] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1i] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1i] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform1i(_program_, _location_, _v0_)
@@ -3371,7 +3371,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1iv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1iv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1iv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform1iv(_program_, _location_, _count_, _value_)
@@ -3380,7 +3380,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1f] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1f] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1f] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform1f(_program_, _location_, _v0_)
@@ -3389,7 +3389,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1fv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1fv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1fv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform1fv(_program_, _location_, _count_, _value_)
@@ -3398,7 +3398,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1d] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1d] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1d] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform1d(_program_, _location_, _v0_)
@@ -3407,7 +3407,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform1dv(_program_, _location_, _count_, _value_)
@@ -3416,7 +3416,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1ui] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform1ui(_program_, _location_, _v0_)
@@ -3425,7 +3425,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform1uiv(_program_, _location_, _count_, _value_)
@@ -3434,7 +3434,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2i] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2i] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2i] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform2i(_program_, _location_, _v0_, _v1_)
@@ -3443,7 +3443,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2iv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2iv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2iv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform2iv(_program_, _location_, _count_, _value_)
@@ -3452,7 +3452,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2f] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2f] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2f] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform2f(_program_, _location_, _v0_, _v1_)
@@ -3461,7 +3461,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2fv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2fv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2fv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform2fv(_program_, _location_, _count_, _value_)
@@ -3470,7 +3470,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2d] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2d] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2d] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform2d(_program_, _location_, _v0_, _v1_)
@@ -3479,7 +3479,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform2dv(_program_, _location_, _count_, _value_)
@@ -3488,7 +3488,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2ui] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform2ui(_program_, _location_, _v0_, _v1_)
@@ -3497,7 +3497,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform2uiv(_program_, _location_, _count_, _value_)
@@ -3506,7 +3506,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3i] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3i] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3i] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform3i(_program_, _location_, _v0_, _v1_, _v2_)
@@ -3515,7 +3515,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3iv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3iv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3iv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform3iv(_program_, _location_, _count_, _value_)
@@ -3524,7 +3524,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3f] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3f] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3f] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform3f(_program_, _location_, _v0_, _v1_, _v2_)
@@ -3533,7 +3533,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3fv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3fv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3fv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform3fv(_program_, _location_, _count_, _value_)
@@ -3542,7 +3542,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3d] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3d] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3d] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform3d(_program_, _location_, _v0_, _v1_, _v2_)
@@ -3551,7 +3551,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform3dv(_program_, _location_, _count_, _value_)
@@ -3560,7 +3560,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3ui] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform3ui(_program_, _location_, _v0_, _v1_, _v2_)
@@ -3569,7 +3569,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform3uiv(_program_, _location_, _count_, _value_)
@@ -3578,7 +3578,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4i] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4i] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4i] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform4i(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
@@ -3587,7 +3587,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4iv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4iv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4iv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform4iv(_program_, _location_, _count_, _value_)
@@ -3596,7 +3596,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4f] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4f] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4f] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform4f(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
@@ -3605,7 +3605,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4fv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4fv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4fv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform4fv(_program_, _location_, _count_, _value_)
@@ -3614,7 +3614,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4d] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4d] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4d] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform4d(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
@@ -3623,7 +3623,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform4dv(_program_, _location_, _count_, _value_)
@@ -3632,7 +3632,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4ui] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform4ui(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
@@ -3641,7 +3641,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniform4uiv(_program_, _location_, _count_, _value_)
@@ -3650,7 +3650,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2fv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2fv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2fv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix2fv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3659,7 +3659,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3fv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3fv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3fv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix3fv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3668,7 +3668,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4fv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4fv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4fv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix4fv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3677,7 +3677,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix2dv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3686,7 +3686,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix3dv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3695,7 +3695,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix4dv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3704,7 +3704,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x3fv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x3fv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2x3fv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix2x3fv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3713,7 +3713,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x2fv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x2fv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3x2fv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix3x2fv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3722,7 +3722,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x4fv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x4fv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2x4fv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix2x4fv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3731,7 +3731,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x2fv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x2fv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4x2fv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix4x2fv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3740,7 +3740,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x4fv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x4fv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3x4fv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix3x4fv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3749,7 +3749,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x3fv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x3fv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4x3fv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix4x3fv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3758,7 +3758,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x3dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x3dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2x3dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix2x3dv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3767,7 +3767,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x2dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x2dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3x2dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix3x2dv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3776,7 +3776,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x4dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x4dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2x4dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix2x4dv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3785,7 +3785,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x2dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x2dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4x2dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix4x2dv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3794,7 +3794,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x4dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x4dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3x4dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix3x4dv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3803,7 +3803,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x3dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x3dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4x3dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glProgramUniformMatrix4x3dv(_program_, _location_, _count_, _transpose_, _value_)
@@ -3812,7 +3812,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glValidateProgramPipeline] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glValidateProgramPipeline] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glValidateProgramPipeline] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glValidateProgramPipeline(_pipeline_)
@@ -3821,7 +3821,7 @@ module OpenGL
       end
     SRC_GL_ARB_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramPipelineInfoLog] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramPipelineInfoLog] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramPipelineInfoLog] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_separate_shader_objects)
       def glGetProgramPipelineInfoLog(_pipeline_, _bufSize_, _length_, _infoLog_)
@@ -3832,7 +3832,7 @@ module OpenGL
   end # define_command_GL_ARB_separate_shader_objects
 
   def define_command_GL_ARB_shader_atomic_counters
-    GL_FUNCTIONS_ARGS_MAP[:glGetActiveAtomicCounterBufferiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetActiveAtomicCounterBufferiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetActiveAtomicCounterBufferiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_atomic_counters)
       def glGetActiveAtomicCounterBufferiv(_program_, _bufferIndex_, _pname_, _params_)
@@ -3852,7 +3852,7 @@ module OpenGL
   end # define_command_GL_ARB_shader_group_vote
 
   def define_command_GL_ARB_shader_image_load_store
-    GL_FUNCTIONS_ARGS_MAP[:glBindImageTexture] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindImageTexture] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindImageTexture] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_image_load_store)
       def glBindImageTexture(_unit_, _texture_, _level_, _layered_, _layer_, _access_, _format_)
@@ -3861,7 +3861,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_image_load_store
 
-    GL_FUNCTIONS_ARGS_MAP[:glMemoryBarrier] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMemoryBarrier] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMemoryBarrier] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_image_load_store)
       def glMemoryBarrier(_barriers_)
@@ -3884,7 +3884,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetHandleARB] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glGetHandleARB] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glGetHandleARB] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_ARB_shader_objects)
       def glGetHandleARB(_pname_)
@@ -3902,7 +3902,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glCreateShaderObjectARB] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCreateShaderObjectARB] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCreateShaderObjectARB] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_ARB_shader_objects)
       def glCreateShaderObjectARB(_shaderType_)
@@ -4118,7 +4118,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix2fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix2fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix2fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_objects)
       def glUniformMatrix2fvARB(_location_, _count_, _transpose_, _value_)
@@ -4127,7 +4127,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix3fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix3fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix3fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_objects)
       def glUniformMatrix3fvARB(_location_, _count_, _transpose_, _value_)
@@ -4136,7 +4136,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix4fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix4fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix4fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_objects)
       def glUniformMatrix4fvARB(_location_, _count_, _transpose_, _value_)
@@ -4145,7 +4145,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetObjectParameterfvARB] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetObjectParameterfvARB] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetObjectParameterfvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_objects)
       def glGetObjectParameterfvARB(_obj_, _pname_, _params_)
@@ -4154,7 +4154,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetObjectParameterivARB] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetObjectParameterivARB] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetObjectParameterivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_objects)
       def glGetObjectParameterivARB(_obj_, _pname_, _params_)
@@ -4190,7 +4190,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetActiveUniformARB] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetActiveUniformARB] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetActiveUniformARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_objects)
       def glGetActiveUniformARB(_programObj_, _index_, _maxLength_, _length_, _size_, _type_, _name_)
@@ -4234,7 +4234,7 @@ module OpenGL
   end # define_command_GL_ARB_shader_stencil_export
 
   def define_command_GL_ARB_shader_storage_buffer_object
-    GL_FUNCTIONS_ARGS_MAP[:glShaderStorageBlockBinding] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glShaderStorageBlockBinding] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glShaderStorageBlockBinding] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_storage_buffer_object)
       def glShaderStorageBlockBinding(_program_, _storageBlockIndex_, _storageBlockBinding_)
@@ -4245,7 +4245,7 @@ module OpenGL
   end # define_command_GL_ARB_shader_storage_buffer_object
 
   def define_command_GL_ARB_shader_subroutine
-    GL_FUNCTIONS_ARGS_MAP[:glGetSubroutineUniformLocation] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetSubroutineUniformLocation] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetSubroutineUniformLocation] = Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ARB_shader_subroutine)
       def glGetSubroutineUniformLocation(_program_, _shadertype_, _name_)
@@ -4254,8 +4254,8 @@ module OpenGL
       end
     SRC_GL_ARB_shader_subroutine
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetSubroutineIndex] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetSubroutineIndex] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glGetSubroutineIndex] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetSubroutineIndex] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ARB_shader_subroutine)
       def glGetSubroutineIndex(_program_, _shadertype_, _name_)
         f = OpenGL::get_command(:glGetSubroutineIndex)
@@ -4263,7 +4263,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_subroutine
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetActiveSubroutineUniformiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetActiveSubroutineUniformiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetActiveSubroutineUniformiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_subroutine)
       def glGetActiveSubroutineUniformiv(_program_, _shadertype_, _index_, _pname_, _values_)
@@ -4272,7 +4272,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_subroutine
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetActiveSubroutineUniformName] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetActiveSubroutineUniformName] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetActiveSubroutineUniformName] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_subroutine)
       def glGetActiveSubroutineUniformName(_program_, _shadertype_, _index_, _bufsize_, _length_, _name_)
@@ -4281,7 +4281,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_subroutine
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetActiveSubroutineName] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetActiveSubroutineName] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetActiveSubroutineName] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_subroutine)
       def glGetActiveSubroutineName(_program_, _shadertype_, _index_, _bufsize_, _length_, _name_)
@@ -4290,7 +4290,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_subroutine
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformSubroutinesuiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformSubroutinesuiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformSubroutinesuiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_subroutine)
       def glUniformSubroutinesuiv(_shadertype_, _count_, _indices_)
@@ -4299,7 +4299,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_subroutine
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetUniformSubroutineuiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetUniformSubroutineuiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetUniformSubroutineuiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_subroutine)
       def glGetUniformSubroutineuiv(_shadertype_, _location_, _params_)
@@ -4308,7 +4308,7 @@ module OpenGL
       end
     SRC_GL_ARB_shader_subroutine
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramStageiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramStageiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramStageiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shader_subroutine)
       def glGetProgramStageiv(_program_, _shadertype_, _pname_, _values_)
@@ -4328,7 +4328,7 @@ module OpenGL
   end # define_command_GL_ARB_shading_language_420pack
 
   def define_command_GL_ARB_shading_language_include
-    GL_FUNCTIONS_ARGS_MAP[:glNamedStringARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedStringARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedStringARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shading_language_include)
       def glNamedStringARB(_type_, _namelen_, _name_, _stringlen_, _string_)
@@ -4346,7 +4346,7 @@ module OpenGL
       end
     SRC_GL_ARB_shading_language_include
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompileShaderIncludeARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompileShaderIncludeARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompileShaderIncludeARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shading_language_include)
       def glCompileShaderIncludeARB(_shader_, _count_, _path_, _length_)
@@ -4356,7 +4356,7 @@ module OpenGL
     SRC_GL_ARB_shading_language_include
 
     GL_FUNCTIONS_ARGS_MAP[:glIsNamedStringARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsNamedStringARB] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_RETVAL_MAP[:glIsNamedStringARB] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_shading_language_include)
       def glIsNamedStringARB(_namelen_, _name_)
         f = OpenGL::get_command(:glIsNamedStringARB)
@@ -4373,7 +4373,7 @@ module OpenGL
       end
     SRC_GL_ARB_shading_language_include
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedStringivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedStringivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedStringivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_shading_language_include)
       def glGetNamedStringivARB(_namelen_, _name_, _pname_, _params_)
@@ -4393,7 +4393,7 @@ module OpenGL
   end # define_command_GL_ARB_shadow_ambient
 
   def define_command_GL_ARB_sparse_texture
-    GL_FUNCTIONS_ARGS_MAP[:glTexPageCommitmentARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTexPageCommitmentARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTexPageCommitmentARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sparse_texture)
       def glTexPageCommitmentARB(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _resident_)
@@ -4407,7 +4407,7 @@ module OpenGL
   end # define_command_GL_ARB_stencil_texturing
 
   def define_command_GL_ARB_sync
-    GL_FUNCTIONS_ARGS_MAP[:glFenceSync] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFenceSync] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFenceSync] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_ARB_sync)
       def glFenceSync(_condition_, _flags_)
@@ -4417,7 +4417,7 @@ module OpenGL
     SRC_GL_ARB_sync
 
     GL_FUNCTIONS_ARGS_MAP[:glIsSync] = [Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsSync] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_RETVAL_MAP[:glIsSync] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_sync)
       def glIsSync(_sync_)
         f = OpenGL::get_command(:glIsSync)
@@ -4434,8 +4434,8 @@ module OpenGL
       end
     SRC_GL_ARB_sync
 
-    GL_FUNCTIONS_ARGS_MAP[:glClientWaitSync] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
-    GL_FUNCTIONS_RETVAL_MAP[:glClientWaitSync] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glClientWaitSync] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glClientWaitSync] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ARB_sync)
       def glClientWaitSync(_sync_, _flags_, _timeout_)
         f = OpenGL::get_command(:glClientWaitSync)
@@ -4443,7 +4443,7 @@ module OpenGL
       end
     SRC_GL_ARB_sync
 
-    GL_FUNCTIONS_ARGS_MAP[:glWaitSync] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glWaitSync] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glWaitSync] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sync)
       def glWaitSync(_sync_, _flags_, _timeout_)
@@ -4452,7 +4452,7 @@ module OpenGL
       end
     SRC_GL_ARB_sync
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetInteger64v] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetInteger64v] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetInteger64v] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sync)
       def glGetInteger64v(_pname_, _params_)
@@ -4461,7 +4461,7 @@ module OpenGL
       end
     SRC_GL_ARB_sync
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetSynciv] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetSynciv] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetSynciv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sync)
       def glGetSynciv(_sync_, _pname_, _bufSize_, _length_, _values_)
@@ -4472,7 +4472,7 @@ module OpenGL
   end # define_command_GL_ARB_sync
 
   def define_command_GL_ARB_tessellation_shader
-    GL_FUNCTIONS_ARGS_MAP[:glPatchParameteri] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPatchParameteri] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPatchParameteri] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_tessellation_shader)
       def glPatchParameteri(_pname_, _value_)
@@ -4481,7 +4481,7 @@ module OpenGL
       end
     SRC_GL_ARB_tessellation_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glPatchParameterfv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPatchParameterfv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPatchParameterfv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_tessellation_shader)
       def glPatchParameterfv(_pname_, _values_)
@@ -4495,7 +4495,7 @@ module OpenGL
   end # define_command_GL_ARB_texture_border_clamp
 
   def define_command_GL_ARB_texture_buffer_object
-    GL_FUNCTIONS_ARGS_MAP[:glTexBufferARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexBufferARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexBufferARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_buffer_object)
       def glTexBufferARB(_target_, _internalformat_, _buffer_)
@@ -4509,7 +4509,7 @@ module OpenGL
   end # define_command_GL_ARB_texture_buffer_object_rgb32
 
   def define_command_GL_ARB_texture_buffer_range
-    GL_FUNCTIONS_ARGS_MAP[:glTexBufferRange] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glTexBufferRange] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glTexBufferRange] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_buffer_range)
       def glTexBufferRange(_target_, _internalformat_, _buffer_, _offset_, _size_)
@@ -4520,7 +4520,7 @@ module OpenGL
   end # define_command_GL_ARB_texture_buffer_range
 
   def define_command_GL_ARB_texture_compression
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedTexImage3DARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedTexImage3DARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedTexImage3DARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_compression)
       def glCompressedTexImage3DARB(_target_, _level_, _internalformat_, _width_, _height_, _depth_, _border_, _imageSize_, _data_)
@@ -4529,7 +4529,7 @@ module OpenGL
       end
     SRC_GL_ARB_texture_compression
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedTexImage2DARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedTexImage2DARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedTexImage2DARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_compression)
       def glCompressedTexImage2DARB(_target_, _level_, _internalformat_, _width_, _height_, _border_, _imageSize_, _data_)
@@ -4538,7 +4538,7 @@ module OpenGL
       end
     SRC_GL_ARB_texture_compression
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedTexImage1DARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedTexImage1DARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedTexImage1DARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_compression)
       def glCompressedTexImage1DARB(_target_, _level_, _internalformat_, _width_, _border_, _imageSize_, _data_)
@@ -4547,7 +4547,7 @@ module OpenGL
       end
     SRC_GL_ARB_texture_compression
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedTexSubImage3DARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedTexSubImage3DARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedTexSubImage3DARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_compression)
       def glCompressedTexSubImage3DARB(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _imageSize_, _data_)
@@ -4556,7 +4556,7 @@ module OpenGL
       end
     SRC_GL_ARB_texture_compression
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedTexSubImage2DARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedTexSubImage2DARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedTexSubImage2DARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_compression)
       def glCompressedTexSubImage2DARB(_target_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _imageSize_, _data_)
@@ -4565,7 +4565,7 @@ module OpenGL
       end
     SRC_GL_ARB_texture_compression
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedTexSubImage1DARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedTexSubImage1DARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedTexSubImage1DARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_compression)
       def glCompressedTexSubImage1DARB(_target_, _level_, _xoffset_, _width_, _format_, _imageSize_, _data_)
@@ -4574,7 +4574,7 @@ module OpenGL
       end
     SRC_GL_ARB_texture_compression
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetCompressedTexImageARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetCompressedTexImageARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetCompressedTexImageARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_compression)
       def glGetCompressedTexImageARB(_target_, _level_, _img_)
@@ -4621,7 +4621,7 @@ module OpenGL
   end # define_command_GL_ARB_texture_mirrored_repeat
 
   def define_command_GL_ARB_texture_multisample
-    GL_FUNCTIONS_ARGS_MAP[:glTexImage2DMultisample] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTexImage2DMultisample] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTexImage2DMultisample] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_multisample)
       def glTexImage2DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
@@ -4630,7 +4630,7 @@ module OpenGL
       end
     SRC_GL_ARB_texture_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexImage3DMultisample] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTexImage3DMultisample] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTexImage3DMultisample] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_multisample)
       def glTexImage3DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
@@ -4639,7 +4639,7 @@ module OpenGL
       end
     SRC_GL_ARB_texture_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultisamplefv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultisamplefv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultisamplefv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_multisample)
       def glGetMultisamplefv(_pname_, _index_, _val_)
@@ -4648,7 +4648,7 @@ module OpenGL
       end
     SRC_GL_ARB_texture_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glSampleMaski] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSampleMaski] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSampleMaski] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_multisample)
       def glSampleMaski(_index_, _mask_)
@@ -4680,7 +4680,7 @@ module OpenGL
   end # define_command_GL_ARB_texture_stencil8
 
   def define_command_GL_ARB_texture_storage
-    GL_FUNCTIONS_ARGS_MAP[:glTexStorage1D] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexStorage1D] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexStorage1D] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_storage)
       def glTexStorage1D(_target_, _levels_, _internalformat_, _width_)
@@ -4689,7 +4689,7 @@ module OpenGL
       end
     SRC_GL_ARB_texture_storage
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexStorage2D] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexStorage2D] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexStorage2D] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_storage)
       def glTexStorage2D(_target_, _levels_, _internalformat_, _width_, _height_)
@@ -4698,7 +4698,7 @@ module OpenGL
       end
     SRC_GL_ARB_texture_storage
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexStorage3D] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexStorage3D] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexStorage3D] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_storage)
       def glTexStorage3D(_target_, _levels_, _internalformat_, _width_, _height_, _depth_)
@@ -4709,7 +4709,7 @@ module OpenGL
   end # define_command_GL_ARB_texture_storage
 
   def define_command_GL_ARB_texture_storage_multisample
-    GL_FUNCTIONS_ARGS_MAP[:glTexStorage2DMultisample] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTexStorage2DMultisample] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTexStorage2DMultisample] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_storage_multisample)
       def glTexStorage2DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
@@ -4718,7 +4718,7 @@ module OpenGL
       end
     SRC_GL_ARB_texture_storage_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexStorage3DMultisample] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTexStorage3DMultisample] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTexStorage3DMultisample] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_storage_multisample)
       def glTexStorage3DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
@@ -4732,7 +4732,7 @@ module OpenGL
   end # define_command_GL_ARB_texture_swizzle
 
   def define_command_GL_ARB_texture_view
-    GL_FUNCTIONS_ARGS_MAP[:glTextureView] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureView] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureView] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_view)
       def glTextureView(_texture_, _target_, _origtexture_, _internalformat_, _minlevel_, _numlevels_, _minlayer_, _numlayers_)
@@ -4743,7 +4743,7 @@ module OpenGL
   end # define_command_GL_ARB_texture_view
 
   def define_command_GL_ARB_timer_query
-    GL_FUNCTIONS_ARGS_MAP[:glQueryCounter] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glQueryCounter] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glQueryCounter] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_timer_query)
       def glQueryCounter(_id_, _target_)
@@ -4752,7 +4752,7 @@ module OpenGL
       end
     SRC_GL_ARB_timer_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetQueryObjecti64v] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetQueryObjecti64v] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetQueryObjecti64v] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_timer_query)
       def glGetQueryObjecti64v(_id_, _pname_, _params_)
@@ -4761,7 +4761,7 @@ module OpenGL
       end
     SRC_GL_ARB_timer_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetQueryObjectui64v] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetQueryObjectui64v] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetQueryObjectui64v] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_timer_query)
       def glGetQueryObjectui64v(_id_, _pname_, _params_)
@@ -4772,7 +4772,7 @@ module OpenGL
   end # define_command_GL_ARB_timer_query
 
   def define_command_GL_ARB_transform_feedback2
-    GL_FUNCTIONS_ARGS_MAP[:glBindTransformFeedback] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindTransformFeedback] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindTransformFeedback] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_transform_feedback2)
       def glBindTransformFeedback(_target_, _id_)
@@ -4799,8 +4799,8 @@ module OpenGL
       end
     SRC_GL_ARB_transform_feedback2
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsTransformFeedback] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsTransformFeedback] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsTransformFeedback] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsTransformFeedback] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_transform_feedback2)
       def glIsTransformFeedback(_id_)
         f = OpenGL::get_command(:glIsTransformFeedback)
@@ -4826,7 +4826,7 @@ module OpenGL
       end
     SRC_GL_ARB_transform_feedback2
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawTransformFeedback] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawTransformFeedback] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawTransformFeedback] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_transform_feedback2)
       def glDrawTransformFeedback(_mode_, _id_)
@@ -4837,7 +4837,7 @@ module OpenGL
   end # define_command_GL_ARB_transform_feedback2
 
   def define_command_GL_ARB_transform_feedback3
-    GL_FUNCTIONS_ARGS_MAP[:glDrawTransformFeedbackStream] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawTransformFeedbackStream] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawTransformFeedbackStream] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_transform_feedback3)
       def glDrawTransformFeedbackStream(_mode_, _id_, _stream_)
@@ -4846,7 +4846,7 @@ module OpenGL
       end
     SRC_GL_ARB_transform_feedback3
 
-    GL_FUNCTIONS_ARGS_MAP[:glBeginQueryIndexed] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBeginQueryIndexed] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBeginQueryIndexed] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_transform_feedback3)
       def glBeginQueryIndexed(_target_, _index_, _id_)
@@ -4855,7 +4855,7 @@ module OpenGL
       end
     SRC_GL_ARB_transform_feedback3
 
-    GL_FUNCTIONS_ARGS_MAP[:glEndQueryIndexed] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEndQueryIndexed] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEndQueryIndexed] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_transform_feedback3)
       def glEndQueryIndexed(_target_, _index_)
@@ -4864,7 +4864,7 @@ module OpenGL
       end
     SRC_GL_ARB_transform_feedback3
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetQueryIndexediv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetQueryIndexediv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetQueryIndexediv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_transform_feedback3)
       def glGetQueryIndexediv(_target_, _index_, _pname_, _params_)
@@ -4875,7 +4875,7 @@ module OpenGL
   end # define_command_GL_ARB_transform_feedback3
 
   def define_command_GL_ARB_transform_feedback_instanced
-    GL_FUNCTIONS_ARGS_MAP[:glDrawTransformFeedbackInstanced] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawTransformFeedbackInstanced] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawTransformFeedbackInstanced] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_transform_feedback_instanced)
       def glDrawTransformFeedbackInstanced(_mode_, _id_, _instancecount_)
@@ -4884,7 +4884,7 @@ module OpenGL
       end
     SRC_GL_ARB_transform_feedback_instanced
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawTransformFeedbackStreamInstanced] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawTransformFeedbackStreamInstanced] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawTransformFeedbackStreamInstanced] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_transform_feedback_instanced)
       def glDrawTransformFeedbackStreamInstanced(_mode_, _id_, _stream_, _instancecount_)
@@ -4933,7 +4933,7 @@ module OpenGL
   end # define_command_GL_ARB_transpose_matrix
 
   def define_command_GL_ARB_uniform_buffer_object
-    GL_FUNCTIONS_ARGS_MAP[:glGetUniformIndices] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetUniformIndices] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetUniformIndices] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_uniform_buffer_object)
       def glGetUniformIndices(_program_, _uniformCount_, _uniformNames_, _uniformIndices_)
@@ -4942,7 +4942,7 @@ module OpenGL
       end
     SRC_GL_ARB_uniform_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetActiveUniformsiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetActiveUniformsiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetActiveUniformsiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_uniform_buffer_object)
       def glGetActiveUniformsiv(_program_, _uniformCount_, _uniformIndices_, _pname_, _params_)
@@ -4951,7 +4951,7 @@ module OpenGL
       end
     SRC_GL_ARB_uniform_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetActiveUniformName] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetActiveUniformName] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetActiveUniformName] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_uniform_buffer_object)
       def glGetActiveUniformName(_program_, _uniformIndex_, _bufSize_, _length_, _uniformName_)
@@ -4960,8 +4960,8 @@ module OpenGL
       end
     SRC_GL_ARB_uniform_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetUniformBlockIndex] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetUniformBlockIndex] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glGetUniformBlockIndex] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetUniformBlockIndex] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ARB_uniform_buffer_object)
       def glGetUniformBlockIndex(_program_, _uniformBlockName_)
         f = OpenGL::get_command(:glGetUniformBlockIndex)
@@ -4969,7 +4969,7 @@ module OpenGL
       end
     SRC_GL_ARB_uniform_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetActiveUniformBlockiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetActiveUniformBlockiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetActiveUniformBlockiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_uniform_buffer_object)
       def glGetActiveUniformBlockiv(_program_, _uniformBlockIndex_, _pname_, _params_)
@@ -4978,7 +4978,7 @@ module OpenGL
       end
     SRC_GL_ARB_uniform_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetActiveUniformBlockName] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetActiveUniformBlockName] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetActiveUniformBlockName] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_uniform_buffer_object)
       def glGetActiveUniformBlockName(_program_, _uniformBlockIndex_, _bufSize_, _length_, _uniformBlockName_)
@@ -4987,7 +4987,7 @@ module OpenGL
       end
     SRC_GL_ARB_uniform_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformBlockBinding] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformBlockBinding] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformBlockBinding] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_uniform_buffer_object)
       def glUniformBlockBinding(_program_, _uniformBlockIndex_, _uniformBlockBinding_)
@@ -5001,7 +5001,7 @@ module OpenGL
   end # define_command_GL_ARB_vertex_array_bgra
 
   def define_command_GL_ARB_vertex_array_object
-    GL_FUNCTIONS_ARGS_MAP[:glBindVertexArray] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindVertexArray] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindVertexArray] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_array_object)
       def glBindVertexArray(_array_)
@@ -5028,8 +5028,8 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsVertexArray] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsVertexArray] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsVertexArray] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsVertexArray] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_vertex_array_object)
       def glIsVertexArray(_array_)
         f = OpenGL::get_command(:glIsVertexArray)
@@ -5039,7 +5039,7 @@ module OpenGL
   end # define_command_GL_ARB_vertex_array_object
 
   def define_command_GL_ARB_vertex_attrib_64bit
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1d] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1d] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL1d] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_64bit)
       def glVertexAttribL1d(_index_, _x_)
@@ -5048,7 +5048,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2d] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2d] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL2d] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_64bit)
       def glVertexAttribL2d(_index_, _x_, _y_)
@@ -5057,7 +5057,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3d] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3d] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL3d] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_64bit)
       def glVertexAttribL3d(_index_, _x_, _y_, _z_)
@@ -5066,7 +5066,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4d] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4d] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL4d] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_64bit)
       def glVertexAttribL4d(_index_, _x_, _y_, _z_, _w_)
@@ -5075,7 +5075,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL1dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_64bit)
       def glVertexAttribL1dv(_index_, _v_)
@@ -5084,7 +5084,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL2dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_64bit)
       def glVertexAttribL2dv(_index_, _v_)
@@ -5093,7 +5093,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL3dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_64bit)
       def glVertexAttribL3dv(_index_, _v_)
@@ -5102,7 +5102,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4dv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4dv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL4dv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_64bit)
       def glVertexAttribL4dv(_index_, _v_)
@@ -5111,7 +5111,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribLPointer] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribLPointer] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribLPointer] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_64bit)
       def glVertexAttribLPointer(_index_, _size_, _type_, _stride_, _pointer_)
@@ -5120,7 +5120,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribLdv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribLdv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribLdv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_64bit)
       def glGetVertexAttribLdv(_index_, _pname_, _params_)
@@ -5131,7 +5131,7 @@ module OpenGL
   end # define_command_GL_ARB_vertex_attrib_64bit
 
   def define_command_GL_ARB_vertex_attrib_binding
-    GL_FUNCTIONS_ARGS_MAP[:glBindVertexBuffer] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindVertexBuffer] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindVertexBuffer] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_binding)
       def glBindVertexBuffer(_bindingindex_, _buffer_, _offset_, _stride_)
@@ -5140,7 +5140,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_binding
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribFormat] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribFormat] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribFormat] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_binding)
       def glVertexAttribFormat(_attribindex_, _size_, _type_, _normalized_, _relativeoffset_)
@@ -5149,7 +5149,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_binding
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribIFormat] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribIFormat] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribIFormat] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_binding)
       def glVertexAttribIFormat(_attribindex_, _size_, _type_, _relativeoffset_)
@@ -5158,7 +5158,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_binding
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribLFormat] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribLFormat] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribLFormat] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_binding)
       def glVertexAttribLFormat(_attribindex_, _size_, _type_, _relativeoffset_)
@@ -5167,7 +5167,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_binding
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribBinding] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribBinding] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribBinding] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_binding)
       def glVertexAttribBinding(_attribindex_, _bindingindex_)
@@ -5176,7 +5176,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_attrib_binding
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexBindingDivisor] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexBindingDivisor] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexBindingDivisor] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_attrib_binding)
       def glVertexBindingDivisor(_bindingindex_, _divisor_)
@@ -5259,7 +5259,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_blend
 
-    GL_FUNCTIONS_ARGS_MAP[:glWeightPointerARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glWeightPointerARB] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glWeightPointerARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_blend)
       def glWeightPointerARB(_size_, _type_, _stride_, _pointer_)
@@ -5279,7 +5279,7 @@ module OpenGL
   end # define_command_GL_ARB_vertex_blend
 
   def define_command_GL_ARB_vertex_buffer_object
-    GL_FUNCTIONS_ARGS_MAP[:glBindBufferARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindBufferARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindBufferARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_buffer_object)
       def glBindBufferARB(_target_, _buffer_)
@@ -5306,8 +5306,8 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsBufferARB] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsBufferARB] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsBufferARB] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsBufferARB] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_vertex_buffer_object)
       def glIsBufferARB(_buffer_)
         f = OpenGL::get_command(:glIsBufferARB)
@@ -5315,7 +5315,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glBufferDataARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBufferDataARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBufferDataARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_buffer_object)
       def glBufferDataARB(_target_, _size_, _data_, _usage_)
@@ -5324,7 +5324,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glBufferSubDataARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glBufferSubDataARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glBufferSubDataARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_buffer_object)
       def glBufferSubDataARB(_target_, _offset_, _size_, _data_)
@@ -5333,7 +5333,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetBufferSubDataARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetBufferSubDataARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetBufferSubDataARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_buffer_object)
       def glGetBufferSubDataARB(_target_, _offset_, _size_, _data_)
@@ -5342,7 +5342,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glMapBufferARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMapBufferARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMapBufferARB] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_ARB_vertex_buffer_object)
       def glMapBufferARB(_target_, _access_)
@@ -5351,8 +5351,8 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glUnmapBufferARB] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glUnmapBufferARB] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glUnmapBufferARB] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glUnmapBufferARB] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_vertex_buffer_object)
       def glUnmapBufferARB(_target_)
         f = OpenGL::get_command(:glUnmapBufferARB)
@@ -5360,7 +5360,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetBufferParameterivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetBufferParameterivARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetBufferParameterivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_buffer_object)
       def glGetBufferParameterivARB(_target_, _pname_, _params_)
@@ -5369,7 +5369,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetBufferPointervARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetBufferPointervARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetBufferPointervARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_buffer_object)
       def glGetBufferPointervARB(_target_, _pname_, _params_)
@@ -5380,7 +5380,7 @@ module OpenGL
   end # define_command_GL_ARB_vertex_buffer_object
 
   def define_command_GL_ARB_vertex_program
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1dARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib1dARB(_index_, _x_)
@@ -5389,7 +5389,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1dvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib1dvARB(_index_, _v_)
@@ -5398,7 +5398,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1fARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib1fARB(_index_, _x_)
@@ -5407,7 +5407,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1fvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib1fvARB(_index_, _v_)
@@ -5416,7 +5416,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1sARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1sARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1sARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib1sARB(_index_, _x_)
@@ -5425,7 +5425,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1svARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1svARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1svARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib1svARB(_index_, _v_)
@@ -5434,7 +5434,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2dARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib2dARB(_index_, _x_, _y_)
@@ -5443,7 +5443,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2dvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib2dvARB(_index_, _v_)
@@ -5452,7 +5452,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2fARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib2fARB(_index_, _x_, _y_)
@@ -5461,7 +5461,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2fvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib2fvARB(_index_, _v_)
@@ -5470,7 +5470,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2sARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2sARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2sARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib2sARB(_index_, _x_, _y_)
@@ -5479,7 +5479,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2svARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2svARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2svARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib2svARB(_index_, _v_)
@@ -5488,7 +5488,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3dARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib3dARB(_index_, _x_, _y_, _z_)
@@ -5497,7 +5497,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3dvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib3dvARB(_index_, _v_)
@@ -5506,7 +5506,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3fARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib3fARB(_index_, _x_, _y_, _z_)
@@ -5515,7 +5515,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3fvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib3fvARB(_index_, _v_)
@@ -5524,7 +5524,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3sARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3sARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3sARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib3sARB(_index_, _x_, _y_, _z_)
@@ -5533,7 +5533,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3svARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3svARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3svARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib3svARB(_index_, _v_)
@@ -5542,7 +5542,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NbvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NbvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NbvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4NbvARB(_index_, _v_)
@@ -5551,7 +5551,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4NivARB(_index_, _v_)
@@ -5560,7 +5560,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NsvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NsvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NsvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4NsvARB(_index_, _v_)
@@ -5569,7 +5569,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NubARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NubARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NubARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4NubARB(_index_, _x_, _y_, _z_, _w_)
@@ -5578,7 +5578,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NubvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NubvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NubvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4NubvARB(_index_, _v_)
@@ -5587,7 +5587,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NuivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NuivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NuivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4NuivARB(_index_, _v_)
@@ -5596,7 +5596,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NusvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NusvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NusvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4NusvARB(_index_, _v_)
@@ -5605,7 +5605,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4bvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4bvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4bvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4bvARB(_index_, _v_)
@@ -5614,7 +5614,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4dARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4dARB(_index_, _x_, _y_, _z_, _w_)
@@ -5623,7 +5623,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4dvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4dvARB(_index_, _v_)
@@ -5632,7 +5632,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4fARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4fARB(_index_, _x_, _y_, _z_, _w_)
@@ -5641,7 +5641,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4fvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4fvARB(_index_, _v_)
@@ -5650,7 +5650,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4ivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4ivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4ivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4ivARB(_index_, _v_)
@@ -5659,7 +5659,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4sARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4sARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4sARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4sARB(_index_, _x_, _y_, _z_, _w_)
@@ -5668,7 +5668,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4svARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4svARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4svARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4svARB(_index_, _v_)
@@ -5677,7 +5677,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4ubvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4ubvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4ubvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4ubvARB(_index_, _v_)
@@ -5686,7 +5686,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4uivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4uivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4uivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4uivARB(_index_, _v_)
@@ -5695,7 +5695,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4usvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4usvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4usvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttrib4usvARB(_index_, _v_)
@@ -5704,7 +5704,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribPointerARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribPointerARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribPointerARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glVertexAttribPointerARB(_index_, _size_, _type_, _normalized_, _stride_, _pointer_)
@@ -5713,7 +5713,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glEnableVertexAttribArrayARB] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEnableVertexAttribArrayARB] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEnableVertexAttribArrayARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glEnableVertexAttribArrayARB(_index_)
@@ -5722,7 +5722,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glDisableVertexAttribArrayARB] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDisableVertexAttribArrayARB] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDisableVertexAttribArrayARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glDisableVertexAttribArrayARB(_index_)
@@ -5731,7 +5731,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramStringARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramStringARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramStringARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glProgramStringARB(_target_, _format_, _len_, _string_)
@@ -5740,7 +5740,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindProgramARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindProgramARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindProgramARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glBindProgramARB(_target_, _program_)
@@ -5767,7 +5767,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4dARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParameter4dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glProgramEnvParameter4dARB(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -5776,7 +5776,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4dvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParameter4dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glProgramEnvParameter4dvARB(_target_, _index_, _params_)
@@ -5785,7 +5785,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4fARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParameter4fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glProgramEnvParameter4fARB(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -5794,7 +5794,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameter4fvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParameter4fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glProgramEnvParameter4fvARB(_target_, _index_, _params_)
@@ -5803,7 +5803,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4dARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParameter4dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glProgramLocalParameter4dARB(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -5812,7 +5812,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4dvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParameter4dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glProgramLocalParameter4dvARB(_target_, _index_, _params_)
@@ -5821,7 +5821,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4fARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParameter4fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glProgramLocalParameter4fARB(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -5830,7 +5830,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameter4fvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParameter4fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glProgramLocalParameter4fvARB(_target_, _index_, _params_)
@@ -5839,7 +5839,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramEnvParameterdvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramEnvParameterdvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramEnvParameterdvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glGetProgramEnvParameterdvARB(_target_, _index_, _params_)
@@ -5848,7 +5848,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramEnvParameterfvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramEnvParameterfvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramEnvParameterfvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glGetProgramEnvParameterfvARB(_target_, _index_, _params_)
@@ -5857,7 +5857,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramLocalParameterdvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramLocalParameterdvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramLocalParameterdvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glGetProgramLocalParameterdvARB(_target_, _index_, _params_)
@@ -5866,7 +5866,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramLocalParameterfvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramLocalParameterfvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramLocalParameterfvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glGetProgramLocalParameterfvARB(_target_, _index_, _params_)
@@ -5875,7 +5875,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramivARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glGetProgramivARB(_target_, _pname_, _params_)
@@ -5884,7 +5884,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramStringARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramStringARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramStringARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glGetProgramStringARB(_target_, _pname_, _string_)
@@ -5893,7 +5893,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribdvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribdvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribdvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glGetVertexAttribdvARB(_index_, _pname_, _params_)
@@ -5902,7 +5902,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribfvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribfvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribfvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glGetVertexAttribfvARB(_index_, _pname_, _params_)
@@ -5911,7 +5911,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribivARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glGetVertexAttribivARB(_index_, _pname_, _params_)
@@ -5920,7 +5920,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribPointervARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribPointervARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribPointervARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glGetVertexAttribPointervARB(_index_, _pname_, _pointer_)
@@ -5929,8 +5929,8 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsProgramARB] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsProgramARB] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsProgramARB] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsProgramARB] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ARB_vertex_program)
       def glIsProgramARB(_program_)
         f = OpenGL::get_command(:glIsProgramARB)
@@ -5940,7 +5940,7 @@ module OpenGL
   end # define_command_GL_ARB_vertex_program
 
   def define_command_GL_ARB_vertex_shader
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1fARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib1fARB(_index_, _x_)
@@ -5949,7 +5949,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1sARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1sARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1sARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib1sARB(_index_, _x_)
@@ -5958,7 +5958,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1dARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib1dARB(_index_, _x_)
@@ -5967,7 +5967,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2fARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib2fARB(_index_, _x_, _y_)
@@ -5976,7 +5976,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2sARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2sARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2sARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib2sARB(_index_, _x_, _y_)
@@ -5985,7 +5985,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2dARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib2dARB(_index_, _x_, _y_)
@@ -5994,7 +5994,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3fARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib3fARB(_index_, _x_, _y_, _z_)
@@ -6003,7 +6003,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3sARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3sARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3sARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib3sARB(_index_, _x_, _y_, _z_)
@@ -6012,7 +6012,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3dARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib3dARB(_index_, _x_, _y_, _z_)
@@ -6021,7 +6021,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4fARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4fARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4fARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4fARB(_index_, _x_, _y_, _z_, _w_)
@@ -6030,7 +6030,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4sARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4sARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4sARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4sARB(_index_, _x_, _y_, _z_, _w_)
@@ -6039,7 +6039,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4dARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4dARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4dARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4dARB(_index_, _x_, _y_, _z_, _w_)
@@ -6048,7 +6048,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NubARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NubARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NubARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4NubARB(_index_, _x_, _y_, _z_, _w_)
@@ -6057,7 +6057,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1fvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib1fvARB(_index_, _v_)
@@ -6066,7 +6066,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1svARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1svARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1svARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib1svARB(_index_, _v_)
@@ -6075,7 +6075,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1dvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib1dvARB(_index_, _v_)
@@ -6084,7 +6084,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2fvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib2fvARB(_index_, _v_)
@@ -6093,7 +6093,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2svARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2svARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2svARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib2svARB(_index_, _v_)
@@ -6102,7 +6102,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2dvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib2dvARB(_index_, _v_)
@@ -6111,7 +6111,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3fvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib3fvARB(_index_, _v_)
@@ -6120,7 +6120,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3svARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3svARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3svARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib3svARB(_index_, _v_)
@@ -6129,7 +6129,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3dvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib3dvARB(_index_, _v_)
@@ -6138,7 +6138,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4fvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4fvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4fvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4fvARB(_index_, _v_)
@@ -6147,7 +6147,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4svARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4svARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4svARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4svARB(_index_, _v_)
@@ -6156,7 +6156,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4dvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4dvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4dvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4dvARB(_index_, _v_)
@@ -6165,7 +6165,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4ivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4ivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4ivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4ivARB(_index_, _v_)
@@ -6174,7 +6174,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4bvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4bvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4bvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4bvARB(_index_, _v_)
@@ -6183,7 +6183,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4ubvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4ubvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4ubvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4ubvARB(_index_, _v_)
@@ -6192,7 +6192,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4usvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4usvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4usvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4usvARB(_index_, _v_)
@@ -6201,7 +6201,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4uivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4uivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4uivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4uivARB(_index_, _v_)
@@ -6210,7 +6210,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NbvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NbvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NbvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4NbvARB(_index_, _v_)
@@ -6219,7 +6219,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NsvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NsvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NsvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4NsvARB(_index_, _v_)
@@ -6228,7 +6228,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4NivARB(_index_, _v_)
@@ -6237,7 +6237,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NubvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NubvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NubvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4NubvARB(_index_, _v_)
@@ -6246,7 +6246,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NusvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NusvARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NusvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4NusvARB(_index_, _v_)
@@ -6255,7 +6255,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NuivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4NuivARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4NuivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttrib4NuivARB(_index_, _v_)
@@ -6264,7 +6264,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribPointerARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribPointerARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribPointerARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glVertexAttribPointerARB(_index_, _size_, _type_, _normalized_, _stride_, _pointer_)
@@ -6273,7 +6273,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glEnableVertexAttribArrayARB] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEnableVertexAttribArrayARB] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEnableVertexAttribArrayARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glEnableVertexAttribArrayARB(_index_)
@@ -6282,7 +6282,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glDisableVertexAttribArrayARB] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDisableVertexAttribArrayARB] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDisableVertexAttribArrayARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glDisableVertexAttribArrayARB(_index_)
@@ -6291,7 +6291,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindAttribLocationARB] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glBindAttribLocationARB] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glBindAttribLocationARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glBindAttribLocationARB(_programObj_, _index_, _name_)
@@ -6300,7 +6300,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetActiveAttribARB] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetActiveAttribARB] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetActiveAttribARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glGetActiveAttribARB(_programObj_, _index_, _maxLength_, _length_, _size_, _type_, _name_)
@@ -6318,7 +6318,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribdvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribdvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribdvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glGetVertexAttribdvARB(_index_, _pname_, _params_)
@@ -6327,7 +6327,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribfvARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribfvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribfvARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glGetVertexAttribfvARB(_index_, _pname_, _params_)
@@ -6336,7 +6336,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribivARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribivARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribivARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glGetVertexAttribivARB(_index_, _pname_, _params_)
@@ -6345,7 +6345,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribPointervARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribPointervARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribPointervARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_shader)
       def glGetVertexAttribPointervARB(_index_, _pname_, _pointer_)
@@ -6359,7 +6359,7 @@ module OpenGL
   end # define_command_GL_ARB_vertex_type_10f_11f_11f_rev
 
   def define_command_GL_ARB_vertex_type_2_10_10_10_rev
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP1ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP1ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribP1ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexAttribP1ui(_index_, _type_, _normalized_, _value_)
@@ -6368,7 +6368,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP1uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP1uiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribP1uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexAttribP1uiv(_index_, _type_, _normalized_, _value_)
@@ -6377,7 +6377,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP2ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP2ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribP2ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexAttribP2ui(_index_, _type_, _normalized_, _value_)
@@ -6386,7 +6386,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP2uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP2uiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribP2uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexAttribP2uiv(_index_, _type_, _normalized_, _value_)
@@ -6395,7 +6395,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP3ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP3ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribP3ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexAttribP3ui(_index_, _type_, _normalized_, _value_)
@@ -6404,7 +6404,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP3uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP3uiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribP3uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexAttribP3uiv(_index_, _type_, _normalized_, _value_)
@@ -6413,7 +6413,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP4ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP4ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribP4ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexAttribP4ui(_index_, _type_, _normalized_, _value_)
@@ -6422,7 +6422,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP4uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribP4uiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribP4uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexAttribP4uiv(_index_, _type_, _normalized_, _value_)
@@ -6431,7 +6431,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexP2ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexP2ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexP2ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexP2ui(_type_, _value_)
@@ -6440,7 +6440,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexP2uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexP2uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexP2uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexP2uiv(_type_, _value_)
@@ -6449,7 +6449,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexP3ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexP3ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexP3ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexP3ui(_type_, _value_)
@@ -6458,7 +6458,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexP3uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexP3uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexP3uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexP3uiv(_type_, _value_)
@@ -6467,7 +6467,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexP4ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexP4ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexP4ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexP4ui(_type_, _value_)
@@ -6476,7 +6476,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexP4uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexP4uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexP4uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glVertexP4uiv(_type_, _value_)
@@ -6485,7 +6485,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP1ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP1ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoordP1ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glTexCoordP1ui(_type_, _coords_)
@@ -6494,7 +6494,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP1uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP1uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoordP1uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glTexCoordP1uiv(_type_, _coords_)
@@ -6503,7 +6503,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP2ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP2ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoordP2ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glTexCoordP2ui(_type_, _coords_)
@@ -6512,7 +6512,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP2uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP2uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoordP2uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glTexCoordP2uiv(_type_, _coords_)
@@ -6521,7 +6521,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP3ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP3ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoordP3ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glTexCoordP3ui(_type_, _coords_)
@@ -6530,7 +6530,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP3uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP3uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoordP3uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glTexCoordP3uiv(_type_, _coords_)
@@ -6539,7 +6539,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP4ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP4ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoordP4ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glTexCoordP4ui(_type_, _coords_)
@@ -6548,7 +6548,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP4uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoordP4uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoordP4uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glTexCoordP4uiv(_type_, _coords_)
@@ -6557,7 +6557,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP1ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP1ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoordP1ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glMultiTexCoordP1ui(_texture_, _type_, _coords_)
@@ -6566,7 +6566,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP1uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP1uiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoordP1uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glMultiTexCoordP1uiv(_texture_, _type_, _coords_)
@@ -6575,7 +6575,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP2ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP2ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoordP2ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glMultiTexCoordP2ui(_texture_, _type_, _coords_)
@@ -6584,7 +6584,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP2uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP2uiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoordP2uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glMultiTexCoordP2uiv(_texture_, _type_, _coords_)
@@ -6593,7 +6593,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP3ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP3ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoordP3ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glMultiTexCoordP3ui(_texture_, _type_, _coords_)
@@ -6602,7 +6602,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP3uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP3uiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoordP3uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glMultiTexCoordP3uiv(_texture_, _type_, _coords_)
@@ -6611,7 +6611,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP4ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP4ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoordP4ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glMultiTexCoordP4ui(_texture_, _type_, _coords_)
@@ -6620,7 +6620,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP4uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordP4uiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoordP4uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glMultiTexCoordP4uiv(_texture_, _type_, _coords_)
@@ -6629,7 +6629,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalP3ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalP3ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalP3ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glNormalP3ui(_type_, _coords_)
@@ -6638,7 +6638,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalP3uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalP3uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalP3uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glNormalP3uiv(_type_, _coords_)
@@ -6647,7 +6647,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorP3ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glColorP3ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glColorP3ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glColorP3ui(_type_, _color_)
@@ -6656,7 +6656,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorP3uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glColorP3uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glColorP3uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glColorP3uiv(_type_, _color_)
@@ -6665,7 +6665,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorP4ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glColorP4ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glColorP4ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glColorP4ui(_type_, _color_)
@@ -6674,7 +6674,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorP4uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glColorP4uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glColorP4uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glColorP4uiv(_type_, _color_)
@@ -6683,7 +6683,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColorP3ui] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColorP3ui] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSecondaryColorP3ui] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glSecondaryColorP3ui(_type_, _color_)
@@ -6692,7 +6692,7 @@ module OpenGL
       end
     SRC_GL_ARB_vertex_type_2_10_10_10_rev
 
-    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColorP3uiv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColorP3uiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSecondaryColorP3uiv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_vertex_type_2_10_10_10_rev)
       def glSecondaryColorP3uiv(_type_, _color_)
@@ -6703,7 +6703,7 @@ module OpenGL
   end # define_command_GL_ARB_vertex_type_2_10_10_10_rev
 
   def define_command_GL_ARB_viewport_array
-    GL_FUNCTIONS_ARGS_MAP[:glViewportArrayv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glViewportArrayv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glViewportArrayv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_viewport_array)
       def glViewportArrayv(_first_, _count_, _v_)
@@ -6712,7 +6712,7 @@ module OpenGL
       end
     SRC_GL_ARB_viewport_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glViewportIndexedf] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glViewportIndexedf] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glViewportIndexedf] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_viewport_array)
       def glViewportIndexedf(_index_, _x_, _y_, _w_, _h_)
@@ -6721,7 +6721,7 @@ module OpenGL
       end
     SRC_GL_ARB_viewport_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glViewportIndexedfv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glViewportIndexedfv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glViewportIndexedfv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_viewport_array)
       def glViewportIndexedfv(_index_, _v_)
@@ -6730,7 +6730,7 @@ module OpenGL
       end
     SRC_GL_ARB_viewport_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glScissorArrayv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glScissorArrayv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glScissorArrayv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_viewport_array)
       def glScissorArrayv(_first_, _count_, _v_)
@@ -6739,7 +6739,7 @@ module OpenGL
       end
     SRC_GL_ARB_viewport_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glScissorIndexed] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glScissorIndexed] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glScissorIndexed] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_viewport_array)
       def glScissorIndexed(_index_, _left_, _bottom_, _width_, _height_)
@@ -6748,7 +6748,7 @@ module OpenGL
       end
     SRC_GL_ARB_viewport_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glScissorIndexedv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glScissorIndexedv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glScissorIndexedv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_viewport_array)
       def glScissorIndexedv(_index_, _v_)
@@ -6757,7 +6757,7 @@ module OpenGL
       end
     SRC_GL_ARB_viewport_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glDepthRangeArrayv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glDepthRangeArrayv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDepthRangeArrayv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_viewport_array)
       def glDepthRangeArrayv(_first_, _count_, _v_)
@@ -6766,7 +6766,7 @@ module OpenGL
       end
     SRC_GL_ARB_viewport_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glDepthRangeIndexed] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glDepthRangeIndexed] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glDepthRangeIndexed] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_viewport_array)
       def glDepthRangeIndexed(_index_, _n_, _f_)
@@ -6775,7 +6775,7 @@ module OpenGL
       end
     SRC_GL_ARB_viewport_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFloati_v] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFloati_v] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFloati_v] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_viewport_array)
       def glGetFloati_v(_target_, _index_, _data_)
@@ -6784,7 +6784,7 @@ module OpenGL
       end
     SRC_GL_ARB_viewport_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetDoublei_v] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetDoublei_v] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetDoublei_v] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_viewport_array)
       def glGetDoublei_v(_target_, _index_, _data_)
@@ -6952,7 +6952,7 @@ module OpenGL
   end # define_command_GL_ATI_draw_buffers
 
   def define_command_GL_ATI_element_array
-    GL_FUNCTIONS_ARGS_MAP[:glElementPointerATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glElementPointerATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glElementPointerATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_element_array)
       def glElementPointerATI(_type_, _pointer_)
@@ -6961,7 +6961,7 @@ module OpenGL
       end
     SRC_GL_ATI_element_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawElementArrayATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawElementArrayATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawElementArrayATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_element_array)
       def glDrawElementArrayATI(_mode_, _count_)
@@ -6970,7 +6970,7 @@ module OpenGL
       end
     SRC_GL_ATI_element_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawRangeElementArrayATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawRangeElementArrayATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawRangeElementArrayATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_element_array)
       def glDrawRangeElementArrayATI(_mode_, _start_, _end_, _count_)
@@ -6981,7 +6981,7 @@ module OpenGL
   end # define_command_GL_ATI_element_array
 
   def define_command_GL_ATI_envmap_bumpmap
-    GL_FUNCTIONS_ARGS_MAP[:glTexBumpParameterivATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexBumpParameterivATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexBumpParameterivATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_envmap_bumpmap)
       def glTexBumpParameterivATI(_pname_, _param_)
@@ -6990,7 +6990,7 @@ module OpenGL
       end
     SRC_GL_ATI_envmap_bumpmap
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexBumpParameterfvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexBumpParameterfvATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexBumpParameterfvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_envmap_bumpmap)
       def glTexBumpParameterfvATI(_pname_, _param_)
@@ -6999,7 +6999,7 @@ module OpenGL
       end
     SRC_GL_ATI_envmap_bumpmap
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTexBumpParameterivATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTexBumpParameterivATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTexBumpParameterivATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_envmap_bumpmap)
       def glGetTexBumpParameterivATI(_pname_, _param_)
@@ -7008,7 +7008,7 @@ module OpenGL
       end
     SRC_GL_ATI_envmap_bumpmap
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTexBumpParameterfvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTexBumpParameterfvATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTexBumpParameterfvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_envmap_bumpmap)
       def glGetTexBumpParameterfvATI(_pname_, _param_)
@@ -7019,8 +7019,8 @@ module OpenGL
   end # define_command_GL_ATI_envmap_bumpmap
 
   def define_command_GL_ATI_fragment_shader
-    GL_FUNCTIONS_ARGS_MAP[:glGenFragmentShadersATI] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glGenFragmentShadersATI] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glGenFragmentShadersATI] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glGenFragmentShadersATI] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ATI_fragment_shader)
       def glGenFragmentShadersATI(_range_)
         f = OpenGL::get_command(:glGenFragmentShadersATI)
@@ -7028,7 +7028,7 @@ module OpenGL
       end
     SRC_GL_ATI_fragment_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindFragmentShaderATI] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindFragmentShaderATI] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindFragmentShaderATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_fragment_shader)
       def glBindFragmentShaderATI(_id_)
@@ -7037,7 +7037,7 @@ module OpenGL
       end
     SRC_GL_ATI_fragment_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glDeleteFragmentShaderATI] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDeleteFragmentShaderATI] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDeleteFragmentShaderATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_fragment_shader)
       def glDeleteFragmentShaderATI(_id_)
@@ -7064,7 +7064,7 @@ module OpenGL
       end
     SRC_GL_ATI_fragment_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glPassTexCoordATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPassTexCoordATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPassTexCoordATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_fragment_shader)
       def glPassTexCoordATI(_dst_, _coord_, _swizzle_)
@@ -7073,7 +7073,7 @@ module OpenGL
       end
     SRC_GL_ATI_fragment_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glSampleMapATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSampleMapATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSampleMapATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_fragment_shader)
       def glSampleMapATI(_dst_, _interp_, _swizzle_)
@@ -7082,7 +7082,7 @@ module OpenGL
       end
     SRC_GL_ATI_fragment_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorFragmentOp1ATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glColorFragmentOp1ATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glColorFragmentOp1ATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_fragment_shader)
       def glColorFragmentOp1ATI(_op_, _dst_, _dstMask_, _dstMod_, _arg1_, _arg1Rep_, _arg1Mod_)
@@ -7091,7 +7091,7 @@ module OpenGL
       end
     SRC_GL_ATI_fragment_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorFragmentOp2ATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glColorFragmentOp2ATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glColorFragmentOp2ATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_fragment_shader)
       def glColorFragmentOp2ATI(_op_, _dst_, _dstMask_, _dstMod_, _arg1_, _arg1Rep_, _arg1Mod_, _arg2_, _arg2Rep_, _arg2Mod_)
@@ -7100,7 +7100,7 @@ module OpenGL
       end
     SRC_GL_ATI_fragment_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorFragmentOp3ATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glColorFragmentOp3ATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glColorFragmentOp3ATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_fragment_shader)
       def glColorFragmentOp3ATI(_op_, _dst_, _dstMask_, _dstMod_, _arg1_, _arg1Rep_, _arg1Mod_, _arg2_, _arg2Rep_, _arg2Mod_, _arg3_, _arg3Rep_, _arg3Mod_)
@@ -7109,7 +7109,7 @@ module OpenGL
       end
     SRC_GL_ATI_fragment_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glAlphaFragmentOp1ATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glAlphaFragmentOp1ATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glAlphaFragmentOp1ATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_fragment_shader)
       def glAlphaFragmentOp1ATI(_op_, _dst_, _dstMod_, _arg1_, _arg1Rep_, _arg1Mod_)
@@ -7118,7 +7118,7 @@ module OpenGL
       end
     SRC_GL_ATI_fragment_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glAlphaFragmentOp2ATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glAlphaFragmentOp2ATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glAlphaFragmentOp2ATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_fragment_shader)
       def glAlphaFragmentOp2ATI(_op_, _dst_, _dstMod_, _arg1_, _arg1Rep_, _arg1Mod_, _arg2_, _arg2Rep_, _arg2Mod_)
@@ -7127,7 +7127,7 @@ module OpenGL
       end
     SRC_GL_ATI_fragment_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glAlphaFragmentOp3ATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glAlphaFragmentOp3ATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glAlphaFragmentOp3ATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_fragment_shader)
       def glAlphaFragmentOp3ATI(_op_, _dst_, _dstMod_, _arg1_, _arg1Rep_, _arg1Mod_, _arg2_, _arg2Rep_, _arg2Mod_, _arg3_, _arg3Rep_, _arg3Mod_)
@@ -7136,7 +7136,7 @@ module OpenGL
       end
     SRC_GL_ATI_fragment_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glSetFragmentShaderConstantATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSetFragmentShaderConstantATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSetFragmentShaderConstantATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_fragment_shader)
       def glSetFragmentShaderConstantATI(_dst_, _value_)
@@ -7147,7 +7147,7 @@ module OpenGL
   end # define_command_GL_ATI_fragment_shader
 
   def define_command_GL_ATI_map_object_buffer
-    GL_FUNCTIONS_ARGS_MAP[:glMapObjectBufferATI] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMapObjectBufferATI] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMapObjectBufferATI] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_ATI_map_object_buffer)
       def glMapObjectBufferATI(_buffer_)
@@ -7156,7 +7156,7 @@ module OpenGL
       end
     SRC_GL_ATI_map_object_buffer
 
-    GL_FUNCTIONS_ARGS_MAP[:glUnmapObjectBufferATI] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glUnmapObjectBufferATI] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glUnmapObjectBufferATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_map_object_buffer)
       def glUnmapObjectBufferATI(_buffer_)
@@ -7173,7 +7173,7 @@ module OpenGL
   end # define_command_GL_ATI_pixel_format_float
 
   def define_command_GL_ATI_pn_triangles
-    GL_FUNCTIONS_ARGS_MAP[:glPNTrianglesiATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPNTrianglesiATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPNTrianglesiATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_pn_triangles)
       def glPNTrianglesiATI(_pname_, _param_)
@@ -7182,7 +7182,7 @@ module OpenGL
       end
     SRC_GL_ATI_pn_triangles
 
-    GL_FUNCTIONS_ARGS_MAP[:glPNTrianglesfATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glPNTrianglesfATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glPNTrianglesfATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_pn_triangles)
       def glPNTrianglesfATI(_pname_, _param_)
@@ -7193,7 +7193,7 @@ module OpenGL
   end # define_command_GL_ATI_pn_triangles
 
   def define_command_GL_ATI_separate_stencil
-    GL_FUNCTIONS_ARGS_MAP[:glStencilOpSeparateATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glStencilOpSeparateATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glStencilOpSeparateATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_separate_stencil)
       def glStencilOpSeparateATI(_face_, _sfail_, _dpfail_, _dppass_)
@@ -7202,7 +7202,7 @@ module OpenGL
       end
     SRC_GL_ATI_separate_stencil
 
-    GL_FUNCTIONS_ARGS_MAP[:glStencilFuncSeparateATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glStencilFuncSeparateATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glStencilFuncSeparateATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_separate_stencil)
       def glStencilFuncSeparateATI(_frontfunc_, _backfunc_, _ref_, _mask_)
@@ -7225,8 +7225,8 @@ module OpenGL
   end # define_command_GL_ATI_texture_mirror_once
 
   def define_command_GL_ATI_vertex_array_object
-    GL_FUNCTIONS_ARGS_MAP[:glNewObjectBufferATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glNewObjectBufferATI] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glNewObjectBufferATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glNewObjectBufferATI] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_ATI_vertex_array_object)
       def glNewObjectBufferATI(_size_, _pointer_, _usage_)
         f = OpenGL::get_command(:glNewObjectBufferATI)
@@ -7234,8 +7234,8 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsObjectBufferATI] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsObjectBufferATI] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsObjectBufferATI] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsObjectBufferATI] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_ATI_vertex_array_object)
       def glIsObjectBufferATI(_buffer_)
         f = OpenGL::get_command(:glIsObjectBufferATI)
@@ -7243,7 +7243,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glUpdateObjectBufferATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glUpdateObjectBufferATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glUpdateObjectBufferATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_array_object)
       def glUpdateObjectBufferATI(_buffer_, _offset_, _size_, _pointer_, _preserve_)
@@ -7252,7 +7252,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetObjectBufferfvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetObjectBufferfvATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetObjectBufferfvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_array_object)
       def glGetObjectBufferfvATI(_buffer_, _pname_, _params_)
@@ -7261,7 +7261,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetObjectBufferivATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetObjectBufferivATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetObjectBufferivATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_array_object)
       def glGetObjectBufferivATI(_buffer_, _pname_, _params_)
@@ -7270,7 +7270,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glFreeObjectBufferATI] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFreeObjectBufferATI] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFreeObjectBufferATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_array_object)
       def glFreeObjectBufferATI(_buffer_)
@@ -7279,7 +7279,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glArrayObjectATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glArrayObjectATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glArrayObjectATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_array_object)
       def glArrayObjectATI(_array_, _size_, _type_, _stride_, _buffer_, _offset_)
@@ -7288,7 +7288,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetArrayObjectfvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetArrayObjectfvATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetArrayObjectfvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_array_object)
       def glGetArrayObjectfvATI(_array_, _pname_, _params_)
@@ -7297,7 +7297,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetArrayObjectivATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetArrayObjectivATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetArrayObjectivATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_array_object)
       def glGetArrayObjectivATI(_array_, _pname_, _params_)
@@ -7306,7 +7306,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glVariantArrayObjectATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVariantArrayObjectATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVariantArrayObjectATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_array_object)
       def glVariantArrayObjectATI(_id_, _type_, _stride_, _buffer_, _offset_)
@@ -7315,7 +7315,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVariantArrayObjectfvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVariantArrayObjectfvATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVariantArrayObjectfvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_array_object)
       def glGetVariantArrayObjectfvATI(_id_, _pname_, _params_)
@@ -7324,7 +7324,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVariantArrayObjectivATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVariantArrayObjectivATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVariantArrayObjectivATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_array_object)
       def glGetVariantArrayObjectivATI(_id_, _pname_, _params_)
@@ -7335,7 +7335,7 @@ module OpenGL
   end # define_command_GL_ATI_vertex_array_object
 
   def define_command_GL_ATI_vertex_attrib_array_object
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribArrayObjectATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribArrayObjectATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribArrayObjectATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_attrib_array_object)
       def glVertexAttribArrayObjectATI(_index_, _size_, _type_, _normalized_, _stride_, _buffer_, _offset_)
@@ -7344,7 +7344,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_attrib_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribArrayObjectfvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribArrayObjectfvATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribArrayObjectfvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_attrib_array_object)
       def glGetVertexAttribArrayObjectfvATI(_index_, _pname_, _params_)
@@ -7353,7 +7353,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_attrib_array_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribArrayObjectivATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribArrayObjectivATI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribArrayObjectivATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_attrib_array_object)
       def glGetVertexAttribArrayObjectivATI(_index_, _pname_, _params_)
@@ -7364,7 +7364,7 @@ module OpenGL
   end # define_command_GL_ATI_vertex_attrib_array_object
 
   def define_command_GL_ATI_vertex_streams
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1sATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1sATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream1sATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream1sATI(_stream_, _x_)
@@ -7373,7 +7373,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1svATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1svATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream1svATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream1svATI(_stream_, _coords_)
@@ -7382,7 +7382,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1iATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1iATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream1iATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream1iATI(_stream_, _x_)
@@ -7391,7 +7391,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1ivATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1ivATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream1ivATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream1ivATI(_stream_, _coords_)
@@ -7400,7 +7400,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1fATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1fATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream1fATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream1fATI(_stream_, _x_)
@@ -7409,7 +7409,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1fvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1fvATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream1fvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream1fvATI(_stream_, _coords_)
@@ -7418,7 +7418,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1dATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1dATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream1dATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream1dATI(_stream_, _x_)
@@ -7427,7 +7427,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1dvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream1dvATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream1dvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream1dvATI(_stream_, _coords_)
@@ -7436,7 +7436,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2sATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2sATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream2sATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream2sATI(_stream_, _x_, _y_)
@@ -7445,7 +7445,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2svATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2svATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream2svATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream2svATI(_stream_, _coords_)
@@ -7454,7 +7454,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2iATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2iATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream2iATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream2iATI(_stream_, _x_, _y_)
@@ -7463,7 +7463,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2ivATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2ivATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream2ivATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream2ivATI(_stream_, _coords_)
@@ -7472,7 +7472,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2fATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2fATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream2fATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream2fATI(_stream_, _x_, _y_)
@@ -7481,7 +7481,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2fvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2fvATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream2fvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream2fvATI(_stream_, _coords_)
@@ -7490,7 +7490,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2dATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2dATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream2dATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream2dATI(_stream_, _x_, _y_)
@@ -7499,7 +7499,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2dvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream2dvATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream2dvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream2dvATI(_stream_, _coords_)
@@ -7508,7 +7508,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3sATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3sATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream3sATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream3sATI(_stream_, _x_, _y_, _z_)
@@ -7517,7 +7517,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3svATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3svATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream3svATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream3svATI(_stream_, _coords_)
@@ -7526,7 +7526,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3iATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3iATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream3iATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream3iATI(_stream_, _x_, _y_, _z_)
@@ -7535,7 +7535,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3ivATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3ivATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream3ivATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream3ivATI(_stream_, _coords_)
@@ -7544,7 +7544,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3fATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3fATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream3fATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream3fATI(_stream_, _x_, _y_, _z_)
@@ -7553,7 +7553,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3fvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3fvATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream3fvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream3fvATI(_stream_, _coords_)
@@ -7562,7 +7562,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3dATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3dATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream3dATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream3dATI(_stream_, _x_, _y_, _z_)
@@ -7571,7 +7571,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3dvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream3dvATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream3dvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream3dvATI(_stream_, _coords_)
@@ -7580,7 +7580,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4sATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4sATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream4sATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream4sATI(_stream_, _x_, _y_, _z_, _w_)
@@ -7589,7 +7589,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4svATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4svATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream4svATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream4svATI(_stream_, _coords_)
@@ -7598,7 +7598,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4iATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4iATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream4iATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream4iATI(_stream_, _x_, _y_, _z_, _w_)
@@ -7607,7 +7607,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4ivATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4ivATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream4ivATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream4ivATI(_stream_, _coords_)
@@ -7616,7 +7616,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4fATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4fATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream4fATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream4fATI(_stream_, _x_, _y_, _z_, _w_)
@@ -7625,7 +7625,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4fvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4fvATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream4fvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream4fvATI(_stream_, _coords_)
@@ -7634,7 +7634,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4dATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4dATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream4dATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream4dATI(_stream_, _x_, _y_, _z_, _w_)
@@ -7643,7 +7643,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4dvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexStream4dvATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexStream4dvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexStream4dvATI(_stream_, _coords_)
@@ -7652,7 +7652,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3bATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3bATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalStream3bATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glNormalStream3bATI(_stream_, _nx_, _ny_, _nz_)
@@ -7661,7 +7661,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3bvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3bvATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalStream3bvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glNormalStream3bvATI(_stream_, _coords_)
@@ -7670,7 +7670,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3sATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3sATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalStream3sATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glNormalStream3sATI(_stream_, _nx_, _ny_, _nz_)
@@ -7679,7 +7679,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3svATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3svATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalStream3svATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glNormalStream3svATI(_stream_, _coords_)
@@ -7688,7 +7688,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3iATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3iATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalStream3iATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glNormalStream3iATI(_stream_, _nx_, _ny_, _nz_)
@@ -7697,7 +7697,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3ivATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3ivATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalStream3ivATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glNormalStream3ivATI(_stream_, _coords_)
@@ -7706,7 +7706,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3fATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3fATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalStream3fATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glNormalStream3fATI(_stream_, _nx_, _ny_, _nz_)
@@ -7715,7 +7715,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3fvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3fvATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalStream3fvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glNormalStream3fvATI(_stream_, _coords_)
@@ -7724,7 +7724,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3dATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3dATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalStream3dATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glNormalStream3dATI(_stream_, _nx_, _ny_, _nz_)
@@ -7733,7 +7733,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3dvATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalStream3dvATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalStream3dvATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glNormalStream3dvATI(_stream_, _coords_)
@@ -7742,7 +7742,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glClientActiveVertexStreamATI] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glClientActiveVertexStreamATI] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glClientActiveVertexStreamATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glClientActiveVertexStreamATI(_stream_)
@@ -7751,7 +7751,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexBlendEnviATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexBlendEnviATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexBlendEnviATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexBlendEnviATI(_pname_, _param_)
@@ -7760,7 +7760,7 @@ module OpenGL
       end
     SRC_GL_ATI_vertex_streams
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexBlendEnvfATI] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexBlendEnvfATI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexBlendEnvfATI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ATI_vertex_streams)
       def glVertexBlendEnvfATI(_pname_, _param_)
@@ -7780,7 +7780,7 @@ module OpenGL
   end # define_command_GL_EXT_bgra
 
   def define_command_GL_EXT_bindable_uniform
-    GL_FUNCTIONS_ARGS_MAP[:glUniformBufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformBufferEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformBufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_bindable_uniform)
       def glUniformBufferEXT(_program_, _location_, _buffer_)
@@ -7789,7 +7789,7 @@ module OpenGL
       end
     SRC_GL_EXT_bindable_uniform
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetUniformBufferSizeEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glGetUniformBufferSizeEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glGetUniformBufferSizeEXT] = Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_bindable_uniform)
       def glGetUniformBufferSizeEXT(_program_, _location_)
@@ -7798,7 +7798,7 @@ module OpenGL
       end
     SRC_GL_EXT_bindable_uniform
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetUniformOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glGetUniformOffsetEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glGetUniformOffsetEXT] = Fiddle::TYPE_PTRDIFF_T
     module_eval(<<-SRC_GL_EXT_bindable_uniform)
       def glGetUniformOffsetEXT(_program_, _location_)
@@ -7820,7 +7820,7 @@ module OpenGL
   end # define_command_GL_EXT_blend_color
 
   def define_command_GL_EXT_blend_equation_separate
-    GL_FUNCTIONS_ARGS_MAP[:glBlendEquationSeparateEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendEquationSeparateEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendEquationSeparateEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_blend_equation_separate)
       def glBlendEquationSeparateEXT(_modeRGB_, _modeAlpha_)
@@ -7831,7 +7831,7 @@ module OpenGL
   end # define_command_GL_EXT_blend_equation_separate
 
   def define_command_GL_EXT_blend_func_separate
-    GL_FUNCTIONS_ARGS_MAP[:glBlendFuncSeparateEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendFuncSeparateEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendFuncSeparateEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_blend_func_separate)
       def glBlendFuncSeparateEXT(_sfactorRGB_, _dfactorRGB_, _sfactorAlpha_, _dfactorAlpha_)
@@ -7845,7 +7845,7 @@ module OpenGL
   end # define_command_GL_EXT_blend_logic_op
 
   def define_command_GL_EXT_blend_minmax
-    GL_FUNCTIONS_ARGS_MAP[:glBlendEquationEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendEquationEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendEquationEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_blend_minmax)
       def glBlendEquationEXT(_mode_)
@@ -7865,7 +7865,7 @@ module OpenGL
   end # define_command_GL_EXT_cmyka
 
   def define_command_GL_EXT_color_subtable
-    GL_FUNCTIONS_ARGS_MAP[:glColorSubTableEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glColorSubTableEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glColorSubTableEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_color_subtable)
       def glColorSubTableEXT(_target_, _start_, _count_, _format_, _type_, _data_)
@@ -7874,7 +7874,7 @@ module OpenGL
       end
     SRC_GL_EXT_color_subtable
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyColorSubTableEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyColorSubTableEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyColorSubTableEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_color_subtable)
       def glCopyColorSubTableEXT(_target_, _start_, _x_, _y_, _width_)
@@ -7905,7 +7905,7 @@ module OpenGL
   end # define_command_GL_EXT_compiled_vertex_array
 
   def define_command_GL_EXT_convolution
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionFilter1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionFilter1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionFilter1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_convolution)
       def glConvolutionFilter1DEXT(_target_, _internalformat_, _width_, _format_, _type_, _image_)
@@ -7914,7 +7914,7 @@ module OpenGL
       end
     SRC_GL_EXT_convolution
 
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionFilter2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionFilter2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionFilter2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_convolution)
       def glConvolutionFilter2DEXT(_target_, _internalformat_, _width_, _height_, _format_, _type_, _image_)
@@ -7923,7 +7923,7 @@ module OpenGL
       end
     SRC_GL_EXT_convolution
 
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterfEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterfEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionParameterfEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_convolution)
       def glConvolutionParameterfEXT(_target_, _pname_, _params_)
@@ -7932,7 +7932,7 @@ module OpenGL
       end
     SRC_GL_EXT_convolution
 
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_convolution)
       def glConvolutionParameterfvEXT(_target_, _pname_, _params_)
@@ -7941,7 +7941,7 @@ module OpenGL
       end
     SRC_GL_EXT_convolution
 
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameteriEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameteriEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionParameteriEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_convolution)
       def glConvolutionParameteriEXT(_target_, _pname_, _params_)
@@ -7950,7 +7950,7 @@ module OpenGL
       end
     SRC_GL_EXT_convolution
 
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_convolution)
       def glConvolutionParameterivEXT(_target_, _pname_, _params_)
@@ -7959,7 +7959,7 @@ module OpenGL
       end
     SRC_GL_EXT_convolution
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyConvolutionFilter1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyConvolutionFilter1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyConvolutionFilter1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_convolution)
       def glCopyConvolutionFilter1DEXT(_target_, _internalformat_, _x_, _y_, _width_)
@@ -7968,7 +7968,7 @@ module OpenGL
       end
     SRC_GL_EXT_convolution
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyConvolutionFilter2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyConvolutionFilter2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyConvolutionFilter2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_convolution)
       def glCopyConvolutionFilter2DEXT(_target_, _internalformat_, _x_, _y_, _width_, _height_)
@@ -7977,7 +7977,7 @@ module OpenGL
       end
     SRC_GL_EXT_convolution
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionFilterEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionFilterEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetConvolutionFilterEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_convolution)
       def glGetConvolutionFilterEXT(_target_, _format_, _type_, _image_)
@@ -7986,7 +7986,7 @@ module OpenGL
       end
     SRC_GL_EXT_convolution
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetConvolutionParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_convolution)
       def glGetConvolutionParameterfvEXT(_target_, _pname_, _params_)
@@ -7995,7 +7995,7 @@ module OpenGL
       end
     SRC_GL_EXT_convolution
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetConvolutionParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_convolution)
       def glGetConvolutionParameterivEXT(_target_, _pname_, _params_)
@@ -8004,7 +8004,7 @@ module OpenGL
       end
     SRC_GL_EXT_convolution
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetSeparableFilterEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetSeparableFilterEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetSeparableFilterEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_convolution)
       def glGetSeparableFilterEXT(_target_, _format_, _type_, _row_, _column_, _span_)
@@ -8013,7 +8013,7 @@ module OpenGL
       end
     SRC_GL_EXT_convolution
 
-    GL_FUNCTIONS_ARGS_MAP[:glSeparableFilter2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSeparableFilter2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSeparableFilter2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_convolution)
       def glSeparableFilter2DEXT(_target_, _internalformat_, _width_, _height_, _format_, _type_, _row_, _column_)
@@ -8204,7 +8204,7 @@ module OpenGL
       end
     SRC_GL_EXT_coordinate_frame
 
-    GL_FUNCTIONS_ARGS_MAP[:glTangentPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTangentPointerEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTangentPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_coordinate_frame)
       def glTangentPointerEXT(_type_, _stride_, _pointer_)
@@ -8213,7 +8213,7 @@ module OpenGL
       end
     SRC_GL_EXT_coordinate_frame
 
-    GL_FUNCTIONS_ARGS_MAP[:glBinormalPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glBinormalPointerEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glBinormalPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_coordinate_frame)
       def glBinormalPointerEXT(_type_, _stride_, _pointer_)
@@ -8224,7 +8224,7 @@ module OpenGL
   end # define_command_GL_EXT_coordinate_frame
 
   def define_command_GL_EXT_copy_texture
-    GL_FUNCTIONS_ARGS_MAP[:glCopyTexImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyTexImage1DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyTexImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_copy_texture)
       def glCopyTexImage1DEXT(_target_, _level_, _internalformat_, _x_, _y_, _width_, _border_)
@@ -8233,7 +8233,7 @@ module OpenGL
       end
     SRC_GL_EXT_copy_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyTexImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyTexImage2DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyTexImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_copy_texture)
       def glCopyTexImage2DEXT(_target_, _level_, _internalformat_, _x_, _y_, _width_, _height_, _border_)
@@ -8242,7 +8242,7 @@ module OpenGL
       end
     SRC_GL_EXT_copy_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyTexSubImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyTexSubImage1DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyTexSubImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_copy_texture)
       def glCopyTexSubImage1DEXT(_target_, _level_, _xoffset_, _x_, _y_, _width_)
@@ -8251,7 +8251,7 @@ module OpenGL
       end
     SRC_GL_EXT_copy_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyTexSubImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyTexSubImage2DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyTexSubImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_copy_texture)
       def glCopyTexSubImage2DEXT(_target_, _level_, _xoffset_, _yoffset_, _x_, _y_, _width_, _height_)
@@ -8260,7 +8260,7 @@ module OpenGL
       end
     SRC_GL_EXT_copy_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyTexSubImage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyTexSubImage3DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyTexSubImage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_copy_texture)
       def glCopyTexSubImage3DEXT(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _x_, _y_, _width_, _height_)
@@ -8271,7 +8271,7 @@ module OpenGL
   end # define_command_GL_EXT_copy_texture
 
   def define_command_GL_EXT_cull_vertex
-    GL_FUNCTIONS_ARGS_MAP[:glCullParameterdvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCullParameterdvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCullParameterdvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_cull_vertex)
       def glCullParameterdvEXT(_pname_, _params_)
@@ -8280,7 +8280,7 @@ module OpenGL
       end
     SRC_GL_EXT_cull_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glCullParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCullParameterfvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCullParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_cull_vertex)
       def glCullParameterfvEXT(_pname_, _params_)
@@ -8302,7 +8302,7 @@ module OpenGL
   end # define_command_GL_EXT_depth_bounds_test
 
   def define_command_GL_EXT_direct_state_access
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixLoadfEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixLoadfEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixLoadfEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixLoadfEXT(_mode_, _m_)
@@ -8311,7 +8311,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixLoaddEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixLoaddEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixLoaddEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixLoaddEXT(_mode_, _m_)
@@ -8320,7 +8320,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixMultfEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixMultfEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixMultfEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixMultfEXT(_mode_, _m_)
@@ -8329,7 +8329,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixMultdEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixMultdEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixMultdEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixMultdEXT(_mode_, _m_)
@@ -8338,7 +8338,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixLoadIdentityEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixLoadIdentityEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixLoadIdentityEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixLoadIdentityEXT(_mode_)
@@ -8347,7 +8347,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixRotatefEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixRotatefEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixRotatefEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixRotatefEXT(_mode_, _angle_, _x_, _y_, _z_)
@@ -8356,7 +8356,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixRotatedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixRotatedEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixRotatedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixRotatedEXT(_mode_, _angle_, _x_, _y_, _z_)
@@ -8365,7 +8365,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixScalefEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixScalefEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixScalefEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixScalefEXT(_mode_, _x_, _y_, _z_)
@@ -8374,7 +8374,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixScaledEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixScaledEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixScaledEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixScaledEXT(_mode_, _x_, _y_, _z_)
@@ -8383,7 +8383,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixTranslatefEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixTranslatefEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixTranslatefEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixTranslatefEXT(_mode_, _x_, _y_, _z_)
@@ -8392,7 +8392,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixTranslatedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixTranslatedEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixTranslatedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixTranslatedEXT(_mode_, _x_, _y_, _z_)
@@ -8401,7 +8401,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixFrustumEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixFrustumEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixFrustumEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixFrustumEXT(_mode_, _left_, _right_, _bottom_, _top_, _zNear_, _zFar_)
@@ -8410,7 +8410,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixOrthoEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixOrthoEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixOrthoEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixOrthoEXT(_mode_, _left_, _right_, _bottom_, _top_, _zNear_, _zFar_)
@@ -8419,7 +8419,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixPopEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixPopEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixPopEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixPopEXT(_mode_)
@@ -8428,7 +8428,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixPushEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixPushEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixPushEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixPushEXT(_mode_)
@@ -8437,7 +8437,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glClientAttribDefaultEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glClientAttribDefaultEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glClientAttribDefaultEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glClientAttribDefaultEXT(_mask_)
@@ -8446,7 +8446,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glPushClientAttribDefaultEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPushClientAttribDefaultEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPushClientAttribDefaultEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glPushClientAttribDefaultEXT(_mask_)
@@ -8455,7 +8455,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureParameterfEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureParameterfEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureParameterfEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureParameterfEXT(_texture_, _target_, _pname_, _param_)
@@ -8464,7 +8464,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureParameterfvEXT(_texture_, _target_, _pname_, _params_)
@@ -8473,7 +8473,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureParameteriEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureParameteriEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureParameteriEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureParameteriEXT(_texture_, _target_, _pname_, _param_)
@@ -8482,7 +8482,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureParameterivEXT(_texture_, _target_, _pname_, _params_)
@@ -8491,7 +8491,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureImage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureImage1DEXT(_texture_, _target_, _level_, _internalformat_, _width_, _border_, _format_, _type_, _pixels_)
@@ -8500,7 +8500,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureImage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureImage2DEXT(_texture_, _target_, _level_, _internalformat_, _width_, _height_, _border_, _format_, _type_, _pixels_)
@@ -8509,7 +8509,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureSubImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureSubImage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureSubImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureSubImage1DEXT(_texture_, _target_, _level_, _xoffset_, _width_, _format_, _type_, _pixels_)
@@ -8518,7 +8518,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureSubImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureSubImage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureSubImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureSubImage2DEXT(_texture_, _target_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _type_, _pixels_)
@@ -8527,7 +8527,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyTextureImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyTextureImage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyTextureImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCopyTextureImage1DEXT(_texture_, _target_, _level_, _internalformat_, _x_, _y_, _width_, _border_)
@@ -8536,7 +8536,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyTextureImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyTextureImage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyTextureImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCopyTextureImage2DEXT(_texture_, _target_, _level_, _internalformat_, _x_, _y_, _width_, _height_, _border_)
@@ -8545,7 +8545,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyTextureSubImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyTextureSubImage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyTextureSubImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCopyTextureSubImage1DEXT(_texture_, _target_, _level_, _xoffset_, _x_, _y_, _width_)
@@ -8554,7 +8554,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyTextureSubImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyTextureSubImage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyTextureSubImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCopyTextureSubImage2DEXT(_texture_, _target_, _level_, _xoffset_, _yoffset_, _x_, _y_, _width_, _height_)
@@ -8563,7 +8563,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTextureImageEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTextureImageEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTextureImageEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetTextureImageEXT(_texture_, _target_, _level_, _format_, _type_, _pixels_)
@@ -8572,7 +8572,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTextureParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTextureParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTextureParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetTextureParameterfvEXT(_texture_, _target_, _pname_, _params_)
@@ -8581,7 +8581,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTextureParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTextureParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTextureParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetTextureParameterivEXT(_texture_, _target_, _pname_, _params_)
@@ -8590,7 +8590,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTextureLevelParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTextureLevelParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTextureLevelParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetTextureLevelParameterfvEXT(_texture_, _target_, _level_, _pname_, _params_)
@@ -8599,7 +8599,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTextureLevelParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTextureLevelParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTextureLevelParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetTextureLevelParameterivEXT(_texture_, _target_, _level_, _pname_, _params_)
@@ -8608,7 +8608,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureImage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureImage3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureImage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureImage3DEXT(_texture_, _target_, _level_, _internalformat_, _width_, _height_, _depth_, _border_, _format_, _type_, _pixels_)
@@ -8617,7 +8617,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureSubImage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureSubImage3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureSubImage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureSubImage3DEXT(_texture_, _target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _pixels_)
@@ -8626,7 +8626,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyTextureSubImage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyTextureSubImage3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyTextureSubImage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCopyTextureSubImage3DEXT(_texture_, _target_, _level_, _xoffset_, _yoffset_, _zoffset_, _x_, _y_, _width_, _height_)
@@ -8635,7 +8635,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindMultiTextureEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindMultiTextureEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindMultiTextureEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glBindMultiTextureEXT(_texunit_, _target_, _texture_)
@@ -8644,7 +8644,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoordPointerEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoordPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexCoordPointerEXT(_texunit_, _size_, _type_, _stride_, _pointer_)
@@ -8653,7 +8653,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexEnvfEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexEnvfEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexEnvfEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexEnvfEXT(_texunit_, _target_, _pname_, _param_)
@@ -8662,7 +8662,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexEnvfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexEnvfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexEnvfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexEnvfvEXT(_texunit_, _target_, _pname_, _params_)
@@ -8671,7 +8671,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexEnviEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexEnviEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexEnviEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexEnviEXT(_texunit_, _target_, _pname_, _param_)
@@ -8680,7 +8680,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexEnvivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexEnvivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexEnvivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexEnvivEXT(_texunit_, _target_, _pname_, _params_)
@@ -8689,7 +8689,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexGendEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexGendEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexGendEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexGendEXT(_texunit_, _coord_, _pname_, _param_)
@@ -8698,7 +8698,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexGendvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexGendvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexGendvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexGendvEXT(_texunit_, _coord_, _pname_, _params_)
@@ -8707,7 +8707,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexGenfEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexGenfEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexGenfEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexGenfEXT(_texunit_, _coord_, _pname_, _param_)
@@ -8716,7 +8716,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexGenfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexGenfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexGenfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexGenfvEXT(_texunit_, _coord_, _pname_, _params_)
@@ -8725,7 +8725,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexGeniEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexGeniEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexGeniEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexGeniEXT(_texunit_, _coord_, _pname_, _param_)
@@ -8734,7 +8734,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexGenivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexGenivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexGenivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexGenivEXT(_texunit_, _coord_, _pname_, _params_)
@@ -8743,7 +8743,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexEnvfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexEnvfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultiTexEnvfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetMultiTexEnvfvEXT(_texunit_, _target_, _pname_, _params_)
@@ -8752,7 +8752,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexEnvivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexEnvivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultiTexEnvivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetMultiTexEnvivEXT(_texunit_, _target_, _pname_, _params_)
@@ -8761,7 +8761,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexGendvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexGendvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultiTexGendvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetMultiTexGendvEXT(_texunit_, _coord_, _pname_, _params_)
@@ -8770,7 +8770,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexGenfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexGenfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultiTexGenfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetMultiTexGenfvEXT(_texunit_, _coord_, _pname_, _params_)
@@ -8779,7 +8779,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexGenivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexGenivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultiTexGenivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetMultiTexGenivEXT(_texunit_, _coord_, _pname_, _params_)
@@ -8788,7 +8788,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexParameteriEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexParameteriEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexParameteriEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexParameteriEXT(_texunit_, _target_, _pname_, _param_)
@@ -8797,7 +8797,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexParameterivEXT(_texunit_, _target_, _pname_, _params_)
@@ -8806,7 +8806,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexParameterfEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexParameterfEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexParameterfEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexParameterfEXT(_texunit_, _target_, _pname_, _param_)
@@ -8815,7 +8815,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexParameterfvEXT(_texunit_, _target_, _pname_, _params_)
@@ -8824,7 +8824,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexImage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexImage1DEXT(_texunit_, _target_, _level_, _internalformat_, _width_, _border_, _format_, _type_, _pixels_)
@@ -8833,7 +8833,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexImage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexImage2DEXT(_texunit_, _target_, _level_, _internalformat_, _width_, _height_, _border_, _format_, _type_, _pixels_)
@@ -8842,7 +8842,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexSubImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexSubImage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexSubImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexSubImage1DEXT(_texunit_, _target_, _level_, _xoffset_, _width_, _format_, _type_, _pixels_)
@@ -8851,7 +8851,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexSubImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexSubImage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexSubImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexSubImage2DEXT(_texunit_, _target_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _type_, _pixels_)
@@ -8860,7 +8860,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyMultiTexImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyMultiTexImage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyMultiTexImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCopyMultiTexImage1DEXT(_texunit_, _target_, _level_, _internalformat_, _x_, _y_, _width_, _border_)
@@ -8869,7 +8869,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyMultiTexImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyMultiTexImage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyMultiTexImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCopyMultiTexImage2DEXT(_texunit_, _target_, _level_, _internalformat_, _x_, _y_, _width_, _height_, _border_)
@@ -8878,7 +8878,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyMultiTexSubImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyMultiTexSubImage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyMultiTexSubImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCopyMultiTexSubImage1DEXT(_texunit_, _target_, _level_, _xoffset_, _x_, _y_, _width_)
@@ -8887,7 +8887,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyMultiTexSubImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyMultiTexSubImage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyMultiTexSubImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCopyMultiTexSubImage2DEXT(_texunit_, _target_, _level_, _xoffset_, _yoffset_, _x_, _y_, _width_, _height_)
@@ -8896,7 +8896,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexImageEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexImageEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultiTexImageEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetMultiTexImageEXT(_texunit_, _target_, _level_, _format_, _type_, _pixels_)
@@ -8905,7 +8905,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultiTexParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetMultiTexParameterfvEXT(_texunit_, _target_, _pname_, _params_)
@@ -8914,7 +8914,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultiTexParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetMultiTexParameterivEXT(_texunit_, _target_, _pname_, _params_)
@@ -8923,7 +8923,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexLevelParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexLevelParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultiTexLevelParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetMultiTexLevelParameterfvEXT(_texunit_, _target_, _level_, _pname_, _params_)
@@ -8932,7 +8932,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexLevelParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexLevelParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultiTexLevelParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetMultiTexLevelParameterivEXT(_texunit_, _target_, _level_, _pname_, _params_)
@@ -8941,7 +8941,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexImage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexImage3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexImage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexImage3DEXT(_texunit_, _target_, _level_, _internalformat_, _width_, _height_, _depth_, _border_, _format_, _type_, _pixels_)
@@ -8950,7 +8950,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexSubImage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexSubImage3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexSubImage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexSubImage3DEXT(_texunit_, _target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _pixels_)
@@ -8959,7 +8959,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyMultiTexSubImage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyMultiTexSubImage3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyMultiTexSubImage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCopyMultiTexSubImage3DEXT(_texunit_, _target_, _level_, _xoffset_, _yoffset_, _zoffset_, _x_, _y_, _width_, _height_)
@@ -8968,7 +8968,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glEnableClientStateIndexedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEnableClientStateIndexedEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEnableClientStateIndexedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glEnableClientStateIndexedEXT(_array_, _index_)
@@ -8977,7 +8977,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glDisableClientStateIndexedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDisableClientStateIndexedEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDisableClientStateIndexedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glDisableClientStateIndexedEXT(_array_, _index_)
@@ -8986,7 +8986,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFloatIndexedvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFloatIndexedvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFloatIndexedvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetFloatIndexedvEXT(_target_, _index_, _data_)
@@ -8995,7 +8995,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetDoubleIndexedvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetDoubleIndexedvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetDoubleIndexedvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetDoubleIndexedvEXT(_target_, _index_, _data_)
@@ -9004,7 +9004,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPointerIndexedvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPointerIndexedvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPointerIndexedvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetPointerIndexedvEXT(_target_, _index_, _data_)
@@ -9013,7 +9013,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glEnableIndexedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEnableIndexedEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEnableIndexedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glEnableIndexedEXT(_target_, _index_)
@@ -9022,7 +9022,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glDisableIndexedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDisableIndexedEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDisableIndexedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glDisableIndexedEXT(_target_, _index_)
@@ -9031,8 +9031,8 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsEnabledIndexedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsEnabledIndexedEXT] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsEnabledIndexedEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsEnabledIndexedEXT] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glIsEnabledIndexedEXT(_target_, _index_)
         f = OpenGL::get_command(:glIsEnabledIndexedEXT)
@@ -9040,7 +9040,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetIntegerIndexedvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetIntegerIndexedvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetIntegerIndexedvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetIntegerIndexedvEXT(_target_, _index_, _data_)
@@ -9049,7 +9049,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetBooleanIndexedvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetBooleanIndexedvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetBooleanIndexedvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetBooleanIndexedvEXT(_target_, _index_, _data_)
@@ -9058,7 +9058,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedTextureImage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedTextureImage3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedTextureImage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCompressedTextureImage3DEXT(_texture_, _target_, _level_, _internalformat_, _width_, _height_, _depth_, _border_, _imageSize_, _bits_)
@@ -9067,7 +9067,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedTextureImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedTextureImage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedTextureImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCompressedTextureImage2DEXT(_texture_, _target_, _level_, _internalformat_, _width_, _height_, _border_, _imageSize_, _bits_)
@@ -9076,7 +9076,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedTextureImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedTextureImage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedTextureImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCompressedTextureImage1DEXT(_texture_, _target_, _level_, _internalformat_, _width_, _border_, _imageSize_, _bits_)
@@ -9085,7 +9085,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedTextureSubImage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedTextureSubImage3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedTextureSubImage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCompressedTextureSubImage3DEXT(_texture_, _target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _imageSize_, _bits_)
@@ -9094,7 +9094,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedTextureSubImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedTextureSubImage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedTextureSubImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCompressedTextureSubImage2DEXT(_texture_, _target_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _imageSize_, _bits_)
@@ -9103,7 +9103,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedTextureSubImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedTextureSubImage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedTextureSubImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCompressedTextureSubImage1DEXT(_texture_, _target_, _level_, _xoffset_, _width_, _format_, _imageSize_, _bits_)
@@ -9112,7 +9112,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetCompressedTextureImageEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetCompressedTextureImageEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetCompressedTextureImageEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetCompressedTextureImageEXT(_texture_, _target_, _lod_, _img_)
@@ -9121,7 +9121,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedMultiTexImage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedMultiTexImage3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedMultiTexImage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCompressedMultiTexImage3DEXT(_texunit_, _target_, _level_, _internalformat_, _width_, _height_, _depth_, _border_, _imageSize_, _bits_)
@@ -9130,7 +9130,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedMultiTexImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedMultiTexImage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedMultiTexImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCompressedMultiTexImage2DEXT(_texunit_, _target_, _level_, _internalformat_, _width_, _height_, _border_, _imageSize_, _bits_)
@@ -9139,7 +9139,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedMultiTexImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedMultiTexImage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedMultiTexImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCompressedMultiTexImage1DEXT(_texunit_, _target_, _level_, _internalformat_, _width_, _border_, _imageSize_, _bits_)
@@ -9148,7 +9148,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedMultiTexSubImage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedMultiTexSubImage3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedMultiTexSubImage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCompressedMultiTexSubImage3DEXT(_texunit_, _target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _imageSize_, _bits_)
@@ -9157,7 +9157,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedMultiTexSubImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedMultiTexSubImage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedMultiTexSubImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCompressedMultiTexSubImage2DEXT(_texunit_, _target_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _imageSize_, _bits_)
@@ -9166,7 +9166,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCompressedMultiTexSubImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCompressedMultiTexSubImage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCompressedMultiTexSubImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCompressedMultiTexSubImage1DEXT(_texunit_, _target_, _level_, _xoffset_, _width_, _format_, _imageSize_, _bits_)
@@ -9175,7 +9175,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetCompressedMultiTexImageEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetCompressedMultiTexImageEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetCompressedMultiTexImageEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetCompressedMultiTexImageEXT(_texunit_, _target_, _lod_, _img_)
@@ -9184,7 +9184,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixLoadTransposefEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixLoadTransposefEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixLoadTransposefEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixLoadTransposefEXT(_mode_, _m_)
@@ -9193,7 +9193,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixLoadTransposedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixLoadTransposedEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixLoadTransposedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixLoadTransposedEXT(_mode_, _m_)
@@ -9202,7 +9202,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixMultTransposefEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixMultTransposefEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixMultTransposefEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixMultTransposefEXT(_mode_, _m_)
@@ -9211,7 +9211,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMatrixMultTransposedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixMultTransposedEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMatrixMultTransposedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMatrixMultTransposedEXT(_mode_, _m_)
@@ -9220,7 +9220,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedBufferDataEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedBufferDataEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedBufferDataEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedBufferDataEXT(_buffer_, _size_, _data_, _usage_)
@@ -9229,7 +9229,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedBufferSubDataEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedBufferSubDataEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedBufferSubDataEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedBufferSubDataEXT(_buffer_, _offset_, _size_, _data_)
@@ -9238,7 +9238,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMapNamedBufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMapNamedBufferEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMapNamedBufferEXT] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMapNamedBufferEXT(_buffer_, _access_)
@@ -9247,8 +9247,8 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glUnmapNamedBufferEXT] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glUnmapNamedBufferEXT] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glUnmapNamedBufferEXT] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glUnmapNamedBufferEXT] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glUnmapNamedBufferEXT(_buffer_)
         f = OpenGL::get_command(:glUnmapNamedBufferEXT)
@@ -9256,7 +9256,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedBufferParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedBufferParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedBufferParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetNamedBufferParameterivEXT(_buffer_, _pname_, _params_)
@@ -9265,7 +9265,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedBufferPointervEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedBufferPointervEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedBufferPointervEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetNamedBufferPointervEXT(_buffer_, _pname_, _params_)
@@ -9274,7 +9274,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedBufferSubDataEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedBufferSubDataEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedBufferSubDataEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetNamedBufferSubDataEXT(_buffer_, _offset_, _size_, _data_)
@@ -9283,7 +9283,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1fEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1fEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1fEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform1fEXT(_program_, _location_, _v0_)
@@ -9292,7 +9292,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2fEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2fEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2fEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform2fEXT(_program_, _location_, _v0_, _v1_)
@@ -9301,7 +9301,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3fEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3fEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3fEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform3fEXT(_program_, _location_, _v0_, _v1_, _v2_)
@@ -9310,7 +9310,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4fEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4fEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4fEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform4fEXT(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
@@ -9319,7 +9319,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1iEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1iEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform1iEXT(_program_, _location_, _v0_)
@@ -9328,7 +9328,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2iEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2iEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform2iEXT(_program_, _location_, _v0_, _v1_)
@@ -9337,7 +9337,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3iEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3iEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform3iEXT(_program_, _location_, _v0_, _v1_, _v2_)
@@ -9346,7 +9346,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4iEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4iEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform4iEXT(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
@@ -9355,7 +9355,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform1fvEXT(_program_, _location_, _count_, _value_)
@@ -9364,7 +9364,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform2fvEXT(_program_, _location_, _count_, _value_)
@@ -9373,7 +9373,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform3fvEXT(_program_, _location_, _count_, _value_)
@@ -9382,7 +9382,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform4fvEXT(_program_, _location_, _count_, _value_)
@@ -9391,7 +9391,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform1ivEXT(_program_, _location_, _count_, _value_)
@@ -9400,7 +9400,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform2ivEXT(_program_, _location_, _count_, _value_)
@@ -9409,7 +9409,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform3ivEXT(_program_, _location_, _count_, _value_)
@@ -9418,7 +9418,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform4ivEXT(_program_, _location_, _count_, _value_)
@@ -9427,7 +9427,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix2fvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -9436,7 +9436,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix3fvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -9445,7 +9445,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix4fvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -9454,7 +9454,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x3fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x3fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2x3fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix2x3fvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -9463,7 +9463,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x2fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x2fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3x2fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix3x2fvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -9472,7 +9472,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x4fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x4fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2x4fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix2x4fvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -9481,7 +9481,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x2fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x2fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4x2fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix4x2fvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -9490,7 +9490,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x4fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x4fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3x4fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix3x4fvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -9499,7 +9499,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x3fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x3fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4x3fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix4x3fvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -9508,7 +9508,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureBufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureBufferEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureBufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureBufferEXT(_texture_, _target_, _internalformat_, _buffer_)
@@ -9517,7 +9517,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexBufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexBufferEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexBufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexBufferEXT(_texunit_, _target_, _internalformat_, _buffer_)
@@ -9526,7 +9526,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureParameterIivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureParameterIivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureParameterIivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureParameterIivEXT(_texture_, _target_, _pname_, _params_)
@@ -9535,7 +9535,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureParameterIuivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureParameterIuivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureParameterIuivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureParameterIuivEXT(_texture_, _target_, _pname_, _params_)
@@ -9544,7 +9544,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTextureParameterIivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTextureParameterIivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTextureParameterIivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetTextureParameterIivEXT(_texture_, _target_, _pname_, _params_)
@@ -9553,7 +9553,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTextureParameterIuivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTextureParameterIuivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTextureParameterIuivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetTextureParameterIuivEXT(_texture_, _target_, _pname_, _params_)
@@ -9562,7 +9562,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexParameterIivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexParameterIivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexParameterIivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexParameterIivEXT(_texunit_, _target_, _pname_, _params_)
@@ -9571,7 +9571,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexParameterIuivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexParameterIuivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexParameterIuivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexParameterIuivEXT(_texunit_, _target_, _pname_, _params_)
@@ -9580,7 +9580,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexParameterIivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexParameterIivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultiTexParameterIivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetMultiTexParameterIivEXT(_texunit_, _target_, _pname_, _params_)
@@ -9589,7 +9589,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexParameterIuivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultiTexParameterIuivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultiTexParameterIuivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetMultiTexParameterIuivEXT(_texunit_, _target_, _pname_, _params_)
@@ -9598,7 +9598,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1uiEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform1uiEXT(_program_, _location_, _v0_)
@@ -9607,7 +9607,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2uiEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform2uiEXT(_program_, _location_, _v0_, _v1_)
@@ -9616,7 +9616,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3uiEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform3uiEXT(_program_, _location_, _v0_, _v1_, _v2_)
@@ -9625,7 +9625,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4uiEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform4uiEXT(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
@@ -9634,7 +9634,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1uivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1uivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform1uivEXT(_program_, _location_, _count_, _value_)
@@ -9643,7 +9643,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2uivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2uivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform2uivEXT(_program_, _location_, _count_, _value_)
@@ -9652,7 +9652,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3uivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3uivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform3uivEXT(_program_, _location_, _count_, _value_)
@@ -9661,7 +9661,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4uivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4uivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform4uivEXT(_program_, _location_, _count_, _value_)
@@ -9670,7 +9670,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameters4fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameters4fvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedProgramLocalParameters4fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedProgramLocalParameters4fvEXT(_program_, _target_, _index_, _count_, _params_)
@@ -9679,7 +9679,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameterI4iEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameterI4iEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedProgramLocalParameterI4iEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedProgramLocalParameterI4iEXT(_program_, _target_, _index_, _x_, _y_, _z_, _w_)
@@ -9688,7 +9688,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameterI4ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameterI4ivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedProgramLocalParameterI4ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedProgramLocalParameterI4ivEXT(_program_, _target_, _index_, _params_)
@@ -9697,7 +9697,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParametersI4ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParametersI4ivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedProgramLocalParametersI4ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedProgramLocalParametersI4ivEXT(_program_, _target_, _index_, _count_, _params_)
@@ -9706,7 +9706,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameterI4uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameterI4uiEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedProgramLocalParameterI4uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedProgramLocalParameterI4uiEXT(_program_, _target_, _index_, _x_, _y_, _z_, _w_)
@@ -9715,7 +9715,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameterI4uivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameterI4uivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedProgramLocalParameterI4uivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedProgramLocalParameterI4uivEXT(_program_, _target_, _index_, _params_)
@@ -9724,7 +9724,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParametersI4uivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParametersI4uivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedProgramLocalParametersI4uivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedProgramLocalParametersI4uivEXT(_program_, _target_, _index_, _count_, _params_)
@@ -9733,7 +9733,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedProgramLocalParameterIivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedProgramLocalParameterIivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedProgramLocalParameterIivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetNamedProgramLocalParameterIivEXT(_program_, _target_, _index_, _params_)
@@ -9742,7 +9742,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedProgramLocalParameterIuivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedProgramLocalParameterIuivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedProgramLocalParameterIuivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetNamedProgramLocalParameterIuivEXT(_program_, _target_, _index_, _params_)
@@ -9751,7 +9751,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glEnableClientStateiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEnableClientStateiEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEnableClientStateiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glEnableClientStateiEXT(_array_, _index_)
@@ -9760,7 +9760,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glDisableClientStateiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDisableClientStateiEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDisableClientStateiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glDisableClientStateiEXT(_array_, _index_)
@@ -9769,7 +9769,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFloati_vEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFloati_vEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFloati_vEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetFloati_vEXT(_pname_, _index_, _params_)
@@ -9778,7 +9778,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetDoublei_vEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetDoublei_vEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetDoublei_vEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetDoublei_vEXT(_pname_, _index_, _params_)
@@ -9787,7 +9787,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPointeri_vEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPointeri_vEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPointeri_vEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetPointeri_vEXT(_pname_, _index_, _params_)
@@ -9796,7 +9796,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramStringEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramStringEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedProgramStringEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedProgramStringEXT(_program_, _target_, _format_, _len_, _string_)
@@ -9805,7 +9805,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameter4dEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameter4dEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedProgramLocalParameter4dEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedProgramLocalParameter4dEXT(_program_, _target_, _index_, _x_, _y_, _z_, _w_)
@@ -9814,7 +9814,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameter4dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameter4dvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedProgramLocalParameter4dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedProgramLocalParameter4dvEXT(_program_, _target_, _index_, _params_)
@@ -9823,7 +9823,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameter4fEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameter4fEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedProgramLocalParameter4fEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedProgramLocalParameter4fEXT(_program_, _target_, _index_, _x_, _y_, _z_, _w_)
@@ -9832,7 +9832,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameter4fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedProgramLocalParameter4fvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedProgramLocalParameter4fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedProgramLocalParameter4fvEXT(_program_, _target_, _index_, _params_)
@@ -9841,7 +9841,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedProgramLocalParameterdvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedProgramLocalParameterdvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedProgramLocalParameterdvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetNamedProgramLocalParameterdvEXT(_program_, _target_, _index_, _params_)
@@ -9850,7 +9850,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedProgramLocalParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedProgramLocalParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedProgramLocalParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetNamedProgramLocalParameterfvEXT(_program_, _target_, _index_, _params_)
@@ -9859,7 +9859,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedProgramivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedProgramivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedProgramivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetNamedProgramivEXT(_program_, _target_, _pname_, _params_)
@@ -9868,7 +9868,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedProgramStringEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedProgramStringEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedProgramStringEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetNamedProgramStringEXT(_program_, _target_, _pname_, _string_)
@@ -9877,7 +9877,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedRenderbufferStorageEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedRenderbufferStorageEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedRenderbufferStorageEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedRenderbufferStorageEXT(_renderbuffer_, _internalformat_, _width_, _height_)
@@ -9886,7 +9886,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedRenderbufferParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedRenderbufferParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedRenderbufferParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetNamedRenderbufferParameterivEXT(_renderbuffer_, _pname_, _params_)
@@ -9895,7 +9895,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedRenderbufferStorageMultisampleEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedRenderbufferStorageMultisampleEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedRenderbufferStorageMultisampleEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedRenderbufferStorageMultisampleEXT(_renderbuffer_, _samples_, _internalformat_, _width_, _height_)
@@ -9904,7 +9904,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedRenderbufferStorageMultisampleCoverageEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedRenderbufferStorageMultisampleCoverageEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedRenderbufferStorageMultisampleCoverageEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedRenderbufferStorageMultisampleCoverageEXT(_renderbuffer_, _coverageSamples_, _colorSamples_, _internalformat_, _width_, _height_)
@@ -9913,8 +9913,8 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glCheckNamedFramebufferStatusEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glCheckNamedFramebufferStatusEXT] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glCheckNamedFramebufferStatusEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glCheckNamedFramebufferStatusEXT] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glCheckNamedFramebufferStatusEXT(_framebuffer_, _target_)
         f = OpenGL::get_command(:glCheckNamedFramebufferStatusEXT)
@@ -9922,7 +9922,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferTexture1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferTexture1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedFramebufferTexture1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedFramebufferTexture1DEXT(_framebuffer_, _attachment_, _textarget_, _texture_, _level_)
@@ -9931,7 +9931,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferTexture2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferTexture2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedFramebufferTexture2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedFramebufferTexture2DEXT(_framebuffer_, _attachment_, _textarget_, _texture_, _level_)
@@ -9940,7 +9940,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferTexture3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferTexture3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedFramebufferTexture3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedFramebufferTexture3DEXT(_framebuffer_, _attachment_, _textarget_, _texture_, _level_, _zoffset_)
@@ -9949,7 +9949,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferRenderbufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferRenderbufferEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedFramebufferRenderbufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedFramebufferRenderbufferEXT(_framebuffer_, _attachment_, _renderbuffertarget_, _renderbuffer_)
@@ -9958,7 +9958,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedFramebufferAttachmentParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedFramebufferAttachmentParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedFramebufferAttachmentParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetNamedFramebufferAttachmentParameterivEXT(_framebuffer_, _attachment_, _pname_, _params_)
@@ -9967,7 +9967,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGenerateTextureMipmapEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glGenerateTextureMipmapEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glGenerateTextureMipmapEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGenerateTextureMipmapEXT(_texture_, _target_)
@@ -9976,7 +9976,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGenerateMultiTexMipmapEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glGenerateMultiTexMipmapEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glGenerateMultiTexMipmapEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGenerateMultiTexMipmapEXT(_texunit_, _target_)
@@ -9985,7 +9985,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferDrawBufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferDrawBufferEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferDrawBufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glFramebufferDrawBufferEXT(_framebuffer_, _mode_)
@@ -9994,7 +9994,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferDrawBuffersEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferDrawBuffersEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferDrawBuffersEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glFramebufferDrawBuffersEXT(_framebuffer_, _n_, _bufs_)
@@ -10003,7 +10003,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferReadBufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferReadBufferEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferReadBufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glFramebufferReadBufferEXT(_framebuffer_, _mode_)
@@ -10012,7 +10012,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFramebufferParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFramebufferParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFramebufferParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetFramebufferParameterivEXT(_framebuffer_, _pname_, _params_)
@@ -10021,7 +10021,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedCopyBufferSubDataEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedCopyBufferSubDataEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedCopyBufferSubDataEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedCopyBufferSubDataEXT(_readBuffer_, _writeBuffer_, _readOffset_, _writeOffset_, _size_)
@@ -10030,7 +10030,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferTextureEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferTextureEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedFramebufferTextureEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedFramebufferTextureEXT(_framebuffer_, _attachment_, _texture_, _level_)
@@ -10039,7 +10039,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferTextureLayerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferTextureLayerEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedFramebufferTextureLayerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedFramebufferTextureLayerEXT(_framebuffer_, _attachment_, _texture_, _level_, _layer_)
@@ -10048,7 +10048,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferTextureFaceEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferTextureFaceEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedFramebufferTextureFaceEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedFramebufferTextureFaceEXT(_framebuffer_, _attachment_, _texture_, _level_, _face_)
@@ -10057,7 +10057,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureRenderbufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureRenderbufferEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureRenderbufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureRenderbufferEXT(_texture_, _target_, _renderbuffer_)
@@ -10066,7 +10066,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexRenderbufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexRenderbufferEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexRenderbufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMultiTexRenderbufferEXT(_texunit_, _target_, _renderbuffer_)
@@ -10075,7 +10075,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexOffsetEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayVertexOffsetEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayVertexOffsetEXT(_vaobj_, _buffer_, _size_, _type_, _stride_, _offset_)
@@ -10084,7 +10084,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayColorOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayColorOffsetEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayColorOffsetEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayColorOffsetEXT(_vaobj_, _buffer_, _size_, _type_, _stride_, _offset_)
@@ -10093,7 +10093,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayEdgeFlagOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayEdgeFlagOffsetEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayEdgeFlagOffsetEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayEdgeFlagOffsetEXT(_vaobj_, _buffer_, _stride_, _offset_)
@@ -10102,7 +10102,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayIndexOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayIndexOffsetEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayIndexOffsetEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayIndexOffsetEXT(_vaobj_, _buffer_, _type_, _stride_, _offset_)
@@ -10111,7 +10111,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayNormalOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayNormalOffsetEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayNormalOffsetEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayNormalOffsetEXT(_vaobj_, _buffer_, _type_, _stride_, _offset_)
@@ -10120,7 +10120,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayTexCoordOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayTexCoordOffsetEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayTexCoordOffsetEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayTexCoordOffsetEXT(_vaobj_, _buffer_, _size_, _type_, _stride_, _offset_)
@@ -10129,7 +10129,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayMultiTexCoordOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayMultiTexCoordOffsetEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayMultiTexCoordOffsetEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayMultiTexCoordOffsetEXT(_vaobj_, _buffer_, _texunit_, _size_, _type_, _stride_, _offset_)
@@ -10138,7 +10138,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayFogCoordOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayFogCoordOffsetEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayFogCoordOffsetEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayFogCoordOffsetEXT(_vaobj_, _buffer_, _type_, _stride_, _offset_)
@@ -10147,7 +10147,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArraySecondaryColorOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArraySecondaryColorOffsetEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArraySecondaryColorOffsetEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArraySecondaryColorOffsetEXT(_vaobj_, _buffer_, _size_, _type_, _stride_, _offset_)
@@ -10156,7 +10156,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribOffsetEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayVertexAttribOffsetEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayVertexAttribOffsetEXT(_vaobj_, _buffer_, _index_, _size_, _type_, _normalized_, _stride_, _offset_)
@@ -10165,7 +10165,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribIOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribIOffsetEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayVertexAttribIOffsetEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayVertexAttribIOffsetEXT(_vaobj_, _buffer_, _index_, _size_, _type_, _stride_, _offset_)
@@ -10174,7 +10174,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glEnableVertexArrayEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEnableVertexArrayEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEnableVertexArrayEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glEnableVertexArrayEXT(_vaobj_, _array_)
@@ -10183,7 +10183,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glDisableVertexArrayEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDisableVertexArrayEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDisableVertexArrayEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glDisableVertexArrayEXT(_vaobj_, _array_)
@@ -10192,7 +10192,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glEnableVertexArrayAttribEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEnableVertexArrayAttribEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEnableVertexArrayAttribEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glEnableVertexArrayAttribEXT(_vaobj_, _index_)
@@ -10201,7 +10201,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glDisableVertexArrayAttribEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDisableVertexArrayAttribEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDisableVertexArrayAttribEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glDisableVertexArrayAttribEXT(_vaobj_, _index_)
@@ -10210,7 +10210,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexArrayIntegervEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexArrayIntegervEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexArrayIntegervEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetVertexArrayIntegervEXT(_vaobj_, _pname_, _param_)
@@ -10219,7 +10219,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexArrayPointervEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexArrayPointervEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexArrayPointervEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetVertexArrayPointervEXT(_vaobj_, _pname_, _param_)
@@ -10228,7 +10228,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexArrayIntegeri_vEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexArrayIntegeri_vEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexArrayIntegeri_vEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetVertexArrayIntegeri_vEXT(_vaobj_, _index_, _pname_, _param_)
@@ -10237,7 +10237,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexArrayPointeri_vEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexArrayPointeri_vEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexArrayPointeri_vEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetVertexArrayPointeri_vEXT(_vaobj_, _index_, _pname_, _param_)
@@ -10246,7 +10246,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glMapNamedBufferRangeEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMapNamedBufferRangeEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMapNamedBufferRangeEXT] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glMapNamedBufferRangeEXT(_buffer_, _offset_, _length_, _access_)
@@ -10255,7 +10255,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glFlushMappedNamedBufferRangeEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glFlushMappedNamedBufferRangeEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glFlushMappedNamedBufferRangeEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glFlushMappedNamedBufferRangeEXT(_buffer_, _offset_, _length_)
@@ -10264,7 +10264,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedBufferStorageEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedBufferStorageEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedBufferStorageEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedBufferStorageEXT(_buffer_, _size_, _data_, _flags_)
@@ -10273,7 +10273,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glClearNamedBufferDataEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glClearNamedBufferDataEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glClearNamedBufferDataEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glClearNamedBufferDataEXT(_buffer_, _internalformat_, _format_, _type_, _data_)
@@ -10282,7 +10282,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glClearNamedBufferSubDataEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glClearNamedBufferSubDataEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glClearNamedBufferSubDataEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glClearNamedBufferSubDataEXT(_buffer_, _internalformat_, _format_, _type_, _offset_, _size_, _data_)
@@ -10291,7 +10291,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferParameteriEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferParameteriEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedFramebufferParameteriEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glNamedFramebufferParameteriEXT(_framebuffer_, _pname_, _param_)
@@ -10300,7 +10300,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedFramebufferParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedFramebufferParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedFramebufferParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glGetNamedFramebufferParameterivEXT(_framebuffer_, _pname_, _params_)
@@ -10309,7 +10309,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1dEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1dEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1dEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform1dEXT(_program_, _location_, _x_)
@@ -10318,7 +10318,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2dEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2dEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2dEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform2dEXT(_program_, _location_, _x_, _y_)
@@ -10327,7 +10327,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3dEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3dEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3dEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform3dEXT(_program_, _location_, _x_, _y_, _z_)
@@ -10336,7 +10336,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4dEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4dEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4dEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform4dEXT(_program_, _location_, _x_, _y_, _z_, _w_)
@@ -10345,7 +10345,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform1dvEXT(_program_, _location_, _count_, _value_)
@@ -10354,7 +10354,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform2dvEXT(_program_, _location_, _count_, _value_)
@@ -10363,7 +10363,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform3dvEXT(_program_, _location_, _count_, _value_)
@@ -10372,7 +10372,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniform4dvEXT(_program_, _location_, _count_, _value_)
@@ -10381,7 +10381,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix2dvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -10390,7 +10390,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix3dvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -10399,7 +10399,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix4dvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -10408,7 +10408,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x3dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x3dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2x3dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix2x3dvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -10417,7 +10417,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x4dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x4dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2x4dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix2x4dvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -10426,7 +10426,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x2dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x2dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3x2dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix3x2dvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -10435,7 +10435,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x4dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x4dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3x4dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix3x4dvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -10444,7 +10444,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x2dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x2dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4x2dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix4x2dvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -10453,7 +10453,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x3dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x3dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4x3dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glProgramUniformMatrix4x3dvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -10462,7 +10462,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureBufferRangeEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureBufferRangeEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureBufferRangeEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureBufferRangeEXT(_texture_, _target_, _internalformat_, _buffer_, _offset_, _size_)
@@ -10471,7 +10471,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureStorage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureStorage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureStorage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureStorage1DEXT(_texture_, _target_, _levels_, _internalformat_, _width_)
@@ -10480,7 +10480,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureStorage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureStorage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureStorage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureStorage2DEXT(_texture_, _target_, _levels_, _internalformat_, _width_, _height_)
@@ -10489,7 +10489,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureStorage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureStorage3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureStorage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureStorage3DEXT(_texture_, _target_, _levels_, _internalformat_, _width_, _height_, _depth_)
@@ -10498,7 +10498,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureStorage2DMultisampleEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureStorage2DMultisampleEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureStorage2DMultisampleEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureStorage2DMultisampleEXT(_texture_, _target_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
@@ -10507,7 +10507,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureStorage3DMultisampleEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureStorage3DMultisampleEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureStorage3DMultisampleEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTextureStorage3DMultisampleEXT(_texture_, _target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
@@ -10516,7 +10516,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayBindVertexBufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayBindVertexBufferEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayBindVertexBufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayBindVertexBufferEXT(_vaobj_, _bindingindex_, _buffer_, _offset_, _stride_)
@@ -10525,7 +10525,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribFormatEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribFormatEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayVertexAttribFormatEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayVertexAttribFormatEXT(_vaobj_, _attribindex_, _size_, _type_, _normalized_, _relativeoffset_)
@@ -10534,7 +10534,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribIFormatEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribIFormatEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayVertexAttribIFormatEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayVertexAttribIFormatEXT(_vaobj_, _attribindex_, _size_, _type_, _relativeoffset_)
@@ -10543,7 +10543,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribLFormatEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribLFormatEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayVertexAttribLFormatEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayVertexAttribLFormatEXT(_vaobj_, _attribindex_, _size_, _type_, _relativeoffset_)
@@ -10552,7 +10552,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribBindingEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribBindingEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayVertexAttribBindingEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayVertexAttribBindingEXT(_vaobj_, _attribindex_, _bindingindex_)
@@ -10561,7 +10561,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexBindingDivisorEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexBindingDivisorEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayVertexBindingDivisorEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayVertexBindingDivisorEXT(_vaobj_, _bindingindex_, _divisor_)
@@ -10570,7 +10570,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribLOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribLOffsetEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayVertexAttribLOffsetEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayVertexAttribLOffsetEXT(_vaobj_, _buffer_, _index_, _size_, _type_, _stride_, _offset_)
@@ -10579,7 +10579,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexturePageCommitmentEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTexturePageCommitmentEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTexturePageCommitmentEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glTexturePageCommitmentEXT(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _resident_)
@@ -10588,7 +10588,7 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribDivisorEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexArrayVertexAttribDivisorEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexArrayVertexAttribDivisorEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
       def glVertexArrayVertexAttribDivisorEXT(_vaobj_, _index_, _divisor_)
@@ -10599,7 +10599,7 @@ module OpenGL
   end # define_command_GL_EXT_direct_state_access
 
   def define_command_GL_EXT_draw_buffers2
-    GL_FUNCTIONS_ARGS_MAP[:glColorMaskIndexedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glColorMaskIndexedEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glColorMaskIndexedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_draw_buffers2)
       def glColorMaskIndexedEXT(_index_, _r_, _g_, _b_, _a_)
@@ -10608,7 +10608,7 @@ module OpenGL
       end
     SRC_GL_EXT_draw_buffers2
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetBooleanIndexedvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetBooleanIndexedvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetBooleanIndexedvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_draw_buffers2)
       def glGetBooleanIndexedvEXT(_target_, _index_, _data_)
@@ -10617,7 +10617,7 @@ module OpenGL
       end
     SRC_GL_EXT_draw_buffers2
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetIntegerIndexedvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetIntegerIndexedvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetIntegerIndexedvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_draw_buffers2)
       def glGetIntegerIndexedvEXT(_target_, _index_, _data_)
@@ -10626,7 +10626,7 @@ module OpenGL
       end
     SRC_GL_EXT_draw_buffers2
 
-    GL_FUNCTIONS_ARGS_MAP[:glEnableIndexedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEnableIndexedEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEnableIndexedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_draw_buffers2)
       def glEnableIndexedEXT(_target_, _index_)
@@ -10635,7 +10635,7 @@ module OpenGL
       end
     SRC_GL_EXT_draw_buffers2
 
-    GL_FUNCTIONS_ARGS_MAP[:glDisableIndexedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDisableIndexedEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDisableIndexedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_draw_buffers2)
       def glDisableIndexedEXT(_target_, _index_)
@@ -10644,8 +10644,8 @@ module OpenGL
       end
     SRC_GL_EXT_draw_buffers2
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsEnabledIndexedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsEnabledIndexedEXT] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsEnabledIndexedEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsEnabledIndexedEXT] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_EXT_draw_buffers2)
       def glIsEnabledIndexedEXT(_target_, _index_)
         f = OpenGL::get_command(:glIsEnabledIndexedEXT)
@@ -10655,7 +10655,7 @@ module OpenGL
   end # define_command_GL_EXT_draw_buffers2
 
   def define_command_GL_EXT_draw_instanced
-    GL_FUNCTIONS_ARGS_MAP[:glDrawArraysInstancedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawArraysInstancedEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawArraysInstancedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_draw_instanced)
       def glDrawArraysInstancedEXT(_mode_, _start_, _count_, _primcount_)
@@ -10664,7 +10664,7 @@ module OpenGL
       end
     SRC_GL_EXT_draw_instanced
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsInstancedEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawElementsInstancedEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawElementsInstancedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_draw_instanced)
       def glDrawElementsInstancedEXT(_mode_, _count_, _type_, _indices_, _primcount_)
@@ -10675,7 +10675,7 @@ module OpenGL
   end # define_command_GL_EXT_draw_instanced
 
   def define_command_GL_EXT_draw_range_elements
-    GL_FUNCTIONS_ARGS_MAP[:glDrawRangeElementsEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawRangeElementsEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawRangeElementsEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_draw_range_elements)
       def glDrawRangeElementsEXT(_mode_, _start_, _end_, _count_, _type_, _indices_)
@@ -10722,7 +10722,7 @@ module OpenGL
       end
     SRC_GL_EXT_fog_coord
 
-    GL_FUNCTIONS_ARGS_MAP[:glFogCoordPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glFogCoordPointerEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glFogCoordPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_fog_coord)
       def glFogCoordPointerEXT(_type_, _stride_, _pointer_)
@@ -10733,7 +10733,7 @@ module OpenGL
   end # define_command_GL_EXT_fog_coord
 
   def define_command_GL_EXT_framebuffer_blit
-    GL_FUNCTIONS_ARGS_MAP[:glBlitFramebufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlitFramebufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlitFramebufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_framebuffer_blit)
       def glBlitFramebufferEXT(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
@@ -10744,7 +10744,7 @@ module OpenGL
   end # define_command_GL_EXT_framebuffer_blit
 
   def define_command_GL_EXT_framebuffer_multisample
-    GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorageMultisampleEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_framebuffer_multisample)
       def glRenderbufferStorageMultisampleEXT(_target_, _samples_, _internalformat_, _width_, _height_)
@@ -10758,8 +10758,8 @@ module OpenGL
   end # define_command_GL_EXT_framebuffer_multisample_blit_scaled
 
   def define_command_GL_EXT_framebuffer_object
-    GL_FUNCTIONS_ARGS_MAP[:glIsRenderbufferEXT] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsRenderbufferEXT] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsRenderbufferEXT] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsRenderbufferEXT] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_EXT_framebuffer_object)
       def glIsRenderbufferEXT(_renderbuffer_)
         f = OpenGL::get_command(:glIsRenderbufferEXT)
@@ -10767,7 +10767,7 @@ module OpenGL
       end
     SRC_GL_EXT_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindRenderbufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindRenderbufferEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindRenderbufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_framebuffer_object)
       def glBindRenderbufferEXT(_target_, _renderbuffer_)
@@ -10794,7 +10794,7 @@ module OpenGL
       end
     SRC_GL_EXT_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorageEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_framebuffer_object)
       def glRenderbufferStorageEXT(_target_, _internalformat_, _width_, _height_)
@@ -10803,7 +10803,7 @@ module OpenGL
       end
     SRC_GL_EXT_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetRenderbufferParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetRenderbufferParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetRenderbufferParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_framebuffer_object)
       def glGetRenderbufferParameterivEXT(_target_, _pname_, _params_)
@@ -10812,8 +10812,8 @@ module OpenGL
       end
     SRC_GL_EXT_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsFramebufferEXT] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsFramebufferEXT] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsFramebufferEXT] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsFramebufferEXT] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_EXT_framebuffer_object)
       def glIsFramebufferEXT(_framebuffer_)
         f = OpenGL::get_command(:glIsFramebufferEXT)
@@ -10821,7 +10821,7 @@ module OpenGL
       end
     SRC_GL_EXT_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindFramebufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindFramebufferEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindFramebufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_framebuffer_object)
       def glBindFramebufferEXT(_target_, _framebuffer_)
@@ -10848,8 +10848,8 @@ module OpenGL
       end
     SRC_GL_EXT_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glCheckFramebufferStatusEXT] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glCheckFramebufferStatusEXT] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glCheckFramebufferStatusEXT] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glCheckFramebufferStatusEXT] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_framebuffer_object)
       def glCheckFramebufferStatusEXT(_target_)
         f = OpenGL::get_command(:glCheckFramebufferStatusEXT)
@@ -10857,7 +10857,7 @@ module OpenGL
       end
     SRC_GL_EXT_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTexture1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTexture1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTexture1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_framebuffer_object)
       def glFramebufferTexture1DEXT(_target_, _attachment_, _textarget_, _texture_, _level_)
@@ -10866,7 +10866,7 @@ module OpenGL
       end
     SRC_GL_EXT_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTexture2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTexture2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTexture2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_framebuffer_object)
       def glFramebufferTexture2DEXT(_target_, _attachment_, _textarget_, _texture_, _level_)
@@ -10875,7 +10875,7 @@ module OpenGL
       end
     SRC_GL_EXT_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTexture3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTexture3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTexture3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_framebuffer_object)
       def glFramebufferTexture3DEXT(_target_, _attachment_, _textarget_, _texture_, _level_, _zoffset_)
@@ -10884,7 +10884,7 @@ module OpenGL
       end
     SRC_GL_EXT_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferRenderbufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferRenderbufferEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferRenderbufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_framebuffer_object)
       def glFramebufferRenderbufferEXT(_target_, _attachment_, _renderbuffertarget_, _renderbuffer_)
@@ -10893,7 +10893,7 @@ module OpenGL
       end
     SRC_GL_EXT_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFramebufferAttachmentParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFramebufferAttachmentParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFramebufferAttachmentParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_framebuffer_object)
       def glGetFramebufferAttachmentParameterivEXT(_target_, _attachment_, _pname_, _params_)
@@ -10902,7 +10902,7 @@ module OpenGL
       end
     SRC_GL_EXT_framebuffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glGenerateMipmapEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glGenerateMipmapEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glGenerateMipmapEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_framebuffer_object)
       def glGenerateMipmapEXT(_target_)
@@ -10916,7 +10916,7 @@ module OpenGL
   end # define_command_GL_EXT_framebuffer_sRGB
 
   def define_command_GL_EXT_geometry_shader4
-    GL_FUNCTIONS_ARGS_MAP[:glProgramParameteriEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramParameteriEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramParameteriEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_geometry_shader4)
       def glProgramParameteriEXT(_program_, _pname_, _value_)
@@ -10927,7 +10927,7 @@ module OpenGL
   end # define_command_GL_EXT_geometry_shader4
 
   def define_command_GL_EXT_gpu_program_parameters
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameters4fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameters4fvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParameters4fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_gpu_program_parameters)
       def glProgramEnvParameters4fvEXT(_target_, _index_, _count_, _params_)
@@ -10936,7 +10936,7 @@ module OpenGL
       end
     SRC_GL_EXT_gpu_program_parameters
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameters4fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameters4fvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParameters4fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_gpu_program_parameters)
       def glProgramLocalParameters4fvEXT(_target_, _index_, _count_, _params_)
@@ -10947,7 +10947,7 @@ module OpenGL
   end # define_command_GL_EXT_gpu_program_parameters
 
   def define_command_GL_EXT_gpu_shader4
-    GL_FUNCTIONS_ARGS_MAP[:glGetUniformuivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetUniformuivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetUniformuivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_gpu_shader4)
       def glGetUniformuivEXT(_program_, _location_, _params_)
@@ -10956,7 +10956,7 @@ module OpenGL
       end
     SRC_GL_EXT_gpu_shader4
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindFragDataLocationEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glBindFragDataLocationEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glBindFragDataLocationEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_gpu_shader4)
       def glBindFragDataLocationEXT(_program_, _color_, _name_)
@@ -10965,7 +10965,7 @@ module OpenGL
       end
     SRC_GL_EXT_gpu_shader4
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFragDataLocationEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFragDataLocationEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFragDataLocationEXT] = Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_gpu_shader4)
       def glGetFragDataLocationEXT(_program_, _name_)
@@ -10974,7 +10974,7 @@ module OpenGL
       end
     SRC_GL_EXT_gpu_shader4
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniform1uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glUniform1uiEXT] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glUniform1uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_gpu_shader4)
       def glUniform1uiEXT(_location_, _v0_)
@@ -10983,7 +10983,7 @@ module OpenGL
       end
     SRC_GL_EXT_gpu_shader4
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniform2uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glUniform2uiEXT] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glUniform2uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_gpu_shader4)
       def glUniform2uiEXT(_location_, _v0_, _v1_)
@@ -10992,7 +10992,7 @@ module OpenGL
       end
     SRC_GL_EXT_gpu_shader4
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniform3uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glUniform3uiEXT] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glUniform3uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_gpu_shader4)
       def glUniform3uiEXT(_location_, _v0_, _v1_, _v2_)
@@ -11001,7 +11001,7 @@ module OpenGL
       end
     SRC_GL_EXT_gpu_shader4
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniform4uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glUniform4uiEXT] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glUniform4uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_gpu_shader4)
       def glUniform4uiEXT(_location_, _v0_, _v1_, _v2_, _v3_)
@@ -11048,7 +11048,7 @@ module OpenGL
   end # define_command_GL_EXT_gpu_shader4
 
   def define_command_GL_EXT_histogram
-    GL_FUNCTIONS_ARGS_MAP[:glGetHistogramEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetHistogramEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetHistogramEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_histogram)
       def glGetHistogramEXT(_target_, _reset_, _format_, _type_, _values_)
@@ -11057,7 +11057,7 @@ module OpenGL
       end
     SRC_GL_EXT_histogram
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetHistogramParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetHistogramParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetHistogramParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_histogram)
       def glGetHistogramParameterfvEXT(_target_, _pname_, _params_)
@@ -11066,7 +11066,7 @@ module OpenGL
       end
     SRC_GL_EXT_histogram
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetHistogramParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetHistogramParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetHistogramParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_histogram)
       def glGetHistogramParameterivEXT(_target_, _pname_, _params_)
@@ -11075,7 +11075,7 @@ module OpenGL
       end
     SRC_GL_EXT_histogram
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMinmaxEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMinmaxEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMinmaxEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_histogram)
       def glGetMinmaxEXT(_target_, _reset_, _format_, _type_, _values_)
@@ -11084,7 +11084,7 @@ module OpenGL
       end
     SRC_GL_EXT_histogram
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMinmaxParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMinmaxParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMinmaxParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_histogram)
       def glGetMinmaxParameterfvEXT(_target_, _pname_, _params_)
@@ -11093,7 +11093,7 @@ module OpenGL
       end
     SRC_GL_EXT_histogram
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMinmaxParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMinmaxParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMinmaxParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_histogram)
       def glGetMinmaxParameterivEXT(_target_, _pname_, _params_)
@@ -11102,7 +11102,7 @@ module OpenGL
       end
     SRC_GL_EXT_histogram
 
-    GL_FUNCTIONS_ARGS_MAP[:glHistogramEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glHistogramEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glHistogramEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_histogram)
       def glHistogramEXT(_target_, _width_, _internalformat_, _sink_)
@@ -11111,7 +11111,7 @@ module OpenGL
       end
     SRC_GL_EXT_histogram
 
-    GL_FUNCTIONS_ARGS_MAP[:glMinmaxEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glMinmaxEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glMinmaxEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_histogram)
       def glMinmaxEXT(_target_, _internalformat_, _sink_)
@@ -11120,7 +11120,7 @@ module OpenGL
       end
     SRC_GL_EXT_histogram
 
-    GL_FUNCTIONS_ARGS_MAP[:glResetHistogramEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glResetHistogramEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glResetHistogramEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_histogram)
       def glResetHistogramEXT(_target_)
@@ -11129,7 +11129,7 @@ module OpenGL
       end
     SRC_GL_EXT_histogram
 
-    GL_FUNCTIONS_ARGS_MAP[:glResetMinmaxEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glResetMinmaxEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glResetMinmaxEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_histogram)
       def glResetMinmaxEXT(_target_)
@@ -11143,7 +11143,7 @@ module OpenGL
   end # define_command_GL_EXT_index_array_formats
 
   def define_command_GL_EXT_index_func
-    GL_FUNCTIONS_ARGS_MAP[:glIndexFuncEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glIndexFuncEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glIndexFuncEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_index_func)
       def glIndexFuncEXT(_func_, _ref_)
@@ -11154,7 +11154,7 @@ module OpenGL
   end # define_command_GL_EXT_index_func
 
   def define_command_GL_EXT_index_material
-    GL_FUNCTIONS_ARGS_MAP[:glIndexMaterialEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glIndexMaterialEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glIndexMaterialEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_index_material)
       def glIndexMaterialEXT(_face_, _mode_)
@@ -11168,7 +11168,7 @@ module OpenGL
   end # define_command_GL_EXT_index_texture
 
   def define_command_GL_EXT_light_texture
-    GL_FUNCTIONS_ARGS_MAP[:glApplyTextureEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glApplyTextureEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glApplyTextureEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_light_texture)
       def glApplyTextureEXT(_mode_)
@@ -11177,7 +11177,7 @@ module OpenGL
       end
     SRC_GL_EXT_light_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureLightEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureLightEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureLightEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_light_texture)
       def glTextureLightEXT(_pname_)
@@ -11186,7 +11186,7 @@ module OpenGL
       end
     SRC_GL_EXT_light_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureMaterialEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureMaterialEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureMaterialEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_light_texture)
       def glTextureMaterialEXT(_face_, _mode_)
@@ -11200,7 +11200,7 @@ module OpenGL
   end # define_command_GL_EXT_misc_attribute
 
   def define_command_GL_EXT_multi_draw_arrays
-    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawArraysEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_multi_draw_arrays)
       def glMultiDrawArraysEXT(_mode_, _first_, _count_, _primcount_)
@@ -11209,7 +11209,7 @@ module OpenGL
       end
     SRC_GL_EXT_multi_draw_arrays
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawElementsEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_multi_draw_arrays)
       def glMultiDrawElementsEXT(_mode_, _count_, _type_, _indices_, _primcount_)
@@ -11220,7 +11220,7 @@ module OpenGL
   end # define_command_GL_EXT_multi_draw_arrays
 
   def define_command_GL_EXT_multisample
-    GL_FUNCTIONS_ARGS_MAP[:glSampleMaskEXT] = [Fiddle::TYPE_FLOAT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glSampleMaskEXT] = [Fiddle::TYPE_FLOAT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glSampleMaskEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_multisample)
       def glSampleMaskEXT(_value_, _invert_)
@@ -11229,7 +11229,7 @@ module OpenGL
       end
     SRC_GL_EXT_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glSamplePatternEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSamplePatternEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSamplePatternEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_multisample)
       def glSamplePatternEXT(_pattern_)
@@ -11249,7 +11249,7 @@ module OpenGL
   end # define_command_GL_EXT_packed_pixels
 
   def define_command_GL_EXT_paletted_texture
-    GL_FUNCTIONS_ARGS_MAP[:glColorTableEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glColorTableEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glColorTableEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_paletted_texture)
       def glColorTableEXT(_target_, _internalFormat_, _width_, _format_, _type_, _table_)
@@ -11258,7 +11258,7 @@ module OpenGL
       end
     SRC_GL_EXT_paletted_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetColorTableEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_paletted_texture)
       def glGetColorTableEXT(_target_, _format_, _type_, _data_)
@@ -11267,7 +11267,7 @@ module OpenGL
       end
     SRC_GL_EXT_paletted_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetColorTableParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_paletted_texture)
       def glGetColorTableParameterivEXT(_target_, _pname_, _params_)
@@ -11276,7 +11276,7 @@ module OpenGL
       end
     SRC_GL_EXT_paletted_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetColorTableParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_paletted_texture)
       def glGetColorTableParameterfvEXT(_target_, _pname_, _params_)
@@ -11290,7 +11290,7 @@ module OpenGL
   end # define_command_GL_EXT_pixel_buffer_object
 
   def define_command_GL_EXT_pixel_transform
-    GL_FUNCTIONS_ARGS_MAP[:glPixelTransformParameteriEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPixelTransformParameteriEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelTransformParameteriEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_pixel_transform)
       def glPixelTransformParameteriEXT(_target_, _pname_, _param_)
@@ -11299,7 +11299,7 @@ module OpenGL
       end
     SRC_GL_EXT_pixel_transform
 
-    GL_FUNCTIONS_ARGS_MAP[:glPixelTransformParameterfEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glPixelTransformParameterfEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelTransformParameterfEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_pixel_transform)
       def glPixelTransformParameterfEXT(_target_, _pname_, _param_)
@@ -11308,7 +11308,7 @@ module OpenGL
       end
     SRC_GL_EXT_pixel_transform
 
-    GL_FUNCTIONS_ARGS_MAP[:glPixelTransformParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPixelTransformParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelTransformParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_pixel_transform)
       def glPixelTransformParameterivEXT(_target_, _pname_, _params_)
@@ -11317,7 +11317,7 @@ module OpenGL
       end
     SRC_GL_EXT_pixel_transform
 
-    GL_FUNCTIONS_ARGS_MAP[:glPixelTransformParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPixelTransformParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelTransformParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_pixel_transform)
       def glPixelTransformParameterfvEXT(_target_, _pname_, _params_)
@@ -11326,7 +11326,7 @@ module OpenGL
       end
     SRC_GL_EXT_pixel_transform
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPixelTransformParameterivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPixelTransformParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPixelTransformParameterivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_pixel_transform)
       def glGetPixelTransformParameterivEXT(_target_, _pname_, _params_)
@@ -11335,7 +11335,7 @@ module OpenGL
       end
     SRC_GL_EXT_pixel_transform
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPixelTransformParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPixelTransformParameterfvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPixelTransformParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_pixel_transform)
       def glGetPixelTransformParameterfvEXT(_target_, _pname_, _params_)
@@ -11349,7 +11349,7 @@ module OpenGL
   end # define_command_GL_EXT_pixel_transform_color_table
 
   def define_command_GL_EXT_point_parameters
-    GL_FUNCTIONS_ARGS_MAP[:glPointParameterfEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glPointParameterfEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glPointParameterfEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_point_parameters)
       def glPointParameterfEXT(_pname_, _param_)
@@ -11358,7 +11358,7 @@ module OpenGL
       end
     SRC_GL_EXT_point_parameters
 
-    GL_FUNCTIONS_ARGS_MAP[:glPointParameterfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPointParameterfvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPointParameterfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_point_parameters)
       def glPointParameterfvEXT(_pname_, _params_)
@@ -11380,7 +11380,7 @@ module OpenGL
   end # define_command_GL_EXT_polygon_offset
 
   def define_command_GL_EXT_provoking_vertex
-    GL_FUNCTIONS_ARGS_MAP[:glProvokingVertexEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProvokingVertexEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProvokingVertexEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_provoking_vertex)
       def glProvokingVertexEXT(_mode_)
@@ -11484,7 +11484,7 @@ module OpenGL
       end
     SRC_GL_EXT_secondary_color
 
-    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColor3ubEXT] = [Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColor3ubEXT] = [-Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glSecondaryColor3ubEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_secondary_color)
       def glSecondaryColor3ubEXT(_red_, _green_, _blue_)
@@ -11502,7 +11502,7 @@ module OpenGL
       end
     SRC_GL_EXT_secondary_color
 
-    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColor3uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColor3uiEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSecondaryColor3uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_secondary_color)
       def glSecondaryColor3uiEXT(_red_, _green_, _blue_)
@@ -11520,7 +11520,7 @@ module OpenGL
       end
     SRC_GL_EXT_secondary_color
 
-    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColor3usEXT] = [Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColor3usEXT] = [-Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glSecondaryColor3usEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_secondary_color)
       def glSecondaryColor3usEXT(_red_, _green_, _blue_)
@@ -11538,7 +11538,7 @@ module OpenGL
       end
     SRC_GL_EXT_secondary_color
 
-    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColorPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColorPointerEXT] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSecondaryColorPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_secondary_color)
       def glSecondaryColorPointerEXT(_size_, _type_, _stride_, _pointer_)
@@ -11549,7 +11549,7 @@ module OpenGL
   end # define_command_GL_EXT_secondary_color
 
   def define_command_GL_EXT_separate_shader_objects
-    GL_FUNCTIONS_ARGS_MAP[:glUseShaderProgramEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glUseShaderProgramEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glUseShaderProgramEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glUseShaderProgramEXT(_type_, _program_)
@@ -11558,7 +11558,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glActiveProgramEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glActiveProgramEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glActiveProgramEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glActiveProgramEXT(_program_)
@@ -11567,8 +11567,8 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glCreateShaderProgramEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glCreateShaderProgramEXT] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glCreateShaderProgramEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glCreateShaderProgramEXT] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glCreateShaderProgramEXT(_type_, _string_)
         f = OpenGL::get_command(:glCreateShaderProgramEXT)
@@ -11576,7 +11576,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glActiveShaderProgramEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glActiveShaderProgramEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glActiveShaderProgramEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glActiveShaderProgramEXT(_pipeline_, _program_)
@@ -11585,7 +11585,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindProgramPipelineEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindProgramPipelineEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindProgramPipelineEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glBindProgramPipelineEXT(_pipeline_)
@@ -11594,8 +11594,8 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glCreateShaderProgramvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glCreateShaderProgramvEXT] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glCreateShaderProgramvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glCreateShaderProgramvEXT] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glCreateShaderProgramvEXT(_type_, _count_, _strings_)
         f = OpenGL::get_command(:glCreateShaderProgramvEXT)
@@ -11621,7 +11621,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramPipelineInfoLogEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramPipelineInfoLogEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramPipelineInfoLogEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glGetProgramPipelineInfoLogEXT(_pipeline_, _bufSize_, _length_, _infoLog_)
@@ -11630,7 +11630,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramPipelineivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramPipelineivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramPipelineivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glGetProgramPipelineivEXT(_pipeline_, _pname_, _params_)
@@ -11639,8 +11639,8 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsProgramPipelineEXT] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsProgramPipelineEXT] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsProgramPipelineEXT] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsProgramPipelineEXT] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glIsProgramPipelineEXT(_pipeline_)
         f = OpenGL::get_command(:glIsProgramPipelineEXT)
@@ -11648,7 +11648,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramParameteriEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramParameteriEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramParameteriEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramParameteriEXT(_program_, _pname_, _value_)
@@ -11657,7 +11657,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1fEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1fEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1fEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform1fEXT(_program_, _location_, _v0_)
@@ -11666,7 +11666,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform1fvEXT(_program_, _location_, _count_, _value_)
@@ -11675,7 +11675,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1iEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1iEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform1iEXT(_program_, _location_, _v0_)
@@ -11684,7 +11684,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform1ivEXT(_program_, _location_, _count_, _value_)
@@ -11693,7 +11693,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2fEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2fEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2fEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform2fEXT(_program_, _location_, _v0_, _v1_)
@@ -11702,7 +11702,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform2fvEXT(_program_, _location_, _count_, _value_)
@@ -11711,7 +11711,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2iEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2iEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform2iEXT(_program_, _location_, _v0_, _v1_)
@@ -11720,7 +11720,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform2ivEXT(_program_, _location_, _count_, _value_)
@@ -11729,7 +11729,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3fEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3fEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3fEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform3fEXT(_program_, _location_, _v0_, _v1_, _v2_)
@@ -11738,7 +11738,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform3fvEXT(_program_, _location_, _count_, _value_)
@@ -11747,7 +11747,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3iEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3iEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform3iEXT(_program_, _location_, _v0_, _v1_, _v2_)
@@ -11756,7 +11756,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform3ivEXT(_program_, _location_, _count_, _value_)
@@ -11765,7 +11765,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4fEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4fEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4fEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform4fEXT(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
@@ -11774,7 +11774,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform4fvEXT(_program_, _location_, _count_, _value_)
@@ -11783,7 +11783,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4iEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4iEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform4iEXT(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
@@ -11792,7 +11792,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniform4ivEXT(_program_, _location_, _count_, _value_)
@@ -11801,7 +11801,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniformMatrix2fvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -11810,7 +11810,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniformMatrix3fvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -11819,7 +11819,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4fvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4fvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glProgramUniformMatrix4fvEXT(_program_, _location_, _count_, _transpose_, _value_)
@@ -11828,7 +11828,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glUseProgramStagesEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glUseProgramStagesEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glUseProgramStagesEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glUseProgramStagesEXT(_pipeline_, _stages_, _program_)
@@ -11837,7 +11837,7 @@ module OpenGL
       end
     SRC_GL_EXT_separate_shader_objects
 
-    GL_FUNCTIONS_ARGS_MAP[:glValidateProgramPipelineEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glValidateProgramPipelineEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glValidateProgramPipelineEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
       def glValidateProgramPipelineEXT(_pipeline_)
@@ -11851,7 +11851,7 @@ module OpenGL
   end # define_command_GL_EXT_separate_specular_color
 
   def define_command_GL_EXT_shader_image_load_store
-    GL_FUNCTIONS_ARGS_MAP[:glBindImageTextureEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindImageTextureEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindImageTextureEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_shader_image_load_store)
       def glBindImageTextureEXT(_index_, _texture_, _level_, _layered_, _layer_, _access_, _format_)
@@ -11860,7 +11860,7 @@ module OpenGL
       end
     SRC_GL_EXT_shader_image_load_store
 
-    GL_FUNCTIONS_ARGS_MAP[:glMemoryBarrierEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMemoryBarrierEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMemoryBarrierEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_shader_image_load_store)
       def glMemoryBarrierEXT(_barriers_)
@@ -11877,7 +11877,7 @@ module OpenGL
   end # define_command_GL_EXT_shared_texture_palette
 
   def define_command_GL_EXT_stencil_clear_tag
-    GL_FUNCTIONS_ARGS_MAP[:glStencilClearTagEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glStencilClearTagEXT] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glStencilClearTagEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_stencil_clear_tag)
       def glStencilClearTagEXT(_stencilTagBits_, _stencilClearTag_)
@@ -11888,7 +11888,7 @@ module OpenGL
   end # define_command_GL_EXT_stencil_clear_tag
 
   def define_command_GL_EXT_stencil_two_side
-    GL_FUNCTIONS_ARGS_MAP[:glActiveStencilFaceEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glActiveStencilFaceEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glActiveStencilFaceEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_stencil_two_side)
       def glActiveStencilFaceEXT(_face_)
@@ -11902,7 +11902,7 @@ module OpenGL
   end # define_command_GL_EXT_stencil_wrap
 
   def define_command_GL_EXT_subtexture
-    GL_FUNCTIONS_ARGS_MAP[:glTexSubImage1DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexSubImage1DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexSubImage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_subtexture)
       def glTexSubImage1DEXT(_target_, _level_, _xoffset_, _width_, _format_, _type_, _pixels_)
@@ -11911,7 +11911,7 @@ module OpenGL
       end
     SRC_GL_EXT_subtexture
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexSubImage2DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexSubImage2DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexSubImage2DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_subtexture)
       def glTexSubImage2DEXT(_target_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _type_, _pixels_)
@@ -11925,7 +11925,7 @@ module OpenGL
   end # define_command_GL_EXT_texture
 
   def define_command_GL_EXT_texture3D
-    GL_FUNCTIONS_ARGS_MAP[:glTexImage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexImage3DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexImage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_texture3D)
       def glTexImage3DEXT(_target_, _level_, _internalformat_, _width_, _height_, _depth_, _border_, _format_, _type_, _pixels_)
@@ -11934,7 +11934,7 @@ module OpenGL
       end
     SRC_GL_EXT_texture3D
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexSubImage3DEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexSubImage3DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexSubImage3DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_texture3D)
       def glTexSubImage3DEXT(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _pixels_)
@@ -11948,7 +11948,7 @@ module OpenGL
   end # define_command_GL_EXT_texture_array
 
   def define_command_GL_EXT_texture_buffer_object
-    GL_FUNCTIONS_ARGS_MAP[:glTexBufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexBufferEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexBufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_texture_buffer_object)
       def glTexBufferEXT(_target_, _internalformat_, _buffer_)
@@ -11983,7 +11983,7 @@ module OpenGL
   end # define_command_GL_EXT_texture_filter_anisotropic
 
   def define_command_GL_EXT_texture_integer
-    GL_FUNCTIONS_ARGS_MAP[:glTexParameterIivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexParameterIivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexParameterIivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_texture_integer)
       def glTexParameterIivEXT(_target_, _pname_, _params_)
@@ -11992,7 +11992,7 @@ module OpenGL
       end
     SRC_GL_EXT_texture_integer
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexParameterIuivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexParameterIuivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexParameterIuivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_texture_integer)
       def glTexParameterIuivEXT(_target_, _pname_, _params_)
@@ -12001,7 +12001,7 @@ module OpenGL
       end
     SRC_GL_EXT_texture_integer
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTexParameterIivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTexParameterIivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTexParameterIivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_texture_integer)
       def glGetTexParameterIivEXT(_target_, _pname_, _params_)
@@ -12010,7 +12010,7 @@ module OpenGL
       end
     SRC_GL_EXT_texture_integer
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTexParameterIuivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTexParameterIuivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTexParameterIuivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_texture_integer)
       def glGetTexParameterIuivEXT(_target_, _pname_, _params_)
@@ -12028,7 +12028,7 @@ module OpenGL
       end
     SRC_GL_EXT_texture_integer
 
-    GL_FUNCTIONS_ARGS_MAP[:glClearColorIuiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glClearColorIuiEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glClearColorIuiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_texture_integer)
       def glClearColorIuiEXT(_red_, _green_, _blue_, _alpha_)
@@ -12046,7 +12046,7 @@ module OpenGL
 
   def define_command_GL_EXT_texture_object
     GL_FUNCTIONS_ARGS_MAP[:glAreTexturesResidentEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glAreTexturesResidentEXT] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_RETVAL_MAP[:glAreTexturesResidentEXT] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_EXT_texture_object)
       def glAreTexturesResidentEXT(_n_, _textures_, _residences_)
         f = OpenGL::get_command(:glAreTexturesResidentEXT)
@@ -12054,7 +12054,7 @@ module OpenGL
       end
     SRC_GL_EXT_texture_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindTextureEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindTextureEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindTextureEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_texture_object)
       def glBindTextureEXT(_target_, _texture_)
@@ -12081,8 +12081,8 @@ module OpenGL
       end
     SRC_GL_EXT_texture_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsTextureEXT] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsTextureEXT] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsTextureEXT] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsTextureEXT] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_EXT_texture_object)
       def glIsTextureEXT(_texture_)
         f = OpenGL::get_command(:glIsTextureEXT)
@@ -12101,7 +12101,7 @@ module OpenGL
   end # define_command_GL_EXT_texture_object
 
   def define_command_GL_EXT_texture_perturb_normal
-    GL_FUNCTIONS_ARGS_MAP[:glTextureNormalEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureNormalEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureNormalEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_texture_perturb_normal)
       def glTextureNormalEXT(_mode_)
@@ -12127,7 +12127,7 @@ module OpenGL
   end # define_command_GL_EXT_texture_swizzle
 
   def define_command_GL_EXT_timer_query
-    GL_FUNCTIONS_ARGS_MAP[:glGetQueryObjecti64vEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetQueryObjecti64vEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetQueryObjecti64vEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_timer_query)
       def glGetQueryObjecti64vEXT(_id_, _pname_, _params_)
@@ -12136,7 +12136,7 @@ module OpenGL
       end
     SRC_GL_EXT_timer_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetQueryObjectui64vEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetQueryObjectui64vEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetQueryObjectui64vEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_timer_query)
       def glGetQueryObjectui64vEXT(_id_, _pname_, _params_)
@@ -12147,7 +12147,7 @@ module OpenGL
   end # define_command_GL_EXT_timer_query
 
   def define_command_GL_EXT_transform_feedback
-    GL_FUNCTIONS_ARGS_MAP[:glBeginTransformFeedbackEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBeginTransformFeedbackEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBeginTransformFeedbackEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_transform_feedback)
       def glBeginTransformFeedbackEXT(_primitiveMode_)
@@ -12165,7 +12165,7 @@ module OpenGL
       end
     SRC_GL_EXT_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindBufferRangeEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glBindBufferRangeEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glBindBufferRangeEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_transform_feedback)
       def glBindBufferRangeEXT(_target_, _index_, _buffer_, _offset_, _size_)
@@ -12174,7 +12174,7 @@ module OpenGL
       end
     SRC_GL_EXT_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindBufferOffsetEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glBindBufferOffsetEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glBindBufferOffsetEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_transform_feedback)
       def glBindBufferOffsetEXT(_target_, _index_, _buffer_, _offset_)
@@ -12183,7 +12183,7 @@ module OpenGL
       end
     SRC_GL_EXT_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindBufferBaseEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindBufferBaseEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindBufferBaseEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_transform_feedback)
       def glBindBufferBaseEXT(_target_, _index_, _buffer_)
@@ -12192,7 +12192,7 @@ module OpenGL
       end
     SRC_GL_EXT_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glTransformFeedbackVaryingsEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTransformFeedbackVaryingsEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTransformFeedbackVaryingsEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_transform_feedback)
       def glTransformFeedbackVaryingsEXT(_program_, _count_, _varyings_, _bufferMode_)
@@ -12201,7 +12201,7 @@ module OpenGL
       end
     SRC_GL_EXT_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTransformFeedbackVaryingEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTransformFeedbackVaryingEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTransformFeedbackVaryingEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_transform_feedback)
       def glGetTransformFeedbackVaryingEXT(_program_, _index_, _bufSize_, _length_, _size_, _type_, _name_)
@@ -12221,7 +12221,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glColorPointerEXT] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glColorPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_array)
       def glColorPointerEXT(_size_, _type_, _stride_, _count_, _pointer_)
@@ -12230,7 +12230,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawArraysEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawArraysEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawArraysEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_array)
       def glDrawArraysEXT(_mode_, _first_, _count_)
@@ -12248,7 +12248,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPointervEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPointervEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPointervEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_array)
       def glGetPointervEXT(_pname_, _params_)
@@ -12257,7 +12257,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glIndexPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glIndexPointerEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glIndexPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_array)
       def glIndexPointerEXT(_type_, _stride_, _count_, _pointer_)
@@ -12266,7 +12266,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalPointerEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_array)
       def glNormalPointerEXT(_type_, _stride_, _count_, _pointer_)
@@ -12275,7 +12275,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoordPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoordPointerEXT] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoordPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_array)
       def glTexCoordPointerEXT(_size_, _type_, _stride_, _count_, _pointer_)
@@ -12284,7 +12284,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_array
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexPointerEXT] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_array)
       def glVertexPointerEXT(_size_, _type_, _stride_, _count_, _pointer_)
@@ -12298,7 +12298,7 @@ module OpenGL
   end # define_command_GL_EXT_vertex_array_bgra
 
   def define_command_GL_EXT_vertex_attrib_64bit
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1dEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1dEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL1dEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_attrib_64bit)
       def glVertexAttribL1dEXT(_index_, _x_)
@@ -12307,7 +12307,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2dEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2dEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL2dEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_attrib_64bit)
       def glVertexAttribL2dEXT(_index_, _x_, _y_)
@@ -12316,7 +12316,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3dEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3dEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL3dEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_attrib_64bit)
       def glVertexAttribL3dEXT(_index_, _x_, _y_, _z_)
@@ -12325,7 +12325,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4dEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4dEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL4dEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_attrib_64bit)
       def glVertexAttribL4dEXT(_index_, _x_, _y_, _z_, _w_)
@@ -12334,7 +12334,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL1dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_attrib_64bit)
       def glVertexAttribL1dvEXT(_index_, _v_)
@@ -12343,7 +12343,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL2dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_attrib_64bit)
       def glVertexAttribL2dvEXT(_index_, _v_)
@@ -12352,7 +12352,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL3dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_attrib_64bit)
       def glVertexAttribL3dvEXT(_index_, _v_)
@@ -12361,7 +12361,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4dvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4dvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL4dvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_attrib_64bit)
       def glVertexAttribL4dvEXT(_index_, _v_)
@@ -12370,7 +12370,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribLPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribLPointerEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribLPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_attrib_64bit)
       def glVertexAttribLPointerEXT(_index_, _size_, _type_, _stride_, _pointer_)
@@ -12379,7 +12379,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_attrib_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribLdvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribLdvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribLdvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_attrib_64bit)
       def glGetVertexAttribLdvEXT(_index_, _pname_, _params_)
@@ -12408,7 +12408,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindVertexShaderEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindVertexShaderEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindVertexShaderEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glBindVertexShaderEXT(_id_)
@@ -12417,8 +12417,8 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGenVertexShadersEXT] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glGenVertexShadersEXT] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glGenVertexShadersEXT] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glGenVertexShadersEXT] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glGenVertexShadersEXT(_range_)
         f = OpenGL::get_command(:glGenVertexShadersEXT)
@@ -12426,7 +12426,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glDeleteVertexShaderEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDeleteVertexShaderEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDeleteVertexShaderEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glDeleteVertexShaderEXT(_id_)
@@ -12435,7 +12435,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glShaderOp1EXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glShaderOp1EXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glShaderOp1EXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glShaderOp1EXT(_op_, _res_, _arg1_)
@@ -12444,7 +12444,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glShaderOp2EXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glShaderOp2EXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glShaderOp2EXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glShaderOp2EXT(_op_, _res_, _arg1_, _arg2_)
@@ -12453,7 +12453,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glShaderOp3EXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glShaderOp3EXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glShaderOp3EXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glShaderOp3EXT(_op_, _res_, _arg1_, _arg2_, _arg3_)
@@ -12462,7 +12462,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glSwizzleEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSwizzleEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSwizzleEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glSwizzleEXT(_res_, _in_, _outX_, _outY_, _outZ_, _outW_)
@@ -12471,7 +12471,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glWriteMaskEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glWriteMaskEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glWriteMaskEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glWriteMaskEXT(_res_, _in_, _outX_, _outY_, _outZ_, _outW_)
@@ -12480,7 +12480,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glInsertComponentEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glInsertComponentEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glInsertComponentEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glInsertComponentEXT(_res_, _src_, _num_)
@@ -12489,7 +12489,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glExtractComponentEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glExtractComponentEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glExtractComponentEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glExtractComponentEXT(_res_, _src_, _num_)
@@ -12498,8 +12498,8 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGenSymbolsEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glGenSymbolsEXT] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glGenSymbolsEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glGenSymbolsEXT] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glGenSymbolsEXT(_datatype_, _storagetype_, _range_, _components_)
         f = OpenGL::get_command(:glGenSymbolsEXT)
@@ -12507,7 +12507,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glSetInvariantEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSetInvariantEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSetInvariantEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glSetInvariantEXT(_id_, _type_, _addr_)
@@ -12516,7 +12516,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glSetLocalConstantEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSetLocalConstantEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSetLocalConstantEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glSetLocalConstantEXT(_id_, _type_, _addr_)
@@ -12525,7 +12525,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVariantbvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVariantbvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVariantbvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glVariantbvEXT(_id_, _addr_)
@@ -12534,7 +12534,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVariantsvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVariantsvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVariantsvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glVariantsvEXT(_id_, _addr_)
@@ -12543,7 +12543,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVariantivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVariantivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVariantivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glVariantivEXT(_id_, _addr_)
@@ -12552,7 +12552,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVariantfvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVariantfvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVariantfvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glVariantfvEXT(_id_, _addr_)
@@ -12561,7 +12561,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVariantdvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVariantdvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVariantdvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glVariantdvEXT(_id_, _addr_)
@@ -12570,7 +12570,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVariantubvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVariantubvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVariantubvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glVariantubvEXT(_id_, _addr_)
@@ -12579,7 +12579,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVariantusvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVariantusvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVariantusvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glVariantusvEXT(_id_, _addr_)
@@ -12588,7 +12588,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVariantuivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVariantuivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVariantuivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glVariantuivEXT(_id_, _addr_)
@@ -12597,7 +12597,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glVariantPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVariantPointerEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVariantPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glVariantPointerEXT(_id_, _type_, _stride_, _addr_)
@@ -12606,7 +12606,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glEnableVariantClientStateEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEnableVariantClientStateEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEnableVariantClientStateEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glEnableVariantClientStateEXT(_id_)
@@ -12615,7 +12615,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glDisableVariantClientStateEXT] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDisableVariantClientStateEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDisableVariantClientStateEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glDisableVariantClientStateEXT(_id_)
@@ -12624,8 +12624,8 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindLightParameterEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glBindLightParameterEXT] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glBindLightParameterEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glBindLightParameterEXT] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glBindLightParameterEXT(_light_, _value_)
         f = OpenGL::get_command(:glBindLightParameterEXT)
@@ -12633,8 +12633,8 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindMaterialParameterEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glBindMaterialParameterEXT] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glBindMaterialParameterEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glBindMaterialParameterEXT] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glBindMaterialParameterEXT(_face_, _value_)
         f = OpenGL::get_command(:glBindMaterialParameterEXT)
@@ -12642,8 +12642,8 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindTexGenParameterEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glBindTexGenParameterEXT] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glBindTexGenParameterEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glBindTexGenParameterEXT] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glBindTexGenParameterEXT(_unit_, _coord_, _value_)
         f = OpenGL::get_command(:glBindTexGenParameterEXT)
@@ -12651,8 +12651,8 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindTextureUnitParameterEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glBindTextureUnitParameterEXT] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glBindTextureUnitParameterEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glBindTextureUnitParameterEXT] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glBindTextureUnitParameterEXT(_unit_, _value_)
         f = OpenGL::get_command(:glBindTextureUnitParameterEXT)
@@ -12660,8 +12660,8 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindParameterEXT] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glBindParameterEXT] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glBindParameterEXT] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glBindParameterEXT] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glBindParameterEXT(_value_)
         f = OpenGL::get_command(:glBindParameterEXT)
@@ -12669,8 +12669,8 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsVariantEnabledEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsVariantEnabledEXT] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsVariantEnabledEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsVariantEnabledEXT] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glIsVariantEnabledEXT(_id_, _cap_)
         f = OpenGL::get_command(:glIsVariantEnabledEXT)
@@ -12678,7 +12678,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVariantBooleanvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVariantBooleanvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVariantBooleanvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glGetVariantBooleanvEXT(_id_, _value_, _data_)
@@ -12687,7 +12687,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVariantIntegervEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVariantIntegervEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVariantIntegervEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glGetVariantIntegervEXT(_id_, _value_, _data_)
@@ -12696,7 +12696,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVariantFloatvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVariantFloatvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVariantFloatvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glGetVariantFloatvEXT(_id_, _value_, _data_)
@@ -12705,7 +12705,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVariantPointervEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVariantPointervEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVariantPointervEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glGetVariantPointervEXT(_id_, _value_, _data_)
@@ -12714,7 +12714,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetInvariantBooleanvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetInvariantBooleanvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetInvariantBooleanvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glGetInvariantBooleanvEXT(_id_, _value_, _data_)
@@ -12723,7 +12723,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetInvariantIntegervEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetInvariantIntegervEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetInvariantIntegervEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glGetInvariantIntegervEXT(_id_, _value_, _data_)
@@ -12732,7 +12732,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetInvariantFloatvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetInvariantFloatvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetInvariantFloatvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glGetInvariantFloatvEXT(_id_, _value_, _data_)
@@ -12741,7 +12741,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetLocalConstantBooleanvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetLocalConstantBooleanvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetLocalConstantBooleanvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glGetLocalConstantBooleanvEXT(_id_, _value_, _data_)
@@ -12750,7 +12750,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetLocalConstantIntegervEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetLocalConstantIntegervEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetLocalConstantIntegervEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glGetLocalConstantIntegervEXT(_id_, _value_, _data_)
@@ -12759,7 +12759,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_shader
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetLocalConstantFloatvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetLocalConstantFloatvEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetLocalConstantFloatvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_shader)
       def glGetLocalConstantFloatvEXT(_id_, _value_, _data_)
@@ -12788,7 +12788,7 @@ module OpenGL
       end
     SRC_GL_EXT_vertex_weighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexWeightPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexWeightPointerEXT] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexWeightPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_vertex_weighting)
       def glVertexWeightPointerEXT(_size_, _type_, _stride_, _pointer_)
@@ -12799,7 +12799,7 @@ module OpenGL
   end # define_command_GL_EXT_vertex_weighting
 
   def define_command_GL_EXT_x11_sync_object
-    GL_FUNCTIONS_ARGS_MAP[:glImportSyncEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glImportSyncEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glImportSyncEXT] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_EXT_x11_sync_object)
       def glImportSyncEXT(_external_sync_type_, _external_sync_, _flags_)
@@ -12835,7 +12835,7 @@ module OpenGL
   end # define_command_GL_HP_convolution_border_modes
 
   def define_command_GL_HP_image_transform
-    GL_FUNCTIONS_ARGS_MAP[:glImageTransformParameteriHP] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glImageTransformParameteriHP] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glImageTransformParameteriHP] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_HP_image_transform)
       def glImageTransformParameteriHP(_target_, _pname_, _param_)
@@ -12844,7 +12844,7 @@ module OpenGL
       end
     SRC_GL_HP_image_transform
 
-    GL_FUNCTIONS_ARGS_MAP[:glImageTransformParameterfHP] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glImageTransformParameterfHP] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glImageTransformParameterfHP] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_HP_image_transform)
       def glImageTransformParameterfHP(_target_, _pname_, _param_)
@@ -12853,7 +12853,7 @@ module OpenGL
       end
     SRC_GL_HP_image_transform
 
-    GL_FUNCTIONS_ARGS_MAP[:glImageTransformParameterivHP] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glImageTransformParameterivHP] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glImageTransformParameterivHP] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_HP_image_transform)
       def glImageTransformParameterivHP(_target_, _pname_, _params_)
@@ -12862,7 +12862,7 @@ module OpenGL
       end
     SRC_GL_HP_image_transform
 
-    GL_FUNCTIONS_ARGS_MAP[:glImageTransformParameterfvHP] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glImageTransformParameterfvHP] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glImageTransformParameterfvHP] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_HP_image_transform)
       def glImageTransformParameterfvHP(_target_, _pname_, _params_)
@@ -12871,7 +12871,7 @@ module OpenGL
       end
     SRC_GL_HP_image_transform
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetImageTransformParameterivHP] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetImageTransformParameterivHP] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetImageTransformParameterivHP] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_HP_image_transform)
       def glGetImageTransformParameterivHP(_target_, _pname_, _params_)
@@ -12880,7 +12880,7 @@ module OpenGL
       end
     SRC_GL_HP_image_transform
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetImageTransformParameterfvHP] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetImageTransformParameterfvHP] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetImageTransformParameterfvHP] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_HP_image_transform)
       def glGetImageTransformParameterfvHP(_target_, _pname_, _params_)
@@ -12909,7 +12909,7 @@ module OpenGL
       end
     SRC_GL_IBM_multimode_draw_arrays
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiModeDrawElementsIBM] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiModeDrawElementsIBM] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiModeDrawElementsIBM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_IBM_multimode_draw_arrays)
       def glMultiModeDrawElementsIBM(_mode_, _count_, _type_, _indices_, _primcount_, _modestride_)
@@ -12923,7 +12923,7 @@ module OpenGL
   end # define_command_GL_IBM_rasterpos_clip
 
   def define_command_GL_IBM_static_data
-    GL_FUNCTIONS_ARGS_MAP[:glFlushStaticDataIBM] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFlushStaticDataIBM] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFlushStaticDataIBM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_IBM_static_data)
       def glFlushStaticDataIBM(_target_)
@@ -12937,7 +12937,7 @@ module OpenGL
   end # define_command_GL_IBM_texture_mirrored_repeat
 
   def define_command_GL_IBM_vertex_array_lists
-    GL_FUNCTIONS_ARGS_MAP[:glColorPointerListIBM] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glColorPointerListIBM] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glColorPointerListIBM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_IBM_vertex_array_lists)
       def glColorPointerListIBM(_size_, _type_, _stride_, _pointer_, _ptrstride_)
@@ -12946,7 +12946,7 @@ module OpenGL
       end
     SRC_GL_IBM_vertex_array_lists
 
-    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColorPointerListIBM] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColorPointerListIBM] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSecondaryColorPointerListIBM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_IBM_vertex_array_lists)
       def glSecondaryColorPointerListIBM(_size_, _type_, _stride_, _pointer_, _ptrstride_)
@@ -12964,7 +12964,7 @@ module OpenGL
       end
     SRC_GL_IBM_vertex_array_lists
 
-    GL_FUNCTIONS_ARGS_MAP[:glFogCoordPointerListIBM] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFogCoordPointerListIBM] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFogCoordPointerListIBM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_IBM_vertex_array_lists)
       def glFogCoordPointerListIBM(_type_, _stride_, _pointer_, _ptrstride_)
@@ -12973,7 +12973,7 @@ module OpenGL
       end
     SRC_GL_IBM_vertex_array_lists
 
-    GL_FUNCTIONS_ARGS_MAP[:glIndexPointerListIBM] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glIndexPointerListIBM] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glIndexPointerListIBM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_IBM_vertex_array_lists)
       def glIndexPointerListIBM(_type_, _stride_, _pointer_, _ptrstride_)
@@ -12982,7 +12982,7 @@ module OpenGL
       end
     SRC_GL_IBM_vertex_array_lists
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalPointerListIBM] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalPointerListIBM] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalPointerListIBM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_IBM_vertex_array_lists)
       def glNormalPointerListIBM(_type_, _stride_, _pointer_, _ptrstride_)
@@ -12991,7 +12991,7 @@ module OpenGL
       end
     SRC_GL_IBM_vertex_array_lists
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoordPointerListIBM] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoordPointerListIBM] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoordPointerListIBM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_IBM_vertex_array_lists)
       def glTexCoordPointerListIBM(_size_, _type_, _stride_, _pointer_, _ptrstride_)
@@ -13000,7 +13000,7 @@ module OpenGL
       end
     SRC_GL_IBM_vertex_array_lists
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexPointerListIBM] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexPointerListIBM] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexPointerListIBM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_IBM_vertex_array_lists)
       def glVertexPointerListIBM(_size_, _type_, _stride_, _pointer_, _ptrstride_)
@@ -13011,7 +13011,7 @@ module OpenGL
   end # define_command_GL_IBM_vertex_array_lists
 
   def define_command_GL_INGR_blend_func_separate
-    GL_FUNCTIONS_ARGS_MAP[:glBlendFuncSeparateINGR] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendFuncSeparateINGR] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendFuncSeparateINGR] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_INGR_blend_func_separate)
       def glBlendFuncSeparateINGR(_sfactorRGB_, _dfactorRGB_, _sfactorAlpha_, _dfactorAlpha_)
@@ -13028,7 +13028,7 @@ module OpenGL
   end # define_command_GL_INGR_interlace_read
 
   def define_command_GL_INTEL_map_texture
-    GL_FUNCTIONS_ARGS_MAP[:glSyncTextureINTEL] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSyncTextureINTEL] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSyncTextureINTEL] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_INTEL_map_texture)
       def glSyncTextureINTEL(_texture_)
@@ -13037,7 +13037,7 @@ module OpenGL
       end
     SRC_GL_INTEL_map_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glUnmapTexture2DINTEL] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glUnmapTexture2DINTEL] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glUnmapTexture2DINTEL] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_INTEL_map_texture)
       def glUnmapTexture2DINTEL(_texture_, _level_)
@@ -13046,7 +13046,7 @@ module OpenGL
       end
     SRC_GL_INTEL_map_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMapTexture2DINTEL] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMapTexture2DINTEL] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMapTexture2DINTEL] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_INTEL_map_texture)
       def glMapTexture2DINTEL(_texture_, _level_, _access_, _stride_, _layout_)
@@ -13057,7 +13057,7 @@ module OpenGL
   end # define_command_GL_INTEL_map_texture
 
   def define_command_GL_INTEL_parallel_arrays
-    GL_FUNCTIONS_ARGS_MAP[:glVertexPointervINTEL] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexPointervINTEL] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexPointervINTEL] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_INTEL_parallel_arrays)
       def glVertexPointervINTEL(_size_, _type_, _pointer_)
@@ -13066,7 +13066,7 @@ module OpenGL
       end
     SRC_GL_INTEL_parallel_arrays
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalPointervINTEL] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalPointervINTEL] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalPointervINTEL] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_INTEL_parallel_arrays)
       def glNormalPointervINTEL(_type_, _pointer_)
@@ -13075,7 +13075,7 @@ module OpenGL
       end
     SRC_GL_INTEL_parallel_arrays
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorPointervINTEL] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glColorPointervINTEL] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glColorPointervINTEL] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_INTEL_parallel_arrays)
       def glColorPointervINTEL(_size_, _type_, _pointer_)
@@ -13084,7 +13084,7 @@ module OpenGL
       end
     SRC_GL_INTEL_parallel_arrays
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoordPointervINTEL] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoordPointervINTEL] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoordPointervINTEL] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_INTEL_parallel_arrays)
       def glTexCoordPointervINTEL(_size_, _type_, _pointer_)
@@ -13095,7 +13095,7 @@ module OpenGL
   end # define_command_GL_INTEL_parallel_arrays
 
   def define_command_GL_KHR_debug
-    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageControl] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageControl] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glDebugMessageControl] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_KHR_debug)
       def glDebugMessageControl(_source_, _type_, _severity_, _count_, _ids_, _enabled_)
@@ -13104,7 +13104,7 @@ module OpenGL
       end
     SRC_GL_KHR_debug
 
-    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageInsert] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageInsert] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDebugMessageInsert] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_KHR_debug)
       def glDebugMessageInsert(_source_, _type_, _id_, _severity_, _length_, _buf_)
@@ -13122,8 +13122,8 @@ module OpenGL
       end
     SRC_GL_KHR_debug
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetDebugMessageLog] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetDebugMessageLog] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glGetDebugMessageLog] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetDebugMessageLog] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_KHR_debug)
       def glGetDebugMessageLog(_count_, _bufSize_, _sources_, _types_, _ids_, _severities_, _lengths_, _messageLog_)
         f = OpenGL::get_command(:glGetDebugMessageLog)
@@ -13131,7 +13131,7 @@ module OpenGL
       end
     SRC_GL_KHR_debug
 
-    GL_FUNCTIONS_ARGS_MAP[:glPushDebugGroup] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPushDebugGroup] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPushDebugGroup] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_KHR_debug)
       def glPushDebugGroup(_source_, _id_, _length_, _message_)
@@ -13149,7 +13149,7 @@ module OpenGL
       end
     SRC_GL_KHR_debug
 
-    GL_FUNCTIONS_ARGS_MAP[:glObjectLabel] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glObjectLabel] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glObjectLabel] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_KHR_debug)
       def glObjectLabel(_identifier_, _name_, _length_, _label_)
@@ -13158,7 +13158,7 @@ module OpenGL
       end
     SRC_GL_KHR_debug
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetObjectLabel] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetObjectLabel] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetObjectLabel] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_KHR_debug)
       def glGetObjectLabel(_identifier_, _name_, _bufSize_, _length_, _label_)
@@ -13185,7 +13185,7 @@ module OpenGL
       end
     SRC_GL_KHR_debug
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPointerv] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPointerv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPointerv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_KHR_debug)
       def glGetPointerv(_pname_, _params_)
@@ -13194,7 +13194,7 @@ module OpenGL
       end
     SRC_GL_KHR_debug
 
-    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageControlKHR] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageControlKHR] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glDebugMessageControlKHR] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_KHR_debug)
       def glDebugMessageControlKHR(_source_, _type_, _severity_, _count_, _ids_, _enabled_)
@@ -13203,7 +13203,7 @@ module OpenGL
       end
     SRC_GL_KHR_debug
 
-    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageInsertKHR] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glDebugMessageInsertKHR] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDebugMessageInsertKHR] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_KHR_debug)
       def glDebugMessageInsertKHR(_source_, _type_, _id_, _severity_, _length_, _buf_)
@@ -13221,8 +13221,8 @@ module OpenGL
       end
     SRC_GL_KHR_debug
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetDebugMessageLogKHR] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetDebugMessageLogKHR] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glGetDebugMessageLogKHR] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetDebugMessageLogKHR] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_KHR_debug)
       def glGetDebugMessageLogKHR(_count_, _bufSize_, _sources_, _types_, _ids_, _severities_, _lengths_, _messageLog_)
         f = OpenGL::get_command(:glGetDebugMessageLogKHR)
@@ -13230,7 +13230,7 @@ module OpenGL
       end
     SRC_GL_KHR_debug
 
-    GL_FUNCTIONS_ARGS_MAP[:glPushDebugGroupKHR] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPushDebugGroupKHR] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPushDebugGroupKHR] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_KHR_debug)
       def glPushDebugGroupKHR(_source_, _id_, _length_, _message_)
@@ -13248,7 +13248,7 @@ module OpenGL
       end
     SRC_GL_KHR_debug
 
-    GL_FUNCTIONS_ARGS_MAP[:glObjectLabelKHR] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glObjectLabelKHR] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glObjectLabelKHR] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_KHR_debug)
       def glObjectLabelKHR(_identifier_, _name_, _length_, _label_)
@@ -13257,7 +13257,7 @@ module OpenGL
       end
     SRC_GL_KHR_debug
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetObjectLabelKHR] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetObjectLabelKHR] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetObjectLabelKHR] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_KHR_debug)
       def glGetObjectLabelKHR(_identifier_, _name_, _bufSize_, _length_, _label_)
@@ -13284,7 +13284,7 @@ module OpenGL
       end
     SRC_GL_KHR_debug
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPointervKHR] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPointervKHR] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPointervKHR] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_KHR_debug)
       def glGetPointervKHR(_pname_, _params_)
@@ -13536,7 +13536,7 @@ module OpenGL
   end # define_command_GL_MESA_ycbcr_texture
 
   def define_command_GL_NVX_conditional_render
-    GL_FUNCTIONS_ARGS_MAP[:glBeginConditionalRenderNVX] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBeginConditionalRenderNVX] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBeginConditionalRenderNVX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NVX_conditional_render)
       def glBeginConditionalRenderNVX(_id_)
@@ -13556,7 +13556,7 @@ module OpenGL
   end # define_command_GL_NVX_conditional_render
 
   def define_command_GL_NV_bindless_multi_draw_indirect
-    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirectBindlessNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirectBindlessNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawArraysIndirectBindlessNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_bindless_multi_draw_indirect)
       def glMultiDrawArraysIndirectBindlessNV(_mode_, _indirect_, _drawCount_, _stride_, _vertexBufferCount_)
@@ -13565,7 +13565,7 @@ module OpenGL
       end
     SRC_GL_NV_bindless_multi_draw_indirect
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsIndirectBindlessNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsIndirectBindlessNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawElementsIndirectBindlessNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_bindless_multi_draw_indirect)
       def glMultiDrawElementsIndirectBindlessNV(_mode_, _type_, _indirect_, _drawCount_, _stride_, _vertexBufferCount_)
@@ -13576,8 +13576,8 @@ module OpenGL
   end # define_command_GL_NV_bindless_multi_draw_indirect
 
   def define_command_GL_NV_bindless_texture
-    GL_FUNCTIONS_ARGS_MAP[:glGetTextureHandleNV] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetTextureHandleNV] = Fiddle::TYPE_LONG_LONG
+    GL_FUNCTIONS_ARGS_MAP[:glGetTextureHandleNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetTextureHandleNV] = -Fiddle::TYPE_LONG_LONG
     module_eval(<<-SRC_GL_NV_bindless_texture)
       def glGetTextureHandleNV(_texture_)
         f = OpenGL::get_command(:glGetTextureHandleNV)
@@ -13585,8 +13585,8 @@ module OpenGL
       end
     SRC_GL_NV_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTextureSamplerHandleNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetTextureSamplerHandleNV] = Fiddle::TYPE_LONG_LONG
+    GL_FUNCTIONS_ARGS_MAP[:glGetTextureSamplerHandleNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetTextureSamplerHandleNV] = -Fiddle::TYPE_LONG_LONG
     module_eval(<<-SRC_GL_NV_bindless_texture)
       def glGetTextureSamplerHandleNV(_texture_, _sampler_)
         f = OpenGL::get_command(:glGetTextureSamplerHandleNV)
@@ -13594,7 +13594,7 @@ module OpenGL
       end
     SRC_GL_NV_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMakeTextureHandleResidentNV] = [Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glMakeTextureHandleResidentNV] = [-Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glMakeTextureHandleResidentNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_bindless_texture)
       def glMakeTextureHandleResidentNV(_handle_)
@@ -13603,7 +13603,7 @@ module OpenGL
       end
     SRC_GL_NV_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMakeTextureHandleNonResidentNV] = [Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glMakeTextureHandleNonResidentNV] = [-Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glMakeTextureHandleNonResidentNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_bindless_texture)
       def glMakeTextureHandleNonResidentNV(_handle_)
@@ -13612,8 +13612,8 @@ module OpenGL
       end
     SRC_GL_NV_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetImageHandleNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetImageHandleNV] = Fiddle::TYPE_LONG_LONG
+    GL_FUNCTIONS_ARGS_MAP[:glGetImageHandleNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetImageHandleNV] = -Fiddle::TYPE_LONG_LONG
     module_eval(<<-SRC_GL_NV_bindless_texture)
       def glGetImageHandleNV(_texture_, _level_, _layered_, _layer_, _format_)
         f = OpenGL::get_command(:glGetImageHandleNV)
@@ -13621,7 +13621,7 @@ module OpenGL
       end
     SRC_GL_NV_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMakeImageHandleResidentNV] = [Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMakeImageHandleResidentNV] = [-Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMakeImageHandleResidentNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_bindless_texture)
       def glMakeImageHandleResidentNV(_handle_, _access_)
@@ -13630,7 +13630,7 @@ module OpenGL
       end
     SRC_GL_NV_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glMakeImageHandleNonResidentNV] = [Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glMakeImageHandleNonResidentNV] = [-Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glMakeImageHandleNonResidentNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_bindless_texture)
       def glMakeImageHandleNonResidentNV(_handle_)
@@ -13639,7 +13639,7 @@ module OpenGL
       end
     SRC_GL_NV_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformHandleui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformHandleui64NV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformHandleui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_bindless_texture)
       def glUniformHandleui64NV(_location_, _value_)
@@ -13657,7 +13657,7 @@ module OpenGL
       end
     SRC_GL_NV_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformHandleui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformHandleui64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformHandleui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_bindless_texture)
       def glProgramUniformHandleui64NV(_program_, _location_, _value_)
@@ -13666,7 +13666,7 @@ module OpenGL
       end
     SRC_GL_NV_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformHandleui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformHandleui64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformHandleui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_bindless_texture)
       def glProgramUniformHandleui64vNV(_program_, _location_, _count_, _values_)
@@ -13675,8 +13675,8 @@ module OpenGL
       end
     SRC_GL_NV_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsTextureHandleResidentNV] = [Fiddle::TYPE_LONG_LONG]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsTextureHandleResidentNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsTextureHandleResidentNV] = [-Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsTextureHandleResidentNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_bindless_texture)
       def glIsTextureHandleResidentNV(_handle_)
         f = OpenGL::get_command(:glIsTextureHandleResidentNV)
@@ -13684,8 +13684,8 @@ module OpenGL
       end
     SRC_GL_NV_bindless_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsImageHandleResidentNV] = [Fiddle::TYPE_LONG_LONG]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsImageHandleResidentNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsImageHandleResidentNV] = [-Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsImageHandleResidentNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_bindless_texture)
       def glIsImageHandleResidentNV(_handle_)
         f = OpenGL::get_command(:glIsImageHandleResidentNV)
@@ -13695,7 +13695,7 @@ module OpenGL
   end # define_command_GL_NV_bindless_texture
 
   def define_command_GL_NV_blend_equation_advanced
-    GL_FUNCTIONS_ARGS_MAP[:glBlendParameteriNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBlendParameteriNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendParameteriNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_blend_equation_advanced)
       def glBlendParameteriNV(_pname_, _value_)
@@ -13724,7 +13724,7 @@ module OpenGL
   end # define_command_GL_NV_compute_program5
 
   def define_command_GL_NV_conditional_render
-    GL_FUNCTIONS_ARGS_MAP[:glBeginConditionalRenderNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBeginConditionalRenderNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBeginConditionalRenderNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_conditional_render)
       def glBeginConditionalRenderNV(_id_, _mode_)
@@ -13747,7 +13747,7 @@ module OpenGL
   end # define_command_GL_NV_copy_depth_to_color
 
   def define_command_GL_NV_copy_image
-    GL_FUNCTIONS_ARGS_MAP[:glCopyImageSubDataNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyImageSubDataNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyImageSubDataNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_copy_image)
       def glCopyImageSubDataNV(_srcName_, _srcTarget_, _srcLevel_, _srcX_, _srcY_, _srcZ_, _dstName_, _dstTarget_, _dstLevel_, _dstX_, _dstY_, _dstZ_, _width_, _height_, _depth_)
@@ -13793,7 +13793,7 @@ module OpenGL
   end # define_command_GL_NV_depth_clamp
 
   def define_command_GL_NV_draw_texture
-    GL_FUNCTIONS_ARGS_MAP[:glDrawTextureNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawTextureNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawTextureNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_draw_texture)
       def glDrawTextureNV(_texture_, _sampler_, _x0_, _y0_, _x1_, _y1_, _z_, _s0_, _t0_, _s1_, _t1_)
@@ -13804,7 +13804,7 @@ module OpenGL
   end # define_command_GL_NV_draw_texture
 
   def define_command_GL_NV_evaluators
-    GL_FUNCTIONS_ARGS_MAP[:glMapControlPointsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMapControlPointsNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMapControlPointsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_evaluators)
       def glMapControlPointsNV(_target_, _index_, _type_, _ustride_, _vstride_, _uorder_, _vorder_, _packed_, _points_)
@@ -13813,7 +13813,7 @@ module OpenGL
       end
     SRC_GL_NV_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glMapParameterivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMapParameterivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMapParameterivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_evaluators)
       def glMapParameterivNV(_target_, _pname_, _params_)
@@ -13822,7 +13822,7 @@ module OpenGL
       end
     SRC_GL_NV_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glMapParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMapParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMapParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_evaluators)
       def glMapParameterfvNV(_target_, _pname_, _params_)
@@ -13831,7 +13831,7 @@ module OpenGL
       end
     SRC_GL_NV_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMapControlPointsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMapControlPointsNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMapControlPointsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_evaluators)
       def glGetMapControlPointsNV(_target_, _index_, _type_, _ustride_, _vstride_, _packed_, _points_)
@@ -13840,7 +13840,7 @@ module OpenGL
       end
     SRC_GL_NV_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMapParameterivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMapParameterivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMapParameterivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_evaluators)
       def glGetMapParameterivNV(_target_, _pname_, _params_)
@@ -13849,7 +13849,7 @@ module OpenGL
       end
     SRC_GL_NV_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMapParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMapParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMapParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_evaluators)
       def glGetMapParameterfvNV(_target_, _pname_, _params_)
@@ -13858,7 +13858,7 @@ module OpenGL
       end
     SRC_GL_NV_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMapAttribParameterivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMapAttribParameterivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMapAttribParameterivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_evaluators)
       def glGetMapAttribParameterivNV(_target_, _index_, _pname_, _params_)
@@ -13867,7 +13867,7 @@ module OpenGL
       end
     SRC_GL_NV_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMapAttribParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMapAttribParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMapAttribParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_evaluators)
       def glGetMapAttribParameterfvNV(_target_, _index_, _pname_, _params_)
@@ -13876,7 +13876,7 @@ module OpenGL
       end
     SRC_GL_NV_evaluators
 
-    GL_FUNCTIONS_ARGS_MAP[:glEvalMapsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEvalMapsNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEvalMapsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_evaluators)
       def glEvalMapsNV(_target_, _mode_)
@@ -13887,7 +13887,7 @@ module OpenGL
   end # define_command_GL_NV_evaluators
 
   def define_command_GL_NV_explicit_multisample
-    GL_FUNCTIONS_ARGS_MAP[:glGetMultisamplefvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMultisamplefvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMultisamplefvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_explicit_multisample)
       def glGetMultisamplefvNV(_pname_, _index_, _val_)
@@ -13896,7 +13896,7 @@ module OpenGL
       end
     SRC_GL_NV_explicit_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glSampleMaskIndexedNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSampleMaskIndexedNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSampleMaskIndexedNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_explicit_multisample)
       def glSampleMaskIndexedNV(_index_, _mask_)
@@ -13905,7 +13905,7 @@ module OpenGL
       end
     SRC_GL_NV_explicit_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexRenderbufferNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexRenderbufferNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexRenderbufferNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_explicit_multisample)
       def glTexRenderbufferNV(_target_, _renderbuffer_)
@@ -13934,8 +13934,8 @@ module OpenGL
       end
     SRC_GL_NV_fence
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsFenceNV] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsFenceNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsFenceNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsFenceNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_fence)
       def glIsFenceNV(_fence_)
         f = OpenGL::get_command(:glIsFenceNV)
@@ -13943,8 +13943,8 @@ module OpenGL
       end
     SRC_GL_NV_fence
 
-    GL_FUNCTIONS_ARGS_MAP[:glTestFenceNV] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glTestFenceNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glTestFenceNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glTestFenceNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_fence)
       def glTestFenceNV(_fence_)
         f = OpenGL::get_command(:glTestFenceNV)
@@ -13952,7 +13952,7 @@ module OpenGL
       end
     SRC_GL_NV_fence
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFenceivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFenceivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFenceivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_fence)
       def glGetFenceivNV(_fence_, _pname_, _params_)
@@ -13961,7 +13961,7 @@ module OpenGL
       end
     SRC_GL_NV_fence
 
-    GL_FUNCTIONS_ARGS_MAP[:glFinishFenceNV] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFinishFenceNV] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFinishFenceNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_fence)
       def glFinishFenceNV(_fence_)
@@ -13970,7 +13970,7 @@ module OpenGL
       end
     SRC_GL_NV_fence
 
-    GL_FUNCTIONS_ARGS_MAP[:glSetFenceNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSetFenceNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSetFenceNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_fence)
       def glSetFenceNV(_fence_, _condition_)
@@ -13987,7 +13987,7 @@ module OpenGL
   end # define_command_GL_NV_fog_distance
 
   def define_command_GL_NV_fragment_program
-    GL_FUNCTIONS_ARGS_MAP[:glProgramNamedParameter4fNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramNamedParameter4fNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramNamedParameter4fNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_fragment_program)
       def glProgramNamedParameter4fNV(_id_, _len_, _name_, _x_, _y_, _z_, _w_)
@@ -13996,7 +13996,7 @@ module OpenGL
       end
     SRC_GL_NV_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramNamedParameter4fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramNamedParameter4fvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramNamedParameter4fvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_fragment_program)
       def glProgramNamedParameter4fvNV(_id_, _len_, _name_, _v_)
@@ -14005,7 +14005,7 @@ module OpenGL
       end
     SRC_GL_NV_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramNamedParameter4dNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramNamedParameter4dNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramNamedParameter4dNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_fragment_program)
       def glProgramNamedParameter4dNV(_id_, _len_, _name_, _x_, _y_, _z_, _w_)
@@ -14014,7 +14014,7 @@ module OpenGL
       end
     SRC_GL_NV_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramNamedParameter4dvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramNamedParameter4dvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramNamedParameter4dvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_fragment_program)
       def glProgramNamedParameter4dvNV(_id_, _len_, _name_, _v_)
@@ -14023,7 +14023,7 @@ module OpenGL
       end
     SRC_GL_NV_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramNamedParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramNamedParameterfvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramNamedParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_fragment_program)
       def glGetProgramNamedParameterfvNV(_id_, _len_, _name_, _params_)
@@ -14032,7 +14032,7 @@ module OpenGL
       end
     SRC_GL_NV_fragment_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramNamedParameterdvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramNamedParameterdvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramNamedParameterdvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_fragment_program)
       def glGetProgramNamedParameterdvNV(_id_, _len_, _name_, _params_)
@@ -14052,7 +14052,7 @@ module OpenGL
   end # define_command_GL_NV_fragment_program_option
 
   def define_command_GL_NV_framebuffer_multisample_coverage
-    GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleCoverageNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleCoverageNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorageMultisampleCoverageNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_framebuffer_multisample_coverage)
       def glRenderbufferStorageMultisampleCoverageNV(_target_, _coverageSamples_, _colorSamples_, _internalformat_, _width_, _height_)
@@ -14063,7 +14063,7 @@ module OpenGL
   end # define_command_GL_NV_framebuffer_multisample_coverage
 
   def define_command_GL_NV_geometry_program4
-    GL_FUNCTIONS_ARGS_MAP[:glProgramVertexLimitNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramVertexLimitNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramVertexLimitNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_geometry_program4)
       def glProgramVertexLimitNV(_target_, _limit_)
@@ -14072,7 +14072,7 @@ module OpenGL
       end
     SRC_GL_NV_geometry_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_geometry_program4)
       def glFramebufferTextureEXT(_target_, _attachment_, _texture_, _level_)
@@ -14081,7 +14081,7 @@ module OpenGL
       end
     SRC_GL_NV_geometry_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureLayerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureLayerEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureLayerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_geometry_program4)
       def glFramebufferTextureLayerEXT(_target_, _attachment_, _texture_, _level_, _layer_)
@@ -14090,7 +14090,7 @@ module OpenGL
       end
     SRC_GL_NV_geometry_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureFaceEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureFaceEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureFaceEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_geometry_program4)
       def glFramebufferTextureFaceEXT(_target_, _attachment_, _texture_, _level_, _face_)
@@ -14104,7 +14104,7 @@ module OpenGL
   end # define_command_GL_NV_geometry_shader4
 
   def define_command_GL_NV_gpu_program4
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameterI4iNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameterI4iNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParameterI4iNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glProgramLocalParameterI4iNV(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -14113,7 +14113,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameterI4ivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameterI4ivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParameterI4ivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glProgramLocalParameterI4ivNV(_target_, _index_, _params_)
@@ -14122,7 +14122,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParametersI4ivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParametersI4ivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParametersI4ivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glProgramLocalParametersI4ivNV(_target_, _index_, _count_, _params_)
@@ -14131,7 +14131,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameterI4uiNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameterI4uiNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParameterI4uiNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glProgramLocalParameterI4uiNV(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -14140,7 +14140,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameterI4uivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameterI4uivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParameterI4uivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glProgramLocalParameterI4uivNV(_target_, _index_, _params_)
@@ -14149,7 +14149,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParametersI4uivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParametersI4uivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramLocalParametersI4uivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glProgramLocalParametersI4uivNV(_target_, _index_, _count_, _params_)
@@ -14158,7 +14158,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameterI4iNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameterI4iNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParameterI4iNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glProgramEnvParameterI4iNV(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -14167,7 +14167,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameterI4ivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameterI4ivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParameterI4ivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glProgramEnvParameterI4ivNV(_target_, _index_, _params_)
@@ -14176,7 +14176,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParametersI4ivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParametersI4ivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParametersI4ivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glProgramEnvParametersI4ivNV(_target_, _index_, _count_, _params_)
@@ -14185,7 +14185,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameterI4uiNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameterI4uiNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParameterI4uiNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glProgramEnvParameterI4uiNV(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -14194,7 +14194,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameterI4uivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParameterI4uivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParameterI4uivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glProgramEnvParameterI4uivNV(_target_, _index_, _params_)
@@ -14203,7 +14203,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParametersI4uivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramEnvParametersI4uivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramEnvParametersI4uivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glProgramEnvParametersI4uivNV(_target_, _index_, _count_, _params_)
@@ -14212,7 +14212,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramLocalParameterIivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramLocalParameterIivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramLocalParameterIivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glGetProgramLocalParameterIivNV(_target_, _index_, _params_)
@@ -14221,7 +14221,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramLocalParameterIuivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramLocalParameterIuivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramLocalParameterIuivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glGetProgramLocalParameterIuivNV(_target_, _index_, _params_)
@@ -14230,7 +14230,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramEnvParameterIivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramEnvParameterIivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramEnvParameterIivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glGetProgramEnvParameterIivNV(_target_, _index_, _params_)
@@ -14239,7 +14239,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramEnvParameterIuivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramEnvParameterIuivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramEnvParameterIuivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program4)
       def glGetProgramEnvParameterIuivNV(_target_, _index_, _params_)
@@ -14250,7 +14250,7 @@ module OpenGL
   end # define_command_GL_NV_gpu_program4
 
   def define_command_GL_NV_gpu_program5
-    GL_FUNCTIONS_ARGS_MAP[:glProgramSubroutineParametersuivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramSubroutineParametersuivNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramSubroutineParametersuivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program5)
       def glProgramSubroutineParametersuivNV(_target_, _count_, _params_)
@@ -14259,7 +14259,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_program5
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramSubroutineParameteruivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramSubroutineParameteruivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramSubroutineParameteruivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_program5)
       def glGetProgramSubroutineParameteruivNV(_target_, _index_, _param_)
@@ -14345,7 +14345,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniform1ui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glUniform1ui64NV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glUniform1ui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glUniform1ui64NV(_location_, _x_)
@@ -14354,7 +14354,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniform2ui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glUniform2ui64NV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glUniform2ui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glUniform2ui64NV(_location_, _x_, _y_)
@@ -14363,7 +14363,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniform3ui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glUniform3ui64NV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glUniform3ui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glUniform3ui64NV(_location_, _x_, _y_, _z_)
@@ -14372,7 +14372,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniform4ui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glUniform4ui64NV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glUniform4ui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glUniform4ui64NV(_location_, _x_, _y_, _z_, _w_)
@@ -14417,7 +14417,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetUniformi64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetUniformi64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetUniformi64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glGetUniformi64vNV(_program_, _location_, _params_)
@@ -14426,7 +14426,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1i64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1i64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1i64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform1i64NV(_program_, _location_, _x_)
@@ -14435,7 +14435,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2i64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2i64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2i64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform2i64NV(_program_, _location_, _x_, _y_)
@@ -14444,7 +14444,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3i64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3i64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3i64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform3i64NV(_program_, _location_, _x_, _y_, _z_)
@@ -14453,7 +14453,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4i64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4i64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4i64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform4i64NV(_program_, _location_, _x_, _y_, _z_, _w_)
@@ -14462,7 +14462,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1i64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1i64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1i64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform1i64vNV(_program_, _location_, _count_, _value_)
@@ -14471,7 +14471,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2i64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2i64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2i64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform2i64vNV(_program_, _location_, _count_, _value_)
@@ -14480,7 +14480,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3i64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3i64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3i64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform3i64vNV(_program_, _location_, _count_, _value_)
@@ -14489,7 +14489,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4i64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4i64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4i64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform4i64vNV(_program_, _location_, _count_, _value_)
@@ -14498,7 +14498,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1ui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1ui64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1ui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform1ui64NV(_program_, _location_, _x_)
@@ -14507,7 +14507,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2ui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2ui64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2ui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform2ui64NV(_program_, _location_, _x_, _y_)
@@ -14516,7 +14516,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3ui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3ui64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3ui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform3ui64NV(_program_, _location_, _x_, _y_, _z_)
@@ -14525,7 +14525,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4ui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4ui64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4ui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform4ui64NV(_program_, _location_, _x_, _y_, _z_, _w_)
@@ -14534,7 +14534,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1ui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1ui64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1ui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform1ui64vNV(_program_, _location_, _count_, _value_)
@@ -14543,7 +14543,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2ui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2ui64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2ui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform2ui64vNV(_program_, _location_, _count_, _value_)
@@ -14552,7 +14552,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3ui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3ui64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3ui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform3ui64vNV(_program_, _location_, _count_, _value_)
@@ -14561,7 +14561,7 @@ module OpenGL
       end
     SRC_GL_NV_gpu_shader5
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4ui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4ui64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4ui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_gpu_shader5)
       def glProgramUniform4ui64vNV(_program_, _location_, _count_, _value_)
@@ -14572,7 +14572,7 @@ module OpenGL
   end # define_command_GL_NV_gpu_shader5
 
   def define_command_GL_NV_half_float
-    GL_FUNCTIONS_ARGS_MAP[:glVertex2hNV] = [Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertex2hNV] = [-Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertex2hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertex2hNV(_x_, _y_)
@@ -14590,7 +14590,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertex3hNV] = [Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertex3hNV] = [-Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertex3hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertex3hNV(_x_, _y_, _z_)
@@ -14608,7 +14608,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertex4hNV] = [Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertex4hNV] = [-Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertex4hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertex4hNV(_x_, _y_, _z_, _w_)
@@ -14626,7 +14626,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormal3hNV] = [Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glNormal3hNV] = [-Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glNormal3hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glNormal3hNV(_nx_, _ny_, _nz_)
@@ -14644,7 +14644,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glColor3hNV] = [Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glColor3hNV] = [-Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glColor3hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glColor3hNV(_red_, _green_, _blue_)
@@ -14662,7 +14662,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glColor4hNV] = [Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glColor4hNV] = [-Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glColor4hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glColor4hNV(_red_, _green_, _blue_, _alpha_)
@@ -14680,7 +14680,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoord1hNV] = [Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoord1hNV] = [-Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoord1hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glTexCoord1hNV(_s_)
@@ -14698,7 +14698,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoord2hNV] = [Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoord2hNV] = [-Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoord2hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glTexCoord2hNV(_s_, _t_)
@@ -14716,7 +14716,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoord3hNV] = [Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoord3hNV] = [-Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoord3hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glTexCoord3hNV(_s_, _t_, _r_)
@@ -14734,7 +14734,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoord4hNV] = [Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoord4hNV] = [-Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoord4hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glTexCoord4hNV(_s_, _t_, _r_, _q_)
@@ -14752,7 +14752,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1hNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1hNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glMultiTexCoord1hNV(_target_, _s_)
@@ -14761,7 +14761,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1hvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1hvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1hvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glMultiTexCoord1hvNV(_target_, _v_)
@@ -14770,7 +14770,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2hNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2hNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glMultiTexCoord2hNV(_target_, _s_, _t_)
@@ -14779,7 +14779,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2hvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2hvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2hvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glMultiTexCoord2hvNV(_target_, _v_)
@@ -14788,7 +14788,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3hNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3hNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glMultiTexCoord3hNV(_target_, _s_, _t_, _r_)
@@ -14797,7 +14797,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3hvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3hvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3hvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glMultiTexCoord3hvNV(_target_, _v_)
@@ -14806,7 +14806,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4hNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4hNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glMultiTexCoord4hNV(_target_, _s_, _t_, _r_, _q_)
@@ -14815,7 +14815,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4hvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4hvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4hvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glMultiTexCoord4hvNV(_target_, _v_)
@@ -14824,7 +14824,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glFogCoordhNV] = [Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glFogCoordhNV] = [-Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glFogCoordhNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glFogCoordhNV(_fog_)
@@ -14842,7 +14842,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColor3hNV] = [Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColor3hNV] = [-Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glSecondaryColor3hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glSecondaryColor3hNV(_red_, _green_, _blue_)
@@ -14860,7 +14860,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexWeighthNV] = [Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexWeighthNV] = [-Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexWeighthNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertexWeighthNV(_weight_)
@@ -14878,7 +14878,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1hNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1hNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertexAttrib1hNV(_index_, _x_)
@@ -14887,7 +14887,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1hvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1hvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1hvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertexAttrib1hvNV(_index_, _v_)
@@ -14896,7 +14896,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2hNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2hNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertexAttrib2hNV(_index_, _x_, _y_)
@@ -14905,7 +14905,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2hvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2hvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2hvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertexAttrib2hvNV(_index_, _v_)
@@ -14914,7 +14914,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3hNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3hNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertexAttrib3hNV(_index_, _x_, _y_, _z_)
@@ -14923,7 +14923,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3hvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3hvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3hvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertexAttrib3hvNV(_index_, _v_)
@@ -14932,7 +14932,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4hNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4hNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4hNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertexAttrib4hNV(_index_, _x_, _y_, _z_, _w_)
@@ -14941,7 +14941,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4hvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4hvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4hvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertexAttrib4hvNV(_index_, _v_)
@@ -14950,7 +14950,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs1hvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs1hvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs1hvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertexAttribs1hvNV(_index_, _n_, _v_)
@@ -14959,7 +14959,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs2hvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs2hvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs2hvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertexAttribs2hvNV(_index_, _n_, _v_)
@@ -14968,7 +14968,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs3hvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs3hvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs3hvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertexAttribs3hvNV(_index_, _n_, _v_)
@@ -14977,7 +14977,7 @@ module OpenGL
       end
     SRC_GL_NV_half_float
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs4hvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs4hvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs4hvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_half_float)
       def glVertexAttribs4hvNV(_index_, _n_, _v_)
@@ -15015,8 +15015,8 @@ module OpenGL
       end
     SRC_GL_NV_occlusion_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsOcclusionQueryNV] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsOcclusionQueryNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsOcclusionQueryNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsOcclusionQueryNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_occlusion_query)
       def glIsOcclusionQueryNV(_id_)
         f = OpenGL::get_command(:glIsOcclusionQueryNV)
@@ -15024,7 +15024,7 @@ module OpenGL
       end
     SRC_GL_NV_occlusion_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glBeginOcclusionQueryNV] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBeginOcclusionQueryNV] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBeginOcclusionQueryNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_occlusion_query)
       def glBeginOcclusionQueryNV(_id_)
@@ -15042,7 +15042,7 @@ module OpenGL
       end
     SRC_GL_NV_occlusion_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetOcclusionQueryivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetOcclusionQueryivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetOcclusionQueryivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_occlusion_query)
       def glGetOcclusionQueryivNV(_id_, _pname_, _params_)
@@ -15051,7 +15051,7 @@ module OpenGL
       end
     SRC_GL_NV_occlusion_query
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetOcclusionQueryuivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetOcclusionQueryuivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetOcclusionQueryuivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_occlusion_query)
       def glGetOcclusionQueryuivNV(_id_, _pname_, _params_)
@@ -15065,7 +15065,7 @@ module OpenGL
   end # define_command_GL_NV_packed_depth_stencil
 
   def define_command_GL_NV_parameter_buffer_object
-    GL_FUNCTIONS_ARGS_MAP[:glProgramBufferParametersfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramBufferParametersfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramBufferParametersfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_parameter_buffer_object)
       def glProgramBufferParametersfvNV(_target_, _bindingIndex_, _wordIndex_, _count_, _params_)
@@ -15074,7 +15074,7 @@ module OpenGL
       end
     SRC_GL_NV_parameter_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramBufferParametersIivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramBufferParametersIivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramBufferParametersIivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_parameter_buffer_object)
       def glProgramBufferParametersIivNV(_target_, _bindingIndex_, _wordIndex_, _count_, _params_)
@@ -15083,7 +15083,7 @@ module OpenGL
       end
     SRC_GL_NV_parameter_buffer_object
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramBufferParametersIuivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramBufferParametersIuivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramBufferParametersIuivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_parameter_buffer_object)
       def glProgramBufferParametersIuivNV(_target_, _bindingIndex_, _wordIndex_, _count_, _params_)
@@ -15098,7 +15098,7 @@ module OpenGL
 
   def define_command_GL_NV_path_rendering
     GL_FUNCTIONS_ARGS_MAP[:glGenPathsNV] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glGenPathsNV] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_RETVAL_MAP[:glGenPathsNV] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGenPathsNV(_range_)
         f = OpenGL::get_command(:glGenPathsNV)
@@ -15106,7 +15106,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glDeletePathsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDeletePathsNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDeletePathsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glDeletePathsNV(_path_, _range_)
@@ -15115,8 +15115,8 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsPathNV] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsPathNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsPathNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsPathNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glIsPathNV(_path_)
         f = OpenGL::get_command(:glIsPathNV)
@@ -15124,7 +15124,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathCommandsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPathCommandsNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPathCommandsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathCommandsNV(_path_, _numCommands_, _commands_, _numCoords_, _coordType_, _coords_)
@@ -15133,7 +15133,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathCoordsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPathCoordsNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPathCoordsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathCoordsNV(_path_, _numCoords_, _coordType_, _coords_)
@@ -15142,7 +15142,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathSubCommandsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPathSubCommandsNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPathSubCommandsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathSubCommandsNV(_path_, _commandStart_, _commandsToDelete_, _numCommands_, _commands_, _numCoords_, _coordType_, _coords_)
@@ -15151,7 +15151,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathSubCoordsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPathSubCoordsNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPathSubCoordsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathSubCoordsNV(_path_, _coordStart_, _numCoords_, _coordType_, _coords_)
@@ -15160,7 +15160,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathStringNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPathStringNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPathStringNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathStringNV(_path_, _format_, _length_, _pathString_)
@@ -15169,7 +15169,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathGlyphsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glPathGlyphsNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glPathGlyphsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathGlyphsNV(_firstPathName_, _fontTarget_, _fontName_, _fontStyle_, _numGlyphs_, _type_, _charcodes_, _handleMissingGlyphs_, _pathParameterTemplate_, _emScale_)
@@ -15178,7 +15178,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathGlyphRangeNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glPathGlyphRangeNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glPathGlyphRangeNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathGlyphRangeNV(_firstPathName_, _fontTarget_, _fontName_, _fontStyle_, _firstGlyph_, _numGlyphs_, _handleMissingGlyphs_, _pathParameterTemplate_, _emScale_)
@@ -15187,7 +15187,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glWeightPathsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glWeightPathsNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glWeightPathsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glWeightPathsNV(_resultPath_, _numPaths_, _paths_, _weights_)
@@ -15196,7 +15196,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyPathNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyPathNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyPathNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glCopyPathNV(_resultPath_, _srcPath_)
@@ -15205,7 +15205,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glInterpolatePathsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glInterpolatePathsNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glInterpolatePathsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glInterpolatePathsNV(_resultPath_, _pathA_, _pathB_, _weight_)
@@ -15214,7 +15214,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glTransformPathNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTransformPathNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTransformPathNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glTransformPathNV(_resultPath_, _srcPath_, _transformType_, _transformValues_)
@@ -15223,7 +15223,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathParameterivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPathParameterivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPathParameterivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathParameterivNV(_path_, _pname_, _value_)
@@ -15232,7 +15232,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathParameteriNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPathParameteriNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPathParameteriNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathParameteriNV(_path_, _pname_, _value_)
@@ -15241,7 +15241,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPathParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPathParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathParameterfvNV(_path_, _pname_, _value_)
@@ -15250,7 +15250,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathParameterfNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glPathParameterfNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glPathParameterfNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathParameterfNV(_path_, _pname_, _value_)
@@ -15259,7 +15259,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathDashArrayNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPathDashArrayNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPathDashArrayNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathDashArrayNV(_path_, _dashCount_, _dashArray_)
@@ -15268,7 +15268,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathStencilFuncNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPathStencilFuncNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPathStencilFuncNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathStencilFuncNV(_func_, _ref_, _mask_)
@@ -15286,7 +15286,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glStencilFillPathNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glStencilFillPathNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glStencilFillPathNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glStencilFillPathNV(_path_, _fillMode_, _mask_)
@@ -15295,7 +15295,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glStencilStrokePathNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glStencilStrokePathNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glStencilStrokePathNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glStencilStrokePathNV(_path_, _reference_, _mask_)
@@ -15304,7 +15304,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glStencilFillPathInstancedNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glStencilFillPathInstancedNV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glStencilFillPathInstancedNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glStencilFillPathInstancedNV(_numPaths_, _pathNameType_, _paths_, _pathBase_, _fillMode_, _mask_, _transformType_, _transformValues_)
@@ -15313,7 +15313,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glStencilStrokePathInstancedNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glStencilStrokePathInstancedNV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glStencilStrokePathInstancedNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glStencilStrokePathInstancedNV(_numPaths_, _pathNameType_, _paths_, _pathBase_, _reference_, _mask_, _transformType_, _transformValues_)
@@ -15322,7 +15322,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathCoverDepthFuncNV] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPathCoverDepthFuncNV] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPathCoverDepthFuncNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathCoverDepthFuncNV(_func_)
@@ -15331,7 +15331,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathColorGenNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPathColorGenNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPathColorGenNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathColorGenNV(_color_, _genMode_, _colorFormat_, _coeffs_)
@@ -15340,7 +15340,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathTexGenNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPathTexGenNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPathTexGenNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathTexGenNV(_texCoordSet_, _genMode_, _components_, _coeffs_)
@@ -15349,7 +15349,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathFogGenNV] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPathFogGenNV] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPathFogGenNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathFogGenNV(_genMode_)
@@ -15358,7 +15358,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glCoverFillPathNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCoverFillPathNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCoverFillPathNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glCoverFillPathNV(_path_, _coverMode_)
@@ -15367,7 +15367,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glCoverStrokePathNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCoverStrokePathNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCoverStrokePathNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glCoverStrokePathNV(_path_, _coverMode_)
@@ -15376,7 +15376,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glCoverFillPathInstancedNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCoverFillPathInstancedNV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCoverFillPathInstancedNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glCoverFillPathInstancedNV(_numPaths_, _pathNameType_, _paths_, _pathBase_, _coverMode_, _transformType_, _transformValues_)
@@ -15385,7 +15385,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glCoverStrokePathInstancedNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCoverStrokePathInstancedNV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCoverStrokePathInstancedNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glCoverStrokePathInstancedNV(_numPaths_, _pathNameType_, _paths_, _pathBase_, _coverMode_, _transformType_, _transformValues_)
@@ -15394,7 +15394,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathParameterivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathParameterivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPathParameterivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGetPathParameterivNV(_path_, _pname_, _value_)
@@ -15403,7 +15403,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPathParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGetPathParameterfvNV(_path_, _pname_, _value_)
@@ -15412,7 +15412,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathCommandsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathCommandsNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPathCommandsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGetPathCommandsNV(_path_, _commands_)
@@ -15421,7 +15421,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathCoordsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathCoordsNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPathCoordsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGetPathCoordsNV(_path_, _coords_)
@@ -15430,7 +15430,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathDashArrayNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathDashArrayNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPathDashArrayNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGetPathDashArrayNV(_path_, _dashArray_)
@@ -15439,7 +15439,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathMetricsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathMetricsNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPathMetricsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGetPathMetricsNV(_metricQueryMask_, _numPaths_, _pathNameType_, _paths_, _pathBase_, _stride_, _metrics_)
@@ -15448,7 +15448,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathMetricRangeNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathMetricRangeNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPathMetricRangeNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGetPathMetricRangeNV(_metricQueryMask_, _firstPathName_, _numPaths_, _stride_, _metrics_)
@@ -15457,7 +15457,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathSpacingNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathSpacingNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPathSpacingNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGetPathSpacingNV(_pathListMode_, _numPaths_, _pathNameType_, _paths_, _pathBase_, _advanceScale_, _kerningScale_, _transformType_, _returnedSpacing_)
@@ -15466,7 +15466,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathColorGenivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathColorGenivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPathColorGenivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGetPathColorGenivNV(_color_, _pname_, _value_)
@@ -15475,7 +15475,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathColorGenfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathColorGenfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPathColorGenfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGetPathColorGenfvNV(_color_, _pname_, _value_)
@@ -15484,7 +15484,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathTexGenivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathTexGenivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPathTexGenivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGetPathTexGenivNV(_texCoordSet_, _pname_, _value_)
@@ -15493,7 +15493,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathTexGenfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathTexGenfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPathTexGenfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGetPathTexGenfvNV(_texCoordSet_, _pname_, _value_)
@@ -15502,8 +15502,8 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsPointInFillPathNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsPointInFillPathNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsPointInFillPathNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsPointInFillPathNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glIsPointInFillPathNV(_path_, _mask_, _x_, _y_)
         f = OpenGL::get_command(:glIsPointInFillPathNV)
@@ -15511,8 +15511,8 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsPointInStrokePathNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsPointInStrokePathNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsPointInStrokePathNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsPointInStrokePathNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glIsPointInStrokePathNV(_path_, _x_, _y_)
         f = OpenGL::get_command(:glIsPointInStrokePathNV)
@@ -15520,7 +15520,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathLengthNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathLengthNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPathLengthNV] = Fiddle::TYPE_FLOAT
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glGetPathLengthNV(_path_, _startSegment_, _numSegments_)
@@ -15529,8 +15529,8 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPointAlongPathNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glPointAlongPathNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glPointAlongPathNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glPointAlongPathNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPointAlongPathNV(_path_, _startSegment_, _numSegments_, _distance_, _x_, _y_, _tangentX_, _tangentY_)
         f = OpenGL::get_command(:glPointAlongPathNV)
@@ -15540,7 +15540,7 @@ module OpenGL
   end # define_command_GL_NV_path_rendering
 
   def define_command_GL_NV_pixel_data_range
-    GL_FUNCTIONS_ARGS_MAP[:glPixelDataRangeNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPixelDataRangeNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelDataRangeNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_pixel_data_range)
       def glPixelDataRangeNV(_target_, _length_, _pointer_)
@@ -15549,7 +15549,7 @@ module OpenGL
       end
     SRC_GL_NV_pixel_data_range
 
-    GL_FUNCTIONS_ARGS_MAP[:glFlushPixelDataRangeNV] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFlushPixelDataRangeNV] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFlushPixelDataRangeNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_pixel_data_range)
       def glFlushPixelDataRangeNV(_target_)
@@ -15560,7 +15560,7 @@ module OpenGL
   end # define_command_GL_NV_pixel_data_range
 
   def define_command_GL_NV_point_sprite
-    GL_FUNCTIONS_ARGS_MAP[:glPointParameteriNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPointParameteriNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPointParameteriNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_point_sprite)
       def glPointParameteriNV(_pname_, _param_)
@@ -15569,7 +15569,7 @@ module OpenGL
       end
     SRC_GL_NV_point_sprite
 
-    GL_FUNCTIONS_ARGS_MAP[:glPointParameterivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPointParameterivNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPointParameterivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_point_sprite)
       def glPointParameterivNV(_pname_, _params_)
@@ -15580,7 +15580,7 @@ module OpenGL
   end # define_command_GL_NV_point_sprite
 
   def define_command_GL_NV_present_video
-    GL_FUNCTIONS_ARGS_MAP[:glPresentFrameKeyedNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPresentFrameKeyedNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPresentFrameKeyedNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_present_video)
       def glPresentFrameKeyedNV(_video_slot_, _minPresentTime_, _beginPresentTimeId_, _presentDurationId_, _type_, _target0_, _fill0_, _key0_, _target1_, _fill1_, _key1_)
@@ -15589,7 +15589,7 @@ module OpenGL
       end
     SRC_GL_NV_present_video
 
-    GL_FUNCTIONS_ARGS_MAP[:glPresentFrameDualFillNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPresentFrameDualFillNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPresentFrameDualFillNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_present_video)
       def glPresentFrameDualFillNV(_video_slot_, _minPresentTime_, _beginPresentTimeId_, _presentDurationId_, _type_, _target0_, _fill0_, _target1_, _fill1_, _target2_, _fill2_, _target3_, _fill3_)
@@ -15598,7 +15598,7 @@ module OpenGL
       end
     SRC_GL_NV_present_video
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVideoivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVideoivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVideoivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_present_video)
       def glGetVideoivNV(_video_slot_, _pname_, _params_)
@@ -15607,7 +15607,7 @@ module OpenGL
       end
     SRC_GL_NV_present_video
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVideouivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVideouivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVideouivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_present_video)
       def glGetVideouivNV(_video_slot_, _pname_, _params_)
@@ -15616,7 +15616,7 @@ module OpenGL
       end
     SRC_GL_NV_present_video
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVideoi64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVideoi64vNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVideoi64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_present_video)
       def glGetVideoi64vNV(_video_slot_, _pname_, _params_)
@@ -15625,7 +15625,7 @@ module OpenGL
       end
     SRC_GL_NV_present_video
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVideoui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVideoui64vNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVideoui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_present_video)
       def glGetVideoui64vNV(_video_slot_, _pname_, _params_)
@@ -15645,7 +15645,7 @@ module OpenGL
       end
     SRC_GL_NV_primitive_restart
 
-    GL_FUNCTIONS_ARGS_MAP[:glPrimitiveRestartIndexNV] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPrimitiveRestartIndexNV] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPrimitiveRestartIndexNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_primitive_restart)
       def glPrimitiveRestartIndexNV(_index_)
@@ -15656,7 +15656,7 @@ module OpenGL
   end # define_command_GL_NV_primitive_restart
 
   def define_command_GL_NV_register_combiners
-    GL_FUNCTIONS_ARGS_MAP[:glCombinerParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCombinerParameterfvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCombinerParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners)
       def glCombinerParameterfvNV(_pname_, _params_)
@@ -15665,7 +15665,7 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners
 
-    GL_FUNCTIONS_ARGS_MAP[:glCombinerParameterfNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glCombinerParameterfNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glCombinerParameterfNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners)
       def glCombinerParameterfNV(_pname_, _param_)
@@ -15674,7 +15674,7 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners
 
-    GL_FUNCTIONS_ARGS_MAP[:glCombinerParameterivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCombinerParameterivNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCombinerParameterivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners)
       def glCombinerParameterivNV(_pname_, _params_)
@@ -15683,7 +15683,7 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners
 
-    GL_FUNCTIONS_ARGS_MAP[:glCombinerParameteriNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCombinerParameteriNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCombinerParameteriNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners)
       def glCombinerParameteriNV(_pname_, _param_)
@@ -15692,7 +15692,7 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners
 
-    GL_FUNCTIONS_ARGS_MAP[:glCombinerInputNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCombinerInputNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCombinerInputNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners)
       def glCombinerInputNV(_stage_, _portion_, _variable_, _input_, _mapping_, _componentUsage_)
@@ -15701,7 +15701,7 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners
 
-    GL_FUNCTIONS_ARGS_MAP[:glCombinerOutputNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glCombinerOutputNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glCombinerOutputNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners)
       def glCombinerOutputNV(_stage_, _portion_, _abOutput_, _cdOutput_, _sumOutput_, _scale_, _bias_, _abDotProduct_, _cdDotProduct_, _muxSum_)
@@ -15710,7 +15710,7 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners
 
-    GL_FUNCTIONS_ARGS_MAP[:glFinalCombinerInputNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFinalCombinerInputNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFinalCombinerInputNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners)
       def glFinalCombinerInputNV(_variable_, _input_, _mapping_, _componentUsage_)
@@ -15719,7 +15719,7 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetCombinerInputParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetCombinerInputParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetCombinerInputParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners)
       def glGetCombinerInputParameterfvNV(_stage_, _portion_, _variable_, _pname_, _params_)
@@ -15728,7 +15728,7 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetCombinerInputParameterivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetCombinerInputParameterivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetCombinerInputParameterivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners)
       def glGetCombinerInputParameterivNV(_stage_, _portion_, _variable_, _pname_, _params_)
@@ -15737,7 +15737,7 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetCombinerOutputParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetCombinerOutputParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetCombinerOutputParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners)
       def glGetCombinerOutputParameterfvNV(_stage_, _portion_, _pname_, _params_)
@@ -15746,7 +15746,7 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetCombinerOutputParameterivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetCombinerOutputParameterivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetCombinerOutputParameterivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners)
       def glGetCombinerOutputParameterivNV(_stage_, _portion_, _pname_, _params_)
@@ -15755,7 +15755,7 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFinalCombinerInputParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFinalCombinerInputParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFinalCombinerInputParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners)
       def glGetFinalCombinerInputParameterfvNV(_variable_, _pname_, _params_)
@@ -15764,7 +15764,7 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFinalCombinerInputParameterivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFinalCombinerInputParameterivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFinalCombinerInputParameterivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners)
       def glGetFinalCombinerInputParameterivNV(_variable_, _pname_, _params_)
@@ -15775,7 +15775,7 @@ module OpenGL
   end # define_command_GL_NV_register_combiners
 
   def define_command_GL_NV_register_combiners2
-    GL_FUNCTIONS_ARGS_MAP[:glCombinerStageParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glCombinerStageParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCombinerStageParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners2)
       def glCombinerStageParameterfvNV(_stage_, _pname_, _params_)
@@ -15784,7 +15784,7 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners2
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetCombinerStageParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetCombinerStageParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetCombinerStageParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_register_combiners2)
       def glGetCombinerStageParameterfvNV(_stage_, _pname_, _params_)
@@ -15801,7 +15801,7 @@ module OpenGL
   end # define_command_GL_NV_shader_atomic_float
 
   def define_command_GL_NV_shader_buffer_load
-    GL_FUNCTIONS_ARGS_MAP[:glMakeBufferResidentNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMakeBufferResidentNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMakeBufferResidentNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_shader_buffer_load)
       def glMakeBufferResidentNV(_target_, _access_)
@@ -15810,7 +15810,7 @@ module OpenGL
       end
     SRC_GL_NV_shader_buffer_load
 
-    GL_FUNCTIONS_ARGS_MAP[:glMakeBufferNonResidentNV] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMakeBufferNonResidentNV] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMakeBufferNonResidentNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_shader_buffer_load)
       def glMakeBufferNonResidentNV(_target_)
@@ -15819,8 +15819,8 @@ module OpenGL
       end
     SRC_GL_NV_shader_buffer_load
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsBufferResidentNV] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsBufferResidentNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsBufferResidentNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsBufferResidentNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_shader_buffer_load)
       def glIsBufferResidentNV(_target_)
         f = OpenGL::get_command(:glIsBufferResidentNV)
@@ -15828,7 +15828,7 @@ module OpenGL
       end
     SRC_GL_NV_shader_buffer_load
 
-    GL_FUNCTIONS_ARGS_MAP[:glMakeNamedBufferResidentNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMakeNamedBufferResidentNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMakeNamedBufferResidentNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_shader_buffer_load)
       def glMakeNamedBufferResidentNV(_buffer_, _access_)
@@ -15837,7 +15837,7 @@ module OpenGL
       end
     SRC_GL_NV_shader_buffer_load
 
-    GL_FUNCTIONS_ARGS_MAP[:glMakeNamedBufferNonResidentNV] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMakeNamedBufferNonResidentNV] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMakeNamedBufferNonResidentNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_shader_buffer_load)
       def glMakeNamedBufferNonResidentNV(_buffer_)
@@ -15846,8 +15846,8 @@ module OpenGL
       end
     SRC_GL_NV_shader_buffer_load
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsNamedBufferResidentNV] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsNamedBufferResidentNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsNamedBufferResidentNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsNamedBufferResidentNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_shader_buffer_load)
       def glIsNamedBufferResidentNV(_buffer_)
         f = OpenGL::get_command(:glIsNamedBufferResidentNV)
@@ -15855,7 +15855,7 @@ module OpenGL
       end
     SRC_GL_NV_shader_buffer_load
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetBufferParameterui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetBufferParameterui64vNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetBufferParameterui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_shader_buffer_load)
       def glGetBufferParameterui64vNV(_target_, _pname_, _params_)
@@ -15864,7 +15864,7 @@ module OpenGL
       end
     SRC_GL_NV_shader_buffer_load
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetNamedBufferParameterui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetNamedBufferParameterui64vNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetNamedBufferParameterui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_shader_buffer_load)
       def glGetNamedBufferParameterui64vNV(_buffer_, _pname_, _params_)
@@ -15873,7 +15873,7 @@ module OpenGL
       end
     SRC_GL_NV_shader_buffer_load
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetIntegerui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetIntegerui64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetIntegerui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_shader_buffer_load)
       def glGetIntegerui64vNV(_value_, _result_)
@@ -15882,7 +15882,7 @@ module OpenGL
       end
     SRC_GL_NV_shader_buffer_load
 
-    GL_FUNCTIONS_ARGS_MAP[:glUniformui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glUniformui64NV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_shader_buffer_load)
       def glUniformui64NV(_location_, _value_)
@@ -15900,7 +15900,7 @@ module OpenGL
       end
     SRC_GL_NV_shader_buffer_load
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetUniformui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetUniformui64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetUniformui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_shader_buffer_load)
       def glGetUniformui64vNV(_program_, _location_, _params_)
@@ -15909,7 +15909,7 @@ module OpenGL
       end
     SRC_GL_NV_shader_buffer_load
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformui64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_shader_buffer_load)
       def glProgramUniformui64NV(_program_, _location_, _value_)
@@ -15918,7 +15918,7 @@ module OpenGL
       end
     SRC_GL_NV_shader_buffer_load
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformui64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_shader_buffer_load)
       def glProgramUniformui64vNV(_program_, _location_, _count_, _value_)
@@ -15964,7 +15964,7 @@ module OpenGL
   end # define_command_GL_NV_texture_expand_normal
 
   def define_command_GL_NV_texture_multisample
-    GL_FUNCTIONS_ARGS_MAP[:glTexImage2DMultisampleCoverageNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTexImage2DMultisampleCoverageNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTexImage2DMultisampleCoverageNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_texture_multisample)
       def glTexImage2DMultisampleCoverageNV(_target_, _coverageSamples_, _colorSamples_, _internalFormat_, _width_, _height_, _fixedSampleLocations_)
@@ -15973,7 +15973,7 @@ module OpenGL
       end
     SRC_GL_NV_texture_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexImage3DMultisampleCoverageNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTexImage3DMultisampleCoverageNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTexImage3DMultisampleCoverageNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_texture_multisample)
       def glTexImage3DMultisampleCoverageNV(_target_, _coverageSamples_, _colorSamples_, _internalFormat_, _width_, _height_, _depth_, _fixedSampleLocations_)
@@ -15982,7 +15982,7 @@ module OpenGL
       end
     SRC_GL_NV_texture_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureImage2DMultisampleNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureImage2DMultisampleNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureImage2DMultisampleNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_texture_multisample)
       def glTextureImage2DMultisampleNV(_texture_, _target_, _samples_, _internalFormat_, _width_, _height_, _fixedSampleLocations_)
@@ -15991,7 +15991,7 @@ module OpenGL
       end
     SRC_GL_NV_texture_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureImage3DMultisampleNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureImage3DMultisampleNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureImage3DMultisampleNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_texture_multisample)
       def glTextureImage3DMultisampleNV(_texture_, _target_, _samples_, _internalFormat_, _width_, _height_, _depth_, _fixedSampleLocations_)
@@ -16000,7 +16000,7 @@ module OpenGL
       end
     SRC_GL_NV_texture_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureImage2DMultisampleCoverageNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureImage2DMultisampleCoverageNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureImage2DMultisampleCoverageNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_texture_multisample)
       def glTextureImage2DMultisampleCoverageNV(_texture_, _target_, _coverageSamples_, _colorSamples_, _internalFormat_, _width_, _height_, _fixedSampleLocations_)
@@ -16009,7 +16009,7 @@ module OpenGL
       end
     SRC_GL_NV_texture_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glTextureImage3DMultisampleCoverageNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureImage3DMultisampleCoverageNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureImage3DMultisampleCoverageNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_texture_multisample)
       def glTextureImage3DMultisampleCoverageNV(_texture_, _target_, _coverageSamples_, _colorSamples_, _internalFormat_, _width_, _height_, _depth_, _fixedSampleLocations_)
@@ -16032,7 +16032,7 @@ module OpenGL
   end # define_command_GL_NV_texture_shader3
 
   def define_command_GL_NV_transform_feedback
-    GL_FUNCTIONS_ARGS_MAP[:glBeginTransformFeedbackNV] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBeginTransformFeedbackNV] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBeginTransformFeedbackNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_transform_feedback)
       def glBeginTransformFeedbackNV(_primitiveMode_)
@@ -16050,7 +16050,7 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glTransformFeedbackAttribsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTransformFeedbackAttribsNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTransformFeedbackAttribsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_transform_feedback)
       def glTransformFeedbackAttribsNV(_count_, _attribs_, _bufferMode_)
@@ -16059,7 +16059,7 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindBufferRangeNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glBindBufferRangeNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glBindBufferRangeNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_transform_feedback)
       def glBindBufferRangeNV(_target_, _index_, _buffer_, _offset_, _size_)
@@ -16068,7 +16068,7 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindBufferOffsetNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glBindBufferOffsetNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glBindBufferOffsetNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_transform_feedback)
       def glBindBufferOffsetNV(_target_, _index_, _buffer_, _offset_)
@@ -16077,7 +16077,7 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindBufferBaseNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindBufferBaseNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindBufferBaseNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_transform_feedback)
       def glBindBufferBaseNV(_target_, _index_, _buffer_)
@@ -16086,7 +16086,7 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glTransformFeedbackVaryingsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTransformFeedbackVaryingsNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTransformFeedbackVaryingsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_transform_feedback)
       def glTransformFeedbackVaryingsNV(_program_, _count_, _locations_, _bufferMode_)
@@ -16095,7 +16095,7 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glActiveVaryingNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glActiveVaryingNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glActiveVaryingNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_transform_feedback)
       def glActiveVaryingNV(_program_, _name_)
@@ -16104,7 +16104,7 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVaryingLocationNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVaryingLocationNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVaryingLocationNV] = Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_NV_transform_feedback)
       def glGetVaryingLocationNV(_program_, _name_)
@@ -16113,7 +16113,7 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetActiveVaryingNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetActiveVaryingNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetActiveVaryingNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_transform_feedback)
       def glGetActiveVaryingNV(_program_, _index_, _bufSize_, _length_, _size_, _type_, _name_)
@@ -16122,7 +16122,7 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTransformFeedbackVaryingNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTransformFeedbackVaryingNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTransformFeedbackVaryingNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_transform_feedback)
       def glGetTransformFeedbackVaryingNV(_program_, _index_, _location_)
@@ -16131,7 +16131,7 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glTransformFeedbackStreamAttribsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTransformFeedbackStreamAttribsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTransformFeedbackStreamAttribsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_transform_feedback)
       def glTransformFeedbackStreamAttribsNV(_count_, _attribs_, _nbuffers_, _bufstreams_, _bufferMode_)
@@ -16142,7 +16142,7 @@ module OpenGL
   end # define_command_GL_NV_transform_feedback
 
   def define_command_GL_NV_transform_feedback2
-    GL_FUNCTIONS_ARGS_MAP[:glBindTransformFeedbackNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindTransformFeedbackNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindTransformFeedbackNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_transform_feedback2)
       def glBindTransformFeedbackNV(_target_, _id_)
@@ -16169,8 +16169,8 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback2
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsTransformFeedbackNV] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsTransformFeedbackNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsTransformFeedbackNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsTransformFeedbackNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_transform_feedback2)
       def glIsTransformFeedbackNV(_id_)
         f = OpenGL::get_command(:glIsTransformFeedbackNV)
@@ -16196,7 +16196,7 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback2
 
-    GL_FUNCTIONS_ARGS_MAP[:glDrawTransformFeedbackNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawTransformFeedbackNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawTransformFeedbackNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_transform_feedback2)
       def glDrawTransformFeedbackNV(_mode_, _id_)
@@ -16225,7 +16225,7 @@ module OpenGL
       end
     SRC_GL_NV_vdpau_interop
 
-    GL_FUNCTIONS_ARGS_MAP[:glVDPAURegisterVideoSurfaceNV] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVDPAURegisterVideoSurfaceNV] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVDPAURegisterVideoSurfaceNV] = Fiddle::TYPE_PTRDIFF_T
     module_eval(<<-SRC_GL_NV_vdpau_interop)
       def glVDPAURegisterVideoSurfaceNV(_vdpSurface_, _target_, _numTextureNames_, _textureNames_)
@@ -16234,7 +16234,7 @@ module OpenGL
       end
     SRC_GL_NV_vdpau_interop
 
-    GL_FUNCTIONS_ARGS_MAP[:glVDPAURegisterOutputSurfaceNV] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVDPAURegisterOutputSurfaceNV] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVDPAURegisterOutputSurfaceNV] = Fiddle::TYPE_PTRDIFF_T
     module_eval(<<-SRC_GL_NV_vdpau_interop)
       def glVDPAURegisterOutputSurfaceNV(_vdpSurface_, _target_, _numTextureNames_, _textureNames_)
@@ -16261,7 +16261,7 @@ module OpenGL
       end
     SRC_GL_NV_vdpau_interop
 
-    GL_FUNCTIONS_ARGS_MAP[:glVDPAUGetSurfaceivNV] = [Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVDPAUGetSurfaceivNV] = [Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVDPAUGetSurfaceivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vdpau_interop)
       def glVDPAUGetSurfaceivNV(_surface_, _pname_, _bufSize_, _length_, _values_)
@@ -16270,7 +16270,7 @@ module OpenGL
       end
     SRC_GL_NV_vdpau_interop
 
-    GL_FUNCTIONS_ARGS_MAP[:glVDPAUSurfaceAccessNV] = [Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVDPAUSurfaceAccessNV] = [Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVDPAUSurfaceAccessNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vdpau_interop)
       def glVDPAUSurfaceAccessNV(_surface_, _access_)
@@ -16322,7 +16322,7 @@ module OpenGL
   end # define_command_GL_NV_vertex_array_range2
 
   def define_command_GL_NV_vertex_attrib_integer_64bit
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1i64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1i64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL1i64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL1i64NV(_index_, _x_)
@@ -16331,7 +16331,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2i64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2i64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL2i64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL2i64NV(_index_, _x_, _y_)
@@ -16340,7 +16340,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3i64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3i64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL3i64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL3i64NV(_index_, _x_, _y_, _z_)
@@ -16349,7 +16349,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4i64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4i64NV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL4i64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL4i64NV(_index_, _x_, _y_, _z_, _w_)
@@ -16358,7 +16358,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1i64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1i64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL1i64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL1i64vNV(_index_, _v_)
@@ -16367,7 +16367,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2i64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2i64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL2i64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL2i64vNV(_index_, _v_)
@@ -16376,7 +16376,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3i64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3i64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL3i64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL3i64vNV(_index_, _v_)
@@ -16385,7 +16385,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4i64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4i64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL4i64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL4i64vNV(_index_, _v_)
@@ -16394,7 +16394,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1ui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1ui64NV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL1ui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL1ui64NV(_index_, _x_)
@@ -16403,7 +16403,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2ui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2ui64NV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL2ui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL2ui64NV(_index_, _x_, _y_)
@@ -16412,7 +16412,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3ui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3ui64NV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL3ui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL3ui64NV(_index_, _x_, _y_, _z_)
@@ -16421,7 +16421,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4ui64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4ui64NV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL4ui64NV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL4ui64NV(_index_, _x_, _y_, _z_, _w_)
@@ -16430,7 +16430,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1ui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL1ui64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL1ui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL1ui64vNV(_index_, _v_)
@@ -16439,7 +16439,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2ui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL2ui64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL2ui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL2ui64vNV(_index_, _v_)
@@ -16448,7 +16448,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3ui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL3ui64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL3ui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL3ui64vNV(_index_, _v_)
@@ -16457,7 +16457,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4ui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribL4ui64vNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribL4ui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribL4ui64vNV(_index_, _v_)
@@ -16466,7 +16466,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribLi64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribLi64vNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribLi64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glGetVertexAttribLi64vNV(_index_, _pname_, _params_)
@@ -16475,7 +16475,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribLui64vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribLui64vNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribLui64vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glGetVertexAttribLui64vNV(_index_, _pname_, _params_)
@@ -16484,7 +16484,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_attrib_integer_64bit
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribLFormatNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribLFormatNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribLFormatNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_attrib_integer_64bit)
       def glVertexAttribLFormatNV(_index_, _size_, _type_, _stride_)
@@ -16495,7 +16495,7 @@ module OpenGL
   end # define_command_GL_NV_vertex_attrib_integer_64bit
 
   def define_command_GL_NV_vertex_buffer_unified_memory
-    GL_FUNCTIONS_ARGS_MAP[:glBufferAddressRangeNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glBufferAddressRangeNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glBufferAddressRangeNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_buffer_unified_memory)
       def glBufferAddressRangeNV(_pname_, _index_, _address_, _length_)
@@ -16504,7 +16504,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_buffer_unified_memory
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexFormatNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexFormatNV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexFormatNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_buffer_unified_memory)
       def glVertexFormatNV(_size_, _type_, _stride_)
@@ -16513,7 +16513,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_buffer_unified_memory
 
-    GL_FUNCTIONS_ARGS_MAP[:glNormalFormatNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glNormalFormatNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glNormalFormatNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_buffer_unified_memory)
       def glNormalFormatNV(_type_, _stride_)
@@ -16522,7 +16522,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_buffer_unified_memory
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorFormatNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glColorFormatNV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glColorFormatNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_buffer_unified_memory)
       def glColorFormatNV(_size_, _type_, _stride_)
@@ -16531,7 +16531,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_buffer_unified_memory
 
-    GL_FUNCTIONS_ARGS_MAP[:glIndexFormatNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glIndexFormatNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glIndexFormatNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_buffer_unified_memory)
       def glIndexFormatNV(_type_, _stride_)
@@ -16540,7 +16540,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_buffer_unified_memory
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoordFormatNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoordFormatNV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoordFormatNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_buffer_unified_memory)
       def glTexCoordFormatNV(_size_, _type_, _stride_)
@@ -16558,7 +16558,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_buffer_unified_memory
 
-    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColorFormatNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSecondaryColorFormatNV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSecondaryColorFormatNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_buffer_unified_memory)
       def glSecondaryColorFormatNV(_size_, _type_, _stride_)
@@ -16567,7 +16567,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_buffer_unified_memory
 
-    GL_FUNCTIONS_ARGS_MAP[:glFogCoordFormatNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFogCoordFormatNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFogCoordFormatNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_buffer_unified_memory)
       def glFogCoordFormatNV(_type_, _stride_)
@@ -16576,7 +16576,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_buffer_unified_memory
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribFormatNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribFormatNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribFormatNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_buffer_unified_memory)
       def glVertexAttribFormatNV(_index_, _size_, _type_, _normalized_, _stride_)
@@ -16585,7 +16585,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_buffer_unified_memory
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribIFormatNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribIFormatNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribIFormatNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_buffer_unified_memory)
       def glVertexAttribIFormatNV(_index_, _size_, _type_, _stride_)
@@ -16594,7 +16594,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_buffer_unified_memory
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetIntegerui64i_vNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetIntegerui64i_vNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetIntegerui64i_vNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_buffer_unified_memory)
       def glGetIntegerui64i_vNV(_value_, _index_, _result_)
@@ -16606,7 +16606,7 @@ module OpenGL
 
   def define_command_GL_NV_vertex_program
     GL_FUNCTIONS_ARGS_MAP[:glAreProgramsResidentNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glAreProgramsResidentNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_RETVAL_MAP[:glAreProgramsResidentNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glAreProgramsResidentNV(_n_, _programs_, _residences_)
         f = OpenGL::get_command(:glAreProgramsResidentNV)
@@ -16614,7 +16614,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindProgramNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindProgramNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindProgramNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glBindProgramNV(_target_, _id_)
@@ -16632,7 +16632,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glExecuteProgramNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glExecuteProgramNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glExecuteProgramNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glExecuteProgramNV(_target_, _id_, _params_)
@@ -16650,7 +16650,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramParameterdvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramParameterdvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramParameterdvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glGetProgramParameterdvNV(_target_, _index_, _pname_, _params_)
@@ -16659,7 +16659,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glGetProgramParameterfvNV(_target_, _index_, _pname_, _params_)
@@ -16668,7 +16668,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glGetProgramivNV(_id_, _pname_, _params_)
@@ -16677,7 +16677,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetProgramStringNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramStringNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramStringNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glGetProgramStringNV(_id_, _pname_, _program_)
@@ -16686,7 +16686,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTrackMatrixivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTrackMatrixivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTrackMatrixivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glGetTrackMatrixivNV(_target_, _address_, _pname_, _params_)
@@ -16695,7 +16695,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribdvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribdvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribdvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glGetVertexAttribdvNV(_index_, _pname_, _params_)
@@ -16704,7 +16704,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glGetVertexAttribfvNV(_index_, _pname_, _params_)
@@ -16713,7 +16713,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glGetVertexAttribivNV(_index_, _pname_, _params_)
@@ -16722,7 +16722,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribPointervNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribPointervNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribPointervNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glGetVertexAttribPointervNV(_index_, _pname_, _pointer_)
@@ -16731,8 +16731,8 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsProgramNV] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsProgramNV] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsProgramNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsProgramNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glIsProgramNV(_id_)
         f = OpenGL::get_command(:glIsProgramNV)
@@ -16740,7 +16740,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glLoadProgramNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glLoadProgramNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glLoadProgramNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glLoadProgramNV(_target_, _id_, _len_, _program_)
@@ -16749,7 +16749,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramParameter4dNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramParameter4dNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramParameter4dNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glProgramParameter4dNV(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -16758,7 +16758,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramParameter4dvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramParameter4dvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramParameter4dvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glProgramParameter4dvNV(_target_, _index_, _v_)
@@ -16767,7 +16767,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramParameter4fNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramParameter4fNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramParameter4fNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glProgramParameter4fNV(_target_, _index_, _x_, _y_, _z_, _w_)
@@ -16776,7 +16776,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramParameter4fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramParameter4fvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramParameter4fvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glProgramParameter4fvNV(_target_, _index_, _v_)
@@ -16785,7 +16785,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramParameters4dvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramParameters4dvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramParameters4dvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glProgramParameters4dvNV(_target_, _index_, _count_, _v_)
@@ -16794,7 +16794,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glProgramParameters4fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glProgramParameters4fvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glProgramParameters4fvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glProgramParameters4fvNV(_target_, _index_, _count_, _v_)
@@ -16812,7 +16812,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glTrackMatrixNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTrackMatrixNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTrackMatrixNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glTrackMatrixNV(_target_, _address_, _matrix_, _transform_)
@@ -16821,7 +16821,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribPointerNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribPointerNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribPointerNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribPointerNV(_index_, _fsize_, _type_, _stride_, _pointer_)
@@ -16830,7 +16830,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1dNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1dNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1dNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib1dNV(_index_, _x_)
@@ -16839,7 +16839,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1dvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1dvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1dvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib1dvNV(_index_, _v_)
@@ -16848,7 +16848,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1fNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1fNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1fNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib1fNV(_index_, _x_)
@@ -16857,7 +16857,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1fvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1fvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib1fvNV(_index_, _v_)
@@ -16866,7 +16866,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1sNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1sNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1sNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib1sNV(_index_, _x_)
@@ -16875,7 +16875,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1svNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1svNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1svNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib1svNV(_index_, _v_)
@@ -16884,7 +16884,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2dNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2dNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2dNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib2dNV(_index_, _x_, _y_)
@@ -16893,7 +16893,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2dvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2dvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2dvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib2dvNV(_index_, _v_)
@@ -16902,7 +16902,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2fNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2fNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2fNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib2fNV(_index_, _x_, _y_)
@@ -16911,7 +16911,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2fvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2fvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib2fvNV(_index_, _v_)
@@ -16920,7 +16920,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2sNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2sNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2sNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib2sNV(_index_, _x_, _y_)
@@ -16929,7 +16929,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2svNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib2svNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib2svNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib2svNV(_index_, _v_)
@@ -16938,7 +16938,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3dNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3dNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3dNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib3dNV(_index_, _x_, _y_, _z_)
@@ -16947,7 +16947,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3dvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3dvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3dvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib3dvNV(_index_, _v_)
@@ -16956,7 +16956,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3fNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3fNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3fNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib3fNV(_index_, _x_, _y_, _z_)
@@ -16965,7 +16965,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3fvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3fvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib3fvNV(_index_, _v_)
@@ -16974,7 +16974,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3sNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3sNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3sNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib3sNV(_index_, _x_, _y_, _z_)
@@ -16983,7 +16983,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3svNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib3svNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib3svNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib3svNV(_index_, _v_)
@@ -16992,7 +16992,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4dNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4dNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4dNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib4dNV(_index_, _x_, _y_, _z_, _w_)
@@ -17001,7 +17001,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4dvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4dvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4dvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib4dvNV(_index_, _v_)
@@ -17010,7 +17010,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4fNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4fNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4fNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib4fNV(_index_, _x_, _y_, _z_, _w_)
@@ -17019,7 +17019,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4fvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4fvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib4fvNV(_index_, _v_)
@@ -17028,7 +17028,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4sNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4sNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT, Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4sNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib4sNV(_index_, _x_, _y_, _z_, _w_)
@@ -17037,7 +17037,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4svNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4svNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4svNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib4svNV(_index_, _v_)
@@ -17046,7 +17046,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4ubNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4ubNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4ubNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib4ubNV(_index_, _x_, _y_, _z_, _w_)
@@ -17055,7 +17055,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4ubvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib4ubvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib4ubvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttrib4ubvNV(_index_, _v_)
@@ -17064,7 +17064,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs1dvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs1dvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs1dvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribs1dvNV(_index_, _count_, _v_)
@@ -17073,7 +17073,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs1fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs1fvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs1fvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribs1fvNV(_index_, _count_, _v_)
@@ -17082,7 +17082,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs1svNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs1svNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs1svNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribs1svNV(_index_, _count_, _v_)
@@ -17091,7 +17091,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs2dvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs2dvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs2dvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribs2dvNV(_index_, _count_, _v_)
@@ -17100,7 +17100,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs2fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs2fvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs2fvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribs2fvNV(_index_, _count_, _v_)
@@ -17109,7 +17109,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs2svNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs2svNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs2svNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribs2svNV(_index_, _count_, _v_)
@@ -17118,7 +17118,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs3dvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs3dvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs3dvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribs3dvNV(_index_, _count_, _v_)
@@ -17127,7 +17127,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs3fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs3fvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs3fvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribs3fvNV(_index_, _count_, _v_)
@@ -17136,7 +17136,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs3svNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs3svNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs3svNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribs3svNV(_index_, _count_, _v_)
@@ -17145,7 +17145,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs4dvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs4dvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs4dvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribs4dvNV(_index_, _count_, _v_)
@@ -17154,7 +17154,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs4fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs4fvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs4fvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribs4fvNV(_index_, _count_, _v_)
@@ -17163,7 +17163,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs4svNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs4svNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs4svNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribs4svNV(_index_, _count_, _v_)
@@ -17172,7 +17172,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs4ubvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribs4ubvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribs4ubvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program)
       def glVertexAttribs4ubvNV(_index_, _count_, _v_)
@@ -17195,7 +17195,7 @@ module OpenGL
   end # define_command_GL_NV_vertex_program3
 
   def define_command_GL_NV_vertex_program4
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI1iEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI1iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI1iEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI1iEXT(_index_, _x_)
@@ -17204,7 +17204,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI2iEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI2iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI2iEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI2iEXT(_index_, _x_, _y_)
@@ -17213,7 +17213,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI3iEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI3iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI3iEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI3iEXT(_index_, _x_, _y_, _z_)
@@ -17222,7 +17222,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4iEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4iEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI4iEXT(_index_, _x_, _y_, _z_, _w_)
@@ -17231,7 +17231,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI1uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI1uiEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI1uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI1uiEXT(_index_, _x_)
@@ -17240,7 +17240,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI2uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI2uiEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI2uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI2uiEXT(_index_, _x_, _y_)
@@ -17249,7 +17249,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI3uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI3uiEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI3uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI3uiEXT(_index_, _x_, _y_, _z_)
@@ -17258,7 +17258,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4uiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4uiEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4uiEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI4uiEXT(_index_, _x_, _y_, _z_, _w_)
@@ -17267,7 +17267,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI1ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI1ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI1ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI1ivEXT(_index_, _v_)
@@ -17276,7 +17276,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI2ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI2ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI2ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI2ivEXT(_index_, _v_)
@@ -17285,7 +17285,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI3ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI3ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI3ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI3ivEXT(_index_, _v_)
@@ -17294,7 +17294,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4ivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4ivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI4ivEXT(_index_, _v_)
@@ -17303,7 +17303,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI1uivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI1uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI1uivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI1uivEXT(_index_, _v_)
@@ -17312,7 +17312,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI2uivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI2uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI2uivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI2uivEXT(_index_, _v_)
@@ -17321,7 +17321,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI3uivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI3uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI3uivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI3uivEXT(_index_, _v_)
@@ -17330,7 +17330,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4uivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4uivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI4uivEXT(_index_, _v_)
@@ -17339,7 +17339,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4bvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4bvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4bvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI4bvEXT(_index_, _v_)
@@ -17348,7 +17348,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4svEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4svEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4svEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI4svEXT(_index_, _v_)
@@ -17357,7 +17357,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4ubvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4ubvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4ubvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI4ubvEXT(_index_, _v_)
@@ -17366,7 +17366,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4usvEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4usvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4usvEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribI4usvEXT(_index_, _v_)
@@ -17375,7 +17375,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribIPointerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVertexAttribIPointerEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribIPointerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glVertexAttribIPointerEXT(_index_, _size_, _type_, _stride_, _pointer_)
@@ -17384,7 +17384,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribIivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribIivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribIivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glGetVertexAttribIivEXT(_index_, _pname_, _params_)
@@ -17393,7 +17393,7 @@ module OpenGL
       end
     SRC_GL_NV_vertex_program4
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribIuivEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribIuivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribIuivEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_vertex_program4)
       def glGetVertexAttribIuivEXT(_index_, _pname_, _params_)
@@ -17404,7 +17404,7 @@ module OpenGL
   end # define_command_GL_NV_vertex_program4
 
   def define_command_GL_NV_video_capture
-    GL_FUNCTIONS_ARGS_MAP[:glBeginVideoCaptureNV] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBeginVideoCaptureNV] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBeginVideoCaptureNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_video_capture)
       def glBeginVideoCaptureNV(_video_capture_slot_)
@@ -17413,7 +17413,7 @@ module OpenGL
       end
     SRC_GL_NV_video_capture
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindVideoCaptureStreamBufferNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_ARGS_MAP[:glBindVideoCaptureStreamBufferNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glBindVideoCaptureStreamBufferNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_video_capture)
       def glBindVideoCaptureStreamBufferNV(_video_capture_slot_, _stream_, _frame_region_, _offset_)
@@ -17422,7 +17422,7 @@ module OpenGL
       end
     SRC_GL_NV_video_capture
 
-    GL_FUNCTIONS_ARGS_MAP[:glBindVideoCaptureStreamTextureNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glBindVideoCaptureStreamTextureNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindVideoCaptureStreamTextureNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_video_capture)
       def glBindVideoCaptureStreamTextureNV(_video_capture_slot_, _stream_, _frame_region_, _target_, _texture_)
@@ -17431,7 +17431,7 @@ module OpenGL
       end
     SRC_GL_NV_video_capture
 
-    GL_FUNCTIONS_ARGS_MAP[:glEndVideoCaptureNV] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glEndVideoCaptureNV] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glEndVideoCaptureNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_video_capture)
       def glEndVideoCaptureNV(_video_capture_slot_)
@@ -17440,7 +17440,7 @@ module OpenGL
       end
     SRC_GL_NV_video_capture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVideoCaptureivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVideoCaptureivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVideoCaptureivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_video_capture)
       def glGetVideoCaptureivNV(_video_capture_slot_, _pname_, _params_)
@@ -17449,7 +17449,7 @@ module OpenGL
       end
     SRC_GL_NV_video_capture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVideoCaptureStreamivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVideoCaptureStreamivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVideoCaptureStreamivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_video_capture)
       def glGetVideoCaptureStreamivNV(_video_capture_slot_, _stream_, _pname_, _params_)
@@ -17458,7 +17458,7 @@ module OpenGL
       end
     SRC_GL_NV_video_capture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVideoCaptureStreamfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVideoCaptureStreamfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVideoCaptureStreamfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_video_capture)
       def glGetVideoCaptureStreamfvNV(_video_capture_slot_, _stream_, _pname_, _params_)
@@ -17467,7 +17467,7 @@ module OpenGL
       end
     SRC_GL_NV_video_capture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetVideoCaptureStreamdvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetVideoCaptureStreamdvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetVideoCaptureStreamdvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_video_capture)
       def glGetVideoCaptureStreamdvNV(_video_capture_slot_, _stream_, _pname_, _params_)
@@ -17476,8 +17476,8 @@ module OpenGL
       end
     SRC_GL_NV_video_capture
 
-    GL_FUNCTIONS_ARGS_MAP[:glVideoCaptureNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glVideoCaptureNV] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_ARGS_MAP[:glVideoCaptureNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glVideoCaptureNV] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_NV_video_capture)
       def glVideoCaptureNV(_video_capture_slot_, _sequence_num_, _capture_time_)
         f = OpenGL::get_command(:glVideoCaptureNV)
@@ -17485,7 +17485,7 @@ module OpenGL
       end
     SRC_GL_NV_video_capture
 
-    GL_FUNCTIONS_ARGS_MAP[:glVideoCaptureStreamParameterivNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVideoCaptureStreamParameterivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVideoCaptureStreamParameterivNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_video_capture)
       def glVideoCaptureStreamParameterivNV(_video_capture_slot_, _stream_, _pname_, _params_)
@@ -17494,7 +17494,7 @@ module OpenGL
       end
     SRC_GL_NV_video_capture
 
-    GL_FUNCTIONS_ARGS_MAP[:glVideoCaptureStreamParameterfvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVideoCaptureStreamParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVideoCaptureStreamParameterfvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_video_capture)
       def glVideoCaptureStreamParameterfvNV(_video_capture_slot_, _stream_, _pname_, _params_)
@@ -17503,7 +17503,7 @@ module OpenGL
       end
     SRC_GL_NV_video_capture
 
-    GL_FUNCTIONS_ARGS_MAP[:glVideoCaptureStreamParameterdvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glVideoCaptureStreamParameterdvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glVideoCaptureStreamParameterdvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_video_capture)
       def glVideoCaptureStreamParameterdvNV(_video_capture_slot_, _stream_, _pname_, _params_)
@@ -17514,7 +17514,7 @@ module OpenGL
   end # define_command_GL_NV_video_capture
 
   def define_command_GL_OES_byte_coordinates
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1bOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1bOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1bOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_byte_coordinates)
       def glMultiTexCoord1bOES(_texture_, _s_)
@@ -17523,7 +17523,7 @@ module OpenGL
       end
     SRC_GL_OES_byte_coordinates
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1bvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1bvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1bvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_byte_coordinates)
       def glMultiTexCoord1bvOES(_texture_, _coords_)
@@ -17532,7 +17532,7 @@ module OpenGL
       end
     SRC_GL_OES_byte_coordinates
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2bOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2bOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2bOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_byte_coordinates)
       def glMultiTexCoord2bOES(_texture_, _s_, _t_)
@@ -17541,7 +17541,7 @@ module OpenGL
       end
     SRC_GL_OES_byte_coordinates
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2bvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2bvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2bvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_byte_coordinates)
       def glMultiTexCoord2bvOES(_texture_, _coords_)
@@ -17550,7 +17550,7 @@ module OpenGL
       end
     SRC_GL_OES_byte_coordinates
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3bOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3bOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3bOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_byte_coordinates)
       def glMultiTexCoord3bOES(_texture_, _s_, _t_, _r_)
@@ -17559,7 +17559,7 @@ module OpenGL
       end
     SRC_GL_OES_byte_coordinates
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3bvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3bvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3bvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_byte_coordinates)
       def glMultiTexCoord3bvOES(_texture_, _coords_)
@@ -17568,7 +17568,7 @@ module OpenGL
       end
     SRC_GL_OES_byte_coordinates
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4bOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4bOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4bOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_byte_coordinates)
       def glMultiTexCoord4bOES(_texture_, _s_, _t_, _r_, _q_)
@@ -17577,7 +17577,7 @@ module OpenGL
       end
     SRC_GL_OES_byte_coordinates
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4bvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4bvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4bvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_byte_coordinates)
       def glMultiTexCoord4bvOES(_texture_, _coords_)
@@ -17717,7 +17717,7 @@ module OpenGL
   end # define_command_GL_OES_compressed_paletted_texture
 
   def define_command_GL_OES_fixed_point
-    GL_FUNCTIONS_ARGS_MAP[:glAlphaFuncxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glAlphaFuncxOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glAlphaFuncxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glAlphaFuncxOES(_func_, _ref_)
@@ -17744,7 +17744,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glClipPlanexOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glClipPlanexOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glClipPlanexOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glClipPlanexOES(_plane_, _equation_)
@@ -17771,7 +17771,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glFogxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFogxOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFogxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glFogxOES(_pname_, _param_)
@@ -17780,7 +17780,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glFogxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glFogxvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glFogxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glFogxvOES(_pname_, _param_)
@@ -17798,7 +17798,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetClipPlanexOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetClipPlanexOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetClipPlanexOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetClipPlanexOES(_plane_, _equation_)
@@ -17807,7 +17807,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFixedvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFixedvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFixedvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetFixedvOES(_pname_, _params_)
@@ -17816,7 +17816,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTexEnvxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTexEnvxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTexEnvxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetTexEnvxvOES(_target_, _pname_, _params_)
@@ -17825,7 +17825,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTexParameterxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTexParameterxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTexParameterxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetTexParameterxvOES(_target_, _pname_, _params_)
@@ -17834,7 +17834,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glLightModelxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glLightModelxOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glLightModelxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glLightModelxOES(_pname_, _param_)
@@ -17843,7 +17843,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glLightModelxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glLightModelxvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glLightModelxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glLightModelxvOES(_pname_, _param_)
@@ -17852,7 +17852,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glLightxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glLightxOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glLightxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glLightxOES(_light_, _pname_, _param_)
@@ -17861,7 +17861,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glLightxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glLightxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glLightxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glLightxvOES(_light_, _pname_, _params_)
@@ -17888,7 +17888,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glMaterialxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMaterialxOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMaterialxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glMaterialxOES(_face_, _pname_, _param_)
@@ -17897,7 +17897,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glMaterialxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMaterialxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMaterialxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glMaterialxvOES(_face_, _pname_, _param_)
@@ -17915,7 +17915,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4xOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4xOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4xOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glMultiTexCoord4xOES(_texture_, _s_, _t_, _r_, _q_)
@@ -17942,7 +17942,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glPointParameterxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPointParameterxvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPointParameterxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glPointParameterxvOES(_pname_, _params_)
@@ -17978,7 +17978,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glSampleCoverageOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glSampleCoverageOES] = [Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glSampleCoverageOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glSampleCoverageOES(_value_, _invert_)
@@ -17996,7 +17996,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexEnvxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexEnvxOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexEnvxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glTexEnvxOES(_target_, _pname_, _param_)
@@ -18005,7 +18005,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexEnvxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexEnvxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexEnvxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glTexEnvxvOES(_target_, _pname_, _params_)
@@ -18014,7 +18014,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexParameterxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexParameterxOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexParameterxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glTexParameterxOES(_target_, _pname_, _param_)
@@ -18023,7 +18023,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexParameterxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexParameterxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexParameterxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glTexParameterxvOES(_target_, _pname_, _params_)
@@ -18041,7 +18041,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetLightxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetLightxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetLightxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetLightxvOES(_light_, _pname_, _params_)
@@ -18050,7 +18050,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMaterialxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMaterialxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMaterialxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetMaterialxvOES(_face_, _pname_, _params_)
@@ -18059,7 +18059,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glPointParameterxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPointParameterxOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPointParameterxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glPointParameterxOES(_pname_, _param_)
@@ -18068,7 +18068,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glSampleCoveragexOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glSampleCoveragexOES] = [Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glSampleCoveragexOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glSampleCoveragexOES(_value_, _invert_)
@@ -18077,7 +18077,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glAccumxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glAccumxOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glAccumxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glAccumxOES(_op_, _value_)
@@ -18140,7 +18140,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterxOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionParameterxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glConvolutionParameterxOES(_target_, _pname_, _param_)
@@ -18149,7 +18149,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glConvolutionParameterxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glConvolutionParameterxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glConvolutionParameterxvOES(_target_, _pname_, _params_)
@@ -18194,7 +18194,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glFeedbackBufferxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glFeedbackBufferxOES] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glFeedbackBufferxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glFeedbackBufferxOES(_n_, _type_, _buffer_)
@@ -18203,7 +18203,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionParameterxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetConvolutionParameterxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetConvolutionParameterxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetConvolutionParameterxvOES(_target_, _pname_, _params_)
@@ -18212,7 +18212,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetHistogramParameterxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetHistogramParameterxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetHistogramParameterxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetHistogramParameterxvOES(_target_, _pname_, _params_)
@@ -18221,7 +18221,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetLightxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetLightxOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetLightxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetLightxOES(_light_, _pname_, _params_)
@@ -18230,7 +18230,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMapxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMapxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMapxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetMapxvOES(_target_, _query_, _v_)
@@ -18239,7 +18239,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetMaterialxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glGetMaterialxOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glGetMaterialxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetMaterialxOES(_face_, _pname_, _param_)
@@ -18248,7 +18248,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPixelMapxv] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPixelMapxv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPixelMapxv] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetPixelMapxv(_map_, _size_, _values_)
@@ -18257,7 +18257,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTexGenxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTexGenxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTexGenxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetTexGenxvOES(_coord_, _pname_, _params_)
@@ -18266,7 +18266,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetTexLevelParameterxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTexLevelParameterxvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTexLevelParameterxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glGetTexLevelParameterxvOES(_target_, _level_, _pname_, _params_)
@@ -18302,7 +18302,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glMap1xOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMap1xOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMap1xOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glMap1xOES(_target_, _u1_, _u2_, _stride_, _order_, _points_)
@@ -18311,7 +18311,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glMap2xOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMap2xOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMap2xOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glMap2xOES(_target_, _u1_, _u2_, _ustride_, _uorder_, _v1_, _v2_, _vstride_, _vorder_, _points_)
@@ -18347,7 +18347,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1xOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1xOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1xOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glMultiTexCoord1xOES(_texture_, _s_)
@@ -18356,7 +18356,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1xvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1xvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1xvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glMultiTexCoord1xvOES(_texture_, _coords_)
@@ -18365,7 +18365,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2xOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2xOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2xOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glMultiTexCoord2xOES(_texture_, _s_, _t_)
@@ -18374,7 +18374,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2xvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord2xvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord2xvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glMultiTexCoord2xvOES(_texture_, _coords_)
@@ -18383,7 +18383,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3xOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3xOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3xOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glMultiTexCoord3xOES(_texture_, _s_, _t_, _r_)
@@ -18392,7 +18392,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3xvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord3xvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord3xvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glMultiTexCoord3xvOES(_texture_, _coords_)
@@ -18401,7 +18401,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4xvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord4xvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord4xvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glMultiTexCoord4xvOES(_texture_, _coords_)
@@ -18428,7 +18428,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glPixelMapx] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPixelMapx] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelMapx] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glPixelMapx(_map_, _size_, _values_)
@@ -18437,7 +18437,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glPixelStorex] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPixelStorex] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelStorex] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glPixelStorex(_pname_, _param_)
@@ -18446,7 +18446,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glPixelTransferxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPixelTransferxOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelTransferxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glPixelTransferxOES(_pname_, _param_)
@@ -18617,7 +18617,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexGenxOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexGenxOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexGenxOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glTexGenxOES(_coord_, _pname_, _param_)
@@ -18626,7 +18626,7 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexGenxvOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexGenxvOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexGenxvOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
       def glTexGenxvOES(_coord_, _pname_, _params_)
@@ -18692,7 +18692,7 @@ module OpenGL
 
   def define_command_GL_OES_query_matrix
     GL_FUNCTIONS_ARGS_MAP[:glQueryMatrixxOES] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glQueryMatrixxOES] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_RETVAL_MAP[:glQueryMatrixxOES] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_OES_query_matrix)
       def glQueryMatrixxOES(_mantissa_, _exponent_)
         f = OpenGL::get_command(:glQueryMatrixxOES)
@@ -18714,7 +18714,7 @@ module OpenGL
       end
     SRC_GL_OES_single_precision
 
-    GL_FUNCTIONS_ARGS_MAP[:glClipPlanefOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glClipPlanefOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glClipPlanefOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_single_precision)
       def glClipPlanefOES(_plane_, _equation_)
@@ -18741,7 +18741,7 @@ module OpenGL
       end
     SRC_GL_OES_single_precision
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetClipPlanefOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetClipPlanefOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetClipPlanefOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_single_precision)
       def glGetClipPlanefOES(_plane_, _equation_)
@@ -18770,7 +18770,7 @@ module OpenGL
   end # define_command_GL_OML_subsample
 
   def define_command_GL_PGI_misc_hints
-    GL_FUNCTIONS_ARGS_MAP[:glHintPGI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glHintPGI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glHintPGI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_PGI_misc_hints)
       def glHintPGI(_target_, _mode_)
@@ -18790,7 +18790,7 @@ module OpenGL
   end # define_command_GL_S3_s3tc
 
   def define_command_GL_SGIS_detail_texture
-    GL_FUNCTIONS_ARGS_MAP[:glDetailTexFuncSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glDetailTexFuncSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDetailTexFuncSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_detail_texture)
       def glDetailTexFuncSGIS(_target_, _n_, _points_)
@@ -18799,7 +18799,7 @@ module OpenGL
       end
     SRC_GL_SGIS_detail_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetDetailTexFuncSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetDetailTexFuncSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetDetailTexFuncSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_detail_texture)
       def glGetDetailTexFuncSGIS(_target_, _points_)
@@ -18833,7 +18833,7 @@ module OpenGL
   end # define_command_GL_SGIS_generate_mipmap
 
   def define_command_GL_SGIS_multisample
-    GL_FUNCTIONS_ARGS_MAP[:glSampleMaskSGIS] = [Fiddle::TYPE_FLOAT, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glSampleMaskSGIS] = [Fiddle::TYPE_FLOAT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glSampleMaskSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_multisample)
       def glSampleMaskSGIS(_value_, _invert_)
@@ -18842,7 +18842,7 @@ module OpenGL
       end
     SRC_GL_SGIS_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glSamplePatternSGIS] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSamplePatternSGIS] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSamplePatternSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_multisample)
       def glSamplePatternSGIS(_pattern_)
@@ -18853,7 +18853,7 @@ module OpenGL
   end # define_command_GL_SGIS_multisample
 
   def define_command_GL_SGIS_pixel_texture
-    GL_FUNCTIONS_ARGS_MAP[:glPixelTexGenParameteriSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPixelTexGenParameteriSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelTexGenParameteriSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_pixel_texture)
       def glPixelTexGenParameteriSGIS(_pname_, _param_)
@@ -18862,7 +18862,7 @@ module OpenGL
       end
     SRC_GL_SGIS_pixel_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glPixelTexGenParameterivSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPixelTexGenParameterivSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelTexGenParameterivSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_pixel_texture)
       def glPixelTexGenParameterivSGIS(_pname_, _params_)
@@ -18871,7 +18871,7 @@ module OpenGL
       end
     SRC_GL_SGIS_pixel_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glPixelTexGenParameterfSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glPixelTexGenParameterfSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelTexGenParameterfSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_pixel_texture)
       def glPixelTexGenParameterfSGIS(_pname_, _param_)
@@ -18880,7 +18880,7 @@ module OpenGL
       end
     SRC_GL_SGIS_pixel_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glPixelTexGenParameterfvSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPixelTexGenParameterfvSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelTexGenParameterfvSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_pixel_texture)
       def glPixelTexGenParameterfvSGIS(_pname_, _params_)
@@ -18889,7 +18889,7 @@ module OpenGL
       end
     SRC_GL_SGIS_pixel_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPixelTexGenParameterivSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPixelTexGenParameterivSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPixelTexGenParameterivSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_pixel_texture)
       def glGetPixelTexGenParameterivSGIS(_pname_, _params_)
@@ -18898,7 +18898,7 @@ module OpenGL
       end
     SRC_GL_SGIS_pixel_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetPixelTexGenParameterfvSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetPixelTexGenParameterfvSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPixelTexGenParameterfvSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_pixel_texture)
       def glGetPixelTexGenParameterfvSGIS(_pname_, _params_)
@@ -18912,7 +18912,7 @@ module OpenGL
   end # define_command_GL_SGIS_point_line_texgen
 
   def define_command_GL_SGIS_point_parameters
-    GL_FUNCTIONS_ARGS_MAP[:glPointParameterfSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glPointParameterfSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glPointParameterfSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_point_parameters)
       def glPointParameterfSGIS(_pname_, _param_)
@@ -18921,7 +18921,7 @@ module OpenGL
       end
     SRC_GL_SGIS_point_parameters
 
-    GL_FUNCTIONS_ARGS_MAP[:glPointParameterfvSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glPointParameterfvSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPointParameterfvSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_point_parameters)
       def glPointParameterfvSGIS(_pname_, _params_)
@@ -18932,7 +18932,7 @@ module OpenGL
   end # define_command_GL_SGIS_point_parameters
 
   def define_command_GL_SGIS_sharpen_texture
-    GL_FUNCTIONS_ARGS_MAP[:glSharpenTexFuncSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSharpenTexFuncSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSharpenTexFuncSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_sharpen_texture)
       def glSharpenTexFuncSGIS(_target_, _n_, _points_)
@@ -18941,7 +18941,7 @@ module OpenGL
       end
     SRC_GL_SGIS_sharpen_texture
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetSharpenTexFuncSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetSharpenTexFuncSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetSharpenTexFuncSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_sharpen_texture)
       def glGetSharpenTexFuncSGIS(_target_, _points_)
@@ -18952,7 +18952,7 @@ module OpenGL
   end # define_command_GL_SGIS_sharpen_texture
 
   def define_command_GL_SGIS_texture4D
-    GL_FUNCTIONS_ARGS_MAP[:glTexImage4DSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexImage4DSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexImage4DSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_texture4D)
       def glTexImage4DSGIS(_target_, _level_, _internalformat_, _width_, _height_, _depth_, _size4d_, _border_, _format_, _type_, _pixels_)
@@ -18961,7 +18961,7 @@ module OpenGL
       end
     SRC_GL_SGIS_texture4D
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexSubImage4DSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexSubImage4DSGIS] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexSubImage4DSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_texture4D)
       def glTexSubImage4DSGIS(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _woffset_, _width_, _height_, _depth_, _size4d_, _format_, _type_, _pixels_)
@@ -18975,7 +18975,7 @@ module OpenGL
   end # define_command_GL_SGIS_texture_border_clamp
 
   def define_command_GL_SGIS_texture_color_mask
-    GL_FUNCTIONS_ARGS_MAP[:glTextureColorMaskSGIS] = [Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTextureColorMaskSGIS] = [-Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTextureColorMaskSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_texture_color_mask)
       def glTextureColorMaskSGIS(_red_, _green_, _blue_, _alpha_)
@@ -18989,7 +18989,7 @@ module OpenGL
   end # define_command_GL_SGIS_texture_edge_clamp
 
   def define_command_GL_SGIS_texture_filter4
-    GL_FUNCTIONS_ARGS_MAP[:glGetTexFilterFuncSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetTexFilterFuncSGIS] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTexFilterFuncSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_texture_filter4)
       def glGetTexFilterFuncSGIS(_target_, _filter_, _weights_)
@@ -18998,7 +18998,7 @@ module OpenGL
       end
     SRC_GL_SGIS_texture_filter4
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexFilterFuncSGIS] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glTexFilterFuncSGIS] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexFilterFuncSGIS] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIS_texture_filter4)
       def glTexFilterFuncSGIS(_target_, _filter_, _n_, _weights_)
@@ -19015,7 +19015,7 @@ module OpenGL
   end # define_command_GL_SGIS_texture_select
 
   def define_command_GL_SGIX_async
-    GL_FUNCTIONS_ARGS_MAP[:glAsyncMarkerSGIX] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glAsyncMarkerSGIX] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glAsyncMarkerSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_async)
       def glAsyncMarkerSGIX(_marker_)
@@ -19043,7 +19043,7 @@ module OpenGL
     SRC_GL_SGIX_async
 
     GL_FUNCTIONS_ARGS_MAP[:glGenAsyncMarkersSGIX] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glGenAsyncMarkersSGIX] = Fiddle::TYPE_INT
+    GL_FUNCTIONS_RETVAL_MAP[:glGenAsyncMarkersSGIX] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_SGIX_async)
       def glGenAsyncMarkersSGIX(_range_)
         f = OpenGL::get_command(:glGenAsyncMarkersSGIX)
@@ -19051,7 +19051,7 @@ module OpenGL
       end
     SRC_GL_SGIX_async
 
-    GL_FUNCTIONS_ARGS_MAP[:glDeleteAsyncMarkersSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDeleteAsyncMarkersSGIX] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDeleteAsyncMarkersSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_async)
       def glDeleteAsyncMarkersSGIX(_marker_, _range_)
@@ -19060,8 +19060,8 @@ module OpenGL
       end
     SRC_GL_SGIX_async
 
-    GL_FUNCTIONS_ARGS_MAP[:glIsAsyncMarkerSGIX] = [Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glIsAsyncMarkerSGIX] = Fiddle::TYPE_CHAR
+    GL_FUNCTIONS_ARGS_MAP[:glIsAsyncMarkerSGIX] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsAsyncMarkerSGIX] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_SGIX_async)
       def glIsAsyncMarkerSGIX(_marker_)
         f = OpenGL::get_command(:glIsAsyncMarkerSGIX)
@@ -19109,7 +19109,7 @@ module OpenGL
   end # define_command_GL_SGIX_fog_offset
 
   def define_command_GL_SGIX_fragment_lighting
-    GL_FUNCTIONS_ARGS_MAP[:glFragmentColorMaterialSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentColorMaterialSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFragmentColorMaterialSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glFragmentColorMaterialSGIX(_face_, _mode_)
@@ -19118,7 +19118,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightfSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightfSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glFragmentLightfSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glFragmentLightfSGIX(_light_, _pname_, _param_)
@@ -19127,7 +19127,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightfvSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightfvSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glFragmentLightfvSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glFragmentLightfvSGIX(_light_, _pname_, _params_)
@@ -19136,7 +19136,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightiSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightiSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFragmentLightiSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glFragmentLightiSGIX(_light_, _pname_, _param_)
@@ -19145,7 +19145,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightivSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightivSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glFragmentLightivSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glFragmentLightivSGIX(_light_, _pname_, _params_)
@@ -19154,7 +19154,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightModelfSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightModelfSGIX] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glFragmentLightModelfSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glFragmentLightModelfSGIX(_pname_, _param_)
@@ -19163,7 +19163,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightModelfvSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightModelfvSGIX] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glFragmentLightModelfvSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glFragmentLightModelfvSGIX(_pname_, _params_)
@@ -19172,7 +19172,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightModeliSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightModeliSGIX] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFragmentLightModeliSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glFragmentLightModeliSGIX(_pname_, _param_)
@@ -19181,7 +19181,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightModelivSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentLightModelivSGIX] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glFragmentLightModelivSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glFragmentLightModelivSGIX(_pname_, _params_)
@@ -19190,7 +19190,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glFragmentMaterialfSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentMaterialfSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glFragmentMaterialfSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glFragmentMaterialfSGIX(_face_, _pname_, _param_)
@@ -19199,7 +19199,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glFragmentMaterialfvSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentMaterialfvSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glFragmentMaterialfvSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glFragmentMaterialfvSGIX(_face_, _pname_, _params_)
@@ -19208,7 +19208,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glFragmentMaterialiSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentMaterialiSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFragmentMaterialiSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glFragmentMaterialiSGIX(_face_, _pname_, _param_)
@@ -19217,7 +19217,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glFragmentMaterialivSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentMaterialivSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glFragmentMaterialivSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glFragmentMaterialivSGIX(_face_, _pname_, _params_)
@@ -19226,7 +19226,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFragmentLightfvSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFragmentLightfvSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFragmentLightfvSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glGetFragmentLightfvSGIX(_light_, _pname_, _params_)
@@ -19235,7 +19235,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFragmentLightivSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFragmentLightivSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFragmentLightivSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glGetFragmentLightivSGIX(_light_, _pname_, _params_)
@@ -19244,7 +19244,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFragmentMaterialfvSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFragmentMaterialfvSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFragmentMaterialfvSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glGetFragmentMaterialfvSGIX(_face_, _pname_, _params_)
@@ -19253,7 +19253,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetFragmentMaterialivSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetFragmentMaterialivSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetFragmentMaterialivSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glGetFragmentMaterialivSGIX(_face_, _pname_, _params_)
@@ -19262,7 +19262,7 @@ module OpenGL
       end
     SRC_GL_SGIX_fragment_lighting
 
-    GL_FUNCTIONS_ARGS_MAP[:glLightEnviSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glLightEnviSGIX] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glLightEnviSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_fragment_lighting)
       def glLightEnviSGIX(_pname_, _param_)
@@ -19284,7 +19284,7 @@ module OpenGL
   end # define_command_GL_SGIX_framezoom
 
   def define_command_GL_SGIX_igloo_interface
-    GL_FUNCTIONS_ARGS_MAP[:glIglooInterfaceSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glIglooInterfaceSGIX] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glIglooInterfaceSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_igloo_interface)
       def glIglooInterfaceSGIX(_pname_, _params_)
@@ -19357,7 +19357,7 @@ module OpenGL
   end # define_command_GL_SGIX_ir_instrument1
 
   def define_command_GL_SGIX_list_priority
-    GL_FUNCTIONS_ARGS_MAP[:glGetListParameterfvSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetListParameterfvSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetListParameterfvSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_list_priority)
       def glGetListParameterfvSGIX(_list_, _pname_, _params_)
@@ -19366,7 +19366,7 @@ module OpenGL
       end
     SRC_GL_SGIX_list_priority
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetListParameterivSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetListParameterivSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetListParameterivSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_list_priority)
       def glGetListParameterivSGIX(_list_, _pname_, _params_)
@@ -19375,7 +19375,7 @@ module OpenGL
       end
     SRC_GL_SGIX_list_priority
 
-    GL_FUNCTIONS_ARGS_MAP[:glListParameterfSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glListParameterfSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glListParameterfSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_list_priority)
       def glListParameterfSGIX(_list_, _pname_, _param_)
@@ -19384,7 +19384,7 @@ module OpenGL
       end
     SRC_GL_SGIX_list_priority
 
-    GL_FUNCTIONS_ARGS_MAP[:glListParameterfvSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glListParameterfvSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glListParameterfvSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_list_priority)
       def glListParameterfvSGIX(_list_, _pname_, _params_)
@@ -19393,7 +19393,7 @@ module OpenGL
       end
     SRC_GL_SGIX_list_priority
 
-    GL_FUNCTIONS_ARGS_MAP[:glListParameteriSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glListParameteriSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glListParameteriSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_list_priority)
       def glListParameteriSGIX(_list_, _pname_, _param_)
@@ -19402,7 +19402,7 @@ module OpenGL
       end
     SRC_GL_SGIX_list_priority
 
-    GL_FUNCTIONS_ARGS_MAP[:glListParameterivSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glListParameterivSGIX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glListParameterivSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_list_priority)
       def glListParameterivSGIX(_list_, _pname_, _params_)
@@ -19413,7 +19413,7 @@ module OpenGL
   end # define_command_GL_SGIX_list_priority
 
   def define_command_GL_SGIX_pixel_texture
-    GL_FUNCTIONS_ARGS_MAP[:glPixelTexGenSGIX] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glPixelTexGenSGIX] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelTexGenSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_pixel_texture)
       def glPixelTexGenSGIX(_mode_)
@@ -19427,7 +19427,7 @@ module OpenGL
   end # define_command_GL_SGIX_pixel_tiles
 
   def define_command_GL_SGIX_polynomial_ffd
-    GL_FUNCTIONS_ARGS_MAP[:glDeformationMap3dSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glDeformationMap3dSGIX] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDeformationMap3dSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_polynomial_ffd)
       def glDeformationMap3dSGIX(_target_, _u1_, _u2_, _ustride_, _uorder_, _v1_, _v2_, _vstride_, _vorder_, _w1_, _w2_, _wstride_, _worder_, _points_)
@@ -19436,7 +19436,7 @@ module OpenGL
       end
     SRC_GL_SGIX_polynomial_ffd
 
-    GL_FUNCTIONS_ARGS_MAP[:glDeformationMap3fSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glDeformationMap3fSGIX] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDeformationMap3fSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_polynomial_ffd)
       def glDeformationMap3fSGIX(_target_, _u1_, _u2_, _ustride_, _uorder_, _v1_, _v2_, _vstride_, _vorder_, _w1_, _w2_, _wstride_, _worder_, _points_)
@@ -19445,7 +19445,7 @@ module OpenGL
       end
     SRC_GL_SGIX_polynomial_ffd
 
-    GL_FUNCTIONS_ARGS_MAP[:glDeformSGIX] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDeformSGIX] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDeformSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_polynomial_ffd)
       def glDeformSGIX(_mask_)
@@ -19454,7 +19454,7 @@ module OpenGL
       end
     SRC_GL_SGIX_polynomial_ffd
 
-    GL_FUNCTIONS_ARGS_MAP[:glLoadIdentityDeformationMapSGIX] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glLoadIdentityDeformationMapSGIX] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glLoadIdentityDeformationMapSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_polynomial_ffd)
       def glLoadIdentityDeformationMapSGIX(_mask_)
@@ -19488,7 +19488,7 @@ module OpenGL
   end # define_command_GL_SGIX_shadow_ambient
 
   def define_command_GL_SGIX_sprite
-    GL_FUNCTIONS_ARGS_MAP[:glSpriteParameterfSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glSpriteParameterfSGIX] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glSpriteParameterfSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_sprite)
       def glSpriteParameterfSGIX(_pname_, _param_)
@@ -19497,7 +19497,7 @@ module OpenGL
       end
     SRC_GL_SGIX_sprite
 
-    GL_FUNCTIONS_ARGS_MAP[:glSpriteParameterfvSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSpriteParameterfvSGIX] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSpriteParameterfvSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_sprite)
       def glSpriteParameterfvSGIX(_pname_, _params_)
@@ -19506,7 +19506,7 @@ module OpenGL
       end
     SRC_GL_SGIX_sprite
 
-    GL_FUNCTIONS_ARGS_MAP[:glSpriteParameteriSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glSpriteParameteriSGIX] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSpriteParameteriSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_sprite)
       def glSpriteParameteriSGIX(_pname_, _param_)
@@ -19515,7 +19515,7 @@ module OpenGL
       end
     SRC_GL_SGIX_sprite
 
-    GL_FUNCTIONS_ARGS_MAP[:glSpriteParameterivSGIX] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glSpriteParameterivSGIX] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glSpriteParameterivSGIX] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGIX_sprite)
       def glSpriteParameterivSGIX(_pname_, _params_)
@@ -19570,7 +19570,7 @@ module OpenGL
   end # define_command_GL_SGI_color_matrix
 
   def define_command_GL_SGI_color_table
-    GL_FUNCTIONS_ARGS_MAP[:glColorTableSGI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glColorTableSGI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glColorTableSGI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGI_color_table)
       def glColorTableSGI(_target_, _internalformat_, _width_, _format_, _type_, _table_)
@@ -19579,7 +19579,7 @@ module OpenGL
       end
     SRC_GL_SGI_color_table
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorTableParameterfvSGI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glColorTableParameterfvSGI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glColorTableParameterfvSGI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGI_color_table)
       def glColorTableParameterfvSGI(_target_, _pname_, _params_)
@@ -19588,7 +19588,7 @@ module OpenGL
       end
     SRC_GL_SGI_color_table
 
-    GL_FUNCTIONS_ARGS_MAP[:glColorTableParameterivSGI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glColorTableParameterivSGI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glColorTableParameterivSGI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGI_color_table)
       def glColorTableParameterivSGI(_target_, _pname_, _params_)
@@ -19597,7 +19597,7 @@ module OpenGL
       end
     SRC_GL_SGI_color_table
 
-    GL_FUNCTIONS_ARGS_MAP[:glCopyColorTableSGI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glCopyColorTableSGI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyColorTableSGI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGI_color_table)
       def glCopyColorTableSGI(_target_, _internalformat_, _x_, _y_, _width_)
@@ -19606,7 +19606,7 @@ module OpenGL
       end
     SRC_GL_SGI_color_table
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableSGI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableSGI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetColorTableSGI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGI_color_table)
       def glGetColorTableSGI(_target_, _format_, _type_, _table_)
@@ -19615,7 +19615,7 @@ module OpenGL
       end
     SRC_GL_SGI_color_table
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableParameterfvSGI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableParameterfvSGI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetColorTableParameterfvSGI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGI_color_table)
       def glGetColorTableParameterfvSGI(_target_, _pname_, _params_)
@@ -19624,7 +19624,7 @@ module OpenGL
       end
     SRC_GL_SGI_color_table
 
-    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableParameterivSGI] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glGetColorTableParameterivSGI] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetColorTableParameterivSGI] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SGI_color_table)
       def glGetColorTableParameterivSGI(_target_, _pname_, _params_)
@@ -19697,7 +19697,7 @@ module OpenGL
       end
     SRC_GL_SUN_global_alpha
 
-    GL_FUNCTIONS_ARGS_MAP[:glGlobalAlphaFactorubSUN] = [Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glGlobalAlphaFactorubSUN] = [-Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glGlobalAlphaFactorubSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_global_alpha)
       def glGlobalAlphaFactorubSUN(_factor_)
@@ -19706,7 +19706,7 @@ module OpenGL
       end
     SRC_GL_SUN_global_alpha
 
-    GL_FUNCTIONS_ARGS_MAP[:glGlobalAlphaFactorusSUN] = [Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glGlobalAlphaFactorusSUN] = [-Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glGlobalAlphaFactorusSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_global_alpha)
       def glGlobalAlphaFactorusSUN(_factor_)
@@ -19715,7 +19715,7 @@ module OpenGL
       end
     SRC_GL_SUN_global_alpha
 
-    GL_FUNCTIONS_ARGS_MAP[:glGlobalAlphaFactoruiSUN] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glGlobalAlphaFactoruiSUN] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glGlobalAlphaFactoruiSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_global_alpha)
       def glGlobalAlphaFactoruiSUN(_factor_)
@@ -19726,7 +19726,7 @@ module OpenGL
   end # define_command_GL_SUN_global_alpha
 
   def define_command_GL_SUN_mesh_array
-    GL_FUNCTIONS_ARGS_MAP[:glDrawMeshArraysSUN] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glDrawMeshArraysSUN] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawMeshArraysSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_mesh_array)
       def glDrawMeshArraysSUN(_mode_, _first_, _count_, _width_)
@@ -19740,7 +19740,7 @@ module OpenGL
   end # define_command_GL_SUN_slice_accum
 
   def define_command_GL_SUN_triangle_list
-    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiSUN] = [Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiSUN] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glReplacementCodeuiSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_triangle_list)
       def glReplacementCodeuiSUN(_code_)
@@ -19749,7 +19749,7 @@ module OpenGL
       end
     SRC_GL_SUN_triangle_list
 
-    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeusSUN] = [Fiddle::TYPE_SHORT]
+    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeusSUN] = [-Fiddle::TYPE_SHORT]
     GL_FUNCTIONS_RETVAL_MAP[:glReplacementCodeusSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_triangle_list)
       def glReplacementCodeusSUN(_code_)
@@ -19758,7 +19758,7 @@ module OpenGL
       end
     SRC_GL_SUN_triangle_list
 
-    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeubSUN] = [Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeubSUN] = [-Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glReplacementCodeubSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_triangle_list)
       def glReplacementCodeubSUN(_code_)
@@ -19794,7 +19794,7 @@ module OpenGL
       end
     SRC_GL_SUN_triangle_list
 
-    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodePointerSUN] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodePointerSUN] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glReplacementCodePointerSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_triangle_list)
       def glReplacementCodePointerSUN(_type_, _stride_, _pointer_)
@@ -19805,7 +19805,7 @@ module OpenGL
   end # define_command_GL_SUN_triangle_list
 
   def define_command_GL_SUN_vertex
-    GL_FUNCTIONS_ARGS_MAP[:glColor4ubVertex2fSUN] = [Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glColor4ubVertex2fSUN] = [-Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glColor4ubVertex2fSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_vertex)
       def glColor4ubVertex2fSUN(_r_, _g_, _b_, _a_, _x_, _y_)
@@ -19823,7 +19823,7 @@ module OpenGL
       end
     SRC_GL_SUN_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glColor4ubVertex3fSUN] = [Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glColor4ubVertex3fSUN] = [-Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glColor4ubVertex3fSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_vertex)
       def glColor4ubVertex3fSUN(_r_, _g_, _b_, _a_, _x_, _y_, _z_)
@@ -19931,7 +19931,7 @@ module OpenGL
       end
     SRC_GL_SUN_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexCoord2fColor4ubVertex3fSUN] = [Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glTexCoord2fColor4ubVertex3fSUN] = [Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexCoord2fColor4ubVertex3fSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_vertex)
       def glTexCoord2fColor4ubVertex3fSUN(_s_, _t_, _r_, _g_, _b_, _a_, _x_, _y_, _z_)
@@ -20021,7 +20021,7 @@ module OpenGL
       end
     SRC_GL_SUN_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiVertex3fSUN] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiVertex3fSUN] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glReplacementCodeuiVertex3fSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_vertex)
       def glReplacementCodeuiVertex3fSUN(_rc_, _x_, _y_, _z_)
@@ -20039,7 +20039,7 @@ module OpenGL
       end
     SRC_GL_SUN_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiColor4ubVertex3fSUN] = [Fiddle::TYPE_INT, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiColor4ubVertex3fSUN] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_CHAR, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glReplacementCodeuiColor4ubVertex3fSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_vertex)
       def glReplacementCodeuiColor4ubVertex3fSUN(_rc_, _r_, _g_, _b_, _a_, _x_, _y_, _z_)
@@ -20057,7 +20057,7 @@ module OpenGL
       end
     SRC_GL_SUN_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiColor3fVertex3fSUN] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiColor3fVertex3fSUN] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glReplacementCodeuiColor3fVertex3fSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_vertex)
       def glReplacementCodeuiColor3fVertex3fSUN(_rc_, _r_, _g_, _b_, _x_, _y_, _z_)
@@ -20075,7 +20075,7 @@ module OpenGL
       end
     SRC_GL_SUN_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiNormal3fVertex3fSUN] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiNormal3fVertex3fSUN] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glReplacementCodeuiNormal3fVertex3fSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_vertex)
       def glReplacementCodeuiNormal3fVertex3fSUN(_rc_, _nx_, _ny_, _nz_, _x_, _y_, _z_)
@@ -20093,7 +20093,7 @@ module OpenGL
       end
     SRC_GL_SUN_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiColor4fNormal3fVertex3fSUN] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiColor4fNormal3fVertex3fSUN] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glReplacementCodeuiColor4fNormal3fVertex3fSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_vertex)
       def glReplacementCodeuiColor4fNormal3fVertex3fSUN(_rc_, _r_, _g_, _b_, _a_, _nx_, _ny_, _nz_, _x_, _y_, _z_)
@@ -20111,7 +20111,7 @@ module OpenGL
       end
     SRC_GL_SUN_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiTexCoord2fVertex3fSUN] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiTexCoord2fVertex3fSUN] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glReplacementCodeuiTexCoord2fVertex3fSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_vertex)
       def glReplacementCodeuiTexCoord2fVertex3fSUN(_rc_, _s_, _t_, _x_, _y_, _z_)
@@ -20129,7 +20129,7 @@ module OpenGL
       end
     SRC_GL_SUN_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_vertex)
       def glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN(_rc_, _s_, _t_, _nx_, _ny_, _nz_, _x_, _y_, _z_)
@@ -20147,7 +20147,7 @@ module OpenGL
       end
     SRC_GL_SUN_vertex
 
-    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN] = [Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_ARGS_MAP[:glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_SUN_vertex)
       def glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN(_rc_, _s_, _t_, _r_, _g_, _b_, _a_, _nx_, _ny_, _nz_, _x_, _y_, _z_)

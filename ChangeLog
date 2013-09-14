@@ -1,3 +1,7 @@
+2013-09-14  vaiorabbit  <vaiorabbit@twitter.com>
+
+	* generator/aux_generate_typemap.rb: Fixed to handle signed/unsinged correctly.
+
 2013-09-08  vaiorabbit  <vaiorabbit@twitter.com>
 
 	* opengl_ext_command.rb, opengl_ext_enum.rb, opengl_ext.rb: Added for OpenGL extension support.
