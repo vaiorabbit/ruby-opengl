@@ -34,7 +34,9 @@
 #
 # The source of the shaders itself are in plain text files. Files ending in
 # .vert are vertex shaders, and files ending in .frag are fragment shaders.
+
 require '../util/setup_dll'
+require '../util/WavefrontOBJ'
 
 $cursor_within_window = 0
 
@@ -63,38 +65,39 @@ SCALE_FACTOR = 0.01
 SCALE_INCREMENT = 0.5
 TIMER_FREQUENCY_MILLIS = 20
 
+$teapot = nil
 
 $gleModel = [:cube, :teapot] # [:cube, :teapot,:torus,:sphere]
 $clearColor = [[0,0,0,1], [0.2,0.2,0.3,1], [0.7,0.7,0.7,1]]
 
 def drawCube
-	size = 1.0
-	scale = 0.2
-	delta = 0.1
+  size = 1.0
+  scale = 0.2
+  delta = 0.1
 
-	v = [
-		[ size,  size,  size * scale + delta ], 
-		[ size,  size, -size * scale + delta ], 
-		[ size, -size, -size * scale ], 
-		[ size, -size,  size * scale ],
-		[-size,  size,  size * scale + delta ],
-		[-size,  size, -size * scale + delta ],
-		[-size, -size, -size * scale ],
-		[-size, -size,  size * scale ]
-	]
+  v = [
+       [ size,  size,  size * scale + delta ], 
+       [ size,  size, -size * scale + delta ], 
+       [ size, -size, -size * scale ], 
+       [ size, -size,  size * scale ],
+       [-size,  size,  size * scale + delta ],
+       [-size,  size, -size * scale + delta ],
+       [-size, -size, -size * scale ],
+       [-size, -size,  size * scale ]
+      ]
 
-	cube = [
-		[ [1,0,0], v[3],v[2],v[1],v[0] ], # normal, vertices
-		[ [-1,0,0], v[6],v[7],v[4],v[5] ],
-		[ [0,0,-1], v[2],v[6],v[5],v[1] ],
-		[ [0,0,1], v[7],v[3],v[0],v[4] ],
-		[ [0,1,0], v[4],v[0],v[1],v[5] ],
-		[ [0,-1,0], v[6],v[2],v[3],v[7] ]
-	]
+  cube = [
+          [ [1,0,0], v[3],v[2],v[1],v[0] ], # normal, vertices
+          [ [-1,0,0], v[6],v[7],v[4],v[5] ],
+          [ [0,0,-1], v[2],v[6],v[5],v[1] ],
+          [ [0,0,1], v[7],v[3],v[0],v[4] ],
+          [ [0,1,0], v[4],v[0],v[1],v[5] ],
+          [ [0,-1,0], v[6],v[2],v[3],v[7] ]
+         ]
 
-	glBegin(GL_QUADS)
-	cube.each do |side|
-		glNormal3fv(side[0].pack('F*'))
+  glBegin(GL_QUADS)
+  cube.each do |side|
+    glNormal3fv(side[0].pack('F*'))
 
     glTexCoord2f(1,1)
     glVertex3fv(side[1].pack('F*'))
@@ -104,51 +107,53 @@ def drawCube
     glVertex3fv(side[3].pack('F*'))
     glTexCoord2f(1,0)
     glVertex3fv(side[4].pack('F*'))
-	end
-	glEnd()
+  end
+  glEnd()
 end
 
 def nextClearColor
-	glClearColor($clearColor[0][0],
-							 $clearColor[0][1],
-							 $clearColor[0][2],
-							 $clearColor[0][3])
-	$clearColor << $clearColor.shift # rotate
+  glClearColor($clearColor[0][0],
+               $clearColor[0][1],
+               $clearColor[0][2],
+               $clearColor[0][3])
+  $clearColor << $clearColor.shift # rotate
 end
 
 
 play = lambda do
-	this_time = glfwGetTime()
+  this_time = glfwGetTime()
 
-	$rotl+=(this_time - $last_time) * -0.001
-	$last_time = this_time
+  $rotl+=(this_time - $last_time) * -0.001
+  $last_time = this_time
 end
 
 display = lambda do
-	glLoadIdentity()
-	glTranslatef(0.0, 0.0, -5.0)
-	
-	glRotatef($fYDiff, 1,0,0)
-	glRotatef($fXDiff, 0,1,0)
-	glRotatef($fZDiff, 0,0,1)
-	
-	glScalef($fScale, $fScale, $fScale)
-	
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-	
-	case $gleModel[0]
+  glLoadIdentity()
+  glTranslatef(0.0, 0.0, -5.0)
+
+  glRotatef($fYDiff, 1,0,0)
+  glRotatef($fXDiff, 0,1,0)
+  glRotatef($fZDiff, 0,0,1)
+
+  glScalef($fScale, $fScale, $fScale)
+
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+  case $gleModel[0]
+  when :teapot
+    # glutSolidTeapot(0.6)
+    glScalef( 0.1, 0.1, 0.1 )
+    $teapot.render
 =begin
-		when :teapot
-			glutSolidTeapot(0.6)
-		when :torus :
-			glutSolidTorus(0.2, 0.6, 64, 64)
-		when :sphere :
-			glutSolidSphere(0.6, 64, 64)
+     when :torus :
+         glutSolidTorus(0.2, 0.6, 64, 64)
+     when :sphere :
+         glutSolidSphere(0.6, 64, 64)
 =end
-		when :cube
-			drawCube()
-	end
-	glFlush()
+  when :cube
+    drawCube()
+  end
+  glFlush()
 end
 
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
@@ -199,53 +204,57 @@ key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scanco
     end
 
   when GLFW_KEY_HOME
-    $fXDiff = 0
-    $fYDiff = 35
-    $fZDiff = 0
-    $xLastIncr = 0
-    $yLastIncr = 0
-    $fXInertia = -0.5
-    $fYInertia = 0
-    $fScale = 1.0
+    if action == GLFW_PRESS
+      $fXDiff = 0
+      $fYDiff = 35
+      $fZDiff = 0
+      $xLastIncr = 0
+      $yLastIncr = 0
+      $fXInertia = -0.5
+      $fYInertia = 0
+      $fScale = 1.0
+    end
 
   when GLFW_KEY_LEFT
-    $fXDiff -= 1
+    $fXDiff -= 1 if action == GLFW_PRESS
 
   when GLFW_KEY_RIGHT
-    $fXDiff += 1
+    $fXDiff += 1 if action == GLFW_PRESS
 
   when GLFW_KEY_UP
-    $fYDiff -= 1
+    $fYDiff -= 1 if action == GLFW_PRESS
 
   when GLFW_KEY_DOWN
-    $fYDiff += 1
+    $fYDiff += 1 if action == GLFW_PRESS
 
   else
-    puts "Keyboard commands:\n"
-    puts "b - Toggle among background clear colors"
-    puts "q, <esc> - Quit"
-    puts "t - Toggle among models to render"
-    puts "? - Help"
-    puts "<home>     - reset zoom and rotation"
-    puts "<space> or <click>        - stop rotation"
-    puts "<+>, <-> or <ctrl + drag> - zoom model"
-    puts "<arrow keys> or <drag>    - rotate model\n"
+    if action == GLFW_PRESS
+      puts "Keyboard commands:\n"
+      puts "b - Toggle among background clear colors"
+      puts "q, <esc> - Quit"
+      puts "t - Toggle among models to render"
+      puts "? - Help"
+      puts "<home>     - reset zoom and rotation"
+      puts "<space> or <click>        - stop rotation"
+      puts "<+>, <-> or <ctrl + drag> - zoom model"
+      puts "<arrow keys> or <drag>    - rotate model\n"
+    end
   end
 end
 
 size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do|window_handle, w, h|
-	vp = 0.8
-	aspect = w.to_f/h.to_f
-	
-	glViewport(0, 0, w, h)
-	glMatrixMode(GL_PROJECTION)
-	glLoadIdentity()
-	
-	glFrustum(-vp, vp, -vp / aspect, vp / aspect, 3, 10)
-	
-	glMatrixMode(GL_MODELVIEW)
-	glLoadIdentity()
-	glTranslatef(0.0, 0.0, -5.0)
+  vp = 0.8
+  aspect = w.to_f/h.to_f
+
+  glViewport(0, 0, w, h)
+  glMatrixMode(GL_PROJECTION)
+  glLoadIdentity()
+
+  glFrustum(-vp, vp, -vp / aspect, vp / aspect, 3, 10)
+
+  glMatrixMode(GL_MODELVIEW)
+  glLoadIdentity()
+  glTranslatef(0.0, 0.0, -5.0)
 end
 
 cursorenter_callback = GLFW::create_callback( :GLFWcursorenterfun ) do |window_handle, entered|
@@ -254,136 +263,135 @@ end
 
 cursorpos_callback = GLFW::create_callback( :GLFWcursorposfun ) do |window_handle, x, y|
   if $cursor_within_window != 0
-	if ($xLast != -1 || $yLast != -1)
-		$xLastIncr = x - $xLast
-		$yLastIncr = y - $yLast
-		if ($bmModifiers & GLFW_MOD_CONTROL) != 0
-			if ($xLast != -1)
-				$fZDiff += $xLastIncr
-				$fScale += $yLastIncr*SCALE_FACTOR
-			end
-		else
-			if ($xLast != -1)
-				$fXDiff += $xLastIncr
-				$fYDiff += $yLastIncr
-			end
-		end
-	end
-	$xLast = x
-	$yLast = y
+    if ($xLast != -1 || $yLast != -1)
+      $xLastIncr = x - $xLast
+      $yLastIncr = y - $yLast
+      if ($bmModifiers & GLFW_MOD_CONTROL) != 0
+        if ($xLast != -1)
+          $fZDiff += $xLastIncr
+          $fScale += $yLastIncr*SCALE_FACTOR
+        end
+      else
+        if ($xLast != -1)
+          $fXDiff += $xLastIncr
+          $fYDiff += $yLastIncr
+        end
+      end
+    end
+    $xLast = x
+    $yLast = y
   end
 end
 
 mouse_callback = GLFW::create_callback( :GLFWmousebuttonfun ) do |window_handle, button, action, mods|
-	$bmModifiers = mods
-	if button == GLFW_MOUSE_BUTTON_LEFT
-		if action == GLFW_RELEASE
-			$xLast = -1
-			$yLast = -1
-			if $xLastIncr > INERTIA_THRESHOLD
-				$fXInertia = ($xLastIncr - INERTIA_THRESHOLD)*INERTIA_FACTOR
-			end
-			if -$xLastIncr > INERTIA_THRESHOLD
-				$fXInertia = ($xLastIncr + INERTIA_THRESHOLD)*INERTIA_FACTOR
-			end
+  $bmModifiers = mods
+  if button == GLFW_MOUSE_BUTTON_LEFT
+    if action == GLFW_RELEASE
+      $xLast = -1
+      $yLast = -1
+      if $xLastIncr > INERTIA_THRESHOLD
+        $fXInertia = ($xLastIncr - INERTIA_THRESHOLD)*INERTIA_FACTOR
+      end
+      if -$xLastIncr > INERTIA_THRESHOLD
+        $fXInertia = ($xLastIncr + INERTIA_THRESHOLD)*INERTIA_FACTOR
+      end
 
-			if $yLastIncr > INERTIA_THRESHOLD
-				$fYInertia = ($yLastIncr - INERTIA_THRESHOLD)*INERTIA_FACTOR
-			end
-			if -$yLastIncr > INERTIA_THRESHOLD
-				$fYInertia = ($yLastIncr + INERTIA_THRESHOLD)*INERTIA_FACTOR
-			end
-		else
-			$fXInertia = 0
-			$fYInertia = 0
-		end
-		$xLastIncr = 0
-		$yLastIncr = 0
-	end
+      if $yLastIncr > INERTIA_THRESHOLD
+        $fYInertia = ($yLastIncr - INERTIA_THRESHOLD)*INERTIA_FACTOR
+      end
+      if -$yLastIncr > INERTIA_THRESHOLD
+        $fYInertia = ($yLastIncr + INERTIA_THRESHOLD)*INERTIA_FACTOR
+      end
+    else
+      $fXInertia = 0
+      $fYInertia = 0
+    end
+    $xLastIncr = 0
+    $yLastIncr = 0
+  end
 end
 
 timer = lambda do
-	$ftime += 0.01
-	if $rotate
-		$fXDiff += $fXInertia
-		$fYDiff += $fYInertia
-	end
+  $ftime += 0.01
+  if $rotate
+    $fXDiff += $fXInertia
+    $fYDiff += $fYInertia
+  end
 end
 
 def getUniLoc(program, name)
-	loc = glGetUniformLocation(program, name)
-	
-	if (loc == -1)
-		puts "No such uniform named #{name}"
-	end
-	return loc
+  loc = glGetUniformLocation(program, name)
+  if (loc == -1)
+    puts "No such uniform named #{name}"
+  end
+  return loc
 end
 
 def installBrickShaders(vs_fname,fs_fname)
-	# Create a vertex shader object and a fragment shader object
-	brickVS = glCreateShader(GL_VERTEX_SHADER)
-	brickFS = glCreateShader(GL_FRAGMENT_SHADER)
-	# Load source code strings into shaders
-	vs_srcs = [File.read(vs_fname)].pack('p')
-	vs_lens = [File.size(vs_fname)].pack('I')
-	glShaderSource(brickVS, 1, vs_srcs, vs_lens)
+  # Create a vertex shader object and a fragment shader object
+  brickVS = glCreateShader(GL_VERTEX_SHADER)
+  brickFS = glCreateShader(GL_FRAGMENT_SHADER)
+  # Load source code strings into shaders
+  vs_srcs = [File.read(vs_fname)].pack('p')
+  vs_lens = [File.size(vs_fname)].pack('I')
+  glShaderSource(brickVS, 1, vs_srcs, vs_lens)
 
-	fs_srcs = [File.read(fs_fname)].pack('p')
-	fs_lens = [File.size(fs_fname)].pack('I')
-	glShaderSource(brickFS, 1, fs_srcs, fs_lens)
+  fs_srcs = [File.read(fs_fname)].pack('p')
+  fs_lens = [File.size(fs_fname)].pack('I')
+  glShaderSource(brickFS, 1, fs_srcs, fs_lens)
 
-	# Compile the brick vertex shader, and print out
-	#	the compiler log file.
-	glCompileShader(brickVS)
-	vertCompiled_buf = '    '
-	glGetShaderiv(brickVS, GL_COMPILE_STATUS, vertCompiled_buf)
-	vertCompiled = vertCompiled_buf.unpack('L')[0]
+  # Compile the brick vertex shader, and print out
+  #	the compiler log file.
+  glCompileShader(brickVS)
+  vertCompiled_buf = '    '
+  glGetShaderiv(brickVS, GL_COMPILE_STATUS, vertCompiled_buf)
+  vertCompiled = vertCompiled_buf.unpack('L')[0]
 
-	infoLog = ' ' * 64
-	glGetShaderInfoLog(brickVS, 64, nil, infoLog)
-	puts "Shader InfoLog:\n#{infoLog}\n"
+  infoLog = ' ' * 64
+  glGetShaderInfoLog(brickVS, 64, nil, infoLog)
+  puts "Shader InfoLog:\n#{infoLog}\n"
 
-	# Compile the brick fragment shader, and print out
-	# the compiler log file.
-	glCompileShader(brickFS)
-	fragCompiled_buf = '    '
-	glGetShaderiv(brickFS, GL_COMPILE_STATUS, fragCompiled_buf)
-	fragCompiled = fragCompiled_buf.unpack('L')[0]
+  # Compile the brick fragment shader, and print out
+  # the compiler log file.
+  glCompileShader(brickFS)
+  fragCompiled_buf = '    '
+  glGetShaderiv(brickFS, GL_COMPILE_STATUS, fragCompiled_buf)
+  fragCompiled = fragCompiled_buf.unpack('L')[0]
 
-	infoLog = ' ' * 64
-	glGetShaderInfoLog(brickFS, 64, nil, infoLog)
-	puts "Shader InfoLog:\n#{infoLog}\n"
+  infoLog = ' ' * 64
+  glGetShaderInfoLog(brickFS, 64, nil, infoLog)
+  puts "Shader InfoLog:\n#{infoLog}\n"
 
-	return false if (vertCompiled == 0 || fragCompiled == 0)
+  return false if (vertCompiled == 0 || fragCompiled == 0)
 
-	# Create a program object and attach the two compiled shaders
-	brickProg = glCreateProgram()
-	glAttachShader(brickProg,brickVS)
-	glAttachShader(brickProg,brickFS)
+  # Create a program object and attach the two compiled shaders
+  brickProg = glCreateProgram()
+  glAttachShader(brickProg,brickVS)
+  glAttachShader(brickProg,brickFS)
 
-	# Link the program object and print out the info log
-	glLinkProgram(brickProg)
+  # Link the program object and print out the info log
+  glLinkProgram(brickProg)
 
-	linked_buf = '    '
-	glGetProgramiv(brickProg, GL_LINK_STATUS, linked_buf)
-	linked = linked_buf.unpack('L')[0]
+  linked_buf = '    '
+  glGetProgramiv(brickProg, GL_LINK_STATUS, linked_buf)
+  linked = linked_buf.unpack('L')[0]
 
-	infoLog = ' ' * 64
-	glGetProgramInfoLog(brickProg, 64, nil, infoLog)
-	puts "Program InfoLog:\n#{infoLog}\n"
-	return false if linked==0
+  infoLog = ' ' * 64
+  glGetProgramInfoLog(brickProg, 64, nil, infoLog)
+  puts "Program InfoLog:\n#{infoLog}\n"
+  return false if linked==0
 
-	# Install program object as part of current state
-	glUseProgram(brickProg)
+  # Install program object as part of current state
+  glUseProgram(brickProg)
 
-	# Set up initial uniform values
-	glUniform3f(getUniLoc(brickProg, "BrickColor"), 1.0, 0.3, 0.2)
-	glUniform3f(getUniLoc(brickProg, "MortarColor"), 0.85, 0.86, 0.84)
-	glUniform2f(getUniLoc(brickProg, "BrickSize"), 0.30, 0.15)
-	glUniform2f(getUniLoc(brickProg, "BrickPct"), 0.90, 0.85)
-	glUniform3f(getUniLoc(brickProg, "LightPosition"), 0.0, 0.0, 4.0)
+  # Set up initial uniform values
+  glUniform3f(getUniLoc(brickProg, "BrickColor"), 1.0, 0.3, 0.2)
+  glUniform3f(getUniLoc(brickProg, "MortarColor"), 0.85, 0.86, 0.84)
+  glUniform2f(getUniLoc(brickProg, "BrickSize"), 0.30, 0.15)
+  glUniform2f(getUniLoc(brickProg, "BrickPct"), 0.90, 0.85)
+  glUniform3f(getUniLoc(brickProg, "LightPosition"), 0.0, 0.0, 4.0)
 
-	return true
+  return true
 end
 
 # Main
@@ -423,6 +431,10 @@ if __FILE__ == $0
 
   success = installBrickShaders("brick.vert","brick.frag")
   exit unless success
+
+  $teapot = WavefrontOBJ::Model.new
+  $teapot.parse('../data/teapot.obj')
+  $teapot.setup
 
   while glfwWindowShouldClose( window ) == 0
     timer.call

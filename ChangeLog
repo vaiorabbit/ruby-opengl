@@ -2,6 +2,7 @@
 
 	* generator/aux_generate_typemap.rb: Fixed to handle signed/unsinged correctly.
 	* sample/GLExcess: Added.
+	* opengl_ext_enum.rb, generator/generate_ext_enum.rb: Now checks if same constant is already defined before cosnt_set.
 
 2013-09-08  vaiorabbit  <vaiorabbit@twitter.com>
 

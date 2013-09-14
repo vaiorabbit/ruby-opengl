@@ -6,10 +6,10 @@
 # module OpenGL
 #
 #   def define_enum_GL_3DFX_multisample
-#     const_set('GL_MULTISAMPLE_3DFX', 0x86B2)
-#     const_set('GL_SAMPLE_BUFFERS_3DFX', 0x86B3)
-#     const_set('GL_SAMPLES_3DFX', 0x86B4)
-#     const_set('GL_MULTISAMPLE_BIT_3DFX', 0x20000000)
+#     const_set('GL_MULTISAMPLE_3DFX', 0x86B2) unless defined?(GL_MULTISAMPLE_3DFX)
+#     const_set('GL_SAMPLE_BUFFERS_3DFX', 0x86B3) unless defined?(GL_SAMPLE_BUFFERS_3DFX)
+#     const_set('GL_SAMPLES_3DFX', 0x86B4) unless defined?(GL_SAMPLES_3DFX)
+#     const_set('GL_MULTISAMPLE_BIT_3DFX', 0x20000000) unless defined?(GL_MULTISAMPLE_BIT_3DFX)
 #   end # define_enum_GL_3DFX_multisample
 # $
 
@@ -57,7 +57,7 @@ def generate_ext_enum( out )
   gl_ext_name_to_enums_map.each_pair do |ext_name, ext_enums|
     out.print "  def define_enum_#{ext_name}\n"
     ext_enums.each do |enums|
-      out.puts "    const_set('#{enums[0]}', #{enums[1]})"
+      out.puts "    const_set('#{enums[0]}', #{enums[1]}) unless defined?(#{enums[0]})"
     end
     out.print "  end # define_enum_#{ext_name}\n\n"
   end
