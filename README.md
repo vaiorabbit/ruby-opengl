@@ -95,6 +95,33 @@ See sample/simple.rb.
                 2.1 NVIDIA-8.12.47 310.40.00.05f01
 
 
+## Note ##
+
+*   No Ruby-Style handy interfaces are available (like one in the ruby-opengl2 (http://ruby-opengl.rubyforge.org/))
+	*   Example:
+		*   (Original C API)
+
+				GLuint tex_names_buf[2];
+				glGenTextures( 2, tex_names_buf );
+				GLuint tex_name = tex_names_buf[0];
+
+		*   (This library)
+
+				tex_names_buf = '    ' # String instance that is enough to catch texture names (integer).
+				glGenTextures( 2, tex_names_buf )
+				tex_name = tex_names_buf.unpack('L2')[0]
+
+		*   (ruby-opengl2)
+
+				tex_name = glGenTextures( 2 )[0]
+
+	*   Because:
+		*   I don't want to maintain this feature, which makes difficult to auto-generate.
+		*   I don't like to modify original OpenGL API.
+		*   Thanks to Fiddle, all these C-pointer issue can be simply handled with Array#pack and String#unpack.
+
+
+
 ## License ##
 
 The zlib/libpng License (http://opensource.org/licenses/Zlib).
@@ -206,6 +233,32 @@ sample/simple.rb を参照してください。
 
                 $ ruby report_env.rb
                 2.1 NVIDIA-8.12.47 310.40.00.05f01
+
+## メモ ##
+
+*   Rubyスタイルの便利なインターフェースはサポートしていません (ruby-opengl2 (http://ruby-opengl.rubyforge.org/) にあったような感じのもの)
+	*   例:
+		*   (OpenGLオリジナルの C API)
+
+				GLuint tex_names_buf[2];
+				glGenTextures( 2, tex_names_buf );
+				GLuint tex_name = tex_names_buf[0];
+
+		*   (このライブラリの場合)
+
+				tex_names_buf = '    ' # テクスチャ名(GLuint)を受け取るのに十分なサイズ String インスタンスであればOK
+				glGenTextures( 2, tex_names_buf )
+				tex_name = tex_names_buf.unpack('L2')[0]
+
+		*   (ruby-opengl2 の場合)
+
+				tex_name = glGenTextures( 2 )[0] # glGenTextures が配列を返すように修正されています
+
+	*   なぜサポートしないのか:
+		*   面倒。自動生成になじまない。
+		*   OpenGL オリジナルの API を変更するのは個人的に嫌。
+		*   この手の C ポインタ関連の問題はすべて Array#pack と String#unpack だけで簡単に解決できます (Fiddleのおかげ)。
+
 
 ## ライセンス ##
 
