@@ -118,6 +118,8 @@ The zlib/libpng License (http://opensource.org/licenses/Zlib).
 
     3. This notice may not be removed or altered from any source distribution.
 
+Sample codes/resources under sample/GLExcess are provided under the GNU General
+Public License version 2. See sample/GLExcess/GPL2.txt .
 
 -------------------------------------------------------------------------------
 
@@ -206,5 +208,7 @@ sample/simple.rb を参照してください。
 
 ## ライセンス ##
 
-zlib/libpng ライセンスです (http://opensource.org/licenses/Zlib)。
+*   zlib/libpng ライセンスです (http://opensource.org/licenses/Zlib)。
 
+*   sample/GLExcess 以下にあるものについては GNU General Public License version 2 です。
+    sample/GLExcess/GPL2.txt を参照してください。

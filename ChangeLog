@@ -1,6 +1,7 @@
 2013-09-14  vaiorabbit  <vaiorabbit@twitter.com>
 
 	* generator/aux_generate_typemap.rb: Fixed to handle signed/unsinged correctly.
+	* sample/GLExcess: Added.
 
 2013-09-08  vaiorabbit  <vaiorabbit@twitter.com>
 
