@@ -120,6 +120,12 @@ See sample/simple.rb.
 		*   I don't like to modify original OpenGL API.
 		*   Thanks to Fiddle, all these C-pointer issue can be simply handled with Array#pack and String#unpack.
 
+*   Reference : Other approaches after ruby-opengl2
+	*   OpenGL (opengl3) by davll (https://github.com/davll/ruby-opengl)
+		*   Built on Ruby-FFI, which is useful for JRuby users.
+	*   opengl-core by nilium (https://github.com/nilium/ruby-opengl)
+		*   Build on Fiddle.
+		*   Provides more customize points and handy utilities.
 
 
 ## License ##
@@ -258,6 +264,13 @@ sample/simple.rb を参照してください。
 		*   面倒。自動生成になじまない。
 		*   OpenGL オリジナルの API を変更するのは個人的に嫌。
 		*   この手の C ポインタ関連の問題はすべて Array#pack と String#unpack だけで簡単に解決できます (Fiddleのおかげ)。
+
+*   参考 : ruby-opengl2 以降に出てきたその他のアプローチ
+	*   OpenGL (opengl3) by davll (https://github.com/davll/ruby-opengl)
+		*   Ruby-FFI を利用 ⇒ JRuby でも使えるようです
+	*   opengl-core by nilium (https://github.com/nilium/ruby-opengl)
+		*   Fiddle を利用
+		*   カスタマイズポイント・ユーティリティがこのライブラリよりも揃ってます
 
 
 ## ライセンス ##
