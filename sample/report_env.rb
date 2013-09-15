@@ -1,5 +1,5 @@
-require '../glfw'
-require '../opengl'
+require 'glfw'
+require 'opengl'
 
 include OpenGL
 include GLFW

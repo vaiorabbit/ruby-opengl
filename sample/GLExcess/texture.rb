@@ -16,8 +16,6 @@
 * Ruby Porting  : vaiorabbit  <http://twitter.com/vaiorabbit>
 =end
 
-require_relative '../../opengl'
-
 class Texture
 
   attr_reader :width, :height

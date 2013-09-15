@@ -1,6 +1,22 @@
-require '../../glfw'
-require '../../opengl'
-require '../../glu'
+def opengl_bindings_gem_available?
+  Gem::Specification.find_by_name('opengl-bindings')
+rescue Gem::LoadError
+  false
+rescue
+  Gem.available?('opengl-bindings')
+end
+
+if opengl_bindings_gem_available?
+  # puts("Loading from Gem system path.")
+  require 'glfw'
+  require 'opengl'
+  require 'glu'
+else
+  # puts("Loaging from local path.")
+  require '../../lib/glfw'
+  require '../../lib/opengl'
+  require '../../lib/glu'
+end
 
 include GLFW
 include OpenGL

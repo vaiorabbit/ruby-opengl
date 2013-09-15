@@ -1,16 +1,21 @@
-2013-09-14  vaiorabbit  <vaiorabbit@twitter.com>
+2013-09-15  vaiorabbit  <https://twitter.com/vaiorabbit>
+
+	* opengl-bindings.gemspec: Added to make RubyGems package.
+	* Changed directory structure more RubyGems-compliant.
+
+2013-09-14  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* generator/aux_generate_typemap.rb: Fixed to handle signed/unsinged correctly.
 	* sample/GLExcess: Added.
 	* opengl_ext_enum.rb, generator/generate_ext_enum.rb: Now checks if same constant is already defined before cosnt_set.
 
-2013-09-08  vaiorabbit  <vaiorabbit@twitter.com>
+2013-09-08  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* opengl_ext_command.rb, opengl_ext_enum.rb, opengl_ext.rb: Added for OpenGL extension support.
 	* sample/report_env.rb: Reports the names of supported extensions.
 	* sample/Extension/nvpr_hello_world.rb: Added.
 
-2013-09-07  vaiorabbit  <vaiorabbit@twitter.com>
+2013-09-07  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* opengl_command.rb: Updated using latest gl.xml.
 	* opengl_command.rb: Fixed some bugs.
@@ -18,19 +23,19 @@
 	* sample/report_env.rb : Added.
 	* opengl_common.rb (check_extension): Added.
 
-2013-09-05  vaiorabbit  <vaiorabbit@twitter.com>
+2013-09-05  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* sample/ComputeShader: Added.
 
-2013-09-03  vaiorabbit  <vaiorabbit@twitter.com>
+2013-09-03  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* opengl_platform.rb, opengl_windows.rb: Added.
 
-2013-08-28  vaiorabbit  <vaiorabbit@twitter.com>
+2013-08-28  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* glu.rb: Added.
 
-2013-08-28  vaiorabbit  <vaiorabbit@twitter.com>
+2013-08-28  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* (Announce) First release.
 

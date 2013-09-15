@@ -5,7 +5,8 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2013-09-14
+*   Last modified : 2013-09-15
+
 
 ## Features ##
 
@@ -20,6 +21,9 @@
 ## How to use ##
 
 See sample/simple.rb.
+
+To get more samples and generator scripts, please visit:
+https://github.com/vaiorabbit/ruby-opengl
 
 
 ## Contents ##
@@ -94,6 +98,10 @@ See sample/simple.rb.
                 $ ruby report_env.rb
                 2.1 NVIDIA-8.12.47 310.40.00.05f01
 
+*   Though I have not tested on Linux yet, it should work with proper 'OpenGL.load_dll' settings like:
+	*   OpenGL.load_dll( 'libGL.so', '/usr/lib' )
+	*   GLFW.load_dll( 'libGLFW.so', '.' )
+
 
 ## Note ##
 
@@ -164,9 +172,14 @@ Public License version 2. See sample/GLExcess/GPL2.txt .
 *   標準ライブラリ Fiddle を使っています ⇒ 拡張ライブラリをビルドする必要がありません
 *   関数とenumのラッパーコードは Khronos の XML API registry (gl.xml) から自動生成しています
 
+
 ## 使い方 ##
 
 sample/simple.rb を参照してください。
+
+その他のサンプルと自動生成スクリプトはこちらで開発しています:
+https://github.com/vaiorabbit/ruby-opengl
+
 
 ## 内容 ##
 
@@ -239,6 +252,11 @@ sample/simple.rb を参照してください。
 
                 $ ruby report_env.rb
                 2.1 NVIDIA-8.12.47 310.40.00.05f01
+
+*   まだ Linux では動作確認していませんが、'OpenGL.load_dll' などの引数が正しければ動くはず…
+	*   OpenGL.load_dll( 'libGL.so', '/usr/lib' )
+	*   GLFW.load_dll( 'libGLFW.so', '.' )
+
 
 ## メモ ##
 

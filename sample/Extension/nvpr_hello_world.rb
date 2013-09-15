@@ -4,7 +4,11 @@
 # Ruby porting by vaiorabbit@twitter.com
 
 require '../util/setup_dll'
-require '../../opengl_ext'
+if opengl_bindings_gem_available?
+  require 'opengl_ext'
+else
+  require '../../lib/opengl_ext'
+end
 
 $stroking = true
 $filling = true
