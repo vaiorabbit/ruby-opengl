@@ -1,7 +1,7 @@
 # Ref.: /glfw-3.0.1/examples/simple.c
-require '../glfw'
-require '../opengl'
-require '../glu'
+require 'glfw'
+require 'opengl'
+require 'glu'
 
 include GLFW
 include OpenGL
