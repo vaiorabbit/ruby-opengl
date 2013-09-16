@@ -1,3 +1,7 @@
+2013-09-16  vaiorabbit  <https://twitter.com/vaiorabbit>
+
+	* lib/glfw.rb (GLFW.create_callback): Now accepts Proc object. (ex.) "method(:key_callback).to_proc".
+
 2013-09-15  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* opengl-bindings.gemspec: Added to make RubyGems package.

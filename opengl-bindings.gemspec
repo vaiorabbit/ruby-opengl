@@ -4,15 +4,15 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "opengl-bindings"
-  gem.version       = "1.2.0"
+  gem.version       = "1.2.1"
   gem.authors       = ["vaiorabbit"]
   gem.email         = ["vaiorabbit@gmail.com"]
-  gem.summary       = %q{Bindings for OpenGL 1.0-4.4 and extensions (For Ruby >= 2.0)}
+  gem.summary       = %q{Bindings for OpenGL 1.0-4.4 and extensions (For MRI >= 2.0.0)}
   gem.homepage      = "https://github.com/vaiorabbit/ruby-opengl"
   gem.require_paths = ["lib"]
   gem.license       = "zlib/libpng"
   gem.description   = <<-DESC
-Ruby bindings for OpenGL 1.0-4.4 and all extensions using Fiddle.
+Ruby bindings for OpenGL 1.0-4.4 and all extensions using Fiddle (For MRI >= 2.0.0).
   DESC
 
   gem.required_ruby_version = '>= 2.0.0'
