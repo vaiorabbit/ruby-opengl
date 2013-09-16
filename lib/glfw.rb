@@ -285,8 +285,13 @@ module GLFW
     :GLFWcharfun => "void GLFWcharfun(void*,unsigned int)",
     :GLFWmonitorfun => "void GLFWmonitorfun(void*,int)",
   }
-  def self.create_callback( sym, *opts, &blk )
-    return bind( @@glfw_cb_signature[sym], opts, &blk )
+
+  def self.create_callback( sym, proc=nil, &blk )
+    if block_given?
+      return bind( @@glfw_cb_signature[sym], nil, &blk )
+    else
+      return bind( @@glfw_cb_signature[sym], nil, &proc )
+    end
   end
 
   # struct
