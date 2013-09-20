@@ -11846,6 +11846,132 @@ module OpenGL
         f.call(_pipeline_)
       end
     SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1uiEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1uiEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniform1uiEXT(_program_, _location_, _v0_)
+        f = OpenGL::get_command(:glProgramUniform1uiEXT)
+        f.call(_program_, _location_, _v0_)
+      end
+    SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2uiEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2uiEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniform2uiEXT(_program_, _location_, _v0_, _v1_)
+        f = OpenGL::get_command(:glProgramUniform2uiEXT)
+        f.call(_program_, _location_, _v0_, _v1_)
+      end
+    SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3uiEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3uiEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniform3uiEXT(_program_, _location_, _v0_, _v1_, _v2_)
+        f = OpenGL::get_command(:glProgramUniform3uiEXT)
+        f.call(_program_, _location_, _v0_, _v1_, _v2_)
+      end
+    SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4uiEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4uiEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniform4uiEXT(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
+        f = OpenGL::get_command(:glProgramUniform4uiEXT)
+        f.call(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
+      end
+    SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1uivEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniform1uivEXT(_program_, _location_, _count_, _value_)
+        f = OpenGL::get_command(:glProgramUniform1uivEXT)
+        f.call(_program_, _location_, _count_, _value_)
+      end
+    SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2uivEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniform2uivEXT(_program_, _location_, _count_, _value_)
+        f = OpenGL::get_command(:glProgramUniform2uivEXT)
+        f.call(_program_, _location_, _count_, _value_)
+      end
+    SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3uivEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniform3uivEXT(_program_, _location_, _count_, _value_)
+        f = OpenGL::get_command(:glProgramUniform3uivEXT)
+        f.call(_program_, _location_, _count_, _value_)
+      end
+    SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4uivEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniform4uivEXT(_program_, _location_, _count_, _value_)
+        f = OpenGL::get_command(:glProgramUniform4uivEXT)
+        f.call(_program_, _location_, _count_, _value_)
+      end
+    SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x3fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2x3fvEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniformMatrix2x3fvEXT(_program_, _location_, _count_, _transpose_, _value_)
+        f = OpenGL::get_command(:glProgramUniformMatrix2x3fvEXT)
+        f.call(_program_, _location_, _count_, _transpose_, _value_)
+      end
+    SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x2fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3x2fvEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniformMatrix3x2fvEXT(_program_, _location_, _count_, _transpose_, _value_)
+        f = OpenGL::get_command(:glProgramUniformMatrix3x2fvEXT)
+        f.call(_program_, _location_, _count_, _transpose_, _value_)
+      end
+    SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix2x4fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix2x4fvEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniformMatrix2x4fvEXT(_program_, _location_, _count_, _transpose_, _value_)
+        f = OpenGL::get_command(:glProgramUniformMatrix2x4fvEXT)
+        f.call(_program_, _location_, _count_, _transpose_, _value_)
+      end
+    SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x2fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4x2fvEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniformMatrix4x2fvEXT(_program_, _location_, _count_, _transpose_, _value_)
+        f = OpenGL::get_command(:glProgramUniformMatrix4x2fvEXT)
+        f.call(_program_, _location_, _count_, _transpose_, _value_)
+      end
+    SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix3x4fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix3x4fvEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniformMatrix3x4fvEXT(_program_, _location_, _count_, _transpose_, _value_)
+        f = OpenGL::get_command(:glProgramUniformMatrix3x4fvEXT)
+        f.call(_program_, _location_, _count_, _transpose_, _value_)
+      end
+    SRC_GL_EXT_separate_shader_objects
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniformMatrix4x3fvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformMatrix4x3fvEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_separate_shader_objects)
+      def glProgramUniformMatrix4x3fvEXT(_program_, _location_, _count_, _transpose_, _value_)
+        f = OpenGL::get_command(:glProgramUniformMatrix4x3fvEXT)
+        f.call(_program_, _location_, _count_, _transpose_, _value_)
+      end
+    SRC_GL_EXT_separate_shader_objects
   end # define_command_GL_EXT_separate_shader_objects
 
   def define_command_GL_EXT_separate_specular_color

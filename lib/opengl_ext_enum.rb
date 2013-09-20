@@ -206,6 +206,7 @@ module OpenGL
     const_set('GL_RGB_422_APPLE', 0x8A1F) unless defined?(GL_RGB_422_APPLE)
     const_set('GL_UNSIGNED_SHORT_8_8_APPLE', 0x85BA) unless defined?(GL_UNSIGNED_SHORT_8_8_APPLE)
     const_set('GL_UNSIGNED_SHORT_8_8_REV_APPLE', 0x85BB) unless defined?(GL_UNSIGNED_SHORT_8_8_REV_APPLE)
+    const_set('GL_RGB_RAW_422_APPLE', 0x8A51) unless defined?(GL_RGB_RAW_422_APPLE)
   end # define_enum_GL_APPLE_rgb_422
 
   def define_enum_GL_APPLE_row_bytes
