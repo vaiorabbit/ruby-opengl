@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2013-09-16
+*   Last modified : 2013-09-21
 
 
 ## Features ##
@@ -41,6 +41,9 @@ https://github.com/vaiorabbit/ruby-opengl
 
 * 'glfw.rb'
     * My handwirtten GLFW wrapper (https://github.com/vaiorabbit/ruby-glfw).
+
+* 'glut.rb'
+    * Minimal GLUT wrapper.
 
 * 'glu.rb'
     * My handwirtten GLU wrapper.
@@ -163,6 +166,9 @@ The zlib/libpng License (http://opensource.org/licenses/Zlib).
 Sample codes/resources under sample/GLExcess are provided under the GNU General
 Public License version 2. See sample/GLExcess/GPL2.txt .
 
+Sample codes under sample/OrangeBook are provided under the BSD 3-Clause License.
+See sample/OrangeBook/3Dlabs-License.txt .
+
 -------------------------------------------------------------------------------
 
 # 自前 Ruby-OpenGL と自動生成スクリプト #
@@ -196,6 +202,9 @@ https://github.com/vaiorabbit/ruby-opengl
 
 * 'glfw.rb'
     * GLFW のラッパーコードです(自動生成ではありません) (https://github.com/vaiorabbit/ruby-glfw)。
+
+* 'glut.rb'
+    * GLUT ラッパー (よく使う関数限定)
 
 * 'glu.rb'
     * GLU のラッパーコードです(自動生成ではありません)。
@@ -297,3 +306,7 @@ https://github.com/vaiorabbit/ruby-opengl
 
 *   sample/GLExcess 以下にあるものについては GNU General Public License version 2 です。
     sample/GLExcess/GPL2.txt を参照してください。
+
+*   sample/OrangeBook 以下にあるものについては修正BSDライセンスです。
+    sample/OrangeBook/3Dlabs-License.txt を参照してください。
+

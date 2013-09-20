@@ -1,3 +1,8 @@
+2013-09-21  vaiorabbit  <https://twitter.com/vaiorabbit>
+
+	* glut.rb: Minimal GLUT wrapper.
+	* sample/GLUT: Added.
+
 2013-09-16  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* lib/glfw.rb (GLFW.create_callback): Now accepts Proc object. (ex.) "method(:key_callback).to_proc".
