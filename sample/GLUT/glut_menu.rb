@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# Ref.: /freeglut-2.8.1/progs/demos/CallbackMaker
 require_relative '../../lib/opengl'
 require_relative '../../lib/glu'
 require_relative '../../lib/glut'
@@ -11,6 +12,7 @@ OpenGL.load_dll()
 GLU.load_dll()
 GLUT.load_dll()
 
+# Callback functions
 
 def display
   glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT )
@@ -46,6 +48,9 @@ end
 $menu_ID = nil
 $submenu_A = nil
 $submenu_B = nil
+
+
+# Main
 
 if __FILE__ == $0
   GLUT.load_dll()
@@ -85,19 +90,11 @@ if __FILE__ == $0
 
   glClearColor( 0.0, 0.0, 0.0, 1 )
 
-  glEnable( GL_CULL_FACE )
-  glCullFace( GL_BACK )
-
-  glEnable( GL_DEPTH_TEST )
-  glDepthFunc( GL_LESS )
-
-  glEnable( GL_LIGHTING )
-  glEnable( GL_LIGHT0 )
-
-  glEnable( GL_NORMALIZE )
-
-  glutMainLoop()
-
-  glutMenuDestroyFunc( $submenu_A )
-  glutMenuDestroyFunc( $submenu_B )
+  begin
+    glutMainLoop()
+  ensure
+    glutDestroyMenu( $submenu_A )
+    glutDestroyMenu( $submenu_B )
+    glutDestroyMenu( $menu_ID )
+  end
 end
