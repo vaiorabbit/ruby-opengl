@@ -13,6 +13,7 @@ Gem::Specification.new do |gem|
   gem.license       = "zlib/libpng"
   gem.description   = <<-DESC
 Ruby bindings for OpenGL 1.0-4.4 and all extensions using Fiddle (For MRI >= 2.0.0).
+For more information, please visit: http://github.com/vaiorabbit/ruby-opengl
   DESC
 
   gem.required_ruby_version = '>= 2.0.0'
