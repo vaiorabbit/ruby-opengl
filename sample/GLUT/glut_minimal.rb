@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-require_relative '../../lib/opengl'
-require_relative '../../lib/glu'
-require_relative '../../lib/glut'
+require 'opengl'
+require 'glu'
+require 'glut'
 
 include OpenGL
 include GLU

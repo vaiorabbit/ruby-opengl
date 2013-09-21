@@ -2,6 +2,7 @@
 
 	* glut.rb: Minimal GLUT wrapper.
 	* sample/GLUT: Added.
+	* glfw.rb, glut.rb (load_dll): Now searches dll/dylib/so from current execution path.
 
 2013-09-16  vaiorabbit  <https://twitter.com/vaiorabbit>
 

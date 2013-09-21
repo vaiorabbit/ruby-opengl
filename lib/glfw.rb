@@ -310,7 +310,18 @@ module GLFW
   @@glfw_import_done = false
 
   # Load native library.
-  def self.load_dll(lib = 'libglfw.dylib', path = '.')
+  def self.load_dll(lib = nil, path = nil)
+    if lib == nil && path == nil
+      case OpenGL.get_platform
+      when :OPENGL_PLATFORM_WINDOWS
+        lib, path = 'GLFW3.dll', Dir.pwd
+      when :OPENGL_PLATFORM_MACOSX
+        lib, path = 'libglfw.dylib', Dir.pwd
+      else
+        lib, path = 'libglfw.so', Dir.pwd
+      end
+    end
+
     dlload (path + '/' + lib)
     import_symbols() unless @@glfw_import_done
   end

@@ -1,21 +1,15 @@
 # Ref.: /glfw-3.0.1/examples/simple.c
-require 'glfw'
 require 'opengl'
+require 'glfw'
 require 'glu'
 
-include GLFW
 include OpenGL
+include GLFW
 include GLU
 
 OpenGL.load_dll()
+GLFW.load_dll()
 GLU.load_dll()
-
-case OpenGL.get_platform
-when :OPENGL_PLATFORM_WINDOWS
-  GLFW.load_dll('glfw3.dll', '.')
-when :OPENGL_PLATFORM_MACOSX
-  GLFW.load_dll('libglfw.dylib', '.')
-end
 
 require './util/WavefrontOBJ'
 

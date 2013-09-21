@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 # Ref.: /freeglut-2.8.1/progs/demos/CallbackMaker
-require_relative '../../lib/opengl'
-require_relative '../../lib/glu'
-require_relative '../../lib/glut'
+require 'opengl'
+require 'glu'
+require 'glut'
 
 include OpenGL
 include GLU

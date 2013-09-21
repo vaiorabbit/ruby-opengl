@@ -117,6 +117,17 @@ module GLUT
 
   # Load native library.
   def self.load_dll(lib = 'GLUT', path = '/System/Library/Frameworks/GLUT.framework')
+    if lib == nil && path == nil
+      case OpenGL.get_platform
+      when :OPENGL_PLATFORM_WINDOWS
+        lib, path = 'freeglut.dll', Dir.pwd
+      when :OPENGL_PLATFORM_MACOSX
+        lib, path = 'GLUT', '/System/Library/Frameworks/GLUT.framework'
+      else
+        lib, path = 'libglut.so', Dir.pwd
+      end
+    end
+
     dlload (path + '/' + lib)
     import_symbols() unless @@glut_import_done
   end
