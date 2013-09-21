@@ -18,6 +18,17 @@
 	*   Supports OpenGL 1.0 - 4.4, and all OpenGL extensions.
 
 
+## How to install ##
+
+Via RubyGems (https://rubygems.org/gems/opengl-bindings):
+
+    $ gem install opengl-bindings
+
+Or grab all library codes (`lib/*.rb') and use them by adding as one of the load paths like:
+
+    $ ruby -I ./lib your_app.rb
+
+
 ## How to use ##
 
 See sample/simple.rb.
@@ -177,6 +188,17 @@ See sample/OrangeBook/3Dlabs-License.txt .
 
 *   標準ライブラリ Fiddle を使っています ⇒ 拡張ライブラリをビルドする必要がありません
 *   関数とenumのラッパーコードは Khronos の XML API registry (gl.xml) から自動生成しています
+
+
+## インストール ##
+
+RubyGems経由で (https://rubygems.org/gems/opengl-bindings):
+
+    $ gem install opengl-bindings
+
+もしくは lib 以下の *.rb をコピー → その場所をロードパスに加えて次のように起動:
+
+    $ ruby -I ./lib your_app.rb
 
 
 ## 使い方 ##
