@@ -116,7 +116,7 @@ module GLUT
   @@glut_import_done = false
 
   # Load native library.
-  def self.load_dll(lib = 'GLUT', path = '/System/Library/Frameworks/GLUT.framework')
+  def self.load_dll(lib = nil, path = nil)
     if lib == nil && path == nil
       case OpenGL.get_platform
       when :OPENGL_PLATFORM_WINDOWS
