@@ -69,8 +69,11 @@ def generate_ext_command( out )
   end
 
   # Output
-  out.puts "# Ruby-OpenGL (http://github.com/vaiorabbit/ruby-opengl/)"
-  out.puts "# [NOTICE] Automatically generated file"
+  out.puts "# opengl-bindings"
+  out.puts "# * https://rubygems.org/gems/opengl-bindings"
+  out.puts "# * http://github.com/vaiorabbit/ruby-opengl"
+  out.puts "#"
+  out.puts "# [NOTICE] This is an automatically generated file."
   out.puts ""
   out.puts "require 'fiddle'"
   out.puts ""

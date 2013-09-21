@@ -42,8 +42,11 @@ def generate_enum( out )
   end
 
   # Output
-  out.puts "# Ruby-OpenGL (http://github.com/vaiorabbit/ruby-opengl/)"
-  out.puts "# [NOTICE] Automatically generated file"
+  out.puts "# opengl-bindings"
+  out.puts "# * https://rubygems.org/gems/opengl-bindings"
+  out.puts "# * http://github.com/vaiorabbit/ruby-opengl"
+  out.puts "#"
+  out.puts "# [NOTICE] This is an automatically generated file."
   out.puts ""
   out.puts "module OpenGL"
   out.puts ""

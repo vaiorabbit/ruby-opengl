@@ -1,4 +1,8 @@
+#
+# For more samples, visit https://github.com/vaiorabbit/ruby-opengl/tree/master/sample .
+#
 # Ref.: /glfw-3.0.1/examples/simple.c
+#
 require 'glfw'
 require 'opengl'
 
