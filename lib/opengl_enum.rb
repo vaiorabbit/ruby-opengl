@@ -1,5 +1,8 @@
-# Ruby-OpenGL (http://github.com/vaiorabbit/ruby-opengl/)
-# [NOTICE] Automatically generated file
+# opengl-bindings
+# * http://rubygems.org/gems/opengl-bindings
+# * http://github.com/vaiorabbit/ruby-opengl
+#
+# [NOTICE] This is an automatically generated file.
 
 module OpenGL
 
