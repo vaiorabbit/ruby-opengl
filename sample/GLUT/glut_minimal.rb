@@ -17,6 +17,8 @@ def display
 
   glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT )
 
+  glPushMatrix()
+
   gluLookAt( 0.0, 5.0, 15.0,
              0.0, 0.0,  0.0,
              0.0, 1.0,  0.0 );
@@ -29,8 +31,6 @@ def display
   glLightfv( GL_LIGHT0, GL_DIFFUSE,  light_diffuse.pack('F4') )
   glLightfv( GL_LIGHT0, GL_SPECULAR, light_specular.pack('F4') )
   glLightfv( GL_LIGHT0, GL_AMBIENT,  light_ambient.pack('F4') )
-
-  glPushMatrix()
 
   teapot_diffuse = [0.8, 1.0, 0.0, 1.0]
   teapot_specular = [1.0, 1.0, 1.0, 1.0]
