@@ -20,7 +20,7 @@
 
 ## How to install ##
 
-Via RubyGems (https://rubygems.org/gems/opengl-bindings):
+Via RubyGems ( https://rubygems.org/gems/opengl-bindings ):
 
     $ gem install opengl-bindings
 
@@ -51,7 +51,7 @@ https://github.com/vaiorabbit/ruby-opengl
     *   'opengl_ext_enum.rb'         : OpenGL extension enum wrapper Generated via generator/generate_ext_enum.rb.
 
 * 'glfw.rb'
-    * My handwirtten GLFW wrapper (https://github.com/vaiorabbit/ruby-glfw).
+    * My handwirtten GLFW wrapper.
 
 * 'glut.rb'
     * Minimal GLUT wrapper.
@@ -119,7 +119,7 @@ https://github.com/vaiorabbit/ruby-opengl
 
 ## Note ##
 
-*   No Ruby-Style handy interfaces are available (like one in the ruby-opengl2 (http://ruby-opengl.rubyforge.org/))
+*   No Ruby-Style handy interfaces are available (like one in the ruby-opengl2 ( http://ruby-opengl.rubyforge.org/ ))
 	*   Example:
 		*   (Original C API)
 
@@ -137,22 +137,17 @@ https://github.com/vaiorabbit/ruby-opengl
 
 				tex_name = glGenTextures( 2 )[0]
 
-	*   Because:
-		*   I don't want to maintain this feature, which makes difficult to auto-generate.
-		*   I don't like to modify original OpenGL API.
-		*   Thanks to Fiddle, all these C-pointer issue can be simply handled with Array#pack and String#unpack.
-
 *   Reference : Other approaches after ruby-opengl2
-	*   OpenGL (opengl3) by davll (https://github.com/davll/ruby-opengl)
+	*   OpenGL (opengl3) by davll ( https://github.com/davll/ruby-opengl )
 		*   Built on Ruby-FFI, which is useful for JRuby users.
-	*   opengl-core by nilium (https://github.com/nilium/ruby-opengl)
+	*   opengl-core by nilium ( https://github.com/nilium/ruby-opengl )
 		*   Build on Fiddle.
 		*   Provides more customize points and handy utilities.
 
 
 ## License ##
 
-The zlib/libpng License (http://opensource.org/licenses/Zlib).
+The zlib/libpng License ( http://opensource.org/licenses/Zlib ).
 
     Copyright (c) 2013 vaiorabbit@twitter.com
 
@@ -192,7 +187,7 @@ See sample/OrangeBook/3Dlabs-License.txt .
 
 ## インストール ##
 
-RubyGems経由で (https://rubygems.org/gems/opengl-bindings):
+RubyGems経由で ( https://rubygems.org/gems/opengl-bindings ):
 
     $ gem install opengl-bindings
 
@@ -223,7 +218,7 @@ https://github.com/vaiorabbit/ruby-opengl
     *   'opengl_ext_enum.rb'         : OpenGL 拡張enumのラッパーコード。 generator/generate_ext_enum.rb で自動生成されたものです。
 
 * 'glfw.rb'
-    * GLFW のラッパーコードです(自動生成ではありません) (https://github.com/vaiorabbit/ruby-glfw)。
+    * GLFW のラッパーコードです(自動生成ではありません)。
 
 * 'glut.rb'
     * GLUT ラッパー (よく使う関数限定)
@@ -291,7 +286,7 @@ https://github.com/vaiorabbit/ruby-opengl
 
 ## メモ ##
 
-*   Rubyスタイルの便利なインターフェースはサポートしていません (ruby-opengl2 (http://ruby-opengl.rubyforge.org/) にあったような感じのもの)
+*   Rubyスタイルの便利なインターフェースはサポートしていません (ruby-opengl2 ( http://ruby-opengl.rubyforge.org/ ) にあったような感じのもの)
 	*   例:
 		*   (OpenGLオリジナルの C API)
 
@@ -309,22 +304,17 @@ https://github.com/vaiorabbit/ruby-opengl
 
 				tex_name = glGenTextures( 2 )[0] # glGenTextures が配列を返すように修正されています
 
-	*   なぜサポートしないのか:
-		*   面倒。自動生成になじまない。
-		*   OpenGL オリジナルの API を変更するのは個人的に嫌。
-		*   この手の C ポインタ関連の問題はすべて Array#pack と String#unpack だけで簡単に解決できます (Fiddleのおかげ)。
-
 *   参考 : ruby-opengl2 以降に出てきたその他のアプローチ
-	*   OpenGL (opengl3) by davll (https://github.com/davll/ruby-opengl)
+	*   OpenGL (opengl3) by davll ( https://github.com/davll/ruby-opengl )
 		*   Ruby-FFI を利用 ⇒ JRuby でも使えるようです
-	*   opengl-core by nilium (https://github.com/nilium/ruby-opengl)
+	*   opengl-core by nilium ( https://github.com/nilium/ruby-opengl )
 		*   Fiddle を利用
 		*   カスタマイズポイント・ユーティリティがこのライブラリよりも揃ってます
 
 
 ## ライセンス ##
 
-*   zlib/libpng ライセンスです (http://opensource.org/licenses/Zlib)。
+*   zlib/libpng ライセンスです ( http://opensource.org/licenses/Zlib )。
 
 *   sample/GLExcess 以下にあるものについては GNU General Public License version 2 です。
     sample/GLExcess/GPL2.txt を参照してください。
