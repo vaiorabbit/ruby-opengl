@@ -141,7 +141,7 @@ https://github.com/vaiorabbit/ruby-opengl
 	*   OpenGL (opengl3) by davll ( https://github.com/davll/ruby-opengl )
 		*   Built on Ruby-FFI, which is useful for JRuby users.
 	*   opengl-core by nilium ( https://github.com/nilium/ruby-opengl )
-		*   Build on Fiddle.
+		*   Built on Fiddle.
 		*   Provides more customize points and handy utilities.
 
 

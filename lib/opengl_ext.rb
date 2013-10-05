@@ -7,6 +7,7 @@ module OpenGL
     version_number = glGetString(GL_VERSION).to_s.split(/\./)
     if version_number[0].to_i >= 3
       # glGetString(GL_EXTENSIONS) was deprecated in OpenGL 3.0
+      # Ref.: http://sourceforge.net/p/glew/bugs/120/
       extensions_count_buf = '    '
       glGetIntegerv( GL_NUM_EXTENSIONS, extensions_count_buf )
       extensions_count = extensions_count_buf.unpack('L')[0]
