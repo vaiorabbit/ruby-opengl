@@ -2822,6 +2822,9 @@ module OpenGL
     const_set('GL_ALL_BARRIER_BITS_EXT', 0xFFFFFFFF) unless defined?(GL_ALL_BARRIER_BITS_EXT)
   end # define_enum_GL_EXT_shader_image_load_store
 
+  def define_enum_GL_EXT_shader_integer_mix
+  end # define_enum_GL_EXT_shader_integer_mix
+
   def define_enum_GL_EXT_shadow_funcs
   end # define_enum_GL_EXT_shadow_funcs
 
@@ -3546,6 +3549,37 @@ module OpenGL
     const_set('GL_PROGRAM_PIPELINE', 0x82E4) unless defined?(GL_PROGRAM_PIPELINE)
     const_set('GL_DISPLAY_LIST', 0x82E7) unless defined?(GL_DISPLAY_LIST)
   end # define_enum_GL_KHR_debug
+
+  def define_enum_GL_KHR_texture_compression_astc_hdr
+    const_set('GL_COMPRESSED_RGBA_ASTC_4x4_KHR', 0x93B0) unless defined?(GL_COMPRESSED_RGBA_ASTC_4x4_KHR)
+    const_set('GL_COMPRESSED_RGBA_ASTC_5x4_KHR', 0x93B1) unless defined?(GL_COMPRESSED_RGBA_ASTC_5x4_KHR)
+    const_set('GL_COMPRESSED_RGBA_ASTC_5x5_KHR', 0x93B2) unless defined?(GL_COMPRESSED_RGBA_ASTC_5x5_KHR)
+    const_set('GL_COMPRESSED_RGBA_ASTC_6x5_KHR', 0x93B3) unless defined?(GL_COMPRESSED_RGBA_ASTC_6x5_KHR)
+    const_set('GL_COMPRESSED_RGBA_ASTC_6x6_KHR', 0x93B4) unless defined?(GL_COMPRESSED_RGBA_ASTC_6x6_KHR)
+    const_set('GL_COMPRESSED_RGBA_ASTC_8x5_KHR', 0x93B5) unless defined?(GL_COMPRESSED_RGBA_ASTC_8x5_KHR)
+    const_set('GL_COMPRESSED_RGBA_ASTC_8x6_KHR', 0x93B6) unless defined?(GL_COMPRESSED_RGBA_ASTC_8x6_KHR)
+    const_set('GL_COMPRESSED_RGBA_ASTC_8x8_KHR', 0x93B7) unless defined?(GL_COMPRESSED_RGBA_ASTC_8x8_KHR)
+    const_set('GL_COMPRESSED_RGBA_ASTC_10x5_KHR', 0x93B8) unless defined?(GL_COMPRESSED_RGBA_ASTC_10x5_KHR)
+    const_set('GL_COMPRESSED_RGBA_ASTC_10x6_KHR', 0x93B9) unless defined?(GL_COMPRESSED_RGBA_ASTC_10x6_KHR)
+    const_set('GL_COMPRESSED_RGBA_ASTC_10x8_KHR', 0x93BA) unless defined?(GL_COMPRESSED_RGBA_ASTC_10x8_KHR)
+    const_set('GL_COMPRESSED_RGBA_ASTC_10x10_KHR', 0x93BB) unless defined?(GL_COMPRESSED_RGBA_ASTC_10x10_KHR)
+    const_set('GL_COMPRESSED_RGBA_ASTC_12x10_KHR', 0x93BC) unless defined?(GL_COMPRESSED_RGBA_ASTC_12x10_KHR)
+    const_set('GL_COMPRESSED_RGBA_ASTC_12x12_KHR', 0x93BD) unless defined?(GL_COMPRESSED_RGBA_ASTC_12x12_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR', 0x93D0) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR', 0x93D1) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5_KHR', 0x93D2) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5_KHR', 0x93D3) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR', 0x93D4) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x5_KHR', 0x93D5) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x5_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x6_KHR', 0x93D6) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x6_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x8_KHR', 0x93D7) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_8x8_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x5_KHR', 0x93D8) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x5_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x6_KHR', 0x93D9) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x6_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR', 0x93DA) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR', 0x93DB) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR', 0x93DC) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR)
+    const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR', 0x93DD) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR)
+  end # define_enum_GL_KHR_texture_compression_astc_hdr
 
   def define_enum_GL_KHR_texture_compression_astc_ldr
     const_set('GL_COMPRESSED_RGBA_ASTC_4x4_KHR', 0x93B0) unless defined?(GL_COMPRESSED_RGBA_ASTC_4x4_KHR)

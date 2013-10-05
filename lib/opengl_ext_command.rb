@@ -4625,7 +4625,7 @@ module OpenGL
   end # define_command_GL_ARB_texture_mirrored_repeat
 
   def define_command_GL_ARB_texture_multisample
-    GL_FUNCTIONS_ARGS_MAP[:glTexImage2DMultisample] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTexImage2DMultisample] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTexImage2DMultisample] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_multisample)
       def glTexImage2DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
@@ -4634,7 +4634,7 @@ module OpenGL
       end
     SRC_GL_ARB_texture_multisample
 
-    GL_FUNCTIONS_ARGS_MAP[:glTexImage3DMultisample] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glTexImage3DMultisample] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTexImage3DMultisample] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_texture_multisample)
       def glTexImage3DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
@@ -12000,6 +12000,9 @@ module OpenGL
     SRC_GL_EXT_shader_image_load_store
   end # define_command_GL_EXT_shader_image_load_store
 
+  def define_command_GL_EXT_shader_integer_mix
+  end # define_command_GL_EXT_shader_integer_mix
+
   def define_command_GL_EXT_shadow_funcs
   end # define_command_GL_EXT_shadow_funcs
 
@@ -13423,6 +13426,9 @@ module OpenGL
       end
     SRC_GL_KHR_debug
   end # define_command_GL_KHR_debug
+
+  def define_command_GL_KHR_texture_compression_astc_hdr
+  end # define_command_GL_KHR_texture_compression_astc_hdr
 
   def define_command_GL_KHR_texture_compression_astc_ldr
   end # define_command_GL_KHR_texture_compression_astc_ldr

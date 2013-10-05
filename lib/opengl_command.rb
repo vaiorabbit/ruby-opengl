@@ -4642,14 +4642,14 @@ module OpenGL
     f.call(_target_, _attachment_, _texture_, _level_)
   end
 
-  GL_FUNCTIONS_ARGS_MAP[:glTexImage2DMultisample] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
+  GL_FUNCTIONS_ARGS_MAP[:glTexImage2DMultisample] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
   GL_FUNCTIONS_RETVAL_MAP[:glTexImage2DMultisample] = Fiddle::TYPE_VOID
   def glTexImage2DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
     f = OpenGL::get_command(:glTexImage2DMultisample)
     f.call(_target_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
   end
 
-  GL_FUNCTIONS_ARGS_MAP[:glTexImage3DMultisample] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
+  GL_FUNCTIONS_ARGS_MAP[:glTexImage3DMultisample] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
   GL_FUNCTIONS_RETVAL_MAP[:glTexImage3DMultisample] = Fiddle::TYPE_VOID
   def glTexImage3DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
     f = OpenGL::get_command(:glTexImage3DMultisample)
