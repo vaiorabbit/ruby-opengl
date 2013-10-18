@@ -1,3 +1,7 @@
+2013-10-19  vaiorabbit  <https://twitter.com/vaiorabbit>
+
+	* opengl_command.rb, opengl_ext_command.rb, opengl_ext_enum.rb: Updated using latest gl.xml.
+
 2013-10-06  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* opengl_ext.rb (OpenGL.check_extension): Now compatible with OpenGL 3.0 and later (glGetString(GL_EXTENSIONS) was deprecated).
