@@ -95,7 +95,7 @@ module GLUT
     :GLUTKeyboardFunc => "void GLUTKeyboardFunc(unsigned char, int, int)",
     :GLUTMouseFunc => "void GLUTMouseFunc(int, int, int, int)",
     :GLUTMotionFunc => "void GLUTMotionFunc(int, int)",
-    :GLUTPassiveMotionFunc => "void GLUTPassiveMotionFunc(int x, int y)",
+    :GLUTPassiveMotionFunc => "void GLUTPassiveMotionFunc(int, int)",
     :GLUTEntryFunc => "void GLUTEntryFunc(int)",
     :GLUTVisibilityFunc => "void GLUTVisibilityFunc(int)",
     :GLUTIdleFunc => "void GLUTIdleFunc()",

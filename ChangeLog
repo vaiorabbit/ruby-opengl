@@ -1,3 +1,7 @@
+2013-10-20  vaiorabbit  <https://twitter.com/vaiorabbit>
+
+	* glut.rb (:GLUTPassiveMotionFunc): Fixed signature definition (Thanks: Дмитрий Краснов).
+
 2013-10-19  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* opengl_command.rb, opengl_ext_command.rb, opengl_ext_enum.rb: Updated using latest gl.xml.
