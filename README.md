@@ -129,7 +129,7 @@ https://github.com/vaiorabbit/ruby-opengl
 
 		*   (This library)
 
-				tex_names_buf = '    ' # String instance that is enough to catch texture names (integer).
+				tex_names_buf = '        ' # String instance that is enough to catch texture names (integer).
 				glGenTextures( 2, tex_names_buf )
 				tex_name = tex_names_buf.unpack('L2')[0]
 
@@ -296,7 +296,7 @@ https://github.com/vaiorabbit/ruby-opengl
 
 		*   (このライブラリの場合)
 
-				tex_names_buf = '    ' # テクスチャ名(GLuint)を受け取るのに十分なサイズ String インスタンスであればOK
+				tex_names_buf = '        ' # テクスチャ名(GLuint)を受け取るのに十分なサイズ String インスタンスであればOK
 				glGenTextures( 2, tex_names_buf )
 				tex_name = tex_names_buf.unpack('L2')[0]
 
