@@ -6,10 +6,14 @@ require_relative 'generate_enum'
 require_relative 'generate_command'
 require_relative 'generate_ext_enum'
 require_relative 'generate_ext_command'
+require_relative 'generate_es_enum'
+require_relative 'generate_es_command'
+require_relative 'generate_es_ext_enum'
+require_relative 'generate_es_ext_command'
 
 task 'default' => 'wrapper'
 
-task 'wrapper' => ['enum', 'ext_enum', 'command', 'ext_command']
+task 'wrapper' => ['enum', 'ext_enum', 'command', 'ext_command', 'es_enum', 'es_ext_enum', 'es_command', 'es_ext_command']
 
 task 'enum' => '../lib/opengl_enum.rb'
 
@@ -18,6 +22,14 @@ task 'ext_enum' => '../lib/opengl_ext_enum.rb'
 task 'command' => '../lib/opengl_command.rb'
 
 task 'ext_command' => '../lib/opengl_ext_command.rb'
+
+task 'es_enum' => '../lib/opengl_es_enum.rb'
+
+task 'es_ext_enum' => '../lib/opengl_es_ext_enum.rb'
+
+task 'es_command' => '../lib/opengl_es_command.rb'
+
+task 'es_ext_command' => '../lib/opengl_es_ext_command.rb'
 
 file '../lib/opengl_enum.rb' => './gl.xml' do |t|
   open('../lib/opengl_enum.rb', 'wb') do |file|
@@ -40,6 +52,30 @@ end
 file '../lib/opengl_ext_command.rb' => './gl.xml' do |t|
   open('../lib/opengl_ext_command.rb', 'wb') do |file|
     generate_ext_command(file)
+  end
+end
+
+file '../lib/opengl_es_enum.rb' => './gl.xml' do |t|
+  open('../lib/opengl_es_enum.rb', 'wb') do |file|
+    generate_es_enum(file)
+  end
+end
+
+file '../lib/opengl_es_ext_enum.rb' => './gl.xml' do |t|
+  open('../lib/opengl_es_ext_enum.rb', 'wb') do |file|
+    generate_es_ext_enum(file)
+  end
+end
+
+file '../lib/opengl_es_command.rb' => './gl.xml' do |t|
+  open('../lib/opengl_es_command.rb', 'wb') do |file|
+    generate_es_command(file)
+  end
+end
+
+file '../lib/opengl_es_ext_command.rb' => './gl.xml' do |t|
+  open('../lib/opengl_es_ext_command.rb', 'wb') do |file|
+    generate_es_ext_command(file)
   end
 end
 

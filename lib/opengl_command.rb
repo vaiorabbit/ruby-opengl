@@ -248,16 +248,16 @@ module OpenGL
 
   GL_FUNCTIONS_ARGS_MAP[:glGetBooleanv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
   GL_FUNCTIONS_RETVAL_MAP[:glGetBooleanv] = Fiddle::TYPE_VOID
-  def glGetBooleanv(_pname_, _params_)
+  def glGetBooleanv(_pname_, _data_)
     f = OpenGL::get_command(:glGetBooleanv)
-    f.call(_pname_, _params_)
+    f.call(_pname_, _data_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glGetDoublev] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
   GL_FUNCTIONS_RETVAL_MAP[:glGetDoublev] = Fiddle::TYPE_VOID
-  def glGetDoublev(_pname_, _params_)
+  def glGetDoublev(_pname_, _data_)
     f = OpenGL::get_command(:glGetDoublev)
-    f.call(_pname_, _params_)
+    f.call(_pname_, _data_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glGetError] = []
@@ -269,16 +269,16 @@ module OpenGL
 
   GL_FUNCTIONS_ARGS_MAP[:glGetFloatv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
   GL_FUNCTIONS_RETVAL_MAP[:glGetFloatv] = Fiddle::TYPE_VOID
-  def glGetFloatv(_pname_, _params_)
+  def glGetFloatv(_pname_, _data_)
     f = OpenGL::get_command(:glGetFloatv)
-    f.call(_pname_, _params_)
+    f.call(_pname_, _data_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glGetIntegerv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
   GL_FUNCTIONS_RETVAL_MAP[:glGetIntegerv] = Fiddle::TYPE_VOID
-  def glGetIntegerv(_pname_, _params_)
+  def glGetIntegerv(_pname_, _data_)
     f = OpenGL::get_command(:glGetIntegerv)
-    f.call(_pname_, _params_)
+    f.call(_pname_, _data_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glGetString] = [-Fiddle::TYPE_INT]
@@ -4609,9 +4609,9 @@ module OpenGL
 
   GL_FUNCTIONS_ARGS_MAP[:glGetInteger64v] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
   GL_FUNCTIONS_RETVAL_MAP[:glGetInteger64v] = Fiddle::TYPE_VOID
-  def glGetInteger64v(_pname_, _params_)
+  def glGetInteger64v(_pname_, _data_)
     f = OpenGL::get_command(:glGetInteger64v)
-    f.call(_pname_, _params_)
+    f.call(_pname_, _data_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glGetSynciv] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]

@@ -4459,9 +4459,9 @@ module OpenGL
     GL_FUNCTIONS_ARGS_MAP[:glGetInteger64v] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetInteger64v] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sync)
-      def glGetInteger64v(_pname_, _params_)
+      def glGetInteger64v(_pname_, _data_)
         f = OpenGL::get_command(:glGetInteger64v)
-        f.call(_pname_, _params_)
+        f.call(_pname_, _data_)
       end
     SRC_GL_ARB_sync
 
@@ -8293,6 +8293,55 @@ module OpenGL
       end
     SRC_GL_EXT_cull_vertex
   end # define_command_GL_EXT_cull_vertex
+
+  def define_command_GL_EXT_debug_label
+    GL_FUNCTIONS_ARGS_MAP[:glLabelObjectEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glLabelObjectEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_debug_label)
+      def glLabelObjectEXT(_type_, _object_, _length_, _label_)
+        f = OpenGL::get_command(:glLabelObjectEXT)
+        f.call(_type_, _object_, _length_, _label_)
+      end
+    SRC_GL_EXT_debug_label
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetObjectLabelEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetObjectLabelEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_debug_label)
+      def glGetObjectLabelEXT(_type_, _object_, _bufSize_, _length_, _label_)
+        f = OpenGL::get_command(:glGetObjectLabelEXT)
+        f.call(_type_, _object_, _bufSize_, _length_, _label_)
+      end
+    SRC_GL_EXT_debug_label
+  end # define_command_GL_EXT_debug_label
+
+  def define_command_GL_EXT_debug_marker
+    GL_FUNCTIONS_ARGS_MAP[:glInsertEventMarkerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glInsertEventMarkerEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_debug_marker)
+      def glInsertEventMarkerEXT(_length_, _marker_)
+        f = OpenGL::get_command(:glInsertEventMarkerEXT)
+        f.call(_length_, _marker_)
+      end
+    SRC_GL_EXT_debug_marker
+
+    GL_FUNCTIONS_ARGS_MAP[:glPushGroupMarkerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glPushGroupMarkerEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_debug_marker)
+      def glPushGroupMarkerEXT(_length_, _marker_)
+        f = OpenGL::get_command(:glPushGroupMarkerEXT)
+        f.call(_length_, _marker_)
+      end
+    SRC_GL_EXT_debug_marker
+
+    GL_FUNCTIONS_ARGS_MAP[:glPopGroupMarkerEXT] = []
+    GL_FUNCTIONS_RETVAL_MAP[:glPopGroupMarkerEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_debug_marker)
+      def glPopGroupMarkerEXT()
+        f = OpenGL::get_command(:glPopGroupMarkerEXT)
+        f.call()
+      end
+    SRC_GL_EXT_debug_marker
+  end # define_command_GL_EXT_debug_marker
 
   def define_command_GL_EXT_depth_bounds_test
     GL_FUNCTIONS_ARGS_MAP[:glDepthBoundsEXT] = [Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
@@ -13159,6 +13208,9 @@ module OpenGL
 
   def define_command_GL_INGR_interlace_read
   end # define_command_GL_INGR_interlace_read
+
+  def define_command_GL_INTEL_fragment_ordering
+  end # define_command_GL_INTEL_fragment_ordering
 
   def define_command_GL_INTEL_map_texture
     GL_FUNCTIONS_ARGS_MAP[:glSyncTextureINTEL] = [-Fiddle::TYPE_INT]

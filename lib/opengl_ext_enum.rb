@@ -2413,6 +2413,20 @@ module OpenGL
     const_set('GL_CULL_VERTEX_OBJECT_POSITION_EXT', 0x81AC) unless defined?(GL_CULL_VERTEX_OBJECT_POSITION_EXT)
   end # define_enum_GL_EXT_cull_vertex
 
+  def define_enum_GL_EXT_debug_label
+    const_set('GL_PROGRAM_PIPELINE_OBJECT_EXT', 0x8A4F) unless defined?(GL_PROGRAM_PIPELINE_OBJECT_EXT)
+    const_set('GL_PROGRAM_OBJECT_EXT', 0x8B40) unless defined?(GL_PROGRAM_OBJECT_EXT)
+    const_set('GL_SHADER_OBJECT_EXT', 0x8B48) unless defined?(GL_SHADER_OBJECT_EXT)
+    const_set('GL_BUFFER_OBJECT_EXT', 0x9151) unless defined?(GL_BUFFER_OBJECT_EXT)
+    const_set('GL_QUERY_OBJECT_EXT', 0x9153) unless defined?(GL_QUERY_OBJECT_EXT)
+    const_set('GL_VERTEX_ARRAY_OBJECT_EXT', 0x9154) unless defined?(GL_VERTEX_ARRAY_OBJECT_EXT)
+    const_set('GL_SAMPLER', 0x82E6) unless defined?(GL_SAMPLER)
+    const_set('GL_TRANSFORM_FEEDBACK', 0x8E22) unless defined?(GL_TRANSFORM_FEEDBACK)
+  end # define_enum_GL_EXT_debug_label
+
+  def define_enum_GL_EXT_debug_marker
+  end # define_enum_GL_EXT_debug_marker
+
   def define_enum_GL_EXT_depth_bounds_test
     const_set('GL_DEPTH_BOUNDS_TEST_EXT', 0x8890) unless defined?(GL_DEPTH_BOUNDS_TEST_EXT)
     const_set('GL_DEPTH_BOUNDS_EXT', 0x8891) unless defined?(GL_DEPTH_BOUNDS_EXT)
@@ -3451,6 +3465,9 @@ module OpenGL
   def define_enum_GL_INGR_interlace_read
     const_set('GL_INTERLACE_READ_INGR', 0x8568) unless defined?(GL_INTERLACE_READ_INGR)
   end # define_enum_GL_INGR_interlace_read
+
+  def define_enum_GL_INTEL_fragment_ordering
+  end # define_enum_GL_INTEL_fragment_ordering
 
   def define_enum_GL_INTEL_map_texture
     const_set('GL_TEXTURE_MEMORY_LAYOUT_INTEL', 0x83FF) unless defined?(GL_TEXTURE_MEMORY_LAYOUT_INTEL)

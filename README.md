@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2013-10-20
+*   Last modified : 2013-11-02
 
 
 ## Features ##
@@ -15,7 +15,7 @@
 
 *   Uses Khronos XML API registry
 	*   The command/enum wrapper codes are generated via 'gl.xml'
-	*   Supports OpenGL 1.0 - 4.4, and all OpenGL extensions.
+	*   Supports OpenGL 1.0 - 4.4, OpenGL ES 2.0/3.0 and all OpenGL extensions.
 
 
 ## How to install ##
@@ -46,9 +46,14 @@ https://github.com/vaiorabbit/ruby-opengl
     *   'opengl_platform.rb'     : Provies platform check funcitions (OpneGL.get_platform).
     *   'opengl_windows.rb'      : Provies funcitions for Windows platform (wglGetProcAddress).
 
+*   'opengl_es.rb' is almost the same with 'opengl.rb', except for including 'opengl_es_command.rb' and 'opengl_es_enum.rb'.
+
 *   'opengl_ext.rb' includes these scripts:
     *   'opengl_ext_command.rb'      : OpenGL extension command wrapper. Generated via generator/generate_ext_command.rb.
     *   'opengl_ext_enum.rb'         : OpenGL extension enum wrapper Generated via generator/generate_ext_enum.rb.
+    *   'opengl_ext_common.rb'       : Provies utilitiy funcitions.
+
+*   'opengl_es_ext.rb' is almost the same with 'opengl_ext.rb', except for including 'opengl_es_ext_command.rb' and 'opengl_es_ext_enum.rb'.
 
 * 'glfw.rb'
     * My handwirtten GLFW wrapper.
@@ -213,9 +218,13 @@ https://github.com/vaiorabbit/ruby-opengl
     *   'opengl_platform.rb'     : 動作プラットフォームの判別機能を提供しています (OpneGL.get_platform)。
     *   'opengl_windows.rb'      : Windows用の機能を提供しています (wglGetProcAddress)。
 
+*   'opengl_es.rb' は 'opengl_es_command.rb' と 'opengl_es_enum.rb' を取り込む以外は 'opengl.rb' と同じです。
+
 *   'opengl_ext.rb' を require することで下記のスクリプトを取り込みます:
     *   'opengl_ext_command.rb'      : OpenGL 拡張関数のラッパーコード。 generator/generate_ext_command.rb で自動生成されたものです。
     *   'opengl_ext_enum.rb'         : OpenGL 拡張enumのラッパーコード。 generator/generate_ext_enum.rb で自動生成されたものです。
+
+*   'opengl_es_ext.rb' は 'opengl_es_ext_command.rb' と 'opengl_es_ext_enum.rb' を取り込む以外は 'opengl_ext.rb' と同じです。
 
 * 'glfw.rb'
     * GLFW のラッパーコードです(自動生成ではありません)。
