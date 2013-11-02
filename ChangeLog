@@ -3,6 +3,7 @@
 	* opengl_es.rb: Aded OpenGL ES 2.0/3.0 support.
 	* sample/GLES: Aded.
 	* opengl_command.rb, opengl_ext_command.rb, opengl_ext_enum.rb: Updated using latest gl.xml.
+	* generator/Rakefile: Supported new task 'clean'.
 
 2013-10-20  vaiorabbit  <https://twitter.com/vaiorabbit>
 
