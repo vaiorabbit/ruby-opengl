@@ -19,5 +19,5 @@ Ruby bindings for OpenGL 1.0-4.4, OpenGL ES 2.0/3.0 and all extensions using Fid
 
   gem.files = Dir.glob("lib/*.rb") +
               ["README.md", "LICENSE.txt", "ChangeLog"] +
-              ["sample/simple.rb", "sample/report_env.rb", "sample/glfw_build_dylib.sh", "sample/README.md"]
+              ["sample/simple.rb", "sample/report_env.rb", "sample/report_env_es.rb", "sample/glfw_build_dylib.sh", "sample/README.md"]
 end
