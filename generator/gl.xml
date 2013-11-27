@@ -1726,6 +1726,14 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_TRIANGLE_STRIP_ADJACENCY_EXT"/>
         </group>
 
+        <group name="OcclusionQueryEventMaskAMD">
+            <enum name="GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD"/>
+            <enum name="GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD"/>
+            <enum name="GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD"/>
+            <enum name="GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD"/>
+            <enum name="GL_QUERY_ALL_EVENT_BITS_AMD"/>
+        </group>
+
         <group name="ReadBufferMode">
             <enum name="GL_AUX0"/>
             <enum name="GL_AUX1"/>
@@ -2088,6 +2096,14 @@ typedef unsigned int GLhandleARB;
         <enum value="0x00008000" name="GL_QUERY_BUFFER_BARRIER_BIT"/>
         <enum value="0xFFFFFFFF" name="GL_ALL_BARRIER_BITS"/>
         <enum value="0xFFFFFFFF" name="GL_ALL_BARRIER_BITS_EXT"/>
+    </enums>
+
+    <enums namespace="OcclusionQueryEventMaskAMD">
+        <enum value="0x00000001" name="GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD"/>
+        <enum value="0x00000002" name="GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD"/>
+        <enum value="0x00000004" name="GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD"/>
+        <enum value="0x00000008" name="GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD"/>
+        <enum value="0xFFFFFFFF" name="GL_QUERY_ALL_EVENT_BITS_AMD"/>
     </enums>
 
     <enums namespace="GL" group="SyncObjectMask" type="bitmask">
@@ -5103,7 +5119,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x874C" name="GL_STENCIL_OP_VALUE_AMD"/>
         <enum value="0x874D" name="GL_STENCIL_BACK_OP_VALUE_AMD"/>
         <enum value="0x874E" name="GL_VERTEX_ATTRIB_ARRAY_LONG"/>
-            <unused start="0x874F"/>
+        <enum value="0x874F" name="GL_OCCLUSION_QUERY_EVENT_MASK_AMD"/>
     </enums>
 
     <enums namespace="GL" start="0x8750" end="0x875F" vendor="MESA">
@@ -20309,6 +20325,13 @@ typedef unsigned int GLhandleARB;
             <alias name="glQueryCounter"/>
         </command>
         <command>
+            <proto>void <name>glQueryObjectParameteruiAMD</name></proto>
+            <param><ptype>GLenum</ptype> <name>target</name></param>
+            <param><ptype>GLuint</ptype> <name>id</name></param>
+            <param><ptype>GLenum</ptype> <name>pname</name></param>
+            <param group="OcclusionQueryEventMaskAMD"><ptype>GLuint</ptype> <name>param</name></param>
+        </command>
+        <command>
             <proto><ptype>GLbitfield</ptype> <name>glQueryMatrixxOES</name></proto>
             <param len="16"><ptype>GLfixed</ptype> *<name>mantissa</name></param>
             <param len="16"><ptype>GLint</ptype> *<name>exponent</name></param>
@@ -32158,6 +32181,17 @@ typedef unsigned int GLhandleARB;
                 <command name="glIsNameAMD"/>
             </require>
         </extension>
+        <extension name="GL_AMD_occlusion_query_event" supported="gl">
+            <require>
+                <enum name="GL_OCCLUSION_QUERY_EVENT_MASK_AMD"/>
+                <enum name="GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD"/>
+                <enum name="GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD"/>
+                <enum name="GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD"/>
+                <enum name="GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD"/>
+                <enum name="GL_QUERY_ALL_EVENT_BITS_AMD"/>
+                <command name="glQueryObjectParameteruiAMD"/>
+            </require>
+        </extension>
         <extension name="GL_AMD_performance_monitor" supported="gl|gles2">
             <require>
                 <enum name="GL_COUNTER_TYPE_AMD"/>
@@ -37813,7 +37847,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_INTERLACE_READ_INGR"/>
             </require>
         </extension>
-        <extension name="GL_INTEL_fragment_ordering" supported="gl">
+        <extension name="GL_INTEL_fragment_shader_ordering" supported="gl">
             <require/>
         </extension>
         <extension name="GL_INTEL_map_texture" supported="gl">
@@ -38101,21 +38135,10 @@ typedef unsigned int GLhandleARB;
             </require>
         </extension>
         <extension name="GL_NV_blend_equation_advanced" supported="gl|gles2">
-            <require api="gles2" comment="Really only required for ES 2.0, not ES 3.0">
-                <enum name="GL_BLUE_NV"/>
-                <enum name="GL_GREEN_NV"/>
-                <enum name="GL_RED_NV"/>
-                <enum name="GL_XOR_NV"/>
-            </require>
-            <require api="gl" comment="GL has these enums in core">
-                <enum name="GL_BLUE"/>
-                <enum name="GL_GREEN"/>
-                <enum name="GL_RED"/>
-                <enum name="GL_XOR"/>
-            </require>
             <require>
                 <enum name="GL_BLEND_OVERLAP_NV"/>
                 <enum name="GL_BLEND_PREMULTIPLIED_SRC_NV"/>
+                <enum name="GL_BLUE_NV"/>
                 <enum name="GL_COLORBURN_NV"/>
                 <enum name="GL_COLORDODGE_NV"/>
                 <enum name="GL_CONJOINT_NV"/>
@@ -38129,6 +38152,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_DST_OUT_NV"/>
                 <enum name="GL_DST_OVER_NV"/>
                 <enum name="GL_EXCLUSION_NV"/>
+                <enum name="GL_GREEN_NV"/>
                 <enum name="GL_HARDLIGHT_NV"/>
                 <enum name="GL_HARDMIX_NV"/>
                 <enum name="GL_HSL_COLOR_NV"/>
@@ -38151,6 +38175,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_PLUS_CLAMPED_NV"/>
                 <enum name="GL_PLUS_DARKER_NV"/>
                 <enum name="GL_PLUS_NV"/>
+                <enum name="GL_RED_NV"/>
                 <enum name="GL_SCREEN_NV"/>
                 <enum name="GL_SOFTLIGHT_NV"/>
                 <enum name="GL_SRC_ATOP_NV"/>
@@ -38160,6 +38185,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_SRC_OVER_NV"/>
                 <enum name="GL_UNCORRELATED_NV"/>
                 <enum name="GL_VIVIDLIGHT_NV"/>
+                <enum name="GL_XOR_NV"/>
                 <enum name="GL_ZERO"/>
                 <command name="glBlendParameteriNV"/>
                 <command name="glBlendBarrierNV"/>

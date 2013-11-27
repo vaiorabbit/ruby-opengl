@@ -170,6 +170,17 @@ module OpenGL
     SRC_GL_AMD_name_gen_delete
   end # define_command_GL_AMD_name_gen_delete
 
+  def define_command_GL_AMD_occlusion_query_event
+    GL_FUNCTIONS_ARGS_MAP[:glQueryObjectParameteruiAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glQueryObjectParameteruiAMD] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_AMD_occlusion_query_event)
+      def glQueryObjectParameteruiAMD(_target_, _id_, _pname_, _param_)
+        f = OpenGL::get_command(:glQueryObjectParameteruiAMD)
+        f.call(_target_, _id_, _pname_, _param_)
+      end
+    SRC_GL_AMD_occlusion_query_event
+  end # define_command_GL_AMD_occlusion_query_event
+
   def define_command_GL_AMD_performance_monitor
     GL_FUNCTIONS_ARGS_MAP[:glGetPerfMonitorGroupsAMD] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPerfMonitorGroupsAMD] = Fiddle::TYPE_VOID
@@ -13209,8 +13220,8 @@ module OpenGL
   def define_command_GL_INGR_interlace_read
   end # define_command_GL_INGR_interlace_read
 
-  def define_command_GL_INTEL_fragment_ordering
-  end # define_command_GL_INTEL_fragment_ordering
+  def define_command_GL_INTEL_fragment_shader_ordering
+  end # define_command_GL_INTEL_fragment_shader_ordering
 
   def define_command_GL_INTEL_map_texture
     GL_FUNCTIONS_ARGS_MAP[:glSyncTextureINTEL] = [-Fiddle::TYPE_INT]

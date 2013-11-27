@@ -585,16 +585,9 @@ module OpenGL
   end # define_enum_GL_KHR_texture_compression_astc_ldr
 
   def define_enum_GL_NV_blend_equation_advanced
-    const_set('GL_BLUE_NV', 0x1905) unless defined?(GL_BLUE_NV)
-    const_set('GL_GREEN_NV', 0x1904) unless defined?(GL_GREEN_NV)
-    const_set('GL_RED_NV', 0x1903) unless defined?(GL_RED_NV)
-    const_set('GL_XOR_NV', 0x1506) unless defined?(GL_XOR_NV)
-    const_set('GL_BLUE', 0x1905) unless defined?(GL_BLUE)
-    const_set('GL_GREEN', 0x1904) unless defined?(GL_GREEN)
-    const_set('GL_RED', 0x1903) unless defined?(GL_RED)
-    const_set('GL_XOR', 0x1506) unless defined?(GL_XOR)
     const_set('GL_BLEND_OVERLAP_NV', 0x9281) unless defined?(GL_BLEND_OVERLAP_NV)
     const_set('GL_BLEND_PREMULTIPLIED_SRC_NV', 0x9280) unless defined?(GL_BLEND_PREMULTIPLIED_SRC_NV)
+    const_set('GL_BLUE_NV', 0x1905) unless defined?(GL_BLUE_NV)
     const_set('GL_COLORBURN_NV', 0x929A) unless defined?(GL_COLORBURN_NV)
     const_set('GL_COLORDODGE_NV', 0x9299) unless defined?(GL_COLORDODGE_NV)
     const_set('GL_CONJOINT_NV', 0x9284) unless defined?(GL_CONJOINT_NV)
@@ -608,6 +601,7 @@ module OpenGL
     const_set('GL_DST_OUT_NV', 0x928D) unless defined?(GL_DST_OUT_NV)
     const_set('GL_DST_OVER_NV', 0x9289) unless defined?(GL_DST_OVER_NV)
     const_set('GL_EXCLUSION_NV', 0x92A0) unless defined?(GL_EXCLUSION_NV)
+    const_set('GL_GREEN_NV', 0x1904) unless defined?(GL_GREEN_NV)
     const_set('GL_HARDLIGHT_NV', 0x929B) unless defined?(GL_HARDLIGHT_NV)
     const_set('GL_HARDMIX_NV', 0x92A9) unless defined?(GL_HARDMIX_NV)
     const_set('GL_HSL_COLOR_NV', 0x92AF) unless defined?(GL_HSL_COLOR_NV)
@@ -630,6 +624,7 @@ module OpenGL
     const_set('GL_PLUS_CLAMPED_NV', 0x92B1) unless defined?(GL_PLUS_CLAMPED_NV)
     const_set('GL_PLUS_DARKER_NV', 0x9292) unless defined?(GL_PLUS_DARKER_NV)
     const_set('GL_PLUS_NV', 0x9291) unless defined?(GL_PLUS_NV)
+    const_set('GL_RED_NV', 0x1903) unless defined?(GL_RED_NV)
     const_set('GL_SCREEN_NV', 0x9295) unless defined?(GL_SCREEN_NV)
     const_set('GL_SOFTLIGHT_NV', 0x929C) unless defined?(GL_SOFTLIGHT_NV)
     const_set('GL_SRC_ATOP_NV', 0x928E) unless defined?(GL_SRC_ATOP_NV)
@@ -639,6 +634,7 @@ module OpenGL
     const_set('GL_SRC_OVER_NV', 0x9288) unless defined?(GL_SRC_OVER_NV)
     const_set('GL_UNCORRELATED_NV', 0x9282) unless defined?(GL_UNCORRELATED_NV)
     const_set('GL_VIVIDLIGHT_NV', 0x92A6) unless defined?(GL_VIVIDLIGHT_NV)
+    const_set('GL_XOR_NV', 0x1506) unless defined?(GL_XOR_NV)
     const_set('GL_ZERO', 0) unless defined?(GL_ZERO)
   end # define_enum_GL_NV_blend_equation_advanced
 
