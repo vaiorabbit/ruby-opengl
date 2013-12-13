@@ -10346,12 +10346,12 @@ module OpenGL
       end
     SRC_GL_EXT_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glClearNamedBufferSubDataEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_ARGS_MAP[:glClearNamedBufferSubDataEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glClearNamedBufferSubDataEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
-      def glClearNamedBufferSubDataEXT(_buffer_, _internalformat_, _format_, _type_, _offset_, _size_, _data_)
+      def glClearNamedBufferSubDataEXT(_buffer_, _internalformat_, _offset_, _size_, _format_, _type_, _data_)
         f = OpenGL::get_command(:glClearNamedBufferSubDataEXT)
-        f.call(_buffer_, _internalformat_, _format_, _type_, _offset_, _size_, _data_)
+        f.call(_buffer_, _internalformat_, _offset_, _size_, _format_, _type_, _data_)
       end
     SRC_GL_EXT_direct_state_access
 
