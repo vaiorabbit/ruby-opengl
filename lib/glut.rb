@@ -239,7 +239,7 @@ module GLUT
     :GLUTJoystickFunc        => "void GLUTJoystickFunc(unsigned int, int, int, int)",
     :GLUTMenuStateFunc       => "void GLUTMenuStateFunc(int)",
     :GLUTMenuStatusFunc      => "void GLUTMenuStatusFunc(int, int, int)",
-    :GLUTOverlayDisplayFunc  => "void GLUTOverlayDisplayFunc(void)",
+    :GLUTOverlayDisplayFunc  => "void GLUTOverlayDisplayFunc()",
     :GLUTWindowStatusFunc    => "void GLUTWindowStatusFunc(int)",
 
     :GLUTSpaceballMotionFunc => "void GLUTSpaceballMotionFunc(int, int, int)",
