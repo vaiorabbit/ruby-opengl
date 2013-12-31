@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2013-12-14
+*   Last modified : 2013-12-31
 
 
 ## Features ##
@@ -100,7 +100,7 @@ https://github.com/vaiorabbit/ruby-opengl
 ## Tested Environment ##
 
 *   Ruby
-    *   ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
+    *   ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin13.0.0]
     *   ruby 2.0.0p247 (2013-06-27) [i386-mingw32]
 
 *   Windows 7 Home Premium, 64-bit (Service Pack 1)

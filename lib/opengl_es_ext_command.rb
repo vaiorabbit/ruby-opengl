@@ -1309,6 +1309,98 @@ module OpenGL
   def define_command_GL_IMG_texture_compression_pvrtc2
   end # define_command_GL_IMG_texture_compression_pvrtc2
 
+  def define_command_GL_INTEL_performance_query
+    GL_FUNCTIONS_ARGS_MAP[:glBeginPerfQueryINTEL] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glBeginPerfQueryINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_performance_query)
+      def glBeginPerfQueryINTEL(_queryHandle_)
+        f = OpenGL::get_command(:glBeginPerfQueryINTEL)
+        f.call(_queryHandle_)
+      end
+    SRC_GL_INTEL_performance_query
+
+    GL_FUNCTIONS_ARGS_MAP[:glCreatePerfQueryINTEL] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glCreatePerfQueryINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_performance_query)
+      def glCreatePerfQueryINTEL(_queryId_, _queryHandle_)
+        f = OpenGL::get_command(:glCreatePerfQueryINTEL)
+        f.call(_queryId_, _queryHandle_)
+      end
+    SRC_GL_INTEL_performance_query
+
+    GL_FUNCTIONS_ARGS_MAP[:glDeletePerfQueryINTEL] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glDeletePerfQueryINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_performance_query)
+      def glDeletePerfQueryINTEL(_queryHandle_)
+        f = OpenGL::get_command(:glDeletePerfQueryINTEL)
+        f.call(_queryHandle_)
+      end
+    SRC_GL_INTEL_performance_query
+
+    GL_FUNCTIONS_ARGS_MAP[:glEndPerfQueryINTEL] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glEndPerfQueryINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_performance_query)
+      def glEndPerfQueryINTEL(_queryHandle_)
+        f = OpenGL::get_command(:glEndPerfQueryINTEL)
+        f.call(_queryHandle_)
+      end
+    SRC_GL_INTEL_performance_query
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetFirstPerfQueryIdINTEL] = [Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetFirstPerfQueryIdINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_performance_query)
+      def glGetFirstPerfQueryIdINTEL(_queryId_)
+        f = OpenGL::get_command(:glGetFirstPerfQueryIdINTEL)
+        f.call(_queryId_)
+      end
+    SRC_GL_INTEL_performance_query
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetNextPerfQueryIdINTEL] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetNextPerfQueryIdINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_performance_query)
+      def glGetNextPerfQueryIdINTEL(_queryId_, _nextQueryId_)
+        f = OpenGL::get_command(:glGetNextPerfQueryIdINTEL)
+        f.call(_queryId_, _nextQueryId_)
+      end
+    SRC_GL_INTEL_performance_query
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetPerfCounterInfoINTEL] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetPerfCounterInfoINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_performance_query)
+      def glGetPerfCounterInfoINTEL(_queryId_, _counterId_, _counterNameLength_, _counterName_, _counterDescLength_, _counterDesc_, _counterOffset_, _counterDataSize_, _counterTypeEnum_, _counterDataTypeEnum_, _rawCounterMaxValue_)
+        f = OpenGL::get_command(:glGetPerfCounterInfoINTEL)
+        f.call(_queryId_, _counterId_, _counterNameLength_, _counterName_, _counterDescLength_, _counterDesc_, _counterOffset_, _counterDataSize_, _counterTypeEnum_, _counterDataTypeEnum_, _rawCounterMaxValue_)
+      end
+    SRC_GL_INTEL_performance_query
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetPerfQueryDataINTEL] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetPerfQueryDataINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_performance_query)
+      def glGetPerfQueryDataINTEL(_queryHandle_, _flags_, _dataSize_, _data_, _bytesWritten_)
+        f = OpenGL::get_command(:glGetPerfQueryDataINTEL)
+        f.call(_queryHandle_, _flags_, _dataSize_, _data_, _bytesWritten_)
+      end
+    SRC_GL_INTEL_performance_query
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetPerfQueryIdByNameINTEL] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetPerfQueryIdByNameINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_performance_query)
+      def glGetPerfQueryIdByNameINTEL(_queryName_, _queryId_)
+        f = OpenGL::get_command(:glGetPerfQueryIdByNameINTEL)
+        f.call(_queryName_, _queryId_)
+      end
+    SRC_GL_INTEL_performance_query
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetPerfQueryInfoINTEL] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetPerfQueryInfoINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_performance_query)
+      def glGetPerfQueryInfoINTEL(_queryId_, _queryNameLength_, _queryName_, _dataSize_, _noCounters_, _noInstances_, _capsMask_)
+        f = OpenGL::get_command(:glGetPerfQueryInfoINTEL)
+        f.call(_queryId_, _queryNameLength_, _queryName_, _dataSize_, _noCounters_, _noInstances_, _capsMask_)
+      end
+    SRC_GL_INTEL_performance_query
+  end # define_command_GL_INTEL_performance_query
+
   def define_command_GL_KHR_debug
     GL_FUNCTIONS_ARGS_MAP[:glDebugMessageControl] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glDebugMessageControl] = Fiddle::TYPE_VOID

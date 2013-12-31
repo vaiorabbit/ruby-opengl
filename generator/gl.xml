@@ -572,12 +572,12 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_FLOAT"/>
             <enum name="GL_DOUBLE"/>
         </group>
-        
+
         <group name="FogPointerTypeIBM">
             <enum name="GL_FLOAT"/>
             <enum name="GL_DOUBLE"/>
         </group>
-        
+
         <group name="FragmentLightModelParameterSGIX">
             <enum name="GL_FRAGMENT_LIGHT_MODEL_AMBIENT_SGIX"/>
             <enum name="GL_FRAGMENT_LIGHT_MODEL_LOCAL_VIEWER_SGIX"/>
@@ -7824,16 +7824,16 @@ typedef unsigned int GLhandleARB;
         <enum value="0x93BC" name="GL_COMPRESSED_RGBA_ASTC_12x10_KHR"/>
         <enum value="0x93BD" name="GL_COMPRESSED_RGBA_ASTC_12x12_KHR"/>
             <unused start="0x93BE" end="0x93BF"/>
-        <enum value="0x93C0" name="GL_COMPRESSED_RGBA_ASTC_3x3x3_OES"/>          
-        <enum value="0x93C1" name="GL_COMPRESSED_RGBA_ASTC_4x3x3_OES"/>          
-        <enum value="0x93C2" name="GL_COMPRESSED_RGBA_ASTC_4x4x3_OES"/>          
-        <enum value="0x93C3" name="GL_COMPRESSED_RGBA_ASTC_4x4x4_OES"/>          
-        <enum value="0x93C4" name="GL_COMPRESSED_RGBA_ASTC_5x4x4_OES"/>          
-        <enum value="0x93C5" name="GL_COMPRESSED_RGBA_ASTC_5x5x4_OES"/>          
-        <enum value="0x93C6" name="GL_COMPRESSED_RGBA_ASTC_5x5x5_OES"/>          
-        <enum value="0x93C7" name="GL_COMPRESSED_RGBA_ASTC_6x5x5_OES"/>          
-        <enum value="0x93C8" name="GL_COMPRESSED_RGBA_ASTC_6x6x5_OES"/>          
-        <enum value="0x93C9" name="GL_COMPRESSED_RGBA_ASTC_6x6x6_OES"/>          
+        <enum value="0x93C0" name="GL_COMPRESSED_RGBA_ASTC_3x3x3_OES"/>
+        <enum value="0x93C1" name="GL_COMPRESSED_RGBA_ASTC_4x3x3_OES"/>
+        <enum value="0x93C2" name="GL_COMPRESSED_RGBA_ASTC_4x4x3_OES"/>
+        <enum value="0x93C3" name="GL_COMPRESSED_RGBA_ASTC_4x4x4_OES"/>
+        <enum value="0x93C4" name="GL_COMPRESSED_RGBA_ASTC_5x4x4_OES"/>
+        <enum value="0x93C5" name="GL_COMPRESSED_RGBA_ASTC_5x5x4_OES"/>
+        <enum value="0x93C6" name="GL_COMPRESSED_RGBA_ASTC_5x5x5_OES"/>
+        <enum value="0x93C7" name="GL_COMPRESSED_RGBA_ASTC_6x5x5_OES"/>
+        <enum value="0x93C8" name="GL_COMPRESSED_RGBA_ASTC_6x6x5_OES"/>
+        <enum value="0x93C9" name="GL_COMPRESSED_RGBA_ASTC_6x6x6_OES"/>
             <unused start="0x93CA" end="0x93CF"/>
         <enum value="0x93D0" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR"/>
         <enum value="0x93D1" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR"/>
@@ -7850,21 +7850,41 @@ typedef unsigned int GLhandleARB;
         <enum value="0x93DC" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR"/>
         <enum value="0x93DD" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR"/>
             <unused start="0x93DE" end="0x93DF"/>
-        <enum value="0x93E0" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_3x3x3_OES"/>  
-        <enum value="0x93E1" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x3x3_OES"/>  
-        <enum value="0x93E2" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x3_OES"/>  
-        <enum value="0x93E3" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x4_OES"/>  
-        <enum value="0x93E4" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4x4_OES"/>  
-        <enum value="0x93E5" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x4_OES"/>  
-        <enum value="0x93E6" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x5_OES"/>  
-        <enum value="0x93E7" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5x5_OES"/>  
-        <enum value="0x93E8" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x5_OES"/>  
-        <enum value="0x93E9" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x6_OES"/>  
+        <enum value="0x93E0" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_3x3x3_OES"/>
+        <enum value="0x93E1" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x3x3_OES"/>
+        <enum value="0x93E2" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x3_OES"/>
+        <enum value="0x93E3" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x4_OES"/>
+        <enum value="0x93E4" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4x4_OES"/>
+        <enum value="0x93E5" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x4_OES"/>
+        <enum value="0x93E6" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x5_OES"/>
+        <enum value="0x93E7" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5x5_OES"/>
+        <enum value="0x93E8" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x5_OES"/>
+        <enum value="0x93E9" name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x6_OES"/>
             <unused start="0x93EA" end="0x93EF"/>
     </enums>
 
     <enums namespace="GL" start="0x93F0" end="0x94EF" vendor="APPLE" comment="Khronos bug 10233">
             <unused start="0x93F0" end="0x94EF"/>
+    </enums>
+
+    <enums namespace="GL" start="0x94F0" end="0x950F" vendor="INTEL" comment="Khronos bug 11345">
+        <enum value="0x94F0" name="GL_PERFQUERY_COUNTER_EVENT_INTEL"/>           
+        <enum value="0x94F1" name="GL_PERFQUERY_COUNTER_DURATION_NORM_INTEL"/>   
+        <enum value="0x94F2" name="GL_PERFQUERY_COUNTER_DURATION_RAW_INTEL"/>    
+        <enum value="0x94F3" name="GL_PERFQUERY_COUNTER_THROUGHPUT_INTEL"/>      
+        <enum value="0x94F4" name="GL_PERFQUERY_COUNTER_RAW_INTEL"/>             
+        <enum value="0x94F5" name="GL_PERFQUERY_COUNTER_TIMESTAMP_INTEL"/>       
+            <unused start="0x94F6" end="0x94F7"/>
+        <enum value="0x94F8" name="GL_PERFQUERY_COUNTER_DATA_UINT32_INTEL"/>     
+        <enum value="0x94F9" name="GL_PERFQUERY_COUNTER_DATA_UINT64_INTEL"/>     
+        <enum value="0x94FA" name="GL_PERFQUERY_COUNTER_DATA_FLOAT_INTEL"/>      
+        <enum value="0x94FB" name="GL_PERFQUERY_COUNTER_DATA_DOUBLE_INTEL"/>     
+        <enum value="0x94FC" name="GL_PERFQUERY_COUNTER_DATA_BOOL32_INTEL"/>     
+        <enum value="0x94FD" name="GL_PERFQUERY_QUERY_NAME_LENGTH_MAX_INTEL"/>   
+        <enum value="0x94FE" name="GL_PERFQUERY_COUNTER_NAME_LENGTH_MAX_INTEL"/> 
+        <enum value="0x94FF" name="GL_PERFQUERY_COUNTER_DESC_LENGTH_MAX_INTEL"/> 
+        <enum value="0x9500" name="GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL"/>   
+            <unused start="0x9501" end="0x950F"/>
     </enums>
 
 <!-- Enums reservable for future use. To reserve a new range, allocate one
@@ -7876,8 +7896,8 @@ typedef unsigned int GLhandleARB;
      file) File requests in the Khronos Bugzilla, OpenGL project, Registry
      component. -->
 
-    <enums namespace="GL" start="0x94F0" end="99999" vendor="ARB" comment="RESERVED FOR FUTURE ALLOCATIONS BY KHRONOS">
-        <unused start="0x94F0" end="99999"/>
+    <enums namespace="GL" start="0x9510" end="99999" vendor="ARB" comment="RESERVED FOR FUTURE ALLOCATIONS BY KHRONOS">
+        <unused start="0x9510" end="99999"/>
     </enums>
 
 <!-- Historical large block allocations, all unused except (in older days) by IBM -->
@@ -8135,6 +8155,10 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glBeginPerfMonitorAMD</name></proto>
             <param><ptype>GLuint</ptype> <name>monitor</name></param>
+        </command>
+        <command>
+            <proto>void <name>glBeginPerfQueryINTEL</name></proto>
+            <param><ptype>GLuint</ptype> <name>queryHandle</name></param>
         </command>
         <command>
             <proto>void <name>glBeginQuery</name></proto>
@@ -10659,6 +10683,11 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLenum</ptype> <name>operation</name></param>
         </command>
         <command>
+            <proto>void <name>glCreatePerfQueryINTEL</name></proto>
+            <param><ptype>GLuint</ptype> <name>queryId</name></param>
+            <param><ptype>GLuint</ptype> *<name>queryHandle</name></param>
+        </command>
+        <command>
             <proto><ptype>GLuint</ptype> <name>glCreateProgram</name></proto>
         </command>
         <command>
@@ -10942,6 +10971,10 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glDeletePerfMonitorsAMD</name></proto>
             <param><ptype>GLsizei</ptype> <name>n</name></param>
             <param len="n"><ptype>GLuint</ptype> *<name>monitors</name></param>
+        </command>
+        <command>
+            <proto>void <name>glDeletePerfQueryINTEL</name></proto>
+            <param><ptype>GLuint</ptype> <name>queryHandle</name></param>
         </command>
         <command>
             <proto>void <name>glDeleteProgram</name></proto>
@@ -11744,6 +11777,10 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glEndPerfMonitorAMD</name></proto>
             <param><ptype>GLuint</ptype> <name>monitor</name></param>
+        </command>
+        <command>
+            <proto>void <name>glEndPerfQueryINTEL</name></proto>
+            <param><ptype>GLuint</ptype> <name>queryHandle</name></param>
         </command>
         <command>
             <proto>void <name>glEndQuery</name></proto>
@@ -13323,6 +13360,10 @@ typedef unsigned int GLhandleARB;
             <glx type="vendor" opcode="1275"/>
         </command>
         <command>
+            <proto>void <name>glGetFirstPerfQueryIdINTEL</name></proto>
+            <param><ptype>GLuint</ptype> *<name>queryId</name></param>
+        </command>
+        <command>
             <proto>void <name>glGetFixedv</name></proto>
             <param><ptype>GLenum</ptype> <name>pname</name></param>
             <param><ptype>GLfixed</ptype> *<name>params</name></param>
@@ -14033,6 +14074,11 @@ typedef unsigned int GLhandleARB;
             <param len="COMPSIZE(pname)"><ptype>GLint</ptype> *<name>params</name></param>
         </command>
         <command>
+            <proto>void <name>glGetNextPerfQueryIdINTEL</name></proto>
+            <param><ptype>GLuint</ptype> <name>queryId</name></param>
+            <param><ptype>GLuint</ptype> *<name>nextQueryId</name></param>
+        </command>
+        <command>
             <proto>void <name>glGetObjectBufferfvATI</name></proto>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
             <param group="ArrayObjectPNameATI"><ptype>GLenum</ptype> <name>pname</name></param>
@@ -14203,6 +14249,20 @@ typedef unsigned int GLhandleARB;
             <param len="COMPSIZE(pname)"><ptype>GLint</ptype> *<name>value</name></param>
         </command>
         <command>
+            <proto>void <name>glGetPerfCounterInfoINTEL</name></proto>
+            <param><ptype>GLuint</ptype> <name>queryId</name></param>
+            <param><ptype>GLuint</ptype> <name>counterId</name></param>
+            <param><ptype>GLuint</ptype> <name>counterNameLength</name></param>
+            <param><ptype>GLchar</ptype> *<name>counterName</name></param>
+            <param><ptype>GLuint</ptype> <name>counterDescLength</name></param>
+            <param><ptype>GLchar</ptype> *<name>counterDesc</name></param>
+            <param><ptype>GLuint</ptype> *<name>counterOffset</name></param>
+            <param><ptype>GLuint</ptype> *<name>counterDataSize</name></param>
+            <param><ptype>GLuint</ptype> *<name>counterTypeEnum</name></param>
+            <param><ptype>GLuint</ptype> *<name>counterDataTypeEnum</name></param>
+            <param><ptype>GLuint64</ptype> *<name>rawCounterMaxValue</name></param>
+        </command>
+        <command>
             <proto>void <name>glGetPerfMonitorCounterDataAMD</name></proto>
             <param><ptype>GLuint</ptype> <name>monitor</name></param>
             <param><ptype>GLenum</ptype> <name>pname</name></param>
@@ -14245,6 +14305,29 @@ typedef unsigned int GLhandleARB;
             <param len="1"><ptype>GLint</ptype> *<name>numGroups</name></param>
             <param><ptype>GLsizei</ptype> <name>groupsSize</name></param>
             <param len="groupsSize"><ptype>GLuint</ptype> *<name>groups</name></param>
+        </command>
+        <command>
+            <proto>void <name>glGetPerfQueryDataINTEL</name></proto>
+            <param><ptype>GLuint</ptype> <name>queryHandle</name></param>
+            <param><ptype>GLuint</ptype> <name>flags</name></param>
+            <param><ptype>GLsizei</ptype> <name>dataSize</name></param>
+            <param><ptype>GLvoid</ptype> *<name>data</name></param>
+            <param><ptype>GLuint</ptype> *<name>bytesWritten</name></param>
+        </command>
+        <command>
+            <proto>void <name>glGetPerfQueryIdByNameINTEL</name></proto>
+            <param><ptype>GLchar</ptype> *<name>queryName</name></param>
+            <param><ptype>GLuint</ptype> *<name>queryId</name></param>
+        </command>
+        <command>
+            <proto>void <name>glGetPerfQueryInfoINTEL</name></proto>
+            <param><ptype>GLuint</ptype> <name>queryId</name></param>
+            <param><ptype>GLuint</ptype> <name>queryNameLength</name></param>
+            <param><ptype>GLchar</ptype> *<name>queryName</name></param>
+            <param><ptype>GLuint</ptype> *<name>dataSize</name></param>
+            <param><ptype>GLuint</ptype> *<name>noCounters</name></param>
+            <param><ptype>GLuint</ptype> *<name>noInstances</name></param>
+            <param><ptype>GLuint</ptype> *<name>capsMask</name></param>
         </command>
         <command>
             <proto>void <name>glGetPixelMapfv</name></proto>
@@ -21070,7 +21153,7 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glSampleMaski</name></proto>
-            <param><ptype>GLuint</ptype> <name>index</name></param>
+            <param><ptype>GLuint</ptype> <name>maskNumber</name></param>
             <param><ptype>GLbitfield</ptype> <name>mask</name></param>
         </command>
         <command>
@@ -37929,6 +38012,40 @@ typedef unsigned int GLhandleARB;
                 <command name="glTexCoordPointervINTEL"/>
             </require>
         </extension>
+        <extension name="GL_INTEL_performance_query" supported="gl|gles2">
+            <require>
+                <enum name="GL_PERFQUERY_SINGLE_CONTEXT_INTEL"/>
+                <enum name="GL_PERFQUERY_GLOBAL_CONTEXT_INTEL"/>
+                <enum name="GL_PERFQUERY_WAIT_INTEL"/>
+                <enum name="GL_PERFQUERY_FLUSH_INTEL"/>
+                <enum name="GL_PERFQUERY_DONOT_FLUSH_INTEL"/>
+                <enum name="GL_PERFQUERY_COUNTER_EVENT_INTEL"/>
+                <enum name="GL_PERFQUERY_COUNTER_DURATION_NORM_INTEL"/>
+                <enum name="GL_PERFQUERY_COUNTER_DURATION_RAW_INTEL"/>
+                <enum name="GL_PERFQUERY_COUNTER_THROUGHPUT_INTEL"/>
+                <enum name="GL_PERFQUERY_COUNTER_RAW_INTEL"/>
+                <enum name="GL_PERFQUERY_COUNTER_TIMESTAMP_INTEL"/>
+                <enum name="GL_PERFQUERY_COUNTER_DATA_UINT32_INTEL"/>
+                <enum name="GL_PERFQUERY_COUNTER_DATA_UINT64_INTEL"/>
+                <enum name="GL_PERFQUERY_COUNTER_DATA_FLOAT_INTEL"/>
+                <enum name="GL_PERFQUERY_COUNTER_DATA_DOUBLE_INTEL"/>
+                <enum name="GL_PERFQUERY_COUNTER_DATA_BOOL32_INTEL"/>
+                <enum name="GL_PERFQUERY_QUERY_NAME_LENGTH_MAX_INTEL"/>
+                <enum name="GL_PERFQUERY_COUNTER_NAME_LENGTH_MAX_INTEL"/>
+                <enum name="GL_PERFQUERY_COUNTER_DESC_LENGTH_MAX_INTEL"/>
+                <enum name="GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL"/>
+                <command name="glBeginPerfQueryINTEL"/>
+                <command name="glCreatePerfQueryINTEL"/>
+                <command name="glDeletePerfQueryINTEL"/>
+                <command name="glEndPerfQueryINTEL"/>
+                <command name="glGetFirstPerfQueryIdINTEL"/>
+                <command name="glGetNextPerfQueryIdINTEL"/>
+                <command name="glGetPerfCounterInfoINTEL"/>
+                <command name="glGetPerfQueryDataINTEL"/>
+                <command name="glGetPerfQueryIdByNameINTEL"/>
+                <command name="glGetPerfQueryInfoINTEL"/>
+            </require>
+        </extension>
         <extension name="GL_KHR_debug" supported="gl|glcore|gles2">
             <require api="gl" comment="KHR extensions *mandate* suffixes for ES, unlike for GL">
                 <enum name="GL_DEBUG_OUTPUT_SYNCHRONOUS"/>
@@ -40320,26 +40437,26 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR"/>
                 <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR"/>
                 <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR"/>
-                <enum name="GL_COMPRESSED_RGBA_ASTC_3x3x3_OES"/>          
-                <enum name="GL_COMPRESSED_RGBA_ASTC_4x3x3_OES"/>          
-                <enum name="GL_COMPRESSED_RGBA_ASTC_4x4x3_OES"/>          
-                <enum name="GL_COMPRESSED_RGBA_ASTC_4x4x4_OES"/>          
-                <enum name="GL_COMPRESSED_RGBA_ASTC_5x4x4_OES"/>          
-                <enum name="GL_COMPRESSED_RGBA_ASTC_5x5x4_OES"/>          
-                <enum name="GL_COMPRESSED_RGBA_ASTC_5x5x5_OES"/>          
-                <enum name="GL_COMPRESSED_RGBA_ASTC_6x5x5_OES"/>          
-                <enum name="GL_COMPRESSED_RGBA_ASTC_6x6x5_OES"/>          
-                <enum name="GL_COMPRESSED_RGBA_ASTC_6x6x6_OES"/>          
-                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_3x3x3_OES"/>  
-                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x3x3_OES"/>  
-                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x3_OES"/>  
-                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x4_OES"/>  
-                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4x4_OES"/>  
-                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x4_OES"/>  
-                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x5_OES"/>  
-                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5x5_OES"/>  
-                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x5_OES"/>  
-                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x6_OES"/>  
+                <enum name="GL_COMPRESSED_RGBA_ASTC_3x3x3_OES"/>
+                <enum name="GL_COMPRESSED_RGBA_ASTC_4x3x3_OES"/>
+                <enum name="GL_COMPRESSED_RGBA_ASTC_4x4x3_OES"/>
+                <enum name="GL_COMPRESSED_RGBA_ASTC_4x4x4_OES"/>
+                <enum name="GL_COMPRESSED_RGBA_ASTC_5x4x4_OES"/>
+                <enum name="GL_COMPRESSED_RGBA_ASTC_5x5x4_OES"/>
+                <enum name="GL_COMPRESSED_RGBA_ASTC_5x5x5_OES"/>
+                <enum name="GL_COMPRESSED_RGBA_ASTC_6x5x5_OES"/>
+                <enum name="GL_COMPRESSED_RGBA_ASTC_6x6x5_OES"/>
+                <enum name="GL_COMPRESSED_RGBA_ASTC_6x6x6_OES"/>
+                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_3x3x3_OES"/>
+                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x3x3_OES"/>
+                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x3_OES"/>
+                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_4x4x4_OES"/>
+                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x4x4_OES"/>
+                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x4_OES"/>
+                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_5x5x5_OES"/>
+                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5x5_OES"/>
+                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x5_OES"/>
+                <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x6_OES"/>
             </require>
         </extension>
         <extension name="GL_OES_texture_cube_map" supported="gles1">

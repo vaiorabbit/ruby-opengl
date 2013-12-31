@@ -4665,9 +4665,9 @@ module OpenGL
 
   GL_FUNCTIONS_ARGS_MAP[:glSampleMaski] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
   GL_FUNCTIONS_RETVAL_MAP[:glSampleMaski] = Fiddle::TYPE_VOID
-  def glSampleMaski(_index_, _mask_)
+  def glSampleMaski(_maskNumber_, _mask_)
     f = OpenGL::get_command(:glSampleMaski)
-    f.call(_index_, _mask_)
+    f.call(_maskNumber_, _mask_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glBindFragDataLocationIndexed] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
