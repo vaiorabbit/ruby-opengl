@@ -1,3 +1,7 @@
+2014-01-01  vaiorabbit  <https://twitter.com/vaiorabbit>
+
+	* glut.rb: Now supports API Level 4 (GLUT_API_VERSION = 4).
+
 2013-12-31  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.

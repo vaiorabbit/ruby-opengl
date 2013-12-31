@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2013-12-31
+*   Last modified : 2014-01-01
 
 
 ## Features ##
@@ -59,7 +59,7 @@ https://github.com/vaiorabbit/ruby-opengl
     * My handwirtten GLFW wrapper.
 
 * 'glut.rb'
-    * Minimal GLUT wrapper.
+    * GLUT wrapper. Supports API Level 4 (GLUT_API_VERSION = 4).
 
 * 'glu.rb'
     * My handwirtten GLU wrapper.
@@ -231,7 +231,8 @@ https://github.com/vaiorabbit/ruby-opengl
     * GLFW のラッパーコードです(自動生成ではありません)。
 
 * 'glut.rb'
-    * GLUT ラッパー (よく使う関数限定)
+    * GLUT ラッパー。API Level 4 までサポートしています (GLUT_API_VERSION = 4)。
+
 
 * 'glu.rb'
     * GLU のラッパーコードです(自動生成ではありません)。
