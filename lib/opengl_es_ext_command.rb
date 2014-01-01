@@ -8,13 +8,13 @@ require 'fiddle'
 
 module OpenGL
 
-  def define_command_GL_AMD_compressed_3DC_texture
-  end # define_command_GL_AMD_compressed_3DC_texture
+  def define_ext_command_GL_AMD_compressed_3DC_texture
+  end # define_ext_command_GL_AMD_compressed_3DC_texture
 
-  def define_command_GL_AMD_compressed_ATC_texture
-  end # define_command_GL_AMD_compressed_ATC_texture
+  def define_ext_command_GL_AMD_compressed_ATC_texture
+  end # define_ext_command_GL_AMD_compressed_ATC_texture
 
-  def define_command_GL_AMD_performance_monitor
+  def define_ext_command_GL_AMD_performance_monitor
     GL_FUNCTIONS_ARGS_MAP[:glGetPerfMonitorGroupsAMD] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetPerfMonitorGroupsAMD] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_AMD_performance_monitor)
@@ -113,15 +113,15 @@ module OpenGL
         f.call(_monitor_, _pname_, _dataSize_, _data_, _bytesWritten_)
       end
     SRC_GL_AMD_performance_monitor
-  end # define_command_GL_AMD_performance_monitor
+  end # define_ext_command_GL_AMD_performance_monitor
 
-  def define_command_GL_AMD_program_binary_Z400
-  end # define_command_GL_AMD_program_binary_Z400
+  def define_ext_command_GL_AMD_program_binary_Z400
+  end # define_ext_command_GL_AMD_program_binary_Z400
 
-  def define_command_GL_ANGLE_depth_texture
-  end # define_command_GL_ANGLE_depth_texture
+  def define_ext_command_GL_ANGLE_depth_texture
+  end # define_ext_command_GL_ANGLE_depth_texture
 
-  def define_command_GL_ANGLE_framebuffer_blit
+  def define_ext_command_GL_ANGLE_framebuffer_blit
     GL_FUNCTIONS_ARGS_MAP[:glBlitFramebufferANGLE] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlitFramebufferANGLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ANGLE_framebuffer_blit)
@@ -130,9 +130,9 @@ module OpenGL
         f.call(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
       end
     SRC_GL_ANGLE_framebuffer_blit
-  end # define_command_GL_ANGLE_framebuffer_blit
+  end # define_ext_command_GL_ANGLE_framebuffer_blit
 
-  def define_command_GL_ANGLE_framebuffer_multisample
+  def define_ext_command_GL_ANGLE_framebuffer_multisample
     GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleANGLE] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorageMultisampleANGLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ANGLE_framebuffer_multisample)
@@ -141,9 +141,9 @@ module OpenGL
         f.call(_target_, _samples_, _internalformat_, _width_, _height_)
       end
     SRC_GL_ANGLE_framebuffer_multisample
-  end # define_command_GL_ANGLE_framebuffer_multisample
+  end # define_ext_command_GL_ANGLE_framebuffer_multisample
 
-  def define_command_GL_ANGLE_instanced_arrays
+  def define_ext_command_GL_ANGLE_instanced_arrays
     GL_FUNCTIONS_ARGS_MAP[:glDrawArraysInstancedANGLE] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawArraysInstancedANGLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ANGLE_instanced_arrays)
@@ -170,24 +170,24 @@ module OpenGL
         f.call(_index_, _divisor_)
       end
     SRC_GL_ANGLE_instanced_arrays
-  end # define_command_GL_ANGLE_instanced_arrays
+  end # define_ext_command_GL_ANGLE_instanced_arrays
 
-  def define_command_GL_ANGLE_pack_reverse_row_order
-  end # define_command_GL_ANGLE_pack_reverse_row_order
+  def define_ext_command_GL_ANGLE_pack_reverse_row_order
+  end # define_ext_command_GL_ANGLE_pack_reverse_row_order
 
-  def define_command_GL_ANGLE_program_binary
-  end # define_command_GL_ANGLE_program_binary
+  def define_ext_command_GL_ANGLE_program_binary
+  end # define_ext_command_GL_ANGLE_program_binary
 
-  def define_command_GL_ANGLE_texture_compression_dxt3
-  end # define_command_GL_ANGLE_texture_compression_dxt3
+  def define_ext_command_GL_ANGLE_texture_compression_dxt3
+  end # define_ext_command_GL_ANGLE_texture_compression_dxt3
 
-  def define_command_GL_ANGLE_texture_compression_dxt5
-  end # define_command_GL_ANGLE_texture_compression_dxt5
+  def define_ext_command_GL_ANGLE_texture_compression_dxt5
+  end # define_ext_command_GL_ANGLE_texture_compression_dxt5
 
-  def define_command_GL_ANGLE_texture_usage
-  end # define_command_GL_ANGLE_texture_usage
+  def define_ext_command_GL_ANGLE_texture_usage
+  end # define_ext_command_GL_ANGLE_texture_usage
 
-  def define_command_GL_ANGLE_translated_shader_source
+  def define_ext_command_GL_ANGLE_translated_shader_source
     GL_FUNCTIONS_ARGS_MAP[:glGetTranslatedShaderSourceANGLE] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTranslatedShaderSourceANGLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ANGLE_translated_shader_source)
@@ -196,9 +196,9 @@ module OpenGL
         f.call(_shader_, _bufsize_, _length_, _source_)
       end
     SRC_GL_ANGLE_translated_shader_source
-  end # define_command_GL_ANGLE_translated_shader_source
+  end # define_ext_command_GL_ANGLE_translated_shader_source
 
-  def define_command_GL_APPLE_copy_texture_levels
+  def define_ext_command_GL_APPLE_copy_texture_levels
     GL_FUNCTIONS_ARGS_MAP[:glCopyTextureLevelsAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyTextureLevelsAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_copy_texture_levels)
@@ -207,9 +207,9 @@ module OpenGL
         f.call(_destinationTexture_, _sourceTexture_, _sourceBaseLevel_, _sourceLevelCount_)
       end
     SRC_GL_APPLE_copy_texture_levels
-  end # define_command_GL_APPLE_copy_texture_levels
+  end # define_ext_command_GL_APPLE_copy_texture_levels
 
-  def define_command_GL_APPLE_framebuffer_multisample
+  def define_ext_command_GL_APPLE_framebuffer_multisample
     GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleAPPLE] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorageMultisampleAPPLE] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_APPLE_framebuffer_multisample)
@@ -227,12 +227,12 @@ module OpenGL
         f.call()
       end
     SRC_GL_APPLE_framebuffer_multisample
-  end # define_command_GL_APPLE_framebuffer_multisample
+  end # define_ext_command_GL_APPLE_framebuffer_multisample
 
-  def define_command_GL_APPLE_rgb_422
-  end # define_command_GL_APPLE_rgb_422
+  def define_ext_command_GL_APPLE_rgb_422
+  end # define_ext_command_GL_APPLE_rgb_422
 
-  def define_command_GL_APPLE_sync
+  def define_ext_command_GL_APPLE_sync
     GL_FUNCTIONS_ARGS_MAP[:glFenceSyncAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFenceSyncAPPLE] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_APPLE_sync)
@@ -295,27 +295,27 @@ module OpenGL
         f.call(_sync_, _pname_, _bufSize_, _length_, _values_)
       end
     SRC_GL_APPLE_sync
-  end # define_command_GL_APPLE_sync
+  end # define_ext_command_GL_APPLE_sync
 
-  def define_command_GL_APPLE_texture_format_BGRA8888
-  end # define_command_GL_APPLE_texture_format_BGRA8888
+  def define_ext_command_GL_APPLE_texture_format_BGRA8888
+  end # define_ext_command_GL_APPLE_texture_format_BGRA8888
 
-  def define_command_GL_APPLE_texture_max_level
-  end # define_command_GL_APPLE_texture_max_level
+  def define_ext_command_GL_APPLE_texture_max_level
+  end # define_ext_command_GL_APPLE_texture_max_level
 
-  def define_command_GL_ARM_mali_program_binary
-  end # define_command_GL_ARM_mali_program_binary
+  def define_ext_command_GL_ARM_mali_program_binary
+  end # define_ext_command_GL_ARM_mali_program_binary
 
-  def define_command_GL_ARM_mali_shader_binary
-  end # define_command_GL_ARM_mali_shader_binary
+  def define_ext_command_GL_ARM_mali_shader_binary
+  end # define_ext_command_GL_ARM_mali_shader_binary
 
-  def define_command_GL_ARM_rgba8
-  end # define_command_GL_ARM_rgba8
+  def define_ext_command_GL_ARM_rgba8
+  end # define_ext_command_GL_ARM_rgba8
 
-  def define_command_GL_DMP_shader_binary
-  end # define_command_GL_DMP_shader_binary
+  def define_ext_command_GL_DMP_shader_binary
+  end # define_ext_command_GL_DMP_shader_binary
 
-  def define_command_GL_EXT_blend_minmax
+  def define_ext_command_GL_EXT_blend_minmax
     GL_FUNCTIONS_ARGS_MAP[:glBlendEquationEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendEquationEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_blend_minmax)
@@ -324,12 +324,12 @@ module OpenGL
         f.call(_mode_)
       end
     SRC_GL_EXT_blend_minmax
-  end # define_command_GL_EXT_blend_minmax
+  end # define_ext_command_GL_EXT_blend_minmax
 
-  def define_command_GL_EXT_color_buffer_half_float
-  end # define_command_GL_EXT_color_buffer_half_float
+  def define_ext_command_GL_EXT_color_buffer_half_float
+  end # define_ext_command_GL_EXT_color_buffer_half_float
 
-  def define_command_GL_EXT_debug_label
+  def define_ext_command_GL_EXT_debug_label
     GL_FUNCTIONS_ARGS_MAP[:glLabelObjectEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glLabelObjectEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_debug_label)
@@ -347,9 +347,9 @@ module OpenGL
         f.call(_type_, _object_, _bufSize_, _length_, _label_)
       end
     SRC_GL_EXT_debug_label
-  end # define_command_GL_EXT_debug_label
+  end # define_ext_command_GL_EXT_debug_label
 
-  def define_command_GL_EXT_debug_marker
+  def define_ext_command_GL_EXT_debug_marker
     GL_FUNCTIONS_ARGS_MAP[:glInsertEventMarkerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glInsertEventMarkerEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_debug_marker)
@@ -376,9 +376,9 @@ module OpenGL
         f.call()
       end
     SRC_GL_EXT_debug_marker
-  end # define_command_GL_EXT_debug_marker
+  end # define_ext_command_GL_EXT_debug_marker
 
-  def define_command_GL_EXT_discard_framebuffer
+  def define_ext_command_GL_EXT_discard_framebuffer
     GL_FUNCTIONS_ARGS_MAP[:glDiscardFramebufferEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDiscardFramebufferEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_discard_framebuffer)
@@ -387,9 +387,9 @@ module OpenGL
         f.call(_target_, _numAttachments_, _attachments_)
       end
     SRC_GL_EXT_discard_framebuffer
-  end # define_command_GL_EXT_discard_framebuffer
+  end # define_ext_command_GL_EXT_discard_framebuffer
 
-  def define_command_GL_EXT_disjoint_timer_query
+  def define_ext_command_GL_EXT_disjoint_timer_query
     GL_FUNCTIONS_ARGS_MAP[:glGenQueriesEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGenQueriesEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_disjoint_timer_query)
@@ -488,9 +488,9 @@ module OpenGL
         f.call(_id_, _pname_, _params_)
       end
     SRC_GL_EXT_disjoint_timer_query
-  end # define_command_GL_EXT_disjoint_timer_query
+  end # define_ext_command_GL_EXT_disjoint_timer_query
 
-  def define_command_GL_EXT_draw_buffers
+  def define_ext_command_GL_EXT_draw_buffers
     GL_FUNCTIONS_ARGS_MAP[:glDrawBuffersEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawBuffersEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_draw_buffers)
@@ -499,9 +499,9 @@ module OpenGL
         f.call(_n_, _bufs_)
       end
     SRC_GL_EXT_draw_buffers
-  end # define_command_GL_EXT_draw_buffers
+  end # define_ext_command_GL_EXT_draw_buffers
 
-  def define_command_GL_EXT_draw_instanced
+  def define_ext_command_GL_EXT_draw_instanced
     GL_FUNCTIONS_ARGS_MAP[:glDrawArraysInstancedEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawArraysInstancedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_draw_instanced)
@@ -519,9 +519,9 @@ module OpenGL
         f.call(_mode_, _count_, _type_, _indices_, _primcount_)
       end
     SRC_GL_EXT_draw_instanced
-  end # define_command_GL_EXT_draw_instanced
+  end # define_ext_command_GL_EXT_draw_instanced
 
-  def define_command_GL_EXT_instanced_arrays
+  def define_ext_command_GL_EXT_instanced_arrays
     GL_FUNCTIONS_ARGS_MAP[:glDrawArraysInstancedEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawArraysInstancedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_instanced_arrays)
@@ -548,9 +548,9 @@ module OpenGL
         f.call(_index_, _divisor_)
       end
     SRC_GL_EXT_instanced_arrays
-  end # define_command_GL_EXT_instanced_arrays
+  end # define_ext_command_GL_EXT_instanced_arrays
 
-  def define_command_GL_EXT_map_buffer_range
+  def define_ext_command_GL_EXT_map_buffer_range
     GL_FUNCTIONS_ARGS_MAP[:glMapBufferRangeEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMapBufferRangeEXT] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_EXT_map_buffer_range)
@@ -568,9 +568,9 @@ module OpenGL
         f.call(_target_, _offset_, _length_)
       end
     SRC_GL_EXT_map_buffer_range
-  end # define_command_GL_EXT_map_buffer_range
+  end # define_ext_command_GL_EXT_map_buffer_range
 
-  def define_command_GL_EXT_multi_draw_arrays
+  def define_ext_command_GL_EXT_multi_draw_arrays
     GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawArraysEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_multi_draw_arrays)
@@ -588,9 +588,9 @@ module OpenGL
         f.call(_mode_, _count_, _type_, _indices_, _primcount_)
       end
     SRC_GL_EXT_multi_draw_arrays
-  end # define_command_GL_EXT_multi_draw_arrays
+  end # define_ext_command_GL_EXT_multi_draw_arrays
 
-  def define_command_GL_EXT_multisampled_render_to_texture
+  def define_ext_command_GL_EXT_multisampled_render_to_texture
     GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorageMultisampleEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_multisampled_render_to_texture)
@@ -608,9 +608,9 @@ module OpenGL
         f.call(_target_, _attachment_, _textarget_, _texture_, _level_, _samples_)
       end
     SRC_GL_EXT_multisampled_render_to_texture
-  end # define_command_GL_EXT_multisampled_render_to_texture
+  end # define_ext_command_GL_EXT_multisampled_render_to_texture
 
-  def define_command_GL_EXT_multiview_draw_buffers
+  def define_ext_command_GL_EXT_multiview_draw_buffers
     GL_FUNCTIONS_ARGS_MAP[:glReadBufferIndexedEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glReadBufferIndexedEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_multiview_draw_buffers)
@@ -637,9 +637,9 @@ module OpenGL
         f.call(_target_, _index_, _data_)
       end
     SRC_GL_EXT_multiview_draw_buffers
-  end # define_command_GL_EXT_multiview_draw_buffers
+  end # define_ext_command_GL_EXT_multiview_draw_buffers
 
-  def define_command_GL_EXT_occlusion_query_boolean
+  def define_ext_command_GL_EXT_occlusion_query_boolean
     GL_FUNCTIONS_ARGS_MAP[:glGenQueriesEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGenQueriesEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_occlusion_query_boolean)
@@ -702,15 +702,15 @@ module OpenGL
         f.call(_id_, _pname_, _params_)
       end
     SRC_GL_EXT_occlusion_query_boolean
-  end # define_command_GL_EXT_occlusion_query_boolean
+  end # define_ext_command_GL_EXT_occlusion_query_boolean
 
-  def define_command_GL_EXT_pvrtc_sRGB
-  end # define_command_GL_EXT_pvrtc_sRGB
+  def define_ext_command_GL_EXT_pvrtc_sRGB
+  end # define_ext_command_GL_EXT_pvrtc_sRGB
 
-  def define_command_GL_EXT_read_format_bgra
-  end # define_command_GL_EXT_read_format_bgra
+  def define_ext_command_GL_EXT_read_format_bgra
+  end # define_ext_command_GL_EXT_read_format_bgra
 
-  def define_command_GL_EXT_robustness
+  def define_ext_command_GL_EXT_robustness
     GL_FUNCTIONS_ARGS_MAP[:glGetGraphicsResetStatusEXT] = []
     GL_FUNCTIONS_RETVAL_MAP[:glGetGraphicsResetStatusEXT] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_EXT_robustness)
@@ -746,15 +746,15 @@ module OpenGL
         f.call(_program_, _location_, _bufSize_, _params_)
       end
     SRC_GL_EXT_robustness
-  end # define_command_GL_EXT_robustness
+  end # define_ext_command_GL_EXT_robustness
 
-  def define_command_GL_EXT_sRGB
-  end # define_command_GL_EXT_sRGB
+  def define_ext_command_GL_EXT_sRGB
+  end # define_ext_command_GL_EXT_sRGB
 
-  def define_command_GL_EXT_sRGB_write_control
-  end # define_command_GL_EXT_sRGB_write_control
+  def define_ext_command_GL_EXT_sRGB_write_control
+  end # define_ext_command_GL_EXT_sRGB_write_control
 
-  def define_command_GL_EXT_separate_shader_objects
+  def define_ext_command_GL_EXT_separate_shader_objects
     GL_FUNCTIONS_ARGS_MAP[:glUseShaderProgramEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glUseShaderProgramEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_separate_shader_objects)
@@ -1177,39 +1177,39 @@ module OpenGL
         f.call(_program_, _location_, _count_, _transpose_, _value_)
       end
     SRC_GL_EXT_separate_shader_objects
-  end # define_command_GL_EXT_separate_shader_objects
+  end # define_ext_command_GL_EXT_separate_shader_objects
 
-  def define_command_GL_EXT_shader_framebuffer_fetch
-  end # define_command_GL_EXT_shader_framebuffer_fetch
+  def define_ext_command_GL_EXT_shader_framebuffer_fetch
+  end # define_ext_command_GL_EXT_shader_framebuffer_fetch
 
-  def define_command_GL_EXT_shader_integer_mix
-  end # define_command_GL_EXT_shader_integer_mix
+  def define_ext_command_GL_EXT_shader_integer_mix
+  end # define_ext_command_GL_EXT_shader_integer_mix
 
-  def define_command_GL_EXT_shader_texture_lod
-  end # define_command_GL_EXT_shader_texture_lod
+  def define_ext_command_GL_EXT_shader_texture_lod
+  end # define_ext_command_GL_EXT_shader_texture_lod
 
-  def define_command_GL_EXT_shadow_samplers
-  end # define_command_GL_EXT_shadow_samplers
+  def define_ext_command_GL_EXT_shadow_samplers
+  end # define_ext_command_GL_EXT_shadow_samplers
 
-  def define_command_GL_EXT_texture_compression_dxt1
-  end # define_command_GL_EXT_texture_compression_dxt1
+  def define_ext_command_GL_EXT_texture_compression_dxt1
+  end # define_ext_command_GL_EXT_texture_compression_dxt1
 
-  def define_command_GL_EXT_texture_compression_s3tc
-  end # define_command_GL_EXT_texture_compression_s3tc
+  def define_ext_command_GL_EXT_texture_compression_s3tc
+  end # define_ext_command_GL_EXT_texture_compression_s3tc
 
-  def define_command_GL_EXT_texture_filter_anisotropic
-  end # define_command_GL_EXT_texture_filter_anisotropic
+  def define_ext_command_GL_EXT_texture_filter_anisotropic
+  end # define_ext_command_GL_EXT_texture_filter_anisotropic
 
-  def define_command_GL_EXT_texture_format_BGRA8888
-  end # define_command_GL_EXT_texture_format_BGRA8888
+  def define_ext_command_GL_EXT_texture_format_BGRA8888
+  end # define_ext_command_GL_EXT_texture_format_BGRA8888
 
-  def define_command_GL_EXT_texture_rg
-  end # define_command_GL_EXT_texture_rg
+  def define_ext_command_GL_EXT_texture_rg
+  end # define_ext_command_GL_EXT_texture_rg
 
-  def define_command_GL_EXT_texture_sRGB_decode
-  end # define_command_GL_EXT_texture_sRGB_decode
+  def define_ext_command_GL_EXT_texture_sRGB_decode
+  end # define_ext_command_GL_EXT_texture_sRGB_decode
 
-  def define_command_GL_EXT_texture_storage
+  def define_ext_command_GL_EXT_texture_storage
     GL_FUNCTIONS_ARGS_MAP[:glTexStorage1DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexStorage1DEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_texture_storage)
@@ -1263,18 +1263,18 @@ module OpenGL
         f.call(_texture_, _target_, _levels_, _internalformat_, _width_, _height_, _depth_)
       end
     SRC_GL_EXT_texture_storage
-  end # define_command_GL_EXT_texture_storage
+  end # define_ext_command_GL_EXT_texture_storage
 
-  def define_command_GL_EXT_texture_type_2_10_10_10_REV
-  end # define_command_GL_EXT_texture_type_2_10_10_10_REV
+  def define_ext_command_GL_EXT_texture_type_2_10_10_10_REV
+  end # define_ext_command_GL_EXT_texture_type_2_10_10_10_REV
 
-  def define_command_GL_EXT_unpack_subimage
-  end # define_command_GL_EXT_unpack_subimage
+  def define_ext_command_GL_EXT_unpack_subimage
+  end # define_ext_command_GL_EXT_unpack_subimage
 
-  def define_command_GL_FJ_shader_binary_GCCSO
-  end # define_command_GL_FJ_shader_binary_GCCSO
+  def define_ext_command_GL_FJ_shader_binary_GCCSO
+  end # define_ext_command_GL_FJ_shader_binary_GCCSO
 
-  def define_command_GL_IMG_multisampled_render_to_texture
+  def define_ext_command_GL_IMG_multisampled_render_to_texture
     GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleIMG] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorageMultisampleIMG] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_IMG_multisampled_render_to_texture)
@@ -1292,24 +1292,24 @@ module OpenGL
         f.call(_target_, _attachment_, _textarget_, _texture_, _level_, _samples_)
       end
     SRC_GL_IMG_multisampled_render_to_texture
-  end # define_command_GL_IMG_multisampled_render_to_texture
+  end # define_ext_command_GL_IMG_multisampled_render_to_texture
 
-  def define_command_GL_IMG_program_binary
-  end # define_command_GL_IMG_program_binary
+  def define_ext_command_GL_IMG_program_binary
+  end # define_ext_command_GL_IMG_program_binary
 
-  def define_command_GL_IMG_read_format
-  end # define_command_GL_IMG_read_format
+  def define_ext_command_GL_IMG_read_format
+  end # define_ext_command_GL_IMG_read_format
 
-  def define_command_GL_IMG_shader_binary
-  end # define_command_GL_IMG_shader_binary
+  def define_ext_command_GL_IMG_shader_binary
+  end # define_ext_command_GL_IMG_shader_binary
 
-  def define_command_GL_IMG_texture_compression_pvrtc
-  end # define_command_GL_IMG_texture_compression_pvrtc
+  def define_ext_command_GL_IMG_texture_compression_pvrtc
+  end # define_ext_command_GL_IMG_texture_compression_pvrtc
 
-  def define_command_GL_IMG_texture_compression_pvrtc2
-  end # define_command_GL_IMG_texture_compression_pvrtc2
+  def define_ext_command_GL_IMG_texture_compression_pvrtc2
+  end # define_ext_command_GL_IMG_texture_compression_pvrtc2
 
-  def define_command_GL_INTEL_performance_query
+  def define_ext_command_GL_INTEL_performance_query
     GL_FUNCTIONS_ARGS_MAP[:glBeginPerfQueryINTEL] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBeginPerfQueryINTEL] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_INTEL_performance_query)
@@ -1399,9 +1399,9 @@ module OpenGL
         f.call(_queryId_, _queryNameLength_, _queryName_, _dataSize_, _noCounters_, _noInstances_, _capsMask_)
       end
     SRC_GL_INTEL_performance_query
-  end # define_command_GL_INTEL_performance_query
+  end # define_ext_command_GL_INTEL_performance_query
 
-  def define_command_GL_KHR_debug
+  def define_ext_command_GL_KHR_debug
     GL_FUNCTIONS_ARGS_MAP[:glDebugMessageControl] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glDebugMessageControl] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_KHR_debug)
@@ -1599,15 +1599,15 @@ module OpenGL
         f.call(_pname_, _params_)
       end
     SRC_GL_KHR_debug
-  end # define_command_GL_KHR_debug
+  end # define_ext_command_GL_KHR_debug
 
-  def define_command_GL_KHR_texture_compression_astc_hdr
-  end # define_command_GL_KHR_texture_compression_astc_hdr
+  def define_ext_command_GL_KHR_texture_compression_astc_hdr
+  end # define_ext_command_GL_KHR_texture_compression_astc_hdr
 
-  def define_command_GL_KHR_texture_compression_astc_ldr
-  end # define_command_GL_KHR_texture_compression_astc_ldr
+  def define_ext_command_GL_KHR_texture_compression_astc_ldr
+  end # define_ext_command_GL_KHR_texture_compression_astc_ldr
 
-  def define_command_GL_NV_blend_equation_advanced
+  def define_ext_command_GL_NV_blend_equation_advanced
     GL_FUNCTIONS_ARGS_MAP[:glBlendParameteriNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendParameteriNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_blend_equation_advanced)
@@ -1625,12 +1625,12 @@ module OpenGL
         f.call()
       end
     SRC_GL_NV_blend_equation_advanced
-  end # define_command_GL_NV_blend_equation_advanced
+  end # define_ext_command_GL_NV_blend_equation_advanced
 
-  def define_command_GL_NV_blend_equation_advanced_coherent
-  end # define_command_GL_NV_blend_equation_advanced_coherent
+  def define_ext_command_GL_NV_blend_equation_advanced_coherent
+  end # define_ext_command_GL_NV_blend_equation_advanced_coherent
 
-  def define_command_GL_NV_copy_buffer
+  def define_ext_command_GL_NV_copy_buffer
     GL_FUNCTIONS_ARGS_MAP[:glCopyBufferSubDataNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyBufferSubDataNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_copy_buffer)
@@ -1639,9 +1639,9 @@ module OpenGL
         f.call(_readTarget_, _writeTarget_, _readOffset_, _writeOffset_, _size_)
       end
     SRC_GL_NV_copy_buffer
-  end # define_command_GL_NV_copy_buffer
+  end # define_ext_command_GL_NV_copy_buffer
 
-  def define_command_GL_NV_coverage_sample
+  def define_ext_command_GL_NV_coverage_sample
     GL_FUNCTIONS_ARGS_MAP[:glCoverageMaskNV] = [-Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glCoverageMaskNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_coverage_sample)
@@ -1659,12 +1659,12 @@ module OpenGL
         f.call(_operation_)
       end
     SRC_GL_NV_coverage_sample
-  end # define_command_GL_NV_coverage_sample
+  end # define_ext_command_GL_NV_coverage_sample
 
-  def define_command_GL_NV_depth_nonlinear
-  end # define_command_GL_NV_depth_nonlinear
+  def define_ext_command_GL_NV_depth_nonlinear
+  end # define_ext_command_GL_NV_depth_nonlinear
 
-  def define_command_GL_NV_draw_buffers
+  def define_ext_command_GL_NV_draw_buffers
     GL_FUNCTIONS_ARGS_MAP[:glDrawBuffersNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawBuffersNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_draw_buffers)
@@ -1673,9 +1673,9 @@ module OpenGL
         f.call(_n_, _bufs_)
       end
     SRC_GL_NV_draw_buffers
-  end # define_command_GL_NV_draw_buffers
+  end # define_ext_command_GL_NV_draw_buffers
 
-  def define_command_GL_NV_draw_instanced
+  def define_ext_command_GL_NV_draw_instanced
     GL_FUNCTIONS_ARGS_MAP[:glDrawArraysInstancedNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawArraysInstancedNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_draw_instanced)
@@ -1693,15 +1693,15 @@ module OpenGL
         f.call(_mode_, _count_, _type_, _indices_, _primcount_)
       end
     SRC_GL_NV_draw_instanced
-  end # define_command_GL_NV_draw_instanced
+  end # define_ext_command_GL_NV_draw_instanced
 
-  def define_command_GL_NV_explicit_attrib_location
-  end # define_command_GL_NV_explicit_attrib_location
+  def define_ext_command_GL_NV_explicit_attrib_location
+  end # define_ext_command_GL_NV_explicit_attrib_location
 
-  def define_command_GL_NV_fbo_color_attachments
-  end # define_command_GL_NV_fbo_color_attachments
+  def define_ext_command_GL_NV_fbo_color_attachments
+  end # define_ext_command_GL_NV_fbo_color_attachments
 
-  def define_command_GL_NV_fence
+  def define_ext_command_GL_NV_fence
     GL_FUNCTIONS_ARGS_MAP[:glDeleteFencesNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glDeleteFencesNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_fence)
@@ -1764,9 +1764,9 @@ module OpenGL
         f.call(_fence_, _condition_)
       end
     SRC_GL_NV_fence
-  end # define_command_GL_NV_fence
+  end # define_ext_command_GL_NV_fence
 
-  def define_command_GL_NV_framebuffer_blit
+  def define_ext_command_GL_NV_framebuffer_blit
     GL_FUNCTIONS_ARGS_MAP[:glBlitFramebufferNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlitFramebufferNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_framebuffer_blit)
@@ -1775,9 +1775,9 @@ module OpenGL
         f.call(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
       end
     SRC_GL_NV_framebuffer_blit
-  end # define_command_GL_NV_framebuffer_blit
+  end # define_ext_command_GL_NV_framebuffer_blit
 
-  def define_command_GL_NV_framebuffer_multisample
+  def define_ext_command_GL_NV_framebuffer_multisample
     GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorageMultisampleNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_framebuffer_multisample)
@@ -1786,12 +1786,12 @@ module OpenGL
         f.call(_target_, _samples_, _internalformat_, _width_, _height_)
       end
     SRC_GL_NV_framebuffer_multisample
-  end # define_command_GL_NV_framebuffer_multisample
+  end # define_ext_command_GL_NV_framebuffer_multisample
 
-  def define_command_GL_NV_generate_mipmap_sRGB
-  end # define_command_GL_NV_generate_mipmap_sRGB
+  def define_ext_command_GL_NV_generate_mipmap_sRGB
+  end # define_ext_command_GL_NV_generate_mipmap_sRGB
 
-  def define_command_GL_NV_instanced_arrays
+  def define_ext_command_GL_NV_instanced_arrays
     GL_FUNCTIONS_ARGS_MAP[:glVertexAttribDivisorNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribDivisorNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_instanced_arrays)
@@ -1800,9 +1800,9 @@ module OpenGL
         f.call(_index_, _divisor_)
       end
     SRC_GL_NV_instanced_arrays
-  end # define_command_GL_NV_instanced_arrays
+  end # define_ext_command_GL_NV_instanced_arrays
 
-  def define_command_GL_NV_non_square_matrices
+  def define_ext_command_GL_NV_non_square_matrices
     GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix2x3fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix2x3fvNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_non_square_matrices)
@@ -1856,9 +1856,9 @@ module OpenGL
         f.call(_location_, _count_, _transpose_, _value_)
       end
     SRC_GL_NV_non_square_matrices
-  end # define_command_GL_NV_non_square_matrices
+  end # define_ext_command_GL_NV_non_square_matrices
 
-  def define_command_GL_NV_read_buffer
+  def define_ext_command_GL_NV_read_buffer
     GL_FUNCTIONS_ARGS_MAP[:glReadBufferNV] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glReadBufferNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_read_buffer)
@@ -1867,39 +1867,39 @@ module OpenGL
         f.call(_mode_)
       end
     SRC_GL_NV_read_buffer
-  end # define_command_GL_NV_read_buffer
+  end # define_ext_command_GL_NV_read_buffer
 
-  def define_command_GL_NV_read_buffer_front
-  end # define_command_GL_NV_read_buffer_front
+  def define_ext_command_GL_NV_read_buffer_front
+  end # define_ext_command_GL_NV_read_buffer_front
 
-  def define_command_GL_NV_read_depth
-  end # define_command_GL_NV_read_depth
+  def define_ext_command_GL_NV_read_depth
+  end # define_ext_command_GL_NV_read_depth
 
-  def define_command_GL_NV_read_depth_stencil
-  end # define_command_GL_NV_read_depth_stencil
+  def define_ext_command_GL_NV_read_depth_stencil
+  end # define_ext_command_GL_NV_read_depth_stencil
 
-  def define_command_GL_NV_read_stencil
-  end # define_command_GL_NV_read_stencil
+  def define_ext_command_GL_NV_read_stencil
+  end # define_ext_command_GL_NV_read_stencil
 
-  def define_command_GL_NV_sRGB_formats
-  end # define_command_GL_NV_sRGB_formats
+  def define_ext_command_GL_NV_sRGB_formats
+  end # define_ext_command_GL_NV_sRGB_formats
 
-  def define_command_GL_NV_shadow_samplers_array
-  end # define_command_GL_NV_shadow_samplers_array
+  def define_ext_command_GL_NV_shadow_samplers_array
+  end # define_ext_command_GL_NV_shadow_samplers_array
 
-  def define_command_GL_NV_shadow_samplers_cube
-  end # define_command_GL_NV_shadow_samplers_cube
+  def define_ext_command_GL_NV_shadow_samplers_cube
+  end # define_ext_command_GL_NV_shadow_samplers_cube
 
-  def define_command_GL_NV_texture_border_clamp
-  end # define_command_GL_NV_texture_border_clamp
+  def define_ext_command_GL_NV_texture_border_clamp
+  end # define_ext_command_GL_NV_texture_border_clamp
 
-  def define_command_GL_NV_texture_compression_s3tc_update
-  end # define_command_GL_NV_texture_compression_s3tc_update
+  def define_ext_command_GL_NV_texture_compression_s3tc_update
+  end # define_ext_command_GL_NV_texture_compression_s3tc_update
 
-  def define_command_GL_NV_texture_npot_2D_mipmap
-  end # define_command_GL_NV_texture_npot_2D_mipmap
+  def define_ext_command_GL_NV_texture_npot_2D_mipmap
+  end # define_ext_command_GL_NV_texture_npot_2D_mipmap
 
-  def define_command_GL_OES_EGL_image
+  def define_ext_command_GL_OES_EGL_image
     GL_FUNCTIONS_ARGS_MAP[:glEGLImageTargetTexture2DOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glEGLImageTargetTexture2DOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_EGL_image)
@@ -1917,36 +1917,36 @@ module OpenGL
         f.call(_target_, _image_)
       end
     SRC_GL_OES_EGL_image
-  end # define_command_GL_OES_EGL_image
+  end # define_ext_command_GL_OES_EGL_image
 
-  def define_command_GL_OES_EGL_image_external
-  end # define_command_GL_OES_EGL_image_external
+  def define_ext_command_GL_OES_EGL_image_external
+  end # define_ext_command_GL_OES_EGL_image_external
 
-  def define_command_GL_OES_compressed_ETC1_RGB8_texture
-  end # define_command_GL_OES_compressed_ETC1_RGB8_texture
+  def define_ext_command_GL_OES_compressed_ETC1_RGB8_texture
+  end # define_ext_command_GL_OES_compressed_ETC1_RGB8_texture
 
-  def define_command_GL_OES_compressed_paletted_texture
-  end # define_command_GL_OES_compressed_paletted_texture
+  def define_ext_command_GL_OES_compressed_paletted_texture
+  end # define_ext_command_GL_OES_compressed_paletted_texture
 
-  def define_command_GL_OES_depth24
-  end # define_command_GL_OES_depth24
+  def define_ext_command_GL_OES_depth24
+  end # define_ext_command_GL_OES_depth24
 
-  def define_command_GL_OES_depth32
-  end # define_command_GL_OES_depth32
+  def define_ext_command_GL_OES_depth32
+  end # define_ext_command_GL_OES_depth32
 
-  def define_command_GL_OES_depth_texture
-  end # define_command_GL_OES_depth_texture
+  def define_ext_command_GL_OES_depth_texture
+  end # define_ext_command_GL_OES_depth_texture
 
-  def define_command_GL_OES_element_index_uint
-  end # define_command_GL_OES_element_index_uint
+  def define_ext_command_GL_OES_element_index_uint
+  end # define_ext_command_GL_OES_element_index_uint
 
-  def define_command_GL_OES_fbo_render_mipmap
-  end # define_command_GL_OES_fbo_render_mipmap
+  def define_ext_command_GL_OES_fbo_render_mipmap
+  end # define_ext_command_GL_OES_fbo_render_mipmap
 
-  def define_command_GL_OES_fragment_precision_high
-  end # define_command_GL_OES_fragment_precision_high
+  def define_ext_command_GL_OES_fragment_precision_high
+  end # define_ext_command_GL_OES_fragment_precision_high
 
-  def define_command_GL_OES_get_program_binary
+  def define_ext_command_GL_OES_get_program_binary
     GL_FUNCTIONS_ARGS_MAP[:glGetProgramBinaryOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetProgramBinaryOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_get_program_binary)
@@ -1964,9 +1964,9 @@ module OpenGL
         f.call(_program_, _binaryFormat_, _binary_, _length_)
       end
     SRC_GL_OES_get_program_binary
-  end # define_command_GL_OES_get_program_binary
+  end # define_ext_command_GL_OES_get_program_binary
 
-  def define_command_GL_OES_mapbuffer
+  def define_ext_command_GL_OES_mapbuffer
     GL_FUNCTIONS_ARGS_MAP[:glMapBufferOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMapBufferOES] = Fiddle::TYPE_VOIDP
     module_eval(<<-SRC_GL_OES_mapbuffer)
@@ -1993,30 +1993,30 @@ module OpenGL
         f.call(_target_, _pname_, _params_)
       end
     SRC_GL_OES_mapbuffer
-  end # define_command_GL_OES_mapbuffer
+  end # define_ext_command_GL_OES_mapbuffer
 
-  def define_command_GL_OES_packed_depth_stencil
-  end # define_command_GL_OES_packed_depth_stencil
+  def define_ext_command_GL_OES_packed_depth_stencil
+  end # define_ext_command_GL_OES_packed_depth_stencil
 
-  def define_command_GL_OES_required_internalformat
-  end # define_command_GL_OES_required_internalformat
+  def define_ext_command_GL_OES_required_internalformat
+  end # define_ext_command_GL_OES_required_internalformat
 
-  def define_command_GL_OES_rgb8_rgba8
-  end # define_command_GL_OES_rgb8_rgba8
+  def define_ext_command_GL_OES_rgb8_rgba8
+  end # define_ext_command_GL_OES_rgb8_rgba8
 
-  def define_command_GL_OES_standard_derivatives
-  end # define_command_GL_OES_standard_derivatives
+  def define_ext_command_GL_OES_standard_derivatives
+  end # define_ext_command_GL_OES_standard_derivatives
 
-  def define_command_GL_OES_stencil1
-  end # define_command_GL_OES_stencil1
+  def define_ext_command_GL_OES_stencil1
+  end # define_ext_command_GL_OES_stencil1
 
-  def define_command_GL_OES_stencil4
-  end # define_command_GL_OES_stencil4
+  def define_ext_command_GL_OES_stencil4
+  end # define_ext_command_GL_OES_stencil4
 
-  def define_command_GL_OES_surfaceless_context
-  end # define_command_GL_OES_surfaceless_context
+  def define_ext_command_GL_OES_surfaceless_context
+  end # define_ext_command_GL_OES_surfaceless_context
 
-  def define_command_GL_OES_texture_3D
+  def define_ext_command_GL_OES_texture_3D
     GL_FUNCTIONS_ARGS_MAP[:glTexImage3DOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glTexImage3DOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_texture_3D)
@@ -2070,27 +2070,27 @@ module OpenGL
         f.call(_target_, _attachment_, _textarget_, _texture_, _level_, _zoffset_)
       end
     SRC_GL_OES_texture_3D
-  end # define_command_GL_OES_texture_3D
+  end # define_ext_command_GL_OES_texture_3D
 
-  def define_command_GL_OES_texture_compression_astc
-  end # define_command_GL_OES_texture_compression_astc
+  def define_ext_command_GL_OES_texture_compression_astc
+  end # define_ext_command_GL_OES_texture_compression_astc
 
-  def define_command_GL_OES_texture_float
-  end # define_command_GL_OES_texture_float
+  def define_ext_command_GL_OES_texture_float
+  end # define_ext_command_GL_OES_texture_float
 
-  def define_command_GL_OES_texture_float_linear
-  end # define_command_GL_OES_texture_float_linear
+  def define_ext_command_GL_OES_texture_float_linear
+  end # define_ext_command_GL_OES_texture_float_linear
 
-  def define_command_GL_OES_texture_half_float
-  end # define_command_GL_OES_texture_half_float
+  def define_ext_command_GL_OES_texture_half_float
+  end # define_ext_command_GL_OES_texture_half_float
 
-  def define_command_GL_OES_texture_half_float_linear
-  end # define_command_GL_OES_texture_half_float_linear
+  def define_ext_command_GL_OES_texture_half_float_linear
+  end # define_ext_command_GL_OES_texture_half_float_linear
 
-  def define_command_GL_OES_texture_npot
-  end # define_command_GL_OES_texture_npot
+  def define_ext_command_GL_OES_texture_npot
+  end # define_ext_command_GL_OES_texture_npot
 
-  def define_command_GL_OES_vertex_array_object
+  def define_ext_command_GL_OES_vertex_array_object
     GL_FUNCTIONS_ARGS_MAP[:glBindVertexArrayOES] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindVertexArrayOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_vertex_array_object)
@@ -2126,15 +2126,15 @@ module OpenGL
         f.call(_array_)
       end
     SRC_GL_OES_vertex_array_object
-  end # define_command_GL_OES_vertex_array_object
+  end # define_ext_command_GL_OES_vertex_array_object
 
-  def define_command_GL_OES_vertex_half_float
-  end # define_command_GL_OES_vertex_half_float
+  def define_ext_command_GL_OES_vertex_half_float
+  end # define_ext_command_GL_OES_vertex_half_float
 
-  def define_command_GL_OES_vertex_type_10_10_10_2
-  end # define_command_GL_OES_vertex_type_10_10_10_2
+  def define_ext_command_GL_OES_vertex_type_10_10_10_2
+  end # define_ext_command_GL_OES_vertex_type_10_10_10_2
 
-  def define_command_GL_QCOM_alpha_test
+  def define_ext_command_GL_QCOM_alpha_test
     GL_FUNCTIONS_ARGS_MAP[:glAlphaFuncQCOM] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glAlphaFuncQCOM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_QCOM_alpha_test)
@@ -2143,12 +2143,12 @@ module OpenGL
         f.call(_func_, _ref_)
       end
     SRC_GL_QCOM_alpha_test
-  end # define_command_GL_QCOM_alpha_test
+  end # define_ext_command_GL_QCOM_alpha_test
 
-  def define_command_GL_QCOM_binning_control
-  end # define_command_GL_QCOM_binning_control
+  def define_ext_command_GL_QCOM_binning_control
+  end # define_ext_command_GL_QCOM_binning_control
 
-  def define_command_GL_QCOM_driver_control
+  def define_ext_command_GL_QCOM_driver_control
     GL_FUNCTIONS_ARGS_MAP[:glGetDriverControlsQCOM] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetDriverControlsQCOM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_QCOM_driver_control)
@@ -2184,9 +2184,9 @@ module OpenGL
         f.call(_driverControl_)
       end
     SRC_GL_QCOM_driver_control
-  end # define_command_GL_QCOM_driver_control
+  end # define_ext_command_GL_QCOM_driver_control
 
-  def define_command_GL_QCOM_extended_get
+  def define_ext_command_GL_QCOM_extended_get
     GL_FUNCTIONS_ARGS_MAP[:glExtGetTexturesQCOM] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glExtGetTexturesQCOM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_QCOM_extended_get)
@@ -2258,9 +2258,9 @@ module OpenGL
         f.call(_target_, _params_)
       end
     SRC_GL_QCOM_extended_get
-  end # define_command_GL_QCOM_extended_get
+  end # define_ext_command_GL_QCOM_extended_get
 
-  def define_command_GL_QCOM_extended_get2
+  def define_ext_command_GL_QCOM_extended_get2
     GL_FUNCTIONS_ARGS_MAP[:glExtGetShadersQCOM] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glExtGetShadersQCOM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_QCOM_extended_get2)
@@ -2296,12 +2296,12 @@ module OpenGL
         f.call(_program_, _shadertype_, _source_, _length_)
       end
     SRC_GL_QCOM_extended_get2
-  end # define_command_GL_QCOM_extended_get2
+  end # define_ext_command_GL_QCOM_extended_get2
 
-  def define_command_GL_QCOM_perfmon_global_mode
-  end # define_command_GL_QCOM_perfmon_global_mode
+  def define_ext_command_GL_QCOM_perfmon_global_mode
+  end # define_ext_command_GL_QCOM_perfmon_global_mode
 
-  def define_command_GL_QCOM_tiled_rendering
+  def define_ext_command_GL_QCOM_tiled_rendering
     GL_FUNCTIONS_ARGS_MAP[:glStartTilingQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glStartTilingQCOM] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_QCOM_tiled_rendering)
@@ -2319,12 +2319,12 @@ module OpenGL
         f.call(_preserveMask_)
       end
     SRC_GL_QCOM_tiled_rendering
-  end # define_command_GL_QCOM_tiled_rendering
+  end # define_ext_command_GL_QCOM_tiled_rendering
 
-  def define_command_GL_QCOM_writeonly_rendering
-  end # define_command_GL_QCOM_writeonly_rendering
+  def define_ext_command_GL_QCOM_writeonly_rendering
+  end # define_ext_command_GL_QCOM_writeonly_rendering
 
-  def define_command_GL_VIV_shader_binary
-  end # define_command_GL_VIV_shader_binary
+  def define_ext_command_GL_VIV_shader_binary
+  end # define_ext_command_GL_VIV_shader_binary
 
 end

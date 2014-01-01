@@ -20,10 +20,19 @@ module OpenGL
 
   def self.setup_extension( ext_name )
     if self.check_extension( ext_name )
-      define_enum = "define_enum_#{ext_name}".to_sym
-      define_command = "define_command_#{ext_name}".to_sym
-      self.send( define_enum )
-      self.send( define_command )
+      define_ext_enum = "define_ext_enum_#{ext_name}".to_sym
+      define_ext_command = "define_ext_command_#{ext_name}".to_sym
+      self.send( define_ext_enum )
+      self.send( define_ext_command )
     end
   end
+
+  def self.setup_extension_all()
+    self.methods.each do |method_name|
+      if method_name =~ /define_ext_command_(.*)/
+        setup_extension( $1 )
+      end
+    end
+  end
+
 end

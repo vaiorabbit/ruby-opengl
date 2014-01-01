@@ -21,9 +21,9 @@ def generate_es_ext_enum( out )
   # Collect all enum
   gl_all_enum_map = {}
   doc.xpath('registry/enums/enum').each do |enum_tag|
-    # check alias
-    alias_attr = enum_tag['alias']
-    next if alias_attr != nil
+    # # check alias
+    # alias_attr = enum_tag['alias']
+    # next if alias_attr != nil
 
     gl_all_enum_map[enum_tag['name']] = enum_tag['value']
   end
@@ -58,11 +58,11 @@ def generate_es_ext_enum( out )
   out.puts "module OpenGL"
   out.puts ""
   gl_ext_name_to_enums_map.each_pair do |ext_name, ext_enums|
-    out.print "  def define_enum_#{ext_name}\n"
+    out.print "  def define_ext_enum_#{ext_name}\n"
     ext_enums.each do |enums|
       out.puts "    const_set('#{enums[0]}', #{enums[1]}) unless defined?(#{enums[0]})"
     end
-    out.print "  end # define_enum_#{ext_name}\n\n"
+    out.print "  end # define_ext_enum_#{ext_name}\n\n"
   end
   out.puts "end"
 end

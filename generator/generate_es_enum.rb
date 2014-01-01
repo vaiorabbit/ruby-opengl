@@ -21,9 +21,9 @@ def generate_es_enum( out )
   # Collect all enum
   gl_all_enum_map = {}
   doc.xpath('registry/enums/enum').each do |enum_tag|
-    # check alias
-    alias_attr = enum_tag['alias']
-    next if alias_attr != nil
+    # # check alias
+    # alias_attr = enum_tag['alias']
+    # next if alias_attr != nil
 
     gl_all_enum_map[enum_tag['name']] = enum_tag['value']
   end

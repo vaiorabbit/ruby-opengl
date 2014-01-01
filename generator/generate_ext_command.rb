@@ -80,7 +80,7 @@ def generate_ext_command( out )
   out.puts "module OpenGL"
   out.puts ""
   gl_ext_name_to_commands_map.each_pair do |ext_name, ext_commands|
-    out.puts "  def define_command_#{ext_name}"
+    out.puts "  def define_ext_command_#{ext_name}"
 
     commands_count = ext_commands.size
     command_index = 0
@@ -117,7 +117,7 @@ def generate_ext_command( out )
       out.puts "" if (command_index + 1) != commands_count
       command_index += 1
     end
-    out.puts "  end # define_command_#{ext_name}"
+    out.puts "  end # define_ext_command_#{ext_name}"
     out.puts ""
   end
   out.puts "end"

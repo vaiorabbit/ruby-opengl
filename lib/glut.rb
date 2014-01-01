@@ -428,7 +428,7 @@ module GLUT
     extern 'void glutVideoPan(int, int, int, int)'
 
     extern 'void glutSetColor(int, float, float, float)'
-    extern 'GLfloat glutGetColor(int, int)'
+    extern 'float glutGetColor(int, int)'
     extern 'void glutCopyColormap(int)'
 
     extern 'void glutIgnoreKeyRepeat(int)'

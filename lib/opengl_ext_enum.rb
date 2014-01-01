@@ -6,30 +6,30 @@
 
 module OpenGL
 
-  def define_enum_GL_3DFX_multisample
+  def define_ext_enum_GL_3DFX_multisample
     const_set('GL_MULTISAMPLE_3DFX', 0x86B2) unless defined?(GL_MULTISAMPLE_3DFX)
     const_set('GL_SAMPLE_BUFFERS_3DFX', 0x86B3) unless defined?(GL_SAMPLE_BUFFERS_3DFX)
     const_set('GL_SAMPLES_3DFX', 0x86B4) unless defined?(GL_SAMPLES_3DFX)
     const_set('GL_MULTISAMPLE_BIT_3DFX', 0x20000000) unless defined?(GL_MULTISAMPLE_BIT_3DFX)
-  end # define_enum_GL_3DFX_multisample
+  end # define_ext_enum_GL_3DFX_multisample
 
-  def define_enum_GL_3DFX_tbuffer
-  end # define_enum_GL_3DFX_tbuffer
+  def define_ext_enum_GL_3DFX_tbuffer
+  end # define_ext_enum_GL_3DFX_tbuffer
 
-  def define_enum_GL_3DFX_texture_compression_FXT1
+  def define_ext_enum_GL_3DFX_texture_compression_FXT1
     const_set('GL_COMPRESSED_RGB_FXT1_3DFX', 0x86B0) unless defined?(GL_COMPRESSED_RGB_FXT1_3DFX)
     const_set('GL_COMPRESSED_RGBA_FXT1_3DFX', 0x86B1) unless defined?(GL_COMPRESSED_RGBA_FXT1_3DFX)
-  end # define_enum_GL_3DFX_texture_compression_FXT1
+  end # define_ext_enum_GL_3DFX_texture_compression_FXT1
 
-  def define_enum_GL_AMD_blend_minmax_factor
+  def define_ext_enum_GL_AMD_blend_minmax_factor
     const_set('GL_FACTOR_MIN_AMD', 0x901C) unless defined?(GL_FACTOR_MIN_AMD)
     const_set('GL_FACTOR_MAX_AMD', 0x901D) unless defined?(GL_FACTOR_MAX_AMD)
-  end # define_enum_GL_AMD_blend_minmax_factor
+  end # define_ext_enum_GL_AMD_blend_minmax_factor
 
-  def define_enum_GL_AMD_conservative_depth
-  end # define_enum_GL_AMD_conservative_depth
+  def define_ext_enum_GL_AMD_conservative_depth
+  end # define_ext_enum_GL_AMD_conservative_depth
 
-  def define_enum_GL_AMD_debug_output
+  def define_ext_enum_GL_AMD_debug_output
     const_set('GL_MAX_DEBUG_MESSAGE_LENGTH_AMD', 0x9143) unless defined?(GL_MAX_DEBUG_MESSAGE_LENGTH_AMD)
     const_set('GL_MAX_DEBUG_LOGGED_MESSAGES_AMD', 0x9144) unless defined?(GL_MAX_DEBUG_LOGGED_MESSAGES_AMD)
     const_set('GL_DEBUG_LOGGED_MESSAGES_AMD', 0x9145) unless defined?(GL_DEBUG_LOGGED_MESSAGES_AMD)
@@ -44,17 +44,17 @@ module OpenGL
     const_set('GL_DEBUG_CATEGORY_SHADER_COMPILER_AMD', 0x914E) unless defined?(GL_DEBUG_CATEGORY_SHADER_COMPILER_AMD)
     const_set('GL_DEBUG_CATEGORY_APPLICATION_AMD', 0x914F) unless defined?(GL_DEBUG_CATEGORY_APPLICATION_AMD)
     const_set('GL_DEBUG_CATEGORY_OTHER_AMD', 0x9150) unless defined?(GL_DEBUG_CATEGORY_OTHER_AMD)
-  end # define_enum_GL_AMD_debug_output
+  end # define_ext_enum_GL_AMD_debug_output
 
-  def define_enum_GL_AMD_depth_clamp_separate
+  def define_ext_enum_GL_AMD_depth_clamp_separate
     const_set('GL_DEPTH_CLAMP_NEAR_AMD', 0x901E) unless defined?(GL_DEPTH_CLAMP_NEAR_AMD)
     const_set('GL_DEPTH_CLAMP_FAR_AMD', 0x901F) unless defined?(GL_DEPTH_CLAMP_FAR_AMD)
-  end # define_enum_GL_AMD_depth_clamp_separate
+  end # define_ext_enum_GL_AMD_depth_clamp_separate
 
-  def define_enum_GL_AMD_draw_buffers_blend
-  end # define_enum_GL_AMD_draw_buffers_blend
+  def define_ext_enum_GL_AMD_draw_buffers_blend
+  end # define_ext_enum_GL_AMD_draw_buffers_blend
 
-  def define_enum_GL_AMD_interleaved_elements
+  def define_ext_enum_GL_AMD_interleaved_elements
     const_set('GL_VERTEX_ELEMENT_SWIZZLE_AMD', 0x91A4) unless defined?(GL_VERTEX_ELEMENT_SWIZZLE_AMD)
     const_set('GL_VERTEX_ID_SWIZZLE_AMD', 0x91A5) unless defined?(GL_VERTEX_ID_SWIZZLE_AMD)
     const_set('GL_RED', 0x1903) unless defined?(GL_RED)
@@ -64,29 +64,29 @@ module OpenGL
     const_set('GL_RG8UI', 0x8238) unless defined?(GL_RG8UI)
     const_set('GL_RG16UI', 0x823A) unless defined?(GL_RG16UI)
     const_set('GL_RGBA8UI', 0x8D7C) unless defined?(GL_RGBA8UI)
-  end # define_enum_GL_AMD_interleaved_elements
+  end # define_ext_enum_GL_AMD_interleaved_elements
 
-  def define_enum_GL_AMD_multi_draw_indirect
-  end # define_enum_GL_AMD_multi_draw_indirect
+  def define_ext_enum_GL_AMD_multi_draw_indirect
+  end # define_ext_enum_GL_AMD_multi_draw_indirect
 
-  def define_enum_GL_AMD_name_gen_delete
+  def define_ext_enum_GL_AMD_name_gen_delete
     const_set('GL_DATA_BUFFER_AMD', 0x9151) unless defined?(GL_DATA_BUFFER_AMD)
     const_set('GL_PERFORMANCE_MONITOR_AMD', 0x9152) unless defined?(GL_PERFORMANCE_MONITOR_AMD)
     const_set('GL_QUERY_OBJECT_AMD', 0x9153) unless defined?(GL_QUERY_OBJECT_AMD)
     const_set('GL_VERTEX_ARRAY_OBJECT_AMD', 0x9154) unless defined?(GL_VERTEX_ARRAY_OBJECT_AMD)
     const_set('GL_SAMPLER_OBJECT_AMD', 0x9155) unless defined?(GL_SAMPLER_OBJECT_AMD)
-  end # define_enum_GL_AMD_name_gen_delete
+  end # define_ext_enum_GL_AMD_name_gen_delete
 
-  def define_enum_GL_AMD_occlusion_query_event
+  def define_ext_enum_GL_AMD_occlusion_query_event
     const_set('GL_OCCLUSION_QUERY_EVENT_MASK_AMD', 0x874F) unless defined?(GL_OCCLUSION_QUERY_EVENT_MASK_AMD)
     const_set('GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD', 0x00000001) unless defined?(GL_QUERY_DEPTH_PASS_EVENT_BIT_AMD)
     const_set('GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD', 0x00000002) unless defined?(GL_QUERY_DEPTH_FAIL_EVENT_BIT_AMD)
     const_set('GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD', 0x00000004) unless defined?(GL_QUERY_STENCIL_FAIL_EVENT_BIT_AMD)
     const_set('GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD', 0x00000008) unless defined?(GL_QUERY_DEPTH_BOUNDS_FAIL_EVENT_BIT_AMD)
     const_set('GL_QUERY_ALL_EVENT_BITS_AMD', 0xFFFFFFFF) unless defined?(GL_QUERY_ALL_EVENT_BITS_AMD)
-  end # define_enum_GL_AMD_occlusion_query_event
+  end # define_ext_enum_GL_AMD_occlusion_query_event
 
-  def define_enum_GL_AMD_performance_monitor
+  def define_ext_enum_GL_AMD_performance_monitor
     const_set('GL_COUNTER_TYPE_AMD', 0x8BC0) unless defined?(GL_COUNTER_TYPE_AMD)
     const_set('GL_COUNTER_RANGE_AMD', 0x8BC1) unless defined?(GL_COUNTER_RANGE_AMD)
     const_set('GL_UNSIGNED_INT64_AMD', 0x8BC2) unless defined?(GL_UNSIGNED_INT64_AMD)
@@ -94,36 +94,36 @@ module OpenGL
     const_set('GL_PERFMON_RESULT_AVAILABLE_AMD', 0x8BC4) unless defined?(GL_PERFMON_RESULT_AVAILABLE_AMD)
     const_set('GL_PERFMON_RESULT_SIZE_AMD', 0x8BC5) unless defined?(GL_PERFMON_RESULT_SIZE_AMD)
     const_set('GL_PERFMON_RESULT_AMD', 0x8BC6) unless defined?(GL_PERFMON_RESULT_AMD)
-  end # define_enum_GL_AMD_performance_monitor
+  end # define_ext_enum_GL_AMD_performance_monitor
 
-  def define_enum_GL_AMD_pinned_memory
+  def define_ext_enum_GL_AMD_pinned_memory
     const_set('GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD', 0x9160) unless defined?(GL_EXTERNAL_VIRTUAL_MEMORY_BUFFER_AMD)
-  end # define_enum_GL_AMD_pinned_memory
+  end # define_ext_enum_GL_AMD_pinned_memory
 
-  def define_enum_GL_AMD_query_buffer_object
+  def define_ext_enum_GL_AMD_query_buffer_object
     const_set('GL_QUERY_BUFFER_AMD', 0x9192) unless defined?(GL_QUERY_BUFFER_AMD)
     const_set('GL_QUERY_BUFFER_BINDING_AMD', 0x9193) unless defined?(GL_QUERY_BUFFER_BINDING_AMD)
     const_set('GL_QUERY_RESULT_NO_WAIT_AMD', 0x9194) unless defined?(GL_QUERY_RESULT_NO_WAIT_AMD)
-  end # define_enum_GL_AMD_query_buffer_object
+  end # define_ext_enum_GL_AMD_query_buffer_object
 
-  def define_enum_GL_AMD_sample_positions
+  def define_ext_enum_GL_AMD_sample_positions
     const_set('GL_SUBSAMPLE_DISTANCE_AMD', 0x883F) unless defined?(GL_SUBSAMPLE_DISTANCE_AMD)
-  end # define_enum_GL_AMD_sample_positions
+  end # define_ext_enum_GL_AMD_sample_positions
 
-  def define_enum_GL_AMD_seamless_cubemap_per_texture
+  def define_ext_enum_GL_AMD_seamless_cubemap_per_texture
     const_set('GL_TEXTURE_CUBE_MAP_SEAMLESS', 0x884F) unless defined?(GL_TEXTURE_CUBE_MAP_SEAMLESS)
-  end # define_enum_GL_AMD_seamless_cubemap_per_texture
+  end # define_ext_enum_GL_AMD_seamless_cubemap_per_texture
 
-  def define_enum_GL_AMD_shader_atomic_counter_ops
-  end # define_enum_GL_AMD_shader_atomic_counter_ops
+  def define_ext_enum_GL_AMD_shader_atomic_counter_ops
+  end # define_ext_enum_GL_AMD_shader_atomic_counter_ops
 
-  def define_enum_GL_AMD_shader_stencil_export
-  end # define_enum_GL_AMD_shader_stencil_export
+  def define_ext_enum_GL_AMD_shader_stencil_export
+  end # define_ext_enum_GL_AMD_shader_stencil_export
 
-  def define_enum_GL_AMD_shader_trinary_minmax
-  end # define_enum_GL_AMD_shader_trinary_minmax
+  def define_ext_enum_GL_AMD_shader_trinary_minmax
+  end # define_ext_enum_GL_AMD_shader_trinary_minmax
 
-  def define_enum_GL_AMD_sparse_texture
+  def define_ext_enum_GL_AMD_sparse_texture
     const_set('GL_VIRTUAL_PAGE_SIZE_X_AMD', 0x9195) unless defined?(GL_VIRTUAL_PAGE_SIZE_X_AMD)
     const_set('GL_VIRTUAL_PAGE_SIZE_Y_AMD', 0x9196) unless defined?(GL_VIRTUAL_PAGE_SIZE_Y_AMD)
     const_set('GL_VIRTUAL_PAGE_SIZE_Z_AMD', 0x9197) unless defined?(GL_VIRTUAL_PAGE_SIZE_Z_AMD)
@@ -133,25 +133,25 @@ module OpenGL
     const_set('GL_MIN_SPARSE_LEVEL_AMD', 0x919B) unless defined?(GL_MIN_SPARSE_LEVEL_AMD)
     const_set('GL_MIN_LOD_WARNING_AMD', 0x919C) unless defined?(GL_MIN_LOD_WARNING_AMD)
     const_set('GL_TEXTURE_STORAGE_SPARSE_BIT_AMD', 0x00000001) unless defined?(GL_TEXTURE_STORAGE_SPARSE_BIT_AMD)
-  end # define_enum_GL_AMD_sparse_texture
+  end # define_ext_enum_GL_AMD_sparse_texture
 
-  def define_enum_GL_AMD_stencil_operation_extended
+  def define_ext_enum_GL_AMD_stencil_operation_extended
     const_set('GL_SET_AMD', 0x874A) unless defined?(GL_SET_AMD)
     const_set('GL_REPLACE_VALUE_AMD', 0x874B) unless defined?(GL_REPLACE_VALUE_AMD)
     const_set('GL_STENCIL_OP_VALUE_AMD', 0x874C) unless defined?(GL_STENCIL_OP_VALUE_AMD)
     const_set('GL_STENCIL_BACK_OP_VALUE_AMD', 0x874D) unless defined?(GL_STENCIL_BACK_OP_VALUE_AMD)
-  end # define_enum_GL_AMD_stencil_operation_extended
+  end # define_ext_enum_GL_AMD_stencil_operation_extended
 
-  def define_enum_GL_AMD_texture_texture4
-  end # define_enum_GL_AMD_texture_texture4
+  def define_ext_enum_GL_AMD_texture_texture4
+  end # define_ext_enum_GL_AMD_texture_texture4
 
-  def define_enum_GL_AMD_transform_feedback3_lines_triangles
-  end # define_enum_GL_AMD_transform_feedback3_lines_triangles
+  def define_ext_enum_GL_AMD_transform_feedback3_lines_triangles
+  end # define_ext_enum_GL_AMD_transform_feedback3_lines_triangles
 
-  def define_enum_GL_AMD_vertex_shader_layer
-  end # define_enum_GL_AMD_vertex_shader_layer
+  def define_ext_enum_GL_AMD_vertex_shader_layer
+  end # define_ext_enum_GL_AMD_vertex_shader_layer
 
-  def define_enum_GL_AMD_vertex_shader_tessellator
+  def define_ext_enum_GL_AMD_vertex_shader_tessellator
     const_set('GL_SAMPLER_BUFFER_AMD', 0x9001) unless defined?(GL_SAMPLER_BUFFER_AMD)
     const_set('GL_INT_SAMPLER_BUFFER_AMD', 0x9002) unless defined?(GL_INT_SAMPLER_BUFFER_AMD)
     const_set('GL_UNSIGNED_INT_SAMPLER_BUFFER_AMD', 0x9003) unless defined?(GL_UNSIGNED_INT_SAMPLER_BUFFER_AMD)
@@ -159,31 +159,31 @@ module OpenGL
     const_set('GL_TESSELLATION_FACTOR_AMD', 0x9005) unless defined?(GL_TESSELLATION_FACTOR_AMD)
     const_set('GL_DISCRETE_AMD', 0x9006) unless defined?(GL_DISCRETE_AMD)
     const_set('GL_CONTINUOUS_AMD', 0x9007) unless defined?(GL_CONTINUOUS_AMD)
-  end # define_enum_GL_AMD_vertex_shader_tessellator
+  end # define_ext_enum_GL_AMD_vertex_shader_tessellator
 
-  def define_enum_GL_AMD_vertex_shader_viewport_index
-  end # define_enum_GL_AMD_vertex_shader_viewport_index
+  def define_ext_enum_GL_AMD_vertex_shader_viewport_index
+  end # define_ext_enum_GL_AMD_vertex_shader_viewport_index
 
-  def define_enum_GL_APPLE_aux_depth_stencil
+  def define_ext_enum_GL_APPLE_aux_depth_stencil
     const_set('GL_AUX_DEPTH_STENCIL_APPLE', 0x8A14) unless defined?(GL_AUX_DEPTH_STENCIL_APPLE)
-  end # define_enum_GL_APPLE_aux_depth_stencil
+  end # define_ext_enum_GL_APPLE_aux_depth_stencil
 
-  def define_enum_GL_APPLE_client_storage
+  def define_ext_enum_GL_APPLE_client_storage
     const_set('GL_UNPACK_CLIENT_STORAGE_APPLE', 0x85B2) unless defined?(GL_UNPACK_CLIENT_STORAGE_APPLE)
-  end # define_enum_GL_APPLE_client_storage
+  end # define_ext_enum_GL_APPLE_client_storage
 
-  def define_enum_GL_APPLE_element_array
+  def define_ext_enum_GL_APPLE_element_array
     const_set('GL_ELEMENT_ARRAY_APPLE', 0x8A0C) unless defined?(GL_ELEMENT_ARRAY_APPLE)
     const_set('GL_ELEMENT_ARRAY_TYPE_APPLE', 0x8A0D) unless defined?(GL_ELEMENT_ARRAY_TYPE_APPLE)
     const_set('GL_ELEMENT_ARRAY_POINTER_APPLE', 0x8A0E) unless defined?(GL_ELEMENT_ARRAY_POINTER_APPLE)
-  end # define_enum_GL_APPLE_element_array
+  end # define_ext_enum_GL_APPLE_element_array
 
-  def define_enum_GL_APPLE_fence
+  def define_ext_enum_GL_APPLE_fence
     const_set('GL_DRAW_PIXELS_APPLE', 0x8A0A) unless defined?(GL_DRAW_PIXELS_APPLE)
     const_set('GL_FENCE_APPLE', 0x8A0B) unless defined?(GL_FENCE_APPLE)
-  end # define_enum_GL_APPLE_fence
+  end # define_ext_enum_GL_APPLE_fence
 
-  def define_enum_GL_APPLE_float_pixels
+  def define_ext_enum_GL_APPLE_float_pixels
     const_set('GL_HALF_APPLE', 0x140B) unless defined?(GL_HALF_APPLE)
     const_set('GL_RGBA_FLOAT32_APPLE', 0x8814) unless defined?(GL_RGBA_FLOAT32_APPLE)
     const_set('GL_RGB_FLOAT32_APPLE', 0x8815) unless defined?(GL_RGB_FLOAT32_APPLE)
@@ -198,56 +198,56 @@ module OpenGL
     const_set('GL_LUMINANCE_FLOAT16_APPLE', 0x881E) unless defined?(GL_LUMINANCE_FLOAT16_APPLE)
     const_set('GL_LUMINANCE_ALPHA_FLOAT16_APPLE', 0x881F) unless defined?(GL_LUMINANCE_ALPHA_FLOAT16_APPLE)
     const_set('GL_COLOR_FLOAT_APPLE', 0x8A0F) unless defined?(GL_COLOR_FLOAT_APPLE)
-  end # define_enum_GL_APPLE_float_pixels
+  end # define_ext_enum_GL_APPLE_float_pixels
 
-  def define_enum_GL_APPLE_flush_buffer_range
+  def define_ext_enum_GL_APPLE_flush_buffer_range
     const_set('GL_BUFFER_SERIALIZED_MODIFY_APPLE', 0x8A12) unless defined?(GL_BUFFER_SERIALIZED_MODIFY_APPLE)
     const_set('GL_BUFFER_FLUSHING_UNMAP_APPLE', 0x8A13) unless defined?(GL_BUFFER_FLUSHING_UNMAP_APPLE)
-  end # define_enum_GL_APPLE_flush_buffer_range
+  end # define_ext_enum_GL_APPLE_flush_buffer_range
 
-  def define_enum_GL_APPLE_object_purgeable
+  def define_ext_enum_GL_APPLE_object_purgeable
     const_set('GL_BUFFER_OBJECT_APPLE', 0x85B3) unless defined?(GL_BUFFER_OBJECT_APPLE)
     const_set('GL_RELEASED_APPLE', 0x8A19) unless defined?(GL_RELEASED_APPLE)
     const_set('GL_VOLATILE_APPLE', 0x8A1A) unless defined?(GL_VOLATILE_APPLE)
     const_set('GL_RETAINED_APPLE', 0x8A1B) unless defined?(GL_RETAINED_APPLE)
     const_set('GL_UNDEFINED_APPLE', 0x8A1C) unless defined?(GL_UNDEFINED_APPLE)
     const_set('GL_PURGEABLE_APPLE', 0x8A1D) unless defined?(GL_PURGEABLE_APPLE)
-  end # define_enum_GL_APPLE_object_purgeable
+  end # define_ext_enum_GL_APPLE_object_purgeable
 
-  def define_enum_GL_APPLE_rgb_422
+  def define_ext_enum_GL_APPLE_rgb_422
     const_set('GL_RGB_422_APPLE', 0x8A1F) unless defined?(GL_RGB_422_APPLE)
     const_set('GL_UNSIGNED_SHORT_8_8_APPLE', 0x85BA) unless defined?(GL_UNSIGNED_SHORT_8_8_APPLE)
     const_set('GL_UNSIGNED_SHORT_8_8_REV_APPLE', 0x85BB) unless defined?(GL_UNSIGNED_SHORT_8_8_REV_APPLE)
     const_set('GL_RGB_RAW_422_APPLE', 0x8A51) unless defined?(GL_RGB_RAW_422_APPLE)
-  end # define_enum_GL_APPLE_rgb_422
+  end # define_ext_enum_GL_APPLE_rgb_422
 
-  def define_enum_GL_APPLE_row_bytes
+  def define_ext_enum_GL_APPLE_row_bytes
     const_set('GL_PACK_ROW_BYTES_APPLE', 0x8A15) unless defined?(GL_PACK_ROW_BYTES_APPLE)
     const_set('GL_UNPACK_ROW_BYTES_APPLE', 0x8A16) unless defined?(GL_UNPACK_ROW_BYTES_APPLE)
-  end # define_enum_GL_APPLE_row_bytes
+  end # define_ext_enum_GL_APPLE_row_bytes
 
-  def define_enum_GL_APPLE_specular_vector
+  def define_ext_enum_GL_APPLE_specular_vector
     const_set('GL_LIGHT_MODEL_SPECULAR_VECTOR_APPLE', 0x85B0) unless defined?(GL_LIGHT_MODEL_SPECULAR_VECTOR_APPLE)
-  end # define_enum_GL_APPLE_specular_vector
+  end # define_ext_enum_GL_APPLE_specular_vector
 
-  def define_enum_GL_APPLE_texture_range
+  def define_ext_enum_GL_APPLE_texture_range
     const_set('GL_TEXTURE_RANGE_LENGTH_APPLE', 0x85B7) unless defined?(GL_TEXTURE_RANGE_LENGTH_APPLE)
     const_set('GL_TEXTURE_RANGE_POINTER_APPLE', 0x85B8) unless defined?(GL_TEXTURE_RANGE_POINTER_APPLE)
     const_set('GL_TEXTURE_STORAGE_HINT_APPLE', 0x85BC) unless defined?(GL_TEXTURE_STORAGE_HINT_APPLE)
     const_set('GL_STORAGE_PRIVATE_APPLE', 0x85BD) unless defined?(GL_STORAGE_PRIVATE_APPLE)
     const_set('GL_STORAGE_CACHED_APPLE', 0x85BE) unless defined?(GL_STORAGE_CACHED_APPLE)
     const_set('GL_STORAGE_SHARED_APPLE', 0x85BF) unless defined?(GL_STORAGE_SHARED_APPLE)
-  end # define_enum_GL_APPLE_texture_range
+  end # define_ext_enum_GL_APPLE_texture_range
 
-  def define_enum_GL_APPLE_transform_hint
+  def define_ext_enum_GL_APPLE_transform_hint
     const_set('GL_TRANSFORM_HINT_APPLE', 0x85B1) unless defined?(GL_TRANSFORM_HINT_APPLE)
-  end # define_enum_GL_APPLE_transform_hint
+  end # define_ext_enum_GL_APPLE_transform_hint
 
-  def define_enum_GL_APPLE_vertex_array_object
+  def define_ext_enum_GL_APPLE_vertex_array_object
     const_set('GL_VERTEX_ARRAY_BINDING_APPLE', 0x85B5) unless defined?(GL_VERTEX_ARRAY_BINDING_APPLE)
-  end # define_enum_GL_APPLE_vertex_array_object
+  end # define_ext_enum_GL_APPLE_vertex_array_object
 
-  def define_enum_GL_APPLE_vertex_array_range
+  def define_ext_enum_GL_APPLE_vertex_array_range
     const_set('GL_VERTEX_ARRAY_RANGE_APPLE', 0x851D) unless defined?(GL_VERTEX_ARRAY_RANGE_APPLE)
     const_set('GL_VERTEX_ARRAY_RANGE_LENGTH_APPLE', 0x851E) unless defined?(GL_VERTEX_ARRAY_RANGE_LENGTH_APPLE)
     const_set('GL_VERTEX_ARRAY_STORAGE_HINT_APPLE', 0x851F) unless defined?(GL_VERTEX_ARRAY_STORAGE_HINT_APPLE)
@@ -255,9 +255,9 @@ module OpenGL
     const_set('GL_STORAGE_CLIENT_APPLE', 0x85B4) unless defined?(GL_STORAGE_CLIENT_APPLE)
     const_set('GL_STORAGE_CACHED_APPLE', 0x85BE) unless defined?(GL_STORAGE_CACHED_APPLE)
     const_set('GL_STORAGE_SHARED_APPLE', 0x85BF) unless defined?(GL_STORAGE_SHARED_APPLE)
-  end # define_enum_GL_APPLE_vertex_array_range
+  end # define_ext_enum_GL_APPLE_vertex_array_range
 
-  def define_enum_GL_APPLE_vertex_program_evaluators
+  def define_ext_enum_GL_APPLE_vertex_program_evaluators
     const_set('GL_VERTEX_ATTRIB_MAP1_APPLE', 0x8A00) unless defined?(GL_VERTEX_ATTRIB_MAP1_APPLE)
     const_set('GL_VERTEX_ATTRIB_MAP2_APPLE', 0x8A01) unless defined?(GL_VERTEX_ATTRIB_MAP2_APPLE)
     const_set('GL_VERTEX_ATTRIB_MAP1_SIZE_APPLE', 0x8A02) unless defined?(GL_VERTEX_ATTRIB_MAP1_SIZE_APPLE)
@@ -268,15 +268,15 @@ module OpenGL
     const_set('GL_VERTEX_ATTRIB_MAP2_COEFF_APPLE', 0x8A07) unless defined?(GL_VERTEX_ATTRIB_MAP2_COEFF_APPLE)
     const_set('GL_VERTEX_ATTRIB_MAP2_ORDER_APPLE', 0x8A08) unless defined?(GL_VERTEX_ATTRIB_MAP2_ORDER_APPLE)
     const_set('GL_VERTEX_ATTRIB_MAP2_DOMAIN_APPLE', 0x8A09) unless defined?(GL_VERTEX_ATTRIB_MAP2_DOMAIN_APPLE)
-  end # define_enum_GL_APPLE_vertex_program_evaluators
+  end # define_ext_enum_GL_APPLE_vertex_program_evaluators
 
-  def define_enum_GL_APPLE_ycbcr_422
+  def define_ext_enum_GL_APPLE_ycbcr_422
     const_set('GL_YCBCR_422_APPLE', 0x85B9) unless defined?(GL_YCBCR_422_APPLE)
     const_set('GL_UNSIGNED_SHORT_8_8_APPLE', 0x85BA) unless defined?(GL_UNSIGNED_SHORT_8_8_APPLE)
     const_set('GL_UNSIGNED_SHORT_8_8_REV_APPLE', 0x85BB) unless defined?(GL_UNSIGNED_SHORT_8_8_REV_APPLE)
-  end # define_enum_GL_APPLE_ycbcr_422
+  end # define_ext_enum_GL_APPLE_ycbcr_422
 
-  def define_enum_GL_ARB_ES2_compatibility
+  def define_ext_enum_GL_ARB_ES2_compatibility
     const_set('GL_FIXED', 0x140C) unless defined?(GL_FIXED)
     const_set('GL_IMPLEMENTATION_COLOR_READ_TYPE', 0x8B9A) unless defined?(GL_IMPLEMENTATION_COLOR_READ_TYPE)
     const_set('GL_IMPLEMENTATION_COLOR_READ_FORMAT', 0x8B9B) unless defined?(GL_IMPLEMENTATION_COLOR_READ_FORMAT)
@@ -293,9 +293,9 @@ module OpenGL
     const_set('GL_MAX_VARYING_VECTORS', 0x8DFC) unless defined?(GL_MAX_VARYING_VECTORS)
     const_set('GL_MAX_FRAGMENT_UNIFORM_VECTORS', 0x8DFD) unless defined?(GL_MAX_FRAGMENT_UNIFORM_VECTORS)
     const_set('GL_RGB565', 0x8D62) unless defined?(GL_RGB565)
-  end # define_enum_GL_ARB_ES2_compatibility
+  end # define_ext_enum_GL_ARB_ES2_compatibility
 
-  def define_enum_GL_ARB_ES3_compatibility
+  def define_ext_enum_GL_ARB_ES3_compatibility
     const_set('GL_COMPRESSED_RGB8_ETC2', 0x9274) unless defined?(GL_COMPRESSED_RGB8_ETC2)
     const_set('GL_COMPRESSED_SRGB8_ETC2', 0x9275) unless defined?(GL_COMPRESSED_SRGB8_ETC2)
     const_set('GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2', 0x9276) unless defined?(GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2)
@@ -309,27 +309,27 @@ module OpenGL
     const_set('GL_PRIMITIVE_RESTART_FIXED_INDEX', 0x8D69) unless defined?(GL_PRIMITIVE_RESTART_FIXED_INDEX)
     const_set('GL_ANY_SAMPLES_PASSED_CONSERVATIVE', 0x8D6A) unless defined?(GL_ANY_SAMPLES_PASSED_CONSERVATIVE)
     const_set('GL_MAX_ELEMENT_INDEX', 0x8D6B) unless defined?(GL_MAX_ELEMENT_INDEX)
-  end # define_enum_GL_ARB_ES3_compatibility
+  end # define_ext_enum_GL_ARB_ES3_compatibility
 
-  def define_enum_GL_ARB_arrays_of_arrays
-  end # define_enum_GL_ARB_arrays_of_arrays
+  def define_ext_enum_GL_ARB_arrays_of_arrays
+  end # define_ext_enum_GL_ARB_arrays_of_arrays
 
-  def define_enum_GL_ARB_base_instance
-  end # define_enum_GL_ARB_base_instance
+  def define_ext_enum_GL_ARB_base_instance
+  end # define_ext_enum_GL_ARB_base_instance
 
-  def define_enum_GL_ARB_bindless_texture
+  def define_ext_enum_GL_ARB_bindless_texture
     const_set('GL_UNSIGNED_INT64_ARB', 0x140F) unless defined?(GL_UNSIGNED_INT64_ARB)
-  end # define_enum_GL_ARB_bindless_texture
+  end # define_ext_enum_GL_ARB_bindless_texture
 
-  def define_enum_GL_ARB_blend_func_extended
+  def define_ext_enum_GL_ARB_blend_func_extended
     const_set('GL_SRC1_COLOR', 0x88F9) unless defined?(GL_SRC1_COLOR)
-    const_set('GL_SRC1_ALPHA', ) unless defined?(GL_SRC1_ALPHA)
+    const_set('GL_SRC1_ALPHA', 0x8589) unless defined?(GL_SRC1_ALPHA)
     const_set('GL_ONE_MINUS_SRC1_COLOR', 0x88FA) unless defined?(GL_ONE_MINUS_SRC1_COLOR)
     const_set('GL_ONE_MINUS_SRC1_ALPHA', 0x88FB) unless defined?(GL_ONE_MINUS_SRC1_ALPHA)
     const_set('GL_MAX_DUAL_SOURCE_DRAW_BUFFERS', 0x88FC) unless defined?(GL_MAX_DUAL_SOURCE_DRAW_BUFFERS)
-  end # define_enum_GL_ARB_blend_func_extended
+  end # define_ext_enum_GL_ARB_blend_func_extended
 
-  def define_enum_GL_ARB_buffer_storage
+  def define_ext_enum_GL_ARB_buffer_storage
     const_set('GL_MAP_READ_BIT', 0x0001) unless defined?(GL_MAP_READ_BIT)
     const_set('GL_MAP_WRITE_BIT', 0x0002) unless defined?(GL_MAP_WRITE_BIT)
     const_set('GL_MAP_PERSISTENT_BIT', 0x0040) unless defined?(GL_MAP_PERSISTENT_BIT)
@@ -339,32 +339,32 @@ module OpenGL
     const_set('GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT', 0x00004000) unless defined?(GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT)
     const_set('GL_BUFFER_IMMUTABLE_STORAGE', 0x821F) unless defined?(GL_BUFFER_IMMUTABLE_STORAGE)
     const_set('GL_BUFFER_STORAGE_FLAGS', 0x8220) unless defined?(GL_BUFFER_STORAGE_FLAGS)
-  end # define_enum_GL_ARB_buffer_storage
+  end # define_ext_enum_GL_ARB_buffer_storage
 
-  def define_enum_GL_ARB_cl_event
+  def define_ext_enum_GL_ARB_cl_event
     const_set('GL_SYNC_CL_EVENT_ARB', 0x8240) unless defined?(GL_SYNC_CL_EVENT_ARB)
     const_set('GL_SYNC_CL_EVENT_COMPLETE_ARB', 0x8241) unless defined?(GL_SYNC_CL_EVENT_COMPLETE_ARB)
-  end # define_enum_GL_ARB_cl_event
+  end # define_ext_enum_GL_ARB_cl_event
 
-  def define_enum_GL_ARB_clear_buffer_object
-  end # define_enum_GL_ARB_clear_buffer_object
+  def define_ext_enum_GL_ARB_clear_buffer_object
+  end # define_ext_enum_GL_ARB_clear_buffer_object
 
-  def define_enum_GL_ARB_clear_texture
+  def define_ext_enum_GL_ARB_clear_texture
     const_set('GL_CLEAR_TEXTURE', 0x9365) unless defined?(GL_CLEAR_TEXTURE)
-  end # define_enum_GL_ARB_clear_texture
+  end # define_ext_enum_GL_ARB_clear_texture
 
-  def define_enum_GL_ARB_color_buffer_float
+  def define_ext_enum_GL_ARB_color_buffer_float
     const_set('GL_RGBA_FLOAT_MODE_ARB', 0x8820) unless defined?(GL_RGBA_FLOAT_MODE_ARB)
     const_set('GL_CLAMP_VERTEX_COLOR_ARB', 0x891A) unless defined?(GL_CLAMP_VERTEX_COLOR_ARB)
     const_set('GL_CLAMP_FRAGMENT_COLOR_ARB', 0x891B) unless defined?(GL_CLAMP_FRAGMENT_COLOR_ARB)
     const_set('GL_CLAMP_READ_COLOR_ARB', 0x891C) unless defined?(GL_CLAMP_READ_COLOR_ARB)
     const_set('GL_FIXED_ONLY_ARB', 0x891D) unless defined?(GL_FIXED_ONLY_ARB)
-  end # define_enum_GL_ARB_color_buffer_float
+  end # define_ext_enum_GL_ARB_color_buffer_float
 
-  def define_enum_GL_ARB_compatibility
-  end # define_enum_GL_ARB_compatibility
+  def define_ext_enum_GL_ARB_compatibility
+  end # define_ext_enum_GL_ARB_compatibility
 
-  def define_enum_GL_ARB_compressed_texture_pixel_storage
+  def define_ext_enum_GL_ARB_compressed_texture_pixel_storage
     const_set('GL_UNPACK_COMPRESSED_BLOCK_WIDTH', 0x9127) unless defined?(GL_UNPACK_COMPRESSED_BLOCK_WIDTH)
     const_set('GL_UNPACK_COMPRESSED_BLOCK_HEIGHT', 0x9128) unless defined?(GL_UNPACK_COMPRESSED_BLOCK_HEIGHT)
     const_set('GL_UNPACK_COMPRESSED_BLOCK_DEPTH', 0x9129) unless defined?(GL_UNPACK_COMPRESSED_BLOCK_DEPTH)
@@ -373,9 +373,9 @@ module OpenGL
     const_set('GL_PACK_COMPRESSED_BLOCK_HEIGHT', 0x912C) unless defined?(GL_PACK_COMPRESSED_BLOCK_HEIGHT)
     const_set('GL_PACK_COMPRESSED_BLOCK_DEPTH', 0x912D) unless defined?(GL_PACK_COMPRESSED_BLOCK_DEPTH)
     const_set('GL_PACK_COMPRESSED_BLOCK_SIZE', 0x912E) unless defined?(GL_PACK_COMPRESSED_BLOCK_SIZE)
-  end # define_enum_GL_ARB_compressed_texture_pixel_storage
+  end # define_ext_enum_GL_ARB_compressed_texture_pixel_storage
 
-  def define_enum_GL_ARB_compute_shader
+  def define_ext_enum_GL_ARB_compute_shader
     const_set('GL_COMPUTE_SHADER', 0x91B9) unless defined?(GL_COMPUTE_SHADER)
     const_set('GL_MAX_COMPUTE_UNIFORM_BLOCKS', 0x91BB) unless defined?(GL_MAX_COMPUTE_UNIFORM_BLOCKS)
     const_set('GL_MAX_COMPUTE_TEXTURE_IMAGE_UNITS', 0x91BC) unless defined?(GL_MAX_COMPUTE_TEXTURE_IMAGE_UNITS)
@@ -394,29 +394,29 @@ module OpenGL
     const_set('GL_DISPATCH_INDIRECT_BUFFER', 0x90EE) unless defined?(GL_DISPATCH_INDIRECT_BUFFER)
     const_set('GL_DISPATCH_INDIRECT_BUFFER_BINDING', 0x90EF) unless defined?(GL_DISPATCH_INDIRECT_BUFFER_BINDING)
     const_set('GL_COMPUTE_SHADER_BIT', 0x00000020) unless defined?(GL_COMPUTE_SHADER_BIT)
-  end # define_enum_GL_ARB_compute_shader
+  end # define_ext_enum_GL_ARB_compute_shader
 
-  def define_enum_GL_ARB_compute_variable_group_size
+  def define_ext_enum_GL_ARB_compute_variable_group_size
     const_set('GL_MAX_COMPUTE_VARIABLE_GROUP_INVOCATIONS_ARB', 0x9344) unless defined?(GL_MAX_COMPUTE_VARIABLE_GROUP_INVOCATIONS_ARB)
-    const_set('GL_MAX_COMPUTE_FIXED_GROUP_INVOCATIONS_ARB', ) unless defined?(GL_MAX_COMPUTE_FIXED_GROUP_INVOCATIONS_ARB)
+    const_set('GL_MAX_COMPUTE_FIXED_GROUP_INVOCATIONS_ARB', 0x90EB) unless defined?(GL_MAX_COMPUTE_FIXED_GROUP_INVOCATIONS_ARB)
     const_set('GL_MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB', 0x9345) unless defined?(GL_MAX_COMPUTE_VARIABLE_GROUP_SIZE_ARB)
-    const_set('GL_MAX_COMPUTE_FIXED_GROUP_SIZE_ARB', ) unless defined?(GL_MAX_COMPUTE_FIXED_GROUP_SIZE_ARB)
-  end # define_enum_GL_ARB_compute_variable_group_size
+    const_set('GL_MAX_COMPUTE_FIXED_GROUP_SIZE_ARB', 0x91BF) unless defined?(GL_MAX_COMPUTE_FIXED_GROUP_SIZE_ARB)
+  end # define_ext_enum_GL_ARB_compute_variable_group_size
 
-  def define_enum_GL_ARB_conservative_depth
-  end # define_enum_GL_ARB_conservative_depth
+  def define_ext_enum_GL_ARB_conservative_depth
+  end # define_ext_enum_GL_ARB_conservative_depth
 
-  def define_enum_GL_ARB_copy_buffer
-    const_set('GL_COPY_READ_BUFFER_BINDING', ) unless defined?(GL_COPY_READ_BUFFER_BINDING)
+  def define_ext_enum_GL_ARB_copy_buffer
+    const_set('GL_COPY_READ_BUFFER_BINDING', 0x8F36) unless defined?(GL_COPY_READ_BUFFER_BINDING)
     const_set('GL_COPY_READ_BUFFER', 0x8F36) unless defined?(GL_COPY_READ_BUFFER)
-    const_set('GL_COPY_WRITE_BUFFER_BINDING', ) unless defined?(GL_COPY_WRITE_BUFFER_BINDING)
+    const_set('GL_COPY_WRITE_BUFFER_BINDING', 0x8F37) unless defined?(GL_COPY_WRITE_BUFFER_BINDING)
     const_set('GL_COPY_WRITE_BUFFER', 0x8F37) unless defined?(GL_COPY_WRITE_BUFFER)
-  end # define_enum_GL_ARB_copy_buffer
+  end # define_ext_enum_GL_ARB_copy_buffer
 
-  def define_enum_GL_ARB_copy_image
-  end # define_enum_GL_ARB_copy_image
+  def define_ext_enum_GL_ARB_copy_image
+  end # define_ext_enum_GL_ARB_copy_image
 
-  def define_enum_GL_ARB_debug_output
+  def define_ext_enum_GL_ARB_debug_output
     const_set('GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB', 0x8242) unless defined?(GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB)
     const_set('GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_ARB', 0x8243) unless defined?(GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH_ARB)
     const_set('GL_DEBUG_CALLBACK_FUNCTION_ARB', 0x8244) unless defined?(GL_DEBUG_CALLBACK_FUNCTION_ARB)
@@ -439,27 +439,27 @@ module OpenGL
     const_set('GL_DEBUG_SEVERITY_HIGH_ARB', 0x9146) unless defined?(GL_DEBUG_SEVERITY_HIGH_ARB)
     const_set('GL_DEBUG_SEVERITY_MEDIUM_ARB', 0x9147) unless defined?(GL_DEBUG_SEVERITY_MEDIUM_ARB)
     const_set('GL_DEBUG_SEVERITY_LOW_ARB', 0x9148) unless defined?(GL_DEBUG_SEVERITY_LOW_ARB)
-  end # define_enum_GL_ARB_debug_output
+  end # define_ext_enum_GL_ARB_debug_output
 
-  def define_enum_GL_ARB_depth_buffer_float
+  def define_ext_enum_GL_ARB_depth_buffer_float
     const_set('GL_DEPTH_COMPONENT32F', 0x8CAC) unless defined?(GL_DEPTH_COMPONENT32F)
     const_set('GL_DEPTH32F_STENCIL8', 0x8CAD) unless defined?(GL_DEPTH32F_STENCIL8)
     const_set('GL_FLOAT_32_UNSIGNED_INT_24_8_REV', 0x8DAD) unless defined?(GL_FLOAT_32_UNSIGNED_INT_24_8_REV)
-  end # define_enum_GL_ARB_depth_buffer_float
+  end # define_ext_enum_GL_ARB_depth_buffer_float
 
-  def define_enum_GL_ARB_depth_clamp
+  def define_ext_enum_GL_ARB_depth_clamp
     const_set('GL_DEPTH_CLAMP', 0x864F) unless defined?(GL_DEPTH_CLAMP)
-  end # define_enum_GL_ARB_depth_clamp
+  end # define_ext_enum_GL_ARB_depth_clamp
 
-  def define_enum_GL_ARB_depth_texture
+  def define_ext_enum_GL_ARB_depth_texture
     const_set('GL_DEPTH_COMPONENT16_ARB', 0x81A5) unless defined?(GL_DEPTH_COMPONENT16_ARB)
     const_set('GL_DEPTH_COMPONENT24_ARB', 0x81A6) unless defined?(GL_DEPTH_COMPONENT24_ARB)
     const_set('GL_DEPTH_COMPONENT32_ARB', 0x81A7) unless defined?(GL_DEPTH_COMPONENT32_ARB)
     const_set('GL_TEXTURE_DEPTH_SIZE_ARB', 0x884A) unless defined?(GL_TEXTURE_DEPTH_SIZE_ARB)
     const_set('GL_DEPTH_TEXTURE_MODE_ARB', 0x884B) unless defined?(GL_DEPTH_TEXTURE_MODE_ARB)
-  end # define_enum_GL_ARB_depth_texture
+  end # define_ext_enum_GL_ARB_depth_texture
 
-  def define_enum_GL_ARB_draw_buffers
+  def define_ext_enum_GL_ARB_draw_buffers
     const_set('GL_MAX_DRAW_BUFFERS_ARB', 0x8824) unless defined?(GL_MAX_DRAW_BUFFERS_ARB)
     const_set('GL_DRAW_BUFFER0_ARB', 0x8825) unless defined?(GL_DRAW_BUFFER0_ARB)
     const_set('GL_DRAW_BUFFER1_ARB', 0x8826) unless defined?(GL_DRAW_BUFFER1_ARB)
@@ -477,43 +477,43 @@ module OpenGL
     const_set('GL_DRAW_BUFFER13_ARB', 0x8832) unless defined?(GL_DRAW_BUFFER13_ARB)
     const_set('GL_DRAW_BUFFER14_ARB', 0x8833) unless defined?(GL_DRAW_BUFFER14_ARB)
     const_set('GL_DRAW_BUFFER15_ARB', 0x8834) unless defined?(GL_DRAW_BUFFER15_ARB)
-  end # define_enum_GL_ARB_draw_buffers
+  end # define_ext_enum_GL_ARB_draw_buffers
 
-  def define_enum_GL_ARB_draw_buffers_blend
-  end # define_enum_GL_ARB_draw_buffers_blend
+  def define_ext_enum_GL_ARB_draw_buffers_blend
+  end # define_ext_enum_GL_ARB_draw_buffers_blend
 
-  def define_enum_GL_ARB_draw_elements_base_vertex
-  end # define_enum_GL_ARB_draw_elements_base_vertex
+  def define_ext_enum_GL_ARB_draw_elements_base_vertex
+  end # define_ext_enum_GL_ARB_draw_elements_base_vertex
 
-  def define_enum_GL_ARB_draw_indirect
+  def define_ext_enum_GL_ARB_draw_indirect
     const_set('GL_DRAW_INDIRECT_BUFFER', 0x8F3F) unless defined?(GL_DRAW_INDIRECT_BUFFER)
     const_set('GL_DRAW_INDIRECT_BUFFER_BINDING', 0x8F43) unless defined?(GL_DRAW_INDIRECT_BUFFER_BINDING)
-  end # define_enum_GL_ARB_draw_indirect
+  end # define_ext_enum_GL_ARB_draw_indirect
 
-  def define_enum_GL_ARB_draw_instanced
-  end # define_enum_GL_ARB_draw_instanced
+  def define_ext_enum_GL_ARB_draw_instanced
+  end # define_ext_enum_GL_ARB_draw_instanced
 
-  def define_enum_GL_ARB_enhanced_layouts
+  def define_ext_enum_GL_ARB_enhanced_layouts
     const_set('GL_LOCATION_COMPONENT', 0x934A) unless defined?(GL_LOCATION_COMPONENT)
     const_set('GL_TRANSFORM_FEEDBACK_BUFFER', 0x8C8E) unless defined?(GL_TRANSFORM_FEEDBACK_BUFFER)
     const_set('GL_TRANSFORM_FEEDBACK_BUFFER_INDEX', 0x934B) unless defined?(GL_TRANSFORM_FEEDBACK_BUFFER_INDEX)
     const_set('GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE', 0x934C) unless defined?(GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE)
-  end # define_enum_GL_ARB_enhanced_layouts
+  end # define_ext_enum_GL_ARB_enhanced_layouts
 
-  def define_enum_GL_ARB_explicit_attrib_location
-  end # define_enum_GL_ARB_explicit_attrib_location
+  def define_ext_enum_GL_ARB_explicit_attrib_location
+  end # define_ext_enum_GL_ARB_explicit_attrib_location
 
-  def define_enum_GL_ARB_explicit_uniform_location
+  def define_ext_enum_GL_ARB_explicit_uniform_location
     const_set('GL_MAX_UNIFORM_LOCATIONS', 0x826E) unless defined?(GL_MAX_UNIFORM_LOCATIONS)
-  end # define_enum_GL_ARB_explicit_uniform_location
+  end # define_ext_enum_GL_ARB_explicit_uniform_location
 
-  def define_enum_GL_ARB_fragment_coord_conventions
-  end # define_enum_GL_ARB_fragment_coord_conventions
+  def define_ext_enum_GL_ARB_fragment_coord_conventions
+  end # define_ext_enum_GL_ARB_fragment_coord_conventions
 
-  def define_enum_GL_ARB_fragment_layer_viewport
-  end # define_enum_GL_ARB_fragment_layer_viewport
+  def define_ext_enum_GL_ARB_fragment_layer_viewport
+  end # define_ext_enum_GL_ARB_fragment_layer_viewport
 
-  def define_enum_GL_ARB_fragment_program
+  def define_ext_enum_GL_ARB_fragment_program
     const_set('GL_FRAGMENT_PROGRAM_ARB', 0x8804) unless defined?(GL_FRAGMENT_PROGRAM_ARB)
     const_set('GL_PROGRAM_FORMAT_ASCII_ARB', 0x8875) unless defined?(GL_PROGRAM_FORMAT_ASCII_ARB)
     const_set('GL_PROGRAM_LENGTH_ARB', 0x8627) unless defined?(GL_PROGRAM_LENGTH_ARB)
@@ -592,18 +592,18 @@ module OpenGL
     const_set('GL_MATRIX29_ARB', 0x88DD) unless defined?(GL_MATRIX29_ARB)
     const_set('GL_MATRIX30_ARB', 0x88DE) unless defined?(GL_MATRIX30_ARB)
     const_set('GL_MATRIX31_ARB', 0x88DF) unless defined?(GL_MATRIX31_ARB)
-  end # define_enum_GL_ARB_fragment_program
+  end # define_ext_enum_GL_ARB_fragment_program
 
-  def define_enum_GL_ARB_fragment_program_shadow
-  end # define_enum_GL_ARB_fragment_program_shadow
+  def define_ext_enum_GL_ARB_fragment_program_shadow
+  end # define_ext_enum_GL_ARB_fragment_program_shadow
 
-  def define_enum_GL_ARB_fragment_shader
+  def define_ext_enum_GL_ARB_fragment_shader
     const_set('GL_FRAGMENT_SHADER_ARB', 0x8B30) unless defined?(GL_FRAGMENT_SHADER_ARB)
     const_set('GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB', 0x8B49) unless defined?(GL_MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB)
     const_set('GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB', 0x8B8B) unless defined?(GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB)
-  end # define_enum_GL_ARB_fragment_shader
+  end # define_ext_enum_GL_ARB_fragment_shader
 
-  def define_enum_GL_ARB_framebuffer_no_attachments
+  def define_ext_enum_GL_ARB_framebuffer_no_attachments
     const_set('GL_FRAMEBUFFER_DEFAULT_WIDTH', 0x9310) unless defined?(GL_FRAMEBUFFER_DEFAULT_WIDTH)
     const_set('GL_FRAMEBUFFER_DEFAULT_HEIGHT', 0x9311) unless defined?(GL_FRAMEBUFFER_DEFAULT_HEIGHT)
     const_set('GL_FRAMEBUFFER_DEFAULT_LAYERS', 0x9312) unless defined?(GL_FRAMEBUFFER_DEFAULT_LAYERS)
@@ -613,9 +613,9 @@ module OpenGL
     const_set('GL_MAX_FRAMEBUFFER_HEIGHT', 0x9316) unless defined?(GL_MAX_FRAMEBUFFER_HEIGHT)
     const_set('GL_MAX_FRAMEBUFFER_LAYERS', 0x9317) unless defined?(GL_MAX_FRAMEBUFFER_LAYERS)
     const_set('GL_MAX_FRAMEBUFFER_SAMPLES', 0x9318) unless defined?(GL_MAX_FRAMEBUFFER_SAMPLES)
-  end # define_enum_GL_ARB_framebuffer_no_attachments
+  end # define_ext_enum_GL_ARB_framebuffer_no_attachments
 
-  def define_enum_GL_ARB_framebuffer_object
+  def define_ext_enum_GL_ARB_framebuffer_object
     const_set('GL_INVALID_FRAMEBUFFER_OPERATION', 0x0506) unless defined?(GL_INVALID_FRAMEBUFFER_OPERATION)
     const_set('GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING', 0x8210) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING)
     const_set('GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE', 0x8211) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE)
@@ -696,13 +696,13 @@ module OpenGL
     const_set('GL_INDEX', 0x8222) unless defined?(GL_INDEX)
     const_set('GL_TEXTURE_LUMINANCE_TYPE', 0x8C14) unless defined?(GL_TEXTURE_LUMINANCE_TYPE)
     const_set('GL_TEXTURE_INTENSITY_TYPE', 0x8C15) unless defined?(GL_TEXTURE_INTENSITY_TYPE)
-  end # define_enum_GL_ARB_framebuffer_object
+  end # define_ext_enum_GL_ARB_framebuffer_object
 
-  def define_enum_GL_ARB_framebuffer_sRGB
+  def define_ext_enum_GL_ARB_framebuffer_sRGB
     const_set('GL_FRAMEBUFFER_SRGB', 0x8DB9) unless defined?(GL_FRAMEBUFFER_SRGB)
-  end # define_enum_GL_ARB_framebuffer_sRGB
+  end # define_ext_enum_GL_ARB_framebuffer_sRGB
 
-  def define_enum_GL_ARB_geometry_shader4
+  def define_ext_enum_GL_ARB_geometry_shader4
     const_set('GL_LINES_ADJACENCY_ARB', 0x000A) unless defined?(GL_LINES_ADJACENCY_ARB)
     const_set('GL_LINE_STRIP_ADJACENCY_ARB', 0x000B) unless defined?(GL_LINE_STRIP_ADJACENCY_ARB)
     const_set('GL_TRIANGLES_ADJACENCY_ARB', 0x000C) unless defined?(GL_TRIANGLES_ADJACENCY_ARB)
@@ -721,27 +721,27 @@ module OpenGL
     const_set('GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_ARB', 0x8DDF) unless defined?(GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_ARB)
     const_set('GL_MAX_GEOMETRY_OUTPUT_VERTICES_ARB', 0x8DE0) unless defined?(GL_MAX_GEOMETRY_OUTPUT_VERTICES_ARB)
     const_set('GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_ARB', 0x8DE1) unless defined?(GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_ARB)
-    const_set('GL_MAX_VARYING_COMPONENTS', ) unless defined?(GL_MAX_VARYING_COMPONENTS)
+    const_set('GL_MAX_VARYING_COMPONENTS', 0x8B4B) unless defined?(GL_MAX_VARYING_COMPONENTS)
     const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER', 0x8CD4) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER)
-  end # define_enum_GL_ARB_geometry_shader4
+  end # define_ext_enum_GL_ARB_geometry_shader4
 
-  def define_enum_GL_ARB_get_program_binary
+  def define_ext_enum_GL_ARB_get_program_binary
     const_set('GL_PROGRAM_BINARY_RETRIEVABLE_HINT', 0x8257) unless defined?(GL_PROGRAM_BINARY_RETRIEVABLE_HINT)
     const_set('GL_PROGRAM_BINARY_LENGTH', 0x8741) unless defined?(GL_PROGRAM_BINARY_LENGTH)
     const_set('GL_NUM_PROGRAM_BINARY_FORMATS', 0x87FE) unless defined?(GL_NUM_PROGRAM_BINARY_FORMATS)
     const_set('GL_PROGRAM_BINARY_FORMATS', 0x87FF) unless defined?(GL_PROGRAM_BINARY_FORMATS)
-  end # define_enum_GL_ARB_get_program_binary
+  end # define_ext_enum_GL_ARB_get_program_binary
 
-  def define_enum_GL_ARB_gpu_shader5
+  def define_ext_enum_GL_ARB_gpu_shader5
     const_set('GL_GEOMETRY_SHADER_INVOCATIONS', 0x887F) unless defined?(GL_GEOMETRY_SHADER_INVOCATIONS)
     const_set('GL_MAX_GEOMETRY_SHADER_INVOCATIONS', 0x8E5A) unless defined?(GL_MAX_GEOMETRY_SHADER_INVOCATIONS)
     const_set('GL_MIN_FRAGMENT_INTERPOLATION_OFFSET', 0x8E5B) unless defined?(GL_MIN_FRAGMENT_INTERPOLATION_OFFSET)
     const_set('GL_MAX_FRAGMENT_INTERPOLATION_OFFSET', 0x8E5C) unless defined?(GL_MAX_FRAGMENT_INTERPOLATION_OFFSET)
     const_set('GL_FRAGMENT_INTERPOLATION_OFFSET_BITS', 0x8E5D) unless defined?(GL_FRAGMENT_INTERPOLATION_OFFSET_BITS)
     const_set('GL_MAX_VERTEX_STREAMS', 0x8E71) unless defined?(GL_MAX_VERTEX_STREAMS)
-  end # define_enum_GL_ARB_gpu_shader5
+  end # define_ext_enum_GL_ARB_gpu_shader5
 
-  def define_enum_GL_ARB_gpu_shader_fp64
+  def define_ext_enum_GL_ARB_gpu_shader_fp64
     const_set('GL_DOUBLE', 0x140A) unless defined?(GL_DOUBLE)
     const_set('GL_DOUBLE_VEC2', 0x8FFC) unless defined?(GL_DOUBLE_VEC2)
     const_set('GL_DOUBLE_VEC3', 0x8FFD) unless defined?(GL_DOUBLE_VEC3)
@@ -755,17 +755,17 @@ module OpenGL
     const_set('GL_DOUBLE_MAT3x4', 0x8F4C) unless defined?(GL_DOUBLE_MAT3x4)
     const_set('GL_DOUBLE_MAT4x2', 0x8F4D) unless defined?(GL_DOUBLE_MAT4x2)
     const_set('GL_DOUBLE_MAT4x3', 0x8F4E) unless defined?(GL_DOUBLE_MAT4x3)
-  end # define_enum_GL_ARB_gpu_shader_fp64
+  end # define_ext_enum_GL_ARB_gpu_shader_fp64
 
-  def define_enum_GL_ARB_half_float_pixel
+  def define_ext_enum_GL_ARB_half_float_pixel
     const_set('GL_HALF_FLOAT_ARB', 0x140B) unless defined?(GL_HALF_FLOAT_ARB)
-  end # define_enum_GL_ARB_half_float_pixel
+  end # define_ext_enum_GL_ARB_half_float_pixel
 
-  def define_enum_GL_ARB_half_float_vertex
+  def define_ext_enum_GL_ARB_half_float_vertex
     const_set('GL_HALF_FLOAT', 0x140B) unless defined?(GL_HALF_FLOAT)
-  end # define_enum_GL_ARB_half_float_vertex
+  end # define_ext_enum_GL_ARB_half_float_vertex
 
-  def define_enum_GL_ARB_imaging
+  def define_ext_enum_GL_ARB_imaging
     const_set('GL_CONSTANT_COLOR', 0x8001) unless defined?(GL_CONSTANT_COLOR)
     const_set('GL_ONE_MINUS_CONSTANT_COLOR', 0x8002) unless defined?(GL_ONE_MINUS_CONSTANT_COLOR)
     const_set('GL_CONSTANT_ALPHA', 0x8003) unless defined?(GL_CONSTANT_ALPHA)
@@ -841,22 +841,22 @@ module OpenGL
     const_set('GL_CONSTANT_BORDER', 0x8151) unless defined?(GL_CONSTANT_BORDER)
     const_set('GL_REPLICATE_BORDER', 0x8153) unless defined?(GL_REPLICATE_BORDER)
     const_set('GL_CONVOLUTION_BORDER_COLOR', 0x8154) unless defined?(GL_CONVOLUTION_BORDER_COLOR)
-  end # define_enum_GL_ARB_imaging
+  end # define_ext_enum_GL_ARB_imaging
 
-  def define_enum_GL_ARB_indirect_parameters
+  def define_ext_enum_GL_ARB_indirect_parameters
     const_set('GL_PARAMETER_BUFFER_ARB', 0x80EE) unless defined?(GL_PARAMETER_BUFFER_ARB)
     const_set('GL_PARAMETER_BUFFER_BINDING_ARB', 0x80EF) unless defined?(GL_PARAMETER_BUFFER_BINDING_ARB)
-  end # define_enum_GL_ARB_indirect_parameters
+  end # define_ext_enum_GL_ARB_indirect_parameters
 
-  def define_enum_GL_ARB_instanced_arrays
+  def define_ext_enum_GL_ARB_instanced_arrays
     const_set('GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB', 0x88FE) unless defined?(GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ARB)
-  end # define_enum_GL_ARB_instanced_arrays
+  end # define_ext_enum_GL_ARB_instanced_arrays
 
-  def define_enum_GL_ARB_internalformat_query
+  def define_ext_enum_GL_ARB_internalformat_query
     const_set('GL_NUM_SAMPLE_COUNTS', 0x9380) unless defined?(GL_NUM_SAMPLE_COUNTS)
-  end # define_enum_GL_ARB_internalformat_query
+  end # define_ext_enum_GL_ARB_internalformat_query
 
-  def define_enum_GL_ARB_internalformat_query2
+  def define_ext_enum_GL_ARB_internalformat_query2
     const_set('GL_IMAGE_FORMAT_COMPATIBILITY_TYPE', 0x90C7) unless defined?(GL_IMAGE_FORMAT_COMPATIBILITY_TYPE)
     const_set('GL_NUM_SAMPLE_COUNTS', 0x9380) unless defined?(GL_NUM_SAMPLE_COUNTS)
     const_set('GL_RENDERBUFFER', 0x8D41) unless defined?(GL_RENDERBUFFER)
@@ -972,25 +972,25 @@ module OpenGL
     const_set('GL_VIEW_CLASS_RGTC2_RG', 0x82D1) unless defined?(GL_VIEW_CLASS_RGTC2_RG)
     const_set('GL_VIEW_CLASS_BPTC_UNORM', 0x82D2) unless defined?(GL_VIEW_CLASS_BPTC_UNORM)
     const_set('GL_VIEW_CLASS_BPTC_FLOAT', 0x82D3) unless defined?(GL_VIEW_CLASS_BPTC_FLOAT)
-  end # define_enum_GL_ARB_internalformat_query2
+  end # define_ext_enum_GL_ARB_internalformat_query2
 
-  def define_enum_GL_ARB_invalidate_subdata
-  end # define_enum_GL_ARB_invalidate_subdata
+  def define_ext_enum_GL_ARB_invalidate_subdata
+  end # define_ext_enum_GL_ARB_invalidate_subdata
 
-  def define_enum_GL_ARB_map_buffer_alignment
+  def define_ext_enum_GL_ARB_map_buffer_alignment
     const_set('GL_MIN_MAP_BUFFER_ALIGNMENT', 0x90BC) unless defined?(GL_MIN_MAP_BUFFER_ALIGNMENT)
-  end # define_enum_GL_ARB_map_buffer_alignment
+  end # define_ext_enum_GL_ARB_map_buffer_alignment
 
-  def define_enum_GL_ARB_map_buffer_range
+  def define_ext_enum_GL_ARB_map_buffer_range
     const_set('GL_MAP_READ_BIT', 0x0001) unless defined?(GL_MAP_READ_BIT)
     const_set('GL_MAP_WRITE_BIT', 0x0002) unless defined?(GL_MAP_WRITE_BIT)
     const_set('GL_MAP_INVALIDATE_RANGE_BIT', 0x0004) unless defined?(GL_MAP_INVALIDATE_RANGE_BIT)
     const_set('GL_MAP_INVALIDATE_BUFFER_BIT', 0x0008) unless defined?(GL_MAP_INVALIDATE_BUFFER_BIT)
     const_set('GL_MAP_FLUSH_EXPLICIT_BIT', 0x0010) unless defined?(GL_MAP_FLUSH_EXPLICIT_BIT)
     const_set('GL_MAP_UNSYNCHRONIZED_BIT', 0x0020) unless defined?(GL_MAP_UNSYNCHRONIZED_BIT)
-  end # define_enum_GL_ARB_map_buffer_range
+  end # define_ext_enum_GL_ARB_map_buffer_range
 
-  def define_enum_GL_ARB_matrix_palette
+  def define_ext_enum_GL_ARB_matrix_palette
     const_set('GL_MATRIX_PALETTE_ARB', 0x8840) unless defined?(GL_MATRIX_PALETTE_ARB)
     const_set('GL_MAX_MATRIX_PALETTE_STACK_DEPTH_ARB', 0x8841) unless defined?(GL_MAX_MATRIX_PALETTE_STACK_DEPTH_ARB)
     const_set('GL_MAX_PALETTE_MATRICES_ARB', 0x8842) unless defined?(GL_MAX_PALETTE_MATRICES_ARB)
@@ -1001,15 +1001,15 @@ module OpenGL
     const_set('GL_MATRIX_INDEX_ARRAY_TYPE_ARB', 0x8847) unless defined?(GL_MATRIX_INDEX_ARRAY_TYPE_ARB)
     const_set('GL_MATRIX_INDEX_ARRAY_STRIDE_ARB', 0x8848) unless defined?(GL_MATRIX_INDEX_ARRAY_STRIDE_ARB)
     const_set('GL_MATRIX_INDEX_ARRAY_POINTER_ARB', 0x8849) unless defined?(GL_MATRIX_INDEX_ARRAY_POINTER_ARB)
-  end # define_enum_GL_ARB_matrix_palette
+  end # define_ext_enum_GL_ARB_matrix_palette
 
-  def define_enum_GL_ARB_multi_bind
-  end # define_enum_GL_ARB_multi_bind
+  def define_ext_enum_GL_ARB_multi_bind
+  end # define_ext_enum_GL_ARB_multi_bind
 
-  def define_enum_GL_ARB_multi_draw_indirect
-  end # define_enum_GL_ARB_multi_draw_indirect
+  def define_ext_enum_GL_ARB_multi_draw_indirect
+  end # define_ext_enum_GL_ARB_multi_draw_indirect
 
-  def define_enum_GL_ARB_multisample
+  def define_ext_enum_GL_ARB_multisample
     const_set('GL_MULTISAMPLE_ARB', 0x809D) unless defined?(GL_MULTISAMPLE_ARB)
     const_set('GL_SAMPLE_ALPHA_TO_COVERAGE_ARB', 0x809E) unless defined?(GL_SAMPLE_ALPHA_TO_COVERAGE_ARB)
     const_set('GL_SAMPLE_ALPHA_TO_ONE_ARB', 0x809F) unless defined?(GL_SAMPLE_ALPHA_TO_ONE_ARB)
@@ -1019,9 +1019,9 @@ module OpenGL
     const_set('GL_SAMPLE_COVERAGE_VALUE_ARB', 0x80AA) unless defined?(GL_SAMPLE_COVERAGE_VALUE_ARB)
     const_set('GL_SAMPLE_COVERAGE_INVERT_ARB', 0x80AB) unless defined?(GL_SAMPLE_COVERAGE_INVERT_ARB)
     const_set('GL_MULTISAMPLE_BIT_ARB', 0x20000000) unless defined?(GL_MULTISAMPLE_BIT_ARB)
-  end # define_enum_GL_ARB_multisample
+  end # define_ext_enum_GL_ARB_multisample
 
-  def define_enum_GL_ARB_multitexture
+  def define_ext_enum_GL_ARB_multitexture
     const_set('GL_TEXTURE0_ARB', 0x84C0) unless defined?(GL_TEXTURE0_ARB)
     const_set('GL_TEXTURE1_ARB', 0x84C1) unless defined?(GL_TEXTURE1_ARB)
     const_set('GL_TEXTURE2_ARB', 0x84C2) unless defined?(GL_TEXTURE2_ARB)
@@ -1057,40 +1057,40 @@ module OpenGL
     const_set('GL_ACTIVE_TEXTURE_ARB', 0x84E0) unless defined?(GL_ACTIVE_TEXTURE_ARB)
     const_set('GL_CLIENT_ACTIVE_TEXTURE_ARB', 0x84E1) unless defined?(GL_CLIENT_ACTIVE_TEXTURE_ARB)
     const_set('GL_MAX_TEXTURE_UNITS_ARB', 0x84E2) unless defined?(GL_MAX_TEXTURE_UNITS_ARB)
-  end # define_enum_GL_ARB_multitexture
+  end # define_ext_enum_GL_ARB_multitexture
 
-  def define_enum_GL_ARB_occlusion_query
+  def define_ext_enum_GL_ARB_occlusion_query
     const_set('GL_QUERY_COUNTER_BITS_ARB', 0x8864) unless defined?(GL_QUERY_COUNTER_BITS_ARB)
     const_set('GL_CURRENT_QUERY_ARB', 0x8865) unless defined?(GL_CURRENT_QUERY_ARB)
     const_set('GL_QUERY_RESULT_ARB', 0x8866) unless defined?(GL_QUERY_RESULT_ARB)
     const_set('GL_QUERY_RESULT_AVAILABLE_ARB', 0x8867) unless defined?(GL_QUERY_RESULT_AVAILABLE_ARB)
     const_set('GL_SAMPLES_PASSED_ARB', 0x8914) unless defined?(GL_SAMPLES_PASSED_ARB)
-  end # define_enum_GL_ARB_occlusion_query
+  end # define_ext_enum_GL_ARB_occlusion_query
 
-  def define_enum_GL_ARB_occlusion_query2
+  def define_ext_enum_GL_ARB_occlusion_query2
     const_set('GL_ANY_SAMPLES_PASSED', 0x8C2F) unless defined?(GL_ANY_SAMPLES_PASSED)
-  end # define_enum_GL_ARB_occlusion_query2
+  end # define_ext_enum_GL_ARB_occlusion_query2
 
-  def define_enum_GL_ARB_pixel_buffer_object
+  def define_ext_enum_GL_ARB_pixel_buffer_object
     const_set('GL_PIXEL_PACK_BUFFER_ARB', 0x88EB) unless defined?(GL_PIXEL_PACK_BUFFER_ARB)
     const_set('GL_PIXEL_UNPACK_BUFFER_ARB', 0x88EC) unless defined?(GL_PIXEL_UNPACK_BUFFER_ARB)
     const_set('GL_PIXEL_PACK_BUFFER_BINDING_ARB', 0x88ED) unless defined?(GL_PIXEL_PACK_BUFFER_BINDING_ARB)
     const_set('GL_PIXEL_UNPACK_BUFFER_BINDING_ARB', 0x88EF) unless defined?(GL_PIXEL_UNPACK_BUFFER_BINDING_ARB)
-  end # define_enum_GL_ARB_pixel_buffer_object
+  end # define_ext_enum_GL_ARB_pixel_buffer_object
 
-  def define_enum_GL_ARB_point_parameters
+  def define_ext_enum_GL_ARB_point_parameters
     const_set('GL_POINT_SIZE_MIN_ARB', 0x8126) unless defined?(GL_POINT_SIZE_MIN_ARB)
     const_set('GL_POINT_SIZE_MAX_ARB', 0x8127) unless defined?(GL_POINT_SIZE_MAX_ARB)
     const_set('GL_POINT_FADE_THRESHOLD_SIZE_ARB', 0x8128) unless defined?(GL_POINT_FADE_THRESHOLD_SIZE_ARB)
     const_set('GL_POINT_DISTANCE_ATTENUATION_ARB', 0x8129) unless defined?(GL_POINT_DISTANCE_ATTENUATION_ARB)
-  end # define_enum_GL_ARB_point_parameters
+  end # define_ext_enum_GL_ARB_point_parameters
 
-  def define_enum_GL_ARB_point_sprite
+  def define_ext_enum_GL_ARB_point_sprite
     const_set('GL_POINT_SPRITE_ARB', 0x8861) unless defined?(GL_POINT_SPRITE_ARB)
     const_set('GL_COORD_REPLACE_ARB', 0x8862) unless defined?(GL_COORD_REPLACE_ARB)
-  end # define_enum_GL_ARB_point_sprite
+  end # define_ext_enum_GL_ARB_point_sprite
 
-  def define_enum_GL_ARB_program_interface_query
+  def define_ext_enum_GL_ARB_program_interface_query
     const_set('GL_UNIFORM', 0x92E1) unless defined?(GL_UNIFORM)
     const_set('GL_UNIFORM_BLOCK', 0x92E2) unless defined?(GL_UNIFORM_BLOCK)
     const_set('GL_PROGRAM_INPUT', 0x92E3) unless defined?(GL_PROGRAM_INPUT)
@@ -1141,26 +1141,26 @@ module OpenGL
     const_set('GL_IS_PER_PATCH', 0x92E7) unless defined?(GL_IS_PER_PATCH)
     const_set('GL_NUM_COMPATIBLE_SUBROUTINES', 0x8E4A) unless defined?(GL_NUM_COMPATIBLE_SUBROUTINES)
     const_set('GL_COMPATIBLE_SUBROUTINES', 0x8E4B) unless defined?(GL_COMPATIBLE_SUBROUTINES)
-  end # define_enum_GL_ARB_program_interface_query
+  end # define_ext_enum_GL_ARB_program_interface_query
 
-  def define_enum_GL_ARB_provoking_vertex
+  def define_ext_enum_GL_ARB_provoking_vertex
     const_set('GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION', 0x8E4C) unless defined?(GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION)
     const_set('GL_FIRST_VERTEX_CONVENTION', 0x8E4D) unless defined?(GL_FIRST_VERTEX_CONVENTION)
     const_set('GL_LAST_VERTEX_CONVENTION', 0x8E4E) unless defined?(GL_LAST_VERTEX_CONVENTION)
     const_set('GL_PROVOKING_VERTEX', 0x8E4F) unless defined?(GL_PROVOKING_VERTEX)
-  end # define_enum_GL_ARB_provoking_vertex
+  end # define_ext_enum_GL_ARB_provoking_vertex
 
-  def define_enum_GL_ARB_query_buffer_object
+  def define_ext_enum_GL_ARB_query_buffer_object
     const_set('GL_QUERY_BUFFER', 0x9192) unless defined?(GL_QUERY_BUFFER)
     const_set('GL_QUERY_BUFFER_BARRIER_BIT', 0x00008000) unless defined?(GL_QUERY_BUFFER_BARRIER_BIT)
     const_set('GL_QUERY_BUFFER_BINDING', 0x9193) unless defined?(GL_QUERY_BUFFER_BINDING)
     const_set('GL_QUERY_RESULT_NO_WAIT', 0x9194) unless defined?(GL_QUERY_RESULT_NO_WAIT)
-  end # define_enum_GL_ARB_query_buffer_object
+  end # define_ext_enum_GL_ARB_query_buffer_object
 
-  def define_enum_GL_ARB_robust_buffer_access_behavior
-  end # define_enum_GL_ARB_robust_buffer_access_behavior
+  def define_ext_enum_GL_ARB_robust_buffer_access_behavior
+  end # define_ext_enum_GL_ARB_robust_buffer_access_behavior
 
-  def define_enum_GL_ARB_robustness
+  def define_ext_enum_GL_ARB_robustness
     const_set('GL_NO_ERROR', 0) unless defined?(GL_NO_ERROR)
     const_set('GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB', 0x00000004) unless defined?(GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB)
     const_set('GL_LOSE_CONTEXT_ON_RESET_ARB', 0x8252) unless defined?(GL_LOSE_CONTEXT_ON_RESET_ARB)
@@ -1169,29 +1169,29 @@ module OpenGL
     const_set('GL_UNKNOWN_CONTEXT_RESET_ARB', 0x8255) unless defined?(GL_UNKNOWN_CONTEXT_RESET_ARB)
     const_set('GL_RESET_NOTIFICATION_STRATEGY_ARB', 0x8256) unless defined?(GL_RESET_NOTIFICATION_STRATEGY_ARB)
     const_set('GL_NO_RESET_NOTIFICATION_ARB', 0x8261) unless defined?(GL_NO_RESET_NOTIFICATION_ARB)
-  end # define_enum_GL_ARB_robustness
+  end # define_ext_enum_GL_ARB_robustness
 
-  def define_enum_GL_ARB_robustness_isolation
-  end # define_enum_GL_ARB_robustness_isolation
+  def define_ext_enum_GL_ARB_robustness_isolation
+  end # define_ext_enum_GL_ARB_robustness_isolation
 
-  def define_enum_GL_ARB_sample_shading
+  def define_ext_enum_GL_ARB_sample_shading
     const_set('GL_SAMPLE_SHADING_ARB', 0x8C36) unless defined?(GL_SAMPLE_SHADING_ARB)
     const_set('GL_MIN_SAMPLE_SHADING_VALUE_ARB', 0x8C37) unless defined?(GL_MIN_SAMPLE_SHADING_VALUE_ARB)
-  end # define_enum_GL_ARB_sample_shading
+  end # define_ext_enum_GL_ARB_sample_shading
 
-  def define_enum_GL_ARB_sampler_objects
+  def define_ext_enum_GL_ARB_sampler_objects
     const_set('GL_SAMPLER_BINDING', 0x8919) unless defined?(GL_SAMPLER_BINDING)
-  end # define_enum_GL_ARB_sampler_objects
+  end # define_ext_enum_GL_ARB_sampler_objects
 
-  def define_enum_GL_ARB_seamless_cube_map
+  def define_ext_enum_GL_ARB_seamless_cube_map
     const_set('GL_TEXTURE_CUBE_MAP_SEAMLESS', 0x884F) unless defined?(GL_TEXTURE_CUBE_MAP_SEAMLESS)
-  end # define_enum_GL_ARB_seamless_cube_map
+  end # define_ext_enum_GL_ARB_seamless_cube_map
 
-  def define_enum_GL_ARB_seamless_cubemap_per_texture
+  def define_ext_enum_GL_ARB_seamless_cubemap_per_texture
     const_set('GL_TEXTURE_CUBE_MAP_SEAMLESS', 0x884F) unless defined?(GL_TEXTURE_CUBE_MAP_SEAMLESS)
-  end # define_enum_GL_ARB_seamless_cubemap_per_texture
+  end # define_ext_enum_GL_ARB_seamless_cubemap_per_texture
 
-  def define_enum_GL_ARB_separate_shader_objects
+  def define_ext_enum_GL_ARB_separate_shader_objects
     const_set('GL_VERTEX_SHADER_BIT', 0x00000001) unless defined?(GL_VERTEX_SHADER_BIT)
     const_set('GL_FRAGMENT_SHADER_BIT', 0x00000002) unless defined?(GL_FRAGMENT_SHADER_BIT)
     const_set('GL_GEOMETRY_SHADER_BIT', 0x00000004) unless defined?(GL_GEOMETRY_SHADER_BIT)
@@ -1201,9 +1201,9 @@ module OpenGL
     const_set('GL_PROGRAM_SEPARABLE', 0x8258) unless defined?(GL_PROGRAM_SEPARABLE)
     const_set('GL_ACTIVE_PROGRAM', 0x8259) unless defined?(GL_ACTIVE_PROGRAM)
     const_set('GL_PROGRAM_PIPELINE_BINDING', 0x825A) unless defined?(GL_PROGRAM_PIPELINE_BINDING)
-  end # define_enum_GL_ARB_separate_shader_objects
+  end # define_ext_enum_GL_ARB_separate_shader_objects
 
-  def define_enum_GL_ARB_shader_atomic_counters
+  def define_ext_enum_GL_ARB_shader_atomic_counters
     const_set('GL_ATOMIC_COUNTER_BUFFER', 0x92C0) unless defined?(GL_ATOMIC_COUNTER_BUFFER)
     const_set('GL_ATOMIC_COUNTER_BUFFER_BINDING', 0x92C1) unless defined?(GL_ATOMIC_COUNTER_BUFFER_BINDING)
     const_set('GL_ATOMIC_COUNTER_BUFFER_START', 0x92C2) unless defined?(GL_ATOMIC_COUNTER_BUFFER_START)
@@ -1233,18 +1233,18 @@ module OpenGL
     const_set('GL_ACTIVE_ATOMIC_COUNTER_BUFFERS', 0x92D9) unless defined?(GL_ACTIVE_ATOMIC_COUNTER_BUFFERS)
     const_set('GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX', 0x92DA) unless defined?(GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX)
     const_set('GL_UNSIGNED_INT_ATOMIC_COUNTER', 0x92DB) unless defined?(GL_UNSIGNED_INT_ATOMIC_COUNTER)
-  end # define_enum_GL_ARB_shader_atomic_counters
+  end # define_ext_enum_GL_ARB_shader_atomic_counters
 
-  def define_enum_GL_ARB_shader_bit_encoding
-  end # define_enum_GL_ARB_shader_bit_encoding
+  def define_ext_enum_GL_ARB_shader_bit_encoding
+  end # define_ext_enum_GL_ARB_shader_bit_encoding
 
-  def define_enum_GL_ARB_shader_draw_parameters
-  end # define_enum_GL_ARB_shader_draw_parameters
+  def define_ext_enum_GL_ARB_shader_draw_parameters
+  end # define_ext_enum_GL_ARB_shader_draw_parameters
 
-  def define_enum_GL_ARB_shader_group_vote
-  end # define_enum_GL_ARB_shader_group_vote
+  def define_ext_enum_GL_ARB_shader_group_vote
+  end # define_ext_enum_GL_ARB_shader_group_vote
 
-  def define_enum_GL_ARB_shader_image_load_store
+  def define_ext_enum_GL_ARB_shader_image_load_store
     const_set('GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT', 0x00000001) unless defined?(GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT)
     const_set('GL_ELEMENT_ARRAY_BARRIER_BIT', 0x00000002) unless defined?(GL_ELEMENT_ARRAY_BARRIER_BIT)
     const_set('GL_UNIFORM_BARRIER_BIT', 0x00000004) unless defined?(GL_UNIFORM_BARRIER_BIT)
@@ -1309,12 +1309,12 @@ module OpenGL
     const_set('GL_MAX_GEOMETRY_IMAGE_UNIFORMS', 0x90CD) unless defined?(GL_MAX_GEOMETRY_IMAGE_UNIFORMS)
     const_set('GL_MAX_FRAGMENT_IMAGE_UNIFORMS', 0x90CE) unless defined?(GL_MAX_FRAGMENT_IMAGE_UNIFORMS)
     const_set('GL_MAX_COMBINED_IMAGE_UNIFORMS', 0x90CF) unless defined?(GL_MAX_COMBINED_IMAGE_UNIFORMS)
-  end # define_enum_GL_ARB_shader_image_load_store
+  end # define_ext_enum_GL_ARB_shader_image_load_store
 
-  def define_enum_GL_ARB_shader_image_size
-  end # define_enum_GL_ARB_shader_image_size
+  def define_ext_enum_GL_ARB_shader_image_size
+  end # define_ext_enum_GL_ARB_shader_image_size
 
-  def define_enum_GL_ARB_shader_objects
+  def define_ext_enum_GL_ARB_shader_objects
     const_set('GL_PROGRAM_OBJECT_ARB', 0x8B40) unless defined?(GL_PROGRAM_OBJECT_ARB)
     const_set('GL_SHADER_OBJECT_ARB', 0x8B48) unless defined?(GL_SHADER_OBJECT_ARB)
     const_set('GL_OBJECT_TYPE_ARB', 0x8B4E) unless defined?(GL_OBJECT_TYPE_ARB)
@@ -1349,15 +1349,15 @@ module OpenGL
     const_set('GL_OBJECT_ACTIVE_UNIFORMS_ARB', 0x8B86) unless defined?(GL_OBJECT_ACTIVE_UNIFORMS_ARB)
     const_set('GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB', 0x8B87) unless defined?(GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB)
     const_set('GL_OBJECT_SHADER_SOURCE_LENGTH_ARB', 0x8B88) unless defined?(GL_OBJECT_SHADER_SOURCE_LENGTH_ARB)
-  end # define_enum_GL_ARB_shader_objects
+  end # define_ext_enum_GL_ARB_shader_objects
 
-  def define_enum_GL_ARB_shader_precision
-  end # define_enum_GL_ARB_shader_precision
+  def define_ext_enum_GL_ARB_shader_precision
+  end # define_ext_enum_GL_ARB_shader_precision
 
-  def define_enum_GL_ARB_shader_stencil_export
-  end # define_enum_GL_ARB_shader_stencil_export
+  def define_ext_enum_GL_ARB_shader_stencil_export
+  end # define_ext_enum_GL_ARB_shader_stencil_export
 
-  def define_enum_GL_ARB_shader_storage_buffer_object
+  def define_ext_enum_GL_ARB_shader_storage_buffer_object
     const_set('GL_SHADER_STORAGE_BUFFER', 0x90D2) unless defined?(GL_SHADER_STORAGE_BUFFER)
     const_set('GL_SHADER_STORAGE_BUFFER_BINDING', 0x90D3) unless defined?(GL_SHADER_STORAGE_BUFFER_BINDING)
     const_set('GL_SHADER_STORAGE_BUFFER_START', 0x90D4) unless defined?(GL_SHADER_STORAGE_BUFFER_START)
@@ -1373,11 +1373,11 @@ module OpenGL
     const_set('GL_MAX_SHADER_STORAGE_BLOCK_SIZE', 0x90DE) unless defined?(GL_MAX_SHADER_STORAGE_BLOCK_SIZE)
     const_set('GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT', 0x90DF) unless defined?(GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT)
     const_set('GL_SHADER_STORAGE_BARRIER_BIT', 0x00002000) unless defined?(GL_SHADER_STORAGE_BARRIER_BIT)
-    const_set('GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES', ) unless defined?(GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES)
+    const_set('GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES', 0x8F39) unless defined?(GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES)
     const_set('GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS', 0x8F39) unless defined?(GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS)
-  end # define_enum_GL_ARB_shader_storage_buffer_object
+  end # define_ext_enum_GL_ARB_shader_storage_buffer_object
 
-  def define_enum_GL_ARB_shader_subroutine
+  def define_ext_enum_GL_ARB_shader_subroutine
     const_set('GL_ACTIVE_SUBROUTINES', 0x8DE5) unless defined?(GL_ACTIVE_SUBROUTINES)
     const_set('GL_ACTIVE_SUBROUTINE_UNIFORMS', 0x8DE6) unless defined?(GL_ACTIVE_SUBROUTINE_UNIFORMS)
     const_set('GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS', 0x8E47) unless defined?(GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS)
@@ -1389,38 +1389,38 @@ module OpenGL
     const_set('GL_COMPATIBLE_SUBROUTINES', 0x8E4B) unless defined?(GL_COMPATIBLE_SUBROUTINES)
     const_set('GL_UNIFORM_SIZE', 0x8A38) unless defined?(GL_UNIFORM_SIZE)
     const_set('GL_UNIFORM_NAME_LENGTH', 0x8A39) unless defined?(GL_UNIFORM_NAME_LENGTH)
-  end # define_enum_GL_ARB_shader_subroutine
+  end # define_ext_enum_GL_ARB_shader_subroutine
 
-  def define_enum_GL_ARB_shader_texture_lod
-  end # define_enum_GL_ARB_shader_texture_lod
+  def define_ext_enum_GL_ARB_shader_texture_lod
+  end # define_ext_enum_GL_ARB_shader_texture_lod
 
-  def define_enum_GL_ARB_shading_language_100
+  def define_ext_enum_GL_ARB_shading_language_100
     const_set('GL_SHADING_LANGUAGE_VERSION_ARB', 0x8B8C) unless defined?(GL_SHADING_LANGUAGE_VERSION_ARB)
-  end # define_enum_GL_ARB_shading_language_100
+  end # define_ext_enum_GL_ARB_shading_language_100
 
-  def define_enum_GL_ARB_shading_language_420pack
-  end # define_enum_GL_ARB_shading_language_420pack
+  def define_ext_enum_GL_ARB_shading_language_420pack
+  end # define_ext_enum_GL_ARB_shading_language_420pack
 
-  def define_enum_GL_ARB_shading_language_include
+  def define_ext_enum_GL_ARB_shading_language_include
     const_set('GL_SHADER_INCLUDE_ARB', 0x8DAE) unless defined?(GL_SHADER_INCLUDE_ARB)
     const_set('GL_NAMED_STRING_LENGTH_ARB', 0x8DE9) unless defined?(GL_NAMED_STRING_LENGTH_ARB)
     const_set('GL_NAMED_STRING_TYPE_ARB', 0x8DEA) unless defined?(GL_NAMED_STRING_TYPE_ARB)
-  end # define_enum_GL_ARB_shading_language_include
+  end # define_ext_enum_GL_ARB_shading_language_include
 
-  def define_enum_GL_ARB_shading_language_packing
-  end # define_enum_GL_ARB_shading_language_packing
+  def define_ext_enum_GL_ARB_shading_language_packing
+  end # define_ext_enum_GL_ARB_shading_language_packing
 
-  def define_enum_GL_ARB_shadow
+  def define_ext_enum_GL_ARB_shadow
     const_set('GL_TEXTURE_COMPARE_MODE_ARB', 0x884C) unless defined?(GL_TEXTURE_COMPARE_MODE_ARB)
     const_set('GL_TEXTURE_COMPARE_FUNC_ARB', 0x884D) unless defined?(GL_TEXTURE_COMPARE_FUNC_ARB)
     const_set('GL_COMPARE_R_TO_TEXTURE_ARB', 0x884E) unless defined?(GL_COMPARE_R_TO_TEXTURE_ARB)
-  end # define_enum_GL_ARB_shadow
+  end # define_ext_enum_GL_ARB_shadow
 
-  def define_enum_GL_ARB_shadow_ambient
+  def define_ext_enum_GL_ARB_shadow_ambient
     const_set('GL_TEXTURE_COMPARE_FAIL_VALUE_ARB', 0x80BF) unless defined?(GL_TEXTURE_COMPARE_FAIL_VALUE_ARB)
-  end # define_enum_GL_ARB_shadow_ambient
+  end # define_ext_enum_GL_ARB_shadow_ambient
 
-  def define_enum_GL_ARB_sparse_texture
+  def define_ext_enum_GL_ARB_sparse_texture
     const_set('GL_TEXTURE_SPARSE_ARB', 0x91A6) unless defined?(GL_TEXTURE_SPARSE_ARB)
     const_set('GL_VIRTUAL_PAGE_SIZE_INDEX_ARB', 0x91A7) unless defined?(GL_VIRTUAL_PAGE_SIZE_INDEX_ARB)
     const_set('GL_MIN_SPARSE_LEVEL_ARB', 0x919B) unless defined?(GL_MIN_SPARSE_LEVEL_ARB)
@@ -1432,13 +1432,13 @@ module OpenGL
     const_set('GL_MAX_SPARSE_3D_TEXTURE_SIZE_ARB', 0x9199) unless defined?(GL_MAX_SPARSE_3D_TEXTURE_SIZE_ARB)
     const_set('GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB', 0x919A) unless defined?(GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB)
     const_set('GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB', 0x91A9) unless defined?(GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB)
-  end # define_enum_GL_ARB_sparse_texture
+  end # define_ext_enum_GL_ARB_sparse_texture
 
-  def define_enum_GL_ARB_stencil_texturing
+  def define_ext_enum_GL_ARB_stencil_texturing
     const_set('GL_DEPTH_STENCIL_TEXTURE_MODE', 0x90EA) unless defined?(GL_DEPTH_STENCIL_TEXTURE_MODE)
-  end # define_enum_GL_ARB_stencil_texturing
+  end # define_ext_enum_GL_ARB_stencil_texturing
 
-  def define_enum_GL_ARB_sync
+  def define_ext_enum_GL_ARB_sync
     const_set('GL_MAX_SERVER_WAIT_TIMEOUT', 0x9111) unless defined?(GL_MAX_SERVER_WAIT_TIMEOUT)
     const_set('GL_OBJECT_TYPE', 0x9112) unless defined?(GL_OBJECT_TYPE)
     const_set('GL_SYNC_CONDITION', 0x9113) unless defined?(GL_SYNC_CONDITION)
@@ -1454,9 +1454,9 @@ module OpenGL
     const_set('GL_WAIT_FAILED', 0x911D) unless defined?(GL_WAIT_FAILED)
     const_set('GL_SYNC_FLUSH_COMMANDS_BIT', 0x00000001) unless defined?(GL_SYNC_FLUSH_COMMANDS_BIT)
     const_set('GL_TIMEOUT_IGNORED', 0xFFFFFFFFFFFFFFFF) unless defined?(GL_TIMEOUT_IGNORED)
-  end # define_enum_GL_ARB_sync
+  end # define_ext_enum_GL_ARB_sync
 
-  def define_enum_GL_ARB_tessellation_shader
+  def define_ext_enum_GL_ARB_tessellation_shader
     const_set('GL_PATCHES', 0x000E) unless defined?(GL_PATCHES)
     const_set('GL_PATCH_VERTICES', 0x8E72) unless defined?(GL_PATCH_VERTICES)
     const_set('GL_PATCH_DEFAULT_INNER_LEVEL', 0x8E73) unless defined?(GL_PATCH_DEFAULT_INNER_LEVEL)
@@ -1494,33 +1494,33 @@ module OpenGL
     const_set('GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_EVALUATION_SHADER', 0x84F1) unless defined?(GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_EVALUATION_SHADER)
     const_set('GL_TESS_EVALUATION_SHADER', 0x8E87) unless defined?(GL_TESS_EVALUATION_SHADER)
     const_set('GL_TESS_CONTROL_SHADER', 0x8E88) unless defined?(GL_TESS_CONTROL_SHADER)
-  end # define_enum_GL_ARB_tessellation_shader
+  end # define_ext_enum_GL_ARB_tessellation_shader
 
-  def define_enum_GL_ARB_texture_border_clamp
+  def define_ext_enum_GL_ARB_texture_border_clamp
     const_set('GL_CLAMP_TO_BORDER_ARB', 0x812D) unless defined?(GL_CLAMP_TO_BORDER_ARB)
-  end # define_enum_GL_ARB_texture_border_clamp
+  end # define_ext_enum_GL_ARB_texture_border_clamp
 
-  def define_enum_GL_ARB_texture_buffer_object
+  def define_ext_enum_GL_ARB_texture_buffer_object
     const_set('GL_TEXTURE_BUFFER_ARB', 0x8C2A) unless defined?(GL_TEXTURE_BUFFER_ARB)
     const_set('GL_MAX_TEXTURE_BUFFER_SIZE_ARB', 0x8C2B) unless defined?(GL_MAX_TEXTURE_BUFFER_SIZE_ARB)
     const_set('GL_TEXTURE_BINDING_BUFFER_ARB', 0x8C2C) unless defined?(GL_TEXTURE_BINDING_BUFFER_ARB)
     const_set('GL_TEXTURE_BUFFER_DATA_STORE_BINDING_ARB', 0x8C2D) unless defined?(GL_TEXTURE_BUFFER_DATA_STORE_BINDING_ARB)
     const_set('GL_TEXTURE_BUFFER_FORMAT_ARB', 0x8C2E) unless defined?(GL_TEXTURE_BUFFER_FORMAT_ARB)
-  end # define_enum_GL_ARB_texture_buffer_object
+  end # define_ext_enum_GL_ARB_texture_buffer_object
 
-  def define_enum_GL_ARB_texture_buffer_object_rgb32
+  def define_ext_enum_GL_ARB_texture_buffer_object_rgb32
     const_set('GL_RGB32F', 0x8815) unless defined?(GL_RGB32F)
     const_set('GL_RGB32UI', 0x8D71) unless defined?(GL_RGB32UI)
     const_set('GL_RGB32I', 0x8D83) unless defined?(GL_RGB32I)
-  end # define_enum_GL_ARB_texture_buffer_object_rgb32
+  end # define_ext_enum_GL_ARB_texture_buffer_object_rgb32
 
-  def define_enum_GL_ARB_texture_buffer_range
+  def define_ext_enum_GL_ARB_texture_buffer_range
     const_set('GL_TEXTURE_BUFFER_OFFSET', 0x919D) unless defined?(GL_TEXTURE_BUFFER_OFFSET)
     const_set('GL_TEXTURE_BUFFER_SIZE', 0x919E) unless defined?(GL_TEXTURE_BUFFER_SIZE)
     const_set('GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT', 0x919F) unless defined?(GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT)
-  end # define_enum_GL_ARB_texture_buffer_range
+  end # define_ext_enum_GL_ARB_texture_buffer_range
 
-  def define_enum_GL_ARB_texture_compression
+  def define_ext_enum_GL_ARB_texture_compression
     const_set('GL_COMPRESSED_ALPHA_ARB', 0x84E9) unless defined?(GL_COMPRESSED_ALPHA_ARB)
     const_set('GL_COMPRESSED_LUMINANCE_ARB', 0x84EA) unless defined?(GL_COMPRESSED_LUMINANCE_ARB)
     const_set('GL_COMPRESSED_LUMINANCE_ALPHA_ARB', 0x84EB) unless defined?(GL_COMPRESSED_LUMINANCE_ALPHA_ARB)
@@ -1532,23 +1532,23 @@ module OpenGL
     const_set('GL_TEXTURE_COMPRESSED_ARB', 0x86A1) unless defined?(GL_TEXTURE_COMPRESSED_ARB)
     const_set('GL_NUM_COMPRESSED_TEXTURE_FORMATS_ARB', 0x86A2) unless defined?(GL_NUM_COMPRESSED_TEXTURE_FORMATS_ARB)
     const_set('GL_COMPRESSED_TEXTURE_FORMATS_ARB', 0x86A3) unless defined?(GL_COMPRESSED_TEXTURE_FORMATS_ARB)
-  end # define_enum_GL_ARB_texture_compression
+  end # define_ext_enum_GL_ARB_texture_compression
 
-  def define_enum_GL_ARB_texture_compression_bptc
+  def define_ext_enum_GL_ARB_texture_compression_bptc
     const_set('GL_COMPRESSED_RGBA_BPTC_UNORM_ARB', 0x8E8C) unless defined?(GL_COMPRESSED_RGBA_BPTC_UNORM_ARB)
     const_set('GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_ARB', 0x8E8D) unless defined?(GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_ARB)
     const_set('GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_ARB', 0x8E8E) unless defined?(GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_ARB)
     const_set('GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_ARB', 0x8E8F) unless defined?(GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_ARB)
-  end # define_enum_GL_ARB_texture_compression_bptc
+  end # define_ext_enum_GL_ARB_texture_compression_bptc
 
-  def define_enum_GL_ARB_texture_compression_rgtc
+  def define_ext_enum_GL_ARB_texture_compression_rgtc
     const_set('GL_COMPRESSED_RED_RGTC1', 0x8DBB) unless defined?(GL_COMPRESSED_RED_RGTC1)
     const_set('GL_COMPRESSED_SIGNED_RED_RGTC1', 0x8DBC) unless defined?(GL_COMPRESSED_SIGNED_RED_RGTC1)
     const_set('GL_COMPRESSED_RG_RGTC2', 0x8DBD) unless defined?(GL_COMPRESSED_RG_RGTC2)
     const_set('GL_COMPRESSED_SIGNED_RG_RGTC2', 0x8DBE) unless defined?(GL_COMPRESSED_SIGNED_RG_RGTC2)
-  end # define_enum_GL_ARB_texture_compression_rgtc
+  end # define_ext_enum_GL_ARB_texture_compression_rgtc
 
-  def define_enum_GL_ARB_texture_cube_map
+  def define_ext_enum_GL_ARB_texture_cube_map
     const_set('GL_NORMAL_MAP_ARB', 0x8511) unless defined?(GL_NORMAL_MAP_ARB)
     const_set('GL_REFLECTION_MAP_ARB', 0x8512) unless defined?(GL_REFLECTION_MAP_ARB)
     const_set('GL_TEXTURE_CUBE_MAP_ARB', 0x8513) unless defined?(GL_TEXTURE_CUBE_MAP_ARB)
@@ -1561,9 +1561,9 @@ module OpenGL
     const_set('GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_ARB', 0x851A) unless defined?(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_ARB)
     const_set('GL_PROXY_TEXTURE_CUBE_MAP_ARB', 0x851B) unless defined?(GL_PROXY_TEXTURE_CUBE_MAP_ARB)
     const_set('GL_MAX_CUBE_MAP_TEXTURE_SIZE_ARB', 0x851C) unless defined?(GL_MAX_CUBE_MAP_TEXTURE_SIZE_ARB)
-  end # define_enum_GL_ARB_texture_cube_map
+  end # define_ext_enum_GL_ARB_texture_cube_map
 
-  def define_enum_GL_ARB_texture_cube_map_array
+  def define_ext_enum_GL_ARB_texture_cube_map_array
     const_set('GL_TEXTURE_CUBE_MAP_ARRAY_ARB', 0x9009) unless defined?(GL_TEXTURE_CUBE_MAP_ARRAY_ARB)
     const_set('GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_ARB', 0x900A) unless defined?(GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_ARB)
     const_set('GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB', 0x900B) unless defined?(GL_PROXY_TEXTURE_CUBE_MAP_ARRAY_ARB)
@@ -1571,12 +1571,12 @@ module OpenGL
     const_set('GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_ARB', 0x900D) unless defined?(GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_ARB)
     const_set('GL_INT_SAMPLER_CUBE_MAP_ARRAY_ARB', 0x900E) unless defined?(GL_INT_SAMPLER_CUBE_MAP_ARRAY_ARB)
     const_set('GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_ARB', 0x900F) unless defined?(GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_ARB)
-  end # define_enum_GL_ARB_texture_cube_map_array
+  end # define_ext_enum_GL_ARB_texture_cube_map_array
 
-  def define_enum_GL_ARB_texture_env_add
-  end # define_enum_GL_ARB_texture_env_add
+  def define_ext_enum_GL_ARB_texture_env_add
+  end # define_ext_enum_GL_ARB_texture_env_add
 
-  def define_enum_GL_ARB_texture_env_combine
+  def define_ext_enum_GL_ARB_texture_env_combine
     const_set('GL_COMBINE_ARB', 0x8570) unless defined?(GL_COMBINE_ARB)
     const_set('GL_COMBINE_RGB_ARB', 0x8571) unless defined?(GL_COMBINE_RGB_ARB)
     const_set('GL_COMBINE_ALPHA_ARB', 0x8572) unless defined?(GL_COMBINE_ALPHA_ARB)
@@ -1599,17 +1599,17 @@ module OpenGL
     const_set('GL_CONSTANT_ARB', 0x8576) unless defined?(GL_CONSTANT_ARB)
     const_set('GL_PRIMARY_COLOR_ARB', 0x8577) unless defined?(GL_PRIMARY_COLOR_ARB)
     const_set('GL_PREVIOUS_ARB', 0x8578) unless defined?(GL_PREVIOUS_ARB)
-  end # define_enum_GL_ARB_texture_env_combine
+  end # define_ext_enum_GL_ARB_texture_env_combine
 
-  def define_enum_GL_ARB_texture_env_crossbar
-  end # define_enum_GL_ARB_texture_env_crossbar
+  def define_ext_enum_GL_ARB_texture_env_crossbar
+  end # define_ext_enum_GL_ARB_texture_env_crossbar
 
-  def define_enum_GL_ARB_texture_env_dot3
+  def define_ext_enum_GL_ARB_texture_env_dot3
     const_set('GL_DOT3_RGB_ARB', 0x86AE) unless defined?(GL_DOT3_RGB_ARB)
     const_set('GL_DOT3_RGBA_ARB', 0x86AF) unless defined?(GL_DOT3_RGBA_ARB)
-  end # define_enum_GL_ARB_texture_env_dot3
+  end # define_ext_enum_GL_ARB_texture_env_dot3
 
-  def define_enum_GL_ARB_texture_float
+  def define_ext_enum_GL_ARB_texture_float
     const_set('GL_TEXTURE_RED_TYPE_ARB', 0x8C10) unless defined?(GL_TEXTURE_RED_TYPE_ARB)
     const_set('GL_TEXTURE_GREEN_TYPE_ARB', 0x8C11) unless defined?(GL_TEXTURE_GREEN_TYPE_ARB)
     const_set('GL_TEXTURE_BLUE_TYPE_ARB', 0x8C12) unless defined?(GL_TEXTURE_BLUE_TYPE_ARB)
@@ -1630,23 +1630,23 @@ module OpenGL
     const_set('GL_INTENSITY16F_ARB', 0x881D) unless defined?(GL_INTENSITY16F_ARB)
     const_set('GL_LUMINANCE16F_ARB', 0x881E) unless defined?(GL_LUMINANCE16F_ARB)
     const_set('GL_LUMINANCE_ALPHA16F_ARB', 0x881F) unless defined?(GL_LUMINANCE_ALPHA16F_ARB)
-  end # define_enum_GL_ARB_texture_float
+  end # define_ext_enum_GL_ARB_texture_float
 
-  def define_enum_GL_ARB_texture_gather
+  def define_ext_enum_GL_ARB_texture_gather
     const_set('GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB', 0x8E5E) unless defined?(GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET_ARB)
     const_set('GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_ARB', 0x8E5F) unless defined?(GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_ARB)
     const_set('GL_MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB', 0x8F9F) unless defined?(GL_MAX_PROGRAM_TEXTURE_GATHER_COMPONENTS_ARB)
-  end # define_enum_GL_ARB_texture_gather
+  end # define_ext_enum_GL_ARB_texture_gather
 
-  def define_enum_GL_ARB_texture_mirror_clamp_to_edge
+  def define_ext_enum_GL_ARB_texture_mirror_clamp_to_edge
     const_set('GL_MIRROR_CLAMP_TO_EDGE', 0x8743) unless defined?(GL_MIRROR_CLAMP_TO_EDGE)
-  end # define_enum_GL_ARB_texture_mirror_clamp_to_edge
+  end # define_ext_enum_GL_ARB_texture_mirror_clamp_to_edge
 
-  def define_enum_GL_ARB_texture_mirrored_repeat
+  def define_ext_enum_GL_ARB_texture_mirrored_repeat
     const_set('GL_MIRRORED_REPEAT_ARB', 0x8370) unless defined?(GL_MIRRORED_REPEAT_ARB)
-  end # define_enum_GL_ARB_texture_mirrored_repeat
+  end # define_ext_enum_GL_ARB_texture_mirrored_repeat
 
-  def define_enum_GL_ARB_texture_multisample
+  def define_ext_enum_GL_ARB_texture_multisample
     const_set('GL_SAMPLE_POSITION', 0x8E50) unless defined?(GL_SAMPLE_POSITION)
     const_set('GL_SAMPLE_MASK', 0x8E51) unless defined?(GL_SAMPLE_MASK)
     const_set('GL_SAMPLE_MASK_VALUE', 0x8E52) unless defined?(GL_SAMPLE_MASK_VALUE)
@@ -1668,25 +1668,25 @@ module OpenGL
     const_set('GL_MAX_COLOR_TEXTURE_SAMPLES', 0x910E) unless defined?(GL_MAX_COLOR_TEXTURE_SAMPLES)
     const_set('GL_MAX_DEPTH_TEXTURE_SAMPLES', 0x910F) unless defined?(GL_MAX_DEPTH_TEXTURE_SAMPLES)
     const_set('GL_MAX_INTEGER_SAMPLES', 0x9110) unless defined?(GL_MAX_INTEGER_SAMPLES)
-  end # define_enum_GL_ARB_texture_multisample
+  end # define_ext_enum_GL_ARB_texture_multisample
 
-  def define_enum_GL_ARB_texture_non_power_of_two
-  end # define_enum_GL_ARB_texture_non_power_of_two
+  def define_ext_enum_GL_ARB_texture_non_power_of_two
+  end # define_ext_enum_GL_ARB_texture_non_power_of_two
 
-  def define_enum_GL_ARB_texture_query_levels
-  end # define_enum_GL_ARB_texture_query_levels
+  def define_ext_enum_GL_ARB_texture_query_levels
+  end # define_ext_enum_GL_ARB_texture_query_levels
 
-  def define_enum_GL_ARB_texture_query_lod
-  end # define_enum_GL_ARB_texture_query_lod
+  def define_ext_enum_GL_ARB_texture_query_lod
+  end # define_ext_enum_GL_ARB_texture_query_lod
 
-  def define_enum_GL_ARB_texture_rectangle
+  def define_ext_enum_GL_ARB_texture_rectangle
     const_set('GL_TEXTURE_RECTANGLE_ARB', 0x84F5) unless defined?(GL_TEXTURE_RECTANGLE_ARB)
     const_set('GL_TEXTURE_BINDING_RECTANGLE_ARB', 0x84F6) unless defined?(GL_TEXTURE_BINDING_RECTANGLE_ARB)
     const_set('GL_PROXY_TEXTURE_RECTANGLE_ARB', 0x84F7) unless defined?(GL_PROXY_TEXTURE_RECTANGLE_ARB)
     const_set('GL_MAX_RECTANGLE_TEXTURE_SIZE_ARB', 0x84F8) unless defined?(GL_MAX_RECTANGLE_TEXTURE_SIZE_ARB)
-  end # define_enum_GL_ARB_texture_rectangle
+  end # define_ext_enum_GL_ARB_texture_rectangle
 
-  def define_enum_GL_ARB_texture_rg
+  def define_ext_enum_GL_ARB_texture_rg
     const_set('GL_RG', 0x8227) unless defined?(GL_RG)
     const_set('GL_RG_INTEGER', 0x8228) unless defined?(GL_RG_INTEGER)
     const_set('GL_R8', 0x8229) unless defined?(GL_R8)
@@ -1709,70 +1709,70 @@ module OpenGL
     const_set('GL_RG16UI', 0x823A) unless defined?(GL_RG16UI)
     const_set('GL_RG32I', 0x823B) unless defined?(GL_RG32I)
     const_set('GL_RG32UI', 0x823C) unless defined?(GL_RG32UI)
-  end # define_enum_GL_ARB_texture_rg
+  end # define_ext_enum_GL_ARB_texture_rg
 
-  def define_enum_GL_ARB_texture_rgb10_a2ui
+  def define_ext_enum_GL_ARB_texture_rgb10_a2ui
     const_set('GL_RGB10_A2UI', 0x906F) unless defined?(GL_RGB10_A2UI)
-  end # define_enum_GL_ARB_texture_rgb10_a2ui
+  end # define_ext_enum_GL_ARB_texture_rgb10_a2ui
 
-  def define_enum_GL_ARB_texture_stencil8
+  def define_ext_enum_GL_ARB_texture_stencil8
     const_set('GL_STENCIL_INDEX', 0x1901) unless defined?(GL_STENCIL_INDEX)
     const_set('GL_STENCIL_INDEX8', 0x8D48) unless defined?(GL_STENCIL_INDEX8)
-  end # define_enum_GL_ARB_texture_stencil8
+  end # define_ext_enum_GL_ARB_texture_stencil8
 
-  def define_enum_GL_ARB_texture_storage
+  def define_ext_enum_GL_ARB_texture_storage
     const_set('GL_TEXTURE_IMMUTABLE_FORMAT', 0x912F) unless defined?(GL_TEXTURE_IMMUTABLE_FORMAT)
-  end # define_enum_GL_ARB_texture_storage
+  end # define_ext_enum_GL_ARB_texture_storage
 
-  def define_enum_GL_ARB_texture_storage_multisample
-  end # define_enum_GL_ARB_texture_storage_multisample
+  def define_ext_enum_GL_ARB_texture_storage_multisample
+  end # define_ext_enum_GL_ARB_texture_storage_multisample
 
-  def define_enum_GL_ARB_texture_swizzle
+  def define_ext_enum_GL_ARB_texture_swizzle
     const_set('GL_TEXTURE_SWIZZLE_R', 0x8E42) unless defined?(GL_TEXTURE_SWIZZLE_R)
     const_set('GL_TEXTURE_SWIZZLE_G', 0x8E43) unless defined?(GL_TEXTURE_SWIZZLE_G)
     const_set('GL_TEXTURE_SWIZZLE_B', 0x8E44) unless defined?(GL_TEXTURE_SWIZZLE_B)
     const_set('GL_TEXTURE_SWIZZLE_A', 0x8E45) unless defined?(GL_TEXTURE_SWIZZLE_A)
     const_set('GL_TEXTURE_SWIZZLE_RGBA', 0x8E46) unless defined?(GL_TEXTURE_SWIZZLE_RGBA)
-  end # define_enum_GL_ARB_texture_swizzle
+  end # define_ext_enum_GL_ARB_texture_swizzle
 
-  def define_enum_GL_ARB_texture_view
+  def define_ext_enum_GL_ARB_texture_view
     const_set('GL_TEXTURE_VIEW_MIN_LEVEL', 0x82DB) unless defined?(GL_TEXTURE_VIEW_MIN_LEVEL)
     const_set('GL_TEXTURE_VIEW_NUM_LEVELS', 0x82DC) unless defined?(GL_TEXTURE_VIEW_NUM_LEVELS)
     const_set('GL_TEXTURE_VIEW_MIN_LAYER', 0x82DD) unless defined?(GL_TEXTURE_VIEW_MIN_LAYER)
     const_set('GL_TEXTURE_VIEW_NUM_LAYERS', 0x82DE) unless defined?(GL_TEXTURE_VIEW_NUM_LAYERS)
     const_set('GL_TEXTURE_IMMUTABLE_LEVELS', 0x82DF) unless defined?(GL_TEXTURE_IMMUTABLE_LEVELS)
-  end # define_enum_GL_ARB_texture_view
+  end # define_ext_enum_GL_ARB_texture_view
 
-  def define_enum_GL_ARB_timer_query
+  def define_ext_enum_GL_ARB_timer_query
     const_set('GL_TIME_ELAPSED', 0x88BF) unless defined?(GL_TIME_ELAPSED)
     const_set('GL_TIMESTAMP', 0x8E28) unless defined?(GL_TIMESTAMP)
-  end # define_enum_GL_ARB_timer_query
+  end # define_ext_enum_GL_ARB_timer_query
 
-  def define_enum_GL_ARB_transform_feedback2
+  def define_ext_enum_GL_ARB_transform_feedback2
     const_set('GL_TRANSFORM_FEEDBACK', 0x8E22) unless defined?(GL_TRANSFORM_FEEDBACK)
-    const_set('GL_TRANSFORM_FEEDBACK_PAUSED', ) unless defined?(GL_TRANSFORM_FEEDBACK_PAUSED)
+    const_set('GL_TRANSFORM_FEEDBACK_PAUSED', 0x8E23) unless defined?(GL_TRANSFORM_FEEDBACK_PAUSED)
     const_set('GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED', 0x8E23) unless defined?(GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED)
-    const_set('GL_TRANSFORM_FEEDBACK_ACTIVE', ) unless defined?(GL_TRANSFORM_FEEDBACK_ACTIVE)
+    const_set('GL_TRANSFORM_FEEDBACK_ACTIVE', 0x8E24) unless defined?(GL_TRANSFORM_FEEDBACK_ACTIVE)
     const_set('GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE', 0x8E24) unless defined?(GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE)
     const_set('GL_TRANSFORM_FEEDBACK_BINDING', 0x8E25) unless defined?(GL_TRANSFORM_FEEDBACK_BINDING)
-  end # define_enum_GL_ARB_transform_feedback2
+  end # define_ext_enum_GL_ARB_transform_feedback2
 
-  def define_enum_GL_ARB_transform_feedback3
+  def define_ext_enum_GL_ARB_transform_feedback3
     const_set('GL_MAX_TRANSFORM_FEEDBACK_BUFFERS', 0x8E70) unless defined?(GL_MAX_TRANSFORM_FEEDBACK_BUFFERS)
     const_set('GL_MAX_VERTEX_STREAMS', 0x8E71) unless defined?(GL_MAX_VERTEX_STREAMS)
-  end # define_enum_GL_ARB_transform_feedback3
+  end # define_ext_enum_GL_ARB_transform_feedback3
 
-  def define_enum_GL_ARB_transform_feedback_instanced
-  end # define_enum_GL_ARB_transform_feedback_instanced
+  def define_ext_enum_GL_ARB_transform_feedback_instanced
+  end # define_ext_enum_GL_ARB_transform_feedback_instanced
 
-  def define_enum_GL_ARB_transpose_matrix
+  def define_ext_enum_GL_ARB_transpose_matrix
     const_set('GL_TRANSPOSE_MODELVIEW_MATRIX_ARB', 0x84E3) unless defined?(GL_TRANSPOSE_MODELVIEW_MATRIX_ARB)
     const_set('GL_TRANSPOSE_PROJECTION_MATRIX_ARB', 0x84E4) unless defined?(GL_TRANSPOSE_PROJECTION_MATRIX_ARB)
     const_set('GL_TRANSPOSE_TEXTURE_MATRIX_ARB', 0x84E5) unless defined?(GL_TRANSPOSE_TEXTURE_MATRIX_ARB)
     const_set('GL_TRANSPOSE_COLOR_MATRIX_ARB', 0x84E6) unless defined?(GL_TRANSPOSE_COLOR_MATRIX_ARB)
-  end # define_enum_GL_ARB_transpose_matrix
+  end # define_ext_enum_GL_ARB_transpose_matrix
 
-  def define_enum_GL_ARB_uniform_buffer_object
+  def define_ext_enum_GL_ARB_uniform_buffer_object
     const_set('GL_UNIFORM_BUFFER', 0x8A11) unless defined?(GL_UNIFORM_BUFFER)
     const_set('GL_UNIFORM_BUFFER_BINDING', 0x8A28) unless defined?(GL_UNIFORM_BUFFER_BINDING)
     const_set('GL_UNIFORM_BUFFER_START', 0x8A29) unless defined?(GL_UNIFORM_BUFFER_START)
@@ -1806,17 +1806,17 @@ module OpenGL
     const_set('GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER', 0x8A45) unless defined?(GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER)
     const_set('GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER', 0x8A46) unless defined?(GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER)
     const_set('GL_INVALID_INDEX', 0xFFFFFFFF) unless defined?(GL_INVALID_INDEX)
-  end # define_enum_GL_ARB_uniform_buffer_object
+  end # define_ext_enum_GL_ARB_uniform_buffer_object
 
-  def define_enum_GL_ARB_vertex_array_bgra
+  def define_ext_enum_GL_ARB_vertex_array_bgra
     const_set('GL_BGRA', 0x80E1) unless defined?(GL_BGRA)
-  end # define_enum_GL_ARB_vertex_array_bgra
+  end # define_ext_enum_GL_ARB_vertex_array_bgra
 
-  def define_enum_GL_ARB_vertex_array_object
+  def define_ext_enum_GL_ARB_vertex_array_object
     const_set('GL_VERTEX_ARRAY_BINDING', 0x85B5) unless defined?(GL_VERTEX_ARRAY_BINDING)
-  end # define_enum_GL_ARB_vertex_array_object
+  end # define_ext_enum_GL_ARB_vertex_array_object
 
-  def define_enum_GL_ARB_vertex_attrib_64bit
+  def define_ext_enum_GL_ARB_vertex_attrib_64bit
     const_set('GL_RGB32I', 0x8D83) unless defined?(GL_RGB32I)
     const_set('GL_DOUBLE_VEC2', 0x8FFC) unless defined?(GL_DOUBLE_VEC2)
     const_set('GL_DOUBLE_VEC3', 0x8FFD) unless defined?(GL_DOUBLE_VEC3)
@@ -1830,9 +1830,9 @@ module OpenGL
     const_set('GL_DOUBLE_MAT3x4', 0x8F4C) unless defined?(GL_DOUBLE_MAT3x4)
     const_set('GL_DOUBLE_MAT4x2', 0x8F4D) unless defined?(GL_DOUBLE_MAT4x2)
     const_set('GL_DOUBLE_MAT4x3', 0x8F4E) unless defined?(GL_DOUBLE_MAT4x3)
-  end # define_enum_GL_ARB_vertex_attrib_64bit
+  end # define_ext_enum_GL_ARB_vertex_attrib_64bit
 
-  def define_enum_GL_ARB_vertex_attrib_binding
+  def define_ext_enum_GL_ARB_vertex_attrib_binding
     const_set('GL_VERTEX_ATTRIB_BINDING', 0x82D4) unless defined?(GL_VERTEX_ATTRIB_BINDING)
     const_set('GL_VERTEX_ATTRIB_RELATIVE_OFFSET', 0x82D5) unless defined?(GL_VERTEX_ATTRIB_RELATIVE_OFFSET)
     const_set('GL_VERTEX_BINDING_DIVISOR', 0x82D6) unless defined?(GL_VERTEX_BINDING_DIVISOR)
@@ -1840,9 +1840,9 @@ module OpenGL
     const_set('GL_VERTEX_BINDING_STRIDE', 0x82D8) unless defined?(GL_VERTEX_BINDING_STRIDE)
     const_set('GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET', 0x82D9) unless defined?(GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET)
     const_set('GL_MAX_VERTEX_ATTRIB_BINDINGS', 0x82DA) unless defined?(GL_MAX_VERTEX_ATTRIB_BINDINGS)
-  end # define_enum_GL_ARB_vertex_attrib_binding
+  end # define_ext_enum_GL_ARB_vertex_attrib_binding
 
-  def define_enum_GL_ARB_vertex_blend
+  def define_ext_enum_GL_ARB_vertex_blend
     const_set('GL_MAX_VERTEX_UNITS_ARB', 0x86A4) unless defined?(GL_MAX_VERTEX_UNITS_ARB)
     const_set('GL_ACTIVE_VERTEX_UNITS_ARB', 0x86A5) unless defined?(GL_ACTIVE_VERTEX_UNITS_ARB)
     const_set('GL_WEIGHT_SUM_UNITY_ARB', 0x86A6) unless defined?(GL_WEIGHT_SUM_UNITY_ARB)
@@ -1885,9 +1885,9 @@ module OpenGL
     const_set('GL_MODELVIEW29_ARB', 0x873D) unless defined?(GL_MODELVIEW29_ARB)
     const_set('GL_MODELVIEW30_ARB', 0x873E) unless defined?(GL_MODELVIEW30_ARB)
     const_set('GL_MODELVIEW31_ARB', 0x873F) unless defined?(GL_MODELVIEW31_ARB)
-  end # define_enum_GL_ARB_vertex_blend
+  end # define_ext_enum_GL_ARB_vertex_blend
 
-  def define_enum_GL_ARB_vertex_buffer_object
+  def define_ext_enum_GL_ARB_vertex_buffer_object
     const_set('GL_BUFFER_SIZE_ARB', 0x8764) unless defined?(GL_BUFFER_SIZE_ARB)
     const_set('GL_BUFFER_USAGE_ARB', 0x8765) unless defined?(GL_BUFFER_USAGE_ARB)
     const_set('GL_ARRAY_BUFFER_ARB', 0x8892) unless defined?(GL_ARRAY_BUFFER_ARB)
@@ -1919,9 +1919,9 @@ module OpenGL
     const_set('GL_DYNAMIC_DRAW_ARB', 0x88E8) unless defined?(GL_DYNAMIC_DRAW_ARB)
     const_set('GL_DYNAMIC_READ_ARB', 0x88E9) unless defined?(GL_DYNAMIC_READ_ARB)
     const_set('GL_DYNAMIC_COPY_ARB', 0x88EA) unless defined?(GL_DYNAMIC_COPY_ARB)
-  end # define_enum_GL_ARB_vertex_buffer_object
+  end # define_ext_enum_GL_ARB_vertex_buffer_object
 
-  def define_enum_GL_ARB_vertex_program
+  def define_ext_enum_GL_ARB_vertex_program
     const_set('GL_COLOR_SUM_ARB', 0x8458) unless defined?(GL_COLOR_SUM_ARB)
     const_set('GL_VERTEX_PROGRAM_ARB', 0x8620) unless defined?(GL_VERTEX_PROGRAM_ARB)
     const_set('GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB', 0x8622) unless defined?(GL_VERTEX_ATTRIB_ARRAY_ENABLED_ARB)
@@ -2001,9 +2001,9 @@ module OpenGL
     const_set('GL_MATRIX29_ARB', 0x88DD) unless defined?(GL_MATRIX29_ARB)
     const_set('GL_MATRIX30_ARB', 0x88DE) unless defined?(GL_MATRIX30_ARB)
     const_set('GL_MATRIX31_ARB', 0x88DF) unless defined?(GL_MATRIX31_ARB)
-  end # define_enum_GL_ARB_vertex_program
+  end # define_ext_enum_GL_ARB_vertex_program
 
-  def define_enum_GL_ARB_vertex_shader
+  def define_ext_enum_GL_ARB_vertex_shader
     const_set('GL_VERTEX_SHADER_ARB', 0x8B31) unless defined?(GL_VERTEX_SHADER_ARB)
     const_set('GL_MAX_VERTEX_UNIFORM_COMPONENTS_ARB', 0x8B4A) unless defined?(GL_MAX_VERTEX_UNIFORM_COMPONENTS_ARB)
     const_set('GL_MAX_VARYING_FLOATS_ARB', 0x8B4B) unless defined?(GL_MAX_VARYING_FLOATS_ARB)
@@ -2030,18 +2030,18 @@ module OpenGL
     const_set('GL_FLOAT_MAT2_ARB', 0x8B5A) unless defined?(GL_FLOAT_MAT2_ARB)
     const_set('GL_FLOAT_MAT3_ARB', 0x8B5B) unless defined?(GL_FLOAT_MAT3_ARB)
     const_set('GL_FLOAT_MAT4_ARB', 0x8B5C) unless defined?(GL_FLOAT_MAT4_ARB)
-  end # define_enum_GL_ARB_vertex_shader
+  end # define_ext_enum_GL_ARB_vertex_shader
 
-  def define_enum_GL_ARB_vertex_type_10f_11f_11f_rev
+  def define_ext_enum_GL_ARB_vertex_type_10f_11f_11f_rev
     const_set('GL_UNSIGNED_INT_10F_11F_11F_REV', 0x8C3B) unless defined?(GL_UNSIGNED_INT_10F_11F_11F_REV)
-  end # define_enum_GL_ARB_vertex_type_10f_11f_11f_rev
+  end # define_ext_enum_GL_ARB_vertex_type_10f_11f_11f_rev
 
-  def define_enum_GL_ARB_vertex_type_2_10_10_10_rev
+  def define_ext_enum_GL_ARB_vertex_type_2_10_10_10_rev
     const_set('GL_UNSIGNED_INT_2_10_10_10_REV', 0x8368) unless defined?(GL_UNSIGNED_INT_2_10_10_10_REV)
     const_set('GL_INT_2_10_10_10_REV', 0x8D9F) unless defined?(GL_INT_2_10_10_10_REV)
-  end # define_enum_GL_ARB_vertex_type_2_10_10_10_rev
+  end # define_ext_enum_GL_ARB_vertex_type_2_10_10_10_rev
 
-  def define_enum_GL_ARB_viewport_array
+  def define_ext_enum_GL_ARB_viewport_array
     const_set('GL_SCISSOR_BOX', 0x0C10) unless defined?(GL_SCISSOR_BOX)
     const_set('GL_VIEWPORT', 0x0BA2) unless defined?(GL_VIEWPORT)
     const_set('GL_DEPTH_RANGE', 0x0B70) unless defined?(GL_DEPTH_RANGE)
@@ -2055,12 +2055,12 @@ module OpenGL
     const_set('GL_FIRST_VERTEX_CONVENTION', 0x8E4D) unless defined?(GL_FIRST_VERTEX_CONVENTION)
     const_set('GL_LAST_VERTEX_CONVENTION', 0x8E4E) unless defined?(GL_LAST_VERTEX_CONVENTION)
     const_set('GL_PROVOKING_VERTEX', 0x8E4F) unless defined?(GL_PROVOKING_VERTEX)
-  end # define_enum_GL_ARB_viewport_array
+  end # define_ext_enum_GL_ARB_viewport_array
 
-  def define_enum_GL_ARB_window_pos
-  end # define_enum_GL_ARB_window_pos
+  def define_ext_enum_GL_ARB_window_pos
+  end # define_ext_enum_GL_ARB_window_pos
 
-  def define_enum_GL_ATI_draw_buffers
+  def define_ext_enum_GL_ATI_draw_buffers
     const_set('GL_MAX_DRAW_BUFFERS_ATI', 0x8824) unless defined?(GL_MAX_DRAW_BUFFERS_ATI)
     const_set('GL_DRAW_BUFFER0_ATI', 0x8825) unless defined?(GL_DRAW_BUFFER0_ATI)
     const_set('GL_DRAW_BUFFER1_ATI', 0x8826) unless defined?(GL_DRAW_BUFFER1_ATI)
@@ -2078,15 +2078,15 @@ module OpenGL
     const_set('GL_DRAW_BUFFER13_ATI', 0x8832) unless defined?(GL_DRAW_BUFFER13_ATI)
     const_set('GL_DRAW_BUFFER14_ATI', 0x8833) unless defined?(GL_DRAW_BUFFER14_ATI)
     const_set('GL_DRAW_BUFFER15_ATI', 0x8834) unless defined?(GL_DRAW_BUFFER15_ATI)
-  end # define_enum_GL_ATI_draw_buffers
+  end # define_ext_enum_GL_ATI_draw_buffers
 
-  def define_enum_GL_ATI_element_array
+  def define_ext_enum_GL_ATI_element_array
     const_set('GL_ELEMENT_ARRAY_ATI', 0x8768) unless defined?(GL_ELEMENT_ARRAY_ATI)
     const_set('GL_ELEMENT_ARRAY_TYPE_ATI', 0x8769) unless defined?(GL_ELEMENT_ARRAY_TYPE_ATI)
     const_set('GL_ELEMENT_ARRAY_POINTER_ATI', 0x876A) unless defined?(GL_ELEMENT_ARRAY_POINTER_ATI)
-  end # define_enum_GL_ATI_element_array
+  end # define_ext_enum_GL_ATI_element_array
 
-  def define_enum_GL_ATI_envmap_bumpmap
+  def define_ext_enum_GL_ATI_envmap_bumpmap
     const_set('GL_BUMP_ROT_MATRIX_ATI', 0x8775) unless defined?(GL_BUMP_ROT_MATRIX_ATI)
     const_set('GL_BUMP_ROT_MATRIX_SIZE_ATI', 0x8776) unless defined?(GL_BUMP_ROT_MATRIX_SIZE_ATI)
     const_set('GL_BUMP_NUM_TEX_UNITS_ATI', 0x8777) unless defined?(GL_BUMP_NUM_TEX_UNITS_ATI)
@@ -2095,9 +2095,9 @@ module OpenGL
     const_set('GL_DU8DV8_ATI', 0x877A) unless defined?(GL_DU8DV8_ATI)
     const_set('GL_BUMP_ENVMAP_ATI', 0x877B) unless defined?(GL_BUMP_ENVMAP_ATI)
     const_set('GL_BUMP_TARGET_ATI', 0x877C) unless defined?(GL_BUMP_TARGET_ATI)
-  end # define_enum_GL_ATI_envmap_bumpmap
+  end # define_ext_enum_GL_ATI_envmap_bumpmap
 
-  def define_enum_GL_ATI_fragment_shader
+  def define_ext_enum_GL_ATI_fragment_shader
     const_set('GL_FRAGMENT_SHADER_ATI', 0x8920) unless defined?(GL_FRAGMENT_SHADER_ATI)
     const_set('GL_REG_0_ATI', 0x8921) unless defined?(GL_REG_0_ATI)
     const_set('GL_REG_1_ATI', 0x8922) unless defined?(GL_REG_1_ATI)
@@ -2202,23 +2202,23 @@ module OpenGL
     const_set('GL_COMP_BIT_ATI', 0x00000002) unless defined?(GL_COMP_BIT_ATI)
     const_set('GL_NEGATE_BIT_ATI', 0x00000004) unless defined?(GL_NEGATE_BIT_ATI)
     const_set('GL_BIAS_BIT_ATI', 0x00000008) unless defined?(GL_BIAS_BIT_ATI)
-  end # define_enum_GL_ATI_fragment_shader
+  end # define_ext_enum_GL_ATI_fragment_shader
 
-  def define_enum_GL_ATI_map_object_buffer
-  end # define_enum_GL_ATI_map_object_buffer
+  def define_ext_enum_GL_ATI_map_object_buffer
+  end # define_ext_enum_GL_ATI_map_object_buffer
 
-  def define_enum_GL_ATI_meminfo
+  def define_ext_enum_GL_ATI_meminfo
     const_set('GL_VBO_FREE_MEMORY_ATI', 0x87FB) unless defined?(GL_VBO_FREE_MEMORY_ATI)
     const_set('GL_TEXTURE_FREE_MEMORY_ATI', 0x87FC) unless defined?(GL_TEXTURE_FREE_MEMORY_ATI)
     const_set('GL_RENDERBUFFER_FREE_MEMORY_ATI', 0x87FD) unless defined?(GL_RENDERBUFFER_FREE_MEMORY_ATI)
-  end # define_enum_GL_ATI_meminfo
+  end # define_ext_enum_GL_ATI_meminfo
 
-  def define_enum_GL_ATI_pixel_format_float
+  def define_ext_enum_GL_ATI_pixel_format_float
     const_set('GL_RGBA_FLOAT_MODE_ATI', 0x8820) unless defined?(GL_RGBA_FLOAT_MODE_ATI)
     const_set('GL_COLOR_CLEAR_UNCLAMPED_VALUE_ATI', 0x8835) unless defined?(GL_COLOR_CLEAR_UNCLAMPED_VALUE_ATI)
-  end # define_enum_GL_ATI_pixel_format_float
+  end # define_ext_enum_GL_ATI_pixel_format_float
 
-  def define_enum_GL_ATI_pn_triangles
+  def define_ext_enum_GL_ATI_pn_triangles
     const_set('GL_PN_TRIANGLES_ATI', 0x87F0) unless defined?(GL_PN_TRIANGLES_ATI)
     const_set('GL_MAX_PN_TRIANGLES_TESSELATION_LEVEL_ATI', 0x87F1) unless defined?(GL_MAX_PN_TRIANGLES_TESSELATION_LEVEL_ATI)
     const_set('GL_PN_TRIANGLES_POINT_MODE_ATI', 0x87F2) unless defined?(GL_PN_TRIANGLES_POINT_MODE_ATI)
@@ -2228,26 +2228,26 @@ module OpenGL
     const_set('GL_PN_TRIANGLES_POINT_MODE_CUBIC_ATI', 0x87F6) unless defined?(GL_PN_TRIANGLES_POINT_MODE_CUBIC_ATI)
     const_set('GL_PN_TRIANGLES_NORMAL_MODE_LINEAR_ATI', 0x87F7) unless defined?(GL_PN_TRIANGLES_NORMAL_MODE_LINEAR_ATI)
     const_set('GL_PN_TRIANGLES_NORMAL_MODE_QUADRATIC_ATI', 0x87F8) unless defined?(GL_PN_TRIANGLES_NORMAL_MODE_QUADRATIC_ATI)
-  end # define_enum_GL_ATI_pn_triangles
+  end # define_ext_enum_GL_ATI_pn_triangles
 
-  def define_enum_GL_ATI_separate_stencil
+  def define_ext_enum_GL_ATI_separate_stencil
     const_set('GL_STENCIL_BACK_FUNC_ATI', 0x8800) unless defined?(GL_STENCIL_BACK_FUNC_ATI)
     const_set('GL_STENCIL_BACK_FAIL_ATI', 0x8801) unless defined?(GL_STENCIL_BACK_FAIL_ATI)
     const_set('GL_STENCIL_BACK_PASS_DEPTH_FAIL_ATI', 0x8802) unless defined?(GL_STENCIL_BACK_PASS_DEPTH_FAIL_ATI)
     const_set('GL_STENCIL_BACK_PASS_DEPTH_PASS_ATI', 0x8803) unless defined?(GL_STENCIL_BACK_PASS_DEPTH_PASS_ATI)
-  end # define_enum_GL_ATI_separate_stencil
+  end # define_ext_enum_GL_ATI_separate_stencil
 
-  def define_enum_GL_ATI_text_fragment_shader
+  def define_ext_enum_GL_ATI_text_fragment_shader
     const_set('GL_TEXT_FRAGMENT_SHADER_ATI', 0x8200) unless defined?(GL_TEXT_FRAGMENT_SHADER_ATI)
-  end # define_enum_GL_ATI_text_fragment_shader
+  end # define_ext_enum_GL_ATI_text_fragment_shader
 
-  def define_enum_GL_ATI_texture_env_combine3
+  def define_ext_enum_GL_ATI_texture_env_combine3
     const_set('GL_MODULATE_ADD_ATI', 0x8744) unless defined?(GL_MODULATE_ADD_ATI)
     const_set('GL_MODULATE_SIGNED_ADD_ATI', 0x8745) unless defined?(GL_MODULATE_SIGNED_ADD_ATI)
     const_set('GL_MODULATE_SUBTRACT_ATI', 0x8746) unless defined?(GL_MODULATE_SUBTRACT_ATI)
-  end # define_enum_GL_ATI_texture_env_combine3
+  end # define_ext_enum_GL_ATI_texture_env_combine3
 
-  def define_enum_GL_ATI_texture_float
+  def define_ext_enum_GL_ATI_texture_float
     const_set('GL_RGBA_FLOAT32_ATI', 0x8814) unless defined?(GL_RGBA_FLOAT32_ATI)
     const_set('GL_RGB_FLOAT32_ATI', 0x8815) unless defined?(GL_RGB_FLOAT32_ATI)
     const_set('GL_ALPHA_FLOAT32_ATI', 0x8816) unless defined?(GL_ALPHA_FLOAT32_ATI)
@@ -2260,14 +2260,14 @@ module OpenGL
     const_set('GL_INTENSITY_FLOAT16_ATI', 0x881D) unless defined?(GL_INTENSITY_FLOAT16_ATI)
     const_set('GL_LUMINANCE_FLOAT16_ATI', 0x881E) unless defined?(GL_LUMINANCE_FLOAT16_ATI)
     const_set('GL_LUMINANCE_ALPHA_FLOAT16_ATI', 0x881F) unless defined?(GL_LUMINANCE_ALPHA_FLOAT16_ATI)
-  end # define_enum_GL_ATI_texture_float
+  end # define_ext_enum_GL_ATI_texture_float
 
-  def define_enum_GL_ATI_texture_mirror_once
+  def define_ext_enum_GL_ATI_texture_mirror_once
     const_set('GL_MIRROR_CLAMP_ATI', 0x8742) unless defined?(GL_MIRROR_CLAMP_ATI)
     const_set('GL_MIRROR_CLAMP_TO_EDGE_ATI', 0x8743) unless defined?(GL_MIRROR_CLAMP_TO_EDGE_ATI)
-  end # define_enum_GL_ATI_texture_mirror_once
+  end # define_ext_enum_GL_ATI_texture_mirror_once
 
-  def define_enum_GL_ATI_vertex_array_object
+  def define_ext_enum_GL_ATI_vertex_array_object
     const_set('GL_STATIC_ATI', 0x8760) unless defined?(GL_STATIC_ATI)
     const_set('GL_DYNAMIC_ATI', 0x8761) unless defined?(GL_DYNAMIC_ATI)
     const_set('GL_PRESERVE_ATI', 0x8762) unless defined?(GL_PRESERVE_ATI)
@@ -2276,12 +2276,12 @@ module OpenGL
     const_set('GL_OBJECT_BUFFER_USAGE_ATI', 0x8765) unless defined?(GL_OBJECT_BUFFER_USAGE_ATI)
     const_set('GL_ARRAY_OBJECT_BUFFER_ATI', 0x8766) unless defined?(GL_ARRAY_OBJECT_BUFFER_ATI)
     const_set('GL_ARRAY_OBJECT_OFFSET_ATI', 0x8767) unless defined?(GL_ARRAY_OBJECT_OFFSET_ATI)
-  end # define_enum_GL_ATI_vertex_array_object
+  end # define_ext_enum_GL_ATI_vertex_array_object
 
-  def define_enum_GL_ATI_vertex_attrib_array_object
-  end # define_enum_GL_ATI_vertex_attrib_array_object
+  def define_ext_enum_GL_ATI_vertex_attrib_array_object
+  end # define_ext_enum_GL_ATI_vertex_attrib_array_object
 
-  def define_enum_GL_ATI_vertex_streams
+  def define_ext_enum_GL_ATI_vertex_streams
     const_set('GL_MAX_VERTEX_STREAMS_ATI', 0x876B) unless defined?(GL_MAX_VERTEX_STREAMS_ATI)
     const_set('GL_VERTEX_STREAM0_ATI', 0x876C) unless defined?(GL_VERTEX_STREAM0_ATI)
     const_set('GL_VERTEX_STREAM1_ATI', 0x876D) unless defined?(GL_VERTEX_STREAM1_ATI)
@@ -2292,88 +2292,88 @@ module OpenGL
     const_set('GL_VERTEX_STREAM6_ATI', 0x8772) unless defined?(GL_VERTEX_STREAM6_ATI)
     const_set('GL_VERTEX_STREAM7_ATI', 0x8773) unless defined?(GL_VERTEX_STREAM7_ATI)
     const_set('GL_VERTEX_SOURCE_ATI', 0x8774) unless defined?(GL_VERTEX_SOURCE_ATI)
-  end # define_enum_GL_ATI_vertex_streams
+  end # define_ext_enum_GL_ATI_vertex_streams
 
-  def define_enum_GL_EXT_422_pixels
+  def define_ext_enum_GL_EXT_422_pixels
     const_set('GL_422_EXT', 0x80CC) unless defined?(GL_422_EXT)
     const_set('GL_422_REV_EXT', 0x80CD) unless defined?(GL_422_REV_EXT)
     const_set('GL_422_AVERAGE_EXT', 0x80CE) unless defined?(GL_422_AVERAGE_EXT)
     const_set('GL_422_REV_AVERAGE_EXT', 0x80CF) unless defined?(GL_422_REV_AVERAGE_EXT)
-  end # define_enum_GL_EXT_422_pixels
+  end # define_ext_enum_GL_EXT_422_pixels
 
-  def define_enum_GL_EXT_abgr
+  def define_ext_enum_GL_EXT_abgr
     const_set('GL_ABGR_EXT', 0x8000) unless defined?(GL_ABGR_EXT)
-  end # define_enum_GL_EXT_abgr
+  end # define_ext_enum_GL_EXT_abgr
 
-  def define_enum_GL_EXT_bgra
+  def define_ext_enum_GL_EXT_bgra
     const_set('GL_BGR_EXT', 0x80E0) unless defined?(GL_BGR_EXT)
     const_set('GL_BGRA_EXT', 0x80E1) unless defined?(GL_BGRA_EXT)
-  end # define_enum_GL_EXT_bgra
+  end # define_ext_enum_GL_EXT_bgra
 
-  def define_enum_GL_EXT_bindable_uniform
+  def define_ext_enum_GL_EXT_bindable_uniform
     const_set('GL_MAX_VERTEX_BINDABLE_UNIFORMS_EXT', 0x8DE2) unless defined?(GL_MAX_VERTEX_BINDABLE_UNIFORMS_EXT)
     const_set('GL_MAX_FRAGMENT_BINDABLE_UNIFORMS_EXT', 0x8DE3) unless defined?(GL_MAX_FRAGMENT_BINDABLE_UNIFORMS_EXT)
     const_set('GL_MAX_GEOMETRY_BINDABLE_UNIFORMS_EXT', 0x8DE4) unless defined?(GL_MAX_GEOMETRY_BINDABLE_UNIFORMS_EXT)
     const_set('GL_MAX_BINDABLE_UNIFORM_SIZE_EXT', 0x8DED) unless defined?(GL_MAX_BINDABLE_UNIFORM_SIZE_EXT)
     const_set('GL_UNIFORM_BUFFER_EXT', 0x8DEE) unless defined?(GL_UNIFORM_BUFFER_EXT)
     const_set('GL_UNIFORM_BUFFER_BINDING_EXT', 0x8DEF) unless defined?(GL_UNIFORM_BUFFER_BINDING_EXT)
-  end # define_enum_GL_EXT_bindable_uniform
+  end # define_ext_enum_GL_EXT_bindable_uniform
 
-  def define_enum_GL_EXT_blend_color
+  def define_ext_enum_GL_EXT_blend_color
     const_set('GL_CONSTANT_COLOR_EXT', 0x8001) unless defined?(GL_CONSTANT_COLOR_EXT)
     const_set('GL_ONE_MINUS_CONSTANT_COLOR_EXT', 0x8002) unless defined?(GL_ONE_MINUS_CONSTANT_COLOR_EXT)
     const_set('GL_CONSTANT_ALPHA_EXT', 0x8003) unless defined?(GL_CONSTANT_ALPHA_EXT)
     const_set('GL_ONE_MINUS_CONSTANT_ALPHA_EXT', 0x8004) unless defined?(GL_ONE_MINUS_CONSTANT_ALPHA_EXT)
     const_set('GL_BLEND_COLOR_EXT', 0x8005) unless defined?(GL_BLEND_COLOR_EXT)
-  end # define_enum_GL_EXT_blend_color
+  end # define_ext_enum_GL_EXT_blend_color
 
-  def define_enum_GL_EXT_blend_equation_separate
+  def define_ext_enum_GL_EXT_blend_equation_separate
     const_set('GL_BLEND_EQUATION_RGB_EXT', 0x8009) unless defined?(GL_BLEND_EQUATION_RGB_EXT)
     const_set('GL_BLEND_EQUATION_ALPHA_EXT', 0x883D) unless defined?(GL_BLEND_EQUATION_ALPHA_EXT)
-  end # define_enum_GL_EXT_blend_equation_separate
+  end # define_ext_enum_GL_EXT_blend_equation_separate
 
-  def define_enum_GL_EXT_blend_func_separate
+  def define_ext_enum_GL_EXT_blend_func_separate
     const_set('GL_BLEND_DST_RGB_EXT', 0x80C8) unless defined?(GL_BLEND_DST_RGB_EXT)
     const_set('GL_BLEND_SRC_RGB_EXT', 0x80C9) unless defined?(GL_BLEND_SRC_RGB_EXT)
     const_set('GL_BLEND_DST_ALPHA_EXT', 0x80CA) unless defined?(GL_BLEND_DST_ALPHA_EXT)
     const_set('GL_BLEND_SRC_ALPHA_EXT', 0x80CB) unless defined?(GL_BLEND_SRC_ALPHA_EXT)
-  end # define_enum_GL_EXT_blend_func_separate
+  end # define_ext_enum_GL_EXT_blend_func_separate
 
-  def define_enum_GL_EXT_blend_logic_op
-  end # define_enum_GL_EXT_blend_logic_op
+  def define_ext_enum_GL_EXT_blend_logic_op
+  end # define_ext_enum_GL_EXT_blend_logic_op
 
-  def define_enum_GL_EXT_blend_minmax
+  def define_ext_enum_GL_EXT_blend_minmax
     const_set('GL_MIN_EXT', 0x8007) unless defined?(GL_MIN_EXT)
     const_set('GL_MAX_EXT', 0x8008) unless defined?(GL_MAX_EXT)
     const_set('GL_FUNC_ADD_EXT', 0x8006) unless defined?(GL_FUNC_ADD_EXT)
     const_set('GL_BLEND_EQUATION_EXT', 0x8009) unless defined?(GL_BLEND_EQUATION_EXT)
-  end # define_enum_GL_EXT_blend_minmax
+  end # define_ext_enum_GL_EXT_blend_minmax
 
-  def define_enum_GL_EXT_blend_subtract
+  def define_ext_enum_GL_EXT_blend_subtract
     const_set('GL_FUNC_SUBTRACT_EXT', 0x800A) unless defined?(GL_FUNC_SUBTRACT_EXT)
     const_set('GL_FUNC_REVERSE_SUBTRACT_EXT', 0x800B) unless defined?(GL_FUNC_REVERSE_SUBTRACT_EXT)
-  end # define_enum_GL_EXT_blend_subtract
+  end # define_ext_enum_GL_EXT_blend_subtract
 
-  def define_enum_GL_EXT_clip_volume_hint
+  def define_ext_enum_GL_EXT_clip_volume_hint
     const_set('GL_CLIP_VOLUME_CLIPPING_HINT_EXT', 0x80F0) unless defined?(GL_CLIP_VOLUME_CLIPPING_HINT_EXT)
-  end # define_enum_GL_EXT_clip_volume_hint
+  end # define_ext_enum_GL_EXT_clip_volume_hint
 
-  def define_enum_GL_EXT_cmyka
+  def define_ext_enum_GL_EXT_cmyka
     const_set('GL_CMYK_EXT', 0x800C) unless defined?(GL_CMYK_EXT)
     const_set('GL_CMYKA_EXT', 0x800D) unless defined?(GL_CMYKA_EXT)
     const_set('GL_PACK_CMYK_HINT_EXT', 0x800E) unless defined?(GL_PACK_CMYK_HINT_EXT)
     const_set('GL_UNPACK_CMYK_HINT_EXT', 0x800F) unless defined?(GL_UNPACK_CMYK_HINT_EXT)
-  end # define_enum_GL_EXT_cmyka
+  end # define_ext_enum_GL_EXT_cmyka
 
-  def define_enum_GL_EXT_color_subtable
-  end # define_enum_GL_EXT_color_subtable
+  def define_ext_enum_GL_EXT_color_subtable
+  end # define_ext_enum_GL_EXT_color_subtable
 
-  def define_enum_GL_EXT_compiled_vertex_array
+  def define_ext_enum_GL_EXT_compiled_vertex_array
     const_set('GL_ARRAY_ELEMENT_LOCK_FIRST_EXT', 0x81A8) unless defined?(GL_ARRAY_ELEMENT_LOCK_FIRST_EXT)
     const_set('GL_ARRAY_ELEMENT_LOCK_COUNT_EXT', 0x81A9) unless defined?(GL_ARRAY_ELEMENT_LOCK_COUNT_EXT)
-  end # define_enum_GL_EXT_compiled_vertex_array
+  end # define_ext_enum_GL_EXT_compiled_vertex_array
 
-  def define_enum_GL_EXT_convolution
+  def define_ext_enum_GL_EXT_convolution
     const_set('GL_CONVOLUTION_1D_EXT', 0x8010) unless defined?(GL_CONVOLUTION_1D_EXT)
     const_set('GL_CONVOLUTION_2D_EXT', 0x8011) unless defined?(GL_CONVOLUTION_2D_EXT)
     const_set('GL_SEPARABLE_2D_EXT', 0x8012) unless defined?(GL_SEPARABLE_2D_EXT)
@@ -2394,9 +2394,9 @@ module OpenGL
     const_set('GL_POST_CONVOLUTION_GREEN_BIAS_EXT', 0x8021) unless defined?(GL_POST_CONVOLUTION_GREEN_BIAS_EXT)
     const_set('GL_POST_CONVOLUTION_BLUE_BIAS_EXT', 0x8022) unless defined?(GL_POST_CONVOLUTION_BLUE_BIAS_EXT)
     const_set('GL_POST_CONVOLUTION_ALPHA_BIAS_EXT', 0x8023) unless defined?(GL_POST_CONVOLUTION_ALPHA_BIAS_EXT)
-  end # define_enum_GL_EXT_convolution
+  end # define_ext_enum_GL_EXT_convolution
 
-  def define_enum_GL_EXT_coordinate_frame
+  def define_ext_enum_GL_EXT_coordinate_frame
     const_set('GL_TANGENT_ARRAY_EXT', 0x8439) unless defined?(GL_TANGENT_ARRAY_EXT)
     const_set('GL_BINORMAL_ARRAY_EXT', 0x843A) unless defined?(GL_BINORMAL_ARRAY_EXT)
     const_set('GL_CURRENT_TANGENT_EXT', 0x843B) unless defined?(GL_CURRENT_TANGENT_EXT)
@@ -2411,18 +2411,18 @@ module OpenGL
     const_set('GL_MAP2_TANGENT_EXT', 0x8445) unless defined?(GL_MAP2_TANGENT_EXT)
     const_set('GL_MAP1_BINORMAL_EXT', 0x8446) unless defined?(GL_MAP1_BINORMAL_EXT)
     const_set('GL_MAP2_BINORMAL_EXT', 0x8447) unless defined?(GL_MAP2_BINORMAL_EXT)
-  end # define_enum_GL_EXT_coordinate_frame
+  end # define_ext_enum_GL_EXT_coordinate_frame
 
-  def define_enum_GL_EXT_copy_texture
-  end # define_enum_GL_EXT_copy_texture
+  def define_ext_enum_GL_EXT_copy_texture
+  end # define_ext_enum_GL_EXT_copy_texture
 
-  def define_enum_GL_EXT_cull_vertex
+  def define_ext_enum_GL_EXT_cull_vertex
     const_set('GL_CULL_VERTEX_EXT', 0x81AA) unless defined?(GL_CULL_VERTEX_EXT)
     const_set('GL_CULL_VERTEX_EYE_POSITION_EXT', 0x81AB) unless defined?(GL_CULL_VERTEX_EYE_POSITION_EXT)
     const_set('GL_CULL_VERTEX_OBJECT_POSITION_EXT', 0x81AC) unless defined?(GL_CULL_VERTEX_OBJECT_POSITION_EXT)
-  end # define_enum_GL_EXT_cull_vertex
+  end # define_ext_enum_GL_EXT_cull_vertex
 
-  def define_enum_GL_EXT_debug_label
+  def define_ext_enum_GL_EXT_debug_label
     const_set('GL_PROGRAM_PIPELINE_OBJECT_EXT', 0x8A4F) unless defined?(GL_PROGRAM_PIPELINE_OBJECT_EXT)
     const_set('GL_PROGRAM_OBJECT_EXT', 0x8B40) unless defined?(GL_PROGRAM_OBJECT_EXT)
     const_set('GL_SHADER_OBJECT_EXT', 0x8B48) unless defined?(GL_SHADER_OBJECT_EXT)
@@ -2431,34 +2431,34 @@ module OpenGL
     const_set('GL_VERTEX_ARRAY_OBJECT_EXT', 0x9154) unless defined?(GL_VERTEX_ARRAY_OBJECT_EXT)
     const_set('GL_SAMPLER', 0x82E6) unless defined?(GL_SAMPLER)
     const_set('GL_TRANSFORM_FEEDBACK', 0x8E22) unless defined?(GL_TRANSFORM_FEEDBACK)
-  end # define_enum_GL_EXT_debug_label
+  end # define_ext_enum_GL_EXT_debug_label
 
-  def define_enum_GL_EXT_debug_marker
-  end # define_enum_GL_EXT_debug_marker
+  def define_ext_enum_GL_EXT_debug_marker
+  end # define_ext_enum_GL_EXT_debug_marker
 
-  def define_enum_GL_EXT_depth_bounds_test
+  def define_ext_enum_GL_EXT_depth_bounds_test
     const_set('GL_DEPTH_BOUNDS_TEST_EXT', 0x8890) unless defined?(GL_DEPTH_BOUNDS_TEST_EXT)
     const_set('GL_DEPTH_BOUNDS_EXT', 0x8891) unless defined?(GL_DEPTH_BOUNDS_EXT)
-  end # define_enum_GL_EXT_depth_bounds_test
+  end # define_ext_enum_GL_EXT_depth_bounds_test
 
-  def define_enum_GL_EXT_direct_state_access
+  def define_ext_enum_GL_EXT_direct_state_access
     const_set('GL_PROGRAM_MATRIX_EXT', 0x8E2D) unless defined?(GL_PROGRAM_MATRIX_EXT)
     const_set('GL_TRANSPOSE_PROGRAM_MATRIX_EXT', 0x8E2E) unless defined?(GL_TRANSPOSE_PROGRAM_MATRIX_EXT)
     const_set('GL_PROGRAM_MATRIX_STACK_DEPTH_EXT', 0x8E2F) unless defined?(GL_PROGRAM_MATRIX_STACK_DEPTH_EXT)
-  end # define_enum_GL_EXT_direct_state_access
+  end # define_ext_enum_GL_EXT_direct_state_access
 
-  def define_enum_GL_EXT_draw_buffers2
-  end # define_enum_GL_EXT_draw_buffers2
+  def define_ext_enum_GL_EXT_draw_buffers2
+  end # define_ext_enum_GL_EXT_draw_buffers2
 
-  def define_enum_GL_EXT_draw_instanced
-  end # define_enum_GL_EXT_draw_instanced
+  def define_ext_enum_GL_EXT_draw_instanced
+  end # define_ext_enum_GL_EXT_draw_instanced
 
-  def define_enum_GL_EXT_draw_range_elements
+  def define_ext_enum_GL_EXT_draw_range_elements
     const_set('GL_MAX_ELEMENTS_VERTICES_EXT', 0x80E8) unless defined?(GL_MAX_ELEMENTS_VERTICES_EXT)
     const_set('GL_MAX_ELEMENTS_INDICES_EXT', 0x80E9) unless defined?(GL_MAX_ELEMENTS_INDICES_EXT)
-  end # define_enum_GL_EXT_draw_range_elements
+  end # define_ext_enum_GL_EXT_draw_range_elements
 
-  def define_enum_GL_EXT_fog_coord
+  def define_ext_enum_GL_EXT_fog_coord
     const_set('GL_FOG_COORDINATE_SOURCE_EXT', 0x8450) unless defined?(GL_FOG_COORDINATE_SOURCE_EXT)
     const_set('GL_FOG_COORDINATE_EXT', 0x8451) unless defined?(GL_FOG_COORDINATE_EXT)
     const_set('GL_FRAGMENT_DEPTH_EXT', 0x8452) unless defined?(GL_FRAGMENT_DEPTH_EXT)
@@ -2467,27 +2467,27 @@ module OpenGL
     const_set('GL_FOG_COORDINATE_ARRAY_STRIDE_EXT', 0x8455) unless defined?(GL_FOG_COORDINATE_ARRAY_STRIDE_EXT)
     const_set('GL_FOG_COORDINATE_ARRAY_POINTER_EXT', 0x8456) unless defined?(GL_FOG_COORDINATE_ARRAY_POINTER_EXT)
     const_set('GL_FOG_COORDINATE_ARRAY_EXT', 0x8457) unless defined?(GL_FOG_COORDINATE_ARRAY_EXT)
-  end # define_enum_GL_EXT_fog_coord
+  end # define_ext_enum_GL_EXT_fog_coord
 
-  def define_enum_GL_EXT_framebuffer_blit
+  def define_ext_enum_GL_EXT_framebuffer_blit
     const_set('GL_READ_FRAMEBUFFER_EXT', 0x8CA8) unless defined?(GL_READ_FRAMEBUFFER_EXT)
     const_set('GL_DRAW_FRAMEBUFFER_EXT', 0x8CA9) unless defined?(GL_DRAW_FRAMEBUFFER_EXT)
     const_set('GL_DRAW_FRAMEBUFFER_BINDING_EXT', 0x8CA6) unless defined?(GL_DRAW_FRAMEBUFFER_BINDING_EXT)
     const_set('GL_READ_FRAMEBUFFER_BINDING_EXT', 0x8CAA) unless defined?(GL_READ_FRAMEBUFFER_BINDING_EXT)
-  end # define_enum_GL_EXT_framebuffer_blit
+  end # define_ext_enum_GL_EXT_framebuffer_blit
 
-  def define_enum_GL_EXT_framebuffer_multisample
+  def define_ext_enum_GL_EXT_framebuffer_multisample
     const_set('GL_RENDERBUFFER_SAMPLES_EXT', 0x8CAB) unless defined?(GL_RENDERBUFFER_SAMPLES_EXT)
     const_set('GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT', 0x8D56) unless defined?(GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT)
     const_set('GL_MAX_SAMPLES_EXT', 0x8D57) unless defined?(GL_MAX_SAMPLES_EXT)
-  end # define_enum_GL_EXT_framebuffer_multisample
+  end # define_ext_enum_GL_EXT_framebuffer_multisample
 
-  def define_enum_GL_EXT_framebuffer_multisample_blit_scaled
+  def define_ext_enum_GL_EXT_framebuffer_multisample_blit_scaled
     const_set('GL_SCALED_RESOLVE_FASTEST_EXT', 0x90BA) unless defined?(GL_SCALED_RESOLVE_FASTEST_EXT)
     const_set('GL_SCALED_RESOLVE_NICEST_EXT', 0x90BB) unless defined?(GL_SCALED_RESOLVE_NICEST_EXT)
-  end # define_enum_GL_EXT_framebuffer_multisample_blit_scaled
+  end # define_ext_enum_GL_EXT_framebuffer_multisample_blit_scaled
 
-  def define_enum_GL_EXT_framebuffer_object
+  def define_ext_enum_GL_EXT_framebuffer_object
     const_set('GL_INVALID_FRAMEBUFFER_OPERATION_EXT', 0x0506) unless defined?(GL_INVALID_FRAMEBUFFER_OPERATION_EXT)
     const_set('GL_MAX_RENDERBUFFER_SIZE_EXT', 0x84E8) unless defined?(GL_MAX_RENDERBUFFER_SIZE_EXT)
     const_set('GL_FRAMEBUFFER_BINDING_EXT', 0x8CA6) unless defined?(GL_FRAMEBUFFER_BINDING_EXT)
@@ -2539,14 +2539,14 @@ module OpenGL
     const_set('GL_RENDERBUFFER_ALPHA_SIZE_EXT', 0x8D53) unless defined?(GL_RENDERBUFFER_ALPHA_SIZE_EXT)
     const_set('GL_RENDERBUFFER_DEPTH_SIZE_EXT', 0x8D54) unless defined?(GL_RENDERBUFFER_DEPTH_SIZE_EXT)
     const_set('GL_RENDERBUFFER_STENCIL_SIZE_EXT', 0x8D55) unless defined?(GL_RENDERBUFFER_STENCIL_SIZE_EXT)
-  end # define_enum_GL_EXT_framebuffer_object
+  end # define_ext_enum_GL_EXT_framebuffer_object
 
-  def define_enum_GL_EXT_framebuffer_sRGB
+  def define_ext_enum_GL_EXT_framebuffer_sRGB
     const_set('GL_FRAMEBUFFER_SRGB_EXT', 0x8DB9) unless defined?(GL_FRAMEBUFFER_SRGB_EXT)
     const_set('GL_FRAMEBUFFER_SRGB_CAPABLE_EXT', 0x8DBA) unless defined?(GL_FRAMEBUFFER_SRGB_CAPABLE_EXT)
-  end # define_enum_GL_EXT_framebuffer_sRGB
+  end # define_ext_enum_GL_EXT_framebuffer_sRGB
 
-  def define_enum_GL_EXT_geometry_shader4
+  def define_ext_enum_GL_EXT_geometry_shader4
     const_set('GL_GEOMETRY_SHADER_EXT', 0x8DD9) unless defined?(GL_GEOMETRY_SHADER_EXT)
     const_set('GL_GEOMETRY_VERTICES_OUT_EXT', 0x8DDA) unless defined?(GL_GEOMETRY_VERTICES_OUT_EXT)
     const_set('GL_GEOMETRY_INPUT_TYPE_EXT', 0x8DDB) unless defined?(GL_GEOMETRY_INPUT_TYPE_EXT)
@@ -2567,12 +2567,12 @@ module OpenGL
     const_set('GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT', 0x8DA7) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT)
     const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER_EXT', 0x8CD4) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER_EXT)
     const_set('GL_PROGRAM_POINT_SIZE_EXT', 0x8642) unless defined?(GL_PROGRAM_POINT_SIZE_EXT)
-  end # define_enum_GL_EXT_geometry_shader4
+  end # define_ext_enum_GL_EXT_geometry_shader4
 
-  def define_enum_GL_EXT_gpu_program_parameters
-  end # define_enum_GL_EXT_gpu_program_parameters
+  def define_ext_enum_GL_EXT_gpu_program_parameters
+  end # define_ext_enum_GL_EXT_gpu_program_parameters
 
-  def define_enum_GL_EXT_gpu_shader4
+  def define_ext_enum_GL_EXT_gpu_shader4
     const_set('GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT', 0x88FD) unless defined?(GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT)
     const_set('GL_SAMPLER_1D_ARRAY_EXT', 0x8DC0) unless defined?(GL_SAMPLER_1D_ARRAY_EXT)
     const_set('GL_SAMPLER_2D_ARRAY_EXT', 0x8DC1) unless defined?(GL_SAMPLER_2D_ARRAY_EXT)
@@ -2601,9 +2601,9 @@ module OpenGL
     const_set('GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT', 0x8DD8) unless defined?(GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT)
     const_set('GL_MIN_PROGRAM_TEXEL_OFFSET_EXT', 0x8904) unless defined?(GL_MIN_PROGRAM_TEXEL_OFFSET_EXT)
     const_set('GL_MAX_PROGRAM_TEXEL_OFFSET_EXT', 0x8905) unless defined?(GL_MAX_PROGRAM_TEXEL_OFFSET_EXT)
-  end # define_enum_GL_EXT_gpu_shader4
+  end # define_ext_enum_GL_EXT_gpu_shader4
 
-  def define_enum_GL_EXT_histogram
+  def define_ext_enum_GL_EXT_histogram
     const_set('GL_HISTOGRAM_EXT', 0x8024) unless defined?(GL_HISTOGRAM_EXT)
     const_set('GL_PROXY_HISTOGRAM_EXT', 0x8025) unless defined?(GL_PROXY_HISTOGRAM_EXT)
     const_set('GL_HISTOGRAM_WIDTH_EXT', 0x8026) unless defined?(GL_HISTOGRAM_WIDTH_EXT)
@@ -2618,9 +2618,9 @@ module OpenGL
     const_set('GL_MINMAX_FORMAT_EXT', 0x802F) unless defined?(GL_MINMAX_FORMAT_EXT)
     const_set('GL_MINMAX_SINK_EXT', 0x8030) unless defined?(GL_MINMAX_SINK_EXT)
     const_set('GL_TABLE_TOO_LARGE_EXT', 0x8031) unless defined?(GL_TABLE_TOO_LARGE_EXT)
-  end # define_enum_GL_EXT_histogram
+  end # define_ext_enum_GL_EXT_histogram
 
-  def define_enum_GL_EXT_index_array_formats
+  def define_ext_enum_GL_EXT_index_array_formats
     const_set('GL_IUI_V2F_EXT', 0x81AD) unless defined?(GL_IUI_V2F_EXT)
     const_set('GL_IUI_V3F_EXT', 0x81AE) unless defined?(GL_IUI_V3F_EXT)
     const_set('GL_IUI_N3F_V2F_EXT', 0x81AF) unless defined?(GL_IUI_N3F_V2F_EXT)
@@ -2629,24 +2629,24 @@ module OpenGL
     const_set('GL_T2F_IUI_V3F_EXT', 0x81B2) unless defined?(GL_T2F_IUI_V3F_EXT)
     const_set('GL_T2F_IUI_N3F_V2F_EXT', 0x81B3) unless defined?(GL_T2F_IUI_N3F_V2F_EXT)
     const_set('GL_T2F_IUI_N3F_V3F_EXT', 0x81B4) unless defined?(GL_T2F_IUI_N3F_V3F_EXT)
-  end # define_enum_GL_EXT_index_array_formats
+  end # define_ext_enum_GL_EXT_index_array_formats
 
-  def define_enum_GL_EXT_index_func
+  def define_ext_enum_GL_EXT_index_func
     const_set('GL_INDEX_TEST_EXT', 0x81B5) unless defined?(GL_INDEX_TEST_EXT)
     const_set('GL_INDEX_TEST_FUNC_EXT', 0x81B6) unless defined?(GL_INDEX_TEST_FUNC_EXT)
     const_set('GL_INDEX_TEST_REF_EXT', 0x81B7) unless defined?(GL_INDEX_TEST_REF_EXT)
-  end # define_enum_GL_EXT_index_func
+  end # define_ext_enum_GL_EXT_index_func
 
-  def define_enum_GL_EXT_index_material
+  def define_ext_enum_GL_EXT_index_material
     const_set('GL_INDEX_MATERIAL_EXT', 0x81B8) unless defined?(GL_INDEX_MATERIAL_EXT)
     const_set('GL_INDEX_MATERIAL_PARAMETER_EXT', 0x81B9) unless defined?(GL_INDEX_MATERIAL_PARAMETER_EXT)
     const_set('GL_INDEX_MATERIAL_FACE_EXT', 0x81BA) unless defined?(GL_INDEX_MATERIAL_FACE_EXT)
-  end # define_enum_GL_EXT_index_material
+  end # define_ext_enum_GL_EXT_index_material
 
-  def define_enum_GL_EXT_index_texture
-  end # define_enum_GL_EXT_index_texture
+  def define_ext_enum_GL_EXT_index_texture
+  end # define_ext_enum_GL_EXT_index_texture
 
-  def define_enum_GL_EXT_light_texture
+  def define_ext_enum_GL_EXT_light_texture
     const_set('GL_FRAGMENT_MATERIAL_EXT', 0x8349) unless defined?(GL_FRAGMENT_MATERIAL_EXT)
     const_set('GL_FRAGMENT_NORMAL_EXT', 0x834A) unless defined?(GL_FRAGMENT_NORMAL_EXT)
     const_set('GL_FRAGMENT_COLOR_EXT', 0x834C) unless defined?(GL_FRAGMENT_COLOR_EXT)
@@ -2657,15 +2657,15 @@ module OpenGL
     const_set('GL_TEXTURE_MATERIAL_FACE_EXT', 0x8351) unless defined?(GL_TEXTURE_MATERIAL_FACE_EXT)
     const_set('GL_TEXTURE_MATERIAL_PARAMETER_EXT', 0x8352) unless defined?(GL_TEXTURE_MATERIAL_PARAMETER_EXT)
     const_set('GL_FRAGMENT_DEPTH_EXT', 0x8452) unless defined?(GL_FRAGMENT_DEPTH_EXT)
-  end # define_enum_GL_EXT_light_texture
+  end # define_ext_enum_GL_EXT_light_texture
 
-  def define_enum_GL_EXT_misc_attribute
-  end # define_enum_GL_EXT_misc_attribute
+  def define_ext_enum_GL_EXT_misc_attribute
+  end # define_ext_enum_GL_EXT_misc_attribute
 
-  def define_enum_GL_EXT_multi_draw_arrays
-  end # define_enum_GL_EXT_multi_draw_arrays
+  def define_ext_enum_GL_EXT_multi_draw_arrays
+  end # define_ext_enum_GL_EXT_multi_draw_arrays
 
-  def define_enum_GL_EXT_multisample
+  def define_ext_enum_GL_EXT_multisample
     const_set('GL_MULTISAMPLE_EXT', 0x809D) unless defined?(GL_MULTISAMPLE_EXT)
     const_set('GL_SAMPLE_ALPHA_TO_MASK_EXT', 0x809E) unless defined?(GL_SAMPLE_ALPHA_TO_MASK_EXT)
     const_set('GL_SAMPLE_ALPHA_TO_ONE_EXT', 0x809F) unless defined?(GL_SAMPLE_ALPHA_TO_ONE_EXT)
@@ -2683,30 +2683,30 @@ module OpenGL
     const_set('GL_SAMPLE_MASK_INVERT_EXT', 0x80AB) unless defined?(GL_SAMPLE_MASK_INVERT_EXT)
     const_set('GL_SAMPLE_PATTERN_EXT', 0x80AC) unless defined?(GL_SAMPLE_PATTERN_EXT)
     const_set('GL_MULTISAMPLE_BIT_EXT', 0x20000000) unless defined?(GL_MULTISAMPLE_BIT_EXT)
-  end # define_enum_GL_EXT_multisample
+  end # define_ext_enum_GL_EXT_multisample
 
-  def define_enum_GL_EXT_packed_depth_stencil
+  def define_ext_enum_GL_EXT_packed_depth_stencil
     const_set('GL_DEPTH_STENCIL_EXT', 0x84F9) unless defined?(GL_DEPTH_STENCIL_EXT)
     const_set('GL_UNSIGNED_INT_24_8_EXT', 0x84FA) unless defined?(GL_UNSIGNED_INT_24_8_EXT)
     const_set('GL_DEPTH24_STENCIL8_EXT', 0x88F0) unless defined?(GL_DEPTH24_STENCIL8_EXT)
     const_set('GL_TEXTURE_STENCIL_SIZE_EXT', 0x88F1) unless defined?(GL_TEXTURE_STENCIL_SIZE_EXT)
-  end # define_enum_GL_EXT_packed_depth_stencil
+  end # define_ext_enum_GL_EXT_packed_depth_stencil
 
-  def define_enum_GL_EXT_packed_float
+  def define_ext_enum_GL_EXT_packed_float
     const_set('GL_R11F_G11F_B10F_EXT', 0x8C3A) unless defined?(GL_R11F_G11F_B10F_EXT)
     const_set('GL_UNSIGNED_INT_10F_11F_11F_REV_EXT', 0x8C3B) unless defined?(GL_UNSIGNED_INT_10F_11F_11F_REV_EXT)
     const_set('GL_RGBA_SIGNED_COMPONENTS_EXT', 0x8C3C) unless defined?(GL_RGBA_SIGNED_COMPONENTS_EXT)
-  end # define_enum_GL_EXT_packed_float
+  end # define_ext_enum_GL_EXT_packed_float
 
-  def define_enum_GL_EXT_packed_pixels
+  def define_ext_enum_GL_EXT_packed_pixels
     const_set('GL_UNSIGNED_BYTE_3_3_2_EXT', 0x8032) unless defined?(GL_UNSIGNED_BYTE_3_3_2_EXT)
     const_set('GL_UNSIGNED_SHORT_4_4_4_4_EXT', 0x8033) unless defined?(GL_UNSIGNED_SHORT_4_4_4_4_EXT)
     const_set('GL_UNSIGNED_SHORT_5_5_5_1_EXT', 0x8034) unless defined?(GL_UNSIGNED_SHORT_5_5_5_1_EXT)
     const_set('GL_UNSIGNED_INT_8_8_8_8_EXT', 0x8035) unless defined?(GL_UNSIGNED_INT_8_8_8_8_EXT)
     const_set('GL_UNSIGNED_INT_10_10_10_2_EXT', 0x8036) unless defined?(GL_UNSIGNED_INT_10_10_10_2_EXT)
-  end # define_enum_GL_EXT_packed_pixels
+  end # define_ext_enum_GL_EXT_packed_pixels
 
-  def define_enum_GL_EXT_paletted_texture
+  def define_ext_enum_GL_EXT_paletted_texture
     const_set('GL_COLOR_INDEX1_EXT', 0x80E2) unless defined?(GL_COLOR_INDEX1_EXT)
     const_set('GL_COLOR_INDEX2_EXT', 0x80E3) unless defined?(GL_COLOR_INDEX2_EXT)
     const_set('GL_COLOR_INDEX4_EXT', 0x80E4) unless defined?(GL_COLOR_INDEX4_EXT)
@@ -2714,16 +2714,16 @@ module OpenGL
     const_set('GL_COLOR_INDEX12_EXT', 0x80E6) unless defined?(GL_COLOR_INDEX12_EXT)
     const_set('GL_COLOR_INDEX16_EXT', 0x80E7) unless defined?(GL_COLOR_INDEX16_EXT)
     const_set('GL_TEXTURE_INDEX_SIZE_EXT', 0x80ED) unless defined?(GL_TEXTURE_INDEX_SIZE_EXT)
-  end # define_enum_GL_EXT_paletted_texture
+  end # define_ext_enum_GL_EXT_paletted_texture
 
-  def define_enum_GL_EXT_pixel_buffer_object
+  def define_ext_enum_GL_EXT_pixel_buffer_object
     const_set('GL_PIXEL_PACK_BUFFER_EXT', 0x88EB) unless defined?(GL_PIXEL_PACK_BUFFER_EXT)
     const_set('GL_PIXEL_UNPACK_BUFFER_EXT', 0x88EC) unless defined?(GL_PIXEL_UNPACK_BUFFER_EXT)
     const_set('GL_PIXEL_PACK_BUFFER_BINDING_EXT', 0x88ED) unless defined?(GL_PIXEL_PACK_BUFFER_BINDING_EXT)
     const_set('GL_PIXEL_UNPACK_BUFFER_BINDING_EXT', 0x88EF) unless defined?(GL_PIXEL_UNPACK_BUFFER_BINDING_EXT)
-  end # define_enum_GL_EXT_pixel_buffer_object
+  end # define_ext_enum_GL_EXT_pixel_buffer_object
 
-  def define_enum_GL_EXT_pixel_transform
+  def define_ext_enum_GL_EXT_pixel_transform
     const_set('GL_PIXEL_TRANSFORM_2D_EXT', 0x8330) unless defined?(GL_PIXEL_TRANSFORM_2D_EXT)
     const_set('GL_PIXEL_MAG_FILTER_EXT', 0x8331) unless defined?(GL_PIXEL_MAG_FILTER_EXT)
     const_set('GL_PIXEL_MIN_FILTER_EXT', 0x8332) unless defined?(GL_PIXEL_MIN_FILTER_EXT)
@@ -2733,36 +2733,36 @@ module OpenGL
     const_set('GL_PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT', 0x8336) unless defined?(GL_PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT)
     const_set('GL_MAX_PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT', 0x8337) unless defined?(GL_MAX_PIXEL_TRANSFORM_2D_STACK_DEPTH_EXT)
     const_set('GL_PIXEL_TRANSFORM_2D_MATRIX_EXT', 0x8338) unless defined?(GL_PIXEL_TRANSFORM_2D_MATRIX_EXT)
-  end # define_enum_GL_EXT_pixel_transform
+  end # define_ext_enum_GL_EXT_pixel_transform
 
-  def define_enum_GL_EXT_pixel_transform_color_table
-  end # define_enum_GL_EXT_pixel_transform_color_table
+  def define_ext_enum_GL_EXT_pixel_transform_color_table
+  end # define_ext_enum_GL_EXT_pixel_transform_color_table
 
-  def define_enum_GL_EXT_point_parameters
+  def define_ext_enum_GL_EXT_point_parameters
     const_set('GL_POINT_SIZE_MIN_EXT', 0x8126) unless defined?(GL_POINT_SIZE_MIN_EXT)
     const_set('GL_POINT_SIZE_MAX_EXT', 0x8127) unless defined?(GL_POINT_SIZE_MAX_EXT)
     const_set('GL_POINT_FADE_THRESHOLD_SIZE_EXT', 0x8128) unless defined?(GL_POINT_FADE_THRESHOLD_SIZE_EXT)
     const_set('GL_DISTANCE_ATTENUATION_EXT', 0x8129) unless defined?(GL_DISTANCE_ATTENUATION_EXT)
-  end # define_enum_GL_EXT_point_parameters
+  end # define_ext_enum_GL_EXT_point_parameters
 
-  def define_enum_GL_EXT_polygon_offset
+  def define_ext_enum_GL_EXT_polygon_offset
     const_set('GL_POLYGON_OFFSET_EXT', 0x8037) unless defined?(GL_POLYGON_OFFSET_EXT)
     const_set('GL_POLYGON_OFFSET_FACTOR_EXT', 0x8038) unless defined?(GL_POLYGON_OFFSET_FACTOR_EXT)
     const_set('GL_POLYGON_OFFSET_BIAS_EXT', 0x8039) unless defined?(GL_POLYGON_OFFSET_BIAS_EXT)
-  end # define_enum_GL_EXT_polygon_offset
+  end # define_ext_enum_GL_EXT_polygon_offset
 
-  def define_enum_GL_EXT_provoking_vertex
+  def define_ext_enum_GL_EXT_provoking_vertex
     const_set('GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT', 0x8E4C) unless defined?(GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT)
     const_set('GL_FIRST_VERTEX_CONVENTION_EXT', 0x8E4D) unless defined?(GL_FIRST_VERTEX_CONVENTION_EXT)
     const_set('GL_LAST_VERTEX_CONVENTION_EXT', 0x8E4E) unless defined?(GL_LAST_VERTEX_CONVENTION_EXT)
     const_set('GL_PROVOKING_VERTEX_EXT', 0x8E4F) unless defined?(GL_PROVOKING_VERTEX_EXT)
-  end # define_enum_GL_EXT_provoking_vertex
+  end # define_ext_enum_GL_EXT_provoking_vertex
 
-  def define_enum_GL_EXT_rescale_normal
+  def define_ext_enum_GL_EXT_rescale_normal
     const_set('GL_RESCALE_NORMAL_EXT', 0x803A) unless defined?(GL_RESCALE_NORMAL_EXT)
-  end # define_enum_GL_EXT_rescale_normal
+  end # define_ext_enum_GL_EXT_rescale_normal
 
-  def define_enum_GL_EXT_secondary_color
+  def define_ext_enum_GL_EXT_secondary_color
     const_set('GL_COLOR_SUM_EXT', 0x8458) unless defined?(GL_COLOR_SUM_EXT)
     const_set('GL_CURRENT_SECONDARY_COLOR_EXT', 0x8459) unless defined?(GL_CURRENT_SECONDARY_COLOR_EXT)
     const_set('GL_SECONDARY_COLOR_ARRAY_SIZE_EXT', 0x845A) unless defined?(GL_SECONDARY_COLOR_ARRAY_SIZE_EXT)
@@ -2770,24 +2770,24 @@ module OpenGL
     const_set('GL_SECONDARY_COLOR_ARRAY_STRIDE_EXT', 0x845C) unless defined?(GL_SECONDARY_COLOR_ARRAY_STRIDE_EXT)
     const_set('GL_SECONDARY_COLOR_ARRAY_POINTER_EXT', 0x845D) unless defined?(GL_SECONDARY_COLOR_ARRAY_POINTER_EXT)
     const_set('GL_SECONDARY_COLOR_ARRAY_EXT', 0x845E) unless defined?(GL_SECONDARY_COLOR_ARRAY_EXT)
-  end # define_enum_GL_EXT_secondary_color
+  end # define_ext_enum_GL_EXT_secondary_color
 
-  def define_enum_GL_EXT_separate_shader_objects
-    const_set('GL_ACTIVE_PROGRAM_EXT', 0x8259) unless defined?(GL_ACTIVE_PROGRAM_EXT)
+  def define_ext_enum_GL_EXT_separate_shader_objects
+    const_set('GL_ACTIVE_PROGRAM_EXT', 0x8B8D) unless defined?(GL_ACTIVE_PROGRAM_EXT)
     const_set('GL_VERTEX_SHADER_BIT_EXT', 0x00000001) unless defined?(GL_VERTEX_SHADER_BIT_EXT)
     const_set('GL_FRAGMENT_SHADER_BIT_EXT', 0x00000002) unless defined?(GL_FRAGMENT_SHADER_BIT_EXT)
     const_set('GL_ALL_SHADER_BITS_EXT', 0xFFFFFFFF) unless defined?(GL_ALL_SHADER_BITS_EXT)
     const_set('GL_PROGRAM_SEPARABLE_EXT', 0x8258) unless defined?(GL_PROGRAM_SEPARABLE_EXT)
     const_set('GL_PROGRAM_PIPELINE_BINDING_EXT', 0x825A) unless defined?(GL_PROGRAM_PIPELINE_BINDING_EXT)
-  end # define_enum_GL_EXT_separate_shader_objects
+  end # define_ext_enum_GL_EXT_separate_shader_objects
 
-  def define_enum_GL_EXT_separate_specular_color
+  def define_ext_enum_GL_EXT_separate_specular_color
     const_set('GL_LIGHT_MODEL_COLOR_CONTROL_EXT', 0x81F8) unless defined?(GL_LIGHT_MODEL_COLOR_CONTROL_EXT)
     const_set('GL_SINGLE_COLOR_EXT', 0x81F9) unless defined?(GL_SINGLE_COLOR_EXT)
     const_set('GL_SEPARATE_SPECULAR_COLOR_EXT', 0x81FA) unless defined?(GL_SEPARATE_SPECULAR_COLOR_EXT)
-  end # define_enum_GL_EXT_separate_specular_color
+  end # define_ext_enum_GL_EXT_separate_specular_color
 
-  def define_enum_GL_EXT_shader_image_load_store
+  def define_ext_enum_GL_EXT_shader_image_load_store
     const_set('GL_MAX_IMAGE_UNITS_EXT', 0x8F38) unless defined?(GL_MAX_IMAGE_UNITS_EXT)
     const_set('GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS_EXT', 0x8F39) unless defined?(GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS_EXT)
     const_set('GL_IMAGE_BINDING_NAME_EXT', 0x8F3A) unless defined?(GL_IMAGE_BINDING_NAME_EXT)
@@ -2843,37 +2843,37 @@ module OpenGL
     const_set('GL_TRANSFORM_FEEDBACK_BARRIER_BIT_EXT', 0x00000800) unless defined?(GL_TRANSFORM_FEEDBACK_BARRIER_BIT_EXT)
     const_set('GL_ATOMIC_COUNTER_BARRIER_BIT_EXT', 0x00001000) unless defined?(GL_ATOMIC_COUNTER_BARRIER_BIT_EXT)
     const_set('GL_ALL_BARRIER_BITS_EXT', 0xFFFFFFFF) unless defined?(GL_ALL_BARRIER_BITS_EXT)
-  end # define_enum_GL_EXT_shader_image_load_store
+  end # define_ext_enum_GL_EXT_shader_image_load_store
 
-  def define_enum_GL_EXT_shader_integer_mix
-  end # define_enum_GL_EXT_shader_integer_mix
+  def define_ext_enum_GL_EXT_shader_integer_mix
+  end # define_ext_enum_GL_EXT_shader_integer_mix
 
-  def define_enum_GL_EXT_shadow_funcs
-  end # define_enum_GL_EXT_shadow_funcs
+  def define_ext_enum_GL_EXT_shadow_funcs
+  end # define_ext_enum_GL_EXT_shadow_funcs
 
-  def define_enum_GL_EXT_shared_texture_palette
+  def define_ext_enum_GL_EXT_shared_texture_palette
     const_set('GL_SHARED_TEXTURE_PALETTE_EXT', 0x81FB) unless defined?(GL_SHARED_TEXTURE_PALETTE_EXT)
-  end # define_enum_GL_EXT_shared_texture_palette
+  end # define_ext_enum_GL_EXT_shared_texture_palette
 
-  def define_enum_GL_EXT_stencil_clear_tag
+  def define_ext_enum_GL_EXT_stencil_clear_tag
     const_set('GL_STENCIL_TAG_BITS_EXT', 0x88F2) unless defined?(GL_STENCIL_TAG_BITS_EXT)
     const_set('GL_STENCIL_CLEAR_TAG_VALUE_EXT', 0x88F3) unless defined?(GL_STENCIL_CLEAR_TAG_VALUE_EXT)
-  end # define_enum_GL_EXT_stencil_clear_tag
+  end # define_ext_enum_GL_EXT_stencil_clear_tag
 
-  def define_enum_GL_EXT_stencil_two_side
+  def define_ext_enum_GL_EXT_stencil_two_side
     const_set('GL_STENCIL_TEST_TWO_SIDE_EXT', 0x8910) unless defined?(GL_STENCIL_TEST_TWO_SIDE_EXT)
     const_set('GL_ACTIVE_STENCIL_FACE_EXT', 0x8911) unless defined?(GL_ACTIVE_STENCIL_FACE_EXT)
-  end # define_enum_GL_EXT_stencil_two_side
+  end # define_ext_enum_GL_EXT_stencil_two_side
 
-  def define_enum_GL_EXT_stencil_wrap
+  def define_ext_enum_GL_EXT_stencil_wrap
     const_set('GL_INCR_WRAP_EXT', 0x8507) unless defined?(GL_INCR_WRAP_EXT)
     const_set('GL_DECR_WRAP_EXT', 0x8508) unless defined?(GL_DECR_WRAP_EXT)
-  end # define_enum_GL_EXT_stencil_wrap
+  end # define_ext_enum_GL_EXT_stencil_wrap
 
-  def define_enum_GL_EXT_subtexture
-  end # define_enum_GL_EXT_subtexture
+  def define_ext_enum_GL_EXT_subtexture
+  end # define_ext_enum_GL_EXT_subtexture
 
-  def define_enum_GL_EXT_texture
+  def define_ext_enum_GL_EXT_texture
     const_set('GL_ALPHA4_EXT', 0x803B) unless defined?(GL_ALPHA4_EXT)
     const_set('GL_ALPHA8_EXT', 0x803C) unless defined?(GL_ALPHA8_EXT)
     const_set('GL_ALPHA12_EXT', 0x803D) unless defined?(GL_ALPHA12_EXT)
@@ -2917,9 +2917,9 @@ module OpenGL
     const_set('GL_PROXY_TEXTURE_1D_EXT', 0x8063) unless defined?(GL_PROXY_TEXTURE_1D_EXT)
     const_set('GL_PROXY_TEXTURE_2D_EXT', 0x8064) unless defined?(GL_PROXY_TEXTURE_2D_EXT)
     const_set('GL_TEXTURE_TOO_LARGE_EXT', 0x8065) unless defined?(GL_TEXTURE_TOO_LARGE_EXT)
-  end # define_enum_GL_EXT_texture
+  end # define_ext_enum_GL_EXT_texture
 
-  def define_enum_GL_EXT_texture3D
+  def define_ext_enum_GL_EXT_texture3D
     const_set('GL_PACK_SKIP_IMAGES_EXT', 0x806B) unless defined?(GL_PACK_SKIP_IMAGES_EXT)
     const_set('GL_PACK_IMAGE_HEIGHT_EXT', 0x806C) unless defined?(GL_PACK_IMAGE_HEIGHT_EXT)
     const_set('GL_UNPACK_SKIP_IMAGES_EXT', 0x806D) unless defined?(GL_UNPACK_SKIP_IMAGES_EXT)
@@ -2929,9 +2929,9 @@ module OpenGL
     const_set('GL_TEXTURE_DEPTH_EXT', 0x8071) unless defined?(GL_TEXTURE_DEPTH_EXT)
     const_set('GL_TEXTURE_WRAP_R_EXT', 0x8072) unless defined?(GL_TEXTURE_WRAP_R_EXT)
     const_set('GL_MAX_3D_TEXTURE_SIZE_EXT', 0x8073) unless defined?(GL_MAX_3D_TEXTURE_SIZE_EXT)
-  end # define_enum_GL_EXT_texture3D
+  end # define_ext_enum_GL_EXT_texture3D
 
-  def define_enum_GL_EXT_texture_array
+  def define_ext_enum_GL_EXT_texture_array
     const_set('GL_TEXTURE_1D_ARRAY_EXT', 0x8C18) unless defined?(GL_TEXTURE_1D_ARRAY_EXT)
     const_set('GL_PROXY_TEXTURE_1D_ARRAY_EXT', 0x8C19) unless defined?(GL_PROXY_TEXTURE_1D_ARRAY_EXT)
     const_set('GL_TEXTURE_2D_ARRAY_EXT', 0x8C1A) unless defined?(GL_TEXTURE_2D_ARRAY_EXT)
@@ -2941,38 +2941,38 @@ module OpenGL
     const_set('GL_MAX_ARRAY_TEXTURE_LAYERS_EXT', 0x88FF) unless defined?(GL_MAX_ARRAY_TEXTURE_LAYERS_EXT)
     const_set('GL_COMPARE_REF_DEPTH_TO_TEXTURE_EXT', 0x884E) unless defined?(GL_COMPARE_REF_DEPTH_TO_TEXTURE_EXT)
     const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER_EXT', 0x8CD4) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER_EXT)
-  end # define_enum_GL_EXT_texture_array
+  end # define_ext_enum_GL_EXT_texture_array
 
-  def define_enum_GL_EXT_texture_buffer_object
+  def define_ext_enum_GL_EXT_texture_buffer_object
     const_set('GL_TEXTURE_BUFFER_EXT', 0x8C2A) unless defined?(GL_TEXTURE_BUFFER_EXT)
     const_set('GL_MAX_TEXTURE_BUFFER_SIZE_EXT', 0x8C2B) unless defined?(GL_MAX_TEXTURE_BUFFER_SIZE_EXT)
     const_set('GL_TEXTURE_BINDING_BUFFER_EXT', 0x8C2C) unless defined?(GL_TEXTURE_BINDING_BUFFER_EXT)
     const_set('GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT', 0x8C2D) unless defined?(GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT)
     const_set('GL_TEXTURE_BUFFER_FORMAT_EXT', 0x8C2E) unless defined?(GL_TEXTURE_BUFFER_FORMAT_EXT)
-  end # define_enum_GL_EXT_texture_buffer_object
+  end # define_ext_enum_GL_EXT_texture_buffer_object
 
-  def define_enum_GL_EXT_texture_compression_latc
+  def define_ext_enum_GL_EXT_texture_compression_latc
     const_set('GL_COMPRESSED_LUMINANCE_LATC1_EXT', 0x8C70) unless defined?(GL_COMPRESSED_LUMINANCE_LATC1_EXT)
     const_set('GL_COMPRESSED_SIGNED_LUMINANCE_LATC1_EXT', 0x8C71) unless defined?(GL_COMPRESSED_SIGNED_LUMINANCE_LATC1_EXT)
     const_set('GL_COMPRESSED_LUMINANCE_ALPHA_LATC2_EXT', 0x8C72) unless defined?(GL_COMPRESSED_LUMINANCE_ALPHA_LATC2_EXT)
     const_set('GL_COMPRESSED_SIGNED_LUMINANCE_ALPHA_LATC2_EXT', 0x8C73) unless defined?(GL_COMPRESSED_SIGNED_LUMINANCE_ALPHA_LATC2_EXT)
-  end # define_enum_GL_EXT_texture_compression_latc
+  end # define_ext_enum_GL_EXT_texture_compression_latc
 
-  def define_enum_GL_EXT_texture_compression_rgtc
+  def define_ext_enum_GL_EXT_texture_compression_rgtc
     const_set('GL_COMPRESSED_RED_RGTC1_EXT', 0x8DBB) unless defined?(GL_COMPRESSED_RED_RGTC1_EXT)
     const_set('GL_COMPRESSED_SIGNED_RED_RGTC1_EXT', 0x8DBC) unless defined?(GL_COMPRESSED_SIGNED_RED_RGTC1_EXT)
     const_set('GL_COMPRESSED_RED_GREEN_RGTC2_EXT', 0x8DBD) unless defined?(GL_COMPRESSED_RED_GREEN_RGTC2_EXT)
     const_set('GL_COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT', 0x8DBE) unless defined?(GL_COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT)
-  end # define_enum_GL_EXT_texture_compression_rgtc
+  end # define_ext_enum_GL_EXT_texture_compression_rgtc
 
-  def define_enum_GL_EXT_texture_compression_s3tc
+  def define_ext_enum_GL_EXT_texture_compression_s3tc
     const_set('GL_COMPRESSED_RGB_S3TC_DXT1_EXT', 0x83F0) unless defined?(GL_COMPRESSED_RGB_S3TC_DXT1_EXT)
     const_set('GL_COMPRESSED_RGBA_S3TC_DXT1_EXT', 0x83F1) unless defined?(GL_COMPRESSED_RGBA_S3TC_DXT1_EXT)
     const_set('GL_COMPRESSED_RGBA_S3TC_DXT3_EXT', 0x83F2) unless defined?(GL_COMPRESSED_RGBA_S3TC_DXT3_EXT)
     const_set('GL_COMPRESSED_RGBA_S3TC_DXT5_EXT', 0x83F3) unless defined?(GL_COMPRESSED_RGBA_S3TC_DXT5_EXT)
-  end # define_enum_GL_EXT_texture_compression_s3tc
+  end # define_ext_enum_GL_EXT_texture_compression_s3tc
 
-  def define_enum_GL_EXT_texture_cube_map
+  def define_ext_enum_GL_EXT_texture_cube_map
     const_set('GL_NORMAL_MAP_EXT', 0x8511) unless defined?(GL_NORMAL_MAP_EXT)
     const_set('GL_REFLECTION_MAP_EXT', 0x8512) unless defined?(GL_REFLECTION_MAP_EXT)
     const_set('GL_TEXTURE_CUBE_MAP_EXT', 0x8513) unless defined?(GL_TEXTURE_CUBE_MAP_EXT)
@@ -2985,12 +2985,12 @@ module OpenGL
     const_set('GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_EXT', 0x851A) unless defined?(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z_EXT)
     const_set('GL_PROXY_TEXTURE_CUBE_MAP_EXT', 0x851B) unless defined?(GL_PROXY_TEXTURE_CUBE_MAP_EXT)
     const_set('GL_MAX_CUBE_MAP_TEXTURE_SIZE_EXT', 0x851C) unless defined?(GL_MAX_CUBE_MAP_TEXTURE_SIZE_EXT)
-  end # define_enum_GL_EXT_texture_cube_map
+  end # define_ext_enum_GL_EXT_texture_cube_map
 
-  def define_enum_GL_EXT_texture_env_add
-  end # define_enum_GL_EXT_texture_env_add
+  def define_ext_enum_GL_EXT_texture_env_add
+  end # define_ext_enum_GL_EXT_texture_env_add
 
-  def define_enum_GL_EXT_texture_env_combine
+  def define_ext_enum_GL_EXT_texture_env_combine
     const_set('GL_COMBINE_EXT', 0x8570) unless defined?(GL_COMBINE_EXT)
     const_set('GL_COMBINE_RGB_EXT', 0x8571) unless defined?(GL_COMBINE_RGB_EXT)
     const_set('GL_COMBINE_ALPHA_EXT', 0x8572) unless defined?(GL_COMBINE_ALPHA_EXT)
@@ -3012,19 +3012,19 @@ module OpenGL
     const_set('GL_OPERAND0_ALPHA_EXT', 0x8598) unless defined?(GL_OPERAND0_ALPHA_EXT)
     const_set('GL_OPERAND1_ALPHA_EXT', 0x8599) unless defined?(GL_OPERAND1_ALPHA_EXT)
     const_set('GL_OPERAND2_ALPHA_EXT', 0x859A) unless defined?(GL_OPERAND2_ALPHA_EXT)
-  end # define_enum_GL_EXT_texture_env_combine
+  end # define_ext_enum_GL_EXT_texture_env_combine
 
-  def define_enum_GL_EXT_texture_env_dot3
+  def define_ext_enum_GL_EXT_texture_env_dot3
     const_set('GL_DOT3_RGB_EXT', 0x8740) unless defined?(GL_DOT3_RGB_EXT)
     const_set('GL_DOT3_RGBA_EXT', 0x8741) unless defined?(GL_DOT3_RGBA_EXT)
-  end # define_enum_GL_EXT_texture_env_dot3
+  end # define_ext_enum_GL_EXT_texture_env_dot3
 
-  def define_enum_GL_EXT_texture_filter_anisotropic
+  def define_ext_enum_GL_EXT_texture_filter_anisotropic
     const_set('GL_TEXTURE_MAX_ANISOTROPY_EXT', 0x84FE) unless defined?(GL_TEXTURE_MAX_ANISOTROPY_EXT)
     const_set('GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT', 0x84FF) unless defined?(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT)
-  end # define_enum_GL_EXT_texture_filter_anisotropic
+  end # define_ext_enum_GL_EXT_texture_filter_anisotropic
 
-  def define_enum_GL_EXT_texture_integer
+  def define_ext_enum_GL_EXT_texture_integer
     const_set('GL_RGBA32UI_EXT', 0x8D70) unless defined?(GL_RGBA32UI_EXT)
     const_set('GL_RGB32UI_EXT', 0x8D71) unless defined?(GL_RGB32UI_EXT)
     const_set('GL_ALPHA32UI_EXT', 0x8D72) unless defined?(GL_ALPHA32UI_EXT)
@@ -3072,34 +3072,34 @@ module OpenGL
     const_set('GL_LUMINANCE_INTEGER_EXT', 0x8D9C) unless defined?(GL_LUMINANCE_INTEGER_EXT)
     const_set('GL_LUMINANCE_ALPHA_INTEGER_EXT', 0x8D9D) unless defined?(GL_LUMINANCE_ALPHA_INTEGER_EXT)
     const_set('GL_RGBA_INTEGER_MODE_EXT', 0x8D9E) unless defined?(GL_RGBA_INTEGER_MODE_EXT)
-  end # define_enum_GL_EXT_texture_integer
+  end # define_ext_enum_GL_EXT_texture_integer
 
-  def define_enum_GL_EXT_texture_lod_bias
+  def define_ext_enum_GL_EXT_texture_lod_bias
     const_set('GL_MAX_TEXTURE_LOD_BIAS_EXT', 0x84FD) unless defined?(GL_MAX_TEXTURE_LOD_BIAS_EXT)
     const_set('GL_TEXTURE_FILTER_CONTROL_EXT', 0x8500) unless defined?(GL_TEXTURE_FILTER_CONTROL_EXT)
     const_set('GL_TEXTURE_LOD_BIAS_EXT', 0x8501) unless defined?(GL_TEXTURE_LOD_BIAS_EXT)
-  end # define_enum_GL_EXT_texture_lod_bias
+  end # define_ext_enum_GL_EXT_texture_lod_bias
 
-  def define_enum_GL_EXT_texture_mirror_clamp
+  def define_ext_enum_GL_EXT_texture_mirror_clamp
     const_set('GL_MIRROR_CLAMP_EXT', 0x8742) unless defined?(GL_MIRROR_CLAMP_EXT)
     const_set('GL_MIRROR_CLAMP_TO_EDGE_EXT', 0x8743) unless defined?(GL_MIRROR_CLAMP_TO_EDGE_EXT)
     const_set('GL_MIRROR_CLAMP_TO_BORDER_EXT', 0x8912) unless defined?(GL_MIRROR_CLAMP_TO_BORDER_EXT)
-  end # define_enum_GL_EXT_texture_mirror_clamp
+  end # define_ext_enum_GL_EXT_texture_mirror_clamp
 
-  def define_enum_GL_EXT_texture_object
+  def define_ext_enum_GL_EXT_texture_object
     const_set('GL_TEXTURE_PRIORITY_EXT', 0x8066) unless defined?(GL_TEXTURE_PRIORITY_EXT)
     const_set('GL_TEXTURE_RESIDENT_EXT', 0x8067) unless defined?(GL_TEXTURE_RESIDENT_EXT)
     const_set('GL_TEXTURE_1D_BINDING_EXT', 0x8068) unless defined?(GL_TEXTURE_1D_BINDING_EXT)
     const_set('GL_TEXTURE_2D_BINDING_EXT', 0x8069) unless defined?(GL_TEXTURE_2D_BINDING_EXT)
     const_set('GL_TEXTURE_3D_BINDING_EXT', 0x806A) unless defined?(GL_TEXTURE_3D_BINDING_EXT)
-  end # define_enum_GL_EXT_texture_object
+  end # define_ext_enum_GL_EXT_texture_object
 
-  def define_enum_GL_EXT_texture_perturb_normal
+  def define_ext_enum_GL_EXT_texture_perturb_normal
     const_set('GL_PERTURB_EXT', 0x85AE) unless defined?(GL_PERTURB_EXT)
     const_set('GL_TEXTURE_NORMAL_EXT', 0x85AF) unless defined?(GL_TEXTURE_NORMAL_EXT)
-  end # define_enum_GL_EXT_texture_perturb_normal
+  end # define_ext_enum_GL_EXT_texture_perturb_normal
 
-  def define_enum_GL_EXT_texture_sRGB
+  def define_ext_enum_GL_EXT_texture_sRGB
     const_set('GL_SRGB_EXT', 0x8C40) unless defined?(GL_SRGB_EXT)
     const_set('GL_SRGB8_EXT', 0x8C41) unless defined?(GL_SRGB8_EXT)
     const_set('GL_SRGB_ALPHA_EXT', 0x8C42) unless defined?(GL_SRGB_ALPHA_EXT)
@@ -3116,21 +3116,21 @@ module OpenGL
     const_set('GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT', 0x8C4D) unless defined?(GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT)
     const_set('GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT', 0x8C4E) unless defined?(GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT)
     const_set('GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT', 0x8C4F) unless defined?(GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT)
-  end # define_enum_GL_EXT_texture_sRGB
+  end # define_ext_enum_GL_EXT_texture_sRGB
 
-  def define_enum_GL_EXT_texture_sRGB_decode
+  def define_ext_enum_GL_EXT_texture_sRGB_decode
     const_set('GL_TEXTURE_SRGB_DECODE_EXT', 0x8A48) unless defined?(GL_TEXTURE_SRGB_DECODE_EXT)
     const_set('GL_DECODE_EXT', 0x8A49) unless defined?(GL_DECODE_EXT)
     const_set('GL_SKIP_DECODE_EXT', 0x8A4A) unless defined?(GL_SKIP_DECODE_EXT)
-  end # define_enum_GL_EXT_texture_sRGB_decode
+  end # define_ext_enum_GL_EXT_texture_sRGB_decode
 
-  def define_enum_GL_EXT_texture_shared_exponent
+  def define_ext_enum_GL_EXT_texture_shared_exponent
     const_set('GL_RGB9_E5_EXT', 0x8C3D) unless defined?(GL_RGB9_E5_EXT)
     const_set('GL_UNSIGNED_INT_5_9_9_9_REV_EXT', 0x8C3E) unless defined?(GL_UNSIGNED_INT_5_9_9_9_REV_EXT)
     const_set('GL_TEXTURE_SHARED_SIZE_EXT', 0x8C3F) unless defined?(GL_TEXTURE_SHARED_SIZE_EXT)
-  end # define_enum_GL_EXT_texture_shared_exponent
+  end # define_ext_enum_GL_EXT_texture_shared_exponent
 
-  def define_enum_GL_EXT_texture_snorm
+  def define_ext_enum_GL_EXT_texture_snorm
     const_set('GL_ALPHA_SNORM', 0x9010) unless defined?(GL_ALPHA_SNORM)
     const_set('GL_LUMINANCE_SNORM', 0x9011) unless defined?(GL_LUMINANCE_SNORM)
     const_set('GL_LUMINANCE_ALPHA_SNORM', 0x9012) unless defined?(GL_LUMINANCE_ALPHA_SNORM)
@@ -3156,21 +3156,21 @@ module OpenGL
     const_set('GL_RGB16_SNORM', 0x8F9A) unless defined?(GL_RGB16_SNORM)
     const_set('GL_RGBA16_SNORM', 0x8F9B) unless defined?(GL_RGBA16_SNORM)
     const_set('GL_SIGNED_NORMALIZED', 0x8F9C) unless defined?(GL_SIGNED_NORMALIZED)
-  end # define_enum_GL_EXT_texture_snorm
+  end # define_ext_enum_GL_EXT_texture_snorm
 
-  def define_enum_GL_EXT_texture_swizzle
+  def define_ext_enum_GL_EXT_texture_swizzle
     const_set('GL_TEXTURE_SWIZZLE_R_EXT', 0x8E42) unless defined?(GL_TEXTURE_SWIZZLE_R_EXT)
     const_set('GL_TEXTURE_SWIZZLE_G_EXT', 0x8E43) unless defined?(GL_TEXTURE_SWIZZLE_G_EXT)
     const_set('GL_TEXTURE_SWIZZLE_B_EXT', 0x8E44) unless defined?(GL_TEXTURE_SWIZZLE_B_EXT)
     const_set('GL_TEXTURE_SWIZZLE_A_EXT', 0x8E45) unless defined?(GL_TEXTURE_SWIZZLE_A_EXT)
     const_set('GL_TEXTURE_SWIZZLE_RGBA_EXT', 0x8E46) unless defined?(GL_TEXTURE_SWIZZLE_RGBA_EXT)
-  end # define_enum_GL_EXT_texture_swizzle
+  end # define_ext_enum_GL_EXT_texture_swizzle
 
-  def define_enum_GL_EXT_timer_query
+  def define_ext_enum_GL_EXT_timer_query
     const_set('GL_TIME_ELAPSED_EXT', 0x88BF) unless defined?(GL_TIME_ELAPSED_EXT)
-  end # define_enum_GL_EXT_timer_query
+  end # define_ext_enum_GL_EXT_timer_query
 
-  def define_enum_GL_EXT_transform_feedback
+  def define_ext_enum_GL_EXT_transform_feedback
     const_set('GL_TRANSFORM_FEEDBACK_BUFFER_EXT', 0x8C8E) unless defined?(GL_TRANSFORM_FEEDBACK_BUFFER_EXT)
     const_set('GL_TRANSFORM_FEEDBACK_BUFFER_START_EXT', 0x8C84) unless defined?(GL_TRANSFORM_FEEDBACK_BUFFER_START_EXT)
     const_set('GL_TRANSFORM_FEEDBACK_BUFFER_SIZE_EXT', 0x8C85) unless defined?(GL_TRANSFORM_FEEDBACK_BUFFER_SIZE_EXT)
@@ -3186,9 +3186,9 @@ module OpenGL
     const_set('GL_TRANSFORM_FEEDBACK_VARYINGS_EXT', 0x8C83) unless defined?(GL_TRANSFORM_FEEDBACK_VARYINGS_EXT)
     const_set('GL_TRANSFORM_FEEDBACK_BUFFER_MODE_EXT', 0x8C7F) unless defined?(GL_TRANSFORM_FEEDBACK_BUFFER_MODE_EXT)
     const_set('GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT', 0x8C76) unless defined?(GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH_EXT)
-  end # define_enum_GL_EXT_transform_feedback
+  end # define_ext_enum_GL_EXT_transform_feedback
 
-  def define_enum_GL_EXT_vertex_array
+  def define_ext_enum_GL_EXT_vertex_array
     const_set('GL_VERTEX_ARRAY_EXT', 0x8074) unless defined?(GL_VERTEX_ARRAY_EXT)
     const_set('GL_NORMAL_ARRAY_EXT', 0x8075) unless defined?(GL_NORMAL_ARRAY_EXT)
     const_set('GL_COLOR_ARRAY_EXT', 0x8076) unless defined?(GL_COLOR_ARRAY_EXT)
@@ -3221,13 +3221,13 @@ module OpenGL
     const_set('GL_INDEX_ARRAY_POINTER_EXT', 0x8091) unless defined?(GL_INDEX_ARRAY_POINTER_EXT)
     const_set('GL_TEXTURE_COORD_ARRAY_POINTER_EXT', 0x8092) unless defined?(GL_TEXTURE_COORD_ARRAY_POINTER_EXT)
     const_set('GL_EDGE_FLAG_ARRAY_POINTER_EXT', 0x8093) unless defined?(GL_EDGE_FLAG_ARRAY_POINTER_EXT)
-  end # define_enum_GL_EXT_vertex_array
+  end # define_ext_enum_GL_EXT_vertex_array
 
-  def define_enum_GL_EXT_vertex_array_bgra
+  def define_ext_enum_GL_EXT_vertex_array_bgra
     const_set('GL_BGRA', 0x80E1) unless defined?(GL_BGRA)
-  end # define_enum_GL_EXT_vertex_array_bgra
+  end # define_ext_enum_GL_EXT_vertex_array_bgra
 
-  def define_enum_GL_EXT_vertex_attrib_64bit
+  def define_ext_enum_GL_EXT_vertex_attrib_64bit
     const_set('GL_DOUBLE', 0x140A) unless defined?(GL_DOUBLE)
     const_set('GL_DOUBLE_VEC2_EXT', 0x8FFC) unless defined?(GL_DOUBLE_VEC2_EXT)
     const_set('GL_DOUBLE_VEC3_EXT', 0x8FFD) unless defined?(GL_DOUBLE_VEC3_EXT)
@@ -3241,9 +3241,9 @@ module OpenGL
     const_set('GL_DOUBLE_MAT3x4_EXT', 0x8F4C) unless defined?(GL_DOUBLE_MAT3x4_EXT)
     const_set('GL_DOUBLE_MAT4x2_EXT', 0x8F4D) unless defined?(GL_DOUBLE_MAT4x2_EXT)
     const_set('GL_DOUBLE_MAT4x3_EXT', 0x8F4E) unless defined?(GL_DOUBLE_MAT4x3_EXT)
-  end # define_enum_GL_EXT_vertex_attrib_64bit
+  end # define_ext_enum_GL_EXT_vertex_attrib_64bit
 
-  def define_enum_GL_EXT_vertex_shader
+  def define_ext_enum_GL_EXT_vertex_shader
     const_set('GL_VERTEX_SHADER_EXT', 0x8780) unless defined?(GL_VERTEX_SHADER_EXT)
     const_set('GL_VERTEX_SHADER_BINDING_EXT', 0x8781) unless defined?(GL_VERTEX_SHADER_BINDING_EXT)
     const_set('GL_OP_INDEX_EXT', 0x8782) unless defined?(GL_OP_INDEX_EXT)
@@ -3354,9 +3354,9 @@ module OpenGL
     const_set('GL_INVARIANT_DATATYPE_EXT', 0x87EB) unless defined?(GL_INVARIANT_DATATYPE_EXT)
     const_set('GL_LOCAL_CONSTANT_VALUE_EXT', 0x87EC) unless defined?(GL_LOCAL_CONSTANT_VALUE_EXT)
     const_set('GL_LOCAL_CONSTANT_DATATYPE_EXT', 0x87ED) unless defined?(GL_LOCAL_CONSTANT_DATATYPE_EXT)
-  end # define_enum_GL_EXT_vertex_shader
+  end # define_ext_enum_GL_EXT_vertex_shader
 
-  def define_enum_GL_EXT_vertex_weighting
+  def define_ext_enum_GL_EXT_vertex_weighting
     const_set('GL_MODELVIEW0_STACK_DEPTH_EXT', 0x0BA3) unless defined?(GL_MODELVIEW0_STACK_DEPTH_EXT)
     const_set('GL_MODELVIEW1_STACK_DEPTH_EXT', 0x8502) unless defined?(GL_MODELVIEW1_STACK_DEPTH_EXT)
     const_set('GL_MODELVIEW0_MATRIX_EXT', 0x0BA6) unless defined?(GL_MODELVIEW0_MATRIX_EXT)
@@ -3370,26 +3370,26 @@ module OpenGL
     const_set('GL_VERTEX_WEIGHT_ARRAY_TYPE_EXT', 0x850E) unless defined?(GL_VERTEX_WEIGHT_ARRAY_TYPE_EXT)
     const_set('GL_VERTEX_WEIGHT_ARRAY_STRIDE_EXT', 0x850F) unless defined?(GL_VERTEX_WEIGHT_ARRAY_STRIDE_EXT)
     const_set('GL_VERTEX_WEIGHT_ARRAY_POINTER_EXT', 0x8510) unless defined?(GL_VERTEX_WEIGHT_ARRAY_POINTER_EXT)
-  end # define_enum_GL_EXT_vertex_weighting
+  end # define_ext_enum_GL_EXT_vertex_weighting
 
-  def define_enum_GL_EXT_x11_sync_object
+  def define_ext_enum_GL_EXT_x11_sync_object
     const_set('GL_SYNC_X11_FENCE_EXT', 0x90E1) unless defined?(GL_SYNC_X11_FENCE_EXT)
-  end # define_enum_GL_EXT_x11_sync_object
+  end # define_ext_enum_GL_EXT_x11_sync_object
 
-  def define_enum_GL_GREMEDY_frame_terminator
-  end # define_enum_GL_GREMEDY_frame_terminator
+  def define_ext_enum_GL_GREMEDY_frame_terminator
+  end # define_ext_enum_GL_GREMEDY_frame_terminator
 
-  def define_enum_GL_GREMEDY_string_marker
-  end # define_enum_GL_GREMEDY_string_marker
+  def define_ext_enum_GL_GREMEDY_string_marker
+  end # define_ext_enum_GL_GREMEDY_string_marker
 
-  def define_enum_GL_HP_convolution_border_modes
+  def define_ext_enum_GL_HP_convolution_border_modes
     const_set('GL_IGNORE_BORDER_HP', 0x8150) unless defined?(GL_IGNORE_BORDER_HP)
     const_set('GL_CONSTANT_BORDER_HP', 0x8151) unless defined?(GL_CONSTANT_BORDER_HP)
     const_set('GL_REPLICATE_BORDER_HP', 0x8153) unless defined?(GL_REPLICATE_BORDER_HP)
     const_set('GL_CONVOLUTION_BORDER_COLOR_HP', 0x8154) unless defined?(GL_CONVOLUTION_BORDER_COLOR_HP)
-  end # define_enum_GL_HP_convolution_border_modes
+  end # define_ext_enum_GL_HP_convolution_border_modes
 
-  def define_enum_GL_HP_image_transform
+  def define_ext_enum_GL_HP_image_transform
     const_set('GL_IMAGE_SCALE_X_HP', 0x8155) unless defined?(GL_IMAGE_SCALE_X_HP)
     const_set('GL_IMAGE_SCALE_Y_HP', 0x8156) unless defined?(GL_IMAGE_SCALE_Y_HP)
     const_set('GL_IMAGE_TRANSLATE_X_HP', 0x8157) unless defined?(GL_IMAGE_TRANSLATE_X_HP)
@@ -3405,40 +3405,40 @@ module OpenGL
     const_set('GL_IMAGE_TRANSFORM_2D_HP', 0x8161) unless defined?(GL_IMAGE_TRANSFORM_2D_HP)
     const_set('GL_POST_IMAGE_TRANSFORM_COLOR_TABLE_HP', 0x8162) unless defined?(GL_POST_IMAGE_TRANSFORM_COLOR_TABLE_HP)
     const_set('GL_PROXY_POST_IMAGE_TRANSFORM_COLOR_TABLE_HP', 0x8163) unless defined?(GL_PROXY_POST_IMAGE_TRANSFORM_COLOR_TABLE_HP)
-  end # define_enum_GL_HP_image_transform
+  end # define_ext_enum_GL_HP_image_transform
 
-  def define_enum_GL_HP_occlusion_test
+  def define_ext_enum_GL_HP_occlusion_test
     const_set('GL_OCCLUSION_TEST_HP', 0x8165) unless defined?(GL_OCCLUSION_TEST_HP)
     const_set('GL_OCCLUSION_TEST_RESULT_HP', 0x8166) unless defined?(GL_OCCLUSION_TEST_RESULT_HP)
-  end # define_enum_GL_HP_occlusion_test
+  end # define_ext_enum_GL_HP_occlusion_test
 
-  def define_enum_GL_HP_texture_lighting
+  def define_ext_enum_GL_HP_texture_lighting
     const_set('GL_TEXTURE_LIGHTING_MODE_HP', 0x8167) unless defined?(GL_TEXTURE_LIGHTING_MODE_HP)
     const_set('GL_TEXTURE_POST_SPECULAR_HP', 0x8168) unless defined?(GL_TEXTURE_POST_SPECULAR_HP)
     const_set('GL_TEXTURE_PRE_SPECULAR_HP', 0x8169) unless defined?(GL_TEXTURE_PRE_SPECULAR_HP)
-  end # define_enum_GL_HP_texture_lighting
+  end # define_ext_enum_GL_HP_texture_lighting
 
-  def define_enum_GL_IBM_cull_vertex
+  def define_ext_enum_GL_IBM_cull_vertex
     const_set('GL_CULL_VERTEX_IBM', 103050) unless defined?(GL_CULL_VERTEX_IBM)
-  end # define_enum_GL_IBM_cull_vertex
+  end # define_ext_enum_GL_IBM_cull_vertex
 
-  def define_enum_GL_IBM_multimode_draw_arrays
-  end # define_enum_GL_IBM_multimode_draw_arrays
+  def define_ext_enum_GL_IBM_multimode_draw_arrays
+  end # define_ext_enum_GL_IBM_multimode_draw_arrays
 
-  def define_enum_GL_IBM_rasterpos_clip
+  def define_ext_enum_GL_IBM_rasterpos_clip
     const_set('GL_RASTER_POSITION_UNCLIPPED_IBM', 0x19262) unless defined?(GL_RASTER_POSITION_UNCLIPPED_IBM)
-  end # define_enum_GL_IBM_rasterpos_clip
+  end # define_ext_enum_GL_IBM_rasterpos_clip
 
-  def define_enum_GL_IBM_static_data
+  def define_ext_enum_GL_IBM_static_data
     const_set('GL_ALL_STATIC_DATA_IBM', 103060) unless defined?(GL_ALL_STATIC_DATA_IBM)
     const_set('GL_STATIC_VERTEX_ARRAY_IBM', 103061) unless defined?(GL_STATIC_VERTEX_ARRAY_IBM)
-  end # define_enum_GL_IBM_static_data
+  end # define_ext_enum_GL_IBM_static_data
 
-  def define_enum_GL_IBM_texture_mirrored_repeat
+  def define_ext_enum_GL_IBM_texture_mirrored_repeat
     const_set('GL_MIRRORED_REPEAT_IBM', 0x8370) unless defined?(GL_MIRRORED_REPEAT_IBM)
-  end # define_enum_GL_IBM_texture_mirrored_repeat
+  end # define_ext_enum_GL_IBM_texture_mirrored_repeat
 
-  def define_enum_GL_IBM_vertex_array_lists
+  def define_ext_enum_GL_IBM_vertex_array_lists
     const_set('GL_VERTEX_ARRAY_LIST_IBM', 103070) unless defined?(GL_VERTEX_ARRAY_LIST_IBM)
     const_set('GL_NORMAL_ARRAY_LIST_IBM', 103071) unless defined?(GL_NORMAL_ARRAY_LIST_IBM)
     const_set('GL_COLOR_ARRAY_LIST_IBM', 103072) unless defined?(GL_COLOR_ARRAY_LIST_IBM)
@@ -3455,12 +3455,12 @@ module OpenGL
     const_set('GL_EDGE_FLAG_ARRAY_LIST_STRIDE_IBM', 103085) unless defined?(GL_EDGE_FLAG_ARRAY_LIST_STRIDE_IBM)
     const_set('GL_FOG_COORDINATE_ARRAY_LIST_STRIDE_IBM', 103086) unless defined?(GL_FOG_COORDINATE_ARRAY_LIST_STRIDE_IBM)
     const_set('GL_SECONDARY_COLOR_ARRAY_LIST_STRIDE_IBM', 103087) unless defined?(GL_SECONDARY_COLOR_ARRAY_LIST_STRIDE_IBM)
-  end # define_enum_GL_IBM_vertex_array_lists
+  end # define_ext_enum_GL_IBM_vertex_array_lists
 
-  def define_enum_GL_INGR_blend_func_separate
-  end # define_enum_GL_INGR_blend_func_separate
+  def define_ext_enum_GL_INGR_blend_func_separate
+  end # define_ext_enum_GL_INGR_blend_func_separate
 
-  def define_enum_GL_INGR_color_clamp
+  def define_ext_enum_GL_INGR_color_clamp
     const_set('GL_RED_MIN_CLAMP_INGR', 0x8560) unless defined?(GL_RED_MIN_CLAMP_INGR)
     const_set('GL_GREEN_MIN_CLAMP_INGR', 0x8561) unless defined?(GL_GREEN_MIN_CLAMP_INGR)
     const_set('GL_BLUE_MIN_CLAMP_INGR', 0x8562) unless defined?(GL_BLUE_MIN_CLAMP_INGR)
@@ -3469,31 +3469,31 @@ module OpenGL
     const_set('GL_GREEN_MAX_CLAMP_INGR', 0x8565) unless defined?(GL_GREEN_MAX_CLAMP_INGR)
     const_set('GL_BLUE_MAX_CLAMP_INGR', 0x8566) unless defined?(GL_BLUE_MAX_CLAMP_INGR)
     const_set('GL_ALPHA_MAX_CLAMP_INGR', 0x8567) unless defined?(GL_ALPHA_MAX_CLAMP_INGR)
-  end # define_enum_GL_INGR_color_clamp
+  end # define_ext_enum_GL_INGR_color_clamp
 
-  def define_enum_GL_INGR_interlace_read
+  def define_ext_enum_GL_INGR_interlace_read
     const_set('GL_INTERLACE_READ_INGR', 0x8568) unless defined?(GL_INTERLACE_READ_INGR)
-  end # define_enum_GL_INGR_interlace_read
+  end # define_ext_enum_GL_INGR_interlace_read
 
-  def define_enum_GL_INTEL_fragment_shader_ordering
-  end # define_enum_GL_INTEL_fragment_shader_ordering
+  def define_ext_enum_GL_INTEL_fragment_shader_ordering
+  end # define_ext_enum_GL_INTEL_fragment_shader_ordering
 
-  def define_enum_GL_INTEL_map_texture
+  def define_ext_enum_GL_INTEL_map_texture
     const_set('GL_TEXTURE_MEMORY_LAYOUT_INTEL', 0x83FF) unless defined?(GL_TEXTURE_MEMORY_LAYOUT_INTEL)
     const_set('GL_LAYOUT_DEFAULT_INTEL', 0) unless defined?(GL_LAYOUT_DEFAULT_INTEL)
     const_set('GL_LAYOUT_LINEAR_INTEL', 1) unless defined?(GL_LAYOUT_LINEAR_INTEL)
     const_set('GL_LAYOUT_LINEAR_CPU_CACHED_INTEL', 2) unless defined?(GL_LAYOUT_LINEAR_CPU_CACHED_INTEL)
-  end # define_enum_GL_INTEL_map_texture
+  end # define_ext_enum_GL_INTEL_map_texture
 
-  def define_enum_GL_INTEL_parallel_arrays
+  def define_ext_enum_GL_INTEL_parallel_arrays
     const_set('GL_PARALLEL_ARRAYS_INTEL', 0x83F4) unless defined?(GL_PARALLEL_ARRAYS_INTEL)
     const_set('GL_VERTEX_ARRAY_PARALLEL_POINTERS_INTEL', 0x83F5) unless defined?(GL_VERTEX_ARRAY_PARALLEL_POINTERS_INTEL)
     const_set('GL_NORMAL_ARRAY_PARALLEL_POINTERS_INTEL', 0x83F6) unless defined?(GL_NORMAL_ARRAY_PARALLEL_POINTERS_INTEL)
     const_set('GL_COLOR_ARRAY_PARALLEL_POINTERS_INTEL', 0x83F7) unless defined?(GL_COLOR_ARRAY_PARALLEL_POINTERS_INTEL)
     const_set('GL_TEXTURE_COORD_ARRAY_PARALLEL_POINTERS_INTEL', 0x83F8) unless defined?(GL_TEXTURE_COORD_ARRAY_PARALLEL_POINTERS_INTEL)
-  end # define_enum_GL_INTEL_parallel_arrays
+  end # define_ext_enum_GL_INTEL_parallel_arrays
 
-  def define_enum_GL_INTEL_performance_query
+  def define_ext_enum_GL_INTEL_performance_query
     const_set('GL_PERFQUERY_SINGLE_CONTEXT_INTEL', 0x00000000) unless defined?(GL_PERFQUERY_SINGLE_CONTEXT_INTEL)
     const_set('GL_PERFQUERY_GLOBAL_CONTEXT_INTEL', 0x00000001) unless defined?(GL_PERFQUERY_GLOBAL_CONTEXT_INTEL)
     const_set('GL_PERFQUERY_WAIT_INTEL', 0x83FB) unless defined?(GL_PERFQUERY_WAIT_INTEL)
@@ -3514,9 +3514,9 @@ module OpenGL
     const_set('GL_PERFQUERY_COUNTER_NAME_LENGTH_MAX_INTEL', 0x94FE) unless defined?(GL_PERFQUERY_COUNTER_NAME_LENGTH_MAX_INTEL)
     const_set('GL_PERFQUERY_COUNTER_DESC_LENGTH_MAX_INTEL', 0x94FF) unless defined?(GL_PERFQUERY_COUNTER_DESC_LENGTH_MAX_INTEL)
     const_set('GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL', 0x9500) unless defined?(GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL)
-  end # define_enum_GL_INTEL_performance_query
+  end # define_ext_enum_GL_INTEL_performance_query
 
-  def define_enum_GL_KHR_debug
+  def define_ext_enum_GL_KHR_debug
     const_set('GL_DEBUG_OUTPUT_SYNCHRONOUS', 0x8242) unless defined?(GL_DEBUG_OUTPUT_SYNCHRONOUS)
     const_set('GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH', 0x8243) unless defined?(GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH)
     const_set('GL_DEBUG_CALLBACK_FUNCTION', 0x8244) unless defined?(GL_DEBUG_CALLBACK_FUNCTION)
@@ -3597,9 +3597,9 @@ module OpenGL
     const_set('GL_STACK_UNDERFLOW_KHR', 0x0504) unless defined?(GL_STACK_UNDERFLOW_KHR)
     const_set('GL_PROGRAM_PIPELINE', 0x82E4) unless defined?(GL_PROGRAM_PIPELINE)
     const_set('GL_DISPLAY_LIST', 0x82E7) unless defined?(GL_DISPLAY_LIST)
-  end # define_enum_GL_KHR_debug
+  end # define_ext_enum_GL_KHR_debug
 
-  def define_enum_GL_KHR_texture_compression_astc_hdr
+  def define_ext_enum_GL_KHR_texture_compression_astc_hdr
     const_set('GL_COMPRESSED_RGBA_ASTC_4x4_KHR', 0x93B0) unless defined?(GL_COMPRESSED_RGBA_ASTC_4x4_KHR)
     const_set('GL_COMPRESSED_RGBA_ASTC_5x4_KHR', 0x93B1) unless defined?(GL_COMPRESSED_RGBA_ASTC_5x4_KHR)
     const_set('GL_COMPRESSED_RGBA_ASTC_5x5_KHR', 0x93B2) unless defined?(GL_COMPRESSED_RGBA_ASTC_5x5_KHR)
@@ -3628,9 +3628,9 @@ module OpenGL
     const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR', 0x93DB) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR)
     const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR', 0x93DC) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR)
     const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR', 0x93DD) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR)
-  end # define_enum_GL_KHR_texture_compression_astc_hdr
+  end # define_ext_enum_GL_KHR_texture_compression_astc_hdr
 
-  def define_enum_GL_KHR_texture_compression_astc_ldr
+  def define_ext_enum_GL_KHR_texture_compression_astc_ldr
     const_set('GL_COMPRESSED_RGBA_ASTC_4x4_KHR', 0x93B0) unless defined?(GL_COMPRESSED_RGBA_ASTC_4x4_KHR)
     const_set('GL_COMPRESSED_RGBA_ASTC_5x4_KHR', 0x93B1) unless defined?(GL_COMPRESSED_RGBA_ASTC_5x4_KHR)
     const_set('GL_COMPRESSED_RGBA_ASTC_5x5_KHR', 0x93B2) unless defined?(GL_COMPRESSED_RGBA_ASTC_5x5_KHR)
@@ -3659,43 +3659,43 @@ module OpenGL
     const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR', 0x93DB) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR)
     const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR', 0x93DC) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR)
     const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR', 0x93DD) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR)
-  end # define_enum_GL_KHR_texture_compression_astc_ldr
+  end # define_ext_enum_GL_KHR_texture_compression_astc_ldr
 
-  def define_enum_GL_MESAX_texture_stack
+  def define_ext_enum_GL_MESAX_texture_stack
     const_set('GL_TEXTURE_1D_STACK_MESAX', 0x8759) unless defined?(GL_TEXTURE_1D_STACK_MESAX)
     const_set('GL_TEXTURE_2D_STACK_MESAX', 0x875A) unless defined?(GL_TEXTURE_2D_STACK_MESAX)
     const_set('GL_PROXY_TEXTURE_1D_STACK_MESAX', 0x875B) unless defined?(GL_PROXY_TEXTURE_1D_STACK_MESAX)
     const_set('GL_PROXY_TEXTURE_2D_STACK_MESAX', 0x875C) unless defined?(GL_PROXY_TEXTURE_2D_STACK_MESAX)
     const_set('GL_TEXTURE_1D_STACK_BINDING_MESAX', 0x875D) unless defined?(GL_TEXTURE_1D_STACK_BINDING_MESAX)
     const_set('GL_TEXTURE_2D_STACK_BINDING_MESAX', 0x875E) unless defined?(GL_TEXTURE_2D_STACK_BINDING_MESAX)
-  end # define_enum_GL_MESAX_texture_stack
+  end # define_ext_enum_GL_MESAX_texture_stack
 
-  def define_enum_GL_MESA_pack_invert
+  def define_ext_enum_GL_MESA_pack_invert
     const_set('GL_PACK_INVERT_MESA', 0x8758) unless defined?(GL_PACK_INVERT_MESA)
-  end # define_enum_GL_MESA_pack_invert
+  end # define_ext_enum_GL_MESA_pack_invert
 
-  def define_enum_GL_MESA_resize_buffers
-  end # define_enum_GL_MESA_resize_buffers
+  def define_ext_enum_GL_MESA_resize_buffers
+  end # define_ext_enum_GL_MESA_resize_buffers
 
-  def define_enum_GL_MESA_window_pos
-  end # define_enum_GL_MESA_window_pos
+  def define_ext_enum_GL_MESA_window_pos
+  end # define_ext_enum_GL_MESA_window_pos
 
-  def define_enum_GL_MESA_ycbcr_texture
+  def define_ext_enum_GL_MESA_ycbcr_texture
     const_set('GL_UNSIGNED_SHORT_8_8_MESA', 0x85BA) unless defined?(GL_UNSIGNED_SHORT_8_8_MESA)
     const_set('GL_UNSIGNED_SHORT_8_8_REV_MESA', 0x85BB) unless defined?(GL_UNSIGNED_SHORT_8_8_REV_MESA)
     const_set('GL_YCBCR_MESA', 0x8757) unless defined?(GL_YCBCR_MESA)
-  end # define_enum_GL_MESA_ycbcr_texture
+  end # define_ext_enum_GL_MESA_ycbcr_texture
 
-  def define_enum_GL_NVX_conditional_render
-  end # define_enum_GL_NVX_conditional_render
+  def define_ext_enum_GL_NVX_conditional_render
+  end # define_ext_enum_GL_NVX_conditional_render
 
-  def define_enum_GL_NV_bindless_multi_draw_indirect
-  end # define_enum_GL_NV_bindless_multi_draw_indirect
+  def define_ext_enum_GL_NV_bindless_multi_draw_indirect
+  end # define_ext_enum_GL_NV_bindless_multi_draw_indirect
 
-  def define_enum_GL_NV_bindless_texture
-  end # define_enum_GL_NV_bindless_texture
+  def define_ext_enum_GL_NV_bindless_texture
+  end # define_ext_enum_GL_NV_bindless_texture
 
-  def define_enum_GL_NV_blend_equation_advanced
+  def define_ext_enum_GL_NV_blend_equation_advanced
     const_set('GL_BLEND_OVERLAP_NV', 0x9281) unless defined?(GL_BLEND_OVERLAP_NV)
     const_set('GL_BLEND_PREMULTIPLIED_SRC_NV', 0x9280) unless defined?(GL_BLEND_PREMULTIPLIED_SRC_NV)
     const_set('GL_BLUE_NV', 0x1905) unless defined?(GL_BLUE_NV)
@@ -3747,55 +3747,55 @@ module OpenGL
     const_set('GL_VIVIDLIGHT_NV', 0x92A6) unless defined?(GL_VIVIDLIGHT_NV)
     const_set('GL_XOR_NV', 0x1506) unless defined?(GL_XOR_NV)
     const_set('GL_ZERO', 0) unless defined?(GL_ZERO)
-  end # define_enum_GL_NV_blend_equation_advanced
+  end # define_ext_enum_GL_NV_blend_equation_advanced
 
-  def define_enum_GL_NV_blend_equation_advanced_coherent
+  def define_ext_enum_GL_NV_blend_equation_advanced_coherent
     const_set('GL_BLEND_ADVANCED_COHERENT_NV', 0x9285) unless defined?(GL_BLEND_ADVANCED_COHERENT_NV)
-  end # define_enum_GL_NV_blend_equation_advanced_coherent
+  end # define_ext_enum_GL_NV_blend_equation_advanced_coherent
 
-  def define_enum_GL_NV_blend_square
-  end # define_enum_GL_NV_blend_square
+  def define_ext_enum_GL_NV_blend_square
+  end # define_ext_enum_GL_NV_blend_square
 
-  def define_enum_GL_NV_compute_program5
+  def define_ext_enum_GL_NV_compute_program5
     const_set('GL_COMPUTE_PROGRAM_NV', 0x90FB) unless defined?(GL_COMPUTE_PROGRAM_NV)
     const_set('GL_COMPUTE_PROGRAM_PARAMETER_BUFFER_NV', 0x90FC) unless defined?(GL_COMPUTE_PROGRAM_PARAMETER_BUFFER_NV)
-  end # define_enum_GL_NV_compute_program5
+  end # define_ext_enum_GL_NV_compute_program5
 
-  def define_enum_GL_NV_conditional_render
+  def define_ext_enum_GL_NV_conditional_render
     const_set('GL_QUERY_WAIT_NV', 0x8E13) unless defined?(GL_QUERY_WAIT_NV)
     const_set('GL_QUERY_NO_WAIT_NV', 0x8E14) unless defined?(GL_QUERY_NO_WAIT_NV)
     const_set('GL_QUERY_BY_REGION_WAIT_NV', 0x8E15) unless defined?(GL_QUERY_BY_REGION_WAIT_NV)
     const_set('GL_QUERY_BY_REGION_NO_WAIT_NV', 0x8E16) unless defined?(GL_QUERY_BY_REGION_NO_WAIT_NV)
-  end # define_enum_GL_NV_conditional_render
+  end # define_ext_enum_GL_NV_conditional_render
 
-  def define_enum_GL_NV_copy_depth_to_color
+  def define_ext_enum_GL_NV_copy_depth_to_color
     const_set('GL_DEPTH_STENCIL_TO_RGBA_NV', 0x886E) unless defined?(GL_DEPTH_STENCIL_TO_RGBA_NV)
     const_set('GL_DEPTH_STENCIL_TO_BGRA_NV', 0x886F) unless defined?(GL_DEPTH_STENCIL_TO_BGRA_NV)
-  end # define_enum_GL_NV_copy_depth_to_color
+  end # define_ext_enum_GL_NV_copy_depth_to_color
 
-  def define_enum_GL_NV_copy_image
-  end # define_enum_GL_NV_copy_image
+  def define_ext_enum_GL_NV_copy_image
+  end # define_ext_enum_GL_NV_copy_image
 
-  def define_enum_GL_NV_deep_texture3D
+  def define_ext_enum_GL_NV_deep_texture3D
     const_set('GL_MAX_DEEP_3D_TEXTURE_WIDTH_HEIGHT_NV', 0x90D0) unless defined?(GL_MAX_DEEP_3D_TEXTURE_WIDTH_HEIGHT_NV)
     const_set('GL_MAX_DEEP_3D_TEXTURE_DEPTH_NV', 0x90D1) unless defined?(GL_MAX_DEEP_3D_TEXTURE_DEPTH_NV)
-  end # define_enum_GL_NV_deep_texture3D
+  end # define_ext_enum_GL_NV_deep_texture3D
 
-  def define_enum_GL_NV_depth_buffer_float
+  def define_ext_enum_GL_NV_depth_buffer_float
     const_set('GL_DEPTH_COMPONENT32F_NV', 0x8DAB) unless defined?(GL_DEPTH_COMPONENT32F_NV)
     const_set('GL_DEPTH32F_STENCIL8_NV', 0x8DAC) unless defined?(GL_DEPTH32F_STENCIL8_NV)
     const_set('GL_FLOAT_32_UNSIGNED_INT_24_8_REV_NV', 0x8DAD) unless defined?(GL_FLOAT_32_UNSIGNED_INT_24_8_REV_NV)
     const_set('GL_DEPTH_BUFFER_FLOAT_MODE_NV', 0x8DAF) unless defined?(GL_DEPTH_BUFFER_FLOAT_MODE_NV)
-  end # define_enum_GL_NV_depth_buffer_float
+  end # define_ext_enum_GL_NV_depth_buffer_float
 
-  def define_enum_GL_NV_depth_clamp
+  def define_ext_enum_GL_NV_depth_clamp
     const_set('GL_DEPTH_CLAMP_NV', 0x864F) unless defined?(GL_DEPTH_CLAMP_NV)
-  end # define_enum_GL_NV_depth_clamp
+  end # define_ext_enum_GL_NV_depth_clamp
 
-  def define_enum_GL_NV_draw_texture
-  end # define_enum_GL_NV_draw_texture
+  def define_ext_enum_GL_NV_draw_texture
+  end # define_ext_enum_GL_NV_draw_texture
 
-  def define_enum_GL_NV_evaluators
+  def define_ext_enum_GL_NV_evaluators
     const_set('GL_EVAL_2D_NV', 0x86C0) unless defined?(GL_EVAL_2D_NV)
     const_set('GL_EVAL_TRIANGULAR_2D_NV', 0x86C1) unless defined?(GL_EVAL_TRIANGULAR_2D_NV)
     const_set('GL_MAP_TESSELLATION_NV', 0x86C2) unless defined?(GL_MAP_TESSELLATION_NV)
@@ -3820,9 +3820,9 @@ module OpenGL
     const_set('GL_EVAL_VERTEX_ATTRIB15_NV', 0x86D5) unless defined?(GL_EVAL_VERTEX_ATTRIB15_NV)
     const_set('GL_MAX_MAP_TESSELLATION_NV', 0x86D6) unless defined?(GL_MAX_MAP_TESSELLATION_NV)
     const_set('GL_MAX_RATIONAL_EVAL_ORDER_NV', 0x86D7) unless defined?(GL_MAX_RATIONAL_EVAL_ORDER_NV)
-  end # define_enum_GL_NV_evaluators
+  end # define_ext_enum_GL_NV_evaluators
 
-  def define_enum_GL_NV_explicit_multisample
+  def define_ext_enum_GL_NV_explicit_multisample
     const_set('GL_SAMPLE_POSITION_NV', 0x8E50) unless defined?(GL_SAMPLE_POSITION_NV)
     const_set('GL_SAMPLE_MASK_NV', 0x8E51) unless defined?(GL_SAMPLE_MASK_NV)
     const_set('GL_SAMPLE_MASK_VALUE_NV', 0x8E52) unless defined?(GL_SAMPLE_MASK_VALUE_NV)
@@ -3833,15 +3833,15 @@ module OpenGL
     const_set('GL_INT_SAMPLER_RENDERBUFFER_NV', 0x8E57) unless defined?(GL_INT_SAMPLER_RENDERBUFFER_NV)
     const_set('GL_UNSIGNED_INT_SAMPLER_RENDERBUFFER_NV', 0x8E58) unless defined?(GL_UNSIGNED_INT_SAMPLER_RENDERBUFFER_NV)
     const_set('GL_MAX_SAMPLE_MASK_WORDS_NV', 0x8E59) unless defined?(GL_MAX_SAMPLE_MASK_WORDS_NV)
-  end # define_enum_GL_NV_explicit_multisample
+  end # define_ext_enum_GL_NV_explicit_multisample
 
-  def define_enum_GL_NV_fence
+  def define_ext_enum_GL_NV_fence
     const_set('GL_ALL_COMPLETED_NV', 0x84F2) unless defined?(GL_ALL_COMPLETED_NV)
     const_set('GL_FENCE_STATUS_NV', 0x84F3) unless defined?(GL_FENCE_STATUS_NV)
     const_set('GL_FENCE_CONDITION_NV', 0x84F4) unless defined?(GL_FENCE_CONDITION_NV)
-  end # define_enum_GL_NV_fence
+  end # define_ext_enum_GL_NV_fence
 
-  def define_enum_GL_NV_float_buffer
+  def define_ext_enum_GL_NV_float_buffer
     const_set('GL_FLOAT_R_NV', 0x8880) unless defined?(GL_FLOAT_R_NV)
     const_set('GL_FLOAT_RG_NV', 0x8881) unless defined?(GL_FLOAT_RG_NV)
     const_set('GL_FLOAT_RGB_NV', 0x8882) unless defined?(GL_FLOAT_RGB_NV)
@@ -3857,46 +3857,46 @@ module OpenGL
     const_set('GL_TEXTURE_FLOAT_COMPONENTS_NV', 0x888C) unless defined?(GL_TEXTURE_FLOAT_COMPONENTS_NV)
     const_set('GL_FLOAT_CLEAR_COLOR_VALUE_NV', 0x888D) unless defined?(GL_FLOAT_CLEAR_COLOR_VALUE_NV)
     const_set('GL_FLOAT_RGBA_MODE_NV', 0x888E) unless defined?(GL_FLOAT_RGBA_MODE_NV)
-  end # define_enum_GL_NV_float_buffer
+  end # define_ext_enum_GL_NV_float_buffer
 
-  def define_enum_GL_NV_fog_distance
+  def define_ext_enum_GL_NV_fog_distance
     const_set('GL_FOG_DISTANCE_MODE_NV', 0x855A) unless defined?(GL_FOG_DISTANCE_MODE_NV)
     const_set('GL_EYE_RADIAL_NV', 0x855B) unless defined?(GL_EYE_RADIAL_NV)
     const_set('GL_EYE_PLANE_ABSOLUTE_NV', 0x855C) unless defined?(GL_EYE_PLANE_ABSOLUTE_NV)
     const_set('GL_EYE_PLANE', 0x2502) unless defined?(GL_EYE_PLANE)
-  end # define_enum_GL_NV_fog_distance
+  end # define_ext_enum_GL_NV_fog_distance
 
-  def define_enum_GL_NV_fragment_program
+  def define_ext_enum_GL_NV_fragment_program
     const_set('GL_MAX_FRAGMENT_PROGRAM_LOCAL_PARAMETERS_NV', 0x8868) unless defined?(GL_MAX_FRAGMENT_PROGRAM_LOCAL_PARAMETERS_NV)
     const_set('GL_FRAGMENT_PROGRAM_NV', 0x8870) unless defined?(GL_FRAGMENT_PROGRAM_NV)
     const_set('GL_MAX_TEXTURE_COORDS_NV', 0x8871) unless defined?(GL_MAX_TEXTURE_COORDS_NV)
     const_set('GL_MAX_TEXTURE_IMAGE_UNITS_NV', 0x8872) unless defined?(GL_MAX_TEXTURE_IMAGE_UNITS_NV)
     const_set('GL_FRAGMENT_PROGRAM_BINDING_NV', 0x8873) unless defined?(GL_FRAGMENT_PROGRAM_BINDING_NV)
     const_set('GL_PROGRAM_ERROR_STRING_NV', 0x8874) unless defined?(GL_PROGRAM_ERROR_STRING_NV)
-  end # define_enum_GL_NV_fragment_program
+  end # define_ext_enum_GL_NV_fragment_program
 
-  def define_enum_GL_NV_fragment_program2
+  def define_ext_enum_GL_NV_fragment_program2
     const_set('GL_MAX_PROGRAM_EXEC_INSTRUCTIONS_NV', 0x88F4) unless defined?(GL_MAX_PROGRAM_EXEC_INSTRUCTIONS_NV)
     const_set('GL_MAX_PROGRAM_CALL_DEPTH_NV', 0x88F5) unless defined?(GL_MAX_PROGRAM_CALL_DEPTH_NV)
     const_set('GL_MAX_PROGRAM_IF_DEPTH_NV', 0x88F6) unless defined?(GL_MAX_PROGRAM_IF_DEPTH_NV)
     const_set('GL_MAX_PROGRAM_LOOP_DEPTH_NV', 0x88F7) unless defined?(GL_MAX_PROGRAM_LOOP_DEPTH_NV)
     const_set('GL_MAX_PROGRAM_LOOP_COUNT_NV', 0x88F8) unless defined?(GL_MAX_PROGRAM_LOOP_COUNT_NV)
-  end # define_enum_GL_NV_fragment_program2
+  end # define_ext_enum_GL_NV_fragment_program2
 
-  def define_enum_GL_NV_fragment_program4
-  end # define_enum_GL_NV_fragment_program4
+  def define_ext_enum_GL_NV_fragment_program4
+  end # define_ext_enum_GL_NV_fragment_program4
 
-  def define_enum_GL_NV_fragment_program_option
-  end # define_enum_GL_NV_fragment_program_option
+  def define_ext_enum_GL_NV_fragment_program_option
+  end # define_ext_enum_GL_NV_fragment_program_option
 
-  def define_enum_GL_NV_framebuffer_multisample_coverage
+  def define_ext_enum_GL_NV_framebuffer_multisample_coverage
     const_set('GL_RENDERBUFFER_COVERAGE_SAMPLES_NV', 0x8CAB) unless defined?(GL_RENDERBUFFER_COVERAGE_SAMPLES_NV)
     const_set('GL_RENDERBUFFER_COLOR_SAMPLES_NV', 0x8E10) unless defined?(GL_RENDERBUFFER_COLOR_SAMPLES_NV)
     const_set('GL_MAX_MULTISAMPLE_COVERAGE_MODES_NV', 0x8E11) unless defined?(GL_MAX_MULTISAMPLE_COVERAGE_MODES_NV)
     const_set('GL_MULTISAMPLE_COVERAGE_MODES_NV', 0x8E12) unless defined?(GL_MULTISAMPLE_COVERAGE_MODES_NV)
-  end # define_enum_GL_NV_framebuffer_multisample_coverage
+  end # define_ext_enum_GL_NV_framebuffer_multisample_coverage
 
-  def define_enum_GL_NV_geometry_program4
+  def define_ext_enum_GL_NV_geometry_program4
     const_set('GL_LINES_ADJACENCY_EXT', 0x000A) unless defined?(GL_LINES_ADJACENCY_EXT)
     const_set('GL_LINE_STRIP_ADJACENCY_EXT', 0x000B) unless defined?(GL_LINE_STRIP_ADJACENCY_EXT)
     const_set('GL_TRIANGLES_ADJACENCY_EXT', 0x000C) unless defined?(GL_TRIANGLES_ADJACENCY_EXT)
@@ -3913,12 +3913,12 @@ module OpenGL
     const_set('GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_EXT', 0x8DA9) unless defined?(GL_FRAMEBUFFER_INCOMPLETE_LAYER_COUNT_EXT)
     const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER_EXT', 0x8CD4) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER_EXT)
     const_set('GL_PROGRAM_POINT_SIZE_EXT', 0x8642) unless defined?(GL_PROGRAM_POINT_SIZE_EXT)
-  end # define_enum_GL_NV_geometry_program4
+  end # define_ext_enum_GL_NV_geometry_program4
 
-  def define_enum_GL_NV_geometry_shader4
-  end # define_enum_GL_NV_geometry_shader4
+  def define_ext_enum_GL_NV_geometry_shader4
+  end # define_ext_enum_GL_NV_geometry_shader4
 
-  def define_enum_GL_NV_gpu_program4
+  def define_ext_enum_GL_NV_gpu_program4
     const_set('GL_MIN_PROGRAM_TEXEL_OFFSET_NV', 0x8904) unless defined?(GL_MIN_PROGRAM_TEXEL_OFFSET_NV)
     const_set('GL_MAX_PROGRAM_TEXEL_OFFSET_NV', 0x8905) unless defined?(GL_MAX_PROGRAM_TEXEL_OFFSET_NV)
     const_set('GL_PROGRAM_ATTRIB_COMPONENTS_NV', 0x8906) unless defined?(GL_PROGRAM_ATTRIB_COMPONENTS_NV)
@@ -3927,9 +3927,9 @@ module OpenGL
     const_set('GL_MAX_PROGRAM_RESULT_COMPONENTS_NV', 0x8909) unless defined?(GL_MAX_PROGRAM_RESULT_COMPONENTS_NV)
     const_set('GL_MAX_PROGRAM_GENERIC_ATTRIBS_NV', 0x8DA5) unless defined?(GL_MAX_PROGRAM_GENERIC_ATTRIBS_NV)
     const_set('GL_MAX_PROGRAM_GENERIC_RESULTS_NV', 0x8DA6) unless defined?(GL_MAX_PROGRAM_GENERIC_RESULTS_NV)
-  end # define_enum_GL_NV_gpu_program4
+  end # define_ext_enum_GL_NV_gpu_program4
 
-  def define_enum_GL_NV_gpu_program5
+  def define_ext_enum_GL_NV_gpu_program5
     const_set('GL_MAX_GEOMETRY_PROGRAM_INVOCATIONS_NV', 0x8E5A) unless defined?(GL_MAX_GEOMETRY_PROGRAM_INVOCATIONS_NV)
     const_set('GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_NV', 0x8E5B) unless defined?(GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_NV)
     const_set('GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_NV', 0x8E5C) unless defined?(GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_NV)
@@ -3938,12 +3938,12 @@ module OpenGL
     const_set('GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_NV', 0x8E5F) unless defined?(GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET_NV)
     const_set('GL_MAX_PROGRAM_SUBROUTINE_PARAMETERS_NV', 0x8F44) unless defined?(GL_MAX_PROGRAM_SUBROUTINE_PARAMETERS_NV)
     const_set('GL_MAX_PROGRAM_SUBROUTINE_NUM_NV', 0x8F45) unless defined?(GL_MAX_PROGRAM_SUBROUTINE_NUM_NV)
-  end # define_enum_GL_NV_gpu_program5
+  end # define_ext_enum_GL_NV_gpu_program5
 
-  def define_enum_GL_NV_gpu_program5_mem_extended
-  end # define_enum_GL_NV_gpu_program5_mem_extended
+  def define_ext_enum_GL_NV_gpu_program5_mem_extended
+  end # define_ext_enum_GL_NV_gpu_program5_mem_extended
 
-  def define_enum_GL_NV_gpu_shader5
+  def define_ext_enum_GL_NV_gpu_shader5
     const_set('GL_INT64_NV', 0x140E) unless defined?(GL_INT64_NV)
     const_set('GL_UNSIGNED_INT64_NV', 0x140F) unless defined?(GL_UNSIGNED_INT64_NV)
     const_set('GL_INT8_NV', 0x8FE0) unless defined?(GL_INT8_NV)
@@ -3973,50 +3973,50 @@ module OpenGL
     const_set('GL_FLOAT16_VEC3_NV', 0x8FFA) unless defined?(GL_FLOAT16_VEC3_NV)
     const_set('GL_FLOAT16_VEC4_NV', 0x8FFB) unless defined?(GL_FLOAT16_VEC4_NV)
     const_set('GL_PATCHES', 0x000E) unless defined?(GL_PATCHES)
-  end # define_enum_GL_NV_gpu_shader5
+  end # define_ext_enum_GL_NV_gpu_shader5
 
-  def define_enum_GL_NV_half_float
+  def define_ext_enum_GL_NV_half_float
     const_set('GL_HALF_FLOAT_NV', 0x140B) unless defined?(GL_HALF_FLOAT_NV)
-  end # define_enum_GL_NV_half_float
+  end # define_ext_enum_GL_NV_half_float
 
-  def define_enum_GL_NV_light_max_exponent
+  def define_ext_enum_GL_NV_light_max_exponent
     const_set('GL_MAX_SHININESS_NV', 0x8504) unless defined?(GL_MAX_SHININESS_NV)
     const_set('GL_MAX_SPOT_EXPONENT_NV', 0x8505) unless defined?(GL_MAX_SPOT_EXPONENT_NV)
-  end # define_enum_GL_NV_light_max_exponent
+  end # define_ext_enum_GL_NV_light_max_exponent
 
-  def define_enum_GL_NV_multisample_coverage
+  def define_ext_enum_GL_NV_multisample_coverage
     const_set('GL_SAMPLES_ARB', 0x80A9) unless defined?(GL_SAMPLES_ARB)
     const_set('GL_COLOR_SAMPLES_NV', 0x8E20) unless defined?(GL_COLOR_SAMPLES_NV)
-  end # define_enum_GL_NV_multisample_coverage
+  end # define_ext_enum_GL_NV_multisample_coverage
 
-  def define_enum_GL_NV_multisample_filter_hint
+  def define_ext_enum_GL_NV_multisample_filter_hint
     const_set('GL_MULTISAMPLE_FILTER_HINT_NV', 0x8534) unless defined?(GL_MULTISAMPLE_FILTER_HINT_NV)
-  end # define_enum_GL_NV_multisample_filter_hint
+  end # define_ext_enum_GL_NV_multisample_filter_hint
 
-  def define_enum_GL_NV_occlusion_query
+  def define_ext_enum_GL_NV_occlusion_query
     const_set('GL_PIXEL_COUNTER_BITS_NV', 0x8864) unless defined?(GL_PIXEL_COUNTER_BITS_NV)
     const_set('GL_CURRENT_OCCLUSION_QUERY_ID_NV', 0x8865) unless defined?(GL_CURRENT_OCCLUSION_QUERY_ID_NV)
     const_set('GL_PIXEL_COUNT_NV', 0x8866) unless defined?(GL_PIXEL_COUNT_NV)
     const_set('GL_PIXEL_COUNT_AVAILABLE_NV', 0x8867) unless defined?(GL_PIXEL_COUNT_AVAILABLE_NV)
-  end # define_enum_GL_NV_occlusion_query
+  end # define_ext_enum_GL_NV_occlusion_query
 
-  def define_enum_GL_NV_packed_depth_stencil
+  def define_ext_enum_GL_NV_packed_depth_stencil
     const_set('GL_DEPTH_STENCIL_NV', 0x84F9) unless defined?(GL_DEPTH_STENCIL_NV)
     const_set('GL_UNSIGNED_INT_24_8_NV', 0x84FA) unless defined?(GL_UNSIGNED_INT_24_8_NV)
-  end # define_enum_GL_NV_packed_depth_stencil
+  end # define_ext_enum_GL_NV_packed_depth_stencil
 
-  def define_enum_GL_NV_parameter_buffer_object
+  def define_ext_enum_GL_NV_parameter_buffer_object
     const_set('GL_MAX_PROGRAM_PARAMETER_BUFFER_BINDINGS_NV', 0x8DA0) unless defined?(GL_MAX_PROGRAM_PARAMETER_BUFFER_BINDINGS_NV)
     const_set('GL_MAX_PROGRAM_PARAMETER_BUFFER_SIZE_NV', 0x8DA1) unless defined?(GL_MAX_PROGRAM_PARAMETER_BUFFER_SIZE_NV)
     const_set('GL_VERTEX_PROGRAM_PARAMETER_BUFFER_NV', 0x8DA2) unless defined?(GL_VERTEX_PROGRAM_PARAMETER_BUFFER_NV)
     const_set('GL_GEOMETRY_PROGRAM_PARAMETER_BUFFER_NV', 0x8DA3) unless defined?(GL_GEOMETRY_PROGRAM_PARAMETER_BUFFER_NV)
     const_set('GL_FRAGMENT_PROGRAM_PARAMETER_BUFFER_NV', 0x8DA4) unless defined?(GL_FRAGMENT_PROGRAM_PARAMETER_BUFFER_NV)
-  end # define_enum_GL_NV_parameter_buffer_object
+  end # define_ext_enum_GL_NV_parameter_buffer_object
 
-  def define_enum_GL_NV_parameter_buffer_object2
-  end # define_enum_GL_NV_parameter_buffer_object2
+  def define_ext_enum_GL_NV_parameter_buffer_object2
+  end # define_ext_enum_GL_NV_parameter_buffer_object2
 
-  def define_enum_GL_NV_path_rendering
+  def define_ext_enum_GL_NV_path_rendering
     const_set('GL_PATH_FORMAT_SVG_NV', 0x9070) unless defined?(GL_PATH_FORMAT_SVG_NV)
     const_set('GL_PATH_FORMAT_PS_NV', 0x9071) unless defined?(GL_PATH_FORMAT_PS_NV)
     const_set('GL_STANDARD_FONT_NAME_NV', 0x9072) unless defined?(GL_STANDARD_FONT_NAME_NV)
@@ -4147,38 +4147,38 @@ module OpenGL
     const_set('GL_PRIMARY_COLOR', 0x8577) unless defined?(GL_PRIMARY_COLOR)
     const_set('GL_PRIMARY_COLOR_NV', 0x852C) unless defined?(GL_PRIMARY_COLOR_NV)
     const_set('GL_SECONDARY_COLOR_NV', 0x852D) unless defined?(GL_SECONDARY_COLOR_NV)
-  end # define_enum_GL_NV_path_rendering
+  end # define_ext_enum_GL_NV_path_rendering
 
-  def define_enum_GL_NV_pixel_data_range
+  def define_ext_enum_GL_NV_pixel_data_range
     const_set('GL_WRITE_PIXEL_DATA_RANGE_NV', 0x8878) unless defined?(GL_WRITE_PIXEL_DATA_RANGE_NV)
     const_set('GL_READ_PIXEL_DATA_RANGE_NV', 0x8879) unless defined?(GL_READ_PIXEL_DATA_RANGE_NV)
     const_set('GL_WRITE_PIXEL_DATA_RANGE_LENGTH_NV', 0x887A) unless defined?(GL_WRITE_PIXEL_DATA_RANGE_LENGTH_NV)
     const_set('GL_READ_PIXEL_DATA_RANGE_LENGTH_NV', 0x887B) unless defined?(GL_READ_PIXEL_DATA_RANGE_LENGTH_NV)
     const_set('GL_WRITE_PIXEL_DATA_RANGE_POINTER_NV', 0x887C) unless defined?(GL_WRITE_PIXEL_DATA_RANGE_POINTER_NV)
     const_set('GL_READ_PIXEL_DATA_RANGE_POINTER_NV', 0x887D) unless defined?(GL_READ_PIXEL_DATA_RANGE_POINTER_NV)
-  end # define_enum_GL_NV_pixel_data_range
+  end # define_ext_enum_GL_NV_pixel_data_range
 
-  def define_enum_GL_NV_point_sprite
+  def define_ext_enum_GL_NV_point_sprite
     const_set('GL_POINT_SPRITE_NV', 0x8861) unless defined?(GL_POINT_SPRITE_NV)
     const_set('GL_COORD_REPLACE_NV', 0x8862) unless defined?(GL_COORD_REPLACE_NV)
     const_set('GL_POINT_SPRITE_R_MODE_NV', 0x8863) unless defined?(GL_POINT_SPRITE_R_MODE_NV)
-  end # define_enum_GL_NV_point_sprite
+  end # define_ext_enum_GL_NV_point_sprite
 
-  def define_enum_GL_NV_present_video
+  def define_ext_enum_GL_NV_present_video
     const_set('GL_FRAME_NV', 0x8E26) unless defined?(GL_FRAME_NV)
     const_set('GL_FIELDS_NV', 0x8E27) unless defined?(GL_FIELDS_NV)
     const_set('GL_CURRENT_TIME_NV', 0x8E28) unless defined?(GL_CURRENT_TIME_NV)
     const_set('GL_NUM_FILL_STREAMS_NV', 0x8E29) unless defined?(GL_NUM_FILL_STREAMS_NV)
     const_set('GL_PRESENT_TIME_NV', 0x8E2A) unless defined?(GL_PRESENT_TIME_NV)
     const_set('GL_PRESENT_DURATION_NV', 0x8E2B) unless defined?(GL_PRESENT_DURATION_NV)
-  end # define_enum_GL_NV_present_video
+  end # define_ext_enum_GL_NV_present_video
 
-  def define_enum_GL_NV_primitive_restart
+  def define_ext_enum_GL_NV_primitive_restart
     const_set('GL_PRIMITIVE_RESTART_NV', 0x8558) unless defined?(GL_PRIMITIVE_RESTART_NV)
     const_set('GL_PRIMITIVE_RESTART_INDEX_NV', 0x8559) unless defined?(GL_PRIMITIVE_RESTART_INDEX_NV)
-  end # define_enum_GL_NV_primitive_restart
+  end # define_ext_enum_GL_NV_primitive_restart
 
-  def define_enum_GL_NV_register_combiners
+  def define_ext_enum_GL_NV_register_combiners
     const_set('GL_REGISTER_COMBINERS_NV', 0x8522) unless defined?(GL_REGISTER_COMBINERS_NV)
     const_set('GL_VARIABLE_A_NV', 0x8523) unless defined?(GL_VARIABLE_A_NV)
     const_set('GL_VARIABLE_B_NV', 0x8524) unless defined?(GL_VARIABLE_B_NV)
@@ -4235,83 +4235,83 @@ module OpenGL
     const_set('GL_ZERO', 0) unless defined?(GL_ZERO)
     const_set('GL_NONE', 0) unless defined?(GL_NONE)
     const_set('GL_FOG', 0x0B60) unless defined?(GL_FOG)
-  end # define_enum_GL_NV_register_combiners
+  end # define_ext_enum_GL_NV_register_combiners
 
-  def define_enum_GL_NV_register_combiners2
+  def define_ext_enum_GL_NV_register_combiners2
     const_set('GL_PER_STAGE_CONSTANTS_NV', 0x8535) unless defined?(GL_PER_STAGE_CONSTANTS_NV)
-  end # define_enum_GL_NV_register_combiners2
+  end # define_ext_enum_GL_NV_register_combiners2
 
-  def define_enum_GL_NV_shader_atomic_counters
-  end # define_enum_GL_NV_shader_atomic_counters
+  def define_ext_enum_GL_NV_shader_atomic_counters
+  end # define_ext_enum_GL_NV_shader_atomic_counters
 
-  def define_enum_GL_NV_shader_atomic_float
-  end # define_enum_GL_NV_shader_atomic_float
+  def define_ext_enum_GL_NV_shader_atomic_float
+  end # define_ext_enum_GL_NV_shader_atomic_float
 
-  def define_enum_GL_NV_shader_buffer_load
+  def define_ext_enum_GL_NV_shader_buffer_load
     const_set('GL_BUFFER_GPU_ADDRESS_NV', 0x8F1D) unless defined?(GL_BUFFER_GPU_ADDRESS_NV)
     const_set('GL_GPU_ADDRESS_NV', 0x8F34) unless defined?(GL_GPU_ADDRESS_NV)
     const_set('GL_MAX_SHADER_BUFFER_ADDRESS_NV', 0x8F35) unless defined?(GL_MAX_SHADER_BUFFER_ADDRESS_NV)
-  end # define_enum_GL_NV_shader_buffer_load
+  end # define_ext_enum_GL_NV_shader_buffer_load
 
-  def define_enum_GL_NV_shader_buffer_store
+  def define_ext_enum_GL_NV_shader_buffer_store
     const_set('GL_SHADER_GLOBAL_ACCESS_BARRIER_BIT_NV', 0x00000010) unless defined?(GL_SHADER_GLOBAL_ACCESS_BARRIER_BIT_NV)
     const_set('GL_READ_WRITE', 0x88BA) unless defined?(GL_READ_WRITE)
     const_set('GL_WRITE_ONLY', 0x88B9) unless defined?(GL_WRITE_ONLY)
-  end # define_enum_GL_NV_shader_buffer_store
+  end # define_ext_enum_GL_NV_shader_buffer_store
 
-  def define_enum_GL_NV_shader_storage_buffer_object
-  end # define_enum_GL_NV_shader_storage_buffer_object
+  def define_ext_enum_GL_NV_shader_storage_buffer_object
+  end # define_ext_enum_GL_NV_shader_storage_buffer_object
 
-  def define_enum_GL_NV_tessellation_program5
+  def define_ext_enum_GL_NV_tessellation_program5
     const_set('GL_MAX_PROGRAM_PATCH_ATTRIBS_NV', 0x86D8) unless defined?(GL_MAX_PROGRAM_PATCH_ATTRIBS_NV)
     const_set('GL_TESS_CONTROL_PROGRAM_NV', 0x891E) unless defined?(GL_TESS_CONTROL_PROGRAM_NV)
     const_set('GL_TESS_EVALUATION_PROGRAM_NV', 0x891F) unless defined?(GL_TESS_EVALUATION_PROGRAM_NV)
     const_set('GL_TESS_CONTROL_PROGRAM_PARAMETER_BUFFER_NV', 0x8C74) unless defined?(GL_TESS_CONTROL_PROGRAM_PARAMETER_BUFFER_NV)
     const_set('GL_TESS_EVALUATION_PROGRAM_PARAMETER_BUFFER_NV', 0x8C75) unless defined?(GL_TESS_EVALUATION_PROGRAM_PARAMETER_BUFFER_NV)
-  end # define_enum_GL_NV_tessellation_program5
+  end # define_ext_enum_GL_NV_tessellation_program5
 
-  def define_enum_GL_NV_texgen_emboss
+  def define_ext_enum_GL_NV_texgen_emboss
     const_set('GL_EMBOSS_LIGHT_NV', 0x855D) unless defined?(GL_EMBOSS_LIGHT_NV)
     const_set('GL_EMBOSS_CONSTANT_NV', 0x855E) unless defined?(GL_EMBOSS_CONSTANT_NV)
     const_set('GL_EMBOSS_MAP_NV', 0x855F) unless defined?(GL_EMBOSS_MAP_NV)
-  end # define_enum_GL_NV_texgen_emboss
+  end # define_ext_enum_GL_NV_texgen_emboss
 
-  def define_enum_GL_NV_texgen_reflection
+  def define_ext_enum_GL_NV_texgen_reflection
     const_set('GL_NORMAL_MAP_NV', 0x8511) unless defined?(GL_NORMAL_MAP_NV)
     const_set('GL_REFLECTION_MAP_NV', 0x8512) unless defined?(GL_REFLECTION_MAP_NV)
-  end # define_enum_GL_NV_texgen_reflection
+  end # define_ext_enum_GL_NV_texgen_reflection
 
-  def define_enum_GL_NV_texture_barrier
-  end # define_enum_GL_NV_texture_barrier
+  def define_ext_enum_GL_NV_texture_barrier
+  end # define_ext_enum_GL_NV_texture_barrier
 
-  def define_enum_GL_NV_texture_compression_vtc
-  end # define_enum_GL_NV_texture_compression_vtc
+  def define_ext_enum_GL_NV_texture_compression_vtc
+  end # define_ext_enum_GL_NV_texture_compression_vtc
 
-  def define_enum_GL_NV_texture_env_combine4
+  def define_ext_enum_GL_NV_texture_env_combine4
     const_set('GL_COMBINE4_NV', 0x8503) unless defined?(GL_COMBINE4_NV)
     const_set('GL_SOURCE3_RGB_NV', 0x8583) unless defined?(GL_SOURCE3_RGB_NV)
     const_set('GL_SOURCE3_ALPHA_NV', 0x858B) unless defined?(GL_SOURCE3_ALPHA_NV)
     const_set('GL_OPERAND3_RGB_NV', 0x8593) unless defined?(GL_OPERAND3_RGB_NV)
     const_set('GL_OPERAND3_ALPHA_NV', 0x859B) unless defined?(GL_OPERAND3_ALPHA_NV)
-  end # define_enum_GL_NV_texture_env_combine4
+  end # define_ext_enum_GL_NV_texture_env_combine4
 
-  def define_enum_GL_NV_texture_expand_normal
+  def define_ext_enum_GL_NV_texture_expand_normal
     const_set('GL_TEXTURE_UNSIGNED_REMAP_MODE_NV', 0x888F) unless defined?(GL_TEXTURE_UNSIGNED_REMAP_MODE_NV)
-  end # define_enum_GL_NV_texture_expand_normal
+  end # define_ext_enum_GL_NV_texture_expand_normal
 
-  def define_enum_GL_NV_texture_multisample
+  def define_ext_enum_GL_NV_texture_multisample
     const_set('GL_TEXTURE_COVERAGE_SAMPLES_NV', 0x9045) unless defined?(GL_TEXTURE_COVERAGE_SAMPLES_NV)
     const_set('GL_TEXTURE_COLOR_SAMPLES_NV', 0x9046) unless defined?(GL_TEXTURE_COLOR_SAMPLES_NV)
-  end # define_enum_GL_NV_texture_multisample
+  end # define_ext_enum_GL_NV_texture_multisample
 
-  def define_enum_GL_NV_texture_rectangle
+  def define_ext_enum_GL_NV_texture_rectangle
     const_set('GL_TEXTURE_RECTANGLE_NV', 0x84F5) unless defined?(GL_TEXTURE_RECTANGLE_NV)
     const_set('GL_TEXTURE_BINDING_RECTANGLE_NV', 0x84F6) unless defined?(GL_TEXTURE_BINDING_RECTANGLE_NV)
     const_set('GL_PROXY_TEXTURE_RECTANGLE_NV', 0x84F7) unless defined?(GL_PROXY_TEXTURE_RECTANGLE_NV)
     const_set('GL_MAX_RECTANGLE_TEXTURE_SIZE_NV', 0x84F8) unless defined?(GL_MAX_RECTANGLE_TEXTURE_SIZE_NV)
-  end # define_enum_GL_NV_texture_rectangle
+  end # define_ext_enum_GL_NV_texture_rectangle
 
-  def define_enum_GL_NV_texture_shader
+  def define_ext_enum_GL_NV_texture_shader
     const_set('GL_OFFSET_TEXTURE_RECTANGLE_NV', 0x864C) unless defined?(GL_OFFSET_TEXTURE_RECTANGLE_NV)
     const_set('GL_OFFSET_TEXTURE_RECTANGLE_SCALE_NV', 0x864D) unless defined?(GL_OFFSET_TEXTURE_RECTANGLE_SCALE_NV)
     const_set('GL_DOT_PRODUCT_TEXTURE_RECTANGLE_NV', 0x864E) unless defined?(GL_DOT_PRODUCT_TEXTURE_RECTANGLE_NV)
@@ -4326,9 +4326,9 @@ module OpenGL
     const_set('GL_OFFSET_TEXTURE_MATRIX_NV', 0x86E1) unless defined?(GL_OFFSET_TEXTURE_MATRIX_NV)
     const_set('GL_OFFSET_TEXTURE_SCALE_NV', 0x86E2) unless defined?(GL_OFFSET_TEXTURE_SCALE_NV)
     const_set('GL_OFFSET_TEXTURE_BIAS_NV', 0x86E3) unless defined?(GL_OFFSET_TEXTURE_BIAS_NV)
-    const_set('GL_OFFSET_TEXTURE_2D_MATRIX_NV', ) unless defined?(GL_OFFSET_TEXTURE_2D_MATRIX_NV)
-    const_set('GL_OFFSET_TEXTURE_2D_SCALE_NV', ) unless defined?(GL_OFFSET_TEXTURE_2D_SCALE_NV)
-    const_set('GL_OFFSET_TEXTURE_2D_BIAS_NV', ) unless defined?(GL_OFFSET_TEXTURE_2D_BIAS_NV)
+    const_set('GL_OFFSET_TEXTURE_2D_MATRIX_NV', 0x86E1) unless defined?(GL_OFFSET_TEXTURE_2D_MATRIX_NV)
+    const_set('GL_OFFSET_TEXTURE_2D_SCALE_NV', 0x86E2) unless defined?(GL_OFFSET_TEXTURE_2D_SCALE_NV)
+    const_set('GL_OFFSET_TEXTURE_2D_BIAS_NV', 0x86E3) unless defined?(GL_OFFSET_TEXTURE_2D_BIAS_NV)
     const_set('GL_PREVIOUS_TEXTURE_INPUT_NV', 0x86E4) unless defined?(GL_PREVIOUS_TEXTURE_INPUT_NV)
     const_set('GL_CONST_EYE_NV', 0x86E5) unless defined?(GL_CONST_EYE_NV)
     const_set('GL_PASS_THROUGH_NV', 0x86E6) unless defined?(GL_PASS_THROUGH_NV)
@@ -4385,13 +4385,13 @@ module OpenGL
     const_set('GL_TEXTURE_DS_SIZE_NV', 0x871D) unless defined?(GL_TEXTURE_DS_SIZE_NV)
     const_set('GL_TEXTURE_DT_SIZE_NV', 0x871E) unless defined?(GL_TEXTURE_DT_SIZE_NV)
     const_set('GL_TEXTURE_MAG_SIZE_NV', 0x871F) unless defined?(GL_TEXTURE_MAG_SIZE_NV)
-  end # define_enum_GL_NV_texture_shader
+  end # define_ext_enum_GL_NV_texture_shader
 
-  def define_enum_GL_NV_texture_shader2
+  def define_ext_enum_GL_NV_texture_shader2
     const_set('GL_DOT_PRODUCT_TEXTURE_3D_NV', 0x86EF) unless defined?(GL_DOT_PRODUCT_TEXTURE_3D_NV)
-  end # define_enum_GL_NV_texture_shader2
+  end # define_ext_enum_GL_NV_texture_shader2
 
-  def define_enum_GL_NV_texture_shader3
+  def define_ext_enum_GL_NV_texture_shader3
     const_set('GL_OFFSET_PROJECTIVE_TEXTURE_2D_NV', 0x8850) unless defined?(GL_OFFSET_PROJECTIVE_TEXTURE_2D_NV)
     const_set('GL_OFFSET_PROJECTIVE_TEXTURE_2D_SCALE_NV', 0x8851) unless defined?(GL_OFFSET_PROJECTIVE_TEXTURE_2D_SCALE_NV)
     const_set('GL_OFFSET_PROJECTIVE_TEXTURE_RECTANGLE_NV', 0x8852) unless defined?(GL_OFFSET_PROJECTIVE_TEXTURE_RECTANGLE_NV)
@@ -4409,9 +4409,9 @@ module OpenGL
     const_set('GL_HILO8_NV', 0x885E) unless defined?(GL_HILO8_NV)
     const_set('GL_SIGNED_HILO8_NV', 0x885F) unless defined?(GL_SIGNED_HILO8_NV)
     const_set('GL_FORCE_BLUE_TO_ONE_NV', 0x8860) unless defined?(GL_FORCE_BLUE_TO_ONE_NV)
-  end # define_enum_GL_NV_texture_shader3
+  end # define_ext_enum_GL_NV_texture_shader3
 
-  def define_enum_GL_NV_transform_feedback
+  def define_ext_enum_GL_NV_transform_feedback
     const_set('GL_BACK_PRIMARY_COLOR_NV', 0x8C77) unless defined?(GL_BACK_PRIMARY_COLOR_NV)
     const_set('GL_BACK_SECONDARY_COLOR_NV', 0x8C78) unless defined?(GL_BACK_SECONDARY_COLOR_NV)
     const_set('GL_TEXTURE_COORD_NV', 0x8C79) unless defined?(GL_TEXTURE_COORD_NV)
@@ -4443,40 +4443,40 @@ module OpenGL
     const_set('GL_SKIP_COMPONENTS3_NV', -4) unless defined?(GL_SKIP_COMPONENTS3_NV)
     const_set('GL_SKIP_COMPONENTS2_NV', -5) unless defined?(GL_SKIP_COMPONENTS2_NV)
     const_set('GL_SKIP_COMPONENTS1_NV', -6) unless defined?(GL_SKIP_COMPONENTS1_NV)
-  end # define_enum_GL_NV_transform_feedback
+  end # define_ext_enum_GL_NV_transform_feedback
 
-  def define_enum_GL_NV_transform_feedback2
+  def define_ext_enum_GL_NV_transform_feedback2
     const_set('GL_TRANSFORM_FEEDBACK_NV', 0x8E22) unless defined?(GL_TRANSFORM_FEEDBACK_NV)
     const_set('GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED_NV', 0x8E23) unless defined?(GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED_NV)
     const_set('GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE_NV', 0x8E24) unless defined?(GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE_NV)
     const_set('GL_TRANSFORM_FEEDBACK_BINDING_NV', 0x8E25) unless defined?(GL_TRANSFORM_FEEDBACK_BINDING_NV)
-  end # define_enum_GL_NV_transform_feedback2
+  end # define_ext_enum_GL_NV_transform_feedback2
 
-  def define_enum_GL_NV_vdpau_interop
+  def define_ext_enum_GL_NV_vdpau_interop
     const_set('GL_SURFACE_STATE_NV', 0x86EB) unless defined?(GL_SURFACE_STATE_NV)
     const_set('GL_SURFACE_REGISTERED_NV', 0x86FD) unless defined?(GL_SURFACE_REGISTERED_NV)
     const_set('GL_SURFACE_MAPPED_NV', 0x8700) unless defined?(GL_SURFACE_MAPPED_NV)
     const_set('GL_WRITE_DISCARD_NV', 0x88BE) unless defined?(GL_WRITE_DISCARD_NV)
-  end # define_enum_GL_NV_vdpau_interop
+  end # define_ext_enum_GL_NV_vdpau_interop
 
-  def define_enum_GL_NV_vertex_array_range
+  def define_ext_enum_GL_NV_vertex_array_range
     const_set('GL_VERTEX_ARRAY_RANGE_NV', 0x851D) unless defined?(GL_VERTEX_ARRAY_RANGE_NV)
     const_set('GL_VERTEX_ARRAY_RANGE_LENGTH_NV', 0x851E) unless defined?(GL_VERTEX_ARRAY_RANGE_LENGTH_NV)
     const_set('GL_VERTEX_ARRAY_RANGE_VALID_NV', 0x851F) unless defined?(GL_VERTEX_ARRAY_RANGE_VALID_NV)
     const_set('GL_MAX_VERTEX_ARRAY_RANGE_ELEMENT_NV', 0x8520) unless defined?(GL_MAX_VERTEX_ARRAY_RANGE_ELEMENT_NV)
     const_set('GL_VERTEX_ARRAY_RANGE_POINTER_NV', 0x8521) unless defined?(GL_VERTEX_ARRAY_RANGE_POINTER_NV)
-  end # define_enum_GL_NV_vertex_array_range
+  end # define_ext_enum_GL_NV_vertex_array_range
 
-  def define_enum_GL_NV_vertex_array_range2
+  def define_ext_enum_GL_NV_vertex_array_range2
     const_set('GL_VERTEX_ARRAY_RANGE_WITHOUT_FLUSH_NV', 0x8533) unless defined?(GL_VERTEX_ARRAY_RANGE_WITHOUT_FLUSH_NV)
-  end # define_enum_GL_NV_vertex_array_range2
+  end # define_ext_enum_GL_NV_vertex_array_range2
 
-  def define_enum_GL_NV_vertex_attrib_integer_64bit
+  def define_ext_enum_GL_NV_vertex_attrib_integer_64bit
     const_set('GL_INT64_NV', 0x140E) unless defined?(GL_INT64_NV)
     const_set('GL_UNSIGNED_INT64_NV', 0x140F) unless defined?(GL_UNSIGNED_INT64_NV)
-  end # define_enum_GL_NV_vertex_attrib_integer_64bit
+  end # define_ext_enum_GL_NV_vertex_attrib_integer_64bit
 
-  def define_enum_GL_NV_vertex_buffer_unified_memory
+  def define_ext_enum_GL_NV_vertex_buffer_unified_memory
     const_set('GL_VERTEX_ATTRIB_ARRAY_UNIFIED_NV', 0x8F1E) unless defined?(GL_VERTEX_ATTRIB_ARRAY_UNIFIED_NV)
     const_set('GL_ELEMENT_ARRAY_UNIFIED_NV', 0x8F1F) unless defined?(GL_ELEMENT_ARRAY_UNIFIED_NV)
     const_set('GL_VERTEX_ATTRIB_ARRAY_ADDRESS_NV', 0x8F20) unless defined?(GL_VERTEX_ATTRIB_ARRAY_ADDRESS_NV)
@@ -4502,9 +4502,9 @@ module OpenGL
     const_set('GL_DRAW_INDIRECT_UNIFIED_NV', 0x8F40) unless defined?(GL_DRAW_INDIRECT_UNIFIED_NV)
     const_set('GL_DRAW_INDIRECT_ADDRESS_NV', 0x8F41) unless defined?(GL_DRAW_INDIRECT_ADDRESS_NV)
     const_set('GL_DRAW_INDIRECT_LENGTH_NV', 0x8F42) unless defined?(GL_DRAW_INDIRECT_LENGTH_NV)
-  end # define_enum_GL_NV_vertex_buffer_unified_memory
+  end # define_ext_enum_GL_NV_vertex_buffer_unified_memory
 
-  def define_enum_GL_NV_vertex_program
+  def define_ext_enum_GL_NV_vertex_program
     const_set('GL_VERTEX_PROGRAM_NV', 0x8620) unless defined?(GL_VERTEX_PROGRAM_NV)
     const_set('GL_VERTEX_STATE_PROGRAM_NV', 0x8621) unless defined?(GL_VERTEX_STATE_PROGRAM_NV)
     const_set('GL_ATTRIB_ARRAY_SIZE_NV', 0x8623) unless defined?(GL_ATTRIB_ARRAY_SIZE_NV)
@@ -4588,28 +4588,28 @@ module OpenGL
     const_set('GL_MAP2_VERTEX_ATTRIB13_4_NV', 0x867D) unless defined?(GL_MAP2_VERTEX_ATTRIB13_4_NV)
     const_set('GL_MAP2_VERTEX_ATTRIB14_4_NV', 0x867E) unless defined?(GL_MAP2_VERTEX_ATTRIB14_4_NV)
     const_set('GL_MAP2_VERTEX_ATTRIB15_4_NV', 0x867F) unless defined?(GL_MAP2_VERTEX_ATTRIB15_4_NV)
-  end # define_enum_GL_NV_vertex_program
+  end # define_ext_enum_GL_NV_vertex_program
 
-  def define_enum_GL_NV_vertex_program1_1
-  end # define_enum_GL_NV_vertex_program1_1
+  def define_ext_enum_GL_NV_vertex_program1_1
+  end # define_ext_enum_GL_NV_vertex_program1_1
 
-  def define_enum_GL_NV_vertex_program2
-  end # define_enum_GL_NV_vertex_program2
+  def define_ext_enum_GL_NV_vertex_program2
+  end # define_ext_enum_GL_NV_vertex_program2
 
-  def define_enum_GL_NV_vertex_program2_option
+  def define_ext_enum_GL_NV_vertex_program2_option
     const_set('GL_MAX_PROGRAM_EXEC_INSTRUCTIONS_NV', 0x88F4) unless defined?(GL_MAX_PROGRAM_EXEC_INSTRUCTIONS_NV)
     const_set('GL_MAX_PROGRAM_CALL_DEPTH_NV', 0x88F5) unless defined?(GL_MAX_PROGRAM_CALL_DEPTH_NV)
-  end # define_enum_GL_NV_vertex_program2_option
+  end # define_ext_enum_GL_NV_vertex_program2_option
 
-  def define_enum_GL_NV_vertex_program3
+  def define_ext_enum_GL_NV_vertex_program3
     const_set('GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB', 0x8B4C) unless defined?(GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB)
-  end # define_enum_GL_NV_vertex_program3
+  end # define_ext_enum_GL_NV_vertex_program3
 
-  def define_enum_GL_NV_vertex_program4
+  def define_ext_enum_GL_NV_vertex_program4
     const_set('GL_VERTEX_ATTRIB_ARRAY_INTEGER_NV', 0x88FD) unless defined?(GL_VERTEX_ATTRIB_ARRAY_INTEGER_NV)
-  end # define_enum_GL_NV_vertex_program4
+  end # define_ext_enum_GL_NV_vertex_program4
 
-  def define_enum_GL_NV_video_capture
+  def define_ext_enum_GL_NV_video_capture
     const_set('GL_VIDEO_BUFFER_NV', 0x9020) unless defined?(GL_VIDEO_BUFFER_NV)
     const_set('GL_VIDEO_BUFFER_BINDING_NV', 0x9021) unless defined?(GL_VIDEO_BUFFER_BINDING_NV)
     const_set('GL_FIELD_UPPER_NV', 0x9022) unless defined?(GL_FIELD_UPPER_NV)
@@ -4639,12 +4639,12 @@ module OpenGL
     const_set('GL_VIDEO_CAPTURE_FIELD_UPPER_HEIGHT_NV', 0x903A) unless defined?(GL_VIDEO_CAPTURE_FIELD_UPPER_HEIGHT_NV)
     const_set('GL_VIDEO_CAPTURE_FIELD_LOWER_HEIGHT_NV', 0x903B) unless defined?(GL_VIDEO_CAPTURE_FIELD_LOWER_HEIGHT_NV)
     const_set('GL_VIDEO_CAPTURE_SURFACE_ORIGIN_NV', 0x903C) unless defined?(GL_VIDEO_CAPTURE_SURFACE_ORIGIN_NV)
-  end # define_enum_GL_NV_video_capture
+  end # define_ext_enum_GL_NV_video_capture
 
-  def define_enum_GL_OES_byte_coordinates
-  end # define_enum_GL_OES_byte_coordinates
+  def define_ext_enum_GL_OES_byte_coordinates
+  end # define_ext_enum_GL_OES_byte_coordinates
 
-  def define_enum_GL_OES_compressed_paletted_texture
+  def define_ext_enum_GL_OES_compressed_paletted_texture
     const_set('GL_PALETTE4_RGB8_OES', 0x8B90) unless defined?(GL_PALETTE4_RGB8_OES)
     const_set('GL_PALETTE4_RGBA8_OES', 0x8B91) unless defined?(GL_PALETTE4_RGBA8_OES)
     const_set('GL_PALETTE4_R5_G6_B5_OES', 0x8B92) unless defined?(GL_PALETTE4_R5_G6_B5_OES)
@@ -4655,43 +4655,43 @@ module OpenGL
     const_set('GL_PALETTE8_R5_G6_B5_OES', 0x8B97) unless defined?(GL_PALETTE8_R5_G6_B5_OES)
     const_set('GL_PALETTE8_RGBA4_OES', 0x8B98) unless defined?(GL_PALETTE8_RGBA4_OES)
     const_set('GL_PALETTE8_RGB5_A1_OES', 0x8B99) unless defined?(GL_PALETTE8_RGB5_A1_OES)
-  end # define_enum_GL_OES_compressed_paletted_texture
+  end # define_ext_enum_GL_OES_compressed_paletted_texture
 
-  def define_enum_GL_OES_fixed_point
+  def define_ext_enum_GL_OES_fixed_point
     const_set('GL_FIXED_OES', 0x140C) unless defined?(GL_FIXED_OES)
-  end # define_enum_GL_OES_fixed_point
+  end # define_ext_enum_GL_OES_fixed_point
 
-  def define_enum_GL_OES_query_matrix
-  end # define_enum_GL_OES_query_matrix
+  def define_ext_enum_GL_OES_query_matrix
+  end # define_ext_enum_GL_OES_query_matrix
 
-  def define_enum_GL_OES_read_format
+  def define_ext_enum_GL_OES_read_format
     const_set('GL_IMPLEMENTATION_COLOR_READ_TYPE_OES', 0x8B9A) unless defined?(GL_IMPLEMENTATION_COLOR_READ_TYPE_OES)
     const_set('GL_IMPLEMENTATION_COLOR_READ_FORMAT_OES', 0x8B9B) unless defined?(GL_IMPLEMENTATION_COLOR_READ_FORMAT_OES)
-  end # define_enum_GL_OES_read_format
+  end # define_ext_enum_GL_OES_read_format
 
-  def define_enum_GL_OES_single_precision
-  end # define_enum_GL_OES_single_precision
+  def define_ext_enum_GL_OES_single_precision
+  end # define_ext_enum_GL_OES_single_precision
 
-  def define_enum_GL_OML_interlace
+  def define_ext_enum_GL_OML_interlace
     const_set('GL_INTERLACE_OML', 0x8980) unless defined?(GL_INTERLACE_OML)
     const_set('GL_INTERLACE_READ_OML', 0x8981) unless defined?(GL_INTERLACE_READ_OML)
-  end # define_enum_GL_OML_interlace
+  end # define_ext_enum_GL_OML_interlace
 
-  def define_enum_GL_OML_resample
+  def define_ext_enum_GL_OML_resample
     const_set('GL_PACK_RESAMPLE_OML', 0x8984) unless defined?(GL_PACK_RESAMPLE_OML)
     const_set('GL_UNPACK_RESAMPLE_OML', 0x8985) unless defined?(GL_UNPACK_RESAMPLE_OML)
     const_set('GL_RESAMPLE_REPLICATE_OML', 0x8986) unless defined?(GL_RESAMPLE_REPLICATE_OML)
     const_set('GL_RESAMPLE_ZERO_FILL_OML', 0x8987) unless defined?(GL_RESAMPLE_ZERO_FILL_OML)
     const_set('GL_RESAMPLE_AVERAGE_OML', 0x8988) unless defined?(GL_RESAMPLE_AVERAGE_OML)
     const_set('GL_RESAMPLE_DECIMATE_OML', 0x8989) unless defined?(GL_RESAMPLE_DECIMATE_OML)
-  end # define_enum_GL_OML_resample
+  end # define_ext_enum_GL_OML_resample
 
-  def define_enum_GL_OML_subsample
+  def define_ext_enum_GL_OML_subsample
     const_set('GL_FORMAT_SUBSAMPLE_24_24_OML', 0x8982) unless defined?(GL_FORMAT_SUBSAMPLE_24_24_OML)
     const_set('GL_FORMAT_SUBSAMPLE_244_244_OML', 0x8983) unless defined?(GL_FORMAT_SUBSAMPLE_244_244_OML)
-  end # define_enum_GL_OML_subsample
+  end # define_ext_enum_GL_OML_subsample
 
-  def define_enum_GL_PGI_misc_hints
+  def define_ext_enum_GL_PGI_misc_hints
     const_set('GL_PREFER_DOUBLEBUFFER_HINT_PGI', 0x1A1F8) unless defined?(GL_PREFER_DOUBLEBUFFER_HINT_PGI)
     const_set('GL_CONSERVE_MEMORY_HINT_PGI', 0x1A1FD) unless defined?(GL_CONSERVE_MEMORY_HINT_PGI)
     const_set('GL_RECLAIM_MEMORY_HINT_PGI', 0x1A1FE) unless defined?(GL_RECLAIM_MEMORY_HINT_PGI)
@@ -4712,9 +4712,9 @@ module OpenGL
     const_set('GL_CLIP_FAR_HINT_PGI', 0x1A221) unless defined?(GL_CLIP_FAR_HINT_PGI)
     const_set('GL_WIDE_LINE_HINT_PGI', 0x1A222) unless defined?(GL_WIDE_LINE_HINT_PGI)
     const_set('GL_BACK_NORMALS_HINT_PGI', 0x1A223) unless defined?(GL_BACK_NORMALS_HINT_PGI)
-  end # define_enum_GL_PGI_misc_hints
+  end # define_ext_enum_GL_PGI_misc_hints
 
-  def define_enum_GL_PGI_vertex_hints
+  def define_ext_enum_GL_PGI_vertex_hints
     const_set('GL_VERTEX_DATA_HINT_PGI', 0x1A22A) unless defined?(GL_VERTEX_DATA_HINT_PGI)
     const_set('GL_VERTEX_CONSISTENT_HINT_PGI', 0x1A22B) unless defined?(GL_VERTEX_CONSISTENT_HINT_PGI)
     const_set('GL_MATERIAL_SIDE_HINT_PGI', 0x1A22C) unless defined?(GL_MATERIAL_SIDE_HINT_PGI)
@@ -4737,23 +4737,23 @@ module OpenGL
     const_set('GL_TEXCOORD4_BIT_PGI', 0x80000000) unless defined?(GL_TEXCOORD4_BIT_PGI)
     const_set('GL_VERTEX23_BIT_PGI', 0x00000004) unless defined?(GL_VERTEX23_BIT_PGI)
     const_set('GL_VERTEX4_BIT_PGI', 0x00000008) unless defined?(GL_VERTEX4_BIT_PGI)
-  end # define_enum_GL_PGI_vertex_hints
+  end # define_ext_enum_GL_PGI_vertex_hints
 
-  def define_enum_GL_REND_screen_coordinates
+  def define_ext_enum_GL_REND_screen_coordinates
     const_set('GL_SCREEN_COORDINATES_REND', 0x8490) unless defined?(GL_SCREEN_COORDINATES_REND)
     const_set('GL_INVERTED_SCREEN_W_REND', 0x8491) unless defined?(GL_INVERTED_SCREEN_W_REND)
-  end # define_enum_GL_REND_screen_coordinates
+  end # define_ext_enum_GL_REND_screen_coordinates
 
-  def define_enum_GL_S3_s3tc
+  def define_ext_enum_GL_S3_s3tc
     const_set('GL_RGB_S3TC', 0x83A0) unless defined?(GL_RGB_S3TC)
     const_set('GL_RGB4_S3TC', 0x83A1) unless defined?(GL_RGB4_S3TC)
     const_set('GL_RGBA_S3TC', 0x83A2) unless defined?(GL_RGBA_S3TC)
     const_set('GL_RGBA4_S3TC', 0x83A3) unless defined?(GL_RGBA4_S3TC)
     const_set('GL_RGBA_DXT5_S3TC', 0x83A4) unless defined?(GL_RGBA_DXT5_S3TC)
     const_set('GL_RGBA4_DXT5_S3TC', 0x83A5) unless defined?(GL_RGBA4_DXT5_S3TC)
-  end # define_enum_GL_S3_s3tc
+  end # define_ext_enum_GL_S3_s3tc
 
-  def define_enum_GL_SGIS_detail_texture
+  def define_ext_enum_GL_SGIS_detail_texture
     const_set('GL_DETAIL_TEXTURE_2D_SGIS', 0x8095) unless defined?(GL_DETAIL_TEXTURE_2D_SGIS)
     const_set('GL_DETAIL_TEXTURE_2D_BINDING_SGIS', 0x8096) unless defined?(GL_DETAIL_TEXTURE_2D_BINDING_SGIS)
     const_set('GL_LINEAR_DETAIL_SGIS', 0x8097) unless defined?(GL_LINEAR_DETAIL_SGIS)
@@ -4762,20 +4762,20 @@ module OpenGL
     const_set('GL_DETAIL_TEXTURE_LEVEL_SGIS', 0x809A) unless defined?(GL_DETAIL_TEXTURE_LEVEL_SGIS)
     const_set('GL_DETAIL_TEXTURE_MODE_SGIS', 0x809B) unless defined?(GL_DETAIL_TEXTURE_MODE_SGIS)
     const_set('GL_DETAIL_TEXTURE_FUNC_POINTS_SGIS', 0x809C) unless defined?(GL_DETAIL_TEXTURE_FUNC_POINTS_SGIS)
-  end # define_enum_GL_SGIS_detail_texture
+  end # define_ext_enum_GL_SGIS_detail_texture
 
-  def define_enum_GL_SGIS_fog_function
+  def define_ext_enum_GL_SGIS_fog_function
     const_set('GL_FOG_FUNC_SGIS', 0x812A) unless defined?(GL_FOG_FUNC_SGIS)
     const_set('GL_FOG_FUNC_POINTS_SGIS', 0x812B) unless defined?(GL_FOG_FUNC_POINTS_SGIS)
     const_set('GL_MAX_FOG_FUNC_POINTS_SGIS', 0x812C) unless defined?(GL_MAX_FOG_FUNC_POINTS_SGIS)
-  end # define_enum_GL_SGIS_fog_function
+  end # define_ext_enum_GL_SGIS_fog_function
 
-  def define_enum_GL_SGIS_generate_mipmap
+  def define_ext_enum_GL_SGIS_generate_mipmap
     const_set('GL_GENERATE_MIPMAP_SGIS', 0x8191) unless defined?(GL_GENERATE_MIPMAP_SGIS)
     const_set('GL_GENERATE_MIPMAP_HINT_SGIS', 0x8192) unless defined?(GL_GENERATE_MIPMAP_HINT_SGIS)
-  end # define_enum_GL_SGIS_generate_mipmap
+  end # define_ext_enum_GL_SGIS_generate_mipmap
 
-  def define_enum_GL_SGIS_multisample
+  def define_ext_enum_GL_SGIS_multisample
     const_set('GL_MULTISAMPLE_SGIS', 0x809D) unless defined?(GL_MULTISAMPLE_SGIS)
     const_set('GL_SAMPLE_ALPHA_TO_MASK_SGIS', 0x809E) unless defined?(GL_SAMPLE_ALPHA_TO_MASK_SGIS)
     const_set('GL_SAMPLE_ALPHA_TO_ONE_SGIS', 0x809F) unless defined?(GL_SAMPLE_ALPHA_TO_ONE_SGIS)
@@ -4792,16 +4792,16 @@ module OpenGL
     const_set('GL_SAMPLE_MASK_VALUE_SGIS', 0x80AA) unless defined?(GL_SAMPLE_MASK_VALUE_SGIS)
     const_set('GL_SAMPLE_MASK_INVERT_SGIS', 0x80AB) unless defined?(GL_SAMPLE_MASK_INVERT_SGIS)
     const_set('GL_SAMPLE_PATTERN_SGIS', 0x80AC) unless defined?(GL_SAMPLE_PATTERN_SGIS)
-  end # define_enum_GL_SGIS_multisample
+  end # define_ext_enum_GL_SGIS_multisample
 
-  def define_enum_GL_SGIS_pixel_texture
+  def define_ext_enum_GL_SGIS_pixel_texture
     const_set('GL_PIXEL_TEXTURE_SGIS', 0x8353) unless defined?(GL_PIXEL_TEXTURE_SGIS)
     const_set('GL_PIXEL_FRAGMENT_RGB_SOURCE_SGIS', 0x8354) unless defined?(GL_PIXEL_FRAGMENT_RGB_SOURCE_SGIS)
     const_set('GL_PIXEL_FRAGMENT_ALPHA_SOURCE_SGIS', 0x8355) unless defined?(GL_PIXEL_FRAGMENT_ALPHA_SOURCE_SGIS)
     const_set('GL_PIXEL_GROUP_COLOR_SGIS', 0x8356) unless defined?(GL_PIXEL_GROUP_COLOR_SGIS)
-  end # define_enum_GL_SGIS_pixel_texture
+  end # define_ext_enum_GL_SGIS_pixel_texture
 
-  def define_enum_GL_SGIS_point_line_texgen
+  def define_ext_enum_GL_SGIS_point_line_texgen
     const_set('GL_EYE_DISTANCE_TO_POINT_SGIS', 0x81F0) unless defined?(GL_EYE_DISTANCE_TO_POINT_SGIS)
     const_set('GL_OBJECT_DISTANCE_TO_POINT_SGIS', 0x81F1) unless defined?(GL_OBJECT_DISTANCE_TO_POINT_SGIS)
     const_set('GL_EYE_DISTANCE_TO_LINE_SGIS', 0x81F2) unless defined?(GL_EYE_DISTANCE_TO_LINE_SGIS)
@@ -4810,23 +4810,23 @@ module OpenGL
     const_set('GL_OBJECT_POINT_SGIS', 0x81F5) unless defined?(GL_OBJECT_POINT_SGIS)
     const_set('GL_EYE_LINE_SGIS', 0x81F6) unless defined?(GL_EYE_LINE_SGIS)
     const_set('GL_OBJECT_LINE_SGIS', 0x81F7) unless defined?(GL_OBJECT_LINE_SGIS)
-  end # define_enum_GL_SGIS_point_line_texgen
+  end # define_ext_enum_GL_SGIS_point_line_texgen
 
-  def define_enum_GL_SGIS_point_parameters
+  def define_ext_enum_GL_SGIS_point_parameters
     const_set('GL_POINT_SIZE_MIN_SGIS', 0x8126) unless defined?(GL_POINT_SIZE_MIN_SGIS)
     const_set('GL_POINT_SIZE_MAX_SGIS', 0x8127) unless defined?(GL_POINT_SIZE_MAX_SGIS)
     const_set('GL_POINT_FADE_THRESHOLD_SIZE_SGIS', 0x8128) unless defined?(GL_POINT_FADE_THRESHOLD_SIZE_SGIS)
     const_set('GL_DISTANCE_ATTENUATION_SGIS', 0x8129) unless defined?(GL_DISTANCE_ATTENUATION_SGIS)
-  end # define_enum_GL_SGIS_point_parameters
+  end # define_ext_enum_GL_SGIS_point_parameters
 
-  def define_enum_GL_SGIS_sharpen_texture
+  def define_ext_enum_GL_SGIS_sharpen_texture
     const_set('GL_LINEAR_SHARPEN_SGIS', 0x80AD) unless defined?(GL_LINEAR_SHARPEN_SGIS)
     const_set('GL_LINEAR_SHARPEN_ALPHA_SGIS', 0x80AE) unless defined?(GL_LINEAR_SHARPEN_ALPHA_SGIS)
     const_set('GL_LINEAR_SHARPEN_COLOR_SGIS', 0x80AF) unless defined?(GL_LINEAR_SHARPEN_COLOR_SGIS)
     const_set('GL_SHARPEN_TEXTURE_FUNC_POINTS_SGIS', 0x80B0) unless defined?(GL_SHARPEN_TEXTURE_FUNC_POINTS_SGIS)
-  end # define_enum_GL_SGIS_sharpen_texture
+  end # define_ext_enum_GL_SGIS_sharpen_texture
 
-  def define_enum_GL_SGIS_texture4D
+  def define_ext_enum_GL_SGIS_texture4D
     const_set('GL_PACK_SKIP_VOLUMES_SGIS', 0x8130) unless defined?(GL_PACK_SKIP_VOLUMES_SGIS)
     const_set('GL_PACK_IMAGE_DEPTH_SGIS', 0x8131) unless defined?(GL_PACK_IMAGE_DEPTH_SGIS)
     const_set('GL_UNPACK_SKIP_VOLUMES_SGIS', 0x8132) unless defined?(GL_UNPACK_SKIP_VOLUMES_SGIS)
@@ -4837,33 +4837,33 @@ module OpenGL
     const_set('GL_TEXTURE_WRAP_Q_SGIS', 0x8137) unless defined?(GL_TEXTURE_WRAP_Q_SGIS)
     const_set('GL_MAX_4D_TEXTURE_SIZE_SGIS', 0x8138) unless defined?(GL_MAX_4D_TEXTURE_SIZE_SGIS)
     const_set('GL_TEXTURE_4D_BINDING_SGIS', 0x814F) unless defined?(GL_TEXTURE_4D_BINDING_SGIS)
-  end # define_enum_GL_SGIS_texture4D
+  end # define_ext_enum_GL_SGIS_texture4D
 
-  def define_enum_GL_SGIS_texture_border_clamp
+  def define_ext_enum_GL_SGIS_texture_border_clamp
     const_set('GL_CLAMP_TO_BORDER_SGIS', 0x812D) unless defined?(GL_CLAMP_TO_BORDER_SGIS)
-  end # define_enum_GL_SGIS_texture_border_clamp
+  end # define_ext_enum_GL_SGIS_texture_border_clamp
 
-  def define_enum_GL_SGIS_texture_color_mask
+  def define_ext_enum_GL_SGIS_texture_color_mask
     const_set('GL_TEXTURE_COLOR_WRITEMASK_SGIS', 0x81EF) unless defined?(GL_TEXTURE_COLOR_WRITEMASK_SGIS)
-  end # define_enum_GL_SGIS_texture_color_mask
+  end # define_ext_enum_GL_SGIS_texture_color_mask
 
-  def define_enum_GL_SGIS_texture_edge_clamp
+  def define_ext_enum_GL_SGIS_texture_edge_clamp
     const_set('GL_CLAMP_TO_EDGE_SGIS', 0x812F) unless defined?(GL_CLAMP_TO_EDGE_SGIS)
-  end # define_enum_GL_SGIS_texture_edge_clamp
+  end # define_ext_enum_GL_SGIS_texture_edge_clamp
 
-  def define_enum_GL_SGIS_texture_filter4
+  def define_ext_enum_GL_SGIS_texture_filter4
     const_set('GL_FILTER4_SGIS', 0x8146) unless defined?(GL_FILTER4_SGIS)
     const_set('GL_TEXTURE_FILTER4_SIZE_SGIS', 0x8147) unless defined?(GL_TEXTURE_FILTER4_SIZE_SGIS)
-  end # define_enum_GL_SGIS_texture_filter4
+  end # define_ext_enum_GL_SGIS_texture_filter4
 
-  def define_enum_GL_SGIS_texture_lod
+  def define_ext_enum_GL_SGIS_texture_lod
     const_set('GL_TEXTURE_MIN_LOD_SGIS', 0x813A) unless defined?(GL_TEXTURE_MIN_LOD_SGIS)
     const_set('GL_TEXTURE_MAX_LOD_SGIS', 0x813B) unless defined?(GL_TEXTURE_MAX_LOD_SGIS)
     const_set('GL_TEXTURE_BASE_LEVEL_SGIS', 0x813C) unless defined?(GL_TEXTURE_BASE_LEVEL_SGIS)
     const_set('GL_TEXTURE_MAX_LEVEL_SGIS', 0x813D) unless defined?(GL_TEXTURE_MAX_LEVEL_SGIS)
-  end # define_enum_GL_SGIS_texture_lod
+  end # define_ext_enum_GL_SGIS_texture_lod
 
-  def define_enum_GL_SGIS_texture_select
+  def define_ext_enum_GL_SGIS_texture_select
     const_set('GL_DUAL_ALPHA4_SGIS', 0x8110) unless defined?(GL_DUAL_ALPHA4_SGIS)
     const_set('GL_DUAL_ALPHA8_SGIS', 0x8111) unless defined?(GL_DUAL_ALPHA8_SGIS)
     const_set('GL_DUAL_ALPHA12_SGIS', 0x8112) unless defined?(GL_DUAL_ALPHA12_SGIS)
@@ -4886,36 +4886,36 @@ module OpenGL
     const_set('GL_QUAD_INTENSITY8_SGIS', 0x8123) unless defined?(GL_QUAD_INTENSITY8_SGIS)
     const_set('GL_DUAL_TEXTURE_SELECT_SGIS', 0x8124) unless defined?(GL_DUAL_TEXTURE_SELECT_SGIS)
     const_set('GL_QUAD_TEXTURE_SELECT_SGIS', 0x8125) unless defined?(GL_QUAD_TEXTURE_SELECT_SGIS)
-  end # define_enum_GL_SGIS_texture_select
+  end # define_ext_enum_GL_SGIS_texture_select
 
-  def define_enum_GL_SGIX_async
+  def define_ext_enum_GL_SGIX_async
     const_set('GL_ASYNC_MARKER_SGIX', 0x8329) unless defined?(GL_ASYNC_MARKER_SGIX)
-  end # define_enum_GL_SGIX_async
+  end # define_ext_enum_GL_SGIX_async
 
-  def define_enum_GL_SGIX_async_histogram
+  def define_ext_enum_GL_SGIX_async_histogram
     const_set('GL_ASYNC_HISTOGRAM_SGIX', 0x832C) unless defined?(GL_ASYNC_HISTOGRAM_SGIX)
     const_set('GL_MAX_ASYNC_HISTOGRAM_SGIX', 0x832D) unless defined?(GL_MAX_ASYNC_HISTOGRAM_SGIX)
-  end # define_enum_GL_SGIX_async_histogram
+  end # define_ext_enum_GL_SGIX_async_histogram
 
-  def define_enum_GL_SGIX_async_pixel
+  def define_ext_enum_GL_SGIX_async_pixel
     const_set('GL_ASYNC_TEX_IMAGE_SGIX', 0x835C) unless defined?(GL_ASYNC_TEX_IMAGE_SGIX)
     const_set('GL_ASYNC_DRAW_PIXELS_SGIX', 0x835D) unless defined?(GL_ASYNC_DRAW_PIXELS_SGIX)
     const_set('GL_ASYNC_READ_PIXELS_SGIX', 0x835E) unless defined?(GL_ASYNC_READ_PIXELS_SGIX)
     const_set('GL_MAX_ASYNC_TEX_IMAGE_SGIX', 0x835F) unless defined?(GL_MAX_ASYNC_TEX_IMAGE_SGIX)
     const_set('GL_MAX_ASYNC_DRAW_PIXELS_SGIX', 0x8360) unless defined?(GL_MAX_ASYNC_DRAW_PIXELS_SGIX)
     const_set('GL_MAX_ASYNC_READ_PIXELS_SGIX', 0x8361) unless defined?(GL_MAX_ASYNC_READ_PIXELS_SGIX)
-  end # define_enum_GL_SGIX_async_pixel
+  end # define_ext_enum_GL_SGIX_async_pixel
 
-  def define_enum_GL_SGIX_blend_alpha_minmax
+  def define_ext_enum_GL_SGIX_blend_alpha_minmax
     const_set('GL_ALPHA_MIN_SGIX', 0x8320) unless defined?(GL_ALPHA_MIN_SGIX)
     const_set('GL_ALPHA_MAX_SGIX', 0x8321) unless defined?(GL_ALPHA_MAX_SGIX)
-  end # define_enum_GL_SGIX_blend_alpha_minmax
+  end # define_ext_enum_GL_SGIX_blend_alpha_minmax
 
-  def define_enum_GL_SGIX_calligraphic_fragment
+  def define_ext_enum_GL_SGIX_calligraphic_fragment
     const_set('GL_CALLIGRAPHIC_FRAGMENT_SGIX', 0x8183) unless defined?(GL_CALLIGRAPHIC_FRAGMENT_SGIX)
-  end # define_enum_GL_SGIX_calligraphic_fragment
+  end # define_ext_enum_GL_SGIX_calligraphic_fragment
 
-  def define_enum_GL_SGIX_clipmap
+  def define_ext_enum_GL_SGIX_clipmap
     const_set('GL_LINEAR_CLIPMAP_LINEAR_SGIX', 0x8170) unless defined?(GL_LINEAR_CLIPMAP_LINEAR_SGIX)
     const_set('GL_TEXTURE_CLIPMAP_CENTER_SGIX', 0x8171) unless defined?(GL_TEXTURE_CLIPMAP_CENTER_SGIX)
     const_set('GL_TEXTURE_CLIPMAP_FRAME_SGIX', 0x8172) unless defined?(GL_TEXTURE_CLIPMAP_FRAME_SGIX)
@@ -4928,30 +4928,30 @@ module OpenGL
     const_set('GL_NEAREST_CLIPMAP_NEAREST_SGIX', 0x844D) unless defined?(GL_NEAREST_CLIPMAP_NEAREST_SGIX)
     const_set('GL_NEAREST_CLIPMAP_LINEAR_SGIX', 0x844E) unless defined?(GL_NEAREST_CLIPMAP_LINEAR_SGIX)
     const_set('GL_LINEAR_CLIPMAP_NEAREST_SGIX', 0x844F) unless defined?(GL_LINEAR_CLIPMAP_NEAREST_SGIX)
-  end # define_enum_GL_SGIX_clipmap
+  end # define_ext_enum_GL_SGIX_clipmap
 
-  def define_enum_GL_SGIX_convolution_accuracy
+  def define_ext_enum_GL_SGIX_convolution_accuracy
     const_set('GL_CONVOLUTION_HINT_SGIX', 0x8316) unless defined?(GL_CONVOLUTION_HINT_SGIX)
-  end # define_enum_GL_SGIX_convolution_accuracy
+  end # define_ext_enum_GL_SGIX_convolution_accuracy
 
-  def define_enum_GL_SGIX_depth_pass_instrument
-  end # define_enum_GL_SGIX_depth_pass_instrument
+  def define_ext_enum_GL_SGIX_depth_pass_instrument
+  end # define_ext_enum_GL_SGIX_depth_pass_instrument
 
-  def define_enum_GL_SGIX_depth_texture
+  def define_ext_enum_GL_SGIX_depth_texture
     const_set('GL_DEPTH_COMPONENT16_SGIX', 0x81A5) unless defined?(GL_DEPTH_COMPONENT16_SGIX)
     const_set('GL_DEPTH_COMPONENT24_SGIX', 0x81A6) unless defined?(GL_DEPTH_COMPONENT24_SGIX)
     const_set('GL_DEPTH_COMPONENT32_SGIX', 0x81A7) unless defined?(GL_DEPTH_COMPONENT32_SGIX)
-  end # define_enum_GL_SGIX_depth_texture
+  end # define_ext_enum_GL_SGIX_depth_texture
 
-  def define_enum_GL_SGIX_flush_raster
-  end # define_enum_GL_SGIX_flush_raster
+  def define_ext_enum_GL_SGIX_flush_raster
+  end # define_ext_enum_GL_SGIX_flush_raster
 
-  def define_enum_GL_SGIX_fog_offset
+  def define_ext_enum_GL_SGIX_fog_offset
     const_set('GL_FOG_OFFSET_SGIX', 0x8198) unless defined?(GL_FOG_OFFSET_SGIX)
     const_set('GL_FOG_OFFSET_VALUE_SGIX', 0x8199) unless defined?(GL_FOG_OFFSET_VALUE_SGIX)
-  end # define_enum_GL_SGIX_fog_offset
+  end # define_ext_enum_GL_SGIX_fog_offset
 
-  def define_enum_GL_SGIX_fragment_lighting
+  def define_ext_enum_GL_SGIX_fragment_lighting
     const_set('GL_FRAGMENT_LIGHTING_SGIX', 0x8400) unless defined?(GL_FRAGMENT_LIGHTING_SGIX)
     const_set('GL_FRAGMENT_COLOR_MATERIAL_SGIX', 0x8401) unless defined?(GL_FRAGMENT_COLOR_MATERIAL_SGIX)
     const_set('GL_FRAGMENT_COLOR_MATERIAL_FACE_SGIX', 0x8402) unless defined?(GL_FRAGMENT_COLOR_MATERIAL_FACE_SGIX)
@@ -4972,40 +4972,40 @@ module OpenGL
     const_set('GL_FRAGMENT_LIGHT5_SGIX', 0x8411) unless defined?(GL_FRAGMENT_LIGHT5_SGIX)
     const_set('GL_FRAGMENT_LIGHT6_SGIX', 0x8412) unless defined?(GL_FRAGMENT_LIGHT6_SGIX)
     const_set('GL_FRAGMENT_LIGHT7_SGIX', 0x8413) unless defined?(GL_FRAGMENT_LIGHT7_SGIX)
-  end # define_enum_GL_SGIX_fragment_lighting
+  end # define_ext_enum_GL_SGIX_fragment_lighting
 
-  def define_enum_GL_SGIX_framezoom
+  def define_ext_enum_GL_SGIX_framezoom
     const_set('GL_FRAMEZOOM_SGIX', 0x818B) unless defined?(GL_FRAMEZOOM_SGIX)
     const_set('GL_FRAMEZOOM_FACTOR_SGIX', 0x818C) unless defined?(GL_FRAMEZOOM_FACTOR_SGIX)
     const_set('GL_MAX_FRAMEZOOM_FACTOR_SGIX', 0x818D) unless defined?(GL_MAX_FRAMEZOOM_FACTOR_SGIX)
-  end # define_enum_GL_SGIX_framezoom
+  end # define_ext_enum_GL_SGIX_framezoom
 
-  def define_enum_GL_SGIX_igloo_interface
-  end # define_enum_GL_SGIX_igloo_interface
+  def define_ext_enum_GL_SGIX_igloo_interface
+  end # define_ext_enum_GL_SGIX_igloo_interface
 
-  def define_enum_GL_SGIX_instruments
+  def define_ext_enum_GL_SGIX_instruments
     const_set('GL_INSTRUMENT_BUFFER_POINTER_SGIX', 0x8180) unless defined?(GL_INSTRUMENT_BUFFER_POINTER_SGIX)
     const_set('GL_INSTRUMENT_MEASUREMENTS_SGIX', 0x8181) unless defined?(GL_INSTRUMENT_MEASUREMENTS_SGIX)
-  end # define_enum_GL_SGIX_instruments
+  end # define_ext_enum_GL_SGIX_instruments
 
-  def define_enum_GL_SGIX_interlace
+  def define_ext_enum_GL_SGIX_interlace
     const_set('GL_INTERLACE_SGIX', 0x8094) unless defined?(GL_INTERLACE_SGIX)
-  end # define_enum_GL_SGIX_interlace
+  end # define_ext_enum_GL_SGIX_interlace
 
-  def define_enum_GL_SGIX_ir_instrument1
+  def define_ext_enum_GL_SGIX_ir_instrument1
     const_set('GL_IR_INSTRUMENT1_SGIX', 0x817F) unless defined?(GL_IR_INSTRUMENT1_SGIX)
-  end # define_enum_GL_SGIX_ir_instrument1
+  end # define_ext_enum_GL_SGIX_ir_instrument1
 
-  def define_enum_GL_SGIX_list_priority
+  def define_ext_enum_GL_SGIX_list_priority
     const_set('GL_LIST_PRIORITY_SGIX', 0x8182) unless defined?(GL_LIST_PRIORITY_SGIX)
-  end # define_enum_GL_SGIX_list_priority
+  end # define_ext_enum_GL_SGIX_list_priority
 
-  def define_enum_GL_SGIX_pixel_texture
+  def define_ext_enum_GL_SGIX_pixel_texture
     const_set('GL_PIXEL_TEX_GEN_SGIX', 0x8139) unless defined?(GL_PIXEL_TEX_GEN_SGIX)
     const_set('GL_PIXEL_TEX_GEN_MODE_SGIX', 0x832B) unless defined?(GL_PIXEL_TEX_GEN_MODE_SGIX)
-  end # define_enum_GL_SGIX_pixel_texture
+  end # define_ext_enum_GL_SGIX_pixel_texture
 
-  def define_enum_GL_SGIX_pixel_tiles
+  def define_ext_enum_GL_SGIX_pixel_tiles
     const_set('GL_PIXEL_TILE_BEST_ALIGNMENT_SGIX', 0x813E) unless defined?(GL_PIXEL_TILE_BEST_ALIGNMENT_SGIX)
     const_set('GL_PIXEL_TILE_CACHE_INCREMENT_SGIX', 0x813F) unless defined?(GL_PIXEL_TILE_CACHE_INCREMENT_SGIX)
     const_set('GL_PIXEL_TILE_WIDTH_SGIX', 0x8140) unless defined?(GL_PIXEL_TILE_WIDTH_SGIX)
@@ -5014,46 +5014,46 @@ module OpenGL
     const_set('GL_PIXEL_TILE_GRID_HEIGHT_SGIX', 0x8143) unless defined?(GL_PIXEL_TILE_GRID_HEIGHT_SGIX)
     const_set('GL_PIXEL_TILE_GRID_DEPTH_SGIX', 0x8144) unless defined?(GL_PIXEL_TILE_GRID_DEPTH_SGIX)
     const_set('GL_PIXEL_TILE_CACHE_SIZE_SGIX', 0x8145) unless defined?(GL_PIXEL_TILE_CACHE_SIZE_SGIX)
-  end # define_enum_GL_SGIX_pixel_tiles
+  end # define_ext_enum_GL_SGIX_pixel_tiles
 
-  def define_enum_GL_SGIX_polynomial_ffd
+  def define_ext_enum_GL_SGIX_polynomial_ffd
     const_set('GL_TEXTURE_DEFORMATION_BIT_SGIX', 0x00000001) unless defined?(GL_TEXTURE_DEFORMATION_BIT_SGIX)
     const_set('GL_GEOMETRY_DEFORMATION_BIT_SGIX', 0x00000002) unless defined?(GL_GEOMETRY_DEFORMATION_BIT_SGIX)
     const_set('GL_GEOMETRY_DEFORMATION_SGIX', 0x8194) unless defined?(GL_GEOMETRY_DEFORMATION_SGIX)
     const_set('GL_TEXTURE_DEFORMATION_SGIX', 0x8195) unless defined?(GL_TEXTURE_DEFORMATION_SGIX)
     const_set('GL_DEFORMATIONS_MASK_SGIX', 0x8196) unless defined?(GL_DEFORMATIONS_MASK_SGIX)
     const_set('GL_MAX_DEFORMATION_ORDER_SGIX', 0x8197) unless defined?(GL_MAX_DEFORMATION_ORDER_SGIX)
-  end # define_enum_GL_SGIX_polynomial_ffd
+  end # define_ext_enum_GL_SGIX_polynomial_ffd
 
-  def define_enum_GL_SGIX_reference_plane
+  def define_ext_enum_GL_SGIX_reference_plane
     const_set('GL_REFERENCE_PLANE_SGIX', 0x817D) unless defined?(GL_REFERENCE_PLANE_SGIX)
     const_set('GL_REFERENCE_PLANE_EQUATION_SGIX', 0x817E) unless defined?(GL_REFERENCE_PLANE_EQUATION_SGIX)
-  end # define_enum_GL_SGIX_reference_plane
+  end # define_ext_enum_GL_SGIX_reference_plane
 
-  def define_enum_GL_SGIX_resample
+  def define_ext_enum_GL_SGIX_resample
     const_set('GL_PACK_RESAMPLE_SGIX', 0x842C) unless defined?(GL_PACK_RESAMPLE_SGIX)
     const_set('GL_UNPACK_RESAMPLE_SGIX', 0x842D) unless defined?(GL_UNPACK_RESAMPLE_SGIX)
     const_set('GL_RESAMPLE_REPLICATE_SGIX', 0x842E) unless defined?(GL_RESAMPLE_REPLICATE_SGIX)
     const_set('GL_RESAMPLE_ZERO_FILL_SGIX', 0x842F) unless defined?(GL_RESAMPLE_ZERO_FILL_SGIX)
     const_set('GL_RESAMPLE_DECIMATE_SGIX', 0x8430) unless defined?(GL_RESAMPLE_DECIMATE_SGIX)
-  end # define_enum_GL_SGIX_resample
+  end # define_ext_enum_GL_SGIX_resample
 
-  def define_enum_GL_SGIX_scalebias_hint
+  def define_ext_enum_GL_SGIX_scalebias_hint
     const_set('GL_SCALEBIAS_HINT_SGIX', 0x8322) unless defined?(GL_SCALEBIAS_HINT_SGIX)
-  end # define_enum_GL_SGIX_scalebias_hint
+  end # define_ext_enum_GL_SGIX_scalebias_hint
 
-  def define_enum_GL_SGIX_shadow
+  def define_ext_enum_GL_SGIX_shadow
     const_set('GL_TEXTURE_COMPARE_SGIX', 0x819A) unless defined?(GL_TEXTURE_COMPARE_SGIX)
     const_set('GL_TEXTURE_COMPARE_OPERATOR_SGIX', 0x819B) unless defined?(GL_TEXTURE_COMPARE_OPERATOR_SGIX)
     const_set('GL_TEXTURE_LEQUAL_R_SGIX', 0x819C) unless defined?(GL_TEXTURE_LEQUAL_R_SGIX)
     const_set('GL_TEXTURE_GEQUAL_R_SGIX', 0x819D) unless defined?(GL_TEXTURE_GEQUAL_R_SGIX)
-  end # define_enum_GL_SGIX_shadow
+  end # define_ext_enum_GL_SGIX_shadow
 
-  def define_enum_GL_SGIX_shadow_ambient
+  def define_ext_enum_GL_SGIX_shadow_ambient
     const_set('GL_SHADOW_AMBIENT_SGIX', 0x80BF) unless defined?(GL_SHADOW_AMBIENT_SGIX)
-  end # define_enum_GL_SGIX_shadow_ambient
+  end # define_ext_enum_GL_SGIX_shadow_ambient
 
-  def define_enum_GL_SGIX_sprite
+  def define_ext_enum_GL_SGIX_sprite
     const_set('GL_SPRITE_SGIX', 0x8148) unless defined?(GL_SPRITE_SGIX)
     const_set('GL_SPRITE_MODE_SGIX', 0x8149) unless defined?(GL_SPRITE_MODE_SGIX)
     const_set('GL_SPRITE_AXIS_SGIX', 0x814A) unless defined?(GL_SPRITE_AXIS_SGIX)
@@ -5061,65 +5061,65 @@ module OpenGL
     const_set('GL_SPRITE_AXIAL_SGIX', 0x814C) unless defined?(GL_SPRITE_AXIAL_SGIX)
     const_set('GL_SPRITE_OBJECT_ALIGNED_SGIX', 0x814D) unless defined?(GL_SPRITE_OBJECT_ALIGNED_SGIX)
     const_set('GL_SPRITE_EYE_ALIGNED_SGIX', 0x814E) unless defined?(GL_SPRITE_EYE_ALIGNED_SGIX)
-  end # define_enum_GL_SGIX_sprite
+  end # define_ext_enum_GL_SGIX_sprite
 
-  def define_enum_GL_SGIX_subsample
+  def define_ext_enum_GL_SGIX_subsample
     const_set('GL_PACK_SUBSAMPLE_RATE_SGIX', 0x85A0) unless defined?(GL_PACK_SUBSAMPLE_RATE_SGIX)
     const_set('GL_UNPACK_SUBSAMPLE_RATE_SGIX', 0x85A1) unless defined?(GL_UNPACK_SUBSAMPLE_RATE_SGIX)
     const_set('GL_PIXEL_SUBSAMPLE_4444_SGIX', 0x85A2) unless defined?(GL_PIXEL_SUBSAMPLE_4444_SGIX)
     const_set('GL_PIXEL_SUBSAMPLE_2424_SGIX', 0x85A3) unless defined?(GL_PIXEL_SUBSAMPLE_2424_SGIX)
     const_set('GL_PIXEL_SUBSAMPLE_4242_SGIX', 0x85A4) unless defined?(GL_PIXEL_SUBSAMPLE_4242_SGIX)
-  end # define_enum_GL_SGIX_subsample
+  end # define_ext_enum_GL_SGIX_subsample
 
-  def define_enum_GL_SGIX_tag_sample_buffer
-  end # define_enum_GL_SGIX_tag_sample_buffer
+  def define_ext_enum_GL_SGIX_tag_sample_buffer
+  end # define_ext_enum_GL_SGIX_tag_sample_buffer
 
-  def define_enum_GL_SGIX_texture_add_env
+  def define_ext_enum_GL_SGIX_texture_add_env
     const_set('GL_TEXTURE_ENV_BIAS_SGIX', 0x80BE) unless defined?(GL_TEXTURE_ENV_BIAS_SGIX)
-  end # define_enum_GL_SGIX_texture_add_env
+  end # define_ext_enum_GL_SGIX_texture_add_env
 
-  def define_enum_GL_SGIX_texture_coordinate_clamp
+  def define_ext_enum_GL_SGIX_texture_coordinate_clamp
     const_set('GL_TEXTURE_MAX_CLAMP_S_SGIX', 0x8369) unless defined?(GL_TEXTURE_MAX_CLAMP_S_SGIX)
     const_set('GL_TEXTURE_MAX_CLAMP_T_SGIX', 0x836A) unless defined?(GL_TEXTURE_MAX_CLAMP_T_SGIX)
     const_set('GL_TEXTURE_MAX_CLAMP_R_SGIX', 0x836B) unless defined?(GL_TEXTURE_MAX_CLAMP_R_SGIX)
-  end # define_enum_GL_SGIX_texture_coordinate_clamp
+  end # define_ext_enum_GL_SGIX_texture_coordinate_clamp
 
-  def define_enum_GL_SGIX_texture_lod_bias
+  def define_ext_enum_GL_SGIX_texture_lod_bias
     const_set('GL_TEXTURE_LOD_BIAS_S_SGIX', 0x818E) unless defined?(GL_TEXTURE_LOD_BIAS_S_SGIX)
     const_set('GL_TEXTURE_LOD_BIAS_T_SGIX', 0x818F) unless defined?(GL_TEXTURE_LOD_BIAS_T_SGIX)
     const_set('GL_TEXTURE_LOD_BIAS_R_SGIX', 0x8190) unless defined?(GL_TEXTURE_LOD_BIAS_R_SGIX)
-  end # define_enum_GL_SGIX_texture_lod_bias
+  end # define_ext_enum_GL_SGIX_texture_lod_bias
 
-  def define_enum_GL_SGIX_texture_multi_buffer
+  def define_ext_enum_GL_SGIX_texture_multi_buffer
     const_set('GL_TEXTURE_MULTI_BUFFER_HINT_SGIX', 0x812E) unless defined?(GL_TEXTURE_MULTI_BUFFER_HINT_SGIX)
-  end # define_enum_GL_SGIX_texture_multi_buffer
+  end # define_ext_enum_GL_SGIX_texture_multi_buffer
 
-  def define_enum_GL_SGIX_texture_scale_bias
+  def define_ext_enum_GL_SGIX_texture_scale_bias
     const_set('GL_POST_TEXTURE_FILTER_BIAS_SGIX', 0x8179) unless defined?(GL_POST_TEXTURE_FILTER_BIAS_SGIX)
     const_set('GL_POST_TEXTURE_FILTER_SCALE_SGIX', 0x817A) unless defined?(GL_POST_TEXTURE_FILTER_SCALE_SGIX)
     const_set('GL_POST_TEXTURE_FILTER_BIAS_RANGE_SGIX', 0x817B) unless defined?(GL_POST_TEXTURE_FILTER_BIAS_RANGE_SGIX)
     const_set('GL_POST_TEXTURE_FILTER_SCALE_RANGE_SGIX', 0x817C) unless defined?(GL_POST_TEXTURE_FILTER_SCALE_RANGE_SGIX)
-  end # define_enum_GL_SGIX_texture_scale_bias
+  end # define_ext_enum_GL_SGIX_texture_scale_bias
 
-  def define_enum_GL_SGIX_vertex_preclip
+  def define_ext_enum_GL_SGIX_vertex_preclip
     const_set('GL_VERTEX_PRECLIP_SGIX', 0x83EE) unless defined?(GL_VERTEX_PRECLIP_SGIX)
     const_set('GL_VERTEX_PRECLIP_HINT_SGIX', 0x83EF) unless defined?(GL_VERTEX_PRECLIP_HINT_SGIX)
-  end # define_enum_GL_SGIX_vertex_preclip
+  end # define_ext_enum_GL_SGIX_vertex_preclip
 
-  def define_enum_GL_SGIX_ycrcb
+  def define_ext_enum_GL_SGIX_ycrcb
     const_set('GL_YCRCB_422_SGIX', 0x81BB) unless defined?(GL_YCRCB_422_SGIX)
     const_set('GL_YCRCB_444_SGIX', 0x81BC) unless defined?(GL_YCRCB_444_SGIX)
-  end # define_enum_GL_SGIX_ycrcb
+  end # define_ext_enum_GL_SGIX_ycrcb
 
-  def define_enum_GL_SGIX_ycrcb_subsample
-  end # define_enum_GL_SGIX_ycrcb_subsample
+  def define_ext_enum_GL_SGIX_ycrcb_subsample
+  end # define_ext_enum_GL_SGIX_ycrcb_subsample
 
-  def define_enum_GL_SGIX_ycrcba
+  def define_ext_enum_GL_SGIX_ycrcba
     const_set('GL_YCRCB_SGIX', 0x8318) unless defined?(GL_YCRCB_SGIX)
     const_set('GL_YCRCBA_SGIX', 0x8319) unless defined?(GL_YCRCBA_SGIX)
-  end # define_enum_GL_SGIX_ycrcba
+  end # define_ext_enum_GL_SGIX_ycrcba
 
-  def define_enum_GL_SGI_color_matrix
+  def define_ext_enum_GL_SGI_color_matrix
     const_set('GL_COLOR_MATRIX_SGI', 0x80B1) unless defined?(GL_COLOR_MATRIX_SGI)
     const_set('GL_COLOR_MATRIX_STACK_DEPTH_SGI', 0x80B2) unless defined?(GL_COLOR_MATRIX_STACK_DEPTH_SGI)
     const_set('GL_MAX_COLOR_MATRIX_STACK_DEPTH_SGI', 0x80B3) unless defined?(GL_MAX_COLOR_MATRIX_STACK_DEPTH_SGI)
@@ -5131,9 +5131,9 @@ module OpenGL
     const_set('GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI', 0x80B9) unless defined?(GL_POST_COLOR_MATRIX_GREEN_BIAS_SGI)
     const_set('GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI', 0x80BA) unless defined?(GL_POST_COLOR_MATRIX_BLUE_BIAS_SGI)
     const_set('GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI', 0x80BB) unless defined?(GL_POST_COLOR_MATRIX_ALPHA_BIAS_SGI)
-  end # define_enum_GL_SGI_color_matrix
+  end # define_ext_enum_GL_SGI_color_matrix
 
-  def define_enum_GL_SGI_color_table
+  def define_ext_enum_GL_SGI_color_table
     const_set('GL_COLOR_TABLE_SGI', 0x80D0) unless defined?(GL_COLOR_TABLE_SGI)
     const_set('GL_POST_CONVOLUTION_COLOR_TABLE_SGI', 0x80D1) unless defined?(GL_POST_CONVOLUTION_COLOR_TABLE_SGI)
     const_set('GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI', 0x80D2) unless defined?(GL_POST_COLOR_MATRIX_COLOR_TABLE_SGI)
@@ -5150,37 +5150,37 @@ module OpenGL
     const_set('GL_COLOR_TABLE_ALPHA_SIZE_SGI', 0x80DD) unless defined?(GL_COLOR_TABLE_ALPHA_SIZE_SGI)
     const_set('GL_COLOR_TABLE_LUMINANCE_SIZE_SGI', 0x80DE) unless defined?(GL_COLOR_TABLE_LUMINANCE_SIZE_SGI)
     const_set('GL_COLOR_TABLE_INTENSITY_SIZE_SGI', 0x80DF) unless defined?(GL_COLOR_TABLE_INTENSITY_SIZE_SGI)
-  end # define_enum_GL_SGI_color_table
+  end # define_ext_enum_GL_SGI_color_table
 
-  def define_enum_GL_SGI_texture_color_table
+  def define_ext_enum_GL_SGI_texture_color_table
     const_set('GL_TEXTURE_COLOR_TABLE_SGI', 0x80BC) unless defined?(GL_TEXTURE_COLOR_TABLE_SGI)
     const_set('GL_PROXY_TEXTURE_COLOR_TABLE_SGI', 0x80BD) unless defined?(GL_PROXY_TEXTURE_COLOR_TABLE_SGI)
-  end # define_enum_GL_SGI_texture_color_table
+  end # define_ext_enum_GL_SGI_texture_color_table
 
-  def define_enum_GL_SUNX_constant_data
+  def define_ext_enum_GL_SUNX_constant_data
     const_set('GL_UNPACK_CONSTANT_DATA_SUNX', 0x81D5) unless defined?(GL_UNPACK_CONSTANT_DATA_SUNX)
     const_set('GL_TEXTURE_CONSTANT_DATA_SUNX', 0x81D6) unless defined?(GL_TEXTURE_CONSTANT_DATA_SUNX)
-  end # define_enum_GL_SUNX_constant_data
+  end # define_ext_enum_GL_SUNX_constant_data
 
-  def define_enum_GL_SUN_convolution_border_modes
+  def define_ext_enum_GL_SUN_convolution_border_modes
     const_set('GL_WRAP_BORDER_SUN', 0x81D4) unless defined?(GL_WRAP_BORDER_SUN)
-  end # define_enum_GL_SUN_convolution_border_modes
+  end # define_ext_enum_GL_SUN_convolution_border_modes
 
-  def define_enum_GL_SUN_global_alpha
+  def define_ext_enum_GL_SUN_global_alpha
     const_set('GL_GLOBAL_ALPHA_SUN', 0x81D9) unless defined?(GL_GLOBAL_ALPHA_SUN)
     const_set('GL_GLOBAL_ALPHA_FACTOR_SUN', 0x81DA) unless defined?(GL_GLOBAL_ALPHA_FACTOR_SUN)
-  end # define_enum_GL_SUN_global_alpha
+  end # define_ext_enum_GL_SUN_global_alpha
 
-  def define_enum_GL_SUN_mesh_array
+  def define_ext_enum_GL_SUN_mesh_array
     const_set('GL_QUAD_MESH_SUN', 0x8614) unless defined?(GL_QUAD_MESH_SUN)
     const_set('GL_TRIANGLE_MESH_SUN', 0x8615) unless defined?(GL_TRIANGLE_MESH_SUN)
-  end # define_enum_GL_SUN_mesh_array
+  end # define_ext_enum_GL_SUN_mesh_array
 
-  def define_enum_GL_SUN_slice_accum
+  def define_ext_enum_GL_SUN_slice_accum
     const_set('GL_SLICE_ACCUM_SUN', 0x85CC) unless defined?(GL_SLICE_ACCUM_SUN)
-  end # define_enum_GL_SUN_slice_accum
+  end # define_ext_enum_GL_SUN_slice_accum
 
-  def define_enum_GL_SUN_triangle_list
+  def define_ext_enum_GL_SUN_triangle_list
     const_set('GL_RESTART_SUN', 0x0001) unless defined?(GL_RESTART_SUN)
     const_set('GL_REPLACE_MIDDLE_SUN', 0x0002) unless defined?(GL_REPLACE_MIDDLE_SUN)
     const_set('GL_REPLACE_OLDEST_SUN', 0x0003) unless defined?(GL_REPLACE_OLDEST_SUN)
@@ -5198,18 +5198,18 @@ module OpenGL
     const_set('GL_R1UI_T2F_V3F_SUN', 0x85C9) unless defined?(GL_R1UI_T2F_V3F_SUN)
     const_set('GL_R1UI_T2F_N3F_V3F_SUN', 0x85CA) unless defined?(GL_R1UI_T2F_N3F_V3F_SUN)
     const_set('GL_R1UI_T2F_C4F_N3F_V3F_SUN', 0x85CB) unless defined?(GL_R1UI_T2F_C4F_N3F_V3F_SUN)
-  end # define_enum_GL_SUN_triangle_list
+  end # define_ext_enum_GL_SUN_triangle_list
 
-  def define_enum_GL_SUN_vertex
-  end # define_enum_GL_SUN_vertex
+  def define_ext_enum_GL_SUN_vertex
+  end # define_ext_enum_GL_SUN_vertex
 
-  def define_enum_GL_WIN_phong_shading
+  def define_ext_enum_GL_WIN_phong_shading
     const_set('GL_PHONG_WIN', 0x80EA) unless defined?(GL_PHONG_WIN)
     const_set('GL_PHONG_HINT_WIN', 0x80EB) unless defined?(GL_PHONG_HINT_WIN)
-  end # define_enum_GL_WIN_phong_shading
+  end # define_ext_enum_GL_WIN_phong_shading
 
-  def define_enum_GL_WIN_specular_fog
+  def define_ext_enum_GL_WIN_specular_fog
     const_set('GL_FOG_SPECULAR_TEXTURE_WIN', 0x80EC) unless defined?(GL_FOG_SPECULAR_TEXTURE_WIN)
-  end # define_enum_GL_WIN_specular_fog
+  end # define_ext_enum_GL_WIN_specular_fog
 
 end
