@@ -16535,7 +16535,7 @@ module OpenGL
     SRC_GL_NV_vdpau_interop
 
     GL_FUNCTIONS_ARGS_MAP[:glVDPAUIsSurfaceNV] = [Fiddle::TYPE_PTRDIFF_T]
-    GL_FUNCTIONS_RETVAL_MAP[:glVDPAUIsSurfaceNV] = Fiddle::TYPE_VOID
+    GL_FUNCTIONS_RETVAL_MAP[:glVDPAUIsSurfaceNV] = -Fiddle::TYPE_CHAR
     module_eval(<<-SRC_GL_NV_vdpau_interop)
       def glVDPAUIsSurfaceNV(_surface_)
         f = OpenGL::get_command(:glVDPAUIsSurfaceNV)
