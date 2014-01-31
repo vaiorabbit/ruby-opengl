@@ -13846,6 +13846,9 @@ module OpenGL
     SRC_GL_NVX_conditional_render
   end # define_ext_command_GL_NVX_conditional_render
 
+  def define_ext_command_GL_NVX_gpu_memory_info
+  end # define_ext_command_GL_NVX_gpu_memory_info
+
   def define_ext_command_GL_NV_bindless_multi_draw_indirect
     GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirectBindlessNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawArraysIndirectBindlessNV] = Fiddle::TYPE_VOID
