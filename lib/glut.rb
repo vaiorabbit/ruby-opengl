@@ -354,7 +354,7 @@ module GLUT
     extern 'void glutAttachMenu(int)'
     extern 'void glutDetachMenu(int)'
 
-    extern 'void glutTimerFunc(unsigned int, void *)'
+    extern 'void glutTimerFunc(unsigned int, void *, int)'
     extern 'void glutIdleFunc(void *)'
 
     extern 'void glutKeyboardFunc(void *)'

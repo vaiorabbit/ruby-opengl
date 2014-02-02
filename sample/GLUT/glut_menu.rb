@@ -53,8 +53,6 @@ $submenu_B = nil
 # Main
 
 if __FILE__ == $0
-  GLUT.load_dll()
-
   glutInit([1].pack('I'), [""].pack('p'))
   glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH )
   glutInitWindowSize(500, 500);
