@@ -1,3 +1,5 @@
+For more samples, visit https://github.com/vaiorabbit/ruby-opengl/tree/master/sample .
+
 ## Getting GLFW (http://www.glfw.org) ##
 
 *   Windows
@@ -21,6 +23,7 @@
 	*   If you want to use other GLUT dll, specify the dll path and file name
 		via the arguments of 'GLUT.load_dll'.
 		*   See util/setup_dll.rb for example.
+			*   https://github.com/vaiorabbit/ruby-opengl/blob/master/sample/util/setup_dll.rb
 
 -------------------------------------------------------------------------------
 
@@ -46,3 +49,4 @@
 	*   glut.rb はデフォルトで /System/Library/Frameworks/GLUT.framework を使います。
 	*   もしこれとは別のGLUTを使いたい場合は 'GLUT.load_dll' の引数で指定してください。
 		*   util/setup_dll.rb が使用例となっています。
+			*   https://github.com/vaiorabbit/ruby-opengl/blob/master/sample/util/setup_dll.rb
