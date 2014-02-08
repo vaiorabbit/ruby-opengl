@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2014-02-02
+*   Last modified : 2014-02-08
 
 
 ## Features ##
@@ -31,7 +31,7 @@ Or grab all library codes (`lib/*.rb') and use them by adding as one of the load
 
 ## How to use ##
 
-See sample/simple.rb.
+See sample/simple.rb or sample/simple_glut.rb.
 
 To get more samples and generator scripts, please visit:
 https://github.com/vaiorabbit/ruby-opengl
@@ -86,9 +86,15 @@ https://github.com/vaiorabbit/ruby-opengl
 
 ### For sample ###
 
+Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
+
 *   GLFW
     *   http://www.glfw.org/
     *   http://www.glfw.org/download.html
+
+*   freeglut
+    *   http://freeglut.sourceforge.net
+    *   http://freeglut.sourceforge.net/index.php#download
 
 ### For generator ###
 
@@ -260,9 +266,15 @@ https://github.com/vaiorabbit/ruby-opengl
 
 ### サンプル用 ###
 
+GLFW か GLUT を用意してください。ウィンドウやレンダリングコンテキストの管理に必要です。
+
 *   GLFW
     *   http://www.glfw.org/
     *   http://www.glfw.org/download.html
+
+*   freeglut
+    *   http://freeglut.sourceforge.net
+    *   http://freeglut.sourceforge.net/index.php#download
 
 ### 自動生成スクリプト用 ###
 
