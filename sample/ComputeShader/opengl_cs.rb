@@ -218,7 +218,8 @@ if __FILE__ == $0
   # Make sure that OpenGL 4.3 is supported by the driver
   major,minor,*rest = glGetString(GL_VERSION).to_s.split(/\.| /)
   puts "Supports OpenGL Version #{major}.#{minor} #{rest}"
-  unless (major.to_i == 4 && minor.to_i == 3)
+  cs_available = ((major.to_i > 4) || (major.to_i == 4 && minor.to_i >= 3))
+  unless cs_available
     puts "GL_VERSION major=#{major} minor=#{minor}"
     puts "Support for OpenGL 4.3 is required for this demo...exiting"
     exit(1)

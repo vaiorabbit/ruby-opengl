@@ -293,7 +293,8 @@ if __FILE__ == $0
   # Make sure that OpenGL 3.2 is supported by the driver
   major,minor,*rest = glGetString(GL_VERSION).to_s.split(/\.| /)
   puts "Supports OpenGL Version #{major}.#{minor} #{rest}"
-  unless (major.to_i >= 3 && minor.to_i >= 2)
+  ext_available = ((major.to_i > 3) || (major.to_i == 3 && minor.to_i >= 2))
+  unless ext_available
     puts "GL_VERSION major=#{major} minor=#{minor}"
     puts "Support for OpenGL 3.2 is required for this demo...exiting"
     exit(1)
