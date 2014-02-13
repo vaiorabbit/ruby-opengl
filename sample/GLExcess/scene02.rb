@@ -81,14 +81,15 @@ class Scene02
 
     @a_counter = 0.0
 
-    @a_diffuse = [0.2, 0.2, 0.2, 1.0]
-    @a_ambient = [0.1, 0.1, 0.1, 1.0]
-    @a_specular = [0.75, 0.75, 0.75, 1.0]
+    @a_diffuse = [0.2, 0.2, 0.2, 1.0].pack('F*')
+    @a_ambient = [0.1, 0.1, 0.1, 1.0].pack('F*')
+    @a_specular = [0.75, 0.75, 0.75, 1.0].pack('F*')
 
-    @a_LightAmbient = [0.5, 0.5, 0.5, 1.0]
-    @a_LightDiffuse = [0.5, 0.5, 0.5, 1.0]
-    @a_LightSpecular = [0.5, 0.5, 0.5, 1.0]
-    @a_LightPosition = [0.0, 8.0, -20.0, 1.0]
+    @a_LightAmbient = [0.5, 0.5, 0.5, 1.0].pack('F*')
+    @a_LightDiffuse = [0.5, 0.5, 0.5, 1.0].pack('F*')
+    @a_LightSpecular = [0.5, 0.5, 0.5, 1.0].pack('F*')
+    @a_LightPosition = [0.0, 8.0, -20.0, 1.0].pack('F*')
+    @a_LightPosition1 = [0.0, 0.0, 0.0, 1.0].pack('F*')
     @a_Sinus = [0.0, 0.0, 0.0]
   end
 
@@ -132,14 +133,14 @@ class Scene02
     glEnable( GL_LIGHTING )
     glEnable( GL_LIGHT1 )
 
-    glLightfv( GL_LIGHT1,GL_DIFFUSE,@a_LightDiffuse.pack('F*') )
-    glLightfv( GL_LIGHT1,GL_AMBIENT,@a_LightAmbient.pack('F*') )
-    glLightfv( GL_LIGHT1,GL_SPECULAR,@a_LightSpecular.pack('F*') )
-    glLightfv( GL_LIGHT1,GL_POSITION,@a_LightPosition.pack('F*') )
+    glLightfv( GL_LIGHT1,GL_DIFFUSE,@a_LightDiffuse )
+    glLightfv( GL_LIGHT1,GL_AMBIENT,@a_LightAmbient )
+    glLightfv( GL_LIGHT1,GL_SPECULAR,@a_LightSpecular )
+    glLightfv( GL_LIGHT1,GL_POSITION,@a_LightPosition )
 
-    glMaterialfv( GL_FRONT,GL_DIFFUSE,@a_diffuse.pack('F*') )
-    glMaterialfv( GL_FRONT,GL_AMBIENT,@a_ambient.pack('F*') )
-    glMaterialfv( GL_FRONT,GL_SPECULAR,@a_specular.pack('F*') )
+    glMaterialfv( GL_FRONT,GL_DIFFUSE,@a_diffuse )
+    glMaterialfv( GL_FRONT,GL_AMBIENT,@a_ambient )
+    glMaterialfv( GL_FRONT,GL_SPECULAR,@a_specular )
     glMaterialf( GL_FRONT,GL_SHININESS,10.0 )
 
     glPolygonMode( GL_FRONT_AND_BACK, GL_FILL )
@@ -387,9 +388,9 @@ class Scene02
 
 
     @texture["logoxs"].use
-    glMaterialfv( GL_FRONT,GL_DIFFUSE,@a_diffuse.pack('F*') )
-    glMaterialfv( GL_FRONT,GL_AMBIENT,@a_ambient.pack('F*') )
-    glMaterialfv( GL_FRONT,GL_SPECULAR,@a_specular.pack('F*') )
+    glMaterialfv( GL_FRONT,GL_DIFFUSE,@a_diffuse )
+    glMaterialfv( GL_FRONT,GL_AMBIENT,@a_ambient )
+    glMaterialfv( GL_FRONT,GL_SPECULAR,@a_specular )
     glMaterialf( GL_FRONT,GL_SHININESS,10.0 )
     glPushMatrix()
     glScalef( -1,-1,1 )
@@ -485,11 +486,8 @@ class Scene02
     glColor4ub( 128,192,255,255 )
     glRotatef( 2.0*@a_counter,0,0,1 )
 
-    @a_LightPosition[0] = 0
-    @a_LightPosition[1] = 0
-    @a_LightPosition[2] = 0
     glEnable( GL_LIGHTING )
-    glLightfv( GL_LIGHT1,GL_POSITION,@a_LightPosition.pack('F*') )
+    glLightfv( GL_LIGHT1,GL_POSITION,@a_LightPosition1 )
     glDisable( GL_LIGHTING )
     @texture["white"].use
     draw_quad(1.0+Math.sin(@a_counter*12.0*3.1415/360.0)+3.1415/2.0)

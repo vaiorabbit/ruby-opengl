@@ -179,9 +179,11 @@ def createHelix() # creates helix VA
   [helix_v,helix_n]
 end
 
+glfMaterialColor = nil
+specular = nil
 def processHelix() # Draws A Helix 
-  glfMaterialColor = [0.4,0.2,0.8,1.0] # Set The Material Color
-  specular = [1.0,1.0,1.0,1.0] # Sets Up Specular Lighting
+  glfMaterialColor = [0.4,0.2,0.8,1.0].pack('F*') unless glfMaterialColor # Set The Material Color
+  specular = [1.0,1.0,1.0,1.0].pack('F*') unless specular # Sets Up Specular Lighting
 
   glLoadIdentity() # Reset The Modelview Matrix
   gluLookAt(0, 5, 50, 0, 0, 0, 0, 1, 0) # Eye Position (0,5,50) Center Of Scene (0,0,0), Up On Y Axis
@@ -192,8 +194,8 @@ def processHelix() # Draws A Helix
   glRotatef($angle/2.0,1,0,0) # Rotate By angle/2 On The X-Axis
   glRotatef($angle/3.0,0,1,0) # Rotate By angle/3 On The Y-Axis
 
-  glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE,glfMaterialColor.pack('F*'))
-  glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR,specular.pack('F*'))
+  glMaterialfv(GL_FRONT_AND_BACK,GL_AMBIENT_AND_DIFFUSE, glfMaterialColor)
+  glMaterialfv(GL_FRONT_AND_BACK,GL_SPECULAR, specular)
 
   glEnableClientState(GL_VERTEX_ARRAY)
   glEnableClientState(GL_NORMAL_ARRAY)

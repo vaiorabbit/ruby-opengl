@@ -76,6 +76,10 @@ class Scene05
     end
 
     @c_LightPosition = [ 0.0, 8.0, -20.0, 1.0 ]
+    @c_LightAmbient = [0.5, 0.5, 0.5, 1.0].pack('F4')
+    @c_LightDiffuse = [0.5, 0.5, 0.5, 1.0].pack('F4')
+
+    @c_FogColor = [0.0, 0.0, 0.0].pack('F3')
   end
 
   def initGL
@@ -166,7 +170,7 @@ class Scene05
     glFogf(GL_FOG_START,9.0)
     glFogf(GL_FOG_END,28.0)
     glFogf(GL_FOG_DENSITY,0.075);
-    glFogfv( GL_FOG_COLOR, [0.0, 0.0, 0.0].pack('F3') )
+    glFogfv( GL_FOG_COLOR, @c_FogColor )
     glEnable(GL_FOG)
 
     glDisable(GL_CULL_FACE)
@@ -179,9 +183,9 @@ class Scene05
     @c_quadratic=gluNewQuadric()
     gluQuadricNormals(@c_quadratic, GLU_SMOOTH)
     gluQuadricTexture(@c_quadratic, GL_TRUE)
-    glLightfv( GL_LIGHT1, GL_AMBIENT, [0.5, 0.5, 0.5, 1.0].pack('F4') ) # Load Light-Parameters into GL_LIGHT1
-    glLightfv( GL_LIGHT1, GL_DIFFUSE, [0.5, 0.5, 0.5, 1.0].pack('F4') )
-    glLightfv( GL_LIGHT1, GL_POSITION, @c_LightPosition.pack('F*') )
+    glLightfv( GL_LIGHT1, GL_AMBIENT, @c_LightAmbient ) # Load Light-Parameters into GL_LIGHT1
+    glLightfv( GL_LIGHT1, GL_DIFFUSE, @c_LightDiffuse )
+    glLightfv( GL_LIGHT1, GL_POSITION, @c_LightPosition.pack('F4') )
     glEnable(GL_LIGHT1)
   end
 

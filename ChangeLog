@@ -1,3 +1,7 @@
+2014-02-14  vaiorabbit  <https://twitter.com/vaiorabbit>
+
+	* samples: Fixed Array#pack abuse to improve performance.
+
 2014-02-09  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* sample/GLExcess/glxs_glut.rb : Added.
