@@ -28,7 +28,11 @@ include GLUT
 
 OpenGL.load_dll()
 GLU.load_dll()
-GLUT.load_dll('freeglut.dll', '..')
+if OpenGL.get_platform == :OPENGL_PLATFORM_WINDOWS
+  GLUT.load_dll('freeglut.dll', '..')
+else
+  GLUT.load_dll()
+end
 
 require 'optparse'
 

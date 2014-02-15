@@ -70,43 +70,50 @@ $teapot = nil
 $gleModel = [:cube, :teapot] # [:cube, :teapot,:torus,:sphere]
 $clearColor = [[0,0,0,1], [0.2,0.2,0.3,1], [0.7,0.7,0.7,1]]
 
+$vtx = nil
+$cube = nil
+
 def drawCube
   size = 1.0
   scale = 0.2
   delta = 0.1
 
-  v = [
-       [ size,  size,  size * scale + delta ], 
-       [ size,  size, -size * scale + delta ], 
-       [ size, -size, -size * scale ], 
-       [ size, -size,  size * scale ],
-       [-size,  size,  size * scale + delta ],
-       [-size,  size, -size * scale + delta ],
-       [-size, -size, -size * scale ],
-       [-size, -size,  size * scale ]
-      ]
+  if $vtx == nil
+    $vtx = [
+            Fiddle::Pointer[[ size,  size,  size * scale + delta ].pack('F*')], 
+            Fiddle::Pointer[[ size,  size, -size * scale + delta ].pack('F*')], 
+            Fiddle::Pointer[[ size, -size, -size * scale ].pack('F*')], 
+            Fiddle::Pointer[[ size, -size,  size * scale ].pack('F*')],
+            Fiddle::Pointer[[-size,  size,  size * scale + delta ].pack('F*')],
+            Fiddle::Pointer[[-size,  size, -size * scale + delta ].pack('F*')],
+            Fiddle::Pointer[[-size, -size, -size * scale ].pack('F*')],
+            Fiddle::Pointer[[-size, -size,  size * scale ].pack('F*')]
+           ]
+  end
 
-  cube = [
-          [ [1,0,0], v[3],v[2],v[1],v[0] ], # normal, vertices
-          [ [-1,0,0], v[6],v[7],v[4],v[5] ],
-          [ [0,0,-1], v[2],v[6],v[5],v[1] ],
-          [ [0,0,1], v[7],v[3],v[0],v[4] ],
-          [ [0,1,0], v[4],v[0],v[1],v[5] ],
-          [ [0,-1,0], v[6],v[2],v[3],v[7] ]
-         ]
+  if $cube == nil
+    $cube = [
+             [ Fiddle::Pointer[[1,0,0].pack('F*')], $vtx[3],$vtx[2],$vtx[1],$vtx[0] ], # normal, vertices
+             [ Fiddle::Pointer[[-1,0,0].pack('F*')], $vtx[6],$vtx[7],$vtx[4],$vtx[5] ],
+             [ Fiddle::Pointer[[0,0,-1].pack('F*')], $vtx[2],$vtx[6],$vtx[5],$vtx[1] ],
+             [ Fiddle::Pointer[[0,0,1].pack('F*')], $vtx[7],$vtx[3],$vtx[0],$vtx[4] ],
+             [ Fiddle::Pointer[[0,1,0].pack('F*')], $vtx[4],$vtx[0],$vtx[1],$vtx[5] ],
+             [ Fiddle::Pointer[[0,-1,0].pack('F*')], $vtx[6],$vtx[2],$vtx[3],$vtx[7] ]
+            ]
+  end
 
   glBegin(GL_QUADS)
-  cube.each do |side|
-    glNormal3fv(side[0].pack('F*'))
+  $cube.each do |side|
+    glNormal3fv(side[0])
 
     glTexCoord2f(1,1)
-    glVertex3fv(side[1].pack('F*'))
+    glVertex3fv(side[1])
     glTexCoord2f(0,1)
-    glVertex3fv(side[2].pack('F*'))
+    glVertex3fv(side[2])
     glTexCoord2f(0,0)
-    glVertex3fv(side[3].pack('F*'))
+    glVertex3fv(side[3])
     glTexCoord2f(1,0)
-    glVertex3fv(side[4].pack('F*'))
+    glVertex3fv(side[4])
   end
   glEnd()
 end
@@ -436,11 +443,19 @@ if __FILE__ == $0
   $teapot.parse('../data/teapot.obj')
   $teapot.setup
 
+  time_start = Time.now
   while glfwWindowShouldClose( window ) == 0
     timer.call
     play.call
     display.call
     glfwSwapBuffers( window )
     glfwPollEvents()
+
+    time_now = Time.now
+    if time_now - time_start > 10
+      GC.start
+      p GC.stat
+      time_start = time_now
+    end
   end
 end
