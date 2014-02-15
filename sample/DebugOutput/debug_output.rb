@@ -135,6 +135,11 @@ if __FILE__ == $0
     # *** ERROR ***
     glEnable(GL_TEXTURE)
     # *** ERROR ***
+=begin
+    The above line will generate message like:
+        [OpenGL Error] Source:API, Type:Type Error, ID:1280, Severity:High
+        [OpenGL Error] Message: GL_INVALID_ENUM error generated. <cap> enum is invalid; expected GL_ALPHA_TEST, GL_BLEND, GL_COLOR_MATERIAL, GL_CULL_FACE, GL_DEPTH_TEST, GL_DITHER, GL_FOG, etc. (136 others).
+=end
   end
 
   glfwDestroyWindow( window )
