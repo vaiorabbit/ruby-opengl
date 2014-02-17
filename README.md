@@ -71,9 +71,10 @@ https://github.com/vaiorabbit/ruby-opengl
     *   Type 'rake' to generate wrapper codes / fetch gl.xml.
     *   You can get the latest one by 'get_gl_xml.rb'.
 
-*   'sample/simple.rb'
+*   'sample/simple.rb', 'sample/simple_glut.rb'
     *   Simple example.
-    *   You need to get glfw3.dll (Windows) or libglfw.dylib (Mac OS X). See sample/README.md.
+    *   simple.rb : You need to get glfw3.dll (Windows) or libglfw.dylib (Mac OS X). See sample/README.md.
+    *   simple_glut.rb : (For Windows uses) You need to get freeglut.dll. See sample/README.md.
 
 *   'sample/data', 'sample/util'
     *   Data and utilities for sample programs.
@@ -210,7 +211,7 @@ RubyGems経由で ( https://rubygems.org/gems/opengl-bindings ):
 
 ## 使い方 ##
 
-sample/simple.rb を参照してください。
+sample/simple.rb または sample/simple_glut.rb を参照してください。
 
 その他のサンプルと自動生成スクリプトはこちらで開発しています:
 https://github.com/vaiorabbit/ruby-opengl
@@ -250,9 +251,10 @@ https://github.com/vaiorabbit/ruby-opengl
     *   自動生成関連のタスクを自動化するためのものです。'rake' と打てば gl.xml の取得とラッパーコードの生成を実行します。
     *   gl.xml の取得だけなど、単体のタスクなら 'get_gl_xml.rb' などの個別Rubyスクリプトでも実行できます。
 
-*   'sample/simple.rb'
+*   'sample/simple.rb', 'sample/simple_glut.rb'
     *   一番簡単なサンプルです。
-    *   同じ場所に glfw3.dll (Windows) もしくは libglfw.dylib (Mac OS X) を置いてください。詳細は sample/README.md に記載されています。
+    *   simple.rb : 同じ場所に glfw3.dll (Windows) もしくは libglfw.dylib (Mac OS X) を置いてください。詳細は sample/README.md に記載されています。
+    *   simple_glut.rb : (Windows の場合) freeglut.dll を置いてください。詳細は sample/README.md に記載されています。
 
 *   'sample/data', 'sample/util'
     *   サンプルで共有する機能・データの配置場所です。
