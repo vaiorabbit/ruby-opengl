@@ -16228,6 +16228,15 @@ module OpenGL
   def define_ext_command_GL_NV_shader_storage_buffer_object
   end # define_ext_command_GL_NV_shader_storage_buffer_object
 
+  def define_ext_command_GL_NV_shader_thread_group
+  end # define_ext_command_GL_NV_shader_thread_group
+
+  def define_ext_command_GL_NV_shader_thread_shuffle
+  end # define_ext_command_GL_NV_shader_thread_shuffle
+
+  def define_ext_command_GL_EXT_shader_image_load_formatted
+  end # define_ext_command_GL_EXT_shader_image_load_formatted
+
   def define_ext_command_GL_NV_tessellation_program5
   end # define_ext_command_GL_NV_tessellation_program5
 

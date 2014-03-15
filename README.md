@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2014-02-17
+*   Last modified : 2014-03-15
 
 
 ## Features ##
@@ -162,7 +162,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 
 The zlib/libpng License ( http://opensource.org/licenses/Zlib ).
 
-    Copyright (c) 2013 vaiorabbit@twitter.com
+    Copyright (c) 2013-2014 vaiorabbit@twitter.com
 
     This software is provided 'as-is', without any express or implied
     warranty. In no event will the authors be held liable for any damages

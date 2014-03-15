@@ -312,6 +312,12 @@ module OpenGL
   def define_ext_command_GL_ARM_rgba8
   end # define_ext_command_GL_ARM_rgba8
 
+  def define_ext_command_GL_ARM_shader_framebuffer_fetch
+  end # define_ext_command_GL_ARM_shader_framebuffer_fetch
+
+  def define_ext_command_GL_ARM_shader_framebuffer_fetch_depth_stencil
+  end # define_ext_command_GL_ARM_shader_framebuffer_fetch_depth_stencil
+
   def define_ext_command_GL_DMP_shader_binary
   end # define_ext_command_GL_DMP_shader_binary
 
@@ -1184,6 +1190,9 @@ module OpenGL
 
   def define_ext_command_GL_EXT_shader_integer_mix
   end # define_ext_command_GL_EXT_shader_integer_mix
+
+  def define_ext_command_GL_EXT_shader_pixel_local_storage
+  end # define_ext_command_GL_EXT_shader_pixel_local_storage
 
   def define_ext_command_GL_EXT_shader_texture_lod
   end # define_ext_command_GL_EXT_shader_texture_lod

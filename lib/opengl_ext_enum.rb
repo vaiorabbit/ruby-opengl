@@ -4270,6 +4270,18 @@ module OpenGL
   def define_ext_enum_GL_NV_shader_storage_buffer_object
   end # define_ext_enum_GL_NV_shader_storage_buffer_object
 
+  def define_ext_enum_GL_NV_shader_thread_group
+    const_set('GL_WARP_SIZE_NV', 0x9339) unless defined?(GL_WARP_SIZE_NV)
+    const_set('GL_WARPS_PER_SM_NV', 0x933A) unless defined?(GL_WARPS_PER_SM_NV)
+    const_set('GL_SM_COUNT_NV', 0x933B) unless defined?(GL_SM_COUNT_NV)
+  end # define_ext_enum_GL_NV_shader_thread_group
+
+  def define_ext_enum_GL_NV_shader_thread_shuffle
+  end # define_ext_enum_GL_NV_shader_thread_shuffle
+
+  def define_ext_enum_GL_EXT_shader_image_load_formatted
+  end # define_ext_enum_GL_EXT_shader_image_load_formatted
+
   def define_ext_enum_GL_NV_tessellation_program5
     const_set('GL_MAX_PROGRAM_PATCH_ATTRIBS_NV', 0x86D8) unless defined?(GL_MAX_PROGRAM_PATCH_ATTRIBS_NV)
     const_set('GL_TESS_CONTROL_PROGRAM_NV', 0x891E) unless defined?(GL_TESS_CONTROL_PROGRAM_NV)

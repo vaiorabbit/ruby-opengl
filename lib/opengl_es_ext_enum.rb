@@ -143,6 +143,14 @@ module OpenGL
   def define_ext_enum_GL_ARM_rgba8
   end # define_ext_enum_GL_ARM_rgba8
 
+  def define_ext_enum_GL_ARM_shader_framebuffer_fetch
+    const_set('GL_FETCH_PER_SAMPLE_ARM', 0x8F65) unless defined?(GL_FETCH_PER_SAMPLE_ARM)
+    const_set('GL_FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM', 0x8F66) unless defined?(GL_FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM)
+  end # define_ext_enum_GL_ARM_shader_framebuffer_fetch
+
+  def define_ext_enum_GL_ARM_shader_framebuffer_fetch_depth_stencil
+  end # define_ext_enum_GL_ARM_shader_framebuffer_fetch_depth_stencil
+
   def define_ext_enum_GL_DMP_shader_binary
     const_set('GL_SHADER_BINARY_DMP', 0x9250) unless defined?(GL_SHADER_BINARY_DMP)
   end # define_ext_enum_GL_DMP_shader_binary
@@ -322,6 +330,12 @@ module OpenGL
 
   def define_ext_enum_GL_EXT_shader_integer_mix
   end # define_ext_enum_GL_EXT_shader_integer_mix
+
+  def define_ext_enum_GL_EXT_shader_pixel_local_storage
+    const_set('GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT', 0x8F63) unless defined?(GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT)
+    const_set('GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT', 0x8F67) unless defined?(GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT)
+    const_set('GL_SHADER_PIXEL_LOCAL_STORAGE_EXT', 0x8F64) unless defined?(GL_SHADER_PIXEL_LOCAL_STORAGE_EXT)
+  end # define_ext_enum_GL_EXT_shader_pixel_local_storage
 
   def define_ext_enum_GL_EXT_shader_texture_lod
   end # define_ext_enum_GL_EXT_shader_texture_lod
