@@ -1410,6 +1410,17 @@ module OpenGL
     SRC_GL_INTEL_performance_query
   end # define_ext_command_GL_INTEL_performance_query
 
+  def define_ext_command_GL_KHR_blend_equation_advanced
+    GL_FUNCTIONS_ARGS_MAP[:glBlendBarrierKHR] = []
+    GL_FUNCTIONS_RETVAL_MAP[:glBlendBarrierKHR] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_KHR_blend_equation_advanced)
+      def glBlendBarrierKHR()
+        f = OpenGL::get_command(:glBlendBarrierKHR)
+        f.call()
+      end
+    SRC_GL_KHR_blend_equation_advanced
+  end # define_ext_command_GL_KHR_blend_equation_advanced
+
   def define_ext_command_GL_KHR_debug
     GL_FUNCTIONS_ARGS_MAP[:glDebugMessageControl] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glDebugMessageControl] = Fiddle::TYPE_VOID
@@ -2013,6 +2024,26 @@ module OpenGL
   def define_ext_command_GL_OES_rgb8_rgba8
   end # define_ext_command_GL_OES_rgb8_rgba8
 
+  def define_ext_command_GL_OES_sample_shading
+    GL_FUNCTIONS_ARGS_MAP[:glMinSampleShadingOES] = [Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_RETVAL_MAP[:glMinSampleShadingOES] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_OES_sample_shading)
+      def glMinSampleShadingOES(_value_)
+        f = OpenGL::get_command(:glMinSampleShadingOES)
+        f.call(_value_)
+      end
+    SRC_GL_OES_sample_shading
+  end # define_ext_command_GL_OES_sample_shading
+
+  def define_ext_command_GL_OES_sample_variables
+  end # define_ext_command_GL_OES_sample_variables
+
+  def define_ext_command_GL_OES_shader_image_atomic
+  end # define_ext_command_GL_OES_shader_image_atomic
+
+  def define_ext_command_GL_OES_shader_multisample_interpolation
+  end # define_ext_command_GL_OES_shader_multisample_interpolation
+
   def define_ext_command_GL_OES_standard_derivatives
   end # define_ext_command_GL_OES_standard_derivatives
 
@@ -2098,6 +2129,20 @@ module OpenGL
 
   def define_ext_command_GL_OES_texture_npot
   end # define_ext_command_GL_OES_texture_npot
+
+  def define_ext_command_GL_OES_texture_stencil8
+  end # define_ext_command_GL_OES_texture_stencil8
+
+  def define_ext_command_GL_OES_texture_storage_multisample_2d_array
+    GL_FUNCTIONS_ARGS_MAP[:glTexStorage3DMultisampleOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_RETVAL_MAP[:glTexStorage3DMultisampleOES] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_OES_texture_storage_multisample_2d_array)
+      def glTexStorage3DMultisampleOES(_target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
+        f = OpenGL::get_command(:glTexStorage3DMultisampleOES)
+        f.call(_target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
+      end
+    SRC_GL_OES_texture_storage_multisample_2d_array
+  end # define_ext_command_GL_OES_texture_storage_multisample_2d_array
 
   def define_ext_command_GL_OES_vertex_array_object
     GL_FUNCTIONS_ARGS_MAP[:glBindVertexArrayOES] = [-Fiddle::TYPE_INT]

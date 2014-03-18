@@ -7,12 +7,12 @@ Gem::Specification.new do |gem|
   gem.version       = "1.3.5"
   gem.authors       = ["vaiorabbit"]
   gem.email         = ["vaiorabbit@gmail.com"]
-  gem.summary       = %q{Bindings for OpenGL 1.0-4.4, ES 2.0/3.0 and extensions (For MRI >= 2.0.0)}
+  gem.summary       = %q{Bindings for OpenGL -4.4, ES - 3.1 and extensions (For MRI >= 2.0.0)}
   gem.homepage      = "https://github.com/vaiorabbit/ruby-opengl"
   gem.require_paths = ["lib"]
   gem.license       = "zlib/libpng"
   gem.description   = <<-DESC
-Ruby bindings for OpenGL 1.0-4.4, OpenGL ES 2.0/3.0 and all extensions using Fiddle (For MRI >= 2.0.0).
+Ruby bindings for OpenGL - 4.4, OpenGL ES - 3.1 and all extensions using Fiddle (For MRI >= 2.0.0).
   DESC
 
   gem.required_ruby_version = '>= 2.0.0'

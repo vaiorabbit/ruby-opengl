@@ -476,6 +476,25 @@ module OpenGL
     const_set('GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL', 0x9500) unless defined?(GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL)
   end # define_ext_enum_GL_INTEL_performance_query
 
+  def define_ext_enum_GL_KHR_blend_equation_advanced
+    const_set('GL_BLEND_ADVANCED_COHERENT_KHR', 0x9285) unless defined?(GL_BLEND_ADVANCED_COHERENT_KHR)
+    const_set('GL_MULTIPLY_KHR', 0x9294) unless defined?(GL_MULTIPLY_KHR)
+    const_set('GL_SCREEN_KHR', 0x9295) unless defined?(GL_SCREEN_KHR)
+    const_set('GL_OVERLAY_KHR', 0x9296) unless defined?(GL_OVERLAY_KHR)
+    const_set('GL_DARKEN_KHR', 0x9297) unless defined?(GL_DARKEN_KHR)
+    const_set('GL_LIGHTEN_KHR', 0x9298) unless defined?(GL_LIGHTEN_KHR)
+    const_set('GL_COLORDODGE_KHR', 0x9299) unless defined?(GL_COLORDODGE_KHR)
+    const_set('GL_COLORBURN_KHR', 0x929A) unless defined?(GL_COLORBURN_KHR)
+    const_set('GL_HARDLIGHT_KHR', 0x929B) unless defined?(GL_HARDLIGHT_KHR)
+    const_set('GL_SOFTLIGHT_KHR', 0x929C) unless defined?(GL_SOFTLIGHT_KHR)
+    const_set('GL_DIFFERENCE_KHR', 0x929E) unless defined?(GL_DIFFERENCE_KHR)
+    const_set('GL_EXCLUSION_KHR', 0x92A0) unless defined?(GL_EXCLUSION_KHR)
+    const_set('GL_HSL_HUE_KHR', 0x92AD) unless defined?(GL_HSL_HUE_KHR)
+    const_set('GL_HSL_SATURATION_KHR', 0x92AE) unless defined?(GL_HSL_SATURATION_KHR)
+    const_set('GL_HSL_COLOR_KHR', 0x92AF) unless defined?(GL_HSL_COLOR_KHR)
+    const_set('GL_HSL_LUMINOSITY_KHR', 0x92B0) unless defined?(GL_HSL_LUMINOSITY_KHR)
+  end # define_ext_enum_GL_KHR_blend_equation_advanced
+
   def define_ext_enum_GL_KHR_debug
     const_set('GL_DEBUG_OUTPUT_SYNCHRONOUS', 0x8242) unless defined?(GL_DEBUG_OUTPUT_SYNCHRONOUS)
     const_set('GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH', 0x8243) unless defined?(GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH)
@@ -938,6 +957,23 @@ module OpenGL
     const_set('GL_RGBA8_OES', 0x8058) unless defined?(GL_RGBA8_OES)
   end # define_ext_enum_GL_OES_rgb8_rgba8
 
+  def define_ext_enum_GL_OES_sample_shading
+    const_set('GL_SAMPLE_SHADING_OES', 0x8C36) unless defined?(GL_SAMPLE_SHADING_OES)
+    const_set('GL_MIN_SAMPLE_SHADING_VALUE_OES', 0x8C37) unless defined?(GL_MIN_SAMPLE_SHADING_VALUE_OES)
+  end # define_ext_enum_GL_OES_sample_shading
+
+  def define_ext_enum_GL_OES_sample_variables
+  end # define_ext_enum_GL_OES_sample_variables
+
+  def define_ext_enum_GL_OES_shader_image_atomic
+  end # define_ext_enum_GL_OES_shader_image_atomic
+
+  def define_ext_enum_GL_OES_shader_multisample_interpolation
+    const_set('GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES', 0x8E5B) unless defined?(GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES)
+    const_set('GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_OES', 0x8E5C) unless defined?(GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_OES)
+    const_set('GL_FRAGMENT_INTERPOLATION_OFFSET_BITS_OES', 0x8E5D) unless defined?(GL_FRAGMENT_INTERPOLATION_OFFSET_BITS_OES)
+  end # define_ext_enum_GL_OES_shader_multisample_interpolation
+
   def define_ext_enum_GL_OES_standard_derivatives
     const_set('GL_FRAGMENT_SHADER_DERIVATIVE_HINT_OES', 0x8B8B) unless defined?(GL_FRAGMENT_SHADER_DERIVATIVE_HINT_OES)
   end # define_ext_enum_GL_OES_standard_derivatives
@@ -1030,6 +1066,19 @@ module OpenGL
 
   def define_ext_enum_GL_OES_texture_npot
   end # define_ext_enum_GL_OES_texture_npot
+
+  def define_ext_enum_GL_OES_texture_stencil8
+    const_set('GL_STENCIL_INDEX_OES', 0x1901) unless defined?(GL_STENCIL_INDEX_OES)
+    const_set('GL_STENCIL_INDEX8_OES', 0x8D48) unless defined?(GL_STENCIL_INDEX8_OES)
+  end # define_ext_enum_GL_OES_texture_stencil8
+
+  def define_ext_enum_GL_OES_texture_storage_multisample_2d_array
+    const_set('GL_TEXTURE_2D_MULTISAMPLE_ARRAY_OES', 0x9102) unless defined?(GL_TEXTURE_2D_MULTISAMPLE_ARRAY_OES)
+    const_set('GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY_OES', 0x9105) unless defined?(GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY_OES)
+    const_set('GL_SAMPLER_2D_MULTISAMPLE_ARRAY_OES', 0x910B) unless defined?(GL_SAMPLER_2D_MULTISAMPLE_ARRAY_OES)
+    const_set('GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES', 0x910C) unless defined?(GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES)
+    const_set('GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES', 0x910D) unless defined?(GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES)
+  end # define_ext_enum_GL_OES_texture_storage_multisample_2d_array
 
   def define_ext_enum_GL_OES_vertex_array_object
     const_set('GL_VERTEX_ARRAY_BINDING_OES', 0x85B5) unless defined?(GL_VERTEX_ARRAY_BINDING_OES)
