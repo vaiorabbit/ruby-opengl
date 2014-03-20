@@ -30779,6 +30779,7 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_VERTEX_BINDING_STRIDE"/>
             <enum name="GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET"/>
             <enum name="GL_MAX_VERTEX_ATTRIB_BINDINGS"/>
+            <enum name="GL_VERTEX_BINDING_BUFFER" comment="Added in 2013/10/22 update to the spec"/>
         </require>
         <require comment="Reuse commands from ARB_arrays_of_arrays (none, GLSL only)">
         </require>
