@@ -54,6 +54,37 @@ module OpenGL
   def define_ext_enum_GL_AMD_draw_buffers_blend
   end # define_ext_enum_GL_AMD_draw_buffers_blend
 
+  def define_ext_enum_GL_AMD_gpu_shader_int64
+    const_set('GL_INT64_NV', 0x140E) unless defined?(GL_INT64_NV)
+    const_set('GL_UNSIGNED_INT64_NV', 0x140F) unless defined?(GL_UNSIGNED_INT64_NV)
+    const_set('GL_INT8_NV', 0x8FE0) unless defined?(GL_INT8_NV)
+    const_set('GL_INT8_VEC2_NV', 0x8FE1) unless defined?(GL_INT8_VEC2_NV)
+    const_set('GL_INT8_VEC3_NV', 0x8FE2) unless defined?(GL_INT8_VEC3_NV)
+    const_set('GL_INT8_VEC4_NV', 0x8FE3) unless defined?(GL_INT8_VEC4_NV)
+    const_set('GL_INT16_NV', 0x8FE4) unless defined?(GL_INT16_NV)
+    const_set('GL_INT16_VEC2_NV', 0x8FE5) unless defined?(GL_INT16_VEC2_NV)
+    const_set('GL_INT16_VEC3_NV', 0x8FE6) unless defined?(GL_INT16_VEC3_NV)
+    const_set('GL_INT16_VEC4_NV', 0x8FE7) unless defined?(GL_INT16_VEC4_NV)
+    const_set('GL_INT64_VEC2_NV', 0x8FE9) unless defined?(GL_INT64_VEC2_NV)
+    const_set('GL_INT64_VEC3_NV', 0x8FEA) unless defined?(GL_INT64_VEC3_NV)
+    const_set('GL_INT64_VEC4_NV', 0x8FEB) unless defined?(GL_INT64_VEC4_NV)
+    const_set('GL_UNSIGNED_INT8_NV', 0x8FEC) unless defined?(GL_UNSIGNED_INT8_NV)
+    const_set('GL_UNSIGNED_INT8_VEC2_NV', 0x8FED) unless defined?(GL_UNSIGNED_INT8_VEC2_NV)
+    const_set('GL_UNSIGNED_INT8_VEC3_NV', 0x8FEE) unless defined?(GL_UNSIGNED_INT8_VEC3_NV)
+    const_set('GL_UNSIGNED_INT8_VEC4_NV', 0x8FEF) unless defined?(GL_UNSIGNED_INT8_VEC4_NV)
+    const_set('GL_UNSIGNED_INT16_NV', 0x8FF0) unless defined?(GL_UNSIGNED_INT16_NV)
+    const_set('GL_UNSIGNED_INT16_VEC2_NV', 0x8FF1) unless defined?(GL_UNSIGNED_INT16_VEC2_NV)
+    const_set('GL_UNSIGNED_INT16_VEC3_NV', 0x8FF2) unless defined?(GL_UNSIGNED_INT16_VEC3_NV)
+    const_set('GL_UNSIGNED_INT16_VEC4_NV', 0x8FF3) unless defined?(GL_UNSIGNED_INT16_VEC4_NV)
+    const_set('GL_UNSIGNED_INT64_VEC2_NV', 0x8FF5) unless defined?(GL_UNSIGNED_INT64_VEC2_NV)
+    const_set('GL_UNSIGNED_INT64_VEC3_NV', 0x8FF6) unless defined?(GL_UNSIGNED_INT64_VEC3_NV)
+    const_set('GL_UNSIGNED_INT64_VEC4_NV', 0x8FF7) unless defined?(GL_UNSIGNED_INT64_VEC4_NV)
+    const_set('GL_FLOAT16_NV', 0x8FF8) unless defined?(GL_FLOAT16_NV)
+    const_set('GL_FLOAT16_VEC2_NV', 0x8FF9) unless defined?(GL_FLOAT16_VEC2_NV)
+    const_set('GL_FLOAT16_VEC3_NV', 0x8FFA) unless defined?(GL_FLOAT16_VEC3_NV)
+    const_set('GL_FLOAT16_VEC4_NV', 0x8FFB) unless defined?(GL_FLOAT16_VEC4_NV)
+  end # define_ext_enum_GL_AMD_gpu_shader_int64
+
   def define_ext_enum_GL_AMD_interleaved_elements
     const_set('GL_VERTEX_ELEMENT_SWIZZLE_AMD', 0x91A4) unless defined?(GL_VERTEX_ELEMENT_SWIZZLE_AMD)
     const_set('GL_VERTEX_ID_SWIZZLE_AMD', 0x91A5) unless defined?(GL_VERTEX_ID_SWIZZLE_AMD)
@@ -147,6 +178,10 @@ module OpenGL
 
   def define_ext_enum_GL_AMD_transform_feedback3_lines_triangles
   end # define_ext_enum_GL_AMD_transform_feedback3_lines_triangles
+
+  def define_ext_enum_GL_AMD_transform_feedback4
+    const_set('GL_STREAM_RASTERIZATION_AMD', 0x91A0) unless defined?(GL_STREAM_RASTERIZATION_AMD)
+  end # define_ext_enum_GL_AMD_transform_feedback4
 
   def define_ext_enum_GL_AMD_vertex_shader_layer
   end # define_ext_enum_GL_AMD_vertex_shader_layer
