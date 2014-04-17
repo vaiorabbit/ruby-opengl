@@ -97,6 +97,9 @@ module OpenGL
     const_set('GL_RGBA8UI', 0x8D7C) unless defined?(GL_RGBA8UI)
   end # define_ext_enum_GL_AMD_interleaved_elements
 
+  def define_ext_enum_GL_AMD_gcn_shader
+  end # define_ext_enum_GL_AMD_gcn_shader
+
   def define_ext_enum_GL_AMD_multi_draw_indirect
   end # define_ext_enum_GL_AMD_multi_draw_indirect
 

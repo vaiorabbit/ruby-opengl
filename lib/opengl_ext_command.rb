@@ -429,6 +429,9 @@ module OpenGL
     SRC_GL_AMD_interleaved_elements
   end # define_ext_command_GL_AMD_interleaved_elements
 
+  def define_ext_command_GL_AMD_gcn_shader
+  end # define_ext_command_GL_AMD_gcn_shader
+
   def define_ext_command_GL_AMD_multi_draw_indirect
     GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirectAMD] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawArraysIndirectAMD] = Fiddle::TYPE_VOID
