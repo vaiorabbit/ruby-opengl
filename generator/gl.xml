@@ -7908,7 +7908,9 @@ typedef unsigned int GLhandleARB;
     </enums>
 
     <enums namespace="GL" start="0x93F0" end="0x94EF" vendor="APPLE" comment="Khronos bug 10233">
-            <unused start="0x93F0" end="0x94EF"/>
+        <enum value="0x93F0" name="GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG"/>
+        <enum value="0x93F1" name="GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG"/>
+            <unused start="0x93F2" end="0x94EF"/>
     </enums>
 
     <enums namespace="GL" start="0x94F0" end="0x950F" vendor="INTEL" comment="Khronos bug 11345">
@@ -7931,6 +7933,10 @@ typedef unsigned int GLhandleARB;
             <unused start="0x9501" end="0x950F"/>
     </enums>
 
+    <enums namespace="GL" start="0x9510" end="0x952F" vendor="Broadcom" comment="Khronos bug 12203">
+            <unused start="0x9510" end="0x952F"/>
+    </enums>
+
 <!-- Enums reservable for future use. To reserve a new range, allocate one
      or more multiples of 16 starting at the lowest available point in this
      block and note it in a new <enums> block immediately above.
@@ -7940,8 +7946,8 @@ typedef unsigned int GLhandleARB;
      file) File requests in the Khronos Bugzilla, OpenGL project, Registry
      component. -->
 
-    <enums namespace="GL" start="0x9510" end="99999" vendor="ARB" comment="RESERVED FOR FUTURE ALLOCATIONS BY KHRONOS">
-        <unused start="0x9510" end="99999"/>
+    <enums namespace="GL" start="0x9530" end="99999" vendor="ARB" comment="RESERVED FOR FUTURE ALLOCATIONS BY KHRONOS">
+        <unused start="0x9530" end="99999"/>
     </enums>
 
 <!-- Historical large block allocations, all unused except (in older days) by IBM -->
@@ -37221,6 +37227,8 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_COMPRESSED_SRGB_PVRTC_4BPPV1_EXT"/>
                 <enum name="GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV1_EXT"/>
                 <enum name="GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV1_EXT"/>
+                <enum name="GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG"/>
+                <enum name="GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG"/>
             </require>
         </extension>
         <extension name="GL_EXT_read_format_bgra" supported="gles1|gles2">
