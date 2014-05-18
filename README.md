@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2014-05-15
+*   Last modified : 2014-05-18
 
 
 ## Features ##
@@ -84,6 +84,7 @@ https://github.com/vaiorabbit/ruby-opengl
 *   Fiddle
 	*   A libffi wrapper
 	*   Standard library since Ruby 2.0.0
+	*   I recommend you to use Ruby 2.1.2 and later, which fixed Fiddle's memory leak issue (https://bugs.ruby-lang.org/issues/9599).
 
 ### For sample ###
 
@@ -265,6 +266,7 @@ https://github.com/vaiorabbit/ruby-opengl
 *   Fiddle
 	*   libffi のラッパーです
 	*   Ruby 2.0.0 以降で標準ライブラリになりました
+	*   Fiddle のメモリリーク問題 (https://bugs.ruby-lang.org/issues/9599) が修正された Ruby 2.1.2 以降での利用を推奨します
 
 ### サンプル用 ###
 
