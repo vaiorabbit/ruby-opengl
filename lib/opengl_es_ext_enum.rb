@@ -171,6 +171,9 @@ module OpenGL
     const_set('GL_UNSIGNED_NORMALIZED_EXT', 0x8C17) unless defined?(GL_UNSIGNED_NORMALIZED_EXT)
   end # define_ext_enum_GL_EXT_color_buffer_half_float
 
+  def define_ext_enum_GL_EXT_copy_image
+  end # define_ext_enum_GL_EXT_copy_image
+
   def define_ext_enum_GL_EXT_debug_label
     const_set('GL_PROGRAM_PIPELINE_OBJECT_EXT', 0x8A4F) unless defined?(GL_PROGRAM_PIPELINE_OBJECT_EXT)
     const_set('GL_PROGRAM_OBJECT_EXT', 0x8B40) unless defined?(GL_PROGRAM_OBJECT_EXT)
@@ -238,8 +241,78 @@ module OpenGL
     const_set('GL_COLOR_ATTACHMENT15_EXT', 0x8CEF) unless defined?(GL_COLOR_ATTACHMENT15_EXT)
   end # define_ext_enum_GL_EXT_draw_buffers
 
+  def define_ext_enum_GL_EXT_draw_buffers_indexed
+    const_set('GL_BLEND_EQUATION_RGB', 0x8009) unless defined?(GL_BLEND_EQUATION_RGB)
+    const_set('GL_BLEND_EQUATION_ALPHA', 0x883D) unless defined?(GL_BLEND_EQUATION_ALPHA)
+    const_set('GL_BLEND_SRC_RGB', 0x80C9) unless defined?(GL_BLEND_SRC_RGB)
+    const_set('GL_BLEND_SRC_ALPHA', 0x80CB) unless defined?(GL_BLEND_SRC_ALPHA)
+    const_set('GL_BLEND_DST_RGB', 0x80C8) unless defined?(GL_BLEND_DST_RGB)
+    const_set('GL_BLEND_DST_ALPHA', 0x80CA) unless defined?(GL_BLEND_DST_ALPHA)
+    const_set('GL_COLOR_WRITEMASK', 0x0C23) unless defined?(GL_COLOR_WRITEMASK)
+    const_set('GL_BLEND', 0x0BE2) unless defined?(GL_BLEND)
+    const_set('GL_FUNC_ADD', 0x8006) unless defined?(GL_FUNC_ADD)
+    const_set('GL_FUNC_SUBTRACT', 0x800A) unless defined?(GL_FUNC_SUBTRACT)
+    const_set('GL_FUNC_REVERSE_SUBTRACT', 0x800B) unless defined?(GL_FUNC_REVERSE_SUBTRACT)
+    const_set('GL_MIN', 0x8007) unless defined?(GL_MIN)
+    const_set('GL_MAX', 0x8008) unless defined?(GL_MAX)
+    const_set('GL_ZERO', 0) unless defined?(GL_ZERO)
+    const_set('GL_ONE', 1) unless defined?(GL_ONE)
+    const_set('GL_SRC_COLOR', 0x0300) unless defined?(GL_SRC_COLOR)
+    const_set('GL_ONE_MINUS_SRC_COLOR', 0x0301) unless defined?(GL_ONE_MINUS_SRC_COLOR)
+    const_set('GL_DST_COLOR', 0x0306) unless defined?(GL_DST_COLOR)
+    const_set('GL_ONE_MINUS_DST_COLOR', 0x0307) unless defined?(GL_ONE_MINUS_DST_COLOR)
+    const_set('GL_SRC_ALPHA', 0x0302) unless defined?(GL_SRC_ALPHA)
+    const_set('GL_ONE_MINUS_SRC_ALPHA', 0x0303) unless defined?(GL_ONE_MINUS_SRC_ALPHA)
+    const_set('GL_DST_ALPHA', 0x0304) unless defined?(GL_DST_ALPHA)
+    const_set('GL_ONE_MINUS_DST_ALPHA', 0x0305) unless defined?(GL_ONE_MINUS_DST_ALPHA)
+    const_set('GL_CONSTANT_COLOR', 0x8001) unless defined?(GL_CONSTANT_COLOR)
+    const_set('GL_ONE_MINUS_CONSTANT_COLOR', 0x8002) unless defined?(GL_ONE_MINUS_CONSTANT_COLOR)
+    const_set('GL_CONSTANT_ALPHA', 0x8003) unless defined?(GL_CONSTANT_ALPHA)
+    const_set('GL_ONE_MINUS_CONSTANT_ALPHA', 0x8004) unless defined?(GL_ONE_MINUS_CONSTANT_ALPHA)
+    const_set('GL_SRC_ALPHA_SATURATE', 0x0308) unless defined?(GL_SRC_ALPHA_SATURATE)
+  end # define_ext_enum_GL_EXT_draw_buffers_indexed
+
   def define_ext_enum_GL_EXT_draw_instanced
   end # define_ext_enum_GL_EXT_draw_instanced
+
+  def define_ext_enum_GL_EXT_geometry_shader
+    const_set('GL_GEOMETRY_SHADER_EXT', 0x8DD9) unless defined?(GL_GEOMETRY_SHADER_EXT)
+    const_set('GL_GEOMETRY_SHADER_BIT_EXT', 0x00000004) unless defined?(GL_GEOMETRY_SHADER_BIT_EXT)
+    const_set('GL_GEOMETRY_LINKED_VERTICES_OUT_EXT', 0x8916) unless defined?(GL_GEOMETRY_LINKED_VERTICES_OUT_EXT)
+    const_set('GL_GEOMETRY_LINKED_INPUT_TYPE_EXT', 0x8917) unless defined?(GL_GEOMETRY_LINKED_INPUT_TYPE_EXT)
+    const_set('GL_GEOMETRY_LINKED_OUTPUT_TYPE_EXT', 0x8918) unless defined?(GL_GEOMETRY_LINKED_OUTPUT_TYPE_EXT)
+    const_set('GL_GEOMETRY_SHADER_INVOCATIONS_EXT', 0x887F) unless defined?(GL_GEOMETRY_SHADER_INVOCATIONS_EXT)
+    const_set('GL_LAYER_PROVOKING_VERTEX_EXT', 0x825E) unless defined?(GL_LAYER_PROVOKING_VERTEX_EXT)
+    const_set('GL_LINES_ADJACENCY_EXT', 0x000A) unless defined?(GL_LINES_ADJACENCY_EXT)
+    const_set('GL_LINE_STRIP_ADJACENCY_EXT', 0x000B) unless defined?(GL_LINE_STRIP_ADJACENCY_EXT)
+    const_set('GL_TRIANGLES_ADJACENCY_EXT', 0x000C) unless defined?(GL_TRIANGLES_ADJACENCY_EXT)
+    const_set('GL_TRIANGLE_STRIP_ADJACENCY_EXT', 0x000D) unless defined?(GL_TRIANGLE_STRIP_ADJACENCY_EXT)
+    const_set('GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT', 0x8DDF) unless defined?(GL_MAX_GEOMETRY_UNIFORM_COMPONENTS_EXT)
+    const_set('GL_MAX_GEOMETRY_UNIFORM_BLOCKS_EXT', 0x8A2C) unless defined?(GL_MAX_GEOMETRY_UNIFORM_BLOCKS_EXT)
+    const_set('GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS_EXT', 0x8A32) unless defined?(GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS_EXT)
+    const_set('GL_MAX_GEOMETRY_INPUT_COMPONENTS_EXT', 0x9123) unless defined?(GL_MAX_GEOMETRY_INPUT_COMPONENTS_EXT)
+    const_set('GL_MAX_GEOMETRY_OUTPUT_COMPONENTS_EXT', 0x9124) unless defined?(GL_MAX_GEOMETRY_OUTPUT_COMPONENTS_EXT)
+    const_set('GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT', 0x8DE0) unless defined?(GL_MAX_GEOMETRY_OUTPUT_VERTICES_EXT)
+    const_set('GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_EXT', 0x8DE1) unless defined?(GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS_EXT)
+    const_set('GL_MAX_GEOMETRY_SHADER_INVOCATIONS_EXT', 0x8E5A) unless defined?(GL_MAX_GEOMETRY_SHADER_INVOCATIONS_EXT)
+    const_set('GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT', 0x8C29) unless defined?(GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS_EXT)
+    const_set('GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_EXT', 0x92CF) unless defined?(GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS_EXT)
+    const_set('GL_MAX_GEOMETRY_ATOMIC_COUNTERS_EXT', 0x92D5) unless defined?(GL_MAX_GEOMETRY_ATOMIC_COUNTERS_EXT)
+    const_set('GL_MAX_GEOMETRY_IMAGE_UNIFORMS_EXT', 0x90CD) unless defined?(GL_MAX_GEOMETRY_IMAGE_UNIFORMS_EXT)
+    const_set('GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_EXT', 0x90D7) unless defined?(GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS_EXT)
+    const_set('GL_FIRST_VERTEX_CONVENTION_EXT', 0x8E4D) unless defined?(GL_FIRST_VERTEX_CONVENTION_EXT)
+    const_set('GL_LAST_VERTEX_CONVENTION_EXT', 0x8E4E) unless defined?(GL_LAST_VERTEX_CONVENTION_EXT)
+    const_set('GL_UNDEFINED_VERTEX_EXT', 0x8260) unless defined?(GL_UNDEFINED_VERTEX_EXT)
+    const_set('GL_PRIMITIVES_GENERATED_EXT', 0x8C87) unless defined?(GL_PRIMITIVES_GENERATED_EXT)
+    const_set('GL_FRAMEBUFFER_DEFAULT_LAYERS_EXT', 0x9312) unless defined?(GL_FRAMEBUFFER_DEFAULT_LAYERS_EXT)
+    const_set('GL_MAX_FRAMEBUFFER_LAYERS_EXT', 0x9317) unless defined?(GL_MAX_FRAMEBUFFER_LAYERS_EXT)
+    const_set('GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT', 0x8DA8) unless defined?(GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT)
+    const_set('GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT', 0x8DA7) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT)
+    const_set('GL_REFERENCED_BY_GEOMETRY_SHADER_EXT', 0x9309) unless defined?(GL_REFERENCED_BY_GEOMETRY_SHADER_EXT)
+  end # define_ext_enum_GL_EXT_geometry_shader
+
+  def define_ext_enum_GL_EXT_gpu_shader5
+  end # define_ext_enum_GL_EXT_gpu_shader5
 
   def define_ext_enum_GL_EXT_instanced_arrays
     const_set('GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT', 0x88FE) unless defined?(GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT)
@@ -330,8 +403,14 @@ module OpenGL
     const_set('GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT', 0x8A52) unless defined?(GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT)
   end # define_ext_enum_GL_EXT_shader_framebuffer_fetch
 
+  def define_ext_enum_GL_EXT_shader_implicit_conversions
+  end # define_ext_enum_GL_EXT_shader_implicit_conversions
+
   def define_ext_enum_GL_EXT_shader_integer_mix
   end # define_ext_enum_GL_EXT_shader_integer_mix
+
+  def define_ext_enum_GL_EXT_shader_io_blocks
+  end # define_ext_enum_GL_EXT_shader_io_blocks
 
   def define_ext_enum_GL_EXT_shader_pixel_local_storage
     const_set('GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT', 0x8F63) unless defined?(GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT)
@@ -349,6 +428,78 @@ module OpenGL
     const_set('GL_SAMPLER_2D_SHADOW_EXT', 0x8B62) unless defined?(GL_SAMPLER_2D_SHADOW_EXT)
   end # define_ext_enum_GL_EXT_shadow_samplers
 
+  def define_ext_enum_GL_EXT_tessellation_shader
+    const_set('GL_PATCHES_EXT', 0x000E) unless defined?(GL_PATCHES_EXT)
+    const_set('GL_PATCH_VERTICES_EXT', 0x8E72) unless defined?(GL_PATCH_VERTICES_EXT)
+    const_set('GL_TESS_CONTROL_OUTPUT_VERTICES_EXT', 0x8E75) unless defined?(GL_TESS_CONTROL_OUTPUT_VERTICES_EXT)
+    const_set('GL_TESS_GEN_MODE_EXT', 0x8E76) unless defined?(GL_TESS_GEN_MODE_EXT)
+    const_set('GL_TESS_GEN_SPACING_EXT', 0x8E77) unless defined?(GL_TESS_GEN_SPACING_EXT)
+    const_set('GL_TESS_GEN_VERTEX_ORDER_EXT', 0x8E78) unless defined?(GL_TESS_GEN_VERTEX_ORDER_EXT)
+    const_set('GL_TESS_GEN_POINT_MODE_EXT', 0x8E79) unless defined?(GL_TESS_GEN_POINT_MODE_EXT)
+    const_set('GL_TRIANGLES', 0x0004) unless defined?(GL_TRIANGLES)
+    const_set('GL_ISOLINES_EXT', 0x8E7A) unless defined?(GL_ISOLINES_EXT)
+    const_set('GL_QUADS_EXT', 0x0007) unless defined?(GL_QUADS_EXT)
+    const_set('GL_EQUAL', 0x0202) unless defined?(GL_EQUAL)
+    const_set('GL_FRACTIONAL_ODD_EXT', 0x8E7B) unless defined?(GL_FRACTIONAL_ODD_EXT)
+    const_set('GL_FRACTIONAL_EVEN_EXT', 0x8E7C) unless defined?(GL_FRACTIONAL_EVEN_EXT)
+    const_set('GL_CCW', 0x0901) unless defined?(GL_CCW)
+    const_set('GL_CW', 0x0900) unless defined?(GL_CW)
+    const_set('GL_MAX_PATCH_VERTICES_EXT', 0x8E7D) unless defined?(GL_MAX_PATCH_VERTICES_EXT)
+    const_set('GL_MAX_TESS_GEN_LEVEL_EXT', 0x8E7E) unless defined?(GL_MAX_TESS_GEN_LEVEL_EXT)
+    const_set('GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS_EXT', 0x8E7F) unless defined?(GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS_EXT)
+    const_set('GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT', 0x8E80) unless defined?(GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT)
+    const_set('GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_EXT', 0x8E81) unless defined?(GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS_EXT)
+    const_set('GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_EXT', 0x8E82) unless defined?(GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS_EXT)
+    const_set('GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS_EXT', 0x8E83) unless defined?(GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS_EXT)
+    const_set('GL_MAX_TESS_PATCH_COMPONENTS_EXT', 0x8E84) unless defined?(GL_MAX_TESS_PATCH_COMPONENTS_EXT)
+    const_set('GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_EXT', 0x8E85) unless defined?(GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS_EXT)
+    const_set('GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_EXT', 0x8E86) unless defined?(GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS_EXT)
+    const_set('GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS_EXT', 0x8E89) unless defined?(GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS_EXT)
+    const_set('GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS_EXT', 0x8E8A) unless defined?(GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS_EXT)
+    const_set('GL_MAX_TESS_CONTROL_INPUT_COMPONENTS_EXT', 0x886C) unless defined?(GL_MAX_TESS_CONTROL_INPUT_COMPONENTS_EXT)
+    const_set('GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS_EXT', 0x886D) unless defined?(GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS_EXT)
+    const_set('GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_EXT', 0x8E1E) unless defined?(GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_EXT)
+    const_set('GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT', 0x8E1F) unless defined?(GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT)
+    const_set('GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_EXT', 0x92CD) unless defined?(GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS_EXT)
+    const_set('GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_EXT', 0x92CE) unless defined?(GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS_EXT)
+    const_set('GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS_EXT', 0x92D3) unless defined?(GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS_EXT)
+    const_set('GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS_EXT', 0x92D4) unless defined?(GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS_EXT)
+    const_set('GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS_EXT', 0x90CB) unless defined?(GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS_EXT)
+    const_set('GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS_EXT', 0x90CC) unless defined?(GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS_EXT)
+    const_set('GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_EXT', 0x90D8) unless defined?(GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS_EXT)
+    const_set('GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_EXT', 0x90D9) unless defined?(GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS_EXT)
+    const_set('GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED', 0x8221) unless defined?(GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED)
+    const_set('GL_IS_PER_PATCH_EXT', 0x92E7) unless defined?(GL_IS_PER_PATCH_EXT)
+    const_set('GL_REFERENCED_BY_TESS_CONTROL_SHADER_EXT', 0x9307) unless defined?(GL_REFERENCED_BY_TESS_CONTROL_SHADER_EXT)
+    const_set('GL_REFERENCED_BY_TESS_EVALUATION_SHADER_EXT', 0x9308) unless defined?(GL_REFERENCED_BY_TESS_EVALUATION_SHADER_EXT)
+    const_set('GL_TESS_CONTROL_SHADER_EXT', 0x8E88) unless defined?(GL_TESS_CONTROL_SHADER_EXT)
+    const_set('GL_TESS_EVALUATION_SHADER_EXT', 0x8E87) unless defined?(GL_TESS_EVALUATION_SHADER_EXT)
+    const_set('GL_TESS_CONTROL_SHADER_BIT_EXT', 0x00000008) unless defined?(GL_TESS_CONTROL_SHADER_BIT_EXT)
+    const_set('GL_TESS_EVALUATION_SHADER_BIT_EXT', 0x00000010) unless defined?(GL_TESS_EVALUATION_SHADER_BIT_EXT)
+  end # define_ext_enum_GL_EXT_tessellation_shader
+
+  def define_ext_enum_GL_EXT_texture_border_clamp
+    const_set('GL_TEXTURE_BORDER_COLOR_EXT', 0x1004) unless defined?(GL_TEXTURE_BORDER_COLOR_EXT)
+    const_set('GL_CLAMP_TO_BORDER_EXT', 0x812D) unless defined?(GL_CLAMP_TO_BORDER_EXT)
+  end # define_ext_enum_GL_EXT_texture_border_clamp
+
+  def define_ext_enum_GL_EXT_texture_buffer
+    const_set('GL_TEXTURE_BUFFER_EXT', 0x8C2A) unless defined?(GL_TEXTURE_BUFFER_EXT)
+    const_set('GL_TEXTURE_BUFFER_BINDING_EXT', 0x8C2A) unless defined?(GL_TEXTURE_BUFFER_BINDING_EXT)
+    const_set('GL_MAX_TEXTURE_BUFFER_SIZE_EXT', 0x8C2B) unless defined?(GL_MAX_TEXTURE_BUFFER_SIZE_EXT)
+    const_set('GL_TEXTURE_BINDING_BUFFER_EXT', 0x8C2C) unless defined?(GL_TEXTURE_BINDING_BUFFER_EXT)
+    const_set('GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT', 0x8C2D) unless defined?(GL_TEXTURE_BUFFER_DATA_STORE_BINDING_EXT)
+    const_set('GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_EXT', 0x919F) unless defined?(GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT_EXT)
+    const_set('GL_SAMPLER_BUFFER_EXT', 0x8DC2) unless defined?(GL_SAMPLER_BUFFER_EXT)
+    const_set('GL_INT_SAMPLER_BUFFER_EXT', 0x8DD0) unless defined?(GL_INT_SAMPLER_BUFFER_EXT)
+    const_set('GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT', 0x8DD8) unless defined?(GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT)
+    const_set('GL_IMAGE_BUFFER_EXT', 0x9051) unless defined?(GL_IMAGE_BUFFER_EXT)
+    const_set('GL_INT_IMAGE_BUFFER_EXT', 0x905C) unless defined?(GL_INT_IMAGE_BUFFER_EXT)
+    const_set('GL_UNSIGNED_INT_IMAGE_BUFFER_EXT', 0x9067) unless defined?(GL_UNSIGNED_INT_IMAGE_BUFFER_EXT)
+    const_set('GL_TEXTURE_BUFFER_OFFSET_EXT', 0x919D) unless defined?(GL_TEXTURE_BUFFER_OFFSET_EXT)
+    const_set('GL_TEXTURE_BUFFER_SIZE_EXT', 0x919E) unless defined?(GL_TEXTURE_BUFFER_SIZE_EXT)
+  end # define_ext_enum_GL_EXT_texture_buffer
+
   def define_ext_enum_GL_EXT_texture_compression_dxt1
     const_set('GL_COMPRESSED_RGB_S3TC_DXT1_EXT', 0x83F0) unless defined?(GL_COMPRESSED_RGB_S3TC_DXT1_EXT)
     const_set('GL_COMPRESSED_RGBA_S3TC_DXT1_EXT', 0x83F1) unless defined?(GL_COMPRESSED_RGBA_S3TC_DXT1_EXT)
@@ -360,6 +511,18 @@ module OpenGL
     const_set('GL_COMPRESSED_RGBA_S3TC_DXT3_EXT', 0x83F2) unless defined?(GL_COMPRESSED_RGBA_S3TC_DXT3_EXT)
     const_set('GL_COMPRESSED_RGBA_S3TC_DXT5_EXT', 0x83F3) unless defined?(GL_COMPRESSED_RGBA_S3TC_DXT5_EXT)
   end # define_ext_enum_GL_EXT_texture_compression_s3tc
+
+  def define_ext_enum_GL_EXT_texture_cube_map_array
+    const_set('GL_TEXTURE_CUBE_MAP_ARRAY_EXT', 0x9009) unless defined?(GL_TEXTURE_CUBE_MAP_ARRAY_EXT)
+    const_set('GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_EXT', 0x900A) unless defined?(GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_EXT)
+    const_set('GL_SAMPLER_CUBE_MAP_ARRAY_EXT', 0x900C) unless defined?(GL_SAMPLER_CUBE_MAP_ARRAY_EXT)
+    const_set('GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_EXT', 0x900D) unless defined?(GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW_EXT)
+    const_set('GL_INT_SAMPLER_CUBE_MAP_ARRAY_EXT', 0x900E) unless defined?(GL_INT_SAMPLER_CUBE_MAP_ARRAY_EXT)
+    const_set('GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_EXT', 0x900F) unless defined?(GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY_EXT)
+    const_set('GL_IMAGE_CUBE_MAP_ARRAY_EXT', 0x9054) unless defined?(GL_IMAGE_CUBE_MAP_ARRAY_EXT)
+    const_set('GL_INT_IMAGE_CUBE_MAP_ARRAY_EXT', 0x905F) unless defined?(GL_INT_IMAGE_CUBE_MAP_ARRAY_EXT)
+    const_set('GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_EXT', 0x906A) unless defined?(GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_EXT)
+  end # define_ext_enum_GL_EXT_texture_cube_map_array
 
   def define_ext_enum_GL_EXT_texture_filter_anisotropic
     const_set('GL_TEXTURE_MAX_ANISOTROPY_EXT', 0x84FE) unless defined?(GL_TEXTURE_MAX_ANISOTROPY_EXT)
@@ -412,6 +575,14 @@ module OpenGL
   def define_ext_enum_GL_EXT_texture_type_2_10_10_10_REV
     const_set('GL_UNSIGNED_INT_2_10_10_10_REV_EXT', 0x8368) unless defined?(GL_UNSIGNED_INT_2_10_10_10_REV_EXT)
   end # define_ext_enum_GL_EXT_texture_type_2_10_10_10_REV
+
+  def define_ext_enum_GL_EXT_texture_view
+    const_set('GL_TEXTURE_VIEW_MIN_LEVEL_EXT', 0x82DB) unless defined?(GL_TEXTURE_VIEW_MIN_LEVEL_EXT)
+    const_set('GL_TEXTURE_VIEW_NUM_LEVELS_EXT', 0x82DC) unless defined?(GL_TEXTURE_VIEW_NUM_LEVELS_EXT)
+    const_set('GL_TEXTURE_VIEW_MIN_LAYER_EXT', 0x82DD) unless defined?(GL_TEXTURE_VIEW_MIN_LAYER_EXT)
+    const_set('GL_TEXTURE_VIEW_NUM_LAYERS_EXT', 0x82DE) unless defined?(GL_TEXTURE_VIEW_NUM_LAYERS_EXT)
+    const_set('GL_TEXTURE_IMMUTABLE_LEVELS', 0x82DF) unless defined?(GL_TEXTURE_IMMUTABLE_LEVELS)
+  end # define_ext_enum_GL_EXT_texture_view
 
   def define_ext_enum_GL_EXT_unpack_subimage
     const_set('GL_UNPACK_ROW_LENGTH_EXT', 0x0CF2) unless defined?(GL_UNPACK_ROW_LENGTH_EXT)
