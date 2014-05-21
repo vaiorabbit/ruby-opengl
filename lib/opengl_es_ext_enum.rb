@@ -275,6 +275,9 @@ module OpenGL
   def define_ext_enum_GL_EXT_draw_instanced
   end # define_ext_enum_GL_EXT_draw_instanced
 
+  def define_ext_enum_GL_EXT_geometry_point_size
+  end # define_ext_enum_GL_EXT_geometry_point_size
+
   def define_ext_enum_GL_EXT_geometry_shader
     const_set('GL_GEOMETRY_SHADER_EXT', 0x8DD9) unless defined?(GL_GEOMETRY_SHADER_EXT)
     const_set('GL_GEOMETRY_SHADER_BIT_EXT', 0x00000004) unless defined?(GL_GEOMETRY_SHADER_BIT_EXT)
@@ -427,6 +430,9 @@ module OpenGL
     const_set('GL_COMPARE_REF_TO_TEXTURE_EXT', 0x884E) unless defined?(GL_COMPARE_REF_TO_TEXTURE_EXT)
     const_set('GL_SAMPLER_2D_SHADOW_EXT', 0x8B62) unless defined?(GL_SAMPLER_2D_SHADOW_EXT)
   end # define_ext_enum_GL_EXT_shadow_samplers
+
+  def define_ext_enum_GL_EXT_tessellation_point_size
+  end # define_ext_enum_GL_EXT_tessellation_point_size
 
   def define_ext_enum_GL_EXT_tessellation_shader
     const_set('GL_PATCHES_EXT', 0x000E) unless defined?(GL_PATCHES_EXT)

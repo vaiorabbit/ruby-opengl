@@ -612,6 +612,9 @@ module OpenGL
     SRC_GL_EXT_draw_instanced
   end # define_ext_command_GL_EXT_draw_instanced
 
+  def define_ext_command_GL_EXT_geometry_point_size
+  end # define_ext_command_GL_EXT_geometry_point_size
+
   def define_ext_command_GL_EXT_geometry_shader
     GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureEXT] = Fiddle::TYPE_VOID
@@ -1304,6 +1307,9 @@ module OpenGL
 
   def define_ext_command_GL_EXT_shadow_samplers
   end # define_ext_command_GL_EXT_shadow_samplers
+
+  def define_ext_command_GL_EXT_tessellation_point_size
+  end # define_ext_command_GL_EXT_tessellation_point_size
 
   def define_ext_command_GL_EXT_tessellation_shader
     GL_FUNCTIONS_ARGS_MAP[:glPatchParameteriEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
