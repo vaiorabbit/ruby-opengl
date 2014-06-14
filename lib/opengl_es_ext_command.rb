@@ -812,6 +812,17 @@ module OpenGL
     SRC_GL_EXT_occlusion_query_boolean
   end # define_ext_command_GL_EXT_occlusion_query_boolean
 
+  def define_ext_command_GL_EXT_primitive_bounding box
+    GL_FUNCTIONS_ARGS_MAP[:glPrimitiveBoundingBoxEXT] = [Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_RETVAL_MAP[:glPrimitiveBoundingBoxEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_primitive_bounding box)
+      def glPrimitiveBoundingBoxEXT(_minX_, _minY_, _minZ_, _minW_, _maxX_, _maxY_, _maxZ_, _maxW_)
+        f = OpenGL::get_command(:glPrimitiveBoundingBoxEXT)
+        f.call(_minX_, _minY_, _minZ_, _minW_, _maxX_, _maxY_, _maxZ_, _maxW_)
+      end
+    SRC_GL_EXT_primitive_bounding box
+  end # define_ext_command_GL_EXT_primitive_bounding box
+
   def define_ext_command_GL_EXT_pvrtc_sRGB
   end # define_ext_command_GL_EXT_pvrtc_sRGB
 

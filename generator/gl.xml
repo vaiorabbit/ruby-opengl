@@ -2440,7 +2440,8 @@ typedef unsigned int GLhandleARB;
         <enum value="0x0506" name="GL_INVALID_FRAMEBUFFER_OPERATION"/>
         <enum value="0x0506" name="GL_INVALID_FRAMEBUFFER_OPERATION_EXT"/>
         <enum value="0x0506" name="GL_INVALID_FRAMEBUFFER_OPERATION_OES"/>
-            <unused start="0x0507" end="0x05FF" comment="Unused for ErrorCode"/>
+            <!-- 0x0507 reserved for future GL features -->
+            <unused start="0x0508" end="0x05FF" comment="Unused for ErrorCode"/>
         <enum value="0x0600" name="GL_2D"/>
         <enum value="0x0601" name="GL_3D"/>
         <enum value="0x0602" name="GL_3D_COLOR"/>
@@ -2738,7 +2739,8 @@ typedef unsigned int GLhandleARB;
         <enum value="0x1004" name="GL_TEXTURE_BORDER_COLOR_EXT"/>
         <enum value="0x1004" name="GL_TEXTURE_BORDER_COLOR_NV"/>
         <enum value="0x1005" name="GL_TEXTURE_BORDER"/>
-            <unused start="0x1006" end="0x10FF" comment="Unused for GetTextureParameter"/>
+            <!-- 0x1006 reserved for future GL features -->
+            <unused start="0x1007" end="0x10FF" comment="Unused for GetTextureParameter"/>
         <enum value="0x1100" name="GL_DONT_CARE"/>
         <enum value="0x1101" name="GL_FASTEST"/>
         <enum value="0x1102" name="GL_NICEST"/>
@@ -4016,7 +4018,8 @@ typedef unsigned int GLhandleARB;
         <enum value="0x82E8" name="GL_MAX_LABEL_LENGTH"/>
         <enum value="0x82E8" name="GL_MAX_LABEL_LENGTH_KHR"/>
         <enum value="0x82E9" name="GL_NUM_SHADING_LANGUAGE_VERSIONS"/>
-            <unused start="0x82E9" end="0x830F"/>
+            <!-- 0x82EA - 0x82EB reserved for future GL features -->
+            <unused start="0x82EC" end="0x830F"/>
     </enums>
 
     <enums namespace="GL" start="0x8310" end="0x832F" vendor="SGI">
@@ -6898,7 +6901,8 @@ typedef unsigned int GLhandleARB;
         <enum value="0x8E15" name="GL_QUERY_BY_REGION_WAIT_NV"/>
         <enum value="0x8E16" name="GL_QUERY_BY_REGION_NO_WAIT"/>
         <enum value="0x8E16" name="GL_QUERY_BY_REGION_NO_WAIT_NV"/>
-            <unused start="0x8E17" end="0x8E1D"/>
+            <!-- 0x8E17 - 0x8E1A reserved for future GL features -->
+            <unused start="0x8E1B" end="0x8E1D"/>
         <enum value="0x8E1E" name="GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS"/>
         <enum value="0x8E1E" name="GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_EXT"/>    
         <enum value="0x8E1F" name="GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS"/>
@@ -7804,7 +7808,9 @@ typedef unsigned int GLhandleARB;
         <enum value="0x92B2" name="GL_PLUS_CLAMPED_ALPHA_NV"/>
         <enum value="0x92B3" name="GL_MINUS_CLAMPED_NV"/>
         <enum value="0x92B4" name="GL_INVERT_OVG_NV"/>
-            <unused start="0x92B5" end="0x92BF"/>
+            <unused start="0x92B5" end="0x92BD"/>
+        <enum value="0x92BE" name="GL_PRIMITIVE_BOUNDING_BOX_EXT"/>
+            <unused start="0x92BF"/>
         <enum value="0x92C0" name="GL_ATOMIC_COUNTER_BUFFER"/>
         <enum value="0x92C1" name="GL_ATOMIC_COUNTER_BUFFER_BINDING"/>
         <enum value="0x92C2" name="GL_ATOMIC_COUNTER_BUFFER_START"/>
@@ -19367,6 +19373,17 @@ typedef unsigned int GLhandleARB;
             <param group="Texture" len="n">const <ptype>GLuint</ptype> *<name>textures</name></param>
             <param len="n">const <ptype>GLfloat</ptype> *<name>priorities</name></param>
             <glx type="render" opcode="4118"/>
+        </command>
+        <command>
+            <proto>void <name>glPrimitiveBoundingBoxEXT</name></proto>
+            <param><ptype>GLfloat</ptype> <name>minX</name></param> 
+            <param><ptype>GLfloat</ptype> <name>minY</name></param> 
+            <param><ptype>GLfloat</ptype> <name>minZ</name></param> 
+            <param><ptype>GLfloat</ptype> <name>minW</name></param>
+            <param><ptype>GLfloat</ptype> <name>maxX</name></param> 
+            <param><ptype>GLfloat</ptype> <name>maxY</name></param> 
+            <param><ptype>GLfloat</ptype> <name>maxZ</name></param> 
+            <param><ptype>GLfloat</ptype> <name>maxW</name></param>
         </command>
         <command>
             <proto>void <name>glPrioritizeTexturesEXT</name></proto>
@@ -37496,6 +37513,12 @@ typedef unsigned int GLhandleARB;
                 <command name="glPolygonOffsetEXT"/>
             </require>
         </extension>
+        <extension name="GL_EXT_primitive_bounding box" supported="gles2">
+            <require>
+                <enum name="GL_PRIMITIVE_BOUNDING_BOX_EXT"/>
+                <command name="glPrimitiveBoundingBoxEXT"/>
+            </require>
+        </extension>
         <extension name="GL_EXT_provoking_vertex" supported="gl">
             <require>
                 <enum name="GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT"/>
@@ -37659,6 +37682,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT"/>
             </require>
         </extension>
+        <extension name="GL_EXT_shader_image_load_formatted" supported="gl"/>
         <extension name="GL_EXT_shader_image_load_store" supported="gl">
             <require>
                 <enum name="GL_MAX_IMAGE_UNITS_EXT"/>
@@ -40111,7 +40135,6 @@ typedef unsigned int GLhandleARB;
             </require>
         </extension>
         <extension name="GL_NV_shader_thread_shuffle" supported="gl"/>
-        <extension name="GL_EXT_shader_image_load_formatted" supported="gl"/>
         <extension name="GL_NV_shadow_samplers_array" supported="gles2">
             <require>
                 <enum name="GL_SAMPLER_2D_ARRAY_SHADOW_NV"/>

@@ -12354,6 +12354,9 @@ module OpenGL
   def define_ext_command_GL_EXT_separate_specular_color
   end # define_ext_command_GL_EXT_separate_specular_color
 
+  def define_ext_command_GL_EXT_shader_image_load_formatted
+  end # define_ext_command_GL_EXT_shader_image_load_formatted
+
   def define_ext_command_GL_EXT_shader_image_load_store
     GL_FUNCTIONS_ARGS_MAP[:glBindImageTextureEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBindImageTextureEXT] = Fiddle::TYPE_VOID
@@ -16547,9 +16550,6 @@ module OpenGL
 
   def define_ext_command_GL_NV_shader_thread_shuffle
   end # define_ext_command_GL_NV_shader_thread_shuffle
-
-  def define_ext_command_GL_EXT_shader_image_load_formatted
-  end # define_ext_command_GL_EXT_shader_image_load_formatted
 
   def define_ext_command_GL_NV_tessellation_program5
   end # define_ext_command_GL_NV_tessellation_program5

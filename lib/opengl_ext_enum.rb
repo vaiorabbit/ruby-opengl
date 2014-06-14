@@ -2825,6 +2825,9 @@ module OpenGL
     const_set('GL_SEPARATE_SPECULAR_COLOR_EXT', 0x81FA) unless defined?(GL_SEPARATE_SPECULAR_COLOR_EXT)
   end # define_ext_enum_GL_EXT_separate_specular_color
 
+  def define_ext_enum_GL_EXT_shader_image_load_formatted
+  end # define_ext_enum_GL_EXT_shader_image_load_formatted
+
   def define_ext_enum_GL_EXT_shader_image_load_store
     const_set('GL_MAX_IMAGE_UNITS_EXT', 0x8F38) unless defined?(GL_MAX_IMAGE_UNITS_EXT)
     const_set('GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS_EXT', 0x8F39) unless defined?(GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS_EXT)
@@ -4316,9 +4319,6 @@ module OpenGL
 
   def define_ext_enum_GL_NV_shader_thread_shuffle
   end # define_ext_enum_GL_NV_shader_thread_shuffle
-
-  def define_ext_enum_GL_EXT_shader_image_load_formatted
-  end # define_ext_enum_GL_EXT_shader_image_load_formatted
 
   def define_ext_enum_GL_NV_tessellation_program5
     const_set('GL_MAX_PROGRAM_PATCH_ATTRIBS_NV', 0x86D8) unless defined?(GL_MAX_PROGRAM_PATCH_ATTRIBS_NV)
