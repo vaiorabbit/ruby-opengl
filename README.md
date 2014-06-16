@@ -11,7 +11,7 @@
 ## Features ##
 
 *   Uses Fiddle (One of the Ruby standard libraries that wraps libffi)
-	*   No need to build C extension library
+	*   Unlike opengl ( https://rubygems.org/gems/opengl ), you don't need to build C extension library
 
 *   Uses Khronos XML API registry
 	*   The command/enum wrapper codes are generated via 'gl.xml'
@@ -193,11 +193,11 @@ See sample/OrangeBook/3Dlabs-License.txt .
 
 -------------------------------------------------------------------------------
 
-# 自前 Ruby-OpenGL と自動生成スクリプト #
+# Ruby 用 OpenGL ラッパー (とその自動生成スクリプト) #
 
 ## 特徴 ##
 
-*   標準ライブラリ Fiddle を使っています ⇒ 拡張ライブラリをビルドする必要がありません
+*   標準ライブラリ Fiddle を使っています ⇒ opengl ( https://rubygems.org/gems/opengl ) のように拡張ライブラリをビルドする必要がありません
 *   関数とenumのラッパーコードは Khronos の XML API registry (gl.xml) から自動生成しています
 
 
