@@ -12455,6 +12455,14 @@ module OpenGL
   end # define_ext_command_GL_EXT_texture3D
 
   def define_ext_command_GL_EXT_texture_array
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureLayerEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureLayerEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_texture_array)
+      def glFramebufferTextureLayerEXT(_target_, _attachment_, _texture_, _level_, _layer_)
+        f = OpenGL::get_command(:glFramebufferTextureLayerEXT)
+        f.call(_target_, _attachment_, _texture_, _level_, _layer_)
+      end
+    SRC_GL_EXT_texture_array
   end # define_ext_command_GL_EXT_texture_array
 
   def define_ext_command_GL_EXT_texture_buffer_object
@@ -16667,7 +16675,7 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback
 
-    GL_FUNCTIONS_ARGS_MAP[:glTransformFeedbackAttribsNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glTransformFeedbackAttribsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTransformFeedbackAttribsNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_transform_feedback)
       def glTransformFeedbackAttribsNV(_count_, _attribs_, _bufferMode_)
