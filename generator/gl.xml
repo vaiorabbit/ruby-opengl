@@ -4017,8 +4017,8 @@ typedef unsigned int GLhandleARB;
         <enum value="0x82E8" name="GL_MAX_LABEL_LENGTH"/>
         <enum value="0x82E8" name="GL_MAX_LABEL_LENGTH_KHR"/>
         <enum value="0x82E9" name="GL_NUM_SHADING_LANGUAGE_VERSIONS"/>
-            <!-- 0x82EA - 0x82F8 reserved for future GL features -->
-            <unused start="0x82F9" end="0x830F" vendor="ARB"/>
+            <!-- 0x82EA - 0x82FA reserved for future GL features -->
+            <unused start="0x82FB" end="0x830F" vendor="ARB"/>
     </enums>
 
     <enums namespace="GL" start="0x8310" end="0x832F" vendor="SGI">
@@ -37548,7 +37548,7 @@ typedef unsigned int GLhandleARB;
                 <command name="glPolygonOffsetEXT"/>
             </require>
         </extension>
-        <extension name="GL_EXT_primitive_bounding box" supported="gles2">
+        <extension name="GL_EXT_primitive_bounding_box" supported="gles2">
             <require>
                 <enum name="GL_PRIMITIVE_BOUNDING_BOX_EXT"/>
                 <command name="glPrimitiveBoundingBoxEXT"/>

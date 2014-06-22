@@ -356,9 +356,9 @@ module OpenGL
     const_set('GL_QUERY_RESULT_AVAILABLE_EXT', 0x8867) unless defined?(GL_QUERY_RESULT_AVAILABLE_EXT)
   end # define_ext_enum_GL_EXT_occlusion_query_boolean
 
-  def define_ext_enum_GL_EXT_primitive_bounding box
+  def define_ext_enum_GL_EXT_primitive_bounding_box
     const_set('GL_PRIMITIVE_BOUNDING_BOX_EXT', 0x92BE) unless defined?(GL_PRIMITIVE_BOUNDING_BOX_EXT)
-  end # define_ext_enum_GL_EXT_primitive_bounding box
+  end # define_ext_enum_GL_EXT_primitive_bounding_box
 
   def define_ext_enum_GL_EXT_pvrtc_sRGB
     const_set('GL_COMPRESSED_SRGB_PVRTC_2BPPV1_EXT', 0x8A54) unless defined?(GL_COMPRESSED_SRGB_PVRTC_2BPPV1_EXT)
