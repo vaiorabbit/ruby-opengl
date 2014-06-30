@@ -118,6 +118,9 @@ module OpenGL
   def define_ext_command_GL_AMD_program_binary_Z400
   end # define_ext_command_GL_AMD_program_binary_Z400
 
+  def define_ext_command_GL_ANDROID_extension_pack_es31a
+  end # define_ext_command_GL_ANDROID_extension_pack_es31a
+
   def define_ext_command_GL_ANGLE_depth_texture
   end # define_ext_command_GL_ANGLE_depth_texture
 

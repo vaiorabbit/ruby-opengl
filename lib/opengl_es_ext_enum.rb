@@ -31,6 +31,9 @@ module OpenGL
     const_set('GL_Z400_BINARY_AMD', 0x8740) unless defined?(GL_Z400_BINARY_AMD)
   end # define_ext_enum_GL_AMD_program_binary_Z400
 
+  def define_ext_enum_GL_ANDROID_extension_pack_es31a
+  end # define_ext_enum_GL_ANDROID_extension_pack_es31a
+
   def define_ext_enum_GL_ANGLE_depth_texture
     const_set('GL_DEPTH_COMPONENT', 0x1902) unless defined?(GL_DEPTH_COMPONENT)
     const_set('GL_DEPTH_STENCIL_OES', 0x84F9) unless defined?(GL_DEPTH_STENCIL_OES)
