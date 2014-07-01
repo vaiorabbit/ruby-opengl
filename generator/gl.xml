@@ -2138,7 +2138,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x00000002" name="GL_FRAGMENT_SHADER_BIT"/>
         <enum value="0x00000002" name="GL_FRAGMENT_SHADER_BIT_EXT"/>
         <enum value="0x00000004" name="GL_GEOMETRY_SHADER_BIT"/>
-        <enum value="0x00000004" name="GL_GEOMETRY_SHADER_BIT_EXT"/>                             
+        <enum value="0x00000004" name="GL_GEOMETRY_SHADER_BIT_EXT"/>
         <enum value="0x00000008" name="GL_TESS_CONTROL_SHADER_BIT"/>
         <enum value="0x00000008" name="GL_TESS_CONTROL_SHADER_BIT_EXT"/>
         <enum value="0x00000010" name="GL_TESS_EVALUATION_SHADER_BIT"/>
@@ -2373,7 +2373,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x0005" name="GL_TRIANGLE_STRIP"/>
         <enum value="0x0006" name="GL_TRIANGLE_FAN"/>
         <enum value="0x0007" name="GL_QUADS"/>
-        <enum value="0x0007" name="GL_QUADS_EXT"/>                                           
+        <enum value="0x0007" name="GL_QUADS_EXT"/>
         <enum value="0x0008" name="GL_QUAD_STRIP"/>
         <enum value="0x0009" name="GL_POLYGON"/>
         <enum value="0x000A" name="GL_LINES_ADJACENCY"/>
@@ -2389,7 +2389,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x000D" name="GL_TRIANGLE_STRIP_ADJACENCY_ARB"/>
         <enum value="0x000D" name="GL_TRIANGLE_STRIP_ADJACENCY_EXT"/>
         <enum value="0x000E" name="GL_PATCHES"/>
-        <enum value="0x000E" name="GL_PATCHES_EXT"/>                                         
+        <enum value="0x000E" name="GL_PATCHES_EXT"/>
             <unused start="0x000F" end="0x00FF" comment="Unused for PrimitiveType"/>
         <enum value="0x0100" name="GL_ACCUM"/>
         <enum value="0x0101" name="GL_LOAD"/>
@@ -3859,7 +3859,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x825E" name="GL_LAYER_PROVOKING_VERTEX_EXT"/>
         <enum value="0x825F" name="GL_VIEWPORT_INDEX_PROVOKING_VERTEX"/>
         <enum value="0x8260" name="GL_UNDEFINED_VERTEX"/>
-        <enum value="0x8260" name="GL_UNDEFINED_VERTEX_EXT"/>                                
+        <enum value="0x8260" name="GL_UNDEFINED_VERTEX_EXT"/>
         <enum value="0x8261" name="GL_NO_RESET_NOTIFICATION_ARB"/>
         <enum value="0x8261" name="GL_NO_RESET_NOTIFICATION_EXT"/>
         <enum value="0x8262" name="GL_MAX_COMPUTE_SHARED_MEMORY_SIZE"/>
@@ -3993,13 +3993,13 @@ typedef unsigned int GLhandleARB;
         <enum value="0x82D9" name="GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET"/>
         <enum value="0x82DA" name="GL_MAX_VERTEX_ATTRIB_BINDINGS"/>
         <enum value="0x82DB" name="GL_TEXTURE_VIEW_MIN_LEVEL"/>
-        <enum value="0x82DB" name="GL_TEXTURE_VIEW_MIN_LEVEL_EXT"/>                          
+        <enum value="0x82DB" name="GL_TEXTURE_VIEW_MIN_LEVEL_EXT"/>
         <enum value="0x82DC" name="GL_TEXTURE_VIEW_NUM_LEVELS"/>
-        <enum value="0x82DC" name="GL_TEXTURE_VIEW_NUM_LEVELS_EXT"/>                         
+        <enum value="0x82DC" name="GL_TEXTURE_VIEW_NUM_LEVELS_EXT"/>
         <enum value="0x82DD" name="GL_TEXTURE_VIEW_MIN_LAYER"/>
-        <enum value="0x82DD" name="GL_TEXTURE_VIEW_MIN_LAYER_EXT"/>                          
+        <enum value="0x82DD" name="GL_TEXTURE_VIEW_MIN_LAYER_EXT"/>
         <enum value="0x82DE" name="GL_TEXTURE_VIEW_NUM_LAYERS"/>
-        <enum value="0x82DE" name="GL_TEXTURE_VIEW_NUM_LAYERS_EXT"/>                         
+        <enum value="0x82DE" name="GL_TEXTURE_VIEW_NUM_LAYERS_EXT"/>
         <enum value="0x82DF" name="GL_TEXTURE_IMMUTABLE_LEVELS"/>
         <enum value="0x82E0" name="GL_BUFFER"/>
         <enum value="0x82E0" name="GL_BUFFER_KHR"/>
@@ -5620,9 +5620,9 @@ typedef unsigned int GLhandleARB;
         <enum value="0x886A" name="GL_VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB"/>
             <unused start="0x886B" vendor="NV"/>
         <enum value="0x886C" name="GL_MAX_TESS_CONTROL_INPUT_COMPONENTS"/>
-        <enum value="0x886C" name="GL_MAX_TESS_CONTROL_INPUT_COMPONENTS_EXT"/>               
+        <enum value="0x886C" name="GL_MAX_TESS_CONTROL_INPUT_COMPONENTS_EXT"/>
         <enum value="0x886D" name="GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS"/>
-        <enum value="0x886D" name="GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS_EXT"/>            
+        <enum value="0x886D" name="GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS_EXT"/>
         <enum value="0x886E" name="GL_DEPTH_STENCIL_TO_RGBA_NV"/>
         <enum value="0x886F" name="GL_DEPTH_STENCIL_TO_BGRA_NV"/>
         <enum value="0x8870" name="GL_FRAGMENT_PROGRAM_NV"/>
@@ -5646,7 +5646,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x887D" name="GL_READ_PIXEL_DATA_RANGE_POINTER_NV"/>
             <unused start="0x887E" vendor="NV"/>
         <enum value="0x887F" name="GL_GEOMETRY_SHADER_INVOCATIONS"/>
-        <enum value="0x887F" name="GL_GEOMETRY_SHADER_INVOCATIONS_EXT"/>                     
+        <enum value="0x887F" name="GL_GEOMETRY_SHADER_INVOCATIONS_EXT"/>
         <enum value="0x8880" name="GL_FLOAT_R_NV"/>
         <enum value="0x8881" name="GL_FLOAT_RG_NV"/>
         <enum value="0x8882" name="GL_FLOAT_RGB_NV"/>
@@ -5847,11 +5847,11 @@ typedef unsigned int GLhandleARB;
         <enum value="0x8914" name="GL_SAMPLES_PASSED_ARB"/>
             <unused start="0x8915" vendor="NV"/>
         <enum value="0x8916" name="GL_GEOMETRY_VERTICES_OUT"/>
-        <enum value="0x8916" name="GL_GEOMETRY_LINKED_VERTICES_OUT_EXT"/>                           
+        <enum value="0x8916" name="GL_GEOMETRY_LINKED_VERTICES_OUT_EXT"/>
         <enum value="0x8917" name="GL_GEOMETRY_INPUT_TYPE"/>
-        <enum value="0x8917" name="GL_GEOMETRY_LINKED_INPUT_TYPE_EXT"/>                             
+        <enum value="0x8917" name="GL_GEOMETRY_LINKED_INPUT_TYPE_EXT"/>
         <enum value="0x8918" name="GL_GEOMETRY_OUTPUT_TYPE"/>
-        <enum value="0x8918" name="GL_GEOMETRY_LINKED_OUTPUT_TYPE_EXT"/>                            
+        <enum value="0x8918" name="GL_GEOMETRY_LINKED_OUTPUT_TYPE_EXT"/>
         <enum value="0x8919" name="GL_SAMPLER_BINDING"/>
         <enum value="0x891A" name="GL_CLAMP_VERTEX_COLOR"/>
         <enum value="0x891A" name="GL_CLAMP_VERTEX_COLOR_ARB"/>
@@ -6026,7 +6026,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x8A2A" name="GL_UNIFORM_BUFFER_SIZE"/>
         <enum value="0x8A2B" name="GL_MAX_VERTEX_UNIFORM_BLOCKS"/>
         <enum value="0x8A2C" name="GL_MAX_GEOMETRY_UNIFORM_BLOCKS"/>
-        <enum value="0x8A2C" name="GL_MAX_GEOMETRY_UNIFORM_BLOCKS_EXT"/>                     
+        <enum value="0x8A2C" name="GL_MAX_GEOMETRY_UNIFORM_BLOCKS_EXT"/>
         <enum value="0x8A2D" name="GL_MAX_FRAGMENT_UNIFORM_BLOCKS"/>
         <enum value="0x8A2E" name="GL_MAX_COMBINED_UNIFORM_BLOCKS"/>
         <enum value="0x8A2F" name="GL_MAX_UNIFORM_BUFFER_BINDINGS"/>
@@ -6321,7 +6321,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x8C2A" name="GL_TEXTURE_BUFFER_ARB"/>
         <enum value="0x8C2A" name="GL_TEXTURE_BUFFER_EXT"/>
         <enum value="0x8C2A" name="GL_TEXTURE_BUFFER_BINDING" comment="Equivalent to GL_TEXTURE_BUFFER_ARB query, but named more consistently"/>
-        <enum value="0x8C2A" name="GL_TEXTURE_BUFFER_BINDING_EXT"/>                          
+        <enum value="0x8C2A" name="GL_TEXTURE_BUFFER_BINDING_EXT"/>
         <enum value="0x8C2B" name="GL_MAX_TEXTURE_BUFFER_SIZE"/>
         <enum value="0x8C2B" name="GL_MAX_TEXTURE_BUFFER_SIZE_ARB"/>
         <enum value="0x8C2B" name="GL_MAX_TEXTURE_BUFFER_SIZE_EXT"/>
@@ -6923,9 +6923,9 @@ typedef unsigned int GLhandleARB;
             <!-- 0x8E17 - 0x8E1A reserved for future GL features -->
             <unused start="0x8E1B" end="0x8E1D" vendor="NV"/>
         <enum value="0x8E1E" name="GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS"/>
-        <enum value="0x8E1E" name="GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_EXT"/>    
+        <enum value="0x8E1E" name="GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS_EXT"/>
         <enum value="0x8E1F" name="GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS"/>
-        <enum value="0x8E1F" name="GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT"/> 
+        <enum value="0x8E1F" name="GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS_EXT"/>
         <enum value="0x8E20" name="GL_COLOR_SAMPLES_NV"/>
             <unused start="0x8E21" vendor="NV"/>
         <enum value="0x8E22" name="GL_TRANSFORM_FEEDBACK"/>
@@ -6990,7 +6990,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x8E59" name="GL_MAX_SAMPLE_MASK_WORDS_NV"/>
         <enum value="0x8E5A" name="GL_MAX_GEOMETRY_PROGRAM_INVOCATIONS_NV"/>
         <enum value="0x8E5A" name="GL_MAX_GEOMETRY_SHADER_INVOCATIONS"/>
-        <enum value="0x8E5A" name="GL_MAX_GEOMETRY_SHADER_INVOCATIONS_EXT"/>                 
+        <enum value="0x8E5A" name="GL_MAX_GEOMETRY_SHADER_INVOCATIONS_EXT"/>
         <enum value="0x8E5B" name="GL_MIN_FRAGMENT_INTERPOLATION_OFFSET"/>
         <enum value="0x8E5B" name="GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES"/>
         <enum value="0x8E5B" name="GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_NV"/>
@@ -13144,7 +13144,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLuint</ptype> <name>program</name></param>
             <param><ptype>GLuint</ptype> <name>uniformBlockIndex</name></param>
             <param><ptype>GLenum</ptype> <name>pname</name></param>
-            <param len="COMPSIZE(pname)"><ptype>GLint</ptype> *<name>params</name></param>
+            <param len="COMPSIZE(program, uniformBlockIndex, pname)"><ptype>GLint</ptype> *<name>params</name></param>
         </command>
         <command>
             <proto>void <name>glGetActiveUniformName</name></proto>
@@ -13158,9 +13158,9 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glGetActiveUniformsiv</name></proto>
             <param><ptype>GLuint</ptype> <name>program</name></param>
             <param><ptype>GLsizei</ptype> <name>uniformCount</name></param>
-            <param len="COMPSIZE(uniformCount)">const <ptype>GLuint</ptype> *<name>uniformIndices</name></param>
+            <param len="uniformCount">const <ptype>GLuint</ptype> *<name>uniformIndices</name></param>
             <param><ptype>GLenum</ptype> <name>pname</name></param>
-            <param len="COMPSIZE(pname)"><ptype>GLint</ptype> *<name>params</name></param>
+            <param len="COMPSIZE(uniformCount, pname)"><ptype>GLint</ptype> *<name>params</name></param>
         </command>
         <command>
             <proto>void <name>glGetActiveVaryingNV</name></proto>
@@ -15487,38 +15487,38 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glGetUniformdv</name></proto>
             <param><ptype>GLuint</ptype> <name>program</name></param>
             <param><ptype>GLint</ptype> <name>location</name></param>
-            <param len="COMPSIZE(location)"><ptype>GLdouble</ptype> *<name>params</name></param>
+            <param len="COMPSIZE(program, location)"><ptype>GLdouble</ptype> *<name>params</name></param>
         </command>
         <command>
             <proto>void <name>glGetUniformfv</name></proto>
             <param><ptype>GLuint</ptype> <name>program</name></param>
             <param><ptype>GLint</ptype> <name>location</name></param>
-            <param len="COMPSIZE(location)"><ptype>GLfloat</ptype> *<name>params</name></param>
+            <param len="COMPSIZE(program, location)"><ptype>GLfloat</ptype> *<name>params</name></param>
         </command>
         <command>
             <proto>void <name>glGetUniformfvARB</name></proto>
             <param group="handleARB"><ptype>GLhandleARB</ptype> <name>programObj</name></param>
             <param><ptype>GLint</ptype> <name>location</name></param>
-            <param len="COMPSIZE(location)"><ptype>GLfloat</ptype> *<name>params</name></param>
+            <param len="COMPSIZE(program, location)"><ptype>GLfloat</ptype> *<name>params</name></param>
             <alias name="glGetUniformfv"/>
         </command>
         <command>
             <proto>void <name>glGetUniformi64vNV</name></proto>
             <param><ptype>GLuint</ptype> <name>program</name></param>
             <param><ptype>GLint</ptype> <name>location</name></param>
-            <param len="COMPSIZE(location)"><ptype>GLint64EXT</ptype> *<name>params</name></param>
+            <param len="COMPSIZE(program, location)"><ptype>GLint64EXT</ptype> *<name>params</name></param>
         </command>
         <command>
             <proto>void <name>glGetUniformiv</name></proto>
             <param><ptype>GLuint</ptype> <name>program</name></param>
             <param><ptype>GLint</ptype> <name>location</name></param>
-            <param len="COMPSIZE(location)"><ptype>GLint</ptype> *<name>params</name></param>
+            <param len="COMPSIZE(program, location)"><ptype>GLint</ptype> *<name>params</name></param>
         </command>
         <command>
             <proto>void <name>glGetUniformivARB</name></proto>
             <param group="handleARB"><ptype>GLhandleARB</ptype> <name>programObj</name></param>
             <param><ptype>GLint</ptype> <name>location</name></param>
-            <param len="COMPSIZE(location)"><ptype>GLint</ptype> *<name>params</name></param>
+            <param len="COMPSIZE(program, location)"><ptype>GLint</ptype> *<name>params</name></param>
             <alias name="glGetUniformiv"/>
         </command>
         <command>
@@ -19407,13 +19407,13 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glPrimitiveBoundingBoxEXT</name></proto>
-            <param><ptype>GLfloat</ptype> <name>minX</name></param> 
-            <param><ptype>GLfloat</ptype> <name>minY</name></param> 
-            <param><ptype>GLfloat</ptype> <name>minZ</name></param> 
+            <param><ptype>GLfloat</ptype> <name>minX</name></param>
+            <param><ptype>GLfloat</ptype> <name>minY</name></param>
+            <param><ptype>GLfloat</ptype> <name>minZ</name></param>
             <param><ptype>GLfloat</ptype> <name>minW</name></param>
-            <param><ptype>GLfloat</ptype> <name>maxX</name></param> 
-            <param><ptype>GLfloat</ptype> <name>maxY</name></param> 
-            <param><ptype>GLfloat</ptype> <name>maxZ</name></param> 
+            <param><ptype>GLfloat</ptype> <name>maxX</name></param>
+            <param><ptype>GLfloat</ptype> <name>maxY</name></param>
+            <param><ptype>GLfloat</ptype> <name>maxZ</name></param>
             <param><ptype>GLfloat</ptype> <name>maxW</name></param>
         </command>
         <command>
@@ -23747,7 +23747,7 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform1dv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLdouble</ptype> *<name>value</name></param>
+            <param len="count*1">const <ptype>GLdouble</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform1f</name></proto>
@@ -23764,13 +23764,13 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform1fv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*1">const <ptype>GLfloat</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform1fvARB</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*1">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <alias name="glUniform1fv"/>
         </command>
         <command>
@@ -23787,7 +23787,7 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform1i64vNV</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLint64EXT</ptype> *<name>value</name></param>
+            <param len="count*1">const <ptype>GLint64EXT</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform1iARB</name></proto>
@@ -23799,13 +23799,13 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform1iv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLint</ptype> *<name>value</name></param>
+            <param len="count*1">const <ptype>GLint</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform1ivARB</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLint</ptype> *<name>value</name></param>
+            <param len="count*1">const <ptype>GLint</ptype> *<name>value</name></param>
             <alias name="glUniform1iv"/>
         </command>
         <command>
@@ -23822,7 +23822,7 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform1ui64vNV</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLuint64EXT</ptype> *<name>value</name></param>
+            <param len="count*1">const <ptype>GLuint64EXT</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform1uiEXT</name></proto>
@@ -23834,13 +23834,13 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform1uiv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLuint</ptype> *<name>value</name></param>
+            <param len="count*1">const <ptype>GLuint</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform1uivEXT</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLuint</ptype> *<name>value</name></param>
+            <param len="count*1">const <ptype>GLuint</ptype> *<name>value</name></param>
             <alias name="glUniform1uiv"/>
         </command>
         <command>
@@ -23853,7 +23853,7 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform2dv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLdouble</ptype> *<name>value</name></param>
+            <param len="count*2">const <ptype>GLdouble</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform2f</name></proto>
@@ -23872,13 +23872,13 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform2fv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*2">const <ptype>GLfloat</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform2fvARB</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*2">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <alias name="glUniform2fv"/>
         </command>
         <command>
@@ -23910,13 +23910,13 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform2iv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLint</ptype> *<name>value</name></param>
+            <param len="count*2">const <ptype>GLint</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform2ivARB</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLint</ptype> *<name>value</name></param>
+            <param len="count*2">const <ptype>GLint</ptype> *<name>value</name></param>
             <alias name="glUniform2iv"/>
         </command>
         <command>
@@ -23968,7 +23968,7 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform3dv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLdouble</ptype> *<name>value</name></param>
+            <param len="count*3">const <ptype>GLdouble</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform3f</name></proto>
@@ -23989,13 +23989,13 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform3fv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*3">const <ptype>GLfloat</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform3fvARB</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*3">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <alias name="glUniform3fv"/>
         </command>
         <command>
@@ -24030,13 +24030,13 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform3iv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLint</ptype> *<name>value</name></param>
+            <param len="count*3">const <ptype>GLint</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform3ivARB</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLint</ptype> *<name>value</name></param>
+            <param len="count*3">const <ptype>GLint</ptype> *<name>value</name></param>
             <alias name="glUniform3iv"/>
         </command>
         <command>
@@ -24092,7 +24092,7 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform4dv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLdouble</ptype> *<name>value</name></param>
+            <param len="count*4">const <ptype>GLdouble</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform4f</name></proto>
@@ -24115,13 +24115,13 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform4fv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*4">const <ptype>GLfloat</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform4fvARB</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*4">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <alias name="glUniform4fv"/>
         </command>
         <command>
@@ -24159,13 +24159,13 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniform4iv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLint</ptype> *<name>value</name></param>
+            <param len="count*4">const <ptype>GLint</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniform4ivARB</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLint</ptype> *<name>value</name></param>
+            <param len="count*4">const <ptype>GLint</ptype> *<name>value</name></param>
             <alias name="glUniform4iv"/>
         </command>
         <command>
@@ -24251,21 +24251,21 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLdouble</ptype> *<name>value</name></param>
+            <param len="count*4">const <ptype>GLdouble</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniformMatrix2fv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*4">const <ptype>GLfloat</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniformMatrix2fvARB</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*4">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <alias name="glUniformMatrix2fv"/>
         </command>
         <command>
@@ -24273,14 +24273,14 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLdouble</ptype> *<name>value</name></param>
+            <param len="count*6">const <ptype>GLdouble</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniformMatrix2x3fv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="6">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*6">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <glx type="render" opcode="305"/>
         </command>
         <command>
@@ -24288,7 +24288,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="6">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*6">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <alias name="glUniformMatrix2x3fv"/>
         </command>
         <command>
@@ -24296,14 +24296,14 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLdouble</ptype> *<name>value</name></param>
+            <param len="count*8">const <ptype>GLdouble</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniformMatrix2x4fv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="8">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*8">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <glx type="render" opcode="307"/>
         </command>
         <command>
@@ -24311,7 +24311,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="8">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*8">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <alias name="glUniformMatrix2x4fv"/>
         </command>
         <command>
@@ -24319,21 +24319,21 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLdouble</ptype> *<name>value</name></param>
+            <param len="count*9">const <ptype>GLdouble</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniformMatrix3fv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*9">const <ptype>GLfloat</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniformMatrix3fvARB</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*9">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <alias name="glUniformMatrix3fv"/>
         </command>
         <command>
@@ -24341,14 +24341,14 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLdouble</ptype> *<name>value</name></param>
+            <param len="count*6">const <ptype>GLdouble</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniformMatrix3x2fv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="6">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*6">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <glx type="render" opcode="306"/>
         </command>
         <command>
@@ -24356,7 +24356,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="6">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*6">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <alias name="glUniformMatrix3x2fv"/>
         </command>
         <command>
@@ -24364,14 +24364,14 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLdouble</ptype> *<name>value</name></param>
+            <param len="count*12">const <ptype>GLdouble</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniformMatrix3x4fv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="12">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*12">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <glx type="render" opcode="309"/>
         </command>
         <command>
@@ -24379,7 +24379,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="12">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*12">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <alias name="glUniformMatrix3x4fv"/>
         </command>
         <command>
@@ -24387,21 +24387,21 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLdouble</ptype> *<name>value</name></param>
+            <param len="count*16">const <ptype>GLdouble</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniformMatrix4fv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*16">const <ptype>GLfloat</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniformMatrix4fvARB</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*16">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <alias name="glUniformMatrix4fv"/>
         </command>
         <command>
@@ -24409,14 +24409,14 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLdouble</ptype> *<name>value</name></param>
+            <param len="count*8">const <ptype>GLdouble</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniformMatrix4x2fv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="8">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*8">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <glx type="render" opcode="308"/>
         </command>
         <command>
@@ -24424,7 +24424,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="8">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*8">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <alias name="glUniformMatrix4x2fv"/>
         </command>
         <command>
@@ -24432,14 +24432,14 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="count">const <ptype>GLdouble</ptype> *<name>value</name></param>
+            <param len="count*12">const <ptype>GLdouble</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUniformMatrix4x3fv</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="12">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*12">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <glx type="render" opcode="310"/>
         </command>
         <command>
@@ -24447,7 +24447,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
             <param group="Boolean"><ptype>GLboolean</ptype> <name>transpose</name></param>
-            <param len="12">const <ptype>GLfloat</ptype> *<name>value</name></param>
+            <param len="count*12">const <ptype>GLfloat</ptype> *<name>value</name></param>
             <alias name="glUniformMatrix4x3fv"/>
         </command>
         <command>
@@ -24465,7 +24465,7 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glUniformui64vNV</name></proto>
             <param><ptype>GLint</ptype> <name>location</name></param>
             <param><ptype>GLsizei</ptype> <name>count</name></param>
-            <param len="count">const <ptype>GLuint64EXT</ptype> *<name>value</name></param>
+            <param len="count*1">const <ptype>GLuint64EXT</ptype> *<name>value</name></param>
         </command>
         <command>
             <proto>void <name>glUnlockArraysEXT</name></proto>
@@ -37866,7 +37866,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_TESS_GEN_SPACING_EXT"/>
                 <enum name="GL_TESS_GEN_VERTEX_ORDER_EXT"/>
                 <enum name="GL_TESS_GEN_POINT_MODE_EXT"/>
-                <enum name="GL_TRIANGLES"/>                         
+                <enum name="GL_TRIANGLES"/>
                 <enum name="GL_ISOLINES_EXT"/>
                 <enum name="GL_QUADS_EXT"/>
                 <enum name="GL_EQUAL"/>
@@ -38917,23 +38917,23 @@ typedef unsigned int GLhandleARB;
         </extension>
         <extension name="GL_KHR_blend_equation_advanced" supported="gles2">
             <require>
-                <command name="glBlendBarrierKHR"/>                                         
-                <enum name="GL_BLEND_ADVANCED_COHERENT_KHR"/>                               
-                <enum name="GL_MULTIPLY_KHR"/>                                              
-                <enum name="GL_SCREEN_KHR"/>                                                
-                <enum name="GL_OVERLAY_KHR"/>                                               
-                <enum name="GL_DARKEN_KHR"/>                                                
-                <enum name="GL_LIGHTEN_KHR"/>                                               
-                <enum name="GL_COLORDODGE_KHR"/>                                            
-                <enum name="GL_COLORBURN_KHR"/>                                             
-                <enum name="GL_HARDLIGHT_KHR"/>                                             
-                <enum name="GL_SOFTLIGHT_KHR"/>                                             
-                <enum name="GL_DIFFERENCE_KHR"/>                                            
-                <enum name="GL_EXCLUSION_KHR"/>                                             
-                <enum name="GL_HSL_HUE_KHR"/>                                               
-                <enum name="GL_HSL_SATURATION_KHR"/>                                        
-                <enum name="GL_HSL_COLOR_KHR"/>                                             
-                <enum name="GL_HSL_LUMINOSITY_KHR"/>                                        
+                <command name="glBlendBarrierKHR"/>
+                <enum name="GL_BLEND_ADVANCED_COHERENT_KHR"/>
+                <enum name="GL_MULTIPLY_KHR"/>
+                <enum name="GL_SCREEN_KHR"/>
+                <enum name="GL_OVERLAY_KHR"/>
+                <enum name="GL_DARKEN_KHR"/>
+                <enum name="GL_LIGHTEN_KHR"/>
+                <enum name="GL_COLORDODGE_KHR"/>
+                <enum name="GL_COLORBURN_KHR"/>
+                <enum name="GL_HARDLIGHT_KHR"/>
+                <enum name="GL_SOFTLIGHT_KHR"/>
+                <enum name="GL_DIFFERENCE_KHR"/>
+                <enum name="GL_EXCLUSION_KHR"/>
+                <enum name="GL_HSL_HUE_KHR"/>
+                <enum name="GL_HSL_SATURATION_KHR"/>
+                <enum name="GL_HSL_COLOR_KHR"/>
+                <enum name="GL_HSL_LUMINOSITY_KHR"/>
             </require>
         </extension>
         <extension name="GL_KHR_debug" supported="gl|glcore|gles2">
@@ -41193,18 +41193,18 @@ typedef unsigned int GLhandleARB;
         </extension>
         <extension name="GL_OES_sample_shading" supported="gles2">
             <require>
-                <command name="glMinSampleShadingOES"/>                                     
-                <enum name="GL_SAMPLE_SHADING_OES"/>                                        
-                <enum name="GL_MIN_SAMPLE_SHADING_VALUE_OES"/>                              
+                <command name="glMinSampleShadingOES"/>
+                <enum name="GL_SAMPLE_SHADING_OES"/>
+                <enum name="GL_MIN_SAMPLE_SHADING_VALUE_OES"/>
             </require>
         </extension>
         <extension name="GL_OES_sample_variables" supported="gles2"/>
         <extension name="GL_OES_shader_image_atomic" supported="gles2"/>
         <extension name="GL_OES_shader_multisample_interpolation" supported="gles2">
             <require>
-                <enum name="GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES"/>                     
-                <enum name="GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_OES"/>                     
-                <enum name="GL_FRAGMENT_INTERPOLATION_OFFSET_BITS_OES"/>                    
+                <enum name="GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES"/>
+                <enum name="GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_OES"/>
+                <enum name="GL_FRAGMENT_INTERPOLATION_OFFSET_BITS_OES"/>
             </require>
         </extension>
         <extension name="GL_OES_single_precision" supported="gl|gles1">
@@ -41363,8 +41363,8 @@ typedef unsigned int GLhandleARB;
         <extension name="GL_OES_texture_npot" supported="gles2"/>
         <extension name="GL_OES_texture_stencil8" supported="gles2">
             <require>
-                <enum name="GL_STENCIL_INDEX_OES"/>                                         
-                <enum name="GL_STENCIL_INDEX8_OES"/>                                        
+                <enum name="GL_STENCIL_INDEX_OES"/>
+                <enum name="GL_STENCIL_INDEX8_OES"/>
             </require>
         </extension>
         <extension name="GL_OES_texture_storage_multisample_2d_array" supported="gles2">
