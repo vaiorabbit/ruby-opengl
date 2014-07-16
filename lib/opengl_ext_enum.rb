@@ -4700,6 +4700,7 @@ module OpenGL
   end # define_ext_enum_GL_NV_video_capture
 
   def define_ext_enum_GL_OES_byte_coordinates
+    const_set('GL_BYTE', 0x1400) unless defined?(GL_BYTE)
   end # define_ext_enum_GL_OES_byte_coordinates
 
   def define_ext_enum_GL_OES_compressed_paletted_texture

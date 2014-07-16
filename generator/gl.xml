@@ -24659,6 +24659,7 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glVertex2bOES</name></proto>
             <param><ptype>GLbyte</ptype> <name>x</name></param>
+            <param><ptype>GLbyte</ptype> <name>y</name></param>
         </command>
         <command>
             <proto>void <name>glVertex2bvOES</name></proto>
@@ -24731,6 +24732,7 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glVertex3bOES</name></proto>
             <param><ptype>GLbyte</ptype> <name>x</name></param>
             <param><ptype>GLbyte</ptype> <name>y</name></param>
+            <param><ptype>GLbyte</ptype> <name>z</name></param>
         </command>
         <command>
             <proto>void <name>glVertex3bvOES</name></proto>
@@ -24810,6 +24812,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLbyte</ptype> <name>x</name></param>
             <param><ptype>GLbyte</ptype> <name>y</name></param>
             <param><ptype>GLbyte</ptype> <name>z</name></param>
+            <param><ptype>GLbyte</ptype> <name>w</name></param>
         </command>
         <command>
             <proto>void <name>glVertex4bvOES</name></proto>
@@ -40828,6 +40831,10 @@ typedef unsigned int GLhandleARB;
         </extension>
         <extension name="GL_OES_byte_coordinates" supported="gl|gles1">
             <require>
+                <type name="GLbyte"/>
+                <enum name="GL_BYTE"/>
+            </require>
+            <require api="gl" comment="Immediate-mode entry points don't exist in ES 1.x">
                 <command name="glMultiTexCoord1bOES"/>
                 <command name="glMultiTexCoord1bvOES"/>
                 <command name="glMultiTexCoord2bOES"/>

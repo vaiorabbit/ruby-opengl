@@ -18283,12 +18283,12 @@ module OpenGL
       end
     SRC_GL_OES_byte_coordinates
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertex2bOES] = [Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glVertex2bOES] = [Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glVertex2bOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_byte_coordinates)
-      def glVertex2bOES(_x_)
+      def glVertex2bOES(_x_, _y_)
         f = OpenGL::get_command(:glVertex2bOES)
-        f.call(_x_)
+        f.call(_x_, _y_)
       end
     SRC_GL_OES_byte_coordinates
 
@@ -18301,12 +18301,12 @@ module OpenGL
       end
     SRC_GL_OES_byte_coordinates
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertex3bOES] = [Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glVertex3bOES] = [Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glVertex3bOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_byte_coordinates)
-      def glVertex3bOES(_x_, _y_)
+      def glVertex3bOES(_x_, _y_, _z_)
         f = OpenGL::get_command(:glVertex3bOES)
-        f.call(_x_, _y_)
+        f.call(_x_, _y_, _z_)
       end
     SRC_GL_OES_byte_coordinates
 
@@ -18319,12 +18319,12 @@ module OpenGL
       end
     SRC_GL_OES_byte_coordinates
 
-    GL_FUNCTIONS_ARGS_MAP[:glVertex4bOES] = [Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glVertex4bOES] = [Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR, Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glVertex4bOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_byte_coordinates)
-      def glVertex4bOES(_x_, _y_, _z_)
+      def glVertex4bOES(_x_, _y_, _z_, _w_)
         f = OpenGL::get_command(:glVertex4bOES)
-        f.call(_x_, _y_, _z_)
+        f.call(_x_, _y_, _z_, _w_)
       end
     SRC_GL_OES_byte_coordinates
 
