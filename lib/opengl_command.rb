@@ -101,9 +101,9 @@ module OpenGL
 
   GL_FUNCTIONS_ARGS_MAP[:glDrawBuffer] = [-Fiddle::TYPE_INT]
   GL_FUNCTIONS_RETVAL_MAP[:glDrawBuffer] = Fiddle::TYPE_VOID
-  def glDrawBuffer(_mode_)
+  def glDrawBuffer(_buf_)
     f = OpenGL::get_command(:glDrawBuffer)
-    f.call(_mode_)
+    f.call(_buf_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glClear] = [-Fiddle::TYPE_INT]
@@ -234,9 +234,9 @@ module OpenGL
 
   GL_FUNCTIONS_ARGS_MAP[:glReadBuffer] = [-Fiddle::TYPE_INT]
   GL_FUNCTIONS_RETVAL_MAP[:glReadBuffer] = Fiddle::TYPE_VOID
-  def glReadBuffer(_mode_)
+  def glReadBuffer(_src_)
     f = OpenGL::get_command(:glReadBuffer)
-    f.call(_mode_)
+    f.call(_src_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glReadPixels] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]

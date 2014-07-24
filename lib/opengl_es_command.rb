@@ -1004,9 +1004,9 @@ module OpenGL
 
   GL_FUNCTIONS_ARGS_MAP[:glReadBuffer] = [-Fiddle::TYPE_INT]
   GL_FUNCTIONS_RETVAL_MAP[:glReadBuffer] = Fiddle::TYPE_VOID
-  def glReadBuffer(_mode_)
+  def glReadBuffer(_src_)
     f = OpenGL::get_command(:glReadBuffer)
-    f.call(_mode_)
+    f.call(_src_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glDrawRangeElements] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]

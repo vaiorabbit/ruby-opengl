@@ -11588,7 +11588,7 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glDrawBuffer</name></proto>
-            <param group="DrawBufferMode"><ptype>GLenum</ptype> <name>mode</name></param>
+            <param group="DrawBufferMode"><ptype>GLenum</ptype> <name>buf</name></param>
             <glx type="render" opcode="126"/>
         </command>
         <command>
@@ -20957,7 +20957,7 @@ typedef unsigned int GLhandleARB;
         </command>
         <command>
             <proto>void <name>glReadBuffer</name></proto>
-            <param group="ReadBufferMode"><ptype>GLenum</ptype> <name>mode</name></param>
+            <param group="ReadBufferMode"><ptype>GLenum</ptype> <name>src</name></param>
             <glx type="render" opcode="171"/>
         </command>
         <command>
