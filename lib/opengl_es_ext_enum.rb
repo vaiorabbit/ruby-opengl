@@ -1064,6 +1064,9 @@ module OpenGL
     const_set('GL_ETC1_RGB8_OES', 0x8D64) unless defined?(GL_ETC1_RGB8_OES)
   end # define_ext_enum_GL_OES_compressed_ETC1_RGB8_texture
 
+  def define_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
+  end # define_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
+
   def define_ext_enum_GL_OES_compressed_paletted_texture
     const_set('GL_PALETTE4_RGB8_OES', 0x8B90) unless defined?(GL_PALETTE4_RGB8_OES)
     const_set('GL_PALETTE4_RGBA8_OES', 0x8B91) unless defined?(GL_PALETTE4_RGBA8_OES)

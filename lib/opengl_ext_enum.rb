@@ -3741,6 +3741,9 @@ module OpenGL
   def define_ext_enum_GL_NV_bindless_multi_draw_indirect
   end # define_ext_enum_GL_NV_bindless_multi_draw_indirect
 
+  def define_ext_enum_GL_NV_bindless_multi_draw_indirect_count
+  end # define_ext_enum_GL_NV_bindless_multi_draw_indirect_count
+
   def define_ext_enum_GL_NV_bindless_texture
   end # define_ext_enum_GL_NV_bindless_texture
 
@@ -4196,6 +4199,40 @@ module OpenGL
     const_set('GL_PRIMARY_COLOR', 0x8577) unless defined?(GL_PRIMARY_COLOR)
     const_set('GL_PRIMARY_COLOR_NV', 0x852C) unless defined?(GL_PRIMARY_COLOR_NV)
     const_set('GL_SECONDARY_COLOR_NV', 0x852D) unless defined?(GL_SECONDARY_COLOR_NV)
+    const_set('GL_ROUNDED_RECT_NV', 0xE8) unless defined?(GL_ROUNDED_RECT_NV)
+    const_set('GL_RELATIVE_ROUNDED_RECT_NV', 0xE9) unless defined?(GL_RELATIVE_ROUNDED_RECT_NV)
+    const_set('GL_ROUNDED_RECT2_NV', 0xEA) unless defined?(GL_ROUNDED_RECT2_NV)
+    const_set('GL_RELATIVE_ROUNDED_RECT2_NV', 0xEB) unless defined?(GL_RELATIVE_ROUNDED_RECT2_NV)
+    const_set('GL_ROUNDED_RECT4_NV', 0xEC) unless defined?(GL_ROUNDED_RECT4_NV)
+    const_set('GL_RELATIVE_ROUNDED_RECT4_NV', 0xED) unless defined?(GL_RELATIVE_ROUNDED_RECT4_NV)
+    const_set('GL_ROUNDED_RECT8_NV', 0xEE) unless defined?(GL_ROUNDED_RECT8_NV)
+    const_set('GL_RELATIVE_ROUNDED_RECT8_NV', 0xEF) unless defined?(GL_RELATIVE_ROUNDED_RECT8_NV)
+    const_set('GL_RELATIVE_RECT_NV', 0xF7) unless defined?(GL_RELATIVE_RECT_NV)
+    const_set('GL_FONT_GLYPHS_AVAILABLE_NV', 0x9368) unless defined?(GL_FONT_GLYPHS_AVAILABLE_NV)
+    const_set('GL_FONT_TARGET_UNAVAILABLE_NV', 0x9369) unless defined?(GL_FONT_TARGET_UNAVAILABLE_NV)
+    const_set('GL_FONT_UNAVAILABLE_NV', 0x936A) unless defined?(GL_FONT_UNAVAILABLE_NV)
+    const_set('GL_FONT_UNINTELLIGIBLE_NV', 0x936B) unless defined?(GL_FONT_UNINTELLIGIBLE_NV)
+    const_set('GL_CONIC_CURVE_TO_NV', 0x1A) unless defined?(GL_CONIC_CURVE_TO_NV)
+    const_set('GL_RELATIVE_CONIC_CURVE_TO_NV', 0x1B) unless defined?(GL_RELATIVE_CONIC_CURVE_TO_NV)
+    const_set('GL_FONT_NUM_GLYPH_INDICES_BIT_NV', 0x20000000) unless defined?(GL_FONT_NUM_GLYPH_INDICES_BIT_NV)
+    const_set('GL_STANDARD_FONT_FORMAT_NV', 0x936C) unless defined?(GL_STANDARD_FONT_FORMAT_NV)
+    const_set('GL_2_BYTES_NV', 0x1407) unless defined?(GL_2_BYTES_NV)
+    const_set('GL_3_BYTES_NV', 0x1408) unless defined?(GL_3_BYTES_NV)
+    const_set('GL_4_BYTES_NV', 0x1409) unless defined?(GL_4_BYTES_NV)
+    const_set('GL_EYE_LINEAR_NV', 0x2400) unless defined?(GL_EYE_LINEAR_NV)
+    const_set('GL_OBJECT_LINEAR_NV', 0x2401) unless defined?(GL_OBJECT_LINEAR_NV)
+    const_set('GL_CONSTANT_NV', 0x8576) unless defined?(GL_CONSTANT_NV)
+    const_set('GL_PATH_PROJECTION_NV', 0x1701) unless defined?(GL_PATH_PROJECTION_NV)
+    const_set('GL_PATH_MODELVIEW_NV', 0x1700) unless defined?(GL_PATH_MODELVIEW_NV)
+    const_set('GL_PATH_MODELVIEW_STACK_DEPTH_NV', 0x0BA3) unless defined?(GL_PATH_MODELVIEW_STACK_DEPTH_NV)
+    const_set('GL_PATH_MODELVIEW_MATRIX_NV', 0x0BA6) unless defined?(GL_PATH_MODELVIEW_MATRIX_NV)
+    const_set('GL_PATH_MAX_MODELVIEW_STACK_DEPTH_NV', 0x0D36) unless defined?(GL_PATH_MAX_MODELVIEW_STACK_DEPTH_NV)
+    const_set('GL_PATH_TRANSPOSE_MODELVIEW_MATRIX_NV', 0x84E3) unless defined?(GL_PATH_TRANSPOSE_MODELVIEW_MATRIX_NV)
+    const_set('GL_PATH_PROJECTION_STACK_DEPTH_NV', 0x0BA4) unless defined?(GL_PATH_PROJECTION_STACK_DEPTH_NV)
+    const_set('GL_PATH_PROJECTION_MATRIX_NV', 0x0BA7) unless defined?(GL_PATH_PROJECTION_MATRIX_NV)
+    const_set('GL_PATH_MAX_PROJECTION_STACK_DEPTH_NV', 0x0D38) unless defined?(GL_PATH_MAX_PROJECTION_STACK_DEPTH_NV)
+    const_set('GL_PATH_TRANSPOSE_PROJECTION_MATRIX_NV', 0x84E4) unless defined?(GL_PATH_TRANSPOSE_PROJECTION_MATRIX_NV)
+    const_set('GL_FRAGMENT_INPUT_NV', 0x936D) unless defined?(GL_FRAGMENT_INPUT_NV)
   end # define_ext_enum_GL_NV_path_rendering
 
   def define_ext_enum_GL_NV_pixel_data_range
@@ -4295,6 +4332,9 @@ module OpenGL
 
   def define_ext_enum_GL_NV_shader_atomic_float
   end # define_ext_enum_GL_NV_shader_atomic_float
+
+  def define_ext_enum_GL_NV_shader_atomic_int64
+  end # define_ext_enum_GL_NV_shader_atomic_int64
 
   def define_ext_enum_GL_NV_shader_buffer_load
     const_set('GL_BUFFER_GPU_ADDRESS_NV', 0x8F1D) unless defined?(GL_BUFFER_GPU_ADDRESS_NV)

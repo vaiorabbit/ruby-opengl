@@ -14194,6 +14194,26 @@ module OpenGL
     SRC_GL_NV_bindless_multi_draw_indirect
   end # define_ext_command_GL_NV_bindless_multi_draw_indirect
 
+  def define_ext_command_GL_NV_bindless_multi_draw_indirect_count
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirectBindlessCountNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawArraysIndirectBindlessCountNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_bindless_multi_draw_indirect_count)
+      def glMultiDrawArraysIndirectBindlessCountNV(_mode_, _indirect_, _drawCount_, _maxDrawCount_, _stride_, _vertexBufferCount_)
+        f = OpenGL::get_command(:glMultiDrawArraysIndirectBindlessCountNV)
+        f.call(_mode_, _indirect_, _drawCount_, _maxDrawCount_, _stride_, _vertexBufferCount_)
+      end
+    SRC_GL_NV_bindless_multi_draw_indirect_count
+
+    GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsIndirectBindlessCountNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawElementsIndirectBindlessCountNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_bindless_multi_draw_indirect_count)
+      def glMultiDrawElementsIndirectBindlessCountNV(_mode_, _type_, _indirect_, _drawCount_, _maxDrawCount_, _stride_, _vertexBufferCount_)
+        f = OpenGL::get_command(:glMultiDrawElementsIndirectBindlessCountNV)
+        f.call(_mode_, _type_, _indirect_, _drawCount_, _maxDrawCount_, _stride_, _vertexBufferCount_)
+      end
+    SRC_GL_NV_bindless_multi_draw_indirect_count
+  end # define_ext_command_GL_NV_bindless_multi_draw_indirect_count
+
   def define_ext_command_GL_NV_bindless_texture
     GL_FUNCTIONS_ARGS_MAP[:glGetTextureHandleNV] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glGetTextureHandleNV] = -Fiddle::TYPE_LONG_LONG
@@ -16156,6 +16176,141 @@ module OpenGL
         f.call(_path_, _startSegment_, _numSegments_, _distance_, _x_, _y_, _tangentX_, _tangentY_)
       end
     SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixLoad3x2fNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glMatrixLoad3x2fNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glMatrixLoad3x2fNV(_matrixMode_, _m_)
+        f = OpenGL::get_command(:glMatrixLoad3x2fNV)
+        f.call(_matrixMode_, _m_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixLoad3x3fNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glMatrixLoad3x3fNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glMatrixLoad3x3fNV(_matrixMode_, _m_)
+        f = OpenGL::get_command(:glMatrixLoad3x3fNV)
+        f.call(_matrixMode_, _m_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixLoadTranspose3x3fNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glMatrixLoadTranspose3x3fNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glMatrixLoadTranspose3x3fNV(_matrixMode_, _m_)
+        f = OpenGL::get_command(:glMatrixLoadTranspose3x3fNV)
+        f.call(_matrixMode_, _m_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixMult3x2fNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glMatrixMult3x2fNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glMatrixMult3x2fNV(_matrixMode_, _m_)
+        f = OpenGL::get_command(:glMatrixMult3x2fNV)
+        f.call(_matrixMode_, _m_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixMult3x3fNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glMatrixMult3x3fNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glMatrixMult3x3fNV(_matrixMode_, _m_)
+        f = OpenGL::get_command(:glMatrixMult3x3fNV)
+        f.call(_matrixMode_, _m_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glMatrixMultTranspose3x3fNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glMatrixMultTranspose3x3fNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glMatrixMultTranspose3x3fNV(_matrixMode_, _m_)
+        f = OpenGL::get_command(:glMatrixMultTranspose3x3fNV)
+        f.call(_matrixMode_, _m_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glStencilThenCoverFillPathNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glStencilThenCoverFillPathNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glStencilThenCoverFillPathNV(_path_, _fillMode_, _mask_, _coverMode_)
+        f = OpenGL::get_command(:glStencilThenCoverFillPathNV)
+        f.call(_path_, _fillMode_, _mask_, _coverMode_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glStencilThenCoverStrokePathNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glStencilThenCoverStrokePathNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glStencilThenCoverStrokePathNV(_path_, _reference_, _mask_, _coverMode_)
+        f = OpenGL::get_command(:glStencilThenCoverStrokePathNV)
+        f.call(_path_, _reference_, _mask_, _coverMode_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glStencilThenCoverFillPathInstancedNV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glStencilThenCoverFillPathInstancedNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glStencilThenCoverFillPathInstancedNV(_numPaths_, _pathNameType_, _paths_, _pathBase_, _fillMode_, _mask_, _coverMode_, _transformType_, _transformValues_)
+        f = OpenGL::get_command(:glStencilThenCoverFillPathInstancedNV)
+        f.call(_numPaths_, _pathNameType_, _paths_, _pathBase_, _fillMode_, _mask_, _coverMode_, _transformType_, _transformValues_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glStencilThenCoverStrokePathInstancedNV] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glStencilThenCoverStrokePathInstancedNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glStencilThenCoverStrokePathInstancedNV(_numPaths_, _pathNameType_, _paths_, _pathBase_, _reference_, _mask_, _coverMode_, _transformType_, _transformValues_)
+        f = OpenGL::get_command(:glStencilThenCoverStrokePathInstancedNV)
+        f.call(_numPaths_, _pathNameType_, _paths_, _pathBase_, _reference_, _mask_, _coverMode_, _transformType_, _transformValues_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glPathGlyphIndexRangeNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, ]
+    GL_FUNCTIONS_RETVAL_MAP[:glPathGlyphIndexRangeNV] = -Fiddle::TYPE_INT
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glPathGlyphIndexRangeNV(_fontTarget_, _fontName_, _fontStyle_, _pathParameterTemplate_, _emScale_, _baseAndCount_)
+        f = OpenGL::get_command(:glPathGlyphIndexRangeNV)
+        f.call(_fontTarget_, _fontName_, _fontStyle_, _pathParameterTemplate_, _emScale_, _baseAndCount_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glPathGlyphIndexArrayNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_RETVAL_MAP[:glPathGlyphIndexArrayNV] = -Fiddle::TYPE_INT
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glPathGlyphIndexArrayNV(_firstPathName_, _fontTarget_, _fontName_, _fontStyle_, _firstGlyphIndex_, _numGlyphs_, _pathParameterTemplate_, _emScale_)
+        f = OpenGL::get_command(:glPathGlyphIndexArrayNV)
+        f.call(_firstPathName_, _fontTarget_, _fontName_, _fontStyle_, _firstGlyphIndex_, _numGlyphs_, _pathParameterTemplate_, _emScale_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glPathMemoryGlyphIndexArrayNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_RETVAL_MAP[:glPathMemoryGlyphIndexArrayNV] = -Fiddle::TYPE_INT
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glPathMemoryGlyphIndexArrayNV(_firstPathName_, _fontTarget_, _fontSize_, _fontData_, _faceIndex_, _firstGlyphIndex_, _numGlyphs_, _pathParameterTemplate_, _emScale_)
+        f = OpenGL::get_command(:glPathMemoryGlyphIndexArrayNV)
+        f.call(_firstPathName_, _fontTarget_, _fontSize_, _fontData_, _faceIndex_, _firstGlyphIndex_, _numGlyphs_, _pathParameterTemplate_, _emScale_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramPathFragmentInputGenNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramPathFragmentInputGenNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glProgramPathFragmentInputGenNV(_program_, _location_, _genMode_, _components_, _coeffs_)
+        f = OpenGL::get_command(:glProgramPathFragmentInputGenNV)
+        f.call(_program_, _location_, _genMode_, _components_, _coeffs_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourcefvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetProgramResourcefvNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glGetProgramResourcefvNV(_program_, _programInterface_, _index_, _propCount_, _props_, _bufSize_, _length_, _params_)
+        f = OpenGL::get_command(:glGetProgramResourcefvNV)
+        f.call(_program_, _programInterface_, _index_, _propCount_, _props_, _bufSize_, _length_, _params_)
+      end
+    SRC_GL_NV_path_rendering
   end # define_ext_command_GL_NV_path_rendering
 
   def define_ext_command_GL_NV_pixel_data_range
@@ -16418,6 +16573,9 @@ module OpenGL
 
   def define_ext_command_GL_NV_shader_atomic_float
   end # define_ext_command_GL_NV_shader_atomic_float
+
+  def define_ext_command_GL_NV_shader_atomic_int64
+  end # define_ext_command_GL_NV_shader_atomic_int64
 
   def define_ext_command_GL_NV_shader_buffer_load
     GL_FUNCTIONS_ARGS_MAP[:glMakeBufferResidentNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]

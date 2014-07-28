@@ -2189,6 +2189,9 @@ module OpenGL
   def define_ext_command_GL_OES_compressed_ETC1_RGB8_texture
   end # define_ext_command_GL_OES_compressed_ETC1_RGB8_texture
 
+  def define_ext_command_GL_OES_compressed_ETC1_RGB8_sub_texture
+  end # define_ext_command_GL_OES_compressed_ETC1_RGB8_sub_texture
+
   def define_ext_command_GL_OES_compressed_paletted_texture
   end # define_ext_command_GL_OES_compressed_paletted_texture
 
