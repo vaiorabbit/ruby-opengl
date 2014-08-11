@@ -1665,6 +1665,12 @@ module OpenGL
     SRC_GL_KHR_blend_equation_advanced
   end # define_ext_command_GL_KHR_blend_equation_advanced
 
+  def define_ext_command_GL_KHR_blend_equation_advanced_coherent
+  end # define_ext_command_GL_KHR_blend_equation_advanced_coherent
+
+  def define_ext_command_GL_KHR_context_flush_control
+  end # define_ext_command_GL_KHR_context_flush_control
+
   def define_ext_command_GL_KHR_debug
     GL_FUNCTIONS_ARGS_MAP[:glDebugMessageControl] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glDebugMessageControl] = Fiddle::TYPE_VOID
@@ -1864,6 +1870,101 @@ module OpenGL
       end
     SRC_GL_KHR_debug
   end # define_ext_command_GL_KHR_debug
+
+  def define_ext_command_GL_KHR_robust_buffer_access_behavior
+  end # define_ext_command_GL_KHR_robust_buffer_access_behavior
+
+  def define_ext_command_GL_KHR_robustness
+    GL_FUNCTIONS_ARGS_MAP[:glGetGraphicsResetStatus] = []
+    GL_FUNCTIONS_RETVAL_MAP[:glGetGraphicsResetStatus] = -Fiddle::TYPE_INT
+    module_eval(<<-SRC_GL_KHR_robustness)
+      def glGetGraphicsResetStatus()
+        f = OpenGL::get_command(:glGetGraphicsResetStatus)
+        f.call()
+      end
+    SRC_GL_KHR_robustness
+
+    GL_FUNCTIONS_ARGS_MAP[:glReadnPixels] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glReadnPixels] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_KHR_robustness)
+      def glReadnPixels(_x_, _y_, _width_, _height_, _format_, _type_, _bufSize_, _data_)
+        f = OpenGL::get_command(:glReadnPixels)
+        f.call(_x_, _y_, _width_, _height_, _format_, _type_, _bufSize_, _data_)
+      end
+    SRC_GL_KHR_robustness
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformfv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetnUniformfv] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_KHR_robustness)
+      def glGetnUniformfv(_program_, _location_, _bufSize_, _params_)
+        f = OpenGL::get_command(:glGetnUniformfv)
+        f.call(_program_, _location_, _bufSize_, _params_)
+      end
+    SRC_GL_KHR_robustness
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetnUniformiv] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_KHR_robustness)
+      def glGetnUniformiv(_program_, _location_, _bufSize_, _params_)
+        f = OpenGL::get_command(:glGetnUniformiv)
+        f.call(_program_, _location_, _bufSize_, _params_)
+      end
+    SRC_GL_KHR_robustness
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformuiv] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetnUniformuiv] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_KHR_robustness)
+      def glGetnUniformuiv(_program_, _location_, _bufSize_, _params_)
+        f = OpenGL::get_command(:glGetnUniformuiv)
+        f.call(_program_, _location_, _bufSize_, _params_)
+      end
+    SRC_GL_KHR_robustness
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetGraphicsResetStatusKHR] = []
+    GL_FUNCTIONS_RETVAL_MAP[:glGetGraphicsResetStatusKHR] = -Fiddle::TYPE_INT
+    module_eval(<<-SRC_GL_KHR_robustness)
+      def glGetGraphicsResetStatusKHR()
+        f = OpenGL::get_command(:glGetGraphicsResetStatusKHR)
+        f.call()
+      end
+    SRC_GL_KHR_robustness
+
+    GL_FUNCTIONS_ARGS_MAP[:glReadnPixelsKHR] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glReadnPixelsKHR] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_KHR_robustness)
+      def glReadnPixelsKHR(_x_, _y_, _width_, _height_, _format_, _type_, _bufSize_, _data_)
+        f = OpenGL::get_command(:glReadnPixelsKHR)
+        f.call(_x_, _y_, _width_, _height_, _format_, _type_, _bufSize_, _data_)
+      end
+    SRC_GL_KHR_robustness
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformfvKHR] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetnUniformfvKHR] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_KHR_robustness)
+      def glGetnUniformfvKHR(_program_, _location_, _bufSize_, _params_)
+        f = OpenGL::get_command(:glGetnUniformfvKHR)
+        f.call(_program_, _location_, _bufSize_, _params_)
+      end
+    SRC_GL_KHR_robustness
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformivKHR] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetnUniformivKHR] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_KHR_robustness)
+      def glGetnUniformivKHR(_program_, _location_, _bufSize_, _params_)
+        f = OpenGL::get_command(:glGetnUniformivKHR)
+        f.call(_program_, _location_, _bufSize_, _params_)
+      end
+    SRC_GL_KHR_robustness
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformuivKHR] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetnUniformuivKHR] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_KHR_robustness)
+      def glGetnUniformuivKHR(_program_, _location_, _bufSize_, _params_)
+        f = OpenGL::get_command(:glGetnUniformuivKHR)
+        f.call(_program_, _location_, _bufSize_, _params_)
+      end
+    SRC_GL_KHR_robustness
+  end # define_ext_command_GL_KHR_robustness
 
   def define_ext_command_GL_KHR_texture_compression_astc_hdr
   end # define_ext_command_GL_KHR_texture_compression_astc_hdr
@@ -2186,11 +2287,11 @@ module OpenGL
   def define_ext_command_GL_OES_EGL_image_external
   end # define_ext_command_GL_OES_EGL_image_external
 
-  def define_ext_command_GL_OES_compressed_ETC1_RGB8_texture
-  end # define_ext_command_GL_OES_compressed_ETC1_RGB8_texture
-
   def define_ext_command_GL_OES_compressed_ETC1_RGB8_sub_texture
   end # define_ext_command_GL_OES_compressed_ETC1_RGB8_sub_texture
+
+  def define_ext_command_GL_OES_compressed_ETC1_RGB8_texture
+  end # define_ext_command_GL_OES_compressed_ETC1_RGB8_texture
 
   def define_ext_command_GL_OES_compressed_paletted_texture
   end # define_ext_command_GL_OES_compressed_paletted_texture

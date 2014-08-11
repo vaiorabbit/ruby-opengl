@@ -663,7 +663,6 @@ module OpenGL
   end # define_ext_enum_GL_INTEL_performance_query
 
   def define_ext_enum_GL_KHR_blend_equation_advanced
-    const_set('GL_BLEND_ADVANCED_COHERENT_KHR', 0x9285) unless defined?(GL_BLEND_ADVANCED_COHERENT_KHR)
     const_set('GL_MULTIPLY_KHR', 0x9294) unless defined?(GL_MULTIPLY_KHR)
     const_set('GL_SCREEN_KHR', 0x9295) unless defined?(GL_SCREEN_KHR)
     const_set('GL_OVERLAY_KHR', 0x9296) unless defined?(GL_OVERLAY_KHR)
@@ -680,6 +679,18 @@ module OpenGL
     const_set('GL_HSL_COLOR_KHR', 0x92AF) unless defined?(GL_HSL_COLOR_KHR)
     const_set('GL_HSL_LUMINOSITY_KHR', 0x92B0) unless defined?(GL_HSL_LUMINOSITY_KHR)
   end # define_ext_enum_GL_KHR_blend_equation_advanced
+
+  def define_ext_enum_GL_KHR_blend_equation_advanced_coherent
+    const_set('GL_BLEND_ADVANCED_COHERENT_KHR', 0x9285) unless defined?(GL_BLEND_ADVANCED_COHERENT_KHR)
+  end # define_ext_enum_GL_KHR_blend_equation_advanced_coherent
+
+  def define_ext_enum_GL_KHR_context_flush_control
+    const_set('GL_CONTEXT_RELEASE_BEHAVIOR', 0x82FB) unless defined?(GL_CONTEXT_RELEASE_BEHAVIOR)
+    const_set('GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH', 0x82FC) unless defined?(GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH)
+    const_set('GL_NONE', 0) unless defined?(GL_NONE)
+    const_set('GL_CONTEXT_RELEASE_BEHAVIOR_KHR', 0x82FB) unless defined?(GL_CONTEXT_RELEASE_BEHAVIOR_KHR)
+    const_set('GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR', 0x82FC) unless defined?(GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR)
+  end # define_ext_enum_GL_KHR_context_flush_control
 
   def define_ext_enum_GL_KHR_debug
     const_set('GL_DEBUG_OUTPUT_SYNCHRONOUS', 0x8242) unless defined?(GL_DEBUG_OUTPUT_SYNCHRONOUS)
@@ -763,6 +774,29 @@ module OpenGL
     const_set('GL_PROGRAM_PIPELINE', 0x82E4) unless defined?(GL_PROGRAM_PIPELINE)
     const_set('GL_DISPLAY_LIST', 0x82E7) unless defined?(GL_DISPLAY_LIST)
   end # define_ext_enum_GL_KHR_debug
+
+  def define_ext_enum_GL_KHR_robust_buffer_access_behavior
+  end # define_ext_enum_GL_KHR_robust_buffer_access_behavior
+
+  def define_ext_enum_GL_KHR_robustness
+    const_set('GL_NO_ERROR', 0) unless defined?(GL_NO_ERROR)
+    const_set('GL_CONTEXT_ROBUST_ACCESS', 0x90F3) unless defined?(GL_CONTEXT_ROBUST_ACCESS)
+    const_set('GL_LOSE_CONTEXT_ON_RESET', 0x8252) unless defined?(GL_LOSE_CONTEXT_ON_RESET)
+    const_set('GL_GUILTY_CONTEXT_RESET', 0x8253) unless defined?(GL_GUILTY_CONTEXT_RESET)
+    const_set('GL_INNOCENT_CONTEXT_RESET', 0x8254) unless defined?(GL_INNOCENT_CONTEXT_RESET)
+    const_set('GL_UNKNOWN_CONTEXT_RESET', 0x8255) unless defined?(GL_UNKNOWN_CONTEXT_RESET)
+    const_set('GL_RESET_NOTIFICATION_STRATEGY', 0x8256) unless defined?(GL_RESET_NOTIFICATION_STRATEGY)
+    const_set('GL_NO_RESET_NOTIFICATION', 0x8261) unless defined?(GL_NO_RESET_NOTIFICATION)
+    const_set('GL_CONTEXT_LOST', 0x0507) unless defined?(GL_CONTEXT_LOST)
+    const_set('GL_CONTEXT_ROBUST_ACCESS_KHR', 0x90F3) unless defined?(GL_CONTEXT_ROBUST_ACCESS_KHR)
+    const_set('GL_LOSE_CONTEXT_ON_RESET_KHR', 0x8252) unless defined?(GL_LOSE_CONTEXT_ON_RESET_KHR)
+    const_set('GL_GUILTY_CONTEXT_RESET_KHR', 0x8253) unless defined?(GL_GUILTY_CONTEXT_RESET_KHR)
+    const_set('GL_INNOCENT_CONTEXT_RESET_KHR', 0x8254) unless defined?(GL_INNOCENT_CONTEXT_RESET_KHR)
+    const_set('GL_UNKNOWN_CONTEXT_RESET_KHR', 0x8255) unless defined?(GL_UNKNOWN_CONTEXT_RESET_KHR)
+    const_set('GL_RESET_NOTIFICATION_STRATEGY_KHR', 0x8256) unless defined?(GL_RESET_NOTIFICATION_STRATEGY_KHR)
+    const_set('GL_NO_RESET_NOTIFICATION_KHR', 0x8261) unless defined?(GL_NO_RESET_NOTIFICATION_KHR)
+    const_set('GL_CONTEXT_LOST_KHR', 0x0507) unless defined?(GL_CONTEXT_LOST_KHR)
+  end # define_ext_enum_GL_KHR_robustness
 
   def define_ext_enum_GL_KHR_texture_compression_astc_hdr
     const_set('GL_COMPRESSED_RGBA_ASTC_4x4_KHR', 0x93B0) unless defined?(GL_COMPRESSED_RGBA_ASTC_4x4_KHR)
@@ -1060,12 +1094,12 @@ module OpenGL
     const_set('GL_SAMPLER_EXTERNAL_OES', 0x8D66) unless defined?(GL_SAMPLER_EXTERNAL_OES)
   end # define_ext_enum_GL_OES_EGL_image_external
 
+  def define_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
+  end # define_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
+
   def define_ext_enum_GL_OES_compressed_ETC1_RGB8_texture
     const_set('GL_ETC1_RGB8_OES', 0x8D64) unless defined?(GL_ETC1_RGB8_OES)
   end # define_ext_enum_GL_OES_compressed_ETC1_RGB8_texture
-
-  def define_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
-  end # define_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
 
   def define_ext_enum_GL_OES_compressed_paletted_texture
     const_set('GL_PALETTE4_RGB8_OES', 0x8B90) unless defined?(GL_PALETTE4_RGB8_OES)
