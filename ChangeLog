@@ -1,6 +1,8 @@
 2014-08-12  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* OpenGL 4.5
+	* generator : [BUGFIX] 'const' arguments aren't handled correctly ('const GLfloat buffer' of glClearNamedFramebufferfi).
+	* generator : [BUGFIX] Array arguments aren't handled correctly ('GLuint baseAndCount[2]' of glPathGlyphIndexRangeNV).
 
 2014-07-28  vaiorabbit  <https://twitter.com/vaiorabbit>
 

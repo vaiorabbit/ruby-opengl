@@ -1802,7 +1802,7 @@ module OpenGL
       end
     SRC_GL_ARB_direct_state_access
 
-    GL_FUNCTIONS_ARGS_MAP[:glClearNamedFramebufferfi] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, , Fiddle::TYPE_INT]
+    GL_FUNCTIONS_ARGS_MAP[:glClearNamedFramebufferfi] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glClearNamedFramebufferfi] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_direct_state_access)
       def glClearNamedFramebufferfi(_framebuffer_, _buffer_, _depth_, _stencil_)
@@ -17318,7 +17318,7 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathGlyphIndexRangeNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, ]
+    GL_FUNCTIONS_ARGS_MAP[:glPathGlyphIndexRangeNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPathGlyphIndexRangeNV] = -Fiddle::TYPE_INT
     module_eval(<<-SRC_GL_NV_path_rendering)
       def glPathGlyphIndexRangeNV(_fontTarget_, _fontName_, _fontStyle_, _pathParameterTemplate_, _emScale_, _baseAndCount_)

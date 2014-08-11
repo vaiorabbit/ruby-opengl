@@ -40,6 +40,10 @@ def generate_es_command( out )
       content = param_tag.text
       var_name = param_tag.at('name').text.strip
       type_name = content.chomp(var_name).strip
+      if type_name =~ /const/
+        type_name.slice!("const")
+        type_name.strip!
+      end
       map_entry.type_names << type_name
       map_entry.var_names << var_name
     end
@@ -75,8 +79,14 @@ def generate_es_command( out )
     # Arguments
     arg_names = []
     map_entry.type_names.each do |t|
+      resolved_gl_type = OpenGL::GL_TYPE_MAP[t]
+      is_array = t.include?( "[" )
       is_ptr = t.end_with?( '*' )
-      arg_names << (is_ptr ? 'Fiddle::TYPE_VOIDP' : OpenGL::GL_TYPE_MAP[t])
+      if !is_ptr && !is_array && resolved_gl_type == nil
+        $stderr.puts "[ERROR] ruby-opengl generator script 'generate_es_command.rb' : Unknown type '#{t}' detected. Exiting..."
+        exit
+      end
+      arg_names << ((is_ptr || is_array) ? 'Fiddle::TYPE_VOIDP' : resolved_gl_type)
     end
     out.print "  GL_FUNCTIONS_ARGS_MAP[:#{api}] = ["
     arg_names.each_with_index do |a, i| out.printf "#{a}%s", (i < arg_names.length-1 ? ", " : "") end
