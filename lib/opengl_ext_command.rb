@@ -12696,6 +12696,17 @@ module OpenGL
     SRC_GL_EXT_polygon_offset
   end # define_ext_command_GL_EXT_polygon_offset
 
+  def define_ext_command_GL_EXT_polygon_offset_clamp
+    GL_FUNCTIONS_ARGS_MAP[:glPolygonOffsetClampEXT] = [Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_RETVAL_MAP[:glPolygonOffsetClampEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_polygon_offset_clamp)
+      def glPolygonOffsetClampEXT(_factor_, _units_, _clamp_)
+        f = OpenGL::get_command(:glPolygonOffsetClampEXT)
+        f.call(_factor_, _units_, _clamp_)
+      end
+    SRC_GL_EXT_polygon_offset_clamp
+  end # define_ext_command_GL_EXT_polygon_offset_clamp
+
   def define_ext_command_GL_EXT_provoking_vertex
     GL_FUNCTIONS_ARGS_MAP[:glProvokingVertexEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProvokingVertexEXT] = Fiddle::TYPE_VOID
@@ -18039,6 +18050,9 @@ module OpenGL
       end
     SRC_GL_NV_transform_feedback2
   end # define_ext_command_GL_NV_transform_feedback2
+
+  def define_ext_command_GL_NV_uniform_buffer_unified_memory
+  end # define_ext_command_GL_NV_uniform_buffer_unified_memory
 
   def define_ext_command_GL_NV_vdpau_interop
     GL_FUNCTIONS_ARGS_MAP[:glVDPAUInitNV] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]

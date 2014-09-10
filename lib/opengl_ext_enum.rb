@@ -2866,6 +2866,10 @@ module OpenGL
     const_set('GL_POLYGON_OFFSET_BIAS_EXT', 0x8039) unless defined?(GL_POLYGON_OFFSET_BIAS_EXT)
   end # define_ext_enum_GL_EXT_polygon_offset
 
+  def define_ext_enum_GL_EXT_polygon_offset_clamp
+    const_set('GL_POLYGON_OFFSET_CLAMP_EXT', 0x8E1B) unless defined?(GL_POLYGON_OFFSET_CLAMP_EXT)
+  end # define_ext_enum_GL_EXT_polygon_offset_clamp
+
   def define_ext_enum_GL_EXT_provoking_vertex
     const_set('GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT', 0x8E4C) unless defined?(GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION_EXT)
     const_set('GL_FIRST_VERTEX_CONVENTION_EXT', 0x8E4D) unless defined?(GL_FIRST_VERTEX_CONVENTION_EXT)
@@ -4679,6 +4683,12 @@ module OpenGL
     const_set('GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE_NV', 0x8E24) unless defined?(GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE_NV)
     const_set('GL_TRANSFORM_FEEDBACK_BINDING_NV', 0x8E25) unless defined?(GL_TRANSFORM_FEEDBACK_BINDING_NV)
   end # define_ext_enum_GL_NV_transform_feedback2
+
+  def define_ext_enum_GL_NV_uniform_buffer_unified_memory
+    const_set('GL_UNIFORM_BUFFER_UNIFIED_NV', 0x936E) unless defined?(GL_UNIFORM_BUFFER_UNIFIED_NV)
+    const_set('GL_UNIFORM_BUFFER_ADDRESS_NV', 0x936F) unless defined?(GL_UNIFORM_BUFFER_ADDRESS_NV)
+    const_set('GL_UNIFORM_BUFFER_LENGTH_NV', 0x9370) unless defined?(GL_UNIFORM_BUFFER_LENGTH_NV)
+  end # define_ext_enum_GL_NV_uniform_buffer_unified_memory
 
   def define_ext_enum_GL_NV_vdpau_interop
     const_set('GL_SURFACE_STATE_NV', 0x86EB) unless defined?(GL_SURFACE_STATE_NV)
