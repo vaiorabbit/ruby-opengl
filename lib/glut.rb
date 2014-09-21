@@ -270,11 +270,14 @@ module GLUT
       when :OPENGL_PLATFORM_MACOSX
         lib, path = 'GLUT', '/System/Library/Frameworks/GLUT.framework'
       else
-        lib, path = 'libglut.so', Dir.pwd
+        lib, path = 'libglut.so'
       end
     end
-
-    dlload (path + '/' + lib)
+    if path
+      dlload (path + '/' + lib)
+    else
+      dlload (lib)
+    end
     import_symbols() unless @@glut_import_done
   end
 

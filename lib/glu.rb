@@ -257,9 +257,15 @@ module GLU
         lib, path = 'GLU32.dll', 'C:/Windows/System32'
       when :OPENGL_PLATFORM_MACOSX
         lib, path = 'libGLU.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries'
+      else
+        lib = 'libGLU.so'
       end
     end
-    dlload (path + '/' + lib)
+    if path
+      dlload (path + '/' + lib)
+    else
+      dlload (lib)
+    end
     import_symbols() unless @@glu_import_done
   end
 
