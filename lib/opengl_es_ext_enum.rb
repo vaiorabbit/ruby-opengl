@@ -87,6 +87,21 @@ module OpenGL
     const_set('GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE', 0x93A0) unless defined?(GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE)
   end # define_ext_enum_GL_ANGLE_translated_shader_source
 
+  def define_ext_enum_GL_APPLE_clip_distance
+    const_set('GL_MAX_CLIP_DISTANCES_APPLE', 0x0D32) unless defined?(GL_MAX_CLIP_DISTANCES_APPLE)
+    const_set('GL_CLIP_DISTANCE0_APPLE', 0x3000) unless defined?(GL_CLIP_DISTANCE0_APPLE)
+    const_set('GL_CLIP_DISTANCE1_APPLE', 0x3001) unless defined?(GL_CLIP_DISTANCE1_APPLE)
+    const_set('GL_CLIP_DISTANCE2_APPLE', 0x3002) unless defined?(GL_CLIP_DISTANCE2_APPLE)
+    const_set('GL_CLIP_DISTANCE3_APPLE', 0x3003) unless defined?(GL_CLIP_DISTANCE3_APPLE)
+    const_set('GL_CLIP_DISTANCE4_APPLE', 0x3004) unless defined?(GL_CLIP_DISTANCE4_APPLE)
+    const_set('GL_CLIP_DISTANCE5_APPLE', 0x3005) unless defined?(GL_CLIP_DISTANCE5_APPLE)
+    const_set('GL_CLIP_DISTANCE6_APPLE', 0x3006) unless defined?(GL_CLIP_DISTANCE6_APPLE)
+    const_set('GL_CLIP_DISTANCE7_APPLE', 0x3007) unless defined?(GL_CLIP_DISTANCE7_APPLE)
+  end # define_ext_enum_GL_APPLE_clip_distance
+
+  def define_ext_enum_GL_APPLE_color_buffer_packed_float
+  end # define_ext_enum_GL_APPLE_color_buffer_packed_float
+
   def define_ext_enum_GL_APPLE_copy_texture_levels
   end # define_ext_enum_GL_APPLE_copy_texture_levels
 
@@ -135,6 +150,13 @@ module OpenGL
     const_set('GL_TEXTURE_MAX_LEVEL_APPLE', 0x813D) unless defined?(GL_TEXTURE_MAX_LEVEL_APPLE)
   end # define_ext_enum_GL_APPLE_texture_max_level
 
+  def define_ext_enum_GL_APPLE_texture_packed_float
+    const_set('GL_UNSIGNED_INT_10F_11F_11F_REV_APPLE', 0x8C3B) unless defined?(GL_UNSIGNED_INT_10F_11F_11F_REV_APPLE)
+    const_set('GL_UNSIGNED_INT_5_9_9_9_REV_APPLE', 0x8C3E) unless defined?(GL_UNSIGNED_INT_5_9_9_9_REV_APPLE)
+    const_set('GL_R11F_G11F_B10F_APPLE', 0x8C3A) unless defined?(GL_R11F_G11F_B10F_APPLE)
+    const_set('GL_RGB9_E5_APPLE', 0x8C3D) unless defined?(GL_RGB9_E5_APPLE)
+  end # define_ext_enum_GL_APPLE_texture_packed_float
+
   def define_ext_enum_GL_ARM_mali_program_binary
     const_set('GL_MALI_PROGRAM_BINARY_ARM', 0x8F61) unless defined?(GL_MALI_PROGRAM_BINARY_ARM)
   end # define_ext_enum_GL_ARM_mali_program_binary
@@ -153,6 +175,12 @@ module OpenGL
 
   def define_ext_enum_GL_ARM_shader_framebuffer_fetch_depth_stencil
   end # define_ext_enum_GL_ARM_shader_framebuffer_fetch_depth_stencil
+
+  def define_ext_enum_GL_DMP_program_binary
+    const_set('GL_SMAPHS30_PROGRAM_BINARY_DMP', 0x9251) unless defined?(GL_SMAPHS30_PROGRAM_BINARY_DMP)
+    const_set('GL_SMAPHS_PROGRAM_BINARY_DMP', 0x9252) unless defined?(GL_SMAPHS_PROGRAM_BINARY_DMP)
+    const_set('GL_DMP_PROGRAM_BINARY_DMP', 0x9253) unless defined?(GL_DMP_PROGRAM_BINARY_DMP)
+  end # define_ext_enum_GL_DMP_program_binary
 
   def define_ext_enum_GL_DMP_shader_binary
     const_set('GL_SHADER_BINARY_DMP', 0x9250) unless defined?(GL_SHADER_BINARY_DMP)

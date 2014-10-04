@@ -7120,6 +7120,34 @@ module OpenGL
     f.call(_target_, _n_, _ids_)
   end
 
+  GL_FUNCTIONS_ARGS_MAP[:glGetQueryBufferObjecti64v] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+  GL_FUNCTIONS_RETVAL_MAP[:glGetQueryBufferObjecti64v] = Fiddle::TYPE_VOID
+  def glGetQueryBufferObjecti64v(_id_, _buffer_, _pname_, _offset_)
+    f = OpenGL::get_command(:glGetQueryBufferObjecti64v)
+    f.call(_id_, _buffer_, _pname_, _offset_)
+  end
+
+  GL_FUNCTIONS_ARGS_MAP[:glGetQueryBufferObjectiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+  GL_FUNCTIONS_RETVAL_MAP[:glGetQueryBufferObjectiv] = Fiddle::TYPE_VOID
+  def glGetQueryBufferObjectiv(_id_, _buffer_, _pname_, _offset_)
+    f = OpenGL::get_command(:glGetQueryBufferObjectiv)
+    f.call(_id_, _buffer_, _pname_, _offset_)
+  end
+
+  GL_FUNCTIONS_ARGS_MAP[:glGetQueryBufferObjectui64v] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+  GL_FUNCTIONS_RETVAL_MAP[:glGetQueryBufferObjectui64v] = Fiddle::TYPE_VOID
+  def glGetQueryBufferObjectui64v(_id_, _buffer_, _pname_, _offset_)
+    f = OpenGL::get_command(:glGetQueryBufferObjectui64v)
+    f.call(_id_, _buffer_, _pname_, _offset_)
+  end
+
+  GL_FUNCTIONS_ARGS_MAP[:glGetQueryBufferObjectuiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+  GL_FUNCTIONS_RETVAL_MAP[:glGetQueryBufferObjectuiv] = Fiddle::TYPE_VOID
+  def glGetQueryBufferObjectuiv(_id_, _buffer_, _pname_, _offset_)
+    f = OpenGL::get_command(:glGetQueryBufferObjectuiv)
+    f.call(_id_, _buffer_, _pname_, _offset_)
+  end
+
   GL_FUNCTIONS_ARGS_MAP[:glMemoryBarrierByRegion] = [-Fiddle::TYPE_INT]
   GL_FUNCTIONS_RETVAL_MAP[:glMemoryBarrierByRegion] = Fiddle::TYPE_VOID
   def glMemoryBarrierByRegion(_barriers_)

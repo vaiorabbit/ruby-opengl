@@ -201,6 +201,12 @@ module OpenGL
     SRC_GL_ANGLE_translated_shader_source
   end # define_ext_command_GL_ANGLE_translated_shader_source
 
+  def define_ext_command_GL_APPLE_clip_distance
+  end # define_ext_command_GL_APPLE_clip_distance
+
+  def define_ext_command_GL_APPLE_color_buffer_packed_float
+  end # define_ext_command_GL_APPLE_color_buffer_packed_float
+
   def define_ext_command_GL_APPLE_copy_texture_levels
     GL_FUNCTIONS_ARGS_MAP[:glCopyTextureLevelsAPPLE] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCopyTextureLevelsAPPLE] = Fiddle::TYPE_VOID
@@ -306,6 +312,9 @@ module OpenGL
   def define_ext_command_GL_APPLE_texture_max_level
   end # define_ext_command_GL_APPLE_texture_max_level
 
+  def define_ext_command_GL_APPLE_texture_packed_float
+  end # define_ext_command_GL_APPLE_texture_packed_float
+
   def define_ext_command_GL_ARM_mali_program_binary
   end # define_ext_command_GL_ARM_mali_program_binary
 
@@ -320,6 +329,9 @@ module OpenGL
 
   def define_ext_command_GL_ARM_shader_framebuffer_fetch_depth_stencil
   end # define_ext_command_GL_ARM_shader_framebuffer_fetch_depth_stencil
+
+  def define_ext_command_GL_DMP_program_binary
+  end # define_ext_command_GL_DMP_program_binary
 
   def define_ext_command_GL_DMP_shader_binary
   end # define_ext_command_GL_DMP_shader_binary

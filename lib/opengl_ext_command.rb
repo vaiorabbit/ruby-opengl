@@ -2332,6 +2332,42 @@ module OpenGL
         f.call(_target_, _n_, _ids_)
       end
     SRC_GL_ARB_direct_state_access
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetQueryBufferObjecti64v] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetQueryBufferObjecti64v] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_direct_state_access)
+      def glGetQueryBufferObjecti64v(_id_, _buffer_, _pname_, _offset_)
+        f = OpenGL::get_command(:glGetQueryBufferObjecti64v)
+        f.call(_id_, _buffer_, _pname_, _offset_)
+      end
+    SRC_GL_ARB_direct_state_access
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetQueryBufferObjectiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetQueryBufferObjectiv] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_direct_state_access)
+      def glGetQueryBufferObjectiv(_id_, _buffer_, _pname_, _offset_)
+        f = OpenGL::get_command(:glGetQueryBufferObjectiv)
+        f.call(_id_, _buffer_, _pname_, _offset_)
+      end
+    SRC_GL_ARB_direct_state_access
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetQueryBufferObjectui64v] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetQueryBufferObjectui64v] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_direct_state_access)
+      def glGetQueryBufferObjectui64v(_id_, _buffer_, _pname_, _offset_)
+        f = OpenGL::get_command(:glGetQueryBufferObjectui64v)
+        f.call(_id_, _buffer_, _pname_, _offset_)
+      end
+    SRC_GL_ARB_direct_state_access
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetQueryBufferObjectuiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetQueryBufferObjectuiv] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_direct_state_access)
+      def glGetQueryBufferObjectuiv(_id_, _buffer_, _pname_, _offset_)
+        f = OpenGL::get_command(:glGetQueryBufferObjectuiv)
+        f.call(_id_, _buffer_, _pname_, _offset_)
+      end
+    SRC_GL_ARB_direct_state_access
   end # define_ext_command_GL_ARB_direct_state_access
 
   def define_ext_command_GL_ARB_draw_buffers
@@ -5618,7 +5654,7 @@ module OpenGL
   end # define_ext_command_GL_ARB_shadow_ambient
 
   def define_ext_command_GL_ARB_sparse_buffer
-    GL_FUNCTIONS_ARGS_MAP[:glBufferPageCommitmentARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glBufferPageCommitmentARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glBufferPageCommitmentARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sparse_buffer)
       def glBufferPageCommitmentARB(_target_, _offset_, _size_, _commit_)
@@ -5627,7 +5663,7 @@ module OpenGL
       end
     SRC_GL_ARB_sparse_buffer
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedBufferPageCommitmentEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedBufferPageCommitmentEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedBufferPageCommitmentEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sparse_buffer)
       def glNamedBufferPageCommitmentEXT(_buffer_, _offset_, _size_, _commit_)
@@ -5636,7 +5672,7 @@ module OpenGL
       end
     SRC_GL_ARB_sparse_buffer
 
-    GL_FUNCTIONS_ARGS_MAP[:glNamedBufferPageCommitmentARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_ARGS_MAP[:glNamedBufferPageCommitmentARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glNamedBufferPageCommitmentARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sparse_buffer)
       def glNamedBufferPageCommitmentARB(_buffer_, _offset_, _size_, _commit_)
@@ -12707,6 +12743,9 @@ module OpenGL
     SRC_GL_EXT_polygon_offset_clamp
   end # define_ext_command_GL_EXT_polygon_offset_clamp
 
+  def define_ext_command_GL_EXT_post_depth_coverage
+  end # define_ext_command_GL_EXT_post_depth_coverage
+
   def define_ext_command_GL_EXT_provoking_vertex
     GL_FUNCTIONS_ARGS_MAP[:glProvokingVertexEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glProvokingVertexEXT] = Fiddle::TYPE_VOID
@@ -12717,6 +12756,17 @@ module OpenGL
       end
     SRC_GL_EXT_provoking_vertex
   end # define_ext_command_GL_EXT_provoking_vertex
+
+  def define_ext_command_GL_EXT_raster_multisample
+    GL_FUNCTIONS_ARGS_MAP[:glRasterSamplesEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_RETVAL_MAP[:glRasterSamplesEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_raster_multisample)
+      def glRasterSamplesEXT(_samples_, _fixedsamplelocations_)
+        f = OpenGL::get_command(:glRasterSamplesEXT)
+        f.call(_samples_, _fixedsamplelocations_)
+      end
+    SRC_GL_EXT_raster_multisample
+  end # define_ext_command_GL_EXT_raster_multisample
 
   def define_ext_command_GL_EXT_rescale_normal
   end # define_ext_command_GL_EXT_rescale_normal
@@ -13336,6 +13386,9 @@ module OpenGL
   def define_ext_command_GL_EXT_shared_texture_palette
   end # define_ext_command_GL_EXT_shared_texture_palette
 
+  def define_ext_command_GL_EXT_sparse_texture2
+  end # define_ext_command_GL_EXT_sparse_texture2
+
   def define_ext_command_GL_EXT_stencil_clear_tag
     GL_FUNCTIONS_ARGS_MAP[:glStencilClearTagEXT] = [Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glStencilClearTagEXT] = Fiddle::TYPE_VOID
@@ -13449,6 +13502,17 @@ module OpenGL
 
   def define_ext_command_GL_EXT_texture_filter_anisotropic
   end # define_ext_command_GL_EXT_texture_filter_anisotropic
+
+  def define_ext_command_GL_EXT_texture_filter_minmax
+    GL_FUNCTIONS_ARGS_MAP[:glRasterSamplesEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_RETVAL_MAP[:glRasterSamplesEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_texture_filter_minmax)
+      def glRasterSamplesEXT(_samples_, _fixedsamplelocations_)
+        f = OpenGL::get_command(:glRasterSamplesEXT)
+        f.call(_samples_, _fixedsamplelocations_)
+      end
+    SRC_GL_EXT_texture_filter_minmax
+  end # define_ext_command_GL_EXT_texture_filter_minmax
 
   def define_ext_command_GL_EXT_texture_integer
     GL_FUNCTIONS_ARGS_MAP[:glTexParameterIivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
@@ -15444,6 +15508,17 @@ module OpenGL
     SRC_GL_NV_conditional_render
   end # define_ext_command_GL_NV_conditional_render
 
+  def define_ext_command_GL_NV_conservative_raster
+    GL_FUNCTIONS_ARGS_MAP[:glSubpixelPrecisionBiasNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glSubpixelPrecisionBiasNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_conservative_raster)
+      def glSubpixelPrecisionBiasNV(_xbits_, _ybits_)
+        f = OpenGL::get_command(:glSubpixelPrecisionBiasNV)
+        f.call(_xbits_, _ybits_)
+      end
+    SRC_GL_NV_conservative_raster
+  end # define_ext_command_GL_NV_conservative_raster
+
   def define_ext_command_GL_NV_copy_depth_to_color
   end # define_ext_command_GL_NV_copy_depth_to_color
 
@@ -15681,11 +15756,25 @@ module OpenGL
     SRC_GL_NV_fence
   end # define_ext_command_GL_NV_fence
 
+  def define_ext_command_GL_NV_fill_rectangle
+  end # define_ext_command_GL_NV_fill_rectangle
+
   def define_ext_command_GL_NV_float_buffer
   end # define_ext_command_GL_NV_float_buffer
 
   def define_ext_command_GL_NV_fog_distance
   end # define_ext_command_GL_NV_fog_distance
+
+  def define_ext_command_GL_NV_fragment_coverage_to_color
+    GL_FUNCTIONS_ARGS_MAP[:glFragmentCoverageColorNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glFragmentCoverageColorNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_fragment_coverage_to_color)
+      def glFragmentCoverageColorNV(_color_)
+        f = OpenGL::get_command(:glFragmentCoverageColorNV)
+        f.call(_color_)
+      end
+    SRC_GL_NV_fragment_coverage_to_color
+  end # define_ext_command_GL_NV_fragment_coverage_to_color
 
   def define_ext_command_GL_NV_fragment_program
     GL_FUNCTIONS_ARGS_MAP[:glProgramNamedParameter4fNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
@@ -15752,6 +15841,47 @@ module OpenGL
   def define_ext_command_GL_NV_fragment_program_option
   end # define_ext_command_GL_NV_fragment_program_option
 
+  def define_ext_command_GL_NV_fragment_shader_interlock
+  end # define_ext_command_GL_NV_fragment_shader_interlock
+
+  def define_ext_command_GL_NV_framebuffer_mixed_samples
+    GL_FUNCTIONS_ARGS_MAP[:glRasterSamplesEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_RETVAL_MAP[:glRasterSamplesEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_framebuffer_mixed_samples)
+      def glRasterSamplesEXT(_samples_, _fixedsamplelocations_)
+        f = OpenGL::get_command(:glRasterSamplesEXT)
+        f.call(_samples_, _fixedsamplelocations_)
+      end
+    SRC_GL_NV_framebuffer_mixed_samples
+
+    GL_FUNCTIONS_ARGS_MAP[:glCoverageModulationTableNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glCoverageModulationTableNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_framebuffer_mixed_samples)
+      def glCoverageModulationTableNV(_n_, _v_)
+        f = OpenGL::get_command(:glCoverageModulationTableNV)
+        f.call(_n_, _v_)
+      end
+    SRC_GL_NV_framebuffer_mixed_samples
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetCoverageModulationTableNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetCoverageModulationTableNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_framebuffer_mixed_samples)
+      def glGetCoverageModulationTableNV(_bufsize_, _v_)
+        f = OpenGL::get_command(:glGetCoverageModulationTableNV)
+        f.call(_bufsize_, _v_)
+      end
+    SRC_GL_NV_framebuffer_mixed_samples
+
+    GL_FUNCTIONS_ARGS_MAP[:glCoverageModulationNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glCoverageModulationNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_framebuffer_mixed_samples)
+      def glCoverageModulationNV(_components_)
+        f = OpenGL::get_command(:glCoverageModulationNV)
+        f.call(_components_)
+      end
+    SRC_GL_NV_framebuffer_mixed_samples
+  end # define_ext_command_GL_NV_framebuffer_mixed_samples
+
   def define_ext_command_GL_NV_framebuffer_multisample_coverage
     GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleCoverageNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorageMultisampleCoverageNV] = Fiddle::TYPE_VOID
@@ -15803,6 +15933,9 @@ module OpenGL
 
   def define_ext_command_GL_NV_geometry_shader4
   end # define_ext_command_GL_NV_geometry_shader4
+
+  def define_ext_command_GL_NV_geometry_shader_passthrough
+  end # define_ext_command_GL_NV_geometry_shader_passthrough
 
   def define_ext_command_GL_NV_gpu_program4
     GL_FUNCTIONS_ARGS_MAP[:glProgramLocalParameterI4iNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
@@ -17610,6 +17743,9 @@ module OpenGL
     SRC_GL_NV_register_combiners
   end # define_ext_command_GL_NV_register_combiners
 
+  def define_ext_command_GL_NV_path_rendering_shared_edge
+  end # define_ext_command_GL_NV_path_rendering_shared_edge
+
   def define_ext_command_GL_NV_register_combiners2
     GL_FUNCTIONS_ARGS_MAP[:glCombinerStageParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glCombinerStageParameterfvNV] = Fiddle::TYPE_VOID
@@ -17630,11 +17766,46 @@ module OpenGL
     SRC_GL_NV_register_combiners2
   end # define_ext_command_GL_NV_register_combiners2
 
+  def define_ext_command_GL_NV_sample_locations
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferSampleLocationsfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glFramebufferSampleLocationsfvNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_sample_locations)
+      def glFramebufferSampleLocationsfvNV(_target_, _start_, _count_, _v_)
+        f = OpenGL::get_command(:glFramebufferSampleLocationsfvNV)
+        f.call(_target_, _start_, _count_, _v_)
+      end
+    SRC_GL_NV_sample_locations
+
+    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferSampleLocationsfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glNamedFramebufferSampleLocationsfvNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_sample_locations)
+      def glNamedFramebufferSampleLocationsfvNV(_framebuffer_, _start_, _count_, _v_)
+        f = OpenGL::get_command(:glNamedFramebufferSampleLocationsfvNV)
+        f.call(_framebuffer_, _start_, _count_, _v_)
+      end
+    SRC_GL_NV_sample_locations
+
+    GL_FUNCTIONS_ARGS_MAP[:glResolveDepthValuesNV] = []
+    GL_FUNCTIONS_RETVAL_MAP[:glResolveDepthValuesNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_sample_locations)
+      def glResolveDepthValuesNV()
+        f = OpenGL::get_command(:glResolveDepthValuesNV)
+        f.call()
+      end
+    SRC_GL_NV_sample_locations
+  end # define_ext_command_GL_NV_sample_locations
+
+  def define_ext_command_GL_NV_sample_mask_override_coverage
+  end # define_ext_command_GL_NV_sample_mask_override_coverage
+
   def define_ext_command_GL_NV_shader_atomic_counters
   end # define_ext_command_GL_NV_shader_atomic_counters
 
   def define_ext_command_GL_NV_shader_atomic_float
   end # define_ext_command_GL_NV_shader_atomic_float
+
+  def define_ext_command_GL_NV_shader_atomic_fp16_vector
+  end # define_ext_command_GL_NV_shader_atomic_fp16_vector
 
   def define_ext_command_GL_NV_shader_atomic_int64
   end # define_ext_command_GL_NV_shader_atomic_int64
