@@ -1,6 +1,7 @@
 2014-10-04  vaiorabbit  <https://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.
+	* Applied the changes by hramrach (https://github.com/vaiorabbit/ruby-opengl/pull/4).
 
 2014-09-10  vaiorabbit  <https://twitter.com/vaiorabbit>
 

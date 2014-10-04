@@ -12,9 +12,15 @@ module OpenGL
         lib, path = 'opengl32.dll', 'C:/Windows/System32'
       when :OPENGL_PLATFORM_MACOSX
         lib, path = 'libGL.dylib','/System/Library/Frameworks/OpenGL.framework/Libraries'
+      else
+        lib = 'libGL.so'
       end
     end
-    @@gl_dll = Fiddle.dlopen( path + '/' + lib )
+    if path
+      @@gl_dll = Fiddle.dlopen( path + '/' + lib )
+    else
+      @@gl_dll = Fiddle.dlopen( lib )
+    end
   end
 
   def self.get_command( sym )
