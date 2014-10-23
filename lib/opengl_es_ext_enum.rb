@@ -1055,6 +1055,16 @@ module OpenGL
     const_set('GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV', 0x88FE) unless defined?(GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV)
   end # define_ext_enum_GL_NV_instanced_arrays
 
+  def define_ext_enum_GL_NV_internalformat_sample_query
+    const_set('GL_RENDERBUFFER', 0x8D41) unless defined?(GL_RENDERBUFFER)
+    const_set('GL_TEXTURE_2D_MULTISAMPLE', 0x9100) unless defined?(GL_TEXTURE_2D_MULTISAMPLE)
+    const_set('GL_TEXTURE_2D_MULTISAMPLE_ARRAY', 0x9102) unless defined?(GL_TEXTURE_2D_MULTISAMPLE_ARRAY)
+    const_set('GL_MULTISAMPLES_NV', 0x9371) unless defined?(GL_MULTISAMPLES_NV)
+    const_set('GL_SUPERSAMPLE_SCALE_X_NV', 0x9372) unless defined?(GL_SUPERSAMPLE_SCALE_X_NV)
+    const_set('GL_SUPERSAMPLE_SCALE_Y_NV', 0x9373) unless defined?(GL_SUPERSAMPLE_SCALE_Y_NV)
+    const_set('GL_CONFORMANT_NV', 0x9374) unless defined?(GL_CONFORMANT_NV)
+  end # define_ext_enum_GL_NV_internalformat_sample_query
+
   def define_ext_enum_GL_NV_non_square_matrices
     const_set('GL_FLOAT_MAT2x3_NV', 0x8B65) unless defined?(GL_FLOAT_MAT2x3_NV)
     const_set('GL_FLOAT_MAT2x4_NV', 0x8B66) unless defined?(GL_FLOAT_MAT2x4_NV)

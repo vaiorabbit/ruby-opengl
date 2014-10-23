@@ -16821,6 +16821,17 @@ module OpenGL
     SRC_GL_NV_half_float
   end # define_ext_command_GL_NV_half_float
 
+  def define_ext_command_GL_NV_internalformat_sample_query
+    GL_FUNCTIONS_ARGS_MAP[:glGetInternalformatSampleivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetInternalformatSampleivNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_internalformat_sample_query)
+      def glGetInternalformatSampleivNV(_target_, _internalformat_, _samples_, _pname_, _bufSize_, _params_)
+        f = OpenGL::get_command(:glGetInternalformatSampleivNV)
+        f.call(_target_, _internalformat_, _samples_, _pname_, _bufSize_, _params_)
+      end
+    SRC_GL_NV_internalformat_sample_query
+  end # define_ext_command_GL_NV_internalformat_sample_query
+
   def define_ext_command_GL_NV_light_max_exponent
   end # define_ext_command_GL_NV_light_max_exponent
 
