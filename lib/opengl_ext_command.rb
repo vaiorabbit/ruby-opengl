@@ -17176,33 +17176,6 @@ module OpenGL
       end
     SRC_GL_NV_path_rendering
 
-    GL_FUNCTIONS_ARGS_MAP[:glPathColorGenNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glPathColorGenNV] = Fiddle::TYPE_VOID
-    module_eval(<<-SRC_GL_NV_path_rendering)
-      def glPathColorGenNV(_color_, _genMode_, _colorFormat_, _coeffs_)
-        f = OpenGL::get_command(:glPathColorGenNV)
-        f.call(_color_, _genMode_, _colorFormat_, _coeffs_)
-      end
-    SRC_GL_NV_path_rendering
-
-    GL_FUNCTIONS_ARGS_MAP[:glPathTexGenNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glPathTexGenNV] = Fiddle::TYPE_VOID
-    module_eval(<<-SRC_GL_NV_path_rendering)
-      def glPathTexGenNV(_texCoordSet_, _genMode_, _components_, _coeffs_)
-        f = OpenGL::get_command(:glPathTexGenNV)
-        f.call(_texCoordSet_, _genMode_, _components_, _coeffs_)
-      end
-    SRC_GL_NV_path_rendering
-
-    GL_FUNCTIONS_ARGS_MAP[:glPathFogGenNV] = [-Fiddle::TYPE_INT]
-    GL_FUNCTIONS_RETVAL_MAP[:glPathFogGenNV] = Fiddle::TYPE_VOID
-    module_eval(<<-SRC_GL_NV_path_rendering)
-      def glPathFogGenNV(_genMode_)
-        f = OpenGL::get_command(:glPathFogGenNV)
-        f.call(_genMode_)
-      end
-    SRC_GL_NV_path_rendering
-
     GL_FUNCTIONS_ARGS_MAP[:glCoverFillPathNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glCoverFillPathNV] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_NV_path_rendering)
@@ -17308,42 +17281,6 @@ module OpenGL
       def glGetPathSpacingNV(_pathListMode_, _numPaths_, _pathNameType_, _paths_, _pathBase_, _advanceScale_, _kerningScale_, _transformType_, _returnedSpacing_)
         f = OpenGL::get_command(:glGetPathSpacingNV)
         f.call(_pathListMode_, _numPaths_, _pathNameType_, _paths_, _pathBase_, _advanceScale_, _kerningScale_, _transformType_, _returnedSpacing_)
-      end
-    SRC_GL_NV_path_rendering
-
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathColorGenivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetPathColorGenivNV] = Fiddle::TYPE_VOID
-    module_eval(<<-SRC_GL_NV_path_rendering)
-      def glGetPathColorGenivNV(_color_, _pname_, _value_)
-        f = OpenGL::get_command(:glGetPathColorGenivNV)
-        f.call(_color_, _pname_, _value_)
-      end
-    SRC_GL_NV_path_rendering
-
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathColorGenfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetPathColorGenfvNV] = Fiddle::TYPE_VOID
-    module_eval(<<-SRC_GL_NV_path_rendering)
-      def glGetPathColorGenfvNV(_color_, _pname_, _value_)
-        f = OpenGL::get_command(:glGetPathColorGenfvNV)
-        f.call(_color_, _pname_, _value_)
-      end
-    SRC_GL_NV_path_rendering
-
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathTexGenivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetPathTexGenivNV] = Fiddle::TYPE_VOID
-    module_eval(<<-SRC_GL_NV_path_rendering)
-      def glGetPathTexGenivNV(_texCoordSet_, _pname_, _value_)
-        f = OpenGL::get_command(:glGetPathTexGenivNV)
-        f.call(_texCoordSet_, _pname_, _value_)
-      end
-    SRC_GL_NV_path_rendering
-
-    GL_FUNCTIONS_ARGS_MAP[:glGetPathTexGenfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL_FUNCTIONS_RETVAL_MAP[:glGetPathTexGenfvNV] = Fiddle::TYPE_VOID
-    module_eval(<<-SRC_GL_NV_path_rendering)
-      def glGetPathTexGenfvNV(_texCoordSet_, _pname_, _value_)
-        f = OpenGL::get_command(:glGetPathTexGenfvNV)
-        f.call(_texCoordSet_, _pname_, _value_)
       end
     SRC_GL_NV_path_rendering
 
@@ -17515,6 +17452,69 @@ module OpenGL
       def glGetProgramResourcefvNV(_program_, _programInterface_, _index_, _propCount_, _props_, _bufSize_, _length_, _params_)
         f = OpenGL::get_command(:glGetProgramResourcefvNV)
         f.call(_program_, _programInterface_, _index_, _propCount_, _props_, _bufSize_, _length_, _params_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glPathColorGenNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glPathColorGenNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glPathColorGenNV(_color_, _genMode_, _colorFormat_, _coeffs_)
+        f = OpenGL::get_command(:glPathColorGenNV)
+        f.call(_color_, _genMode_, _colorFormat_, _coeffs_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glPathTexGenNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glPathTexGenNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glPathTexGenNV(_texCoordSet_, _genMode_, _components_, _coeffs_)
+        f = OpenGL::get_command(:glPathTexGenNV)
+        f.call(_texCoordSet_, _genMode_, _components_, _coeffs_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glPathFogGenNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glPathFogGenNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glPathFogGenNV(_genMode_)
+        f = OpenGL::get_command(:glPathFogGenNV)
+        f.call(_genMode_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathColorGenivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetPathColorGenivNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glGetPathColorGenivNV(_color_, _pname_, _value_)
+        f = OpenGL::get_command(:glGetPathColorGenivNV)
+        f.call(_color_, _pname_, _value_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathColorGenfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetPathColorGenfvNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glGetPathColorGenfvNV(_color_, _pname_, _value_)
+        f = OpenGL::get_command(:glGetPathColorGenfvNV)
+        f.call(_color_, _pname_, _value_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathTexGenivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetPathTexGenivNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glGetPathTexGenivNV(_texCoordSet_, _pname_, _value_)
+        f = OpenGL::get_command(:glGetPathTexGenivNV)
+        f.call(_texCoordSet_, _pname_, _value_)
+      end
+    SRC_GL_NV_path_rendering
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetPathTexGenfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetPathTexGenfvNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_path_rendering)
+      def glGetPathTexGenfvNV(_texCoordSet_, _pname_, _value_)
+        f = OpenGL::get_command(:glGetPathTexGenfvNV)
+        f.call(_texCoordSet_, _pname_, _value_)
       end
     SRC_GL_NV_path_rendering
   end # define_ext_command_GL_NV_path_rendering

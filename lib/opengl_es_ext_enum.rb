@@ -186,6 +186,9 @@ module OpenGL
     const_set('GL_SHADER_BINARY_DMP', 0x9250) unless defined?(GL_SHADER_BINARY_DMP)
   end # define_ext_enum_GL_DMP_shader_binary
 
+  def define_ext_enum_GL_EXT_base_instance
+  end # define_ext_enum_GL_EXT_base_instance
+
   def define_ext_enum_GL_EXT_blend_minmax
     const_set('GL_MIN_EXT', 0x8007) unless defined?(GL_MIN_EXT)
     const_set('GL_MAX_EXT', 0x8008) unless defined?(GL_MAX_EXT)
@@ -303,6 +306,9 @@ module OpenGL
     const_set('GL_SRC_ALPHA_SATURATE', 0x0308) unless defined?(GL_SRC_ALPHA_SATURATE)
   end # define_ext_enum_GL_EXT_draw_buffers_indexed
 
+  def define_ext_enum_GL_EXT_draw_elements_base_vertex
+  end # define_ext_enum_GL_EXT_draw_elements_base_vertex
+
   def define_ext_enum_GL_EXT_draw_instanced
   end # define_ext_enum_GL_EXT_draw_instanced
 
@@ -364,6 +370,9 @@ module OpenGL
   def define_ext_enum_GL_EXT_multi_draw_arrays
   end # define_ext_enum_GL_EXT_multi_draw_arrays
 
+  def define_ext_enum_GL_EXT_multi_draw_indirect
+  end # define_ext_enum_GL_EXT_multi_draw_indirect
+
   def define_ext_enum_GL_EXT_multisampled_render_to_texture
     const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT', 0x8D6C) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT)
     const_set('GL_RENDERBUFFER_SAMPLES_EXT', 0x8CAB) unless defined?(GL_RENDERBUFFER_SAMPLES_EXT)
@@ -405,6 +414,17 @@ module OpenGL
     const_set('GL_UNSIGNED_SHORT_4_4_4_4_REV_EXT', 0x8365) unless defined?(GL_UNSIGNED_SHORT_4_4_4_4_REV_EXT)
     const_set('GL_UNSIGNED_SHORT_1_5_5_5_REV_EXT', 0x8366) unless defined?(GL_UNSIGNED_SHORT_1_5_5_5_REV_EXT)
   end # define_ext_enum_GL_EXT_read_format_bgra
+
+  def define_ext_enum_GL_EXT_render_snorm
+    const_set('GL_BYTE', 0x1400) unless defined?(GL_BYTE)
+    const_set('GL_SHORT', 0x1402) unless defined?(GL_SHORT)
+    const_set('GL_R8_SNORM', 0x8F94) unless defined?(GL_R8_SNORM)
+    const_set('GL_RG8_SNORM', 0x8F95) unless defined?(GL_RG8_SNORM)
+    const_set('GL_RGBA8_SNORM', 0x8F97) unless defined?(GL_RGBA8_SNORM)
+    const_set('GL_R16_SNORM_EXT', 0x8F98) unless defined?(GL_R16_SNORM_EXT)
+    const_set('GL_RG16_SNORM_EXT', 0x8F99) unless defined?(GL_RG16_SNORM_EXT)
+    const_set('GL_RGBA16_SNORM_EXT', 0x8F9B) unless defined?(GL_RGBA16_SNORM_EXT)
+  end # define_ext_enum_GL_EXT_render_snorm
 
   def define_ext_enum_GL_EXT_robustness
     const_set('GL_NO_ERROR', 0) unless defined?(GL_NO_ERROR)
@@ -573,6 +593,17 @@ module OpenGL
   def define_ext_enum_GL_EXT_texture_format_BGRA8888
     const_set('GL_BGRA_EXT', 0x80E1) unless defined?(GL_BGRA_EXT)
   end # define_ext_enum_GL_EXT_texture_format_BGRA8888
+
+  def define_ext_enum_GL_EXT_texture_norm16
+    const_set('GL_R16_EXT', 0x822A) unless defined?(GL_R16_EXT)
+    const_set('GL_RG16_EXT', 0x822C) unless defined?(GL_RG16_EXT)
+    const_set('GL_RGBA16_EXT', 0x805B) unless defined?(GL_RGBA16_EXT)
+    const_set('GL_RGB16_EXT', 0x8054) unless defined?(GL_RGB16_EXT)
+    const_set('GL_R16_SNORM_EXT', 0x8F98) unless defined?(GL_R16_SNORM_EXT)
+    const_set('GL_RG16_SNORM_EXT', 0x8F99) unless defined?(GL_RG16_SNORM_EXT)
+    const_set('GL_RGB16_SNORM_EXT', 0x8F9A) unless defined?(GL_RGB16_SNORM_EXT)
+    const_set('GL_RGBA16_SNORM_EXT', 0x8F9B) unless defined?(GL_RGBA16_SNORM_EXT)
+  end # define_ext_enum_GL_EXT_texture_norm16
 
   def define_ext_enum_GL_EXT_texture_rg
     const_set('GL_RED_EXT', 0x1903) unless defined?(GL_RED_EXT)
@@ -888,6 +919,9 @@ module OpenGL
     const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR', 0x93DD) unless defined?(GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR)
   end # define_ext_enum_GL_KHR_texture_compression_astc_ldr
 
+  def define_ext_enum_GL_NV_bindless_texture
+  end # define_ext_enum_GL_NV_bindless_texture
+
   def define_ext_enum_GL_NV_blend_equation_advanced
     const_set('GL_BLEND_OVERLAP_NV', 0x9281) unless defined?(GL_BLEND_OVERLAP_NV)
     const_set('GL_BLEND_PREMULTIPLIED_SRC_NV', 0x9280) unless defined?(GL_BLEND_PREMULTIPLIED_SRC_NV)
@@ -945,6 +979,13 @@ module OpenGL
   def define_ext_enum_GL_NV_blend_equation_advanced_coherent
     const_set('GL_BLEND_ADVANCED_COHERENT_NV', 0x9285) unless defined?(GL_BLEND_ADVANCED_COHERENT_NV)
   end # define_ext_enum_GL_NV_blend_equation_advanced_coherent
+
+  def define_ext_enum_GL_NV_conditional_render
+    const_set('GL_QUERY_WAIT_NV', 0x8E13) unless defined?(GL_QUERY_WAIT_NV)
+    const_set('GL_QUERY_NO_WAIT_NV', 0x8E14) unless defined?(GL_QUERY_NO_WAIT_NV)
+    const_set('GL_QUERY_BY_REGION_WAIT_NV', 0x8E15) unless defined?(GL_QUERY_BY_REGION_WAIT_NV)
+    const_set('GL_QUERY_BY_REGION_NO_WAIT_NV', 0x8E16) unless defined?(GL_QUERY_BY_REGION_NO_WAIT_NV)
+  end # define_ext_enum_GL_NV_conditional_render
 
   def define_ext_enum_GL_NV_copy_buffer
     const_set('GL_COPY_READ_BUFFER_NV', 0x8F36) unless defined?(GL_COPY_READ_BUFFER_NV)
@@ -1051,6 +1092,9 @@ module OpenGL
   def define_ext_enum_GL_NV_generate_mipmap_sRGB
   end # define_ext_enum_GL_NV_generate_mipmap_sRGB
 
+  def define_ext_enum_GL_NV_image_formats
+  end # define_ext_enum_GL_NV_image_formats
+
   def define_ext_enum_GL_NV_instanced_arrays
     const_set('GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV', 0x88FE) unless defined?(GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV)
   end # define_ext_enum_GL_NV_instanced_arrays
@@ -1073,6 +1117,173 @@ module OpenGL
     const_set('GL_FLOAT_MAT4x2_NV', 0x8B69) unless defined?(GL_FLOAT_MAT4x2_NV)
     const_set('GL_FLOAT_MAT4x3_NV', 0x8B6A) unless defined?(GL_FLOAT_MAT4x3_NV)
   end # define_ext_enum_GL_NV_non_square_matrices
+
+  def define_ext_enum_GL_NV_path_rendering
+    const_set('GL_PATH_FORMAT_SVG_NV', 0x9070) unless defined?(GL_PATH_FORMAT_SVG_NV)
+    const_set('GL_PATH_FORMAT_PS_NV', 0x9071) unless defined?(GL_PATH_FORMAT_PS_NV)
+    const_set('GL_STANDARD_FONT_NAME_NV', 0x9072) unless defined?(GL_STANDARD_FONT_NAME_NV)
+    const_set('GL_SYSTEM_FONT_NAME_NV', 0x9073) unless defined?(GL_SYSTEM_FONT_NAME_NV)
+    const_set('GL_FILE_NAME_NV', 0x9074) unless defined?(GL_FILE_NAME_NV)
+    const_set('GL_PATH_STROKE_WIDTH_NV', 0x9075) unless defined?(GL_PATH_STROKE_WIDTH_NV)
+    const_set('GL_PATH_END_CAPS_NV', 0x9076) unless defined?(GL_PATH_END_CAPS_NV)
+    const_set('GL_PATH_INITIAL_END_CAP_NV', 0x9077) unless defined?(GL_PATH_INITIAL_END_CAP_NV)
+    const_set('GL_PATH_TERMINAL_END_CAP_NV', 0x9078) unless defined?(GL_PATH_TERMINAL_END_CAP_NV)
+    const_set('GL_PATH_JOIN_STYLE_NV', 0x9079) unless defined?(GL_PATH_JOIN_STYLE_NV)
+    const_set('GL_PATH_MITER_LIMIT_NV', 0x907A) unless defined?(GL_PATH_MITER_LIMIT_NV)
+    const_set('GL_PATH_DASH_CAPS_NV', 0x907B) unless defined?(GL_PATH_DASH_CAPS_NV)
+    const_set('GL_PATH_INITIAL_DASH_CAP_NV', 0x907C) unless defined?(GL_PATH_INITIAL_DASH_CAP_NV)
+    const_set('GL_PATH_TERMINAL_DASH_CAP_NV', 0x907D) unless defined?(GL_PATH_TERMINAL_DASH_CAP_NV)
+    const_set('GL_PATH_DASH_OFFSET_NV', 0x907E) unless defined?(GL_PATH_DASH_OFFSET_NV)
+    const_set('GL_PATH_CLIENT_LENGTH_NV', 0x907F) unless defined?(GL_PATH_CLIENT_LENGTH_NV)
+    const_set('GL_PATH_FILL_MODE_NV', 0x9080) unless defined?(GL_PATH_FILL_MODE_NV)
+    const_set('GL_PATH_FILL_MASK_NV', 0x9081) unless defined?(GL_PATH_FILL_MASK_NV)
+    const_set('GL_PATH_FILL_COVER_MODE_NV', 0x9082) unless defined?(GL_PATH_FILL_COVER_MODE_NV)
+    const_set('GL_PATH_STROKE_COVER_MODE_NV', 0x9083) unless defined?(GL_PATH_STROKE_COVER_MODE_NV)
+    const_set('GL_PATH_STROKE_MASK_NV', 0x9084) unless defined?(GL_PATH_STROKE_MASK_NV)
+    const_set('GL_COUNT_UP_NV', 0x9088) unless defined?(GL_COUNT_UP_NV)
+    const_set('GL_COUNT_DOWN_NV', 0x9089) unless defined?(GL_COUNT_DOWN_NV)
+    const_set('GL_PATH_OBJECT_BOUNDING_BOX_NV', 0x908A) unless defined?(GL_PATH_OBJECT_BOUNDING_BOX_NV)
+    const_set('GL_CONVEX_HULL_NV', 0x908B) unless defined?(GL_CONVEX_HULL_NV)
+    const_set('GL_BOUNDING_BOX_NV', 0x908D) unless defined?(GL_BOUNDING_BOX_NV)
+    const_set('GL_TRANSLATE_X_NV', 0x908E) unless defined?(GL_TRANSLATE_X_NV)
+    const_set('GL_TRANSLATE_Y_NV', 0x908F) unless defined?(GL_TRANSLATE_Y_NV)
+    const_set('GL_TRANSLATE_2D_NV', 0x9090) unless defined?(GL_TRANSLATE_2D_NV)
+    const_set('GL_TRANSLATE_3D_NV', 0x9091) unless defined?(GL_TRANSLATE_3D_NV)
+    const_set('GL_AFFINE_2D_NV', 0x9092) unless defined?(GL_AFFINE_2D_NV)
+    const_set('GL_AFFINE_3D_NV', 0x9094) unless defined?(GL_AFFINE_3D_NV)
+    const_set('GL_TRANSPOSE_AFFINE_2D_NV', 0x9096) unless defined?(GL_TRANSPOSE_AFFINE_2D_NV)
+    const_set('GL_TRANSPOSE_AFFINE_3D_NV', 0x9098) unless defined?(GL_TRANSPOSE_AFFINE_3D_NV)
+    const_set('GL_UTF8_NV', 0x909A) unless defined?(GL_UTF8_NV)
+    const_set('GL_UTF16_NV', 0x909B) unless defined?(GL_UTF16_NV)
+    const_set('GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV', 0x909C) unless defined?(GL_BOUNDING_BOX_OF_BOUNDING_BOXES_NV)
+    const_set('GL_PATH_COMMAND_COUNT_NV', 0x909D) unless defined?(GL_PATH_COMMAND_COUNT_NV)
+    const_set('GL_PATH_COORD_COUNT_NV', 0x909E) unless defined?(GL_PATH_COORD_COUNT_NV)
+    const_set('GL_PATH_DASH_ARRAY_COUNT_NV', 0x909F) unless defined?(GL_PATH_DASH_ARRAY_COUNT_NV)
+    const_set('GL_PATH_COMPUTED_LENGTH_NV', 0x90A0) unless defined?(GL_PATH_COMPUTED_LENGTH_NV)
+    const_set('GL_PATH_FILL_BOUNDING_BOX_NV', 0x90A1) unless defined?(GL_PATH_FILL_BOUNDING_BOX_NV)
+    const_set('GL_PATH_STROKE_BOUNDING_BOX_NV', 0x90A2) unless defined?(GL_PATH_STROKE_BOUNDING_BOX_NV)
+    const_set('GL_SQUARE_NV', 0x90A3) unless defined?(GL_SQUARE_NV)
+    const_set('GL_ROUND_NV', 0x90A4) unless defined?(GL_ROUND_NV)
+    const_set('GL_TRIANGULAR_NV', 0x90A5) unless defined?(GL_TRIANGULAR_NV)
+    const_set('GL_BEVEL_NV', 0x90A6) unless defined?(GL_BEVEL_NV)
+    const_set('GL_MITER_REVERT_NV', 0x90A7) unless defined?(GL_MITER_REVERT_NV)
+    const_set('GL_MITER_TRUNCATE_NV', 0x90A8) unless defined?(GL_MITER_TRUNCATE_NV)
+    const_set('GL_SKIP_MISSING_GLYPH_NV', 0x90A9) unless defined?(GL_SKIP_MISSING_GLYPH_NV)
+    const_set('GL_USE_MISSING_GLYPH_NV', 0x90AA) unless defined?(GL_USE_MISSING_GLYPH_NV)
+    const_set('GL_PATH_ERROR_POSITION_NV', 0x90AB) unless defined?(GL_PATH_ERROR_POSITION_NV)
+    const_set('GL_ACCUM_ADJACENT_PAIRS_NV', 0x90AD) unless defined?(GL_ACCUM_ADJACENT_PAIRS_NV)
+    const_set('GL_ADJACENT_PAIRS_NV', 0x90AE) unless defined?(GL_ADJACENT_PAIRS_NV)
+    const_set('GL_FIRST_TO_REST_NV', 0x90AF) unless defined?(GL_FIRST_TO_REST_NV)
+    const_set('GL_PATH_GEN_MODE_NV', 0x90B0) unless defined?(GL_PATH_GEN_MODE_NV)
+    const_set('GL_PATH_GEN_COEFF_NV', 0x90B1) unless defined?(GL_PATH_GEN_COEFF_NV)
+    const_set('GL_PATH_GEN_COMPONENTS_NV', 0x90B3) unless defined?(GL_PATH_GEN_COMPONENTS_NV)
+    const_set('GL_PATH_STENCIL_FUNC_NV', 0x90B7) unless defined?(GL_PATH_STENCIL_FUNC_NV)
+    const_set('GL_PATH_STENCIL_REF_NV', 0x90B8) unless defined?(GL_PATH_STENCIL_REF_NV)
+    const_set('GL_PATH_STENCIL_VALUE_MASK_NV', 0x90B9) unless defined?(GL_PATH_STENCIL_VALUE_MASK_NV)
+    const_set('GL_PATH_STENCIL_DEPTH_OFFSET_FACTOR_NV', 0x90BD) unless defined?(GL_PATH_STENCIL_DEPTH_OFFSET_FACTOR_NV)
+    const_set('GL_PATH_STENCIL_DEPTH_OFFSET_UNITS_NV', 0x90BE) unless defined?(GL_PATH_STENCIL_DEPTH_OFFSET_UNITS_NV)
+    const_set('GL_PATH_COVER_DEPTH_FUNC_NV', 0x90BF) unless defined?(GL_PATH_COVER_DEPTH_FUNC_NV)
+    const_set('GL_PATH_DASH_OFFSET_RESET_NV', 0x90B4) unless defined?(GL_PATH_DASH_OFFSET_RESET_NV)
+    const_set('GL_MOVE_TO_RESETS_NV', 0x90B5) unless defined?(GL_MOVE_TO_RESETS_NV)
+    const_set('GL_MOVE_TO_CONTINUES_NV', 0x90B6) unless defined?(GL_MOVE_TO_CONTINUES_NV)
+    const_set('GL_CLOSE_PATH_NV', 0x00) unless defined?(GL_CLOSE_PATH_NV)
+    const_set('GL_MOVE_TO_NV', 0x02) unless defined?(GL_MOVE_TO_NV)
+    const_set('GL_RELATIVE_MOVE_TO_NV', 0x03) unless defined?(GL_RELATIVE_MOVE_TO_NV)
+    const_set('GL_LINE_TO_NV', 0x04) unless defined?(GL_LINE_TO_NV)
+    const_set('GL_RELATIVE_LINE_TO_NV', 0x05) unless defined?(GL_RELATIVE_LINE_TO_NV)
+    const_set('GL_HORIZONTAL_LINE_TO_NV', 0x06) unless defined?(GL_HORIZONTAL_LINE_TO_NV)
+    const_set('GL_RELATIVE_HORIZONTAL_LINE_TO_NV', 0x07) unless defined?(GL_RELATIVE_HORIZONTAL_LINE_TO_NV)
+    const_set('GL_VERTICAL_LINE_TO_NV', 0x08) unless defined?(GL_VERTICAL_LINE_TO_NV)
+    const_set('GL_RELATIVE_VERTICAL_LINE_TO_NV', 0x09) unless defined?(GL_RELATIVE_VERTICAL_LINE_TO_NV)
+    const_set('GL_QUADRATIC_CURVE_TO_NV', 0x0A) unless defined?(GL_QUADRATIC_CURVE_TO_NV)
+    const_set('GL_RELATIVE_QUADRATIC_CURVE_TO_NV', 0x0B) unless defined?(GL_RELATIVE_QUADRATIC_CURVE_TO_NV)
+    const_set('GL_CUBIC_CURVE_TO_NV', 0x0C) unless defined?(GL_CUBIC_CURVE_TO_NV)
+    const_set('GL_RELATIVE_CUBIC_CURVE_TO_NV', 0x0D) unless defined?(GL_RELATIVE_CUBIC_CURVE_TO_NV)
+    const_set('GL_SMOOTH_QUADRATIC_CURVE_TO_NV', 0x0E) unless defined?(GL_SMOOTH_QUADRATIC_CURVE_TO_NV)
+    const_set('GL_RELATIVE_SMOOTH_QUADRATIC_CURVE_TO_NV', 0x0F) unless defined?(GL_RELATIVE_SMOOTH_QUADRATIC_CURVE_TO_NV)
+    const_set('GL_SMOOTH_CUBIC_CURVE_TO_NV', 0x10) unless defined?(GL_SMOOTH_CUBIC_CURVE_TO_NV)
+    const_set('GL_RELATIVE_SMOOTH_CUBIC_CURVE_TO_NV', 0x11) unless defined?(GL_RELATIVE_SMOOTH_CUBIC_CURVE_TO_NV)
+    const_set('GL_SMALL_CCW_ARC_TO_NV', 0x12) unless defined?(GL_SMALL_CCW_ARC_TO_NV)
+    const_set('GL_RELATIVE_SMALL_CCW_ARC_TO_NV', 0x13) unless defined?(GL_RELATIVE_SMALL_CCW_ARC_TO_NV)
+    const_set('GL_SMALL_CW_ARC_TO_NV', 0x14) unless defined?(GL_SMALL_CW_ARC_TO_NV)
+    const_set('GL_RELATIVE_SMALL_CW_ARC_TO_NV', 0x15) unless defined?(GL_RELATIVE_SMALL_CW_ARC_TO_NV)
+    const_set('GL_LARGE_CCW_ARC_TO_NV', 0x16) unless defined?(GL_LARGE_CCW_ARC_TO_NV)
+    const_set('GL_RELATIVE_LARGE_CCW_ARC_TO_NV', 0x17) unless defined?(GL_RELATIVE_LARGE_CCW_ARC_TO_NV)
+    const_set('GL_LARGE_CW_ARC_TO_NV', 0x18) unless defined?(GL_LARGE_CW_ARC_TO_NV)
+    const_set('GL_RELATIVE_LARGE_CW_ARC_TO_NV', 0x19) unless defined?(GL_RELATIVE_LARGE_CW_ARC_TO_NV)
+    const_set('GL_RESTART_PATH_NV', 0xF0) unless defined?(GL_RESTART_PATH_NV)
+    const_set('GL_DUP_FIRST_CUBIC_CURVE_TO_NV', 0xF2) unless defined?(GL_DUP_FIRST_CUBIC_CURVE_TO_NV)
+    const_set('GL_DUP_LAST_CUBIC_CURVE_TO_NV', 0xF4) unless defined?(GL_DUP_LAST_CUBIC_CURVE_TO_NV)
+    const_set('GL_RECT_NV', 0xF6) unless defined?(GL_RECT_NV)
+    const_set('GL_CIRCULAR_CCW_ARC_TO_NV', 0xF8) unless defined?(GL_CIRCULAR_CCW_ARC_TO_NV)
+    const_set('GL_CIRCULAR_CW_ARC_TO_NV', 0xFA) unless defined?(GL_CIRCULAR_CW_ARC_TO_NV)
+    const_set('GL_CIRCULAR_TANGENT_ARC_TO_NV', 0xFC) unless defined?(GL_CIRCULAR_TANGENT_ARC_TO_NV)
+    const_set('GL_ARC_TO_NV', 0xFE) unless defined?(GL_ARC_TO_NV)
+    const_set('GL_RELATIVE_ARC_TO_NV', 0xFF) unless defined?(GL_RELATIVE_ARC_TO_NV)
+    const_set('GL_BOLD_BIT_NV', 0x01) unless defined?(GL_BOLD_BIT_NV)
+    const_set('GL_ITALIC_BIT_NV', 0x02) unless defined?(GL_ITALIC_BIT_NV)
+    const_set('GL_GLYPH_WIDTH_BIT_NV', 0x01) unless defined?(GL_GLYPH_WIDTH_BIT_NV)
+    const_set('GL_GLYPH_HEIGHT_BIT_NV', 0x02) unless defined?(GL_GLYPH_HEIGHT_BIT_NV)
+    const_set('GL_GLYPH_HORIZONTAL_BEARING_X_BIT_NV', 0x04) unless defined?(GL_GLYPH_HORIZONTAL_BEARING_X_BIT_NV)
+    const_set('GL_GLYPH_HORIZONTAL_BEARING_Y_BIT_NV', 0x08) unless defined?(GL_GLYPH_HORIZONTAL_BEARING_Y_BIT_NV)
+    const_set('GL_GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV', 0x10) unless defined?(GL_GLYPH_HORIZONTAL_BEARING_ADVANCE_BIT_NV)
+    const_set('GL_GLYPH_VERTICAL_BEARING_X_BIT_NV', 0x20) unless defined?(GL_GLYPH_VERTICAL_BEARING_X_BIT_NV)
+    const_set('GL_GLYPH_VERTICAL_BEARING_Y_BIT_NV', 0x40) unless defined?(GL_GLYPH_VERTICAL_BEARING_Y_BIT_NV)
+    const_set('GL_GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV', 0x80) unless defined?(GL_GLYPH_VERTICAL_BEARING_ADVANCE_BIT_NV)
+    const_set('GL_GLYPH_HAS_KERNING_BIT_NV', 0x100) unless defined?(GL_GLYPH_HAS_KERNING_BIT_NV)
+    const_set('GL_FONT_X_MIN_BOUNDS_BIT_NV', 0x00010000) unless defined?(GL_FONT_X_MIN_BOUNDS_BIT_NV)
+    const_set('GL_FONT_Y_MIN_BOUNDS_BIT_NV', 0x00020000) unless defined?(GL_FONT_Y_MIN_BOUNDS_BIT_NV)
+    const_set('GL_FONT_X_MAX_BOUNDS_BIT_NV', 0x00040000) unless defined?(GL_FONT_X_MAX_BOUNDS_BIT_NV)
+    const_set('GL_FONT_Y_MAX_BOUNDS_BIT_NV', 0x00080000) unless defined?(GL_FONT_Y_MAX_BOUNDS_BIT_NV)
+    const_set('GL_FONT_UNITS_PER_EM_BIT_NV', 0x00100000) unless defined?(GL_FONT_UNITS_PER_EM_BIT_NV)
+    const_set('GL_FONT_ASCENDER_BIT_NV', 0x00200000) unless defined?(GL_FONT_ASCENDER_BIT_NV)
+    const_set('GL_FONT_DESCENDER_BIT_NV', 0x00400000) unless defined?(GL_FONT_DESCENDER_BIT_NV)
+    const_set('GL_FONT_HEIGHT_BIT_NV', 0x00800000) unless defined?(GL_FONT_HEIGHT_BIT_NV)
+    const_set('GL_FONT_MAX_ADVANCE_WIDTH_BIT_NV', 0x01000000) unless defined?(GL_FONT_MAX_ADVANCE_WIDTH_BIT_NV)
+    const_set('GL_FONT_MAX_ADVANCE_HEIGHT_BIT_NV', 0x02000000) unless defined?(GL_FONT_MAX_ADVANCE_HEIGHT_BIT_NV)
+    const_set('GL_FONT_UNDERLINE_POSITION_BIT_NV', 0x04000000) unless defined?(GL_FONT_UNDERLINE_POSITION_BIT_NV)
+    const_set('GL_FONT_UNDERLINE_THICKNESS_BIT_NV', 0x08000000) unless defined?(GL_FONT_UNDERLINE_THICKNESS_BIT_NV)
+    const_set('GL_FONT_HAS_KERNING_BIT_NV', 0x10000000) unless defined?(GL_FONT_HAS_KERNING_BIT_NV)
+    const_set('GL_ROUNDED_RECT_NV', 0xE8) unless defined?(GL_ROUNDED_RECT_NV)
+    const_set('GL_RELATIVE_ROUNDED_RECT_NV', 0xE9) unless defined?(GL_RELATIVE_ROUNDED_RECT_NV)
+    const_set('GL_ROUNDED_RECT2_NV', 0xEA) unless defined?(GL_ROUNDED_RECT2_NV)
+    const_set('GL_RELATIVE_ROUNDED_RECT2_NV', 0xEB) unless defined?(GL_RELATIVE_ROUNDED_RECT2_NV)
+    const_set('GL_ROUNDED_RECT4_NV', 0xEC) unless defined?(GL_ROUNDED_RECT4_NV)
+    const_set('GL_RELATIVE_ROUNDED_RECT4_NV', 0xED) unless defined?(GL_RELATIVE_ROUNDED_RECT4_NV)
+    const_set('GL_ROUNDED_RECT8_NV', 0xEE) unless defined?(GL_ROUNDED_RECT8_NV)
+    const_set('GL_RELATIVE_ROUNDED_RECT8_NV', 0xEF) unless defined?(GL_RELATIVE_ROUNDED_RECT8_NV)
+    const_set('GL_RELATIVE_RECT_NV', 0xF7) unless defined?(GL_RELATIVE_RECT_NV)
+    const_set('GL_FONT_GLYPHS_AVAILABLE_NV', 0x9368) unless defined?(GL_FONT_GLYPHS_AVAILABLE_NV)
+    const_set('GL_FONT_TARGET_UNAVAILABLE_NV', 0x9369) unless defined?(GL_FONT_TARGET_UNAVAILABLE_NV)
+    const_set('GL_FONT_UNAVAILABLE_NV', 0x936A) unless defined?(GL_FONT_UNAVAILABLE_NV)
+    const_set('GL_FONT_UNINTELLIGIBLE_NV', 0x936B) unless defined?(GL_FONT_UNINTELLIGIBLE_NV)
+    const_set('GL_CONIC_CURVE_TO_NV', 0x1A) unless defined?(GL_CONIC_CURVE_TO_NV)
+    const_set('GL_RELATIVE_CONIC_CURVE_TO_NV', 0x1B) unless defined?(GL_RELATIVE_CONIC_CURVE_TO_NV)
+    const_set('GL_FONT_NUM_GLYPH_INDICES_BIT_NV', 0x20000000) unless defined?(GL_FONT_NUM_GLYPH_INDICES_BIT_NV)
+    const_set('GL_STANDARD_FONT_FORMAT_NV', 0x936C) unless defined?(GL_STANDARD_FONT_FORMAT_NV)
+    const_set('GL_2_BYTES_NV', 0x1407) unless defined?(GL_2_BYTES_NV)
+    const_set('GL_3_BYTES_NV', 0x1408) unless defined?(GL_3_BYTES_NV)
+    const_set('GL_4_BYTES_NV', 0x1409) unless defined?(GL_4_BYTES_NV)
+    const_set('GL_EYE_LINEAR_NV', 0x2400) unless defined?(GL_EYE_LINEAR_NV)
+    const_set('GL_OBJECT_LINEAR_NV', 0x2401) unless defined?(GL_OBJECT_LINEAR_NV)
+    const_set('GL_CONSTANT_NV', 0x8576) unless defined?(GL_CONSTANT_NV)
+    const_set('GL_PATH_FOG_GEN_MODE_NV', 0x90AC) unless defined?(GL_PATH_FOG_GEN_MODE_NV)
+    const_set('GL_PRIMARY_COLOR', 0x8577) unless defined?(GL_PRIMARY_COLOR)
+    const_set('GL_PRIMARY_COLOR_NV', 0x852C) unless defined?(GL_PRIMARY_COLOR_NV)
+    const_set('GL_SECONDARY_COLOR_NV', 0x852D) unless defined?(GL_SECONDARY_COLOR_NV)
+    const_set('GL_PATH_GEN_COLOR_FORMAT_NV', 0x90B2) unless defined?(GL_PATH_GEN_COLOR_FORMAT_NV)
+    const_set('GL_PATH_PROJECTION_NV', 0x1701) unless defined?(GL_PATH_PROJECTION_NV)
+    const_set('GL_PATH_MODELVIEW_NV', 0x1700) unless defined?(GL_PATH_MODELVIEW_NV)
+    const_set('GL_PATH_MODELVIEW_STACK_DEPTH_NV', 0x0BA3) unless defined?(GL_PATH_MODELVIEW_STACK_DEPTH_NV)
+    const_set('GL_PATH_MODELVIEW_MATRIX_NV', 0x0BA6) unless defined?(GL_PATH_MODELVIEW_MATRIX_NV)
+    const_set('GL_PATH_MAX_MODELVIEW_STACK_DEPTH_NV', 0x0D36) unless defined?(GL_PATH_MAX_MODELVIEW_STACK_DEPTH_NV)
+    const_set('GL_PATH_TRANSPOSE_MODELVIEW_MATRIX_NV', 0x84E3) unless defined?(GL_PATH_TRANSPOSE_MODELVIEW_MATRIX_NV)
+    const_set('GL_PATH_PROJECTION_STACK_DEPTH_NV', 0x0BA4) unless defined?(GL_PATH_PROJECTION_STACK_DEPTH_NV)
+    const_set('GL_PATH_PROJECTION_MATRIX_NV', 0x0BA7) unless defined?(GL_PATH_PROJECTION_MATRIX_NV)
+    const_set('GL_PATH_MAX_PROJECTION_STACK_DEPTH_NV', 0x0D38) unless defined?(GL_PATH_MAX_PROJECTION_STACK_DEPTH_NV)
+    const_set('GL_PATH_TRANSPOSE_PROJECTION_MATRIX_NV', 0x84E4) unless defined?(GL_PATH_TRANSPOSE_PROJECTION_MATRIX_NV)
+    const_set('GL_FRAGMENT_INPUT_NV', 0x936D) unless defined?(GL_FRAGMENT_INPUT_NV)
+  end # define_ext_enum_GL_NV_path_rendering
 
   def define_ext_enum_GL_NV_read_buffer
     const_set('GL_READ_BUFFER_NV', 0x0C02) unless defined?(GL_READ_BUFFER_NV)
@@ -1103,6 +1314,9 @@ module OpenGL
     const_set('GL_ETC1_SRGB8_NV', 0x88EE) unless defined?(GL_ETC1_SRGB8_NV)
   end # define_ext_enum_GL_NV_sRGB_formats
 
+  def define_ext_enum_GL_NV_shader_noperspective_interpolation
+  end # define_ext_enum_GL_NV_shader_noperspective_interpolation
+
   def define_ext_enum_GL_NV_shadow_samplers_array
     const_set('GL_SAMPLER_2D_ARRAY_SHADOW_NV', 0x8DC4) unless defined?(GL_SAMPLER_2D_ARRAY_SHADOW_NV)
   end # define_ext_enum_GL_NV_shadow_samplers_array
@@ -1121,6 +1335,17 @@ module OpenGL
 
   def define_ext_enum_GL_NV_texture_npot_2D_mipmap
   end # define_ext_enum_GL_NV_texture_npot_2D_mipmap
+
+  def define_ext_enum_GL_NV_viewport_array
+    const_set('GL_MAX_VIEWPORTS_NV', 0x825B) unless defined?(GL_MAX_VIEWPORTS_NV)
+    const_set('GL_VIEWPORT_SUBPIXEL_BITS_NV', 0x825C) unless defined?(GL_VIEWPORT_SUBPIXEL_BITS_NV)
+    const_set('GL_VIEWPORT_BOUNDS_RANGE_NV', 0x825D) unless defined?(GL_VIEWPORT_BOUNDS_RANGE_NV)
+    const_set('GL_VIEWPORT_INDEX_PROVOKING_VERTEX_NV', 0x825F) unless defined?(GL_VIEWPORT_INDEX_PROVOKING_VERTEX_NV)
+    const_set('GL_SCISSOR_BOX', 0x0C10) unless defined?(GL_SCISSOR_BOX)
+    const_set('GL_VIEWPORT', 0x0BA2) unless defined?(GL_VIEWPORT)
+    const_set('GL_DEPTH_RANGE', 0x0B70) unless defined?(GL_DEPTH_RANGE)
+    const_set('GL_SCISSOR_TEST', 0x0C11) unless defined?(GL_SCISSOR_TEST)
+  end # define_ext_enum_GL_NV_viewport_array
 
   def define_ext_enum_GL_OES_EGL_image
   end # define_ext_enum_GL_OES_EGL_image
