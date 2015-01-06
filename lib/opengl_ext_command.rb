@@ -19543,6 +19543,9 @@ module OpenGL
     SRC_GL_NV_video_capture
   end # define_ext_command_GL_NV_video_capture
 
+  def define_ext_command_GL_NV_viewport_array2
+  end # define_ext_command_GL_NV_viewport_array2
+
   def define_ext_command_GL_OES_byte_coordinates
     GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1bOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1bOES] = Fiddle::TYPE_VOID

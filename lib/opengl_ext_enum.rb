@@ -4963,6 +4963,9 @@ module OpenGL
     const_set('GL_VIDEO_CAPTURE_SURFACE_ORIGIN_NV', 0x903C) unless defined?(GL_VIDEO_CAPTURE_SURFACE_ORIGIN_NV)
   end # define_ext_enum_GL_NV_video_capture
 
+  def define_ext_enum_GL_NV_viewport_array2
+  end # define_ext_enum_GL_NV_viewport_array2
+
   def define_ext_enum_GL_OES_byte_coordinates
     const_set('GL_BYTE', 0x1400) unless defined?(GL_BYTE)
   end # define_ext_enum_GL_OES_byte_coordinates
