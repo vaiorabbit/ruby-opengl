@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2015-01-06
+*   Last modified : 2015-01-14
 
 
 ## Features ##
@@ -108,6 +108,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 ## Tested Environment ##
 
 *   Ruby
+    *   ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-darwin14]
     *   ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-darwin13.0]
     *   ruby 2.1.2p95 (2014-05-08 revision 45877) [i386-mingw32]
     *   ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin12.0]
@@ -165,7 +166,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 
 The zlib/libpng License ( http://opensource.org/licenses/Zlib ).
 
-    Copyright (c) 2013-2014 vaiorabbit <http://twitter.com/vaiorabbit>
+    Copyright (c) 2013-2015 vaiorabbit <http://twitter.com/vaiorabbit>
 
     This software is provided 'as-is', without any express or implied
     warranty. In no event will the authors be held liable for any damages
@@ -291,6 +292,7 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 ## テストした環境 ##
 
 *   Ruby
+    *   ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-darwin14]
     *   ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-darwin13.0]
     *   ruby 2.1.2p95 (2014-05-08 revision 45877) [i386-mingw32]
     *   ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin12.0]
