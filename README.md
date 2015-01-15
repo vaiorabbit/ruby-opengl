@@ -42,27 +42,27 @@ https://github.com/vaiorabbit/ruby-opengl
 *   'opengl.rb' includes these scripts:
     *   'opengl_command.rb'      : OpenGL command wrapper (glDrawRangeElements, etc.). Generated via generator/generate_command.rb.
     *   'opengl_enum.rb'         : OpenGL enum wrapper (GL_TRIANGLE_STRIP, etc.). Generated via generator/generate_enum.rb.
-    *   'opengl_common.rb'       : Provides utilitiy funcitions.
-    *   'opengl_platform.rb'     : Provides platform check funcitions (OpneGL.get_platform).
-    *   'opengl_windows.rb'      : Provides funcitions for Windows platform (wglGetProcAddress).
+    *   'opengl_common.rb'       : Provides utility functions.
+    *   'opengl_platform.rb'     : Provides platform check functions (OpneGL.get_platform).
+    *   'opengl_windows.rb'      : Provides functions for Windows platform (wglGetProcAddress).
 
 *   'opengl_es.rb' is almost the same with 'opengl.rb', except for including 'opengl_es_command.rb' and 'opengl_es_enum.rb'.
 
 *   'opengl_ext.rb' includes these scripts:
     *   'opengl_ext_command.rb'      : OpenGL extension command wrapper. Generated via generator/generate_ext_command.rb.
     *   'opengl_ext_enum.rb'         : OpenGL extension enum wrapper Generated via generator/generate_ext_enum.rb.
-    *   'opengl_ext_common.rb'       : Provides utilitiy funcitions.
+    *   'opengl_ext_common.rb'       : Provides utility functions.
 
 *   'opengl_es_ext.rb' is almost the same with 'opengl_ext.rb', except for including 'opengl_es_ext_command.rb' and 'opengl_es_ext_enum.rb'.
 
 * 'glfw.rb'
-    * My handwirtten GLFW wrapper.
+    * My handwritten GLFW wrapper.
 
 * 'glut.rb'
     * GLUT wrapper. Supports API Level 4 (GLUT_API_VERSION = 4).
 
 * 'glu.rb'
-    * My handwirtten GLU wrapper.
+    * My handwritten GLU wrapper.
 
 *   'generator/gl.xml'
     *   Khronos' official XML API registry for OpenGL.
