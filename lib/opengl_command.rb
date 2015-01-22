@@ -6483,7 +6483,7 @@ module OpenGL
     f.call(_xfb_, _index_, _buffer_)
   end
 
-  GL_FUNCTIONS_ARGS_MAP[:glTransformFeedbackBufferRange] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT]
+  GL_FUNCTIONS_ARGS_MAP[:glTransformFeedbackBufferRange] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
   GL_FUNCTIONS_RETVAL_MAP[:glTransformFeedbackBufferRange] = Fiddle::TYPE_VOID
   def glTransformFeedbackBufferRange(_xfb_, _index_, _buffer_, _offset_, _size_)
     f = OpenGL::get_command(:glTransformFeedbackBufferRange)
@@ -6518,28 +6518,28 @@ module OpenGL
     f.call(_n_, _buffers_)
   end
 
-  GL_FUNCTIONS_ARGS_MAP[:glNamedBufferStorage] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
+  GL_FUNCTIONS_ARGS_MAP[:glNamedBufferStorage] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
   GL_FUNCTIONS_RETVAL_MAP[:glNamedBufferStorage] = Fiddle::TYPE_VOID
   def glNamedBufferStorage(_buffer_, _size_, _data_, _flags_)
     f = OpenGL::get_command(:glNamedBufferStorage)
     f.call(_buffer_, _size_, _data_, _flags_)
   end
 
-  GL_FUNCTIONS_ARGS_MAP[:glNamedBufferData] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
+  GL_FUNCTIONS_ARGS_MAP[:glNamedBufferData] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
   GL_FUNCTIONS_RETVAL_MAP[:glNamedBufferData] = Fiddle::TYPE_VOID
   def glNamedBufferData(_buffer_, _size_, _data_, _usage_)
     f = OpenGL::get_command(:glNamedBufferData)
     f.call(_buffer_, _size_, _data_, _usage_)
   end
 
-  GL_FUNCTIONS_ARGS_MAP[:glNamedBufferSubData] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+  GL_FUNCTIONS_ARGS_MAP[:glNamedBufferSubData] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
   GL_FUNCTIONS_RETVAL_MAP[:glNamedBufferSubData] = Fiddle::TYPE_VOID
   def glNamedBufferSubData(_buffer_, _offset_, _size_, _data_)
     f = OpenGL::get_command(:glNamedBufferSubData)
     f.call(_buffer_, _offset_, _size_, _data_)
   end
 
-  GL_FUNCTIONS_ARGS_MAP[:glCopyNamedBufferSubData] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT]
+  GL_FUNCTIONS_ARGS_MAP[:glCopyNamedBufferSubData] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
   GL_FUNCTIONS_RETVAL_MAP[:glCopyNamedBufferSubData] = Fiddle::TYPE_VOID
   def glCopyNamedBufferSubData(_readBuffer_, _writeBuffer_, _readOffset_, _writeOffset_, _size_)
     f = OpenGL::get_command(:glCopyNamedBufferSubData)
@@ -6553,7 +6553,7 @@ module OpenGL
     f.call(_buffer_, _internalformat_, _format_, _type_, _data_)
   end
 
-  GL_FUNCTIONS_ARGS_MAP[:glClearNamedBufferSubData] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+  GL_FUNCTIONS_ARGS_MAP[:glClearNamedBufferSubData] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
   GL_FUNCTIONS_RETVAL_MAP[:glClearNamedBufferSubData] = Fiddle::TYPE_VOID
   def glClearNamedBufferSubData(_buffer_, _internalformat_, _offset_, _size_, _format_, _type_, _data_)
     f = OpenGL::get_command(:glClearNamedBufferSubData)
@@ -6567,7 +6567,7 @@ module OpenGL
     f.call(_buffer_, _access_)
   end
 
-  GL_FUNCTIONS_ARGS_MAP[:glMapNamedBufferRange] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+  GL_FUNCTIONS_ARGS_MAP[:glMapNamedBufferRange] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT]
   GL_FUNCTIONS_RETVAL_MAP[:glMapNamedBufferRange] = Fiddle::TYPE_VOIDP
   def glMapNamedBufferRange(_buffer_, _offset_, _length_, _access_)
     f = OpenGL::get_command(:glMapNamedBufferRange)
@@ -6581,7 +6581,7 @@ module OpenGL
     f.call(_buffer_)
   end
 
-  GL_FUNCTIONS_ARGS_MAP[:glFlushMappedNamedBufferRange] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT]
+  GL_FUNCTIONS_ARGS_MAP[:glFlushMappedNamedBufferRange] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
   GL_FUNCTIONS_RETVAL_MAP[:glFlushMappedNamedBufferRange] = Fiddle::TYPE_VOID
   def glFlushMappedNamedBufferRange(_buffer_, _offset_, _length_)
     f = OpenGL::get_command(:glFlushMappedNamedBufferRange)
@@ -6609,7 +6609,7 @@ module OpenGL
     f.call(_buffer_, _pname_, _params_)
   end
 
-  GL_FUNCTIONS_ARGS_MAP[:glGetNamedBufferSubData] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+  GL_FUNCTIONS_ARGS_MAP[:glGetNamedBufferSubData] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
   GL_FUNCTIONS_RETVAL_MAP[:glGetNamedBufferSubData] = Fiddle::TYPE_VOID
   def glGetNamedBufferSubData(_buffer_, _offset_, _size_, _data_)
     f = OpenGL::get_command(:glGetNamedBufferSubData)
@@ -6784,7 +6784,7 @@ module OpenGL
     f.call(_texture_, _internalformat_, _buffer_)
   end
 
-  GL_FUNCTIONS_ARGS_MAP[:glTextureBufferRange] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT]
+  GL_FUNCTIONS_ARGS_MAP[:glTextureBufferRange] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
   GL_FUNCTIONS_RETVAL_MAP[:glTextureBufferRange] = Fiddle::TYPE_VOID
   def glTextureBufferRange(_texture_, _internalformat_, _buffer_, _offset_, _size_)
     f = OpenGL::get_command(:glTextureBufferRange)

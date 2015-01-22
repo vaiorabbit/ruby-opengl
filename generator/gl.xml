@@ -9630,7 +9630,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
             <param><ptype>GLenum</ptype> <name>internalformat</name></param>
             <param><ptype>GLintptr</ptype> <name>offset</name></param>
-            <param><ptype>GLsizei</ptype> <name>size</name></param>
+            <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>size</name></param>
             <param><ptype>GLenum</ptype> <name>format</name></param>
             <param><ptype>GLenum</ptype> <name>type</name></param>
             <param>const void *<name>data</name></param>
@@ -11110,7 +11110,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLuint</ptype> <name>writeBuffer</name></param>
             <param><ptype>GLintptr</ptype> <name>readOffset</name></param>
             <param><ptype>GLintptr</ptype> <name>writeOffset</name></param>
-            <param><ptype>GLsizei</ptype> <name>size</name></param>
+            <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>size</name></param>
         </command>
         <command>
             <proto>void <name>glCopyPathNV</name></proto>
@@ -13006,7 +13006,7 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glFlushMappedNamedBufferRange</name></proto>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
             <param><ptype>GLintptr</ptype> <name>offset</name></param>
-            <param><ptype>GLsizei</ptype> <name>length</name></param>
+            <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>length</name></param>
         </command>
         <command>
             <proto>void <name>glFlushMappedNamedBufferRangeEXT</name></proto>
@@ -14992,7 +14992,7 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glGetNamedBufferSubData</name></proto>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
             <param><ptype>GLintptr</ptype> <name>offset</name></param>
-            <param><ptype>GLsizei</ptype> <name>size</name></param>
+            <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>size</name></param>
             <param>void *<name>data</name></param>
         </command>
         <command>
@@ -18063,7 +18063,7 @@ typedef unsigned int GLhandleARB;
             <proto>void *<name>glMapNamedBufferRange</name></proto>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
             <param><ptype>GLintptr</ptype> <name>offset</name></param>
-            <param><ptype>GLsizei</ptype> <name>length</name></param>
+            <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>length</name></param>
             <param><ptype>GLbitfield</ptype> <name>access</name></param>
         </command>
         <command>
@@ -19545,7 +19545,7 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glNamedBufferData</name></proto>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
-            <param><ptype>GLsizei</ptype> <name>size</name></param>
+            <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>size</name></param>
             <param>const void *<name>data</name></param>
             <param><ptype>GLenum</ptype> <name>usage</name></param>
         </command>
@@ -19573,7 +19573,7 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glNamedBufferStorage</name></proto>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
-            <param><ptype>GLsizei</ptype> <name>size</name></param>
+            <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>size</name></param>
             <param>const void *<name>data</name></param>
             <param><ptype>GLbitfield</ptype> <name>flags</name></param>
         </command>
@@ -19588,7 +19588,7 @@ typedef unsigned int GLhandleARB;
             <proto>void <name>glNamedBufferSubData</name></proto>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
             <param><ptype>GLintptr</ptype> <name>offset</name></param>
-            <param><ptype>GLsizei</ptype> <name>size</name></param>
+            <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>size</name></param>
             <param>const void *<name>data</name></param>
         </command>
         <command>
@@ -24877,7 +24877,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLenum</ptype> <name>internalformat</name></param>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
             <param><ptype>GLintptr</ptype> <name>offset</name></param>
-            <param><ptype>GLsizei</ptype> <name>size</name></param>
+            <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>size</name></param>
         </command>
         <command>
             <proto>void <name>glTextureBufferRangeEXT</name></proto>
@@ -25334,7 +25334,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLuint</ptype> <name>index</name></param>
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
             <param><ptype>GLintptr</ptype> <name>offset</name></param>
-            <param><ptype>GLsizei</ptype> <name>size</name></param>
+            <param group="BufferSize"><ptype>GLsizeiptr</ptype> <name>size</name></param>
         </command>
         <command>
             <proto>void <name>glTransformFeedbackStreamAttribsNV</name></proto>
