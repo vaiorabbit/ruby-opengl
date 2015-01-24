@@ -15,8 +15,8 @@ make
 # 'ls -l src/libglfw*' should be:
 #
 #     $ ls -l src/libglfw*
-#     -rwxr-xr-x  1 foo  staff  222008  8 11 22:29 src/libglfw.3.0.dylib
-#     lrwxr-xr-x  1 foo  staff      17  8 11 22:29 src/libglfw.3.dylib -> libglfw.3.0.dylib
-#     lrwxr-xr-x  1 foo  staff      15  8 11 22:29 src/libglfw.dylib -> libglfw.3.dylib
+#     -rwxr-xr-x  1 foo  staff  252740  1 19 22:55 src/libglfw.3.1.dylib
+#     lrwxr-xr-x  1 foo  staff      17  1 19 22:55 src/libglfw.3.dylib -> libglfw.3.1.dylib
+#     lrwxr-xr-x  1 foo  staff      15  1 19 22:55 src/libglfw.dylib -> libglfw.3.dylib
 
 cp -R src/libglfw* ../..

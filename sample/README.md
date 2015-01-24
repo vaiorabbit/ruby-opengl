@@ -8,7 +8,7 @@ For more samples, visit https://github.com/vaiorabbit/ruby-opengl/tree/master/sa
 		*   http://www.glfw.org/download.html
 
 *   Mac OS X
-	*   run ./glfw_build_dylib.sh to get ./libglfw.dylib.
+	*   run ./glfwXX_build_dylib.sh to get ./libglfw.dylib.
 
 ## Getting GLUT ##
 
@@ -35,7 +35,7 @@ For more samples, visit https://github.com/vaiorabbit/ruby-opengl/tree/master/sa
 		*   http://www.glfw.org/download.html
 
 *   Mac OS X
-	*   ./glfw_build_dylib.sh を実行すると ./libglfw.dylib ができあがります。
+	*   ./glfwXX_build_dylib.sh を実行すると ./libglfw.dylib ができあがります。
 
 ## GLUTのセットアップ ##
 
