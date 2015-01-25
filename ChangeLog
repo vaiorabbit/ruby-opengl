@@ -1,3 +1,8 @@
+2015-01-25  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* glfw.rb: Added GLFW 3.1 features ( http://www.glfw.org/docs/latest/news.html#news_31 ).
+	* glfw30.rb: Previous version of 'glfw.rb' is available as 'glfw30.rb'.
+
 2015-01-22  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.
