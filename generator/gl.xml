@@ -43317,6 +43317,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_SAMPLER_EXTERNAL_OES"/>
             </require>
         </extension>
+        <extension name="GL_OES_EGL_image_external_essl3" supported="gles2"/>
         <extension name="GL_OES_blend_equation_separate" supported="gles1">
             <require>
                 <enum name="GL_BLEND_EQUATION_RGB_OES"/>

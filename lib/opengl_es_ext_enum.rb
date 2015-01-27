@@ -1357,6 +1357,9 @@ module OpenGL
     const_set('GL_SAMPLER_EXTERNAL_OES', 0x8D66) unless defined?(GL_SAMPLER_EXTERNAL_OES)
   end # define_ext_enum_GL_OES_EGL_image_external
 
+  def define_ext_enum_GL_OES_EGL_image_external_essl3
+  end # define_ext_enum_GL_OES_EGL_image_external_essl3
+
   def define_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
   end # define_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
 
