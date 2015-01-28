@@ -5357,10 +5357,10 @@ module OpenGL
   end # define_ext_enum_GL_SGIX_reference_plane
 
   def define_ext_enum_GL_SGIX_resample
-    const_set('GL_PACK_RESAMPLE_SGIX', 0x842C) unless defined?(GL_PACK_RESAMPLE_SGIX)
-    const_set('GL_UNPACK_RESAMPLE_SGIX', 0x842D) unless defined?(GL_UNPACK_RESAMPLE_SGIX)
-    const_set('GL_RESAMPLE_REPLICATE_SGIX', 0x842E) unless defined?(GL_RESAMPLE_REPLICATE_SGIX)
-    const_set('GL_RESAMPLE_ZERO_FILL_SGIX', 0x842F) unless defined?(GL_RESAMPLE_ZERO_FILL_SGIX)
+    const_set('GL_PACK_RESAMPLE_SGIX', 0x842E) unless defined?(GL_PACK_RESAMPLE_SGIX)
+    const_set('GL_UNPACK_RESAMPLE_SGIX', 0x842F) unless defined?(GL_UNPACK_RESAMPLE_SGIX)
+    const_set('GL_RESAMPLE_REPLICATE_SGIX', 0x8433) unless defined?(GL_RESAMPLE_REPLICATE_SGIX)
+    const_set('GL_RESAMPLE_ZERO_FILL_SGIX', 0x8434) unless defined?(GL_RESAMPLE_ZERO_FILL_SGIX)
     const_set('GL_RESAMPLE_DECIMATE_SGIX', 0x8430) unless defined?(GL_RESAMPLE_DECIMATE_SGIX)
   end # define_ext_enum_GL_SGIX_resample
 
