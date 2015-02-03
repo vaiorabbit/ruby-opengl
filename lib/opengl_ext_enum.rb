@@ -537,7 +537,6 @@ module OpenGL
     const_set('GL_TEXTURE_BINDING_CUBE_MAP', 0x8514) unless defined?(GL_TEXTURE_BINDING_CUBE_MAP)
     const_set('GL_TEXTURE_BINDING_CUBE_MAP_ARRAY', 0x900A) unless defined?(GL_TEXTURE_BINDING_CUBE_MAP_ARRAY)
     const_set('GL_TEXTURE_BINDING_RECTANGLE', 0x84F6) unless defined?(GL_TEXTURE_BINDING_RECTANGLE)
-    const_set('GL_TEXTURE_BINDING', 0x82EB) unless defined?(GL_TEXTURE_BINDING)
   end # define_ext_enum_GL_ARB_direct_state_access
 
   def define_ext_enum_GL_ARB_draw_buffers
