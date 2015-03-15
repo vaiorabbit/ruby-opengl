@@ -618,6 +618,14 @@ module OpenGL
     const_set('GL_SKIP_DECODE_EXT', 0x8A4A) unless defined?(GL_SKIP_DECODE_EXT)
   end # define_ext_enum_GL_EXT_texture_sRGB_decode
 
+  def define_ext_enum_GL_EXT_texture_sRGB_R8
+    const_set('GL_SR8_EXT', 0x8FBD) unless defined?(GL_SR8_EXT)
+  end # define_ext_enum_GL_EXT_texture_sRGB_R8
+
+  def define_ext_enum_GL_EXT_texture_sRGB_RG8
+    const_set('GL_SRG8_EXT', 0x8FBE) unless defined?(GL_SRG8_EXT)
+  end # define_ext_enum_GL_EXT_texture_sRGB_RG8
+
   def define_ext_enum_GL_EXT_texture_storage
     const_set('GL_TEXTURE_IMMUTABLE_FORMAT_EXT', 0x912F) unless defined?(GL_TEXTURE_IMMUTABLE_FORMAT_EXT)
     const_set('GL_ALPHA8_EXT', 0x803C) unless defined?(GL_ALPHA8_EXT)
@@ -661,6 +669,13 @@ module OpenGL
     const_set('GL_UNPACK_SKIP_ROWS_EXT', 0x0CF3) unless defined?(GL_UNPACK_SKIP_ROWS_EXT)
     const_set('GL_UNPACK_SKIP_PIXELS_EXT', 0x0CF4) unless defined?(GL_UNPACK_SKIP_PIXELS_EXT)
   end # define_ext_enum_GL_EXT_unpack_subimage
+
+  def define_ext_enum_GL_EXT_YUV_target
+    const_set('GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT', 0x8BE7) unless defined?(GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT)
+    const_set('GL_TEXTURE_EXTERNAL_OES', 0x8D65) unless defined?(GL_TEXTURE_EXTERNAL_OES)
+    const_set('GL_TEXTURE_BINDING_EXTERNAL_OES', 0x8D67) unless defined?(GL_TEXTURE_BINDING_EXTERNAL_OES)
+    const_set('GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES', 0x8D68) unless defined?(GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES)
+  end # define_ext_enum_GL_EXT_YUV_target
 
   def define_ext_enum_GL_FJ_shader_binary_GCCSO
     const_set('GL_GCCSO_SHADER_BINARY_FJ', 0x9260) unless defined?(GL_GCCSO_SHADER_BINARY_FJ)
@@ -779,6 +794,7 @@ module OpenGL
     const_set('GL_PROGRAM', 0x82E2) unless defined?(GL_PROGRAM)
     const_set('GL_VERTEX_ARRAY', 0x8074) unless defined?(GL_VERTEX_ARRAY)
     const_set('GL_QUERY', 0x82E3) unless defined?(GL_QUERY)
+    const_set('GL_PROGRAM_PIPELINE', 0x82E4) unless defined?(GL_PROGRAM_PIPELINE)
     const_set('GL_SAMPLER', 0x82E6) unless defined?(GL_SAMPLER)
     const_set('GL_MAX_LABEL_LENGTH', 0x82E8) unless defined?(GL_MAX_LABEL_LENGTH)
     const_set('GL_MAX_DEBUG_MESSAGE_LENGTH', 0x9143) unless defined?(GL_MAX_DEBUG_MESSAGE_LENGTH)
@@ -818,6 +834,7 @@ module OpenGL
     const_set('GL_PROGRAM_KHR', 0x82E2) unless defined?(GL_PROGRAM_KHR)
     const_set('GL_VERTEX_ARRAY_KHR', 0x8074) unless defined?(GL_VERTEX_ARRAY_KHR)
     const_set('GL_QUERY_KHR', 0x82E3) unless defined?(GL_QUERY_KHR)
+    const_set('GL_PROGRAM_PIPELINE_KHR', 0x82E4) unless defined?(GL_PROGRAM_PIPELINE_KHR)
     const_set('GL_SAMPLER_KHR', 0x82E6) unless defined?(GL_SAMPLER_KHR)
     const_set('GL_MAX_LABEL_LENGTH_KHR', 0x82E8) unless defined?(GL_MAX_LABEL_LENGTH_KHR)
     const_set('GL_MAX_DEBUG_MESSAGE_LENGTH_KHR', 0x9143) unless defined?(GL_MAX_DEBUG_MESSAGE_LENGTH_KHR)
@@ -830,7 +847,6 @@ module OpenGL
     const_set('GL_CONTEXT_FLAG_DEBUG_BIT_KHR', 0x00000002) unless defined?(GL_CONTEXT_FLAG_DEBUG_BIT_KHR)
     const_set('GL_STACK_OVERFLOW_KHR', 0x0503) unless defined?(GL_STACK_OVERFLOW_KHR)
     const_set('GL_STACK_UNDERFLOW_KHR', 0x0504) unless defined?(GL_STACK_UNDERFLOW_KHR)
-    const_set('GL_PROGRAM_PIPELINE', 0x82E4) unless defined?(GL_PROGRAM_PIPELINE)
     const_set('GL_DISPLAY_LIST', 0x82E7) unless defined?(GL_DISPLAY_LIST)
   end # define_ext_enum_GL_KHR_debug
 

@@ -1556,6 +1556,12 @@ module OpenGL
   def define_ext_command_GL_EXT_texture_sRGB_decode
   end # define_ext_command_GL_EXT_texture_sRGB_decode
 
+  def define_ext_command_GL_EXT_texture_sRGB_R8
+  end # define_ext_command_GL_EXT_texture_sRGB_R8
+
+  def define_ext_command_GL_EXT_texture_sRGB_RG8
+  end # define_ext_command_GL_EXT_texture_sRGB_RG8
+
   def define_ext_command_GL_EXT_texture_storage
     GL_FUNCTIONS_ARGS_MAP[:glTexStorage1DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glTexStorage1DEXT] = Fiddle::TYPE_VOID
@@ -1628,6 +1634,9 @@ module OpenGL
 
   def define_ext_command_GL_EXT_unpack_subimage
   end # define_ext_command_GL_EXT_unpack_subimage
+
+  def define_ext_command_GL_EXT_YUV_target
+  end # define_ext_command_GL_EXT_YUV_target
 
   def define_ext_command_GL_FJ_shader_binary_GCCSO
   end # define_ext_command_GL_FJ_shader_binary_GCCSO
