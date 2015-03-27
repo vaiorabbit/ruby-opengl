@@ -694,6 +694,9 @@ module OpenGL
     SRC_GL_EXT_draw_instanced
   end # define_ext_command_GL_EXT_draw_instanced
 
+  def define_ext_command_GL_EXT_float_blend
+  end # define_ext_command_GL_EXT_float_blend
+
   def define_ext_command_GL_EXT_geometry_point_size
   end # define_ext_command_GL_EXT_geometry_point_size
 

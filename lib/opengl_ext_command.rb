@@ -15485,6 +15485,161 @@ module OpenGL
   def define_ext_command_GL_NV_blend_square
   end # define_ext_command_GL_NV_blend_square
 
+  def define_ext_command_GL_NV_command_list
+    GL_FUNCTIONS_ARGS_MAP[:glCreateStatesNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glCreateStatesNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glCreateStatesNV(_n_, _states_)
+        f = OpenGL::get_command(:glCreateStatesNV)
+        f.call(_n_, _states_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glDeleteStatesNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glDeleteStatesNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glDeleteStatesNV(_n_, _states_)
+        f = OpenGL::get_command(:glDeleteStatesNV)
+        f.call(_n_, _states_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glIsStateNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsStateNV] = -Fiddle::TYPE_CHAR
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glIsStateNV(_state_)
+        f = OpenGL::get_command(:glIsStateNV)
+        f.call(_state_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glStateCaptureNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glStateCaptureNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glStateCaptureNV(_state_, _mode_)
+        f = OpenGL::get_command(:glStateCaptureNV)
+        f.call(_state_, _mode_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetCommandHeaderNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetCommandHeaderNV] = -Fiddle::TYPE_INT
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glGetCommandHeaderNV(_tokenID_, _size_)
+        f = OpenGL::get_command(:glGetCommandHeaderNV)
+        f.call(_tokenID_, _size_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetStageIndexNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetStageIndexNV] = -Fiddle::TYPE_SHORT
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glGetStageIndexNV(_shadertype_)
+        f = OpenGL::get_command(:glGetStageIndexNV)
+        f.call(_shadertype_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glDrawCommandsNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glDrawCommandsNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glDrawCommandsNV(_primitiveMode_, _buffer_, _indirects_, _sizes_, _count_)
+        f = OpenGL::get_command(:glDrawCommandsNV)
+        f.call(_primitiveMode_, _buffer_, _indirects_, _sizes_, _count_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glDrawCommandsAddressNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glDrawCommandsAddressNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glDrawCommandsAddressNV(_primitiveMode_, _indirects_, _sizes_, _count_)
+        f = OpenGL::get_command(:glDrawCommandsAddressNV)
+        f.call(_primitiveMode_, _indirects_, _sizes_, _count_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glDrawCommandsStatesNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glDrawCommandsStatesNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glDrawCommandsStatesNV(_buffer_, _indirects_, _sizes_, _states_, _fbos_, _count_)
+        f = OpenGL::get_command(:glDrawCommandsStatesNV)
+        f.call(_buffer_, _indirects_, _sizes_, _states_, _fbos_, _count_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glDrawCommandsStatesAddressNV] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glDrawCommandsStatesAddressNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glDrawCommandsStatesAddressNV(_indirects_, _sizes_, _states_, _fbos_, _count_)
+        f = OpenGL::get_command(:glDrawCommandsStatesAddressNV)
+        f.call(_indirects_, _sizes_, _states_, _fbos_, _count_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glCreateCommandListsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glCreateCommandListsNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glCreateCommandListsNV(_n_, _lists_)
+        f = OpenGL::get_command(:glCreateCommandListsNV)
+        f.call(_n_, _lists_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glDeleteCommandListsNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glDeleteCommandListsNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glDeleteCommandListsNV(_n_, _lists_)
+        f = OpenGL::get_command(:glDeleteCommandListsNV)
+        f.call(_n_, _lists_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glIsCommandListNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glIsCommandListNV] = -Fiddle::TYPE_CHAR
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glIsCommandListNV(_list_)
+        f = OpenGL::get_command(:glIsCommandListNV)
+        f.call(_list_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glListDrawCommandsStatesClientNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glListDrawCommandsStatesClientNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glListDrawCommandsStatesClientNV(_list_, _segment_, _indirects_, _sizes_, _states_, _fbos_, _count_)
+        f = OpenGL::get_command(:glListDrawCommandsStatesClientNV)
+        f.call(_list_, _segment_, _indirects_, _sizes_, _states_, _fbos_, _count_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glCommandListSegmentsNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glCommandListSegmentsNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glCommandListSegmentsNV(_list_, _segments_)
+        f = OpenGL::get_command(:glCommandListSegmentsNV)
+        f.call(_list_, _segments_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glCompileCommandListNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glCompileCommandListNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glCompileCommandListNV(_list_)
+        f = OpenGL::get_command(:glCompileCommandListNV)
+        f.call(_list_)
+      end
+    SRC_GL_NV_command_list
+
+    GL_FUNCTIONS_ARGS_MAP[:glCallCommandListNV] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glCallCommandListNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_command_list)
+      def glCallCommandListNV(_list_)
+        f = OpenGL::get_command(:glCallCommandListNV)
+        f.call(_list_)
+      end
+    SRC_GL_NV_command_list
+  end # define_ext_command_GL_NV_command_list
+
   def define_ext_command_GL_NV_compute_program5
   end # define_ext_command_GL_NV_compute_program5
 

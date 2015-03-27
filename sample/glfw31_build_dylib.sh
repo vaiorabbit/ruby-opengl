@@ -3,9 +3,9 @@
 #
 # Ref.: https://github.com/malkia/ufo/blob/master/build/OSX/glfw.sh
 #
-wget http://downloads.sourceforge.net/project/glfw/glfw/3.1/glfw-3.1.tar.bz2
-tar xvjf glfw-3.1.tar.bz2
-cd glfw-3.1/
+wget http://downloads.sourceforge.net/project/glfw/glfw/3.1.1/glfw-3.1.1.tar.bz2
+tar xvjf glfw-3.1.1.tar.bz2
+cd glfw-3.1.1/
 mkdir build
 cd build
 export MACOSX_DEPLOYMENT_TARGET=10.10

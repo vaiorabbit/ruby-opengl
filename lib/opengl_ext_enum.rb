@@ -3956,6 +3956,28 @@ module OpenGL
   def define_ext_enum_GL_NV_blend_square
   end # define_ext_enum_GL_NV_blend_square
 
+  def define_ext_enum_GL_NV_command_list
+    const_set('GL_TERMINATE_SEQUENCE_COMMAND_NV', 0x0000) unless defined?(GL_TERMINATE_SEQUENCE_COMMAND_NV)
+    const_set('GL_NOP_COMMAND_NV', 0x0001) unless defined?(GL_NOP_COMMAND_NV)
+    const_set('GL_DRAW_ELEMENTS_COMMAND_NV', 0x0002) unless defined?(GL_DRAW_ELEMENTS_COMMAND_NV)
+    const_set('GL_DRAW_ARRAYS_COMMAND_NV', 0x0003) unless defined?(GL_DRAW_ARRAYS_COMMAND_NV)
+    const_set('GL_DRAW_ELEMENTS_STRIP_COMMAND_NV', 0x0004) unless defined?(GL_DRAW_ELEMENTS_STRIP_COMMAND_NV)
+    const_set('GL_DRAW_ARRAYS_STRIP_COMMAND_NV', 0x0005) unless defined?(GL_DRAW_ARRAYS_STRIP_COMMAND_NV)
+    const_set('GL_DRAW_ELEMENTS_INSTANCED_COMMAND_NV', 0x0006) unless defined?(GL_DRAW_ELEMENTS_INSTANCED_COMMAND_NV)
+    const_set('GL_DRAW_ARRAYS_INSTANCED_COMMAND_NV', 0x0007) unless defined?(GL_DRAW_ARRAYS_INSTANCED_COMMAND_NV)
+    const_set('GL_ELEMENT_ADDRESS_COMMAND_NV', 0x0008) unless defined?(GL_ELEMENT_ADDRESS_COMMAND_NV)
+    const_set('GL_ATTRIBUTE_ADDRESS_COMMAND_NV', 0x0009) unless defined?(GL_ATTRIBUTE_ADDRESS_COMMAND_NV)
+    const_set('GL_UNIFORM_ADDRESS_COMMAND_NV', 0x000A) unless defined?(GL_UNIFORM_ADDRESS_COMMAND_NV)
+    const_set('GL_BLEND_COLOR_COMMAND_NV', 0x000B) unless defined?(GL_BLEND_COLOR_COMMAND_NV)
+    const_set('GL_STENCIL_REF_COMMAND_NV', 0x000C) unless defined?(GL_STENCIL_REF_COMMAND_NV)
+    const_set('GL_LINE_WIDTH_COMMAND_NV', 0x000D) unless defined?(GL_LINE_WIDTH_COMMAND_NV)
+    const_set('GL_POLYGON_OFFSET_COMMAND_NV', 0x000E) unless defined?(GL_POLYGON_OFFSET_COMMAND_NV)
+    const_set('GL_ALPHA_REF_COMMAND_NV', 0x000F) unless defined?(GL_ALPHA_REF_COMMAND_NV)
+    const_set('GL_VIEWPORT_COMMAND_NV', 0x0010) unless defined?(GL_VIEWPORT_COMMAND_NV)
+    const_set('GL_SCISSOR_COMMAND_NV', 0x0011) unless defined?(GL_SCISSOR_COMMAND_NV)
+    const_set('GL_FRONT_FACE_COMMAND_NV', 0x0012) unless defined?(GL_FRONT_FACE_COMMAND_NV)
+  end # define_ext_enum_GL_NV_command_list
+
   def define_ext_enum_GL_NV_compute_program5
     const_set('GL_COMPUTE_PROGRAM_NV', 0x90FB) unless defined?(GL_COMPUTE_PROGRAM_NV)
     const_set('GL_COMPUTE_PROGRAM_PARAMETER_BUFFER_NV', 0x90FC) unless defined?(GL_COMPUTE_PROGRAM_PARAMETER_BUFFER_NV)
