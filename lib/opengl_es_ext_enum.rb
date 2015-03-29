@@ -399,6 +399,9 @@ module OpenGL
     const_set('GL_QUERY_RESULT_AVAILABLE_EXT', 0x8867) unless defined?(GL_QUERY_RESULT_AVAILABLE_EXT)
   end # define_ext_enum_GL_EXT_occlusion_query_boolean
 
+  def define_ext_enum_GL_EXT_post_depth_coverage
+  end # define_ext_enum_GL_EXT_post_depth_coverage
+
   def define_ext_enum_GL_EXT_primitive_bounding_box
     const_set('GL_PRIMITIVE_BOUNDING_BOX_EXT', 0x92BE) unless defined?(GL_PRIMITIVE_BOUNDING_BOX_EXT)
   end # define_ext_enum_GL_EXT_primitive_bounding_box
@@ -411,6 +414,15 @@ module OpenGL
     const_set('GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG', 0x93F0) unless defined?(GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG)
     const_set('GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG', 0x93F1) unless defined?(GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG)
   end # define_ext_enum_GL_EXT_pvrtc_sRGB
+
+  def define_ext_enum_GL_EXT_raster_multisample
+    const_set('GL_RASTER_MULTISAMPLE_EXT', 0x9327) unless defined?(GL_RASTER_MULTISAMPLE_EXT)
+    const_set('GL_RASTER_SAMPLES_EXT', 0x9328) unless defined?(GL_RASTER_SAMPLES_EXT)
+    const_set('GL_MAX_RASTER_SAMPLES_EXT', 0x9329) unless defined?(GL_MAX_RASTER_SAMPLES_EXT)
+    const_set('GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT', 0x932A) unless defined?(GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT)
+    const_set('GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT', 0x932B) unless defined?(GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT)
+    const_set('GL_EFFECTIVE_RASTER_SAMPLES_EXT', 0x932C) unless defined?(GL_EFFECTIVE_RASTER_SAMPLES_EXT)
+  end # define_ext_enum_GL_EXT_raster_multisample
 
   def define_ext_enum_GL_EXT_read_format_bgra
     const_set('GL_BGRA_EXT', 0x80E1) unless defined?(GL_BGRA_EXT)
@@ -592,6 +604,15 @@ module OpenGL
     const_set('GL_TEXTURE_MAX_ANISOTROPY_EXT', 0x84FE) unless defined?(GL_TEXTURE_MAX_ANISOTROPY_EXT)
     const_set('GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT', 0x84FF) unless defined?(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT)
   end # define_ext_enum_GL_EXT_texture_filter_anisotropic
+
+  def define_ext_enum_GL_EXT_texture_filter_minmax
+    const_set('GL_RASTER_MULTISAMPLE_EXT', 0x9327) unless defined?(GL_RASTER_MULTISAMPLE_EXT)
+    const_set('GL_RASTER_SAMPLES_EXT', 0x9328) unless defined?(GL_RASTER_SAMPLES_EXT)
+    const_set('GL_MAX_RASTER_SAMPLES_EXT', 0x9329) unless defined?(GL_MAX_RASTER_SAMPLES_EXT)
+    const_set('GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT', 0x932A) unless defined?(GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT)
+    const_set('GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT', 0x932B) unless defined?(GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT)
+    const_set('GL_EFFECTIVE_RASTER_SAMPLES_EXT', 0x932C) unless defined?(GL_EFFECTIVE_RASTER_SAMPLES_EXT)
+  end # define_ext_enum_GL_EXT_texture_filter_minmax
 
   def define_ext_enum_GL_EXT_texture_format_BGRA8888
     const_set('GL_BGRA_EXT', 0x80E1) unless defined?(GL_BGRA_EXT)
@@ -1006,6 +1027,13 @@ module OpenGL
     const_set('GL_QUERY_BY_REGION_NO_WAIT_NV', 0x8E16) unless defined?(GL_QUERY_BY_REGION_NO_WAIT_NV)
   end # define_ext_enum_GL_NV_conditional_render
 
+  def define_ext_enum_GL_NV_conservative_raster
+    const_set('GL_CONSERVATIVE_RASTERIZATION_NV', 0x9346) unless defined?(GL_CONSERVATIVE_RASTERIZATION_NV)
+    const_set('GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV', 0x9347) unless defined?(GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV)
+    const_set('GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV', 0x9348) unless defined?(GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV)
+    const_set('GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV', 0x9349) unless defined?(GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV)
+  end # define_ext_enum_GL_NV_conservative_raster
+
   def define_ext_enum_GL_NV_copy_buffer
     const_set('GL_COPY_READ_BUFFER_NV', 0x8F36) unless defined?(GL_COPY_READ_BUFFER_NV)
     const_set('GL_COPY_WRITE_BUFFER_NV', 0x8F37) unless defined?(GL_COPY_WRITE_BUFFER_NV)
@@ -1095,12 +1123,41 @@ module OpenGL
     const_set('GL_FENCE_CONDITION_NV', 0x84F4) unless defined?(GL_FENCE_CONDITION_NV)
   end # define_ext_enum_GL_NV_fence
 
+  def define_ext_enum_GL_NV_fill_rectangle
+    const_set('GL_FILL_RECTANGLE_NV', 0x933C) unless defined?(GL_FILL_RECTANGLE_NV)
+  end # define_ext_enum_GL_NV_fill_rectangle
+
+  def define_ext_enum_GL_NV_fragment_coverage_to_color
+    const_set('GL_FRAGMENT_COVERAGE_TO_COLOR_NV', 0x92DD) unless defined?(GL_FRAGMENT_COVERAGE_TO_COLOR_NV)
+    const_set('GL_FRAGMENT_COVERAGE_COLOR_NV', 0x92DE) unless defined?(GL_FRAGMENT_COVERAGE_COLOR_NV)
+  end # define_ext_enum_GL_NV_fragment_coverage_to_color
+
+  def define_ext_enum_GL_NV_fragment_shader_interlock
+  end # define_ext_enum_GL_NV_fragment_shader_interlock
+
   def define_ext_enum_GL_NV_framebuffer_blit
     const_set('GL_READ_FRAMEBUFFER_NV', 0x8CA8) unless defined?(GL_READ_FRAMEBUFFER_NV)
     const_set('GL_DRAW_FRAMEBUFFER_NV', 0x8CA9) unless defined?(GL_DRAW_FRAMEBUFFER_NV)
     const_set('GL_DRAW_FRAMEBUFFER_BINDING_NV', 0x8CA6) unless defined?(GL_DRAW_FRAMEBUFFER_BINDING_NV)
     const_set('GL_READ_FRAMEBUFFER_BINDING_NV', 0x8CAA) unless defined?(GL_READ_FRAMEBUFFER_BINDING_NV)
   end # define_ext_enum_GL_NV_framebuffer_blit
+
+  def define_ext_enum_GL_NV_framebuffer_mixed_samples
+    const_set('GL_RASTER_MULTISAMPLE_EXT', 0x9327) unless defined?(GL_RASTER_MULTISAMPLE_EXT)
+    const_set('GL_COVERAGE_MODULATION_TABLE_NV', 0x9331) unless defined?(GL_COVERAGE_MODULATION_TABLE_NV)
+    const_set('GL_RASTER_SAMPLES_EXT', 0x9328) unless defined?(GL_RASTER_SAMPLES_EXT)
+    const_set('GL_MAX_RASTER_SAMPLES_EXT', 0x9329) unless defined?(GL_MAX_RASTER_SAMPLES_EXT)
+    const_set('GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT', 0x932A) unless defined?(GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT)
+    const_set('GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT', 0x932B) unless defined?(GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT)
+    const_set('GL_EFFECTIVE_RASTER_SAMPLES_EXT', 0x932C) unless defined?(GL_EFFECTIVE_RASTER_SAMPLES_EXT)
+    const_set('GL_COLOR_SAMPLES_NV', 0x8E20) unless defined?(GL_COLOR_SAMPLES_NV)
+    const_set('GL_DEPTH_SAMPLES_NV', 0x932D) unless defined?(GL_DEPTH_SAMPLES_NV)
+    const_set('GL_STENCIL_SAMPLES_NV', 0x932E) unless defined?(GL_STENCIL_SAMPLES_NV)
+    const_set('GL_MIXED_DEPTH_SAMPLES_SUPPORTED_NV', 0x932F) unless defined?(GL_MIXED_DEPTH_SAMPLES_SUPPORTED_NV)
+    const_set('GL_MIXED_STENCIL_SAMPLES_SUPPORTED_NV', 0x9330) unless defined?(GL_MIXED_STENCIL_SAMPLES_SUPPORTED_NV)
+    const_set('GL_COVERAGE_MODULATION_NV', 0x9332) unless defined?(GL_COVERAGE_MODULATION_NV)
+    const_set('GL_COVERAGE_MODULATION_TABLE_SIZE_NV', 0x9333) unless defined?(GL_COVERAGE_MODULATION_TABLE_SIZE_NV)
+  end # define_ext_enum_GL_NV_framebuffer_mixed_samples
 
   def define_ext_enum_GL_NV_framebuffer_multisample
     const_set('GL_RENDERBUFFER_SAMPLES_NV', 0x8CAB) unless defined?(GL_RENDERBUFFER_SAMPLES_NV)
@@ -1110,6 +1167,9 @@ module OpenGL
 
   def define_ext_enum_GL_NV_generate_mipmap_sRGB
   end # define_ext_enum_GL_NV_generate_mipmap_sRGB
+
+  def define_ext_enum_GL_NV_geometry_shader_passthrough
+  end # define_ext_enum_GL_NV_geometry_shader_passthrough
 
   def define_ext_enum_GL_NV_image_formats
   end # define_ext_enum_GL_NV_image_formats
@@ -1304,6 +1364,15 @@ module OpenGL
     const_set('GL_FRAGMENT_INPUT_NV', 0x936D) unless defined?(GL_FRAGMENT_INPUT_NV)
   end # define_ext_enum_GL_NV_path_rendering
 
+  def define_ext_enum_GL_NV_polygon_mode
+    const_set('GL_POLYGON_MODE_NV', 0x0B40) unless defined?(GL_POLYGON_MODE_NV)
+    const_set('GL_POLYGON_OFFSET_POINT_NV', 0x2A01) unless defined?(GL_POLYGON_OFFSET_POINT_NV)
+    const_set('GL_POLYGON_OFFSET_LINE_NV', 0x2A02) unless defined?(GL_POLYGON_OFFSET_LINE_NV)
+    const_set('GL_POINT_NV', 0x1B00) unless defined?(GL_POINT_NV)
+    const_set('GL_LINE_NV', 0x1B01) unless defined?(GL_LINE_NV)
+    const_set('GL_FILL_NV', 0x1B02) unless defined?(GL_FILL_NV)
+  end # define_ext_enum_GL_NV_polygon_mode
+
   def define_ext_enum_GL_NV_read_buffer
     const_set('GL_READ_BUFFER_NV', 0x0C02) unless defined?(GL_READ_BUFFER_NV)
   end # define_ext_enum_GL_NV_read_buffer
@@ -1320,6 +1389,10 @@ module OpenGL
   def define_ext_enum_GL_NV_read_stencil
   end # define_ext_enum_GL_NV_read_stencil
 
+  def define_ext_enum_GL_NV_path_rendering_shared_edge
+    const_set('GL_SHARED_EDGE_NV', 0xC0) unless defined?(GL_SHARED_EDGE_NV)
+  end # define_ext_enum_GL_NV_path_rendering_shared_edge
+
   def define_ext_enum_GL_NV_sRGB_formats
     const_set('GL_SLUMINANCE_NV', 0x8C46) unless defined?(GL_SLUMINANCE_NV)
     const_set('GL_SLUMINANCE_ALPHA_NV', 0x8C44) unless defined?(GL_SLUMINANCE_ALPHA_NV)
@@ -1332,6 +1405,20 @@ module OpenGL
     const_set('GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_NV', 0x8C4F) unless defined?(GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_NV)
     const_set('GL_ETC1_SRGB8_NV', 0x88EE) unless defined?(GL_ETC1_SRGB8_NV)
   end # define_ext_enum_GL_NV_sRGB_formats
+
+  def define_ext_enum_GL_NV_sample_locations
+    const_set('GL_SAMPLE_LOCATION_SUBPIXEL_BITS_NV', 0x933D) unless defined?(GL_SAMPLE_LOCATION_SUBPIXEL_BITS_NV)
+    const_set('GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_NV', 0x933E) unless defined?(GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_NV)
+    const_set('GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_NV', 0x933F) unless defined?(GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_NV)
+    const_set('GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_NV', 0x9340) unless defined?(GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_NV)
+    const_set('GL_SAMPLE_LOCATION_NV', 0x8E50) unless defined?(GL_SAMPLE_LOCATION_NV)
+    const_set('GL_PROGRAMMABLE_SAMPLE_LOCATION_NV', 0x9341) unless defined?(GL_PROGRAMMABLE_SAMPLE_LOCATION_NV)
+    const_set('GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV', 0x9342) unless defined?(GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV)
+    const_set('GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV', 0x9343) unless defined?(GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV)
+  end # define_ext_enum_GL_NV_sample_locations
+
+  def define_ext_enum_GL_NV_sample_mask_override_coverage
+  end # define_ext_enum_GL_NV_sample_mask_override_coverage
 
   def define_ext_enum_GL_NV_shader_noperspective_interpolation
   end # define_ext_enum_GL_NV_shader_noperspective_interpolation
@@ -1365,6 +1452,9 @@ module OpenGL
     const_set('GL_DEPTH_RANGE', 0x0B70) unless defined?(GL_DEPTH_RANGE)
     const_set('GL_SCISSOR_TEST', 0x0C11) unless defined?(GL_SCISSOR_TEST)
   end # define_ext_enum_GL_NV_viewport_array
+
+  def define_ext_enum_GL_NV_viewport_array2
+  end # define_ext_enum_GL_NV_viewport_array2
 
   def define_ext_enum_GL_OES_EGL_image
   end # define_ext_enum_GL_OES_EGL_image
