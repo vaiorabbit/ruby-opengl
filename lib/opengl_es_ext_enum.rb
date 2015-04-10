@@ -196,6 +196,18 @@ module OpenGL
     const_set('GL_BLEND_EQUATION_EXT', 0x8009) unless defined?(GL_BLEND_EQUATION_EXT)
   end # define_ext_enum_GL_EXT_blend_minmax
 
+  def define_ext_enum_GL_EXT_buffer_storage
+    const_set('GL_MAP_READ_BIT', 0x0001) unless defined?(GL_MAP_READ_BIT)
+    const_set('GL_MAP_WRITE_BIT', 0x0002) unless defined?(GL_MAP_WRITE_BIT)
+    const_set('GL_MAP_PERSISTENT_BIT', 0x0040) unless defined?(GL_MAP_PERSISTENT_BIT)
+    const_set('GL_MAP_COHERENT_BIT', 0x0080) unless defined?(GL_MAP_COHERENT_BIT)
+    const_set('GL_DYNAMIC_STORAGE_BIT', 0x0100) unless defined?(GL_DYNAMIC_STORAGE_BIT)
+    const_set('GL_CLIENT_STORAGE_BIT', 0x0200) unless defined?(GL_CLIENT_STORAGE_BIT)
+    const_set('GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT', 0x00004000) unless defined?(GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT)
+    const_set('GL_BUFFER_IMMUTABLE_STORAGE', 0x821F) unless defined?(GL_BUFFER_IMMUTABLE_STORAGE)
+    const_set('GL_BUFFER_STORAGE_FLAGS', 0x8220) unless defined?(GL_BUFFER_STORAGE_FLAGS)
+  end # define_ext_enum_GL_EXT_buffer_storage
+
   def define_ext_enum_GL_EXT_color_buffer_half_float
     const_set('GL_RGBA16F_EXT', 0x881A) unless defined?(GL_RGBA16F_EXT)
     const_set('GL_RGB16F_EXT', 0x881B) unless defined?(GL_RGB16F_EXT)
@@ -500,6 +512,25 @@ module OpenGL
     const_set('GL_COMPARE_REF_TO_TEXTURE_EXT', 0x884E) unless defined?(GL_COMPARE_REF_TO_TEXTURE_EXT)
     const_set('GL_SAMPLER_2D_SHADOW_EXT', 0x8B62) unless defined?(GL_SAMPLER_2D_SHADOW_EXT)
   end # define_ext_enum_GL_EXT_shadow_samplers
+
+  def define_ext_enum_GL_EXT_sparse_texture
+    const_set('GL_TEXTURE_SPARSE_EXT', 0x91A6) unless defined?(GL_TEXTURE_SPARSE_EXT)
+    const_set('GL_VIRTUAL_PAGE_SIZE_INDEX_EXT', 0x91A7) unless defined?(GL_VIRTUAL_PAGE_SIZE_INDEX_EXT)
+    const_set('GL_NUM_SPARSE_LEVELS_EXT', 0x91AA) unless defined?(GL_NUM_SPARSE_LEVELS_EXT)
+    const_set('GL_NUM_VIRTUAL_PAGE_SIZES_EXT', 0x91A8) unless defined?(GL_NUM_VIRTUAL_PAGE_SIZES_EXT)
+    const_set('GL_VIRTUAL_PAGE_SIZE_X_EXT', 0x9195) unless defined?(GL_VIRTUAL_PAGE_SIZE_X_EXT)
+    const_set('GL_VIRTUAL_PAGE_SIZE_Y_EXT', 0x9196) unless defined?(GL_VIRTUAL_PAGE_SIZE_Y_EXT)
+    const_set('GL_VIRTUAL_PAGE_SIZE_Z_EXT', 0x9197) unless defined?(GL_VIRTUAL_PAGE_SIZE_Z_EXT)
+    const_set('GL_TEXTURE_2D', 0x0DE1) unless defined?(GL_TEXTURE_2D)
+    const_set('GL_TEXTURE_2D_ARRAY', 0x8C1A) unless defined?(GL_TEXTURE_2D_ARRAY)
+    const_set('GL_TEXTURE_CUBE_MAP', 0x8513) unless defined?(GL_TEXTURE_CUBE_MAP)
+    const_set('GL_TEXTURE_CUBE_MAP_ARRAY_OES', 0x9009) unless defined?(GL_TEXTURE_CUBE_MAP_ARRAY_OES)
+    const_set('GL_TEXTURE_3D', 0x806F) unless defined?(GL_TEXTURE_3D)
+    const_set('GL_MAX_SPARSE_TEXTURE_SIZE_EXT', 0x9198) unless defined?(GL_MAX_SPARSE_TEXTURE_SIZE_EXT)
+    const_set('GL_MAX_SPARSE_3D_TEXTURE_SIZE_EXT', 0x9199) unless defined?(GL_MAX_SPARSE_3D_TEXTURE_SIZE_EXT)
+    const_set('GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_EXT', 0x919A) unless defined?(GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_EXT)
+    const_set('GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_EXT', 0x91A9) unless defined?(GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_EXT)
+  end # define_ext_enum_GL_EXT_sparse_texture
 
   def define_ext_enum_GL_EXT_tessellation_point_size
   end # define_ext_enum_GL_EXT_tessellation_point_size

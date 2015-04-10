@@ -5686,9 +5686,9 @@ module OpenGL
     GL_FUNCTIONS_ARGS_MAP[:glTexPageCommitmentARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTexPageCommitmentARB] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_ARB_sparse_texture)
-      def glTexPageCommitmentARB(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _resident_)
+      def glTexPageCommitmentARB(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _commit_)
         f = OpenGL::get_command(:glTexPageCommitmentARB)
-        f.call(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _resident_)
+        f.call(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _commit_)
       end
     SRC_GL_ARB_sparse_texture
   end # define_ext_command_GL_ARB_sparse_texture
@@ -6297,6 +6297,33 @@ module OpenGL
       def glUniformBlockBinding(_program_, _uniformBlockIndex_, _uniformBlockBinding_)
         f = OpenGL::get_command(:glUniformBlockBinding)
         f.call(_program_, _uniformBlockIndex_, _uniformBlockBinding_)
+      end
+    SRC_GL_ARB_uniform_buffer_object
+
+    GL_FUNCTIONS_ARGS_MAP[:glBindBufferRange] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
+    GL_FUNCTIONS_RETVAL_MAP[:glBindBufferRange] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_uniform_buffer_object)
+      def glBindBufferRange(_target_, _index_, _buffer_, _offset_, _size_)
+        f = OpenGL::get_command(:glBindBufferRange)
+        f.call(_target_, _index_, _buffer_, _offset_, _size_)
+      end
+    SRC_GL_ARB_uniform_buffer_object
+
+    GL_FUNCTIONS_ARGS_MAP[:glBindBufferBase] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glBindBufferBase] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_uniform_buffer_object)
+      def glBindBufferBase(_target_, _index_, _buffer_)
+        f = OpenGL::get_command(:glBindBufferBase)
+        f.call(_target_, _index_, _buffer_)
+      end
+    SRC_GL_ARB_uniform_buffer_object
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetIntegeri_v] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetIntegeri_v] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_uniform_buffer_object)
+      def glGetIntegeri_v(_target_, _index_, _data_)
+        f = OpenGL::get_command(:glGetIntegeri_v)
+        f.call(_target_, _index_, _data_)
       end
     SRC_GL_ARB_uniform_buffer_object
   end # define_ext_command_GL_ARB_uniform_buffer_object
@@ -11935,9 +11962,9 @@ module OpenGL
     GL_FUNCTIONS_ARGS_MAP[:glTexturePageCommitmentEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
     GL_FUNCTIONS_RETVAL_MAP[:glTexturePageCommitmentEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_direct_state_access)
-      def glTexturePageCommitmentEXT(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _resident_)
+      def glTexturePageCommitmentEXT(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _commit_)
         f = OpenGL::get_command(:glTexturePageCommitmentEXT)
-        f.call(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _resident_)
+        f.call(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _commit_)
       end
     SRC_GL_EXT_direct_state_access
 

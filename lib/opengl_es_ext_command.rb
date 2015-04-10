@@ -376,6 +376,17 @@ module OpenGL
     SRC_GL_EXT_blend_minmax
   end # define_ext_command_GL_EXT_blend_minmax
 
+  def define_ext_command_GL_EXT_buffer_storage
+    GL_FUNCTIONS_ARGS_MAP[:glBufferStorageEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glBufferStorageEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_buffer_storage)
+      def glBufferStorageEXT(_target_, _size_, _data_, _flags_)
+        f = OpenGL::get_command(:glBufferStorageEXT)
+        f.call(_target_, _size_, _data_, _flags_)
+      end
+    SRC_GL_EXT_buffer_storage
+  end # define_ext_command_GL_EXT_buffer_storage
+
   def define_ext_command_GL_EXT_color_buffer_half_float
   end # define_ext_command_GL_EXT_color_buffer_half_float
 
@@ -1440,6 +1451,17 @@ module OpenGL
 
   def define_ext_command_GL_EXT_shadow_samplers
   end # define_ext_command_GL_EXT_shadow_samplers
+
+  def define_ext_command_GL_EXT_sparse_texture
+    GL_FUNCTIONS_ARGS_MAP[:glTexPageCommitmentARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_RETVAL_MAP[:glTexPageCommitmentARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_sparse_texture)
+      def glTexPageCommitmentARB(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _commit_)
+        f = OpenGL::get_command(:glTexPageCommitmentARB)
+        f.call(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _commit_)
+      end
+    SRC_GL_EXT_sparse_texture
+  end # define_ext_command_GL_EXT_sparse_texture
 
   def define_ext_command_GL_EXT_tessellation_point_size
   end # define_ext_command_GL_EXT_tessellation_point_size
