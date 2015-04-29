@@ -5039,6 +5039,15 @@ module OpenGL
     const_set('GL_FORMAT_SUBSAMPLE_244_244_OML', 0x8983) unless defined?(GL_FORMAT_SUBSAMPLE_244_244_OML)
   end # define_ext_enum_GL_OML_subsample
 
+  def define_ext_enum_GL_OVR_multiview
+    const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR', 0x9630) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR)
+    const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR', 0x9632) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR)
+    const_set('GL_MAX_VIEWS_OVR', 0x9631) unless defined?(GL_MAX_VIEWS_OVR)
+  end # define_ext_enum_GL_OVR_multiview
+
+  def define_ext_enum_GL_OVR_multiview2
+  end # define_ext_enum_GL_OVR_multiview2
+
   def define_ext_enum_GL_PGI_misc_hints
     const_set('GL_PREFER_DOUBLEBUFFER_HINT_PGI', 0x1A1F8) unless defined?(GL_PREFER_DOUBLEBUFFER_HINT_PGI)
     const_set('GL_CONSERVE_MEMORY_HINT_PGI', 0x1A1FD) unless defined?(GL_CONSERVE_MEMORY_HINT_PGI)

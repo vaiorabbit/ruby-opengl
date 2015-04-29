@@ -3941,6 +3941,20 @@ module OpenGL
   def define_ext_command_GL_OES_vertex_type_10_10_10_2
   end # define_ext_command_GL_OES_vertex_type_10_10_10_2
 
+  def define_ext_command_GL_OVR_multiview
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureMultiviewOVR] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureMultiviewOVR] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_OVR_multiview)
+      def glFramebufferTextureMultiviewOVR(_target_, _attachment_, _texture_, _level_, _baseViewIndex_, _numViews_)
+        f = OpenGL::get_command(:glFramebufferTextureMultiviewOVR)
+        f.call(_target_, _attachment_, _texture_, _level_, _baseViewIndex_, _numViews_)
+      end
+    SRC_GL_OVR_multiview
+  end # define_ext_command_GL_OVR_multiview
+
+  def define_ext_command_GL_OVR_multiview2
+  end # define_ext_command_GL_OVR_multiview2
+
   def define_ext_command_GL_QCOM_alpha_test
     GL_FUNCTIONS_ARGS_MAP[:glAlphaFuncQCOM] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
     GL_FUNCTIONS_RETVAL_MAP[:glAlphaFuncQCOM] = Fiddle::TYPE_VOID

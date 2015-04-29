@@ -1903,6 +1903,15 @@ module OpenGL
     const_set('GL_INT_10_10_10_2_OES', 0x8DF7) unless defined?(GL_INT_10_10_10_2_OES)
   end # define_ext_enum_GL_OES_vertex_type_10_10_10_2
 
+  def define_ext_enum_GL_OVR_multiview
+    const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR', 0x9630) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR)
+    const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR', 0x9632) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR)
+    const_set('GL_MAX_VIEWS_OVR', 0x9631) unless defined?(GL_MAX_VIEWS_OVR)
+  end # define_ext_enum_GL_OVR_multiview
+
+  def define_ext_enum_GL_OVR_multiview2
+  end # define_ext_enum_GL_OVR_multiview2
+
   def define_ext_enum_GL_QCOM_alpha_test
     const_set('GL_ALPHA_TEST_QCOM', 0x0BC0) unless defined?(GL_ALPHA_TEST_QCOM)
     const_set('GL_ALPHA_TEST_FUNC_QCOM', 0x0BC1) unless defined?(GL_ALPHA_TEST_FUNC_QCOM)

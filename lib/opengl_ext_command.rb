@@ -20193,15 +20193,6 @@ module OpenGL
       end
     SRC_GL_OES_fixed_point
 
-    GL_FUNCTIONS_ARGS_MAP[:glSampleCoverageOES] = [Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
-    GL_FUNCTIONS_RETVAL_MAP[:glSampleCoverageOES] = Fiddle::TYPE_VOID
-    module_eval(<<-SRC_GL_OES_fixed_point)
-      def glSampleCoverageOES(_value_, _invert_)
-        f = OpenGL::get_command(:glSampleCoverageOES)
-        f.call(_value_, _invert_)
-      end
-    SRC_GL_OES_fixed_point
-
     GL_FUNCTIONS_ARGS_MAP[:glScalexOES] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glScalexOES] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_OES_fixed_point)
@@ -20983,6 +20974,20 @@ module OpenGL
 
   def define_ext_command_GL_OML_subsample
   end # define_ext_command_GL_OML_subsample
+
+  def define_ext_command_GL_OVR_multiview
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureMultiviewOVR] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureMultiviewOVR] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_OVR_multiview)
+      def glFramebufferTextureMultiviewOVR(_target_, _attachment_, _texture_, _level_, _baseViewIndex_, _numViews_)
+        f = OpenGL::get_command(:glFramebufferTextureMultiviewOVR)
+        f.call(_target_, _attachment_, _texture_, _level_, _baseViewIndex_, _numViews_)
+      end
+    SRC_GL_OVR_multiview
+  end # define_ext_command_GL_OVR_multiview
+
+  def define_ext_command_GL_OVR_multiview2
+  end # define_ext_command_GL_OVR_multiview2
 
   def define_ext_command_GL_PGI_misc_hints
     GL_FUNCTIONS_ARGS_MAP[:glHintPGI] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
