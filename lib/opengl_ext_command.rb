@@ -14965,6 +14965,9 @@ module OpenGL
     SRC_GL_KHR_debug
   end # define_ext_command_GL_KHR_debug
 
+  def define_ext_command_GL_KHR_no_error
+  end # define_ext_command_GL_KHR_no_error
+
   def define_ext_command_GL_KHR_robust_buffer_access_behavior
   end # define_ext_command_GL_KHR_robust_buffer_access_behavior
 

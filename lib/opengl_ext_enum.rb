@@ -3765,6 +3765,10 @@ module OpenGL
     const_set('GL_DISPLAY_LIST', 0x82E7) unless defined?(GL_DISPLAY_LIST)
   end # define_ext_enum_GL_KHR_debug
 
+  def define_ext_enum_GL_KHR_no_error
+    const_set('GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR', 0x00000008) unless defined?(GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR)
+  end # define_ext_enum_GL_KHR_no_error
+
   def define_ext_enum_GL_KHR_robust_buffer_access_behavior
   end # define_ext_enum_GL_KHR_robust_buffer_access_behavior
 

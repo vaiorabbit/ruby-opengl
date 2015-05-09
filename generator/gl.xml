@@ -2060,6 +2060,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x00000002" name="GL_CONTEXT_FLAG_DEBUG_BIT_KHR"/>
         <enum value="0x00000004" name="GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB"/>
         <enum value="0x00000004" name="GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT"/>
+        <enum value="0x00000008" name="GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR"/>
     </enums>
 
     <enums namespace="GL" group="ContextProfileMask" type="bitmask">
@@ -4059,6 +4060,7 @@ typedef unsigned int GLhandleARB;
 
     <enums namespace="GL" start="0x82B0" end="0x830F" vendor="ARB" comment="Range reclaimed from ADD on 2012/05/10">
             <unused start="0x82B0" vendor="ARB"/>
+            <!-- future: <enum value="0x82B0" name="GL_MULTISAMPLE_LINE_WIDTH_RANGE"/> -->
         <enum value="0x82B1" name="GL_TEXTURE_COMPRESSED_BLOCK_WIDTH"/>
         <enum value="0x82B2" name="GL_TEXTURE_COMPRESSED_BLOCK_HEIGHT"/>
         <enum value="0x82B3" name="GL_TEXTURE_COMPRESSED_BLOCK_SIZE"/>
@@ -41596,6 +41598,11 @@ typedef unsigned int GLhandleARB;
             </require>
             <require api="gl" profile="compatibility">
                 <enum name="GL_DISPLAY_LIST"/>
+            </require>
+        </extension>
+        <extension name="GL_KHR_no_error" supported="gl|glcore|gles2">
+            <require>
+                <enum name="GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR"/>
             </require>
         </extension>
         <extension name="GL_KHR_robust_buffer_access_behavior" supported="gl|glcore|gles2"/>
