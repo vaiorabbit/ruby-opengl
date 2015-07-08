@@ -38906,13 +38906,13 @@ typedef unsigned int GLhandleARB;
             <require>
                 <enum name="GL_MAP_READ_BIT"/>
                 <enum name="GL_MAP_WRITE_BIT"/>
-                <enum name="GL_MAP_PERSISTENT_BIT"/>
-                <enum name="GL_MAP_COHERENT_BIT"/>
-                <enum name="GL_DYNAMIC_STORAGE_BIT"/>
-                <enum name="GL_CLIENT_STORAGE_BIT"/>
-                <enum name="GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT"/>
-                <enum name="GL_BUFFER_IMMUTABLE_STORAGE"/>
-                <enum name="GL_BUFFER_STORAGE_FLAGS"/>
+                <enum name="GL_MAP_PERSISTENT_BIT_EXT"/>
+                <enum name="GL_MAP_COHERENT_BIT_EXT"/>
+                <enum name="GL_DYNAMIC_STORAGE_BIT_EXT"/>
+                <enum name="GL_CLIENT_STORAGE_BIT_EXT"/>
+                <enum name="GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT"/>
+                <enum name="GL_BUFFER_IMMUTABLE_STORAGE_EXT"/>
+                <enum name="GL_BUFFER_STORAGE_FLAGS_EXT"/>
                 <command name="glBufferStorageEXT"/>
                 <!-- <command name="glNamedBufferStorageEXT"/> -->
             </require>

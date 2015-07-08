@@ -199,13 +199,13 @@ module OpenGL
   def define_ext_enum_GL_EXT_buffer_storage
     const_set('GL_MAP_READ_BIT', 0x0001) unless defined?(GL_MAP_READ_BIT)
     const_set('GL_MAP_WRITE_BIT', 0x0002) unless defined?(GL_MAP_WRITE_BIT)
-    const_set('GL_MAP_PERSISTENT_BIT', 0x0040) unless defined?(GL_MAP_PERSISTENT_BIT)
-    const_set('GL_MAP_COHERENT_BIT', 0x0080) unless defined?(GL_MAP_COHERENT_BIT)
-    const_set('GL_DYNAMIC_STORAGE_BIT', 0x0100) unless defined?(GL_DYNAMIC_STORAGE_BIT)
-    const_set('GL_CLIENT_STORAGE_BIT', 0x0200) unless defined?(GL_CLIENT_STORAGE_BIT)
-    const_set('GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT', 0x00004000) unless defined?(GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT)
-    const_set('GL_BUFFER_IMMUTABLE_STORAGE', 0x821F) unless defined?(GL_BUFFER_IMMUTABLE_STORAGE)
-    const_set('GL_BUFFER_STORAGE_FLAGS', 0x8220) unless defined?(GL_BUFFER_STORAGE_FLAGS)
+    const_set('GL_MAP_PERSISTENT_BIT_EXT', 0x0040) unless defined?(GL_MAP_PERSISTENT_BIT_EXT)
+    const_set('GL_MAP_COHERENT_BIT_EXT', 0x0080) unless defined?(GL_MAP_COHERENT_BIT_EXT)
+    const_set('GL_DYNAMIC_STORAGE_BIT_EXT', 0x0100) unless defined?(GL_DYNAMIC_STORAGE_BIT_EXT)
+    const_set('GL_CLIENT_STORAGE_BIT_EXT', 0x0200) unless defined?(GL_CLIENT_STORAGE_BIT_EXT)
+    const_set('GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT', 0x00004000) unless defined?(GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT)
+    const_set('GL_BUFFER_IMMUTABLE_STORAGE_EXT', 0x821F) unless defined?(GL_BUFFER_IMMUTABLE_STORAGE_EXT)
+    const_set('GL_BUFFER_STORAGE_FLAGS_EXT', 0x8220) unless defined?(GL_BUFFER_STORAGE_FLAGS_EXT)
   end # define_ext_enum_GL_EXT_buffer_storage
 
   def define_ext_enum_GL_EXT_color_buffer_half_float
