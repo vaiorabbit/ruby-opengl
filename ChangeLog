@@ -1,3 +1,7 @@
+2015-07-16  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* glfw.rb, glfw30.rb (glfwGetCursorPos): Fixed signature ((void*, void*, void*) -> (void*, double*, double*))
+
 2015-07-08  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.

@@ -402,7 +402,7 @@ module GLFW
     extern 'void glfwSetInputMode(void*, int, int)'
     extern 'int glfwGetKey(void*, int)'
     extern 'int glfwGetMouseButton(void*, int)'
-    extern 'void glfwGetCursorPos(void*, void*, void*)'
+    extern 'void glfwGetCursorPos(void*, double*, double*)'
     extern 'void glfwSetCursorPos(void*, double, double)'
     extern 'void* glfwCreateCursor(void*, int, int)'
     extern 'void* glfwCreateStandardCursor(int)'
