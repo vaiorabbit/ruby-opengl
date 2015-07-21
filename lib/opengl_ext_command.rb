@@ -15704,6 +15704,17 @@ module OpenGL
     SRC_GL_NV_conservative_raster
   end # define_ext_command_GL_NV_conservative_raster
 
+  def define_ext_command_GL_NV_conservative_raster_dilate
+    GL_FUNCTIONS_ARGS_MAP[:glConservativeRasterParameterfNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_RETVAL_MAP[:glConservativeRasterParameterfNV] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_NV_conservative_raster_dilate)
+      def glConservativeRasterParameterfNV(_pname_, _value_)
+        f = OpenGL::get_command(:glConservativeRasterParameterfNV)
+        f.call(_pname_, _value_)
+      end
+    SRC_GL_NV_conservative_raster_dilate
+  end # define_ext_command_GL_NV_conservative_raster_dilate
+
   def define_ext_command_GL_NV_copy_depth_to_color
   end # define_ext_command_GL_NV_copy_depth_to_color
 

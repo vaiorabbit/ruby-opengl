@@ -4001,6 +4001,12 @@ module OpenGL
     const_set('GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV', 0x9349) unless defined?(GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV)
   end # define_ext_enum_GL_NV_conservative_raster
 
+  def define_ext_enum_GL_NV_conservative_raster_dilate
+    const_set('GL_CONSERVATIVE_RASTER_DILATE_NV', 0x9379) unless defined?(GL_CONSERVATIVE_RASTER_DILATE_NV)
+    const_set('GL_CONSERVATIVE_RASTER_DILATE_RANGE_NV', 0x937A) unless defined?(GL_CONSERVATIVE_RASTER_DILATE_RANGE_NV)
+    const_set('GL_CONSERVATIVE_RASTER_DILATE_GRANULARITY_NV', 0x937B) unless defined?(GL_CONSERVATIVE_RASTER_DILATE_GRANULARITY_NV)
+  end # define_ext_enum_GL_NV_conservative_raster_dilate
+
   def define_ext_enum_GL_NV_copy_depth_to_color
     const_set('GL_DEPTH_STENCIL_TO_RGBA_NV', 0x886E) unless defined?(GL_DEPTH_STENCIL_TO_RGBA_NV)
     const_set('GL_DEPTH_STENCIL_TO_BGRA_NV', 0x886F) unless defined?(GL_DEPTH_STENCIL_TO_BGRA_NV)
