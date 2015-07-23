@@ -319,7 +319,7 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 
 *   まだ Linux では動作確認していませんが、'OpenGL.load_dll' などの引数が正しければ動くはず…
 	*   OpenGL.load_dll( 'libGL.so', '/usr/lib' )
-	*   GLFW.load_dll( 'libGLFW.so', '.' )
+	*   GLFW.load_dll( 'libglfw.so', '/usr/lib' )
 
 
 ## メモ ##
