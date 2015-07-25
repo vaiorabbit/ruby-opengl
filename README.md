@@ -134,8 +134,8 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 *   Though I have not tested on Linux yet, it should work with proper 'OpenGL.load_dll' settings like:
 	*   OpenGL.load_dll( 'libGL.so', '/usr/lib' )
 	*   GLFW.load_dll( 'libglfw.so', '/usr/lib' )
-  *   GLU.load_dll( 'libGLU.so', '/usr/lib' )
-  *   GLUT.load_dll( 'libglut.so', '/usr/lib' )
+	*   GLU.load_dll( 'libGLU.so', '/usr/lib' )
+	*   GLUT.load_dll( 'libglut.so', '/usr/lib' )
 
 ## Note ##
 
@@ -321,6 +321,8 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 *   まだ Linux では動作確認していませんが、'OpenGL.load_dll' などの引数が正しければ動くはず…
 	*   OpenGL.load_dll( 'libGL.so', '/usr/lib' )
 	*   GLFW.load_dll( 'libglfw.so', '/usr/lib' )
+	*   GLU.load_dll( 'libGLU.so', '/usr/lib' )
+	*   GLUT.load_dll( 'libglut.so', '/usr/lib' )
 
 
 ## メモ ##
