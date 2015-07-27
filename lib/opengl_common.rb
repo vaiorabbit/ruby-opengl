@@ -5,7 +5,7 @@ module OpenGL
   GL_FUNCTIONS_RETVAL_MAP = {}
   @@gl_dll = nil
 
-  def self.load_dll(lib = nil, path = nil)
+  def self.load_lib(lib = nil, path = nil)
     if lib == nil && path == nil
       case self.get_platform
       when :OPENGL_PLATFORM_WINDOWS
@@ -21,6 +21,11 @@ module OpenGL
     else
       @@gl_dll = Fiddle.dlopen( lib )
     end
+  end
+
+  def self.load_dll(lib = nil, path = nil)
+    puts "Warning OpenGl.load_dll is deprecated, use OpenGL.load_lib instead"
+    self.load_lib(lib, path)
   end
 
   def self.get_command( sym )
