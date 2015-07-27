@@ -31,6 +31,10 @@ when :OPENGL_PLATFORM_MACOSX
   OpenGL.load_dll('libGL.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries')
   GLU.load_dll('libGLU.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries')
   GLFW.load_dll('libglfw.dylib', '..')
+when :OPENGL_PLATFORM_LINUX
+  OpenGL.load_dll('libGL.so', '/usr/lib')
+  GLU.load_dll('libGLU.so', '/usr/lib')
+  GLFW.load_dll('libglfw.so', '/usr/lib')
 else
   raise RuntimeError, "Unsupported platform."
 end
