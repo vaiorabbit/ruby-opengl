@@ -333,7 +333,7 @@ module GLFW
   @@glfw_import_done = false
 
   # Load native library.
-  def self.load_dll(lib = nil, path = nil)
+  def self.load_lib(lib = nil, path = nil)
     if lib == nil && path == nil
       case OpenGL.get_platform
       when :OPENGL_PLATFORM_WINDOWS
@@ -347,6 +347,11 @@ module GLFW
 
     dlload (path + '/' + lib)
     import_symbols() unless @@glfw_import_done
+  end
+
+  def self.load_dll(lib = nil, path = nil)
+    puts "Warning GLFW.load_dll is deprecated, use GLFW.load_lib instead"
+    self.load_lib(lib, path)
   end
 
   def self.import_symbols
