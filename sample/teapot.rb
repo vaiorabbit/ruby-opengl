@@ -7,9 +7,9 @@ include OpenGL
 include GLFW
 include GLU
 
-OpenGL.load_dll()
-GLFW.load_dll()
-GLU.load_dll()
+OpenGL.load_lib()
+GLFW.load_lib()
+GLU.load_lib()
 
 require './util/WavefrontOBJ'
 

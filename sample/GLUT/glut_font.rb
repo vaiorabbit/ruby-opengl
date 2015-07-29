@@ -7,9 +7,9 @@ include OpenGL
 include GLU
 include GLUT
 
-OpenGL.load_dll()
-GLU.load_dll()
-GLUT.load_dll()
+OpenGL.load_lib()
+GLU.load_lib()
+GLUT.load_lib()
 
 
 def display

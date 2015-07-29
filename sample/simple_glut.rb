@@ -6,8 +6,8 @@
 require 'opengl'
 require 'glut'
 
-OpenGL.load_dll()
-GLUT.load_dll()
+OpenGL.load_lib()
+GLUT.load_lib()
 
 include OpenGL
 include GLUT
