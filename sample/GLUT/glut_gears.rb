@@ -19,8 +19,8 @@ require 'glut'
 include OpenGL
 include GLUT
 
-OpenGL.load_dll()
-GLUT.load_dll()
+OpenGL.load_lib()
+GLUT.load_lib()
 
 =begin
 

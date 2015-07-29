@@ -2,8 +2,8 @@
 require 'opengl_es'
 require 'glfw'
 
-OpenGL.load_dll()
-GLFW.load_dll('glfw3.dll', '..')
+OpenGL.load_lib()
+GLFW.load_lib('glfw3.dll', '..')
 
 include OpenGL
 include GLFW
