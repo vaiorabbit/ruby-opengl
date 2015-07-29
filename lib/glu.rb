@@ -250,7 +250,7 @@ module GLU
   @@glu_import_done = false
 
   # Load native library.
-  def self.load_dll(lib = nil, path = nil)
+  def self.load_lib(lib = nil, path = nil)
     if lib == nil && path == nil
       case OpenGL.get_platform
       when :OPENGL_PLATFORM_WINDOWS
@@ -267,6 +267,11 @@ module GLU
       dlload (lib)
     end
     import_symbols() unless @@glu_import_done
+  end
+
+  def self.load_dll(lib = nil, path = nil)
+     puts "Warning GLU.load_dll is deprecated, use GLU.load_lib instead"
+    self.load_lib(lib, path)
   end
 
   def self.import_symbols
