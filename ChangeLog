@@ -1,3 +1,8 @@
+2015-07-30  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* sample/util/setup_dll.rb, README.md: This library is tested on Linux. (Thanks: @cedlemo (https://github.com/cedlemo))
+	* lib/opengl_common.rb, etc. (self.load_lib): All load_dll's are renamed to load_lib. (Thanks: @cedlemo (https://github.com/cedlemo))
+
 2015-07-21  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.
