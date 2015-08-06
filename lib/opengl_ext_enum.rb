@@ -3613,6 +3613,9 @@ module OpenGL
   def define_ext_enum_GL_INTEL_fragment_shader_ordering
   end # define_ext_enum_GL_INTEL_fragment_shader_ordering
 
+  def define_ext_enum_GL_INTEL_framebuffer_CMAA
+  end # define_ext_enum_GL_INTEL_framebuffer_CMAA
+
   def define_ext_enum_GL_INTEL_map_texture
     const_set('GL_TEXTURE_MEMORY_LAYOUT_INTEL', 0x83FF) unless defined?(GL_TEXTURE_MEMORY_LAYOUT_INTEL)
     const_set('GL_LAYOUT_DEFAULT_INTEL', 0) unless defined?(GL_LAYOUT_DEFAULT_INTEL)

@@ -387,6 +387,9 @@ module OpenGL
     SRC_GL_EXT_buffer_storage
   end # define_ext_command_GL_EXT_buffer_storage
 
+  def define_ext_command_GL_EXT_color_buffer_float
+  end # define_ext_command_GL_EXT_color_buffer_float
+
   def define_ext_command_GL_EXT_color_buffer_half_float
   end # define_ext_command_GL_EXT_color_buffer_half_float
 
@@ -1725,6 +1728,17 @@ module OpenGL
 
   def define_ext_command_GL_IMG_texture_compression_pvrtc2
   end # define_ext_command_GL_IMG_texture_compression_pvrtc2
+
+  def define_ext_command_GL_INTEL_framebuffer_CMAA
+    GL_FUNCTIONS_ARGS_MAP[:glApplyFramebufferAttachmentCMAAINTEL] = []
+    GL_FUNCTIONS_RETVAL_MAP[:glApplyFramebufferAttachmentCMAAINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_framebuffer_CMAA)
+      def glApplyFramebufferAttachmentCMAAINTEL()
+        f = OpenGL::get_command(:glApplyFramebufferAttachmentCMAAINTEL)
+        f.call()
+      end
+    SRC_GL_INTEL_framebuffer_CMAA
+  end # define_ext_command_GL_INTEL_framebuffer_CMAA
 
   def define_ext_command_GL_INTEL_performance_query
     GL_FUNCTIONS_ARGS_MAP[:glBeginPerfQueryINTEL] = [-Fiddle::TYPE_INT]

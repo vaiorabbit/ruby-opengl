@@ -14589,6 +14589,17 @@ module OpenGL
   def define_ext_command_GL_INTEL_fragment_shader_ordering
   end # define_ext_command_GL_INTEL_fragment_shader_ordering
 
+  def define_ext_command_GL_INTEL_framebuffer_CMAA
+    GL_FUNCTIONS_ARGS_MAP[:glApplyFramebufferAttachmentCMAAINTEL] = []
+    GL_FUNCTIONS_RETVAL_MAP[:glApplyFramebufferAttachmentCMAAINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_framebuffer_CMAA)
+      def glApplyFramebufferAttachmentCMAAINTEL()
+        f = OpenGL::get_command(:glApplyFramebufferAttachmentCMAAINTEL)
+        f.call()
+      end
+    SRC_GL_INTEL_framebuffer_CMAA
+  end # define_ext_command_GL_INTEL_framebuffer_CMAA
+
   def define_ext_command_GL_INTEL_map_texture
     GL_FUNCTIONS_ARGS_MAP[:glSyncTextureINTEL] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSyncTextureINTEL] = Fiddle::TYPE_VOID
