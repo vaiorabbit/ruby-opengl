@@ -208,9 +208,6 @@ module OpenGL
     const_set('GL_BUFFER_STORAGE_FLAGS_EXT', 0x8220) unless defined?(GL_BUFFER_STORAGE_FLAGS_EXT)
   end # define_ext_enum_GL_EXT_buffer_storage
 
-  def define_ext_enum_GL_EXT_color_buffer_float
-  end # define_ext_enum_GL_EXT_color_buffer_float
-
   def define_ext_enum_GL_EXT_color_buffer_half_float
     const_set('GL_RGBA16F_EXT', 0x881A) unless defined?(GL_RGBA16F_EXT)
     const_set('GL_RGB16F_EXT', 0x881B) unless defined?(GL_RGB16F_EXT)
@@ -770,9 +767,6 @@ module OpenGL
     const_set('GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG', 0x9137) unless defined?(GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG)
     const_set('GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG', 0x9138) unless defined?(GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG)
   end # define_ext_enum_GL_IMG_texture_compression_pvrtc2
-
-  def define_ext_enum_GL_INTEL_framebuffer_CMAA
-  end # define_ext_enum_GL_INTEL_framebuffer_CMAA
 
   def define_ext_enum_GL_INTEL_performance_query
     const_set('GL_PERFQUERY_SINGLE_CONTEXT_INTEL', 0x00000000) unless defined?(GL_PERFQUERY_SINGLE_CONTEXT_INTEL)
