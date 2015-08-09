@@ -318,11 +318,15 @@ module GLFW
       when :OPENGL_PLATFORM_MACOSX
         lib, path = 'libglfw.dylib', Dir.pwd
       else
-        lib, path = 'libglfw.so', Dir.pwd
+        lib = 'libglfw.so'
       end
     end
-
-    dlload (path + '/' + lib)
+    
+    if path
+      dlload (path + '/' + lib)
+    else
+      dlload (lib)
+    end
     import_symbols() unless @@glfw_import_done
   end
 
