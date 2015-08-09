@@ -108,6 +108,10 @@ if __FILE__ == $0
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3)
   glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API)
   window = glfwCreateWindow( 320, 240, "OpenGL ES", nil, nil )
+  if window.null?
+    puts "Failed to create the OpenGL ES 3 context. You may need to get a GPU/driver that is compliant with OpenGL 4.3 or higher."
+    exit
+  end
   glfwSetWindowPos( window, 100, 100 )
   glfwMakeContextCurrent( window )
   glfwSetKeyCallback( window, key_callback )

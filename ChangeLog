@@ -1,3 +1,7 @@
+2015-08-09  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* sample/gles.rb, sample/report_env_es.rb: Added some window handle check in preparation for context creation failure.
+
 2015-08-08  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.
