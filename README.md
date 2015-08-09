@@ -108,6 +108,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 ## Tested Environment ##
 
 *   Ruby
+    *   ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]
     *   ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-darwin14]
     *   ruby 2.2.1p85 (2015-02-26 revision 49769) [x86_64-darwin14]
     *   ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-darwin14]
@@ -116,7 +117,6 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
     *   ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin12.0]
     *   ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin13.0.0]
     *   ruby 2.0.0p247 (2013-06-27) [i386-mingw32]
-    *   ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]
 
 *   Windows 7 Home Premium, 64-bit (Service Pack 1)
     *   NVIDIA GeForce GTX 560
@@ -132,12 +132,19 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
                 $ ruby report_env.rb
                 2.1 NVIDIA-8.12.47 310.40.00.05f01
 
-*   Arch Linux kernel 4.1.2-2-ARCH, x86_64
+*   Arch Linux kernel 4.1.2-2-ARCH, Nvidia Driver, x86_64
     *   NVIDIA GeForce GTS 450
-        *   4.5.0
+        *   OpenGL 4.5.0
 
                 $ ruby report_env.rb
                 Version: 4.5.0 NVIDIA 352.21
+
+*   Arch Linux kernel 4.1.4-1-ARCH, Nouveau Driver, x86_64
+    *   NVIDIA GeForce GTS 450
+        *   OpenGL 3.0
+
+                $ ruby report_env.rb
+                Version: 3.0 Mesa 10.6.3
 
 *   You can use any lib/path names by passing as arguments like:
 	*   OpenGL.load_lib( 'libGL.so', '/usr/lib' )
@@ -327,12 +334,19 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
                 $ ruby report_env.rb
                 2.1 NVIDIA-8.12.47 310.40.00.05f01
 
-*   Arch Linux kernel 4.1.2-2-ARCH, x86_64
+*   Arch Linux kernel 4.1.2-2-ARCH, Nvidia Driver, x86_64
     *   NVIDIA GeForce GTS 450
-        *   4.5.0
+        *   OpenGL 4.5.0
 
                 $ ruby report_env.rb
                 Version: 4.5.0 NVIDIA 352.21
+
+*   Arch Linux kernel 4.1.4-1-ARCH, Nouveau Driver, x86_64
+    *   NVIDIA GeForce GTS 450
+        *   OpenGL 3.0
+
+                $ ruby report_env.rb
+                Version: 3.0 Mesa 10.6.3
 
 *   引数として渡すことで任意のライブラリ名/パス名を利用できます:
 	*   OpenGL.load_lib( 'libGL.so', '/usr/lib' )
