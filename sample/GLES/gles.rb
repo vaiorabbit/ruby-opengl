@@ -3,7 +3,12 @@ require 'opengl_es'
 require 'glfw'
 
 OpenGL.load_lib()
-GLFW.load_lib('glfw3.dll', '..')
+
+if OpenGL.get_platform == :OPENGL_PLATFORM_WINDOWS
+  GLFW.load_lib('glfw3.dll', '..')
+else
+  GLFW.load_lib()
+end
 
 include OpenGL
 include GLFW
