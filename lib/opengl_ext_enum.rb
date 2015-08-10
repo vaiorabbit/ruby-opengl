@@ -337,6 +337,12 @@ module OpenGL
     const_set('GL_BACK', 0x0405) unless defined?(GL_BACK)
   end # define_ext_enum_GL_ARB_ES3_1_compatibility
 
+  def define_ext_enum_GL_ARB_ES3_2_compatibility
+    const_set('GL_PRIMITIVE_BOUNDING_BOX_ARB', 0x92BE) unless defined?(GL_PRIMITIVE_BOUNDING_BOX_ARB)
+    const_set('GL_MULTISAMPLE_LINE_WIDTH_RANGE_ARB', 0x9381) unless defined?(GL_MULTISAMPLE_LINE_WIDTH_RANGE_ARB)
+    const_set('GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY_ARB', 0x9382) unless defined?(GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY_ARB)
+  end # define_ext_enum_GL_ARB_ES3_2_compatibility
+
   def define_ext_enum_GL_ARB_ES3_compatibility
     const_set('GL_COMPRESSED_RGB8_ETC2', 0x9274) unless defined?(GL_COMPRESSED_RGB8_ETC2)
     const_set('GL_COMPRESSED_SRGB8_ETC2', 0x9275) unless defined?(GL_COMPRESSED_SRGB8_ETC2)
@@ -683,6 +689,9 @@ module OpenGL
     const_set('GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB', 0x8B8B) unless defined?(GL_FRAGMENT_SHADER_DERIVATIVE_HINT_ARB)
   end # define_ext_enum_GL_ARB_fragment_shader
 
+  def define_ext_enum_GL_ARB_fragment_shader_interlock
+  end # define_ext_enum_GL_ARB_fragment_shader_interlock
+
   def define_ext_enum_GL_ARB_framebuffer_no_attachments
     const_set('GL_FRAMEBUFFER_DEFAULT_WIDTH', 0x9310) unless defined?(GL_FRAMEBUFFER_DEFAULT_WIDTH)
     const_set('GL_FRAMEBUFFER_DEFAULT_HEIGHT', 0x9311) unless defined?(GL_FRAMEBUFFER_DEFAULT_HEIGHT)
@@ -832,6 +841,17 @@ module OpenGL
     const_set('GL_DOUBLE_MAT4x2', 0x8F4D) unless defined?(GL_DOUBLE_MAT4x2)
     const_set('GL_DOUBLE_MAT4x3', 0x8F4E) unless defined?(GL_DOUBLE_MAT4x3)
   end # define_ext_enum_GL_ARB_gpu_shader_fp64
+
+  def define_ext_enum_GL_ARB_gpu_shader_int64
+    const_set('GL_INT64_ARB', 0x140E) unless defined?(GL_INT64_ARB)
+    const_set('GL_UNSIGNED_INT64_ARB', 0x140F) unless defined?(GL_UNSIGNED_INT64_ARB)
+    const_set('GL_INT64_VEC2_ARB', 0x8FE9) unless defined?(GL_INT64_VEC2_ARB)
+    const_set('GL_INT64_VEC3_ARB', 0x8FEA) unless defined?(GL_INT64_VEC3_ARB)
+    const_set('GL_INT64_VEC4_ARB', 0x8FEB) unless defined?(GL_INT64_VEC4_ARB)
+    const_set('GL_UNSIGNED_INT64_VEC2_ARB', 0x8FF5) unless defined?(GL_UNSIGNED_INT64_VEC2_ARB)
+    const_set('GL_UNSIGNED_INT64_VEC3_ARB', 0x8FF6) unless defined?(GL_UNSIGNED_INT64_VEC3_ARB)
+    const_set('GL_UNSIGNED_INT64_VEC4_ARB', 0x8FF7) unless defined?(GL_UNSIGNED_INT64_VEC4_ARB)
+  end # define_ext_enum_GL_ARB_gpu_shader_int64
 
   def define_ext_enum_GL_ARB_half_float_pixel
     const_set('GL_HALF_FLOAT_ARB', 0x140B) unless defined?(GL_HALF_FLOAT_ARB)
@@ -1147,6 +1167,11 @@ module OpenGL
     const_set('GL_ANY_SAMPLES_PASSED', 0x8C2F) unless defined?(GL_ANY_SAMPLES_PASSED)
   end # define_ext_enum_GL_ARB_occlusion_query2
 
+  def define_ext_enum_GL_ARB_parallel_shader_compile
+    const_set('GL_MAX_SHADER_COMPILER_THREADS_ARB', 0x91B0) unless defined?(GL_MAX_SHADER_COMPILER_THREADS_ARB)
+    const_set('GL_COMPLETION_STATUS_ARB', 0x91B1) unless defined?(GL_COMPLETION_STATUS_ARB)
+  end # define_ext_enum_GL_ARB_parallel_shader_compile
+
   def define_ext_enum_GL_ARB_pipeline_statistics_query
     const_set('GL_VERTICES_SUBMITTED_ARB', 0x82EE) unless defined?(GL_VERTICES_SUBMITTED_ARB)
     const_set('GL_PRIMITIVES_SUBMITTED_ARB', 0x82EF) unless defined?(GL_PRIMITIVES_SUBMITTED_ARB)
@@ -1179,6 +1204,9 @@ module OpenGL
     const_set('GL_POINT_SPRITE_ARB', 0x8861) unless defined?(GL_POINT_SPRITE_ARB)
     const_set('GL_COORD_REPLACE_ARB', 0x8862) unless defined?(GL_COORD_REPLACE_ARB)
   end # define_ext_enum_GL_ARB_point_sprite
+
+  def define_ext_enum_GL_ARB_post_depth_coverage
+  end # define_ext_enum_GL_ARB_post_depth_coverage
 
   def define_ext_enum_GL_ARB_program_interface_query
     const_set('GL_UNIFORM', 0x92E1) unless defined?(GL_UNIFORM)
@@ -1264,6 +1292,17 @@ module OpenGL
   def define_ext_enum_GL_ARB_robustness_isolation
   end # define_ext_enum_GL_ARB_robustness_isolation
 
+  def define_ext_enum_GL_ARB_sample_locations
+    const_set('GL_SAMPLE_LOCATION_SUBPIXEL_BITS_ARB', 0x933D) unless defined?(GL_SAMPLE_LOCATION_SUBPIXEL_BITS_ARB)
+    const_set('GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_ARB', 0x933E) unless defined?(GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_ARB)
+    const_set('GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_ARB', 0x933F) unless defined?(GL_SAMPLE_LOCATION_PIXEL_GRID_HEIGHT_ARB)
+    const_set('GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB', 0x9340) unless defined?(GL_PROGRAMMABLE_SAMPLE_LOCATION_TABLE_SIZE_ARB)
+    const_set('GL_SAMPLE_LOCATION_ARB', 0x8E50) unless defined?(GL_SAMPLE_LOCATION_ARB)
+    const_set('GL_PROGRAMMABLE_SAMPLE_LOCATION_ARB', 0x9341) unless defined?(GL_PROGRAMMABLE_SAMPLE_LOCATION_ARB)
+    const_set('GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_ARB', 0x9342) unless defined?(GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_ARB)
+    const_set('GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_ARB', 0x9343) unless defined?(GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_ARB)
+  end # define_ext_enum_GL_ARB_sample_locations
+
   def define_ext_enum_GL_ARB_sample_shading
     const_set('GL_SAMPLE_SHADING_ARB', 0x8C36) unless defined?(GL_SAMPLE_SHADING_ARB)
     const_set('GL_MIN_SAMPLE_SHADING_VALUE_ARB', 0x8C37) unless defined?(GL_MIN_SAMPLE_SHADING_VALUE_ARB)
@@ -1292,6 +1331,9 @@ module OpenGL
     const_set('GL_ACTIVE_PROGRAM', 0x8259) unless defined?(GL_ACTIVE_PROGRAM)
     const_set('GL_PROGRAM_PIPELINE_BINDING', 0x825A) unless defined?(GL_PROGRAM_PIPELINE_BINDING)
   end # define_ext_enum_GL_ARB_separate_shader_objects
+
+  def define_ext_enum_GL_ARB_shader_atomic_counter_ops
+  end # define_ext_enum_GL_ARB_shader_atomic_counter_ops
 
   def define_ext_enum_GL_ARB_shader_atomic_counters
     const_set('GL_ATOMIC_COUNTER_BUFFER', 0x92C0) unless defined?(GL_ATOMIC_COUNTER_BUFFER)
@@ -1325,8 +1367,14 @@ module OpenGL
     const_set('GL_UNSIGNED_INT_ATOMIC_COUNTER', 0x92DB) unless defined?(GL_UNSIGNED_INT_ATOMIC_COUNTER)
   end # define_ext_enum_GL_ARB_shader_atomic_counters
 
+  def define_ext_enum_GL_ARB_shader_ballot
+  end # define_ext_enum_GL_ARB_shader_ballot
+
   def define_ext_enum_GL_ARB_shader_bit_encoding
   end # define_ext_enum_GL_ARB_shader_bit_encoding
+
+  def define_ext_enum_GL_ARB_shader_clock
+  end # define_ext_enum_GL_ARB_shader_clock
 
   def define_ext_enum_GL_ARB_shader_draw_parameters
   end # define_ext_enum_GL_ARB_shader_draw_parameters
@@ -1487,6 +1535,9 @@ module OpenGL
   def define_ext_enum_GL_ARB_shader_texture_lod
   end # define_ext_enum_GL_ARB_shader_texture_lod
 
+  def define_ext_enum_GL_ARB_shader_viewport_layer_array
+  end # define_ext_enum_GL_ARB_shader_viewport_layer_array
+
   def define_ext_enum_GL_ARB_shading_language_100
     const_set('GL_SHADING_LANGUAGE_VERSION_ARB', 0x8B8C) unless defined?(GL_SHADING_LANGUAGE_VERSION_ARB)
   end # define_ext_enum_GL_ARB_shading_language_100
@@ -1531,6 +1582,12 @@ module OpenGL
     const_set('GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB', 0x919A) unless defined?(GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_ARB)
     const_set('GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB', 0x91A9) unless defined?(GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_ARB)
   end # define_ext_enum_GL_ARB_sparse_texture
+
+  def define_ext_enum_GL_ARB_sparse_texture2
+  end # define_ext_enum_GL_ARB_sparse_texture2
+
+  def define_ext_enum_GL_ARB_sparse_texture_clamp
+  end # define_ext_enum_GL_ARB_sparse_texture_clamp
 
   def define_ext_enum_GL_ARB_stencil_texturing
     const_set('GL_DEPTH_STENCIL_TEXTURE_MODE', 0x90EA) unless defined?(GL_DEPTH_STENCIL_TEXTURE_MODE)
@@ -1709,6 +1766,11 @@ module OpenGL
     const_set('GL_DOT3_RGB_ARB', 0x86AE) unless defined?(GL_DOT3_RGB_ARB)
     const_set('GL_DOT3_RGBA_ARB', 0x86AF) unless defined?(GL_DOT3_RGBA_ARB)
   end # define_ext_enum_GL_ARB_texture_env_dot3
+
+  def define_ext_enum_GL_ARB_texture_filter_minmax
+    const_set('GL_TEXTURE_REDUCTION_MODE_ARB', 0x9366) unless defined?(GL_TEXTURE_REDUCTION_MODE_ARB)
+    const_set('GL_WEIGHTED_AVERAGE_ARB', 0x9367) unless defined?(GL_WEIGHTED_AVERAGE_ARB)
+  end # define_ext_enum_GL_ARB_texture_filter_minmax
 
   def define_ext_enum_GL_ARB_texture_float
     const_set('GL_TEXTURE_RED_TYPE_ARB', 0x8C10) unless defined?(GL_TEXTURE_RED_TYPE_ARB)
@@ -3613,6 +3675,9 @@ module OpenGL
   def define_ext_enum_GL_INTEL_fragment_shader_ordering
   end # define_ext_enum_GL_INTEL_fragment_shader_ordering
 
+  def define_ext_enum_GL_INTEL_framebuffer_CMAA
+  end # define_ext_enum_GL_INTEL_framebuffer_CMAA
+
   def define_ext_enum_GL_INTEL_map_texture
     const_set('GL_TEXTURE_MEMORY_LAYOUT_INTEL', 0x83FF) unless defined?(GL_TEXTURE_MEMORY_LAYOUT_INTEL)
     const_set('GL_LAYOUT_DEFAULT_INTEL', 0) unless defined?(GL_LAYOUT_DEFAULT_INTEL)
@@ -4464,6 +4529,10 @@ module OpenGL
     const_set('GL_FRAGMENT_INPUT_NV', 0x936D) unless defined?(GL_FRAGMENT_INPUT_NV)
   end # define_ext_enum_GL_NV_path_rendering
 
+  def define_ext_enum_GL_NV_path_rendering_shared_edge
+    const_set('GL_SHARED_EDGE_NV', 0xC0) unless defined?(GL_SHARED_EDGE_NV)
+  end # define_ext_enum_GL_NV_path_rendering_shared_edge
+
   def define_ext_enum_GL_NV_pixel_data_range
     const_set('GL_WRITE_PIXEL_DATA_RANGE_NV', 0x8878) unless defined?(GL_WRITE_PIXEL_DATA_RANGE_NV)
     const_set('GL_READ_PIXEL_DATA_RANGE_NV', 0x8879) unless defined?(GL_READ_PIXEL_DATA_RANGE_NV)
@@ -4551,10 +4620,6 @@ module OpenGL
     const_set('GL_NONE', 0) unless defined?(GL_NONE)
     const_set('GL_FOG', 0x0B60) unless defined?(GL_FOG)
   end # define_ext_enum_GL_NV_register_combiners
-
-  def define_ext_enum_GL_NV_path_rendering_shared_edge
-    const_set('GL_SHARED_EDGE_NV', 0xC0) unless defined?(GL_SHARED_EDGE_NV)
-  end # define_ext_enum_GL_NV_path_rendering_shared_edge
 
   def define_ext_enum_GL_NV_register_combiners2
     const_set('GL_PER_STAGE_CONSTANTS_NV', 0x8535) unless defined?(GL_PER_STAGE_CONSTANTS_NV)

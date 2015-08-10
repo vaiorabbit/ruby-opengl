@@ -1092,6 +1092,17 @@ module OpenGL
     SRC_GL_ARB_ES3_1_compatibility
   end # define_ext_command_GL_ARB_ES3_1_compatibility
 
+  def define_ext_command_GL_ARB_ES3_2_compatibility
+    GL_FUNCTIONS_ARGS_MAP[:glPrimitiveBoundingBoxARB] = [Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    GL_FUNCTIONS_RETVAL_MAP[:glPrimitiveBoundingBoxARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_ES3_2_compatibility)
+      def glPrimitiveBoundingBoxARB(_minX_, _minY_, _minZ_, _minW_, _maxX_, _maxY_, _maxZ_, _maxW_)
+        f = OpenGL::get_command(:glPrimitiveBoundingBoxARB)
+        f.call(_minX_, _minY_, _minZ_, _minW_, _maxX_, _maxY_, _maxZ_, _maxW_)
+      end
+    SRC_GL_ARB_ES3_2_compatibility
+  end # define_ext_command_GL_ARB_ES3_2_compatibility
+
   def define_ext_command_GL_ARB_ES3_compatibility
   end # define_ext_command_GL_ARB_ES3_compatibility
 
@@ -2691,6 +2702,9 @@ module OpenGL
   def define_ext_command_GL_ARB_fragment_shader
   end # define_ext_command_GL_ARB_fragment_shader
 
+  def define_ext_command_GL_ARB_fragment_shader_interlock
+  end # define_ext_command_GL_ARB_fragment_shader_interlock
+
   def define_ext_command_GL_ARB_framebuffer_no_attachments
     GL_FUNCTIONS_ARGS_MAP[:glFramebufferParameteri] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferParameteri] = Fiddle::TYPE_VOID
@@ -3149,6 +3163,332 @@ module OpenGL
       end
     SRC_GL_ARB_gpu_shader_fp64
   end # define_ext_command_GL_ARB_gpu_shader_fp64
+
+  def define_ext_command_GL_ARB_gpu_shader_int64
+    GL_FUNCTIONS_ARGS_MAP[:glUniform1i64ARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform1i64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform1i64ARB(_location_, _x_)
+        f = OpenGL::get_command(:glUniform1i64ARB)
+        f.call(_location_, _x_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform2i64ARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform2i64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform2i64ARB(_location_, _x_, _y_)
+        f = OpenGL::get_command(:glUniform2i64ARB)
+        f.call(_location_, _x_, _y_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform3i64ARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform3i64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform3i64ARB(_location_, _x_, _y_, _z_)
+        f = OpenGL::get_command(:glUniform3i64ARB)
+        f.call(_location_, _x_, _y_, _z_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform4i64ARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform4i64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform4i64ARB(_location_, _x_, _y_, _z_, _w_)
+        f = OpenGL::get_command(:glUniform4i64ARB)
+        f.call(_location_, _x_, _y_, _z_, _w_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform1i64vARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform1i64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform1i64vARB(_location_, _count_, _value_)
+        f = OpenGL::get_command(:glUniform1i64vARB)
+        f.call(_location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform2i64vARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform2i64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform2i64vARB(_location_, _count_, _value_)
+        f = OpenGL::get_command(:glUniform2i64vARB)
+        f.call(_location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform3i64vARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform3i64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform3i64vARB(_location_, _count_, _value_)
+        f = OpenGL::get_command(:glUniform3i64vARB)
+        f.call(_location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform4i64vARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform4i64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform4i64vARB(_location_, _count_, _value_)
+        f = OpenGL::get_command(:glUniform4i64vARB)
+        f.call(_location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform1ui64ARB] = [Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform1ui64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform1ui64ARB(_location_, _x_)
+        f = OpenGL::get_command(:glUniform1ui64ARB)
+        f.call(_location_, _x_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform2ui64ARB] = [Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform2ui64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform2ui64ARB(_location_, _x_, _y_)
+        f = OpenGL::get_command(:glUniform2ui64ARB)
+        f.call(_location_, _x_, _y_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform3ui64ARB] = [Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform3ui64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform3ui64ARB(_location_, _x_, _y_, _z_)
+        f = OpenGL::get_command(:glUniform3ui64ARB)
+        f.call(_location_, _x_, _y_, _z_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform4ui64ARB] = [Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform4ui64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform4ui64ARB(_location_, _x_, _y_, _z_, _w_)
+        f = OpenGL::get_command(:glUniform4ui64ARB)
+        f.call(_location_, _x_, _y_, _z_, _w_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform1ui64vARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform1ui64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform1ui64vARB(_location_, _count_, _value_)
+        f = OpenGL::get_command(:glUniform1ui64vARB)
+        f.call(_location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform2ui64vARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform2ui64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform2ui64vARB(_location_, _count_, _value_)
+        f = OpenGL::get_command(:glUniform2ui64vARB)
+        f.call(_location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform3ui64vARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform3ui64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform3ui64vARB(_location_, _count_, _value_)
+        f = OpenGL::get_command(:glUniform3ui64vARB)
+        f.call(_location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glUniform4ui64vARB] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glUniform4ui64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glUniform4ui64vARB(_location_, _count_, _value_)
+        f = OpenGL::get_command(:glUniform4ui64vARB)
+        f.call(_location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetUniformi64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetUniformi64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glGetUniformi64vARB(_program_, _location_, _params_)
+        f = OpenGL::get_command(:glGetUniformi64vARB)
+        f.call(_program_, _location_, _params_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetUniformui64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetUniformui64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glGetUniformui64vARB(_program_, _location_, _params_)
+        f = OpenGL::get_command(:glGetUniformui64vARB)
+        f.call(_program_, _location_, _params_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformi64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetnUniformi64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glGetnUniformi64vARB(_program_, _location_, _bufSize_, _params_)
+        f = OpenGL::get_command(:glGetnUniformi64vARB)
+        f.call(_program_, _location_, _bufSize_, _params_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetnUniformui64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetnUniformui64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glGetnUniformui64vARB(_program_, _location_, _bufSize_, _params_)
+        f = OpenGL::get_command(:glGetnUniformui64vARB)
+        f.call(_program_, _location_, _bufSize_, _params_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1i64ARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1i64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform1i64ARB(_program_, _location_, _x_)
+        f = OpenGL::get_command(:glProgramUniform1i64ARB)
+        f.call(_program_, _location_, _x_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2i64ARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2i64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform2i64ARB(_program_, _location_, _x_, _y_)
+        f = OpenGL::get_command(:glProgramUniform2i64ARB)
+        f.call(_program_, _location_, _x_, _y_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3i64ARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3i64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform3i64ARB(_program_, _location_, _x_, _y_, _z_)
+        f = OpenGL::get_command(:glProgramUniform3i64ARB)
+        f.call(_program_, _location_, _x_, _y_, _z_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4i64ARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG, Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4i64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform4i64ARB(_program_, _location_, _x_, _y_, _z_, _w_)
+        f = OpenGL::get_command(:glProgramUniform4i64ARB)
+        f.call(_program_, _location_, _x_, _y_, _z_, _w_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1i64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1i64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform1i64vARB(_program_, _location_, _count_, _value_)
+        f = OpenGL::get_command(:glProgramUniform1i64vARB)
+        f.call(_program_, _location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2i64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2i64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform2i64vARB(_program_, _location_, _count_, _value_)
+        f = OpenGL::get_command(:glProgramUniform2i64vARB)
+        f.call(_program_, _location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3i64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3i64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform3i64vARB(_program_, _location_, _count_, _value_)
+        f = OpenGL::get_command(:glProgramUniform3i64vARB)
+        f.call(_program_, _location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4i64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4i64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform4i64vARB(_program_, _location_, _count_, _value_)
+        f = OpenGL::get_command(:glProgramUniform4i64vARB)
+        f.call(_program_, _location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1ui64ARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1ui64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform1ui64ARB(_program_, _location_, _x_)
+        f = OpenGL::get_command(:glProgramUniform1ui64ARB)
+        f.call(_program_, _location_, _x_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2ui64ARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2ui64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform2ui64ARB(_program_, _location_, _x_, _y_)
+        f = OpenGL::get_command(:glProgramUniform2ui64ARB)
+        f.call(_program_, _location_, _x_, _y_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3ui64ARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3ui64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform3ui64ARB(_program_, _location_, _x_, _y_, _z_)
+        f = OpenGL::get_command(:glProgramUniform3ui64ARB)
+        f.call(_program_, _location_, _x_, _y_, _z_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4ui64ARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_LONG_LONG]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4ui64ARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform4ui64ARB(_program_, _location_, _x_, _y_, _z_, _w_)
+        f = OpenGL::get_command(:glProgramUniform4ui64ARB)
+        f.call(_program_, _location_, _x_, _y_, _z_, _w_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1ui64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1ui64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform1ui64vARB(_program_, _location_, _count_, _value_)
+        f = OpenGL::get_command(:glProgramUniform1ui64vARB)
+        f.call(_program_, _location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform2ui64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform2ui64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform2ui64vARB(_program_, _location_, _count_, _value_)
+        f = OpenGL::get_command(:glProgramUniform2ui64vARB)
+        f.call(_program_, _location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform3ui64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform3ui64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform3ui64vARB(_program_, _location_, _count_, _value_)
+        f = OpenGL::get_command(:glProgramUniform3ui64vARB)
+        f.call(_program_, _location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+
+    GL_FUNCTIONS_ARGS_MAP[:glProgramUniform4ui64vARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform4ui64vARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_gpu_shader_int64)
+      def glProgramUniform4ui64vARB(_program_, _location_, _count_, _value_)
+        f = OpenGL::get_command(:glProgramUniform4ui64vARB)
+        f.call(_program_, _location_, _count_, _value_)
+      end
+    SRC_GL_ARB_gpu_shader_int64
+  end # define_ext_command_GL_ARB_gpu_shader_int64
 
   def define_ext_command_GL_ARB_half_float_pixel
   end # define_ext_command_GL_ARB_half_float_pixel
@@ -4115,6 +4455,17 @@ module OpenGL
   def define_ext_command_GL_ARB_occlusion_query2
   end # define_ext_command_GL_ARB_occlusion_query2
 
+  def define_ext_command_GL_ARB_parallel_shader_compile
+    GL_FUNCTIONS_ARGS_MAP[:glMaxShaderCompilerThreadsARB] = [-Fiddle::TYPE_INT]
+    GL_FUNCTIONS_RETVAL_MAP[:glMaxShaderCompilerThreadsARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_parallel_shader_compile)
+      def glMaxShaderCompilerThreadsARB(_count_)
+        f = OpenGL::get_command(:glMaxShaderCompilerThreadsARB)
+        f.call(_count_)
+      end
+    SRC_GL_ARB_parallel_shader_compile
+  end # define_ext_command_GL_ARB_parallel_shader_compile
+
   def define_ext_command_GL_ARB_pipeline_statistics_query
   end # define_ext_command_GL_ARB_pipeline_statistics_query
 
@@ -4143,6 +4494,9 @@ module OpenGL
 
   def define_ext_command_GL_ARB_point_sprite
   end # define_ext_command_GL_ARB_point_sprite
+
+  def define_ext_command_GL_ARB_post_depth_coverage
+  end # define_ext_command_GL_ARB_post_depth_coverage
 
   def define_ext_command_GL_ARB_program_interface_query
     GL_FUNCTIONS_ARGS_MAP[:glGetProgramInterfaceiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
@@ -4401,6 +4755,35 @@ module OpenGL
 
   def define_ext_command_GL_ARB_robustness_isolation
   end # define_ext_command_GL_ARB_robustness_isolation
+
+  def define_ext_command_GL_ARB_sample_locations
+    GL_FUNCTIONS_ARGS_MAP[:glFramebufferSampleLocationsfvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glFramebufferSampleLocationsfvARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_sample_locations)
+      def glFramebufferSampleLocationsfvARB(_target_, _start_, _count_, _v_)
+        f = OpenGL::get_command(:glFramebufferSampleLocationsfvARB)
+        f.call(_target_, _start_, _count_, _v_)
+      end
+    SRC_GL_ARB_sample_locations
+
+    GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferSampleLocationsfvARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glNamedFramebufferSampleLocationsfvARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_sample_locations)
+      def glNamedFramebufferSampleLocationsfvARB(_framebuffer_, _start_, _count_, _v_)
+        f = OpenGL::get_command(:glNamedFramebufferSampleLocationsfvARB)
+        f.call(_framebuffer_, _start_, _count_, _v_)
+      end
+    SRC_GL_ARB_sample_locations
+
+    GL_FUNCTIONS_ARGS_MAP[:glEvaluateDepthValuesARB] = []
+    GL_FUNCTIONS_RETVAL_MAP[:glEvaluateDepthValuesARB] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_ARB_sample_locations)
+      def glEvaluateDepthValuesARB()
+        f = OpenGL::get_command(:glEvaluateDepthValuesARB)
+        f.call()
+      end
+    SRC_GL_ARB_sample_locations
+  end # define_ext_command_GL_ARB_sample_locations
 
   def define_ext_command_GL_ARB_sample_shading
     GL_FUNCTIONS_ARGS_MAP[:glMinSampleShadingARB] = [Fiddle::TYPE_FLOAT]
@@ -5089,6 +5472,9 @@ module OpenGL
     SRC_GL_ARB_separate_shader_objects
   end # define_ext_command_GL_ARB_separate_shader_objects
 
+  def define_ext_command_GL_ARB_shader_atomic_counter_ops
+  end # define_ext_command_GL_ARB_shader_atomic_counter_ops
+
   def define_ext_command_GL_ARB_shader_atomic_counters
     GL_FUNCTIONS_ARGS_MAP[:glGetActiveAtomicCounterBufferiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glGetActiveAtomicCounterBufferiv] = Fiddle::TYPE_VOID
@@ -5100,8 +5486,14 @@ module OpenGL
     SRC_GL_ARB_shader_atomic_counters
   end # define_ext_command_GL_ARB_shader_atomic_counters
 
+  def define_ext_command_GL_ARB_shader_ballot
+  end # define_ext_command_GL_ARB_shader_ballot
+
   def define_ext_command_GL_ARB_shader_bit_encoding
   end # define_ext_command_GL_ARB_shader_bit_encoding
+
+  def define_ext_command_GL_ARB_shader_clock
+  end # define_ext_command_GL_ARB_shader_clock
 
   def define_ext_command_GL_ARB_shader_draw_parameters
   end # define_ext_command_GL_ARB_shader_draw_parameters
@@ -5582,6 +5974,9 @@ module OpenGL
   def define_ext_command_GL_ARB_shader_texture_lod
   end # define_ext_command_GL_ARB_shader_texture_lod
 
+  def define_ext_command_GL_ARB_shader_viewport_layer_array
+  end # define_ext_command_GL_ARB_shader_viewport_layer_array
+
   def define_ext_command_GL_ARB_shading_language_100
   end # define_ext_command_GL_ARB_shading_language_100
 
@@ -5692,6 +6087,12 @@ module OpenGL
       end
     SRC_GL_ARB_sparse_texture
   end # define_ext_command_GL_ARB_sparse_texture
+
+  def define_ext_command_GL_ARB_sparse_texture2
+  end # define_ext_command_GL_ARB_sparse_texture2
+
+  def define_ext_command_GL_ARB_sparse_texture_clamp
+  end # define_ext_command_GL_ARB_sparse_texture_clamp
 
   def define_ext_command_GL_ARB_stencil_texturing
   end # define_ext_command_GL_ARB_stencil_texturing
@@ -5908,6 +6309,9 @@ module OpenGL
 
   def define_ext_command_GL_ARB_texture_env_dot3
   end # define_ext_command_GL_ARB_texture_env_dot3
+
+  def define_ext_command_GL_ARB_texture_filter_minmax
+  end # define_ext_command_GL_ARB_texture_filter_minmax
 
   def define_ext_command_GL_ARB_texture_float
   end # define_ext_command_GL_ARB_texture_float
@@ -14589,6 +14993,17 @@ module OpenGL
   def define_ext_command_GL_INTEL_fragment_shader_ordering
   end # define_ext_command_GL_INTEL_fragment_shader_ordering
 
+  def define_ext_command_GL_INTEL_framebuffer_CMAA
+    GL_FUNCTIONS_ARGS_MAP[:glApplyFramebufferAttachmentCMAAINTEL] = []
+    GL_FUNCTIONS_RETVAL_MAP[:glApplyFramebufferAttachmentCMAAINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_framebuffer_CMAA)
+      def glApplyFramebufferAttachmentCMAAINTEL()
+        f = OpenGL::get_command(:glApplyFramebufferAttachmentCMAAINTEL)
+        f.call()
+      end
+    SRC_GL_INTEL_framebuffer_CMAA
+  end # define_ext_command_GL_INTEL_framebuffer_CMAA
+
   def define_ext_command_GL_INTEL_map_texture
     GL_FUNCTIONS_ARGS_MAP[:glSyncTextureINTEL] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glSyncTextureINTEL] = Fiddle::TYPE_VOID
@@ -17715,6 +18130,9 @@ module OpenGL
     SRC_GL_NV_path_rendering
   end # define_ext_command_GL_NV_path_rendering
 
+  def define_ext_command_GL_NV_path_rendering_shared_edge
+  end # define_ext_command_GL_NV_path_rendering_shared_edge
+
   def define_ext_command_GL_NV_pixel_data_range
     GL_FUNCTIONS_ARGS_MAP[:glPixelDataRangeNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     GL_FUNCTIONS_RETVAL_MAP[:glPixelDataRangeNV] = Fiddle::TYPE_VOID
@@ -17949,9 +18367,6 @@ module OpenGL
       end
     SRC_GL_NV_register_combiners
   end # define_ext_command_GL_NV_register_combiners
-
-  def define_ext_command_GL_NV_path_rendering_shared_edge
-  end # define_ext_command_GL_NV_path_rendering_shared_edge
 
   def define_ext_command_GL_NV_register_combiners2
     GL_FUNCTIONS_ARGS_MAP[:glCombinerStageParameterfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]

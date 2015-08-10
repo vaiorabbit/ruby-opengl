@@ -1,3 +1,7 @@
+2015-08-10  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* OpenGL ES 3.2
+
 2015-08-09  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* sample/gles.rb, sample/report_env_es.rb: Added some window handle check in preparation for context creation failure.

@@ -186,6 +186,13 @@ module OpenGL
     const_set('GL_SHADER_BINARY_DMP', 0x9250) unless defined?(GL_SHADER_BINARY_DMP)
   end # define_ext_enum_GL_DMP_shader_binary
 
+  def define_ext_enum_GL_EXT_YUV_target
+    const_set('GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT', 0x8BE7) unless defined?(GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT)
+    const_set('GL_TEXTURE_EXTERNAL_OES', 0x8D65) unless defined?(GL_TEXTURE_EXTERNAL_OES)
+    const_set('GL_TEXTURE_BINDING_EXTERNAL_OES', 0x8D67) unless defined?(GL_TEXTURE_BINDING_EXTERNAL_OES)
+    const_set('GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES', 0x8D68) unless defined?(GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES)
+  end # define_ext_enum_GL_EXT_YUV_target
+
   def define_ext_enum_GL_EXT_base_instance
   end # define_ext_enum_GL_EXT_base_instance
 
@@ -207,6 +214,9 @@ module OpenGL
     const_set('GL_BUFFER_IMMUTABLE_STORAGE_EXT', 0x821F) unless defined?(GL_BUFFER_IMMUTABLE_STORAGE_EXT)
     const_set('GL_BUFFER_STORAGE_FLAGS_EXT', 0x8220) unless defined?(GL_BUFFER_STORAGE_FLAGS_EXT)
   end # define_ext_enum_GL_EXT_buffer_storage
+
+  def define_ext_enum_GL_EXT_color_buffer_float
+  end # define_ext_enum_GL_EXT_color_buffer_float
 
   def define_ext_enum_GL_EXT_color_buffer_half_float
     const_set('GL_RGBA16F_EXT', 0x881A) unless defined?(GL_RGBA16F_EXT)
@@ -667,12 +677,6 @@ module OpenGL
     const_set('GL_RG8_EXT', 0x822B) unless defined?(GL_RG8_EXT)
   end # define_ext_enum_GL_EXT_texture_rg
 
-  def define_ext_enum_GL_EXT_texture_sRGB_decode
-    const_set('GL_TEXTURE_SRGB_DECODE_EXT', 0x8A48) unless defined?(GL_TEXTURE_SRGB_DECODE_EXT)
-    const_set('GL_DECODE_EXT', 0x8A49) unless defined?(GL_DECODE_EXT)
-    const_set('GL_SKIP_DECODE_EXT', 0x8A4A) unless defined?(GL_SKIP_DECODE_EXT)
-  end # define_ext_enum_GL_EXT_texture_sRGB_decode
-
   def define_ext_enum_GL_EXT_texture_sRGB_R8
     const_set('GL_SR8_EXT', 0x8FBD) unless defined?(GL_SR8_EXT)
   end # define_ext_enum_GL_EXT_texture_sRGB_R8
@@ -680,6 +684,12 @@ module OpenGL
   def define_ext_enum_GL_EXT_texture_sRGB_RG8
     const_set('GL_SRG8_EXT', 0x8FBE) unless defined?(GL_SRG8_EXT)
   end # define_ext_enum_GL_EXT_texture_sRGB_RG8
+
+  def define_ext_enum_GL_EXT_texture_sRGB_decode
+    const_set('GL_TEXTURE_SRGB_DECODE_EXT', 0x8A48) unless defined?(GL_TEXTURE_SRGB_DECODE_EXT)
+    const_set('GL_DECODE_EXT', 0x8A49) unless defined?(GL_DECODE_EXT)
+    const_set('GL_SKIP_DECODE_EXT', 0x8A4A) unless defined?(GL_SKIP_DECODE_EXT)
+  end # define_ext_enum_GL_EXT_texture_sRGB_decode
 
   def define_ext_enum_GL_EXT_texture_storage
     const_set('GL_TEXTURE_IMMUTABLE_FORMAT_EXT', 0x912F) unless defined?(GL_TEXTURE_IMMUTABLE_FORMAT_EXT)
@@ -725,13 +735,6 @@ module OpenGL
     const_set('GL_UNPACK_SKIP_PIXELS_EXT', 0x0CF4) unless defined?(GL_UNPACK_SKIP_PIXELS_EXT)
   end # define_ext_enum_GL_EXT_unpack_subimage
 
-  def define_ext_enum_GL_EXT_YUV_target
-    const_set('GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT', 0x8BE7) unless defined?(GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT)
-    const_set('GL_TEXTURE_EXTERNAL_OES', 0x8D65) unless defined?(GL_TEXTURE_EXTERNAL_OES)
-    const_set('GL_TEXTURE_BINDING_EXTERNAL_OES', 0x8D67) unless defined?(GL_TEXTURE_BINDING_EXTERNAL_OES)
-    const_set('GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES', 0x8D68) unless defined?(GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES)
-  end # define_ext_enum_GL_EXT_YUV_target
-
   def define_ext_enum_GL_FJ_shader_binary_GCCSO
     const_set('GL_GCCSO_SHADER_BINARY_FJ', 0x9260) unless defined?(GL_GCCSO_SHADER_BINARY_FJ)
   end # define_ext_enum_GL_FJ_shader_binary_GCCSO
@@ -767,6 +770,9 @@ module OpenGL
     const_set('GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG', 0x9137) unless defined?(GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG)
     const_set('GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG', 0x9138) unless defined?(GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG)
   end # define_ext_enum_GL_IMG_texture_compression_pvrtc2
+
+  def define_ext_enum_GL_INTEL_framebuffer_CMAA
+  end # define_ext_enum_GL_INTEL_framebuffer_CMAA
 
   def define_ext_enum_GL_INTEL_performance_query
     const_set('GL_PERFQUERY_SINGLE_CONTEXT_INTEL', 0x00000000) unless defined?(GL_PERFQUERY_SINGLE_CONTEXT_INTEL)
@@ -1399,6 +1405,10 @@ module OpenGL
     const_set('GL_FRAGMENT_INPUT_NV', 0x936D) unless defined?(GL_FRAGMENT_INPUT_NV)
   end # define_ext_enum_GL_NV_path_rendering
 
+  def define_ext_enum_GL_NV_path_rendering_shared_edge
+    const_set('GL_SHARED_EDGE_NV', 0xC0) unless defined?(GL_SHARED_EDGE_NV)
+  end # define_ext_enum_GL_NV_path_rendering_shared_edge
+
   def define_ext_enum_GL_NV_polygon_mode
     const_set('GL_POLYGON_MODE_NV', 0x0B40) unless defined?(GL_POLYGON_MODE_NV)
     const_set('GL_POLYGON_OFFSET_POINT_NV', 0x2A01) unless defined?(GL_POLYGON_OFFSET_POINT_NV)
@@ -1423,10 +1433,6 @@ module OpenGL
 
   def define_ext_enum_GL_NV_read_stencil
   end # define_ext_enum_GL_NV_read_stencil
-
-  def define_ext_enum_GL_NV_path_rendering_shared_edge
-    const_set('GL_SHARED_EDGE_NV', 0xC0) unless defined?(GL_SHARED_EDGE_NV)
-  end # define_ext_enum_GL_NV_path_rendering_shared_edge
 
   def define_ext_enum_GL_NV_sRGB_formats
     const_set('GL_SLUMINANCE_NV', 0x8C46) unless defined?(GL_SLUMINANCE_NV)
@@ -1585,6 +1591,9 @@ module OpenGL
   def define_ext_enum_GL_OES_fragment_precision_high
   end # define_ext_enum_GL_OES_fragment_precision_high
 
+  def define_ext_enum_GL_OES_geometry_point_size
+  end # define_ext_enum_GL_OES_geometry_point_size
+
   def define_ext_enum_GL_OES_geometry_shader
     const_set('GL_GEOMETRY_SHADER_OES', 0x8DD9) unless defined?(GL_GEOMETRY_SHADER_OES)
     const_set('GL_GEOMETRY_SHADER_BIT_OES', 0x00000004) unless defined?(GL_GEOMETRY_SHADER_BIT_OES)
@@ -1620,9 +1629,6 @@ module OpenGL
     const_set('GL_FRAMEBUFFER_ATTACHMENT_LAYERED_OES', 0x8DA7) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_LAYERED_OES)
     const_set('GL_REFERENCED_BY_GEOMETRY_SHADER_OES', 0x9309) unless defined?(GL_REFERENCED_BY_GEOMETRY_SHADER_OES)
   end # define_ext_enum_GL_OES_geometry_shader
-
-  def define_ext_enum_GL_OES_geometry_point_size
-  end # define_ext_enum_GL_OES_geometry_point_size
 
   def define_ext_enum_GL_OES_get_program_binary
     const_set('GL_PROGRAM_BINARY_LENGTH_OES', 0x8741) unless defined?(GL_PROGRAM_BINARY_LENGTH_OES)
@@ -1709,6 +1715,9 @@ module OpenGL
     const_set('GL_FRAMEBUFFER_UNDEFINED_OES', 0x8219) unless defined?(GL_FRAMEBUFFER_UNDEFINED_OES)
   end # define_ext_enum_GL_OES_surfaceless_context
 
+  def define_ext_enum_GL_OES_tessellation_point_size
+  end # define_ext_enum_GL_OES_tessellation_point_size
+
   def define_ext_enum_GL_OES_tessellation_shader
     const_set('GL_PATCHES_OES', 0x000E) unless defined?(GL_PATCHES_OES)
     const_set('GL_PATCH_VERTICES_OES', 0x8E72) unless defined?(GL_PATCH_VERTICES_OES)
@@ -1758,9 +1767,6 @@ module OpenGL
     const_set('GL_TESS_CONTROL_SHADER_BIT_OES', 0x00000008) unless defined?(GL_TESS_CONTROL_SHADER_BIT_OES)
     const_set('GL_TESS_EVALUATION_SHADER_BIT_OES', 0x00000010) unless defined?(GL_TESS_EVALUATION_SHADER_BIT_OES)
   end # define_ext_enum_GL_OES_tessellation_shader
-
-  def define_ext_enum_GL_OES_tessellation_point_size
-  end # define_ext_enum_GL_OES_tessellation_point_size
 
   def define_ext_enum_GL_OES_texture_3D
     const_set('GL_TEXTURE_WRAP_R_OES', 0x8072) unless defined?(GL_TEXTURE_WRAP_R_OES)

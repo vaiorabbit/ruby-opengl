@@ -336,6 +336,9 @@ module OpenGL
   def define_ext_command_GL_DMP_shader_binary
   end # define_ext_command_GL_DMP_shader_binary
 
+  def define_ext_command_GL_EXT_YUV_target
+  end # define_ext_command_GL_EXT_YUV_target
+
   def define_ext_command_GL_EXT_base_instance
     GL_FUNCTIONS_ARGS_MAP[:glDrawArraysInstancedBaseInstanceEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glDrawArraysInstancedBaseInstanceEXT] = Fiddle::TYPE_VOID
@@ -386,6 +389,9 @@ module OpenGL
       end
     SRC_GL_EXT_buffer_storage
   end # define_ext_command_GL_EXT_buffer_storage
+
+  def define_ext_command_GL_EXT_color_buffer_float
+  end # define_ext_command_GL_EXT_color_buffer_float
 
   def define_ext_command_GL_EXT_color_buffer_half_float
   end # define_ext_command_GL_EXT_color_buffer_half_float
@@ -1603,14 +1609,14 @@ module OpenGL
   def define_ext_command_GL_EXT_texture_rg
   end # define_ext_command_GL_EXT_texture_rg
 
-  def define_ext_command_GL_EXT_texture_sRGB_decode
-  end # define_ext_command_GL_EXT_texture_sRGB_decode
-
   def define_ext_command_GL_EXT_texture_sRGB_R8
   end # define_ext_command_GL_EXT_texture_sRGB_R8
 
   def define_ext_command_GL_EXT_texture_sRGB_RG8
   end # define_ext_command_GL_EXT_texture_sRGB_RG8
+
+  def define_ext_command_GL_EXT_texture_sRGB_decode
+  end # define_ext_command_GL_EXT_texture_sRGB_decode
 
   def define_ext_command_GL_EXT_texture_storage
     GL_FUNCTIONS_ARGS_MAP[:glTexStorage1DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
@@ -1685,9 +1691,6 @@ module OpenGL
   def define_ext_command_GL_EXT_unpack_subimage
   end # define_ext_command_GL_EXT_unpack_subimage
 
-  def define_ext_command_GL_EXT_YUV_target
-  end # define_ext_command_GL_EXT_YUV_target
-
   def define_ext_command_GL_FJ_shader_binary_GCCSO
   end # define_ext_command_GL_FJ_shader_binary_GCCSO
 
@@ -1725,6 +1728,17 @@ module OpenGL
 
   def define_ext_command_GL_IMG_texture_compression_pvrtc2
   end # define_ext_command_GL_IMG_texture_compression_pvrtc2
+
+  def define_ext_command_GL_INTEL_framebuffer_CMAA
+    GL_FUNCTIONS_ARGS_MAP[:glApplyFramebufferAttachmentCMAAINTEL] = []
+    GL_FUNCTIONS_RETVAL_MAP[:glApplyFramebufferAttachmentCMAAINTEL] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_INTEL_framebuffer_CMAA)
+      def glApplyFramebufferAttachmentCMAAINTEL()
+        f = OpenGL::get_command(:glApplyFramebufferAttachmentCMAAINTEL)
+        f.call()
+      end
+    SRC_GL_INTEL_framebuffer_CMAA
+  end # define_ext_command_GL_INTEL_framebuffer_CMAA
 
   def define_ext_command_GL_INTEL_performance_query
     GL_FUNCTIONS_ARGS_MAP[:glBeginPerfQueryINTEL] = [-Fiddle::TYPE_INT]
@@ -3190,6 +3204,9 @@ module OpenGL
     SRC_GL_NV_path_rendering
   end # define_ext_command_GL_NV_path_rendering
 
+  def define_ext_command_GL_NV_path_rendering_shared_edge
+  end # define_ext_command_GL_NV_path_rendering_shared_edge
+
   def define_ext_command_GL_NV_polygon_mode
     GL_FUNCTIONS_ARGS_MAP[:glPolygonModeNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPolygonModeNV] = Fiddle::TYPE_VOID
@@ -3223,9 +3240,6 @@ module OpenGL
 
   def define_ext_command_GL_NV_read_stencil
   end # define_ext_command_GL_NV_read_stencil
-
-  def define_ext_command_GL_NV_path_rendering_shared_edge
-  end # define_ext_command_GL_NV_path_rendering_shared_edge
 
   def define_ext_command_GL_NV_sRGB_formats
   end # define_ext_command_GL_NV_sRGB_formats
@@ -3569,6 +3583,9 @@ module OpenGL
   def define_ext_command_GL_OES_fragment_precision_high
   end # define_ext_command_GL_OES_fragment_precision_high
 
+  def define_ext_command_GL_OES_geometry_point_size
+  end # define_ext_command_GL_OES_geometry_point_size
+
   def define_ext_command_GL_OES_geometry_shader
     GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureOES] = Fiddle::TYPE_VOID
@@ -3579,9 +3596,6 @@ module OpenGL
       end
     SRC_GL_OES_geometry_shader
   end # define_ext_command_GL_OES_geometry_shader
-
-  def define_ext_command_GL_OES_geometry_point_size
-  end # define_ext_command_GL_OES_geometry_point_size
 
   def define_ext_command_GL_OES_get_program_binary
     GL_FUNCTIONS_ARGS_MAP[:glGetProgramBinaryOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
@@ -3690,6 +3704,9 @@ module OpenGL
   def define_ext_command_GL_OES_surfaceless_context
   end # define_ext_command_GL_OES_surfaceless_context
 
+  def define_ext_command_GL_OES_tessellation_point_size
+  end # define_ext_command_GL_OES_tessellation_point_size
+
   def define_ext_command_GL_OES_tessellation_shader
     GL_FUNCTIONS_ARGS_MAP[:glPatchParameteriOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glPatchParameteriOES] = Fiddle::TYPE_VOID
@@ -3700,9 +3717,6 @@ module OpenGL
       end
     SRC_GL_OES_tessellation_shader
   end # define_ext_command_GL_OES_tessellation_shader
-
-  def define_ext_command_GL_OES_tessellation_point_size
-  end # define_ext_command_GL_OES_tessellation_point_size
 
   def define_ext_command_GL_OES_texture_3D
     GL_FUNCTIONS_ARGS_MAP[:glTexImage3DOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
