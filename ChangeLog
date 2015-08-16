@@ -1,3 +1,7 @@
+2015-08-16  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* sample/report_env.rb: Now gives GLFW some window hints to create a more higher OpenGL level context available.
+
 2015-08-10  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* OpenGL ES 3.2
