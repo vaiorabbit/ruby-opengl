@@ -13,29 +13,29 @@
 #   GL_POINTS = 0x0000
 # $
 
-require 'nokogiri'
+require 'rexml/document'
 
 def generate_enum( out )
-  doc = Nokogiri::XML(open("./gl.xml"))
+  doc = REXML::Document.new(open("./gl.xml"))
 
   # Collect all enum
   gl_all_enum_map = {}
-  doc.xpath('registry/enums/enum').each do |enum_tag|
+  REXML::XPath.each(doc, 'registry/enums/enum') do |enum_tag|
     # # check alias
     # alias_attr = enum_tag['alias']
     # next if alias_attr != nil
 
-    gl_all_enum_map[enum_tag['name']] = enum_tag['value']
+    gl_all_enum_map[enum_tag.attribute('name').value] = enum_tag.attribute('value').value
   end
 
   # Extract standard enum
   gl_std_enum_map = {}
-  doc.xpath('registry/feature').each do |feature_tag|
-    if "gl" == feature_tag['api']
+  REXML::XPath.each(doc, 'registry/feature') do |feature_tag|
+    if "gl" == feature_tag.attribute('api').value
 
       # OpenGL Standard enums
-      feature_tag.xpath('require/enum').each do |tag|
-        gl_std_enum_map[tag['name']] = gl_all_enum_map[tag['name']]
+      REXML::XPath.each(feature_tag, 'require/enum') do |tag|
+        gl_std_enum_map[tag.attribute('name').value] = gl_all_enum_map[tag.attribute('name').value]
       end
 
     end

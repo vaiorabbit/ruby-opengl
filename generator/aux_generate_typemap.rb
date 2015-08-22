@@ -13,7 +13,7 @@
 #     'GLint' => 'Fiddle::TYPE_INT',
 # $
 
-require 'nokogiri'
+require 'rexml/document'
 require 'fiddle'
 
 CToFiddleTypeMap = {
@@ -81,29 +81,30 @@ GLToFiddleTypeMap = {
 GLTypeMapEntry = Struct.new( :def_name, :ctype_name )
 gl_type_map = []
 
-doc = Nokogiri::XML(open("./gl.xml"))
+doc = REXML::Document.new(open("./gl.xml"))
 
-doc.xpath('registry/types/type').each do |type_tag|
+REXML::XPath.each(doc, 'registry/types/type') do |type_tag|
   # Skip stddef/khrplatform/inttypes to process actual GL types
-  name_attr = type_tag['name']
-  next if name_attr == 'stddef' || name_attr == 'khrplatform' || name_attr == 'inttypes'
+  name_attr = type_tag.attribute('name')
+  next if name_attr != nil && (name_attr.value == 'stddef' || name_attr.value == 'khrplatform' || name_attr.value == 'inttypes')
 
   # Skip ES1/2 types
-  api_attr = type_tag['api']
+  api_attr = type_tag.attribute('api')
   if api_attr != nil
-    next if api_attr == 'gles1' || api_attr == 'gles2'
+    next if api_attr.value == 'gles1' || api_attr.value == 'gles2'
   end
 
   # Analyze the content of <type>...</type>
   content = type_tag.text
-  name_tag = type_tag.at('name')
+  name_tag = type_tag.get_elements('name').first
+
   if name_tag != nil
     # ex.) <type>typedef float <name>GLfloat</name>;</type>
     def_name = name_tag.text.strip # ex.) def_name <- GLfloat
     ctype_name = content.chomp(def_name + ';').sub('typedef ','').strip # ex.) ctype_name <- float
   else
     # The actual type of 'GLhandleARB' should be changed depending on your platform (#ifdef __APPLE__, ...)
-    def_name = name_attr
+    def_name = name_attr.value
     ctype_name = "Needs tweaking by hand..."
   end
 

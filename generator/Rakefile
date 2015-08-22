@@ -86,4 +86,3 @@ end
 file './gl.xml' do
   get_gl_xml()
 end
-

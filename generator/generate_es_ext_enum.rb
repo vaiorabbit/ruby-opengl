@@ -13,33 +13,33 @@
 #   end # define_enum_GL_3DFX_multisample
 # $
 
-require 'nokogiri'
+require 'rexml/document'
 
 def generate_es_ext_enum( out )
-  doc = Nokogiri::XML(open("./gl.xml"))
+  doc = REXML::Document.new(open("./gl.xml"))
 
   # Collect all enum
   gl_all_enum_map = {}
-  doc.xpath('registry/enums/enum').each do |enum_tag|
+  REXML::XPath.each(doc, 'registry/enums/enum') do |enum_tag|
     # # check alias
     # alias_attr = enum_tag['alias']
     # next if alias_attr != nil
 
-    gl_all_enum_map[enum_tag['name']] = enum_tag['value']
+    gl_all_enum_map[enum_tag.attribute('name').value] = enum_tag.attribute('value').value
   end
 
   # Extract enum
   gl_ext_name_to_enums_map = {}
-  doc.xpath('registry/extensions/extension').each do |extension_tag|
-    if extension_tag['supported'].split('|').include?( 'gles2' ) # ignoring "gles1", "glcore", etc.
+  REXML::XPath.each(doc, 'registry/extensions/extension') do |extension_tag|
+    if extension_tag.attribute('supported').value.split('|').include?( 'gles2' ) # ignoring "gles1", "glcore", etc.
 
       # Extension name (GL_NV_fence, etc.)
-      ext_name =  extension_tag['name']
+      ext_name =  extension_tag.attribute('name').value
 
       # Extension enums (GL_FENCE_STATUS_NV, etc.)
       ext_enum_map = {}
-      extension_tag.xpath('require/enum').each do |tag|
-        ext_enum_map[tag['name']] = gl_all_enum_map[tag['name']]
+      REXML::XPath.each(extension_tag, 'require/enum') do |tag|
+        ext_enum_map[tag.attribute('name').value] = gl_all_enum_map[tag.attribute('name').value]
       end
 
       # Create mapping table ("GL_NV_fence" => {"GL_FENCE_STATUS_NV" => 0x84F3}, etc.)

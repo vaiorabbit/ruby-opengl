@@ -13,18 +13,18 @@
 #   def define_command_GL_3DFX_tbuffer
 # $
 
-require 'nokogiri'
+require 'rexml/document'
 require_relative 'aux_typemap'
 
 GLESExtCommandMapEntry = Struct.new( :api_name, :ret_name, :type_names, :var_names )
 
 def generate_es_ext_command( out )
 
-  doc = Nokogiri::XML(open("./gl.xml"))
+  doc = REXML::Document.new(open("./gl.xml"))
 
   # Collect all command
   gl_all_cmd_map = {}
-  doc.xpath('registry/commands/command').each do |cmd_tag|
+  REXML::XPath.each(doc,'registry/commands/command') do |cmd_tag|
 
     # For extension parsing, aliases should be collected.
     # ex.) glBlendFuncIndexedAMD (alias of glBlendFunci), etc.
@@ -33,19 +33,49 @@ def generate_es_ext_command( out )
 
     map_entry = GLESExtCommandMapEntry.new
 
-    proto_tag = cmd_tag.at('proto')
-    map_entry.api_name = proto_tag.at('name').text
-    map_entry.ret_name = proto_tag.text.chomp(map_entry.api_name).strip
+    proto_tag = cmd_tag.get_elements('proto').first
+
+    # Patterns of contents insice '<proto>...</proto>'
+    # * void <name>glBegin</name>
+    # * <ptype>GLboolean</ptype> <name>glIsEnabled</name>
+    # * const <ptype>GLubyte</ptype> *<name>glGetStringi</name>
+
+    map_entry.api_name = proto_tag.get_elements('name').first.text
+    proto_ptype = proto_tag.get_elements('ptype').first
+    proto_residue = proto_tag.texts.join(" ")
+    if proto_residue =~ /const/
+      proto_residue.slice!("const")
+      proto_residue.strip!
+    end
+    map_entry.ret_name = if proto_ptype != nil
+                           proto_ptype.text.strip
+                         else
+                           proto_tag.text.strip
+                         end
+    map_entry.ret_name << ' *' if proto_residue =~ /\*/
+
+    # Patterns of contents inside '<param>...</param>':
+    # * <ptype>GLenum</ptype> <name>mode</name> (glBegin)
+    # * <ptype>GLuint</ptype> <name>baseAndCount</name>[2] (glPathGlyphIndexRangeNV)
+    # * <ptype>GLfloat</ptype> *<name>data</name> (glGetFloatv) : param_tag.texts == [" *"]
+    # * const <ptype>GLfloat</ptype> *<name>params</name> (glMaterialfv) : param_tag.texts == ["const ", " *"]
+    # * const void *<name>data</name> (glBufferData) : param_tag.texts == ["const void *"]
     map_entry.type_names = []
     map_entry.var_names = []
-    cmd_tag.xpath('param').each do |param_tag|
-      content = param_tag.text
-      var_name = param_tag.at('name').text.strip
-      type_name = content.chomp(var_name).strip
-      if type_name =~ /const/
-        type_name.slice!("const")
-        type_name.strip!
+    REXML::XPath.each(cmd_tag, 'param') do |param_tag|
+      var_name = param_tag.get_elements('name').first.text.strip
+      param_ptype = param_tag.get_elements('ptype').first
+      param_residue = param_tag.texts.join(" ")
+      if param_residue =~ /const/
+        param_residue.slice!("const")
+        param_residue.strip!
       end
+      type_name = if param_ptype != nil
+                    param_ptype.text.strip
+                  else
+                    param_tag.text.strip
+                  end
+      type_name << ' *' if param_residue =~ /\*/ || param_residue =~/\[.+\]/
       map_entry.type_names << type_name
       map_entry.var_names << var_name
     end
@@ -55,16 +85,16 @@ def generate_es_ext_command( out )
 
   # Extract standard command
   gl_ext_name_to_commands_map = {}
-  doc.xpath('registry/extensions/extension').each do |extension_tag|
-    if extension_tag['supported'].split('|').include?( 'gles2' ) # ignoring "gles1", "glcore", etc.
+  REXML::XPath.each(doc, 'registry/extensions/extension') do |extension_tag|
+    if extension_tag.attribute('supported').value.split('|').include?( 'gles2' ) # ignoring "gles1", "glcore", etc.
 
       # Extension name (GL_NV_fence, etc.)
-      ext_name =  extension_tag['name']
+      ext_name =  extension_tag.attribute('name').value
 
       # Extension commands (glGenFencesNV, etc.)
       ext_command_map = {}
-      extension_tag.xpath('require/command').each do |tag|
-        ext_command_map[tag['name']] = gl_all_cmd_map[tag['name']]
+      REXML::XPath.each(extension_tag, 'require/command') do |tag|
+        ext_command_map[tag.attribute('name').value] = gl_all_cmd_map[tag.attribute('name').value]
       end
 
       # Create mapping table ("GL_NV_fence" => {"glGenFencesNV" => ...}, etc.)

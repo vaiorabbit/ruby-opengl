@@ -13,37 +13,67 @@
 #     f = OpenGL::get_command(:glCullFace)
 # $
 
-require 'nokogiri'
+require 'rexml/document'
 require_relative 'aux_typemap'
 
 GLCommandMapEntry = Struct.new( :api_name, :ret_name, :type_names, :var_names )
 
 def generate_command( out )
 
-  doc = Nokogiri::XML(open("./gl.xml"))
+  doc = REXML::Document.new(open("./gl.xml"))
 
   # Collect all command
   gl_all_cmd_map = {}
-  doc.xpath('registry/commands/command').each do |cmd_tag|
+  REXML::XPath.each(doc,'registry/commands/command') do |cmd_tag|
     # check alias
-    alias_tag = cmd_tag.at('alias')
-    next if alias_tag != nil # skips glActiveTextureARB (alias of glActiveTexture), etc.
+    alias_tag = cmd_tag.get_elements('alias')
+    next if alias_tag.length != 0 # skips glActiveTextureARB (alias of glActiveTexture), etc.
 
     map_entry = GLCommandMapEntry.new
 
-    proto_tag = cmd_tag.at('proto')
-    map_entry.api_name = proto_tag.at('name').text
-    map_entry.ret_name = proto_tag.text.chomp(map_entry.api_name).strip
+    proto_tag = cmd_tag.get_elements('proto').first
+
+    # Patterns of contents insice '<proto>...</proto>'
+    # * void <name>glBegin</name>
+    # * <ptype>GLboolean</ptype> <name>glIsEnabled</name>
+    # * const <ptype>GLubyte</ptype> *<name>glGetStringi</name>
+
+    map_entry.api_name = proto_tag.get_elements('name').first.text
+    proto_ptype = proto_tag.get_elements('ptype').first
+    proto_residue = proto_tag.texts.join(" ")
+    if proto_residue =~ /const/
+      proto_residue.slice!("const")
+      proto_residue.strip!
+    end
+    map_entry.ret_name = if proto_ptype != nil
+                           proto_ptype.text.strip
+                         else
+                           proto_tag.text.strip
+                         end
+    map_entry.ret_name << ' *' if proto_residue =~ /\*/
+
+    # Patterns of contents inside '<param>...</param>':
+    # * <ptype>GLenum</ptype> <name>mode</name> (glBegin)
+    # * <ptype>GLuint</ptype> <name>baseAndCount</name>[2] (glPathGlyphIndexRangeNV)
+    # * <ptype>GLfloat</ptype> *<name>data</name> (glGetFloatv) : param_tag.texts == [" *"]
+    # * const <ptype>GLfloat</ptype> *<name>params</name> (glMaterialfv) : param_tag.texts == ["const ", " *"]
+    # * const void *<name>data</name> (glBufferData) : param_tag.texts == ["const void *"]
     map_entry.type_names = []
     map_entry.var_names = []
-    cmd_tag.xpath('param').each do |param_tag|
-      content = param_tag.text
-      var_name = param_tag.at('name').text.strip
-      type_name = content.chomp(var_name).strip
-      if type_name =~ /const/
-        type_name.slice!("const")
-        type_name.strip!
+    REXML::XPath.each(cmd_tag, 'param') do |param_tag|
+      var_name = param_tag.get_elements('name').first.text.strip
+      param_ptype = param_tag.get_elements('ptype').first
+      param_residue = param_tag.texts.join(" ")
+      if param_residue =~ /const/
+        param_residue.slice!("const")
+        param_residue.strip!
       end
+      type_name = if param_ptype != nil
+                    param_ptype.text.strip
+                  else
+                    param_tag.text.strip
+                  end
+      type_name << ' *' if param_residue =~ /\*/ || param_residue =~/\[.+\]/
       map_entry.type_names << type_name
       map_entry.var_names << var_name
     end
@@ -53,12 +83,12 @@ def generate_command( out )
 
   # Extract standard command
   gl_std_cmd_map = {}
-  doc.xpath('registry/feature').each do |feature_tag|
-    if "gl" == feature_tag['api']
+  REXML::XPath.each(doc, 'registry/feature') do |feature_tag|
+    if "gl" == feature_tag.attribute('api').value
 
       # OpenGL Standard enums
-      feature_tag.xpath('require/command').each do |tag|
-        gl_std_cmd_map[tag['name']] = gl_all_cmd_map[tag['name']]
+      REXML::XPath.each(feature_tag, 'require/command') do |tag|
+        gl_std_cmd_map[tag.attribute('name').value] = gl_all_cmd_map[tag.attribute('name').value]
       end
 
     end

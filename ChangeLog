@@ -1,3 +1,7 @@
+2015-08-22  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* generator: Eliminated the use of Nokogiri.
+
 2015-08-16  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* sample/report_env.rb: Now gives GLFW some window hints to create a more higher OpenGL level context available.

@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2015-08-16
+*   Last modified : 2015-08-22
 
 
 ## Features ##
@@ -98,16 +98,11 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
     *   http://freeglut.sourceforge.net
     *   http://freeglut.sourceforge.net/index.php#download
 
-### For generator ###
-
-*   nokogiri XML parser
-    *   http://nokogiri.org
-    *   http://nokogiri.org/tutorials/installing_nokogiri.html
-
 
 ## Tested Environment ##
 
 *   Ruby
+    *   ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin14]
     *   ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]
     *   ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-darwin14]
     *   ruby 2.2.1p85 (2015-02-26 revision 49769) [x86_64-darwin14]
@@ -131,6 +126,13 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 
                 $ ruby report_env.rb
                 2.1 NVIDIA-8.12.47 310.40.00.05f01
+
+*   Mac OS X 10.10.5, 64-bit
+    *   Intel Iris on Mac mini (Late 2014)
+        *   OpenGL 4.1
+
+                $ ruby report_env.rb
+                Version: 4.1 INTEL-10.6.33
 
 *   Arch Linux kernel 4.1.2-2-ARCH, Nvidia Driver, x86_64
     *   NVIDIA GeForce GTS 450
@@ -301,15 +303,12 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
     *   http://freeglut.sourceforge.net
     *   http://freeglut.sourceforge.net/index.php#download
 
-### 自動生成スクリプト用 ###
-
-*   nokogiri XML パーサー
-    *   http://nokogiri.org
-    *   http://nokogiri.org/tutorials/installing_nokogiri.html
 
 ## テストした環境 ##
 
 *   Ruby
+    *   ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin14]
+    *   ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]
     *   ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-darwin14]
     *   ruby 2.2.1p85 (2015-02-26 revision 49769) [x86_64-darwin14]
     *   ruby 2.2.0p0 (2014-12-25 revision 49005) [x86_64-darwin14]
@@ -318,7 +317,6 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
     *   ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin12.0]
     *   ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin13.0.0]
     *   ruby 2.0.0p247 (2013-06-27) [i386-mingw32]
-    *   ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]
 
 *   Windows 7 Home Premium, 64-bit (Service Pack 1)
     *   NVIDIA GeForce GTX 560
@@ -333,6 +331,13 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 
                 $ ruby report_env.rb
                 2.1 NVIDIA-8.12.47 310.40.00.05f01
+
+*   Mac OS X 10.10.5, 64-bit
+    *   Intel Iris on Mac mini (Late 2014)
+        *   OpenGL 4.1
+
+                $ ruby report_env.rb
+                Version: 4.1 INTEL-10.6.33
 
 *   Arch Linux kernel 4.1.2-2-ARCH, Nvidia Driver, x86_64
     *   NVIDIA GeForce GTS 450
