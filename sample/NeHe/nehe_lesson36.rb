@@ -19,6 +19,11 @@ def emptyTexture
   return txtnumber # Return The Texture ID
 end
 
+$helix_v = nil
+$helix_n = nil
+$helix_v_packed = nil
+$helix_n_packed = nil
+
 def init
   global_ambient = [0.2, 0.2, 0.2, 1.0] # Set Ambient Lighting To Fairly Dark Light (No Color)
   light0pos = [0.0, 5.0, 10.0, 1.0] # Set The Light Position
@@ -34,9 +39,11 @@ def init
   
   $blurTexture = emptyTexture() # Create Our Empty Texture
 
-  $helix_v,$helix_n = createHelix()
-  glVertexPointer(3,GL_FLOAT,0,$helix_v.flatten.pack("f*"))
-  glNormalPointer(GL_FLOAT,0,$helix_n.flatten.pack("f*"))
+  $helix_v, $helix_n = createHelix()
+  $helix_v_packed = $helix_v.flatten.pack("F*")
+  $helix_n_packed = $helix_n.flatten.pack("F*")
+  glVertexPointer(3,GL_FLOAT,0, $helix_v_packed)
+  glNormalPointer(GL_FLOAT,0,$helix_n_packed)
 
   glLoadIdentity() # Reset The Modelview Matrix
 
@@ -176,7 +183,7 @@ def createHelix() # creates helix VA
       helix_n << normal << normal << normal << normal
     end
   end
-  [helix_v,helix_n]
+  return [helix_v,helix_n]
 end
 
 glfMaterialColor = nil
@@ -199,7 +206,7 @@ def processHelix() # Draws A Helix
 
   glEnableClientState(GL_VERTEX_ARRAY)
   glEnableClientState(GL_NORMAL_ARRAY)
-  glDrawArrays(GL_QUADS,0,$helix_v.size)
+  glDrawArrays(GL_QUADS,0,$helix_v.length)
   glDisableClientState(GL_VERTEX_ARRAY)
   glDisableClientState(GL_NORMAL_ARRAY)
 

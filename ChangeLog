@@ -1,3 +1,7 @@
+2015-08-27  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* sample/NeHe/nehe_lesson36.rb : Fixed random abort on Mac OS X.
+
 2015-08-22  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* generator: Eliminated the use of Nokogiri.
