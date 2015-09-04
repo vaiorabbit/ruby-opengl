@@ -368,6 +368,44 @@ module OpenGL
     SRC_GL_EXT_base_instance
   end # define_ext_command_GL_EXT_base_instance
 
+  def define_ext_command_GL_EXT_blend_func_extended
+    GL_FUNCTIONS_ARGS_MAP[:glBindFragDataLocationIndexedEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glBindFragDataLocationIndexedEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_blend_func_extended)
+      def glBindFragDataLocationIndexedEXT(_program_, _colorNumber_, _index_, _name_)
+        f = OpenGL::get_command(:glBindFragDataLocationIndexedEXT)
+        f.call(_program_, _colorNumber_, _index_, _name_)
+      end
+    SRC_GL_EXT_blend_func_extended
+
+    GL_FUNCTIONS_ARGS_MAP[:glBindFragDataLocationEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glBindFragDataLocationEXT] = Fiddle::TYPE_VOID
+    module_eval(<<-SRC_GL_EXT_blend_func_extended)
+      def glBindFragDataLocationEXT(_program_, _color_, _name_)
+        f = OpenGL::get_command(:glBindFragDataLocationEXT)
+        f.call(_program_, _color_, _name_)
+      end
+    SRC_GL_EXT_blend_func_extended
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceLocationIndexEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetProgramResourceLocationIndexEXT] = Fiddle::TYPE_INT
+    module_eval(<<-SRC_GL_EXT_blend_func_extended)
+      def glGetProgramResourceLocationIndexEXT(_program_, _programInterface_, _name_)
+        f = OpenGL::get_command(:glGetProgramResourceLocationIndexEXT)
+        f.call(_program_, _programInterface_, _name_)
+      end
+    SRC_GL_EXT_blend_func_extended
+
+    GL_FUNCTIONS_ARGS_MAP[:glGetFragDataIndexEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL_FUNCTIONS_RETVAL_MAP[:glGetFragDataIndexEXT] = Fiddle::TYPE_INT
+    module_eval(<<-SRC_GL_EXT_blend_func_extended)
+      def glGetFragDataIndexEXT(_program_, _name_)
+        f = OpenGL::get_command(:glGetFragDataIndexEXT)
+        f.call(_program_, _name_)
+      end
+    SRC_GL_EXT_blend_func_extended
+  end # define_ext_command_GL_EXT_blend_func_extended
+
   def define_ext_command_GL_EXT_blend_minmax
     GL_FUNCTIONS_ARGS_MAP[:glBlendEquationEXT] = [-Fiddle::TYPE_INT]
     GL_FUNCTIONS_RETVAL_MAP[:glBlendEquationEXT] = Fiddle::TYPE_VOID
@@ -819,6 +857,9 @@ module OpenGL
       end
     SRC_GL_EXT_multi_draw_indirect
   end # define_ext_command_GL_EXT_multi_draw_indirect
+
+  def define_ext_command_GL_EXT_multisampled_compatibility
+  end # define_ext_command_GL_EXT_multisampled_compatibility
 
   def define_ext_command_GL_EXT_multisampled_render_to_texture
     GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
@@ -1459,11 +1500,11 @@ module OpenGL
   end # define_ext_command_GL_EXT_shadow_samplers
 
   def define_ext_command_GL_EXT_sparse_texture
-    GL_FUNCTIONS_ARGS_MAP[:glTexPageCommitmentARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
-    GL_FUNCTIONS_RETVAL_MAP[:glTexPageCommitmentARB] = Fiddle::TYPE_VOID
+    GL_FUNCTIONS_ARGS_MAP[:glTexPageCommitmentEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
+    GL_FUNCTIONS_RETVAL_MAP[:glTexPageCommitmentEXT] = Fiddle::TYPE_VOID
     module_eval(<<-SRC_GL_EXT_sparse_texture)
-      def glTexPageCommitmentARB(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _commit_)
-        f = OpenGL::get_command(:glTexPageCommitmentARB)
+      def glTexPageCommitmentEXT(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _commit_)
+        f = OpenGL::get_command(:glTexPageCommitmentEXT)
         f.call(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _commit_)
       end
     SRC_GL_EXT_sparse_texture

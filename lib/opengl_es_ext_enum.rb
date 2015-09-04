@@ -196,6 +196,16 @@ module OpenGL
   def define_ext_enum_GL_EXT_base_instance
   end # define_ext_enum_GL_EXT_base_instance
 
+  def define_ext_enum_GL_EXT_blend_func_extended
+    const_set('GL_SRC1_COLOR_EXT', 0x88F9) unless defined?(GL_SRC1_COLOR_EXT)
+    const_set('GL_SRC1_ALPHA_EXT', 0x8589) unless defined?(GL_SRC1_ALPHA_EXT)
+    const_set('GL_ONE_MINUS_SRC1_COLOR_EXT', 0x88FA) unless defined?(GL_ONE_MINUS_SRC1_COLOR_EXT)
+    const_set('GL_ONE_MINUS_SRC1_ALPHA_EXT', 0x88FB) unless defined?(GL_ONE_MINUS_SRC1_ALPHA_EXT)
+    const_set('GL_SRC_ALPHA_SATURATE_EXT', 0x0308) unless defined?(GL_SRC_ALPHA_SATURATE_EXT)
+    const_set('GL_LOCATION_INDEX_EXT', 0x930F) unless defined?(GL_LOCATION_INDEX_EXT)
+    const_set('GL_MAX_DUAL_SOURCE_DRAW_BUFFERS_EXT', 0x88FC) unless defined?(GL_MAX_DUAL_SOURCE_DRAW_BUFFERS_EXT)
+  end # define_ext_enum_GL_EXT_blend_func_extended
+
   def define_ext_enum_GL_EXT_blend_minmax
     const_set('GL_MIN_EXT', 0x8007) unless defined?(GL_MIN_EXT)
     const_set('GL_MAX_EXT', 0x8008) unless defined?(GL_MAX_EXT)
@@ -397,6 +407,11 @@ module OpenGL
 
   def define_ext_enum_GL_EXT_multi_draw_indirect
   end # define_ext_enum_GL_EXT_multi_draw_indirect
+
+  def define_ext_enum_GL_EXT_multisampled_compatibility
+    const_set('GL_MULTISAMPLE_EXT', 0x809D) unless defined?(GL_MULTISAMPLE_EXT)
+    const_set('GL_SAMPLE_ALPHA_TO_ONE_EXT', 0x809F) unless defined?(GL_SAMPLE_ALPHA_TO_ONE_EXT)
+  end # define_ext_enum_GL_EXT_multisampled_compatibility
 
   def define_ext_enum_GL_EXT_multisampled_render_to_texture
     const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT', 0x8D6C) unless defined?(GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT)
