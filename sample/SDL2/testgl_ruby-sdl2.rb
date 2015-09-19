@@ -1,6 +1,19 @@
 # testgl.rb (ruby-sdl2 version : https://github.com/ohai/ruby-sdl2)
 # Ref.: /ruby-sdl2-0.2.0/sample/testgl.rb
-require '../util/setup_dll'
+
+require 'opengl'
+include OpenGL
+case OpenGL.get_platform
+when :OPENGL_PLATFORM_WINDOWS
+  OpenGL.load_lib('opengl32.dll', 'C:/Windows/System32')
+when :OPENGL_PLATFORM_MACOSX
+  OpenGL.load_lib('libGL.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries')
+when :OPENGL_PLATFORM_LINUX
+  OpenGL.load_lib()
+else
+  raise RuntimeError, "Unsupported platform."
+end
+
 require 'sdl2'
 
 WINDOW_W = 640
