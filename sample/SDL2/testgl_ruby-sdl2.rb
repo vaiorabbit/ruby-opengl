@@ -36,24 +36,24 @@ glDepthFunc(GL_LESS)
 glShadeModel(GL_SMOOTH)
 
 color =
-  [[ 1.0,  1.0,  0.0], 
-   [ 1.0,  0.0,  0.0],
-   [ 0.0,  0.0,  0.0],
-   [ 0.0,  1.0,  0.0],
-   [ 0.0,  1.0,  1.0],
-   [ 1.0,  1.0,  1.0],
-   [ 1.0,  0.0,  1.0],
-   [ 0.0,  0.0,  1.0]]
+  [[ 1.0,  1.0,  0.0].pack("D3"), 
+   [ 1.0,  0.0,  0.0].pack("D3"),
+   [ 0.0,  0.0,  0.0].pack("D3"),
+   [ 0.0,  1.0,  0.0].pack("D3"),
+   [ 0.0,  1.0,  1.0].pack("D3"),
+   [ 1.0,  1.0,  1.0].pack("D3"),
+   [ 1.0,  0.0,  1.0].pack("D3"),
+   [ 0.0,  0.0,  1.0].pack("D3")]
 
 cube =
-  [[ 0.5,  0.5, -0.5], 
-   [ 0.5, -0.5, -0.5],
-   [-0.5, -0.5, -0.5],
-   [-0.5,  0.5, -0.5],
-   [-0.5,  0.5,  0.5],
-   [ 0.5,  0.5,  0.5],
-   [ 0.5, -0.5,  0.5],
-   [-0.5, -0.5,  0.5]]
+  [[ 0.5,  0.5, -0.5].pack("D3"), 
+   [ 0.5, -0.5, -0.5].pack("D3"),
+   [-0.5, -0.5, -0.5].pack("D3"),
+   [-0.5,  0.5, -0.5].pack("D3"),
+   [-0.5,  0.5,  0.5].pack("D3"),
+   [ 0.5,  0.5,  0.5].pack("D3"),
+   [ 0.5, -0.5,  0.5].pack("D3"),
+   [-0.5, -0.5,  0.5].pack("D3")]
 
 
 loop do
@@ -72,96 +72,96 @@ loop do
   glBegin(GL_QUADS) 
 
   if shadedCube then
-    glColor3dv(color[0].pack("D3"))
-    glVertex3dv(cube[0].pack("D3"))
-    glColor3dv(color[1].pack("D3"))
-    glVertex3dv(cube[1].pack("D3"))
-    glColor3dv(color[2].pack("D3"))
-    glVertex3dv(cube[2].pack("D3"))
-    glColor3dv(color[3].pack("D3"))
-    glVertex3dv(cube[3].pack("D3"))
+    glColor3dv(color[0])
+    glVertex3dv(cube[0])
+    glColor3dv(color[1])
+    glVertex3dv(cube[1])
+    glColor3dv(color[2])
+    glVertex3dv(cube[2])
+    glColor3dv(color[3])
+    glVertex3dv(cube[3])
     
-    glColor3dv(color[3].pack("D3"))
-    glVertex3dv(cube[3].pack("D3"))
-    glColor3dv(color[4].pack("D3"))
-    glVertex3dv(cube[4].pack("D3"))
-    glColor3dv(color[7].pack("D3"))
-    glVertex3dv(cube[7].pack("D3"))
-    glColor3dv(color[2].pack("D3"))
-    glVertex3dv(cube[2].pack("D3"))
+    glColor3dv(color[3])
+    glVertex3dv(cube[3])
+    glColor3dv(color[4])
+    glVertex3dv(cube[4])
+    glColor3dv(color[7])
+    glVertex3dv(cube[7])
+    glColor3dv(color[2])
+    glVertex3dv(cube[2])
     
-    glColor3dv(color[0].pack("D3"))
-    glVertex3dv(cube[0].pack("D3"))
-    glColor3dv(color[5].pack("D3"))
-    glVertex3dv(cube[5].pack("D3"))
-    glColor3dv(color[6].pack("D3"))
-    glVertex3dv(cube[6].pack("D3"))
-    glColor3dv(color[1].pack("D3"))
-    glVertex3dv(cube[1].pack("D3"))
+    glColor3dv(color[0])
+    glVertex3dv(cube[0])
+    glColor3dv(color[5])
+    glVertex3dv(cube[5])
+    glColor3dv(color[6])
+    glVertex3dv(cube[6])
+    glColor3dv(color[1])
+    glVertex3dv(cube[1])
     
-    glColor3dv(color[5].pack("D3"))
-    glVertex3dv(cube[5].pack("D3"))
-    glColor3dv(color[4].pack("D3"))
-    glVertex3dv(cube[4].pack("D3"))
-    glColor3dv(color[7].pack("D3"))
-    glVertex3dv(cube[7].pack("D3"))
-    glColor3dv(color[6].pack("D3"))
-    glVertex3dv(cube[6].pack("D3"))
+    glColor3dv(color[5])
+    glVertex3dv(cube[5])
+    glColor3dv(color[4])
+    glVertex3dv(cube[4])
+    glColor3dv(color[7])
+    glVertex3dv(cube[7])
+    glColor3dv(color[6])
+    glVertex3dv(cube[6])
     
-    glColor3dv(color[5].pack("D3"))
-    glVertex3dv(cube[5].pack("D3"))
-    glColor3dv(color[0].pack("D3"))
-    glVertex3dv(cube[0].pack("D3"))
-    glColor3dv(color[3].pack("D3"))
-    glVertex3dv(cube[3].pack("D3"))
-    glColor3dv(color[4].pack("D3"))
-    glVertex3dv(cube[4].pack("D3"))
+    glColor3dv(color[5])
+    glVertex3dv(cube[5])
+    glColor3dv(color[0])
+    glVertex3dv(cube[0])
+    glColor3dv(color[3])
+    glVertex3dv(cube[3])
+    glColor3dv(color[4])
+    glVertex3dv(cube[4])
     
-    glColor3dv(color[6].pack("D3"))
-    glVertex3dv(cube[6].pack("D3"))
-    glColor3dv(color[1].pack("D3"))
-    glVertex3dv(cube[1].pack("D3"))
-    glColor3dv(color[2].pack("D3"))
-    glVertex3dv(cube[2].pack("D3"))
-    glColor3dv(color[7].pack("D3"))
-    glVertex3dv(cube[7].pack("D3"))
+    glColor3dv(color[6])
+    glVertex3dv(cube[6])
+    glColor3dv(color[1])
+    glVertex3dv(cube[1])
+    glColor3dv(color[2])
+    glVertex3dv(cube[2])
+    glColor3dv(color[7])
+    glVertex3dv(cube[7])
     
   else
     glColor3d(1.0, 0.0, 0.0)
-    glVertex3dv(cube[0].pack("D3"))
-    glVertex3dv(cube[1].pack("D3"))
-    glVertex3dv(cube[2].pack("D3"))
-    glVertex3dv(cube[3].pack("D3"))
+    glVertex3dv(cube[0])
+    glVertex3dv(cube[1])
+    glVertex3dv(cube[2])
+    glVertex3dv(cube[3])
     
     glColor3d(0.0, 1.0, 0.0)
-    glVertex3dv(cube[3].pack("D3"))
-    glVertex3dv(cube[4].pack("D3"))
-    glVertex3dv(cube[7].pack("D3"))
-    glVertex3dv(cube[2].pack("D3"))
+    glVertex3dv(cube[3])
+    glVertex3dv(cube[4])
+    glVertex3dv(cube[7])
+    glVertex3dv(cube[2])
     
     glColor3d(0.0, 0.0, 1.0)
-    glVertex3dv(cube[0].pack("D3"))
-    glVertex3dv(cube[5].pack("D3"))
-    glVertex3dv(cube[6].pack("D3"))
-    glVertex3dv(cube[1].pack("D3"))
+    glVertex3dv(cube[0])
+    glVertex3dv(cube[5])
+    glVertex3dv(cube[6])
+    glVertex3dv(cube[1])
     
     glColor3d(0.0, 1.0, 1.0)
-    glVertex3dv(cube[5].pack("D3"))
-    glVertex3dv(cube[4].pack("D3"))
-    glVertex3dv(cube[7].pack("D3"))
-    glVertex3dv(cube[6].pack("D3"))
+    glVertex3dv(cube[5])
+    glVertex3dv(cube[4])
+    glVertex3dv(cube[7])
+    glVertex3dv(cube[6])
     
     glColor3d(1.0, 1.0, 0.0)
-    glVertex3dv(cube[5].pack("D3"))
-    glVertex3dv(cube[0].pack("D3"))
-    glVertex3dv(cube[3].pack("D3"))
-    glVertex3dv(cube[4].pack("D3"))
+    glVertex3dv(cube[5])
+    glVertex3dv(cube[0])
+    glVertex3dv(cube[3])
+    glVertex3dv(cube[4])
     
     glColor3d(1.0, 0.0, 1.0)
-    glVertex3dv(cube[6].pack("D3"))
-    glVertex3dv(cube[1].pack("D3"))
-    glVertex3dv(cube[2].pack("D3"))
-    glVertex3dv(cube[7].pack("D3"))
+    glVertex3dv(cube[6])
+    glVertex3dv(cube[1])
+    glVertex3dv(cube[2])
+    glVertex3dv(cube[7])
     
   end
 
