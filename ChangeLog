@@ -1,3 +1,7 @@
+2015-09-19  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* sample/SDL2/testgl_ruby-sdl2.rb: Added.
+
 2015-09-04  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.
