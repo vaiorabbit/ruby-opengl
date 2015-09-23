@@ -1,3 +1,10 @@
+2015-09-23  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* Extension setup routines are divided into the module OpenGLExt.
+	* lib/opengl_ext_common.rb (get_extension_enum_symbols, get_extension_command_symbols): Return array of enum/method symbols. Now you can know what symbols will be appended in the OpenGL module before setting up extensions.
+	* lib/opengl_ext_common.rb (setup_extension): Added new argument 'skip_check'. You can skip availability check by setting true to 'skip_check'.
+	* sample/NamespaceMigration/namespace_gl.rb, etc.: Demonstrates how to modify OpenGL prefix into that of ruby-opengl1/2.
+
 2015-09-19  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* sample/SDL2/testgl_ruby-sdl2.rb: Added.
