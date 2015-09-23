@@ -111,10 +111,11 @@ def generate_es_ext_command( out )
   out.puts ""
   out.puts "require 'fiddle'"
   out.puts ""
-  out.puts "module OpenGL"
+  out.puts "module OpenGLExt"
   out.puts ""
   gl_ext_name_to_commands_map.each_pair do |ext_name, ext_commands|
-    out.puts "  def define_ext_command_#{ext_name}"
+    # def self.define_ext_command_XXXX; ... ;end
+    out.puts "  def self.define_ext_command_#{ext_name}"
 
     commands_count = ext_commands.size
     command_index = 0
@@ -134,13 +135,13 @@ def generate_es_ext_command( out )
         end
         arg_names << ((is_ptr || is_array) ? 'Fiddle::TYPE_VOIDP' : resolved_gl_type)
       end
-      out.print "    GL_FUNCTIONS_ARGS_MAP[:#{api}] = ["
+      out.print "    OpenGL::GL_FUNCTIONS_ARGS_MAP[:#{api}] = ["
       arg_names.each_with_index do |a, i| out.printf "#{a}%s", (i < arg_names.length-1 ? ", " : "") end
       out.puts "]"
 
       # Return value
       is_ptr = map_entry.ret_name.end_with?( '*' )
-      out.puts "    GL_FUNCTIONS_RETVAL_MAP[:#{api}] = #{is_ptr ? 'Fiddle::TYPE_VOIDP' : OpenGL::GL_TYPE_MAP[map_entry.ret_name]}"
+      out.puts "    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:#{api}] = #{is_ptr ? 'Fiddle::TYPE_VOIDP' : OpenGL::GL_TYPE_MAP[map_entry.ret_name]}"
 
       # API entry
 
@@ -148,7 +149,7 @@ def generate_es_ext_command( out )
       # ex.) glDrawRangeElements(mode, start, end, count, type, indices) <- 'end' is Ruby's reserved keyword.
       vars = map_entry.var_names.collect{|v| '_'+v+'_'}.join(", ")
 
-      out.puts "    module_eval(<<-SRC_#{ext_name})"
+      out.puts "    OpenGL.module_eval(<<-SRC_#{ext_name})"
       out.puts "      def #{api}(#{vars})"
       out.puts "        f = OpenGL::get_command(:#{api})"
       out.puts "        f.call(#{vars})"
@@ -157,8 +158,18 @@ def generate_es_ext_command( out )
       out.puts "" if (command_index + 1) != commands_count
       command_index += 1
     end
-    out.puts "  end # define_ext_command_#{ext_name}"
+    out.puts "  end # self.define_ext_command_#{ext_name}"
     out.puts ""
+
+    # def self.get_ext_command_XXXX; ... ;end
+    out.puts "  def self.get_ext_command_#{ext_name}"
+    out.puts "    ["
+    ext_commands.each_pair do |api, map_entry|
+    out.puts "      '#{api}',"
+    end
+    out.puts "    ]"
+    out.puts "  end # self.get_ext_command_#{ext_name}"
+    out.puts "\n\n"
   end
   out.puts "end"
 

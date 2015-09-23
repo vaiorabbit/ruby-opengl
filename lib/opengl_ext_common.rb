@@ -18,21 +18,31 @@ module OpenGL
     end
   end
 
-  def self.setup_extension( ext_name )
-    if self.check_extension( ext_name )
+  def self.setup_extension( ext_name, skip_check: false )
+    if skip_check || self.check_extension( ext_name )
       define_ext_enum = "define_ext_enum_#{ext_name}".to_sym
       define_ext_command = "define_ext_command_#{ext_name}".to_sym
-      self.send( define_ext_enum )
-      self.send( define_ext_command )
+      OpenGLExt.send( define_ext_enum )
+      OpenGLExt.send( define_ext_command )
     end
   end
 
-  def self.setup_extension_all()
+  def self.setup_extension_all( skip_check: false )
     self.methods.each do |method_name|
       if method_name =~ /define_ext_command_(.*)/
-        setup_extension( $1 )
+        setup_extension( $1, skip_check )
       end
     end
+  end
+
+  def self.get_extension_enum_symbols( ext_name )
+    get_ext_enum = "get_ext_enum_#{ext_name}".to_sym
+    OpenGLExt.send( get_ext_enum )
+  end
+
+  def self.get_extension_command_symbols( ext_name )
+    get_ext_command = "get_ext_command_#{ext_name}".to_sym
+    OpenGLExt.send( get_ext_command )
   end
 
 end

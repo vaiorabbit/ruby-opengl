@@ -55,14 +55,23 @@ def generate_ext_enum( out )
   out.puts "#"
   out.puts "# [NOTICE] This is an automatically generated file."
   out.puts ""
-  out.puts "module OpenGL"
+  out.puts "module OpenGLExt"
   out.puts ""
   gl_ext_name_to_enums_map.each_pair do |ext_name, ext_enums|
-    out.print "  def define_ext_enum_#{ext_name}\n"
+    # def self.define_ext_enum_XXXX; ... ;end
+    out.print "  def self.define_ext_enum_#{ext_name}\n"
     ext_enums.each do |enums|
-      out.puts "    const_set('#{enums[0]}', #{enums[1]}) unless defined?(#{enums[0]})"
+      out.puts "    OpenGL.const_set('#{enums[0]}', #{enums[1]}) unless defined?(OpenGL::#{enums[0]})"
     end
-    out.print "  end # define_ext_enum_#{ext_name}\n\n"
+    out.print "  end # self.define_ext_enum_#{ext_name}\n\n"
+    # def self.get_ext_enum_XXXX; ... ;end
+    out.print "  def self.get_ext_enum_#{ext_name}\n"
+    out.puts  "    ["
+    ext_enums.each do |enums|
+     out.puts "      '#{enums[0]}',"
+    end
+    out.puts  "    ]"
+    out.print "  end # self.get_ext_enum_#{ext_name}\n\n\n"
   end
   out.puts "end"
 end
