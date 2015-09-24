@@ -2,6 +2,7 @@
 
 	* sample/Extension/test_dds_texture.rb: Added.
 	* sample/NamespaceMigration/test_dds_texture.rb: Added.
+	* sample/SDL2/testgl_sdl2-bindings.rb: Added.
 
 2015-09-23  vaiorabbit  <http://twitter.com/vaiorabbit>
 
