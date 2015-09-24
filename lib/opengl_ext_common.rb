@@ -1,19 +1,23 @@
 module OpenGL
+
   def self.check_extension( ext_name )
-    version_number = glGetString(GL_VERSION).to_s.split(/\./)
+    glGetString = OpenGL.get_command(:glGetString) # [INTERNAL] Shortcut to get pointer without proper user setup.
+    version_number = glGetString.call(GL_VERSION).to_s.split(/\./)
     if version_number[0].to_i >= 3
       # glGetString(GL_EXTENSIONS) was deprecated in OpenGL 3.0
       # Ref.: http://sourceforge.net/p/glew/bugs/120/
+      glGetIntegerv = OpenGL.get_command(:glGetIntegerv)
+      glGetStringi = OpenGL.get_command(:glGetStringi)
       extensions_count_buf = '    '
-      glGetIntegerv( GL_NUM_EXTENSIONS, extensions_count_buf )
+      glGetIntegerv.call( GL_NUM_EXTENSIONS, extensions_count_buf )
       extensions_count = extensions_count_buf.unpack('L')[0]
       extensions_count.times do |i|
-        supported_ext_name = glGetStringi( GL_EXTENSIONS, i ).to_s
+        supported_ext_name = glGetStringi.call( GL_EXTENSIONS, i ).to_s
         return true if ext_name == supported_ext_name
       end
       return false
     else
-      ext_strings = glGetString(GL_EXTENSIONS).to_s.split(/ /)
+      ext_strings = glGetString.call(GL_EXTENSIONS).to_s.split(/ /)
       return ext_strings.include? ext_name
     end
   end
