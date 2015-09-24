@@ -1,3 +1,7 @@
+2015-09-24  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* sample/Extension/test_dds_texture.rb: Added.
+
 2015-09-23  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Extension setup routines are divided into the module OpenGLExt.
