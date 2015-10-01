@@ -26,7 +26,7 @@ typedef void (APIENTRY *DEBUGPROC)(GLenum source,
 cb_args = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
 cb_retval = Fiddle::TYPE_VOID
 
-$debug_log_callback = Fiddle::Closure::BlockCaller.new( cb_retval, cb_args, Fiddle::Function::STDCALL ) { |source, type, id, severity, length, message, userParam|
+$debug_log_callback = Fiddle::Closure::BlockCaller.new( cb_retval, cb_args, Fiddle::Function::DEFAULT) { |source, type, id, severity, length, message, userParam|
 #  p source, type, id, severity, length, message.to_s, userParam
   str_source = case source
                  when GL_DEBUG_SOURCE_API; "API"
@@ -101,8 +101,8 @@ if __FILE__ == $0
   end
 =end
 
-  width_ptr = '        '
-  height_ptr = '        '
+  width_ptr = ' ' * 8
+  height_ptr = ' ' * 8
   glfwGetFramebufferSize(window, width_ptr, height_ptr)
   width = width_ptr.unpack('L')[0]
   height = height_ptr.unpack('L')[0]

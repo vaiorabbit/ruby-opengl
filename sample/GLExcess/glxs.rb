@@ -140,8 +140,8 @@ class GLExcess
     glfwSetKeyCallback( @window, $key_callback )
     glfwSetWindowSizeCallback( @window, @size_callback )
 
-    width_ptr = '    '
-    height_ptr = '    '
+    width_ptr = ' ' * 4
+    height_ptr = ' ' * 4
     glfwGetFramebufferSize(@window, width_ptr, height_ptr)
     width = width_ptr.unpack('L')[0]
     height = height_ptr.unpack('L')[0]

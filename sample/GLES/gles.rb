@@ -38,7 +38,7 @@ end
 def setup_geometry
   points = [ -0.5, 0.0, 0.0, 1.0, 0.5, 0.0, 0.0, 1.0, 0.0, 0.5, 0.0, 1.0 ]
 
-  vbo_buf = '    '
+  vbo_buf = ' ' * 4
   glGenBuffers(1, vbo_buf)
   $g_vbo = vbo_buf.unpack('L')[0]
   glBindBuffer(GL_ARRAY_BUFFER, $g_vbo)
@@ -63,7 +63,7 @@ def setup_shader(vs_fname,fs_fname)
   glShaderSource(fs_handle, 1, fs_srcs, fs_lens)
 
   glCompileShader(vs_handle)
-  vertCompiled_buf = '    '
+  vertCompiled_buf = ' ' * 4
   glGetShaderiv(vs_handle, GL_COMPILE_STATUS, vertCompiled_buf)
   vertCompiled = vertCompiled_buf.unpack('L')[0]
   if vertCompiled == 0
@@ -73,7 +73,7 @@ def setup_shader(vs_fname,fs_fname)
   end
 
   glCompileShader(fs_handle)
-  fragCompiled_buf = '    '
+  fragCompiled_buf = ' ' * 4
   glGetShaderiv(fs_handle, GL_COMPILE_STATUS, fragCompiled_buf)
   fragCompiled = fragCompiled_buf.unpack('L')[0]
   if fragCompiled == 0
@@ -89,7 +89,7 @@ def setup_shader(vs_fname,fs_fname)
 
   glLinkProgram(prog_handle)
 
-  linked_buf = '    '
+  linked_buf = ' ' * 4
   glGetProgramiv(prog_handle, GL_LINK_STATUS, linked_buf)
   linked = linked_buf.unpack('L')[0]
   if linked == 0
@@ -122,8 +122,8 @@ if __FILE__ == $0
   glfwSetKeyCallback( window, key_callback )
   glfwSetWindowSizeCallback( window, size_callback )
 
-  width_ptr = '    '
-  height_ptr = '    '
+  width_ptr = ' ' * 4
+  height_ptr = ' ' * 4
   glfwGetFramebufferSize(window, width_ptr, height_ptr)
   width = width_ptr.unpack('L')[0]
   height = height_ptr.unpack('L')[0]

@@ -38,7 +38,7 @@ class Texture
 
   def gen_texture( filename )
     kill
-    tex_name_buf = '    '
+    tex_name_buf = ' ' * 4
     glGenTextures( 1, tex_name_buf ) # Note : glGenTextures returns Array instance.
     @tex_name = tex_name_buf.unpack('L')[0]
     glBindTexture( GL_TEXTURE_2D, @tex_name )

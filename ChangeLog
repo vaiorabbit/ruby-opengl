@@ -1,3 +1,7 @@
+2015-10-01  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* sample: Unkind buffer string notations like "'        '" are rewriten into "' ' * 8" format.
+
 2015-09-24  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* sample/Extension/test_dds_texture.rb: Added.

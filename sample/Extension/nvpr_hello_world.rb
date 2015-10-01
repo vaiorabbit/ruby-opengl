@@ -94,9 +94,9 @@ end
 
 def initGraphics( emScale )
   message_ub = $message
-  font_data_buf = '    ' * 4
+  font_data_buf = ' ' * 4 * 4
   numChars = 256 # ISO/IEC 8859-1 8-bit character range
-  horizontalAdvance_buf = '    ' * 256
+  horizontalAdvance_buf = ' ' * 4 * 256
 
   setBackground()
 
@@ -156,7 +156,7 @@ def initGraphics( emScale )
   # Query spacing information for example's message.
   $messageLen = $message.size
   xtranslate_buf = nil
-  xtranslate_buf = '    ' * (2*$messageLen)
+  xtranslate_buf = ' ' * 4 * (2*$messageLen)
   glGetPathSpacingNV(GL_ACCUM_ADJACENT_PAIRS_NV,
                      $messageLen, GL_UNSIGNED_BYTE, $message,
                      $glyphBase,
@@ -303,8 +303,8 @@ if __FILE__ == $0
   initglext()
   initGraphics($emScale)
 
-  width_ptr = '    '
-  height_ptr = '    '
+  width_ptr = ' ' * 4
+  height_ptr = ' ' * 4
   glfwGetFramebufferSize(window, width_ptr, height_ptr)
   width = width_ptr.unpack('L')[0]
   height = height_ptr.unpack('L')[0]

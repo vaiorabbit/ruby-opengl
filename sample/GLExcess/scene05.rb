@@ -476,7 +476,7 @@ class Scene05
       glRotatef(-@c_yrot,0.0,1.0,0.0)
       glRotatef(-@c_xrot,1.0,0.0,0.0)
       glTranslatef(0.0,0.0,-0.1)
-      mtx_inv_buf = '    ' * 16
+      mtx_inv_buf = ' ' * 4 * 16
       glGetFloatv(GL_MODELVIEW_MATRIX, mtx_inv_buf)
       mtx_inv = mtx_inv_buf.unpack('F16')
       mtx_inv.flatten! # ... so convert mtx_inv into the array of 16 Floats.

@@ -8,7 +8,7 @@ $window_height = nil
 def emptyTexture
   # Create Storage Space For Texture Data (128x128x4)
   data = ([0]*4*128*128).pack("f*")
-  txtnumber_ptr = '    '
+  txtnumber_ptr = ' ' * 4
   glGenTextures(1, txtnumber_ptr) # Create 1 Texture
   txtnumber = txtnumber_ptr.unpack('L')[0]
   glBindTexture(GL_TEXTURE_2D, txtnumber) # Bind The Texture 
@@ -308,8 +308,8 @@ if __FILE__ == $0
 
   init()
 
-  width_ptr = '    '
-  height_ptr = '    '
+  width_ptr = ' ' * 4
+  height_ptr = ' ' * 4
   glfwGetFramebufferSize(window, width_ptr, height_ptr)
   width = width_ptr.unpack('L')[0]
   height = height_ptr.unpack('L')[0]

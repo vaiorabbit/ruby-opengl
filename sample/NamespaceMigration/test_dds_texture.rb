@@ -51,8 +51,8 @@ if __FILE__ == $0
   $texture = Texture.new( '../data/256px-Globe.svg.dds' )
   $texture.generate
   while glfw.WindowShouldClose( window ) == 0
-    width_ptr = '        '
-    height_ptr = '        '
+    width_ptr = ' ' * 8
+    height_ptr = ' ' * 8
     glfw.GetFramebufferSize(window, width_ptr, height_ptr)
     width = width_ptr.unpack('L')[0]
     height = height_ptr.unpack('L')[0]

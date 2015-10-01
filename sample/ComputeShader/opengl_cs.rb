@@ -37,13 +37,13 @@ def genComputeProg(texHandle)
 
   glShaderSource(cs, 1, [csSrc].pack('p'), [csSrc.size].pack('I'))
   glCompileShader(cs)
-  rvalue_buf = '    '
+  rvalue_buf = ' ' * 4
   glGetShaderiv(cs, GL_COMPILE_STATUS, rvalue_buf)
   rvalue = rvalue_buf.unpack('L')[0]
   if rvalue == 0
     $stderr.puts "Error in compiling the compute shader"
     log_buf = ' ' * 10240
-    length_buf = '    '
+    length_buf = ' ' * 4
     glGetShaderInfoLog(cs, 10239, length_buf, log_buf)
     $stderr.puts "Compiler log:\n#{log_buf}"
     exit()
@@ -56,7 +56,7 @@ def genComputeProg(texHandle)
   if rvalue == 0
     $stderr.puts "Error in linking compute shader program"
     log_buf = ' ' * 10240
-    length_buf = '    '
+    length_buf = ' ' * 4
     glGetProgramInfoLog(progHandle, 10239, length_buf, log_buf)
     $stderr.puts "Linker log:\n#{log_buf}"
     exit()
@@ -103,7 +103,7 @@ def genRenderProg(texHandle)
   glShaderSource(vp, 1, [vpSrc].pack('p'), [vpSrc.size].pack('I'))
   glShaderSource(fp, 1, [fpSrc].pack('p'), [fpSrc.size].pack('I'))
   glCompileShader(vp)
-  rvalue_buf = '    '
+  rvalue_buf = ' ' * 4
   glGetShaderiv(vp, GL_COMPILE_STATUS, rvalue_buf);
   rvalue = rvalue_buf.unpack('L')[0]
 
@@ -135,12 +135,12 @@ def genRenderProg(texHandle)
   glUseProgram(progHandle)
   glUniform1i(glGetUniformLocation(progHandle, "srcTex"), 0)
 
-  vertArray_buf = '    '
+  vertArray_buf = ' ' * 4
   glGenVertexArrays(1, vertArray_buf)
   vertArray = vertArray_buf.unpack('L')[0]
   glBindVertexArray(vertArray)
 
-  posBuf = '    '
+  posBuf = ' ' * 4
   glGenBuffers(1, posBuf)
   glBindBuffer(GL_ARRAY_BUFFER, posBuf.unpack('L')[0])
   data = [-1.0, -1.0,
@@ -159,7 +159,7 @@ end
 
 def genTexture()
   # We create a single float channel 512^2 texture
-  texHandle_buf = '    '
+  texHandle_buf = ' ' * 4
   glGenTextures(1, texHandle_buf)
   texHandle = texHandle_buf.unpack('L')[0]
 
@@ -208,8 +208,8 @@ if __FILE__ == $0
   glfwSetKeyCallback( window, key_callback )
   glfwSetWindowSizeCallback( window, size_callback )
 
-  width_ptr = '    '
-  height_ptr = '    '
+  width_ptr = ' ' * 4
+  height_ptr = ' ' * 4
   glfwGetFramebufferSize(window, width_ptr, height_ptr)
   width = width_ptr.unpack('L')[0]
   height = height_ptr.unpack('L')[0]

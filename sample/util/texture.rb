@@ -240,7 +240,7 @@ class Texture
 
   def generate_texobj
     if read_done?
-      texobj_id_buf = '    '
+      texobj_id_buf = ' ' * 4
       glGenTextures( 1, texobj_id_buf )
       @texobj_id = texobj_id_buf.unpack('L')[0]
       bind_texobj()
@@ -269,7 +269,7 @@ class Texture
   end
 
   def generate_sampler
-    sampler_id_buf = '    '
+    sampler_id_buf = ' ' * 4
     glGenTextures( 1, sampler_id_buf )
     @sampler_id = sampler_id_buf.unpack('L')[0]
     bind_sampler(0)
