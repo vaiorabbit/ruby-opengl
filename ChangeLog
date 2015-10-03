@@ -1,3 +1,7 @@
+2015-10-03  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* ext/opengl_c: Added some experimental codes.
+
 2015-10-01  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* sample: Unkind buffer string notations like "'        '" are rewriten into "' ' * 8" format.
