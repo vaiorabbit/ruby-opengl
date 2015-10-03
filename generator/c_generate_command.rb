@@ -109,31 +109,16 @@ def generate_command( out )
     #out.puts "  GL_FUNCTIONS_RETVAL_MAP[:#{api}] = #{is_ptr ? 'void*' : OpenGL::GL_TYPE_MAP[map_entry.ret_name]}"
     typedef_line += "#{is_ptr ? 'void*' : OpenGL::GL_TYPE_MAP[map_entry.ret_name]} "
     typedef_line += "(* ROGL_PFN#{api.upcase}PROC) ("
-    arg_names.each_with_index do |a, i|
-      typedef_line += "#{a} #{map_entry.var_names[i]}%s"%[(i < arg_names.length-1 ? ", " : "")]
+    if arg_names.length == 0
+      typedef_line += "void"
+    else
+      arg_names.each_with_index do |a, i|
+        typedef_line += "#{a} #{map_entry.var_names[i]}%s"%[(i < arg_names.length-1 ? ", " : "")]
+      end
     end
     typedef_line += ");"
 
     out.puts typedef_line
-
-=begin
-    out.print "  GL_FUNCTIONS_ARGS_MAP[:#{api}] = ["
-    arg_names.each_with_index do |a, i| out.printf "#{a}%s", (i < arg_names.length-1 ? ", " : "") end
-    out.puts "]"
-=end
-    # API entry
-
-    # Adds prefix/suffix '_' to avoid conflict with Ruby's keyword
-    # ex.) glDrawRangeElements(mode, start, end, count, type, indices) <- 'end' is Ruby's reserved keyword.
-=begin
-    vars = map_entry.var_names.collect{|v| '_'+v+'_'}.join(", ")
-
-    out.puts "  def #{api}(#{vars})"
-    out.puts "    f = OpenGL::get_command(:#{api})"
-    out.puts "    f.call(#{vars})"
-    out.puts "  end"
-    out.puts ""
-=end
   end
 
   out.puts ""
