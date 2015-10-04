@@ -4,12 +4,12 @@
 #include <dlfcn.h>
 
 static void* g_DLLImage = NULL;
-static char* g_DLLFilename = "/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib";
+static char g_DLLFilename[] = "/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib";
 
 int ROGLInitProcAddressSystem()
 {
     g_DLLImage = dlopen(g_DLLFilename, (RTLD_LAZY|RTLD_GLOBAL));
-    if (g_DLLFilename == NULL)
+    if (g_DLLImage == NULL)
     {
         return 0;
     }
@@ -39,12 +39,12 @@ void* ROGLGetProcAddress(const char* name)
 #include <windows.h>
 
 static HMODULE g_DLLImage = NULL;
-static char* g_DLLFilename = "opengl32.dll";
+static char g_DLLFilename[] = "opengl32.dll";
 
 int ROGLInitProcAddressSystem()
 {
     g_DLLImage = LoadLibraryA(g_DLLFilename);
-    if (g_DLLFilename == NULL)
+    if (g_DLLImage == NULL)
     {
         return 0;
     }
@@ -83,12 +83,12 @@ void* ROGLGetProcAddress(const char* name)
 #include <dlfcn.h>
 
 static void* g_DLLImage = NULL;
-static char* g_DLLFilename = "libGL.so";
+static char g_DLLFilename[] = "libGL.so";
 
 int ROGLInitProcAddressSystem()
 {
     g_DLLImage = dlopen(g_DLLFilename, (RTLD_LAZY|RTLD_GLOBAL));
-    if (g_DLLFilename == NULL)
+    if (g_DLLImage == NULL)
     {
         return 0;
     }
