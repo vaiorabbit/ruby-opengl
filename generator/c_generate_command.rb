@@ -3,9 +3,65 @@ require_relative 'c_aux_typemap'
 
 GLCommandMapEntry = Struct.new( :api_name, :ret_name, :type_names, :var_names )
 
+# type = :command | :enum, required/removed = version string
+# ex.) glFogCoordf (Introduced at OpenGL 1.4, and removed from core profile at OpenGL 3.2)
+# "glFogCoordf"=>
+#  #<struct Struct::FeatureInfo
+#   type=:command,
+#   required="GL_VERSION_1_4",
+#   removed="GL_VERSION_3_2">,
+FeatureInfo = Struct.new("FeatureInfo", :type, :required, :removed)
+
 def generate_command( out )
 
   doc = REXML::Document.new(open("./gl.xml"))
+
+  # Build feature map
+  features = Hash.new
+  REXML::XPath.each(doc, 'registry/feature') do |feature_tag|
+    if "gl" == feature_tag.attribute('api').value
+      version_string = feature_tag.attribute('name').value
+      # Required command
+      REXML::XPath.each(feature_tag, 'require/command') do |tag|
+        name_string = tag.attribute('name').value
+        unless features.has_key?(name_string)
+          features[name_string] = FeatureInfo.new(:command, version_string, nil)
+        end
+      end
+      # Required enum
+      REXML::XPath.each(feature_tag, 'require/enum') do |tag|
+        name_string = tag.attribute('name').value
+        unless features.has_key?(name_string)
+          features[name_string] = FeatureInfo.new(:enum, version_string, nil)
+        end
+      end
+    end
+  end
+
+  # Collect removed feature
+  REXML::XPath.each(doc, 'registry/feature') do |feature_tag|
+    if "gl" == feature_tag.attribute('api').value
+      version_string = feature_tag.attribute('name').value
+      # Removed command
+      REXML::XPath.each(feature_tag, 'remove/command') do |tag|
+        name_string = tag.attribute('name').value
+        if features.has_key?(name_string)
+          features[name_string].removed = version_string
+        end
+      end
+      # Removed enum
+      REXML::XPath.each(feature_tag, 'remove/enum') do |tag|
+        name_string = tag.attribute('name').value
+        if features.has_key?(name_string)
+          features[name_string].removed = version_string
+        end
+      end
+    end
+  end
+
+#  require 'pp'
+#  pp features
+#  exit
 
   # Collect all command
   gl_all_cmd_map = {}
@@ -333,7 +389,7 @@ ROGL_CPOINTER_CONVERTER
   out.puts "static void rogl_InitEnum()"
   out.puts "{"
   gl_std_enum_map.each do |enum|
-    out.print "  rb_define_const(mROGL, \"#{enum[0]}\", UINT2NUM(#{enum[1]}));\n"
+    out.print "    rb_define_const(mROGL, \"#{enum[0]}\", UINT2NUM(#{enum[1]}));\n"
   end
   out.puts "}"
   out.puts ""
@@ -342,6 +398,25 @@ ROGL_CPOINTER_CONVERTER
   # Module initializer
 
   out.puts <<-ROGL_MODULE_INITIALIZER_CODE
+
+static VALUE rogl_SetupFunction( VALUE name )
+{
+	// setup rogl_##name function pointer
+	return Qnil;
+}
+
+static VALUE rogl_SetupFeature( VALUE core_or_compatible )
+{
+	// setup core | compatible function pointers
+	return Qfalse;
+}
+
+static VALUE rogl_IsFunctionAvailable( VALUE name )
+{
+	// if rogl_##name is NULL then setup
+	// true if rogl_##name function pointer is NULL
+	return Qnil;
+}
 
 static VALUE rogl_InitSystem( VALUE self )
 {
@@ -357,13 +432,13 @@ static VALUE rogl_TermSystem( VALUE self )
 
 void Init_opengl_c()
 {
-  mROGL = rb_define_module("OpenGL");
+    mROGL = rb_define_module("OpenGL");
 
-  rb_define_singleton_method( mROGL, "init_system", rogl_InitSystem, 0 );
-  rb_define_singleton_method( mROGL, "term_system", rogl_TermSystem, 0 );
+    rb_define_singleton_method( mROGL, "init_system", rogl_InitSystem, 0 );
+    rb_define_singleton_method( mROGL, "term_system", rogl_TermSystem, 0 );
 
-  rogl_InitCommand();
-  rogl_InitEnum();
+    rogl_InitCommand();
+    rogl_InitEnum();
 }
 ROGL_MODULE_INITIALIZER_CODE
 end
