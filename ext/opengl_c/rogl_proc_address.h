@@ -1,9 +1,9 @@
 #ifndef ROGL_ENTRY_POINT_H
 #define ROGL_ENTRY_POINT_H
 
-int  ROGLInitProcAddressSystem();
-void ROGLTermProcAddressSystem();
-void* ROGLGetProcAddress(const char* name);
+int  rogl_InitProcAddressSystem();
+void rogl_TermProcAddressSystem();
+void* rogl_GetProcAddress(const char* name);
 
 #endif
 

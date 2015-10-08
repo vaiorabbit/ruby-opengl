@@ -10,7 +10,7 @@ GLCommandMapEntry = Struct.new( :api_name, :ret_name, :type_names, :var_names )
 #   type=:command,
 #   required="GL_VERSION_1_4",
 #   removed="GL_VERSION_3_2">,
-FeatureInfo = Struct.new("FeatureInfo", :type, :required, :removed)
+FeatureInfo = Struct.new("FeatureInfo", :type, :required, :required_number, :removed, :removed_number)
 
 def generate_command( out )
 
@@ -21,18 +21,19 @@ def generate_command( out )
   REXML::XPath.each(doc, 'registry/feature') do |feature_tag|
     if "gl" == feature_tag.attribute('api').value
       version_string = feature_tag.attribute('name').value
+      version_number = feature_tag.attribute('number').value.to_f
       # Required command
       REXML::XPath.each(feature_tag, 'require/command') do |tag|
         name_string = tag.attribute('name').value
         unless features.has_key?(name_string)
-          features[name_string] = FeatureInfo.new(:command, version_string, nil)
+          features[name_string] = FeatureInfo.new(:command, version_string, version_number, nil, 0.0)
         end
       end
       # Required enum
       REXML::XPath.each(feature_tag, 'require/enum') do |tag|
         name_string = tag.attribute('name').value
         unless features.has_key?(name_string)
-          features[name_string] = FeatureInfo.new(:enum, version_string, nil)
+          features[name_string] = FeatureInfo.new(:enum, version_string, version_number, nil, 0.0)
         end
       end
     end
@@ -42,11 +43,13 @@ def generate_command( out )
   REXML::XPath.each(doc, 'registry/feature') do |feature_tag|
     if "gl" == feature_tag.attribute('api').value
       version_string = feature_tag.attribute('name').value
+      version_number = feature_tag.attribute('number').value.to_f
       # Removed command
       REXML::XPath.each(feature_tag, 'remove/command') do |tag|
         name_string = tag.attribute('name').value
         if features.has_key?(name_string)
           features[name_string].removed = version_string
+          features[name_string].removed_number = version_number
         end
       end
       # Removed enum
@@ -54,14 +57,15 @@ def generate_command( out )
         name_string = tag.attribute('name').value
         if features.has_key?(name_string)
           features[name_string].removed = version_string
+          features[name_string].removed_number = version_number
         end
       end
     end
   end
 
-#  require 'pp'
-#  pp features
-#  exit
+  # require 'pp'
+  # pp features
+  # exit
 
   # Collect all command
   gl_all_cmd_map = {}
@@ -217,7 +221,7 @@ ROGL_HEADER
 
   # Entry points
   gl_std_cmd_map.each_pair do |api, map_entry|
-    out.puts "ROGL_PFN#{api.upcase}PROC rogl_pfn_#{api} = NULL;"
+    out.puts "static ROGL_PFN#{api.upcase}PROC rogl_pfn_#{api} = NULL;"
   end
 end
 
@@ -338,7 +342,7 @@ ROGL_CPOINTER_CONVERTER
 
     # Entry point setup
     out.puts "    if (!rogl_pfn_#{api}) {"
-    out.puts "        rogl_pfn_#{api} = ROGLGetProcAddress(\"#{api}\");"
+    out.puts "        rogl_pfn_#{api} = rogl_GetProcAddress(\"#{api}\");"
     out.puts "    }"
     out.puts ""
 
@@ -375,6 +379,34 @@ ROGL_CPOINTER_CONVERTER
 
   out.puts ""
 
+  # Command Name <=> Function Pointer mapping
+  out.puts "static const struct {"
+  out.puts "    const char* name;"
+  out.puts "    void* fptr;"
+  out.puts "} rogl_CmdToFPMap[] = {"
+  gl_std_cmd_map.each_pair do |api, map_entry|
+    out.puts "    {\"#{api}\", &rogl_pfn_#{api}},"
+  end
+  out.puts "};"
+  out.puts ""
+
+  out.puts "static const unsigned int rogl_CmdToFPCount = sizeof(rogl_CmdToFPMap)/sizeof(rogl_CmdToFPMap[0]); /* #{gl_std_cmd_map.length} */"
+  out.puts ""
+
+  out.puts "static void* rogl_GetFunctionPointer(const char* name)"
+  out.puts "{"
+  out.puts "    for (unsigned int i = 0; i < rogl_CmdToFPCount; ++i)"
+  out.puts "    {"
+  out.puts "        if (strncmp(rogl_CmdToFPMap[i].name, name, strlen(rogl_CmdToFPMap[i].name)) == 0)"
+  out.puts "        {"
+  out.puts "            return rogl_CmdToFPMap[i].fptr;"
+  out.puts "        }"
+  out.puts "    }"
+  out.puts ""
+  out.puts "    return NULL;"
+  out.puts "}"
+  out.puts ""
+
   # Command/Enum initializer
   # Command
   out.puts "static void rogl_InitCommand()"
@@ -399,34 +431,33 @@ ROGL_CPOINTER_CONVERTER
 
   out.puts <<-ROGL_MODULE_INITIALIZER_CODE
 
-static VALUE rogl_SetupFunction( VALUE name )
+static VALUE rogl_SetupCommand( VALUE command_name )
 {
-	// setup rogl_##name function pointer
-	return Qnil;
+    const char* name = RSTRING_PTR(command_name);
+    void** rogl_pfptr = rogl_GetFunctionPointer(name);
+    if (rogl_pfptr)
+    {
+        *rogl_pfptr = rogl_GetProcAddress(name);
+    }
+
+    return *rogl_pfptr != NULL ? Qtrue : Qfalse;
 }
 
 static VALUE rogl_SetupFeature( VALUE core_or_compatible )
 {
-	// setup core | compatible function pointers
-	return Qfalse;
+    // setup core | compatible function pointers
+    return Qfalse;
 }
 
-static VALUE rogl_IsFunctionAvailable( VALUE name )
+static VALUE rogl_method_InitSystem( VALUE self )
 {
-	// if rogl_##name is NULL then setup
-	// true if rogl_##name function pointer is NULL
-	return Qnil;
-}
-
-static VALUE rogl_InitSystem( VALUE self )
-{
-    int retval = ROGLInitProcAddressSystem();
+    int retval = rogl_InitProcAddressSystem();
     return INT2NUM(retval);
 }
 
-static VALUE rogl_TermSystem( VALUE self )
+static VALUE rogl_method_TermSystem( VALUE self )
 {
-    ROGLTermProcAddressSystem();
+    rogl_TermProcAddressSystem();
     return Qnil;
 }
 
@@ -434,8 +465,8 @@ void Init_opengl_c()
 {
     mROGL = rb_define_module("OpenGL");
 
-    rb_define_singleton_method( mROGL, "init_system", rogl_InitSystem, 0 );
-    rb_define_singleton_method( mROGL, "term_system", rogl_TermSystem, 0 );
+    rb_define_singleton_method( mROGL, "init_system", rogl_method_InitSystem, 0 );
+    rb_define_singleton_method( mROGL, "term_system", rogl_method_TermSystem, 0 );
 
     rogl_InitCommand();
     rogl_InitEnum();

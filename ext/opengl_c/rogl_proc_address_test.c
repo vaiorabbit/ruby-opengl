@@ -7,7 +7,7 @@
 #ifdef ROGL_TEST_PROC_ADDRESS_SYSTEM
 
 #include <stdio.h>
-#include "proc_address.h"
+#include "rogl_proc_address.h"
 
 int main(int argc, char* argv[])
 {
@@ -17,11 +17,11 @@ int main(int argc, char* argv[])
         name = argv[1];
     }
 
-    int initSuccess = ROGLInitProcAddressSystem();
+    int initSuccess = rogl_InitProcAddressSystem();
     if (initSuccess)
     {
-        printf("%p\n", ROGLGetProcAddress(name));
-        ROGLTermProcAddressSystem();
+        printf("%p\n", rogl_GetProcAddress(name));
+        rogl_TermProcAddressSystem();
     }
 
     return 0;

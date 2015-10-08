@@ -6,7 +6,7 @@
 static void* g_DLLImage = NULL;
 static char g_DLLFilename[] = "/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib";
 
-int ROGLInitProcAddressSystem()
+int rogl_InitProcAddressSystem()
 {
     g_DLLImage = dlopen(g_DLLFilename, (RTLD_LAZY|RTLD_GLOBAL));
     if (g_DLLImage == NULL)
@@ -17,7 +17,7 @@ int ROGLInitProcAddressSystem()
     return 1;
 }
 
-void ROGLTermProcAddressSystem()
+void rogl_TermProcAddressSystem()
 {
     if (g_DLLImage != NULL)
     {
@@ -26,7 +26,7 @@ void ROGLTermProcAddressSystem()
     }
 }
 
-void* ROGLGetProcAddress(const char* name)
+void* rogl_GetProcAddress(const char* name)
 {
     return dlsym(g_DLLImage, name);
 }
@@ -41,7 +41,7 @@ void* ROGLGetProcAddress(const char* name)
 static HMODULE g_DLLImage = NULL;
 static char g_DLLFilename[] = "opengl32.dll";
 
-int ROGLInitProcAddressSystem()
+int rogl_InitProcAddressSystem()
 {
     g_DLLImage = LoadLibraryA(g_DLLFilename);
     if (g_DLLImage == NULL)
@@ -52,7 +52,7 @@ int ROGLInitProcAddressSystem()
     return 1;
 }
 
-void ROGLTermProcAddressSystem()
+void rogl_TermProcAddressSystem()
 {
     if (g_DLLImage != NULL)
     {
@@ -62,7 +62,7 @@ void ROGLTermProcAddressSystem()
 }
 
 /* https://www.opengl.org/wiki/Load_OpenGL_Functions */
-void* ROGLGetProcAddress(const char* name)
+void* rogl_GetProcAddress(const char* name)
 {
     void* p = (void *)wglGetProcAddress(name);
     if (p == 0 ||
@@ -85,7 +85,7 @@ void* ROGLGetProcAddress(const char* name)
 static void* g_DLLImage = NULL;
 static char g_DLLFilename[] = "libGL.so";
 
-int ROGLInitProcAddressSystem()
+int rogl_InitProcAddressSystem()
 {
     g_DLLImage = dlopen(g_DLLFilename, (RTLD_LAZY|RTLD_GLOBAL));
     if (g_DLLImage == NULL)
@@ -96,7 +96,7 @@ int ROGLInitProcAddressSystem()
     return 1;
 }
 
-void ROGLTermProcAddressSystem()
+void rogl_TermProcAddressSystem()
 {
     if (g_DLLImage != NULL)
     {
@@ -105,7 +105,7 @@ void ROGLTermProcAddressSystem()
     }
 }
 
-void* ROGLGetProcAddress(const char* name)
+void* rogl_GetProcAddress(const char* name)
 {
     return dlsym(g_DLLImage, name);
 }
