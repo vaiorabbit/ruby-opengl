@@ -1,7 +1,7 @@
 #ifndef ROGL_ENTRY_POINT_H
 #define ROGL_ENTRY_POINT_H
 
-int  rogl_InitProcAddressSystem();
+int  rogl_InitProcAddressSystem(const char* lib);
 void rogl_TermProcAddressSystem();
 void* rogl_GetProcAddress(const char* name);
 

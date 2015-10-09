@@ -433,7 +433,7 @@ ROGL_CPOINTER_CONVERTER
 
   out.puts <<-ROGL_MODULE_INITIALIZER_CODE
 
-static VALUE rogl_method_SetupCommand( VALUE command_name )
+static VALUE rogl_method_SetupCommand( VALUE self, VALUE command_name )
 {
     const char* name = RSTRING_PTR(command_name);
     void** rogl_pfptr = rogl_GetFunctionPointer(name);
@@ -445,10 +445,10 @@ static VALUE rogl_method_SetupCommand( VALUE command_name )
     return *rogl_pfptr != NULL ? Qtrue : Qfalse;
 }
 
-static VALUE rogl_method_InitSystem( VALUE self )
+static VALUE rogl_method_InitSystem( VALUE self, VALUE lib )
 {
-    int retval = rogl_InitProcAddressSystem();
-    return INT2NUM(retval);
+    int retval = rogl_InitProcAddressSystem(NIL_P(lib) ? NULL : RSTRING_PTR(lib));
+    return retval == 1 ? Qtrue : Qfalse;
 }
 
 static VALUE rogl_method_TermSystem( VALUE self )
@@ -457,11 +457,44 @@ static VALUE rogl_method_TermSystem( VALUE self )
     return Qnil;
 }
 
+static VALUE rogl_method_LoadLib( VALUE self, VALUE lib_name, VALUE lib_path )
+{
+    VALUE retval = Qnil;
+
+    if (NIL_P(lib_name) && NIL_P(lib_path))
+    {
+        retval = rogl_method_InitSystem(self, Qnil);
+    }
+    else if (NIL_P(lib_path) && !NIL_P(lib_path))
+    {
+        VALUE lib_path_sl = rb_str_append(rb_str_new2("/"), lib_path);
+        retval = rogl_method_InitSystem(self, rb_str_append(lib_path_sl, lib_name));
+    }
+    else
+    {
+        retval = rogl_method_InitSystem(self, NIL_P(lib_name) ? lib_path : lib_name);
+    }
+
+    if (retval == Qfalse)
+    {
+        return Qfalse;
+    }
+
+    /* TODO handle core/compatible */
+    rogl_SetupFeature(0);
+
+    /* TODO call rogl_TermProcAddressSystem at exit? */
+
+    return Qtrue;
+}
+
 void Init_opengl_c()
 {
     mROGL = rb_define_module("OpenGL");
 
-    rb_define_singleton_method( mROGL, "init_system", rogl_method_InitSystem, 0 );
+    rb_define_singleton_method( mROGL, "load_lib", rogl_method_LoadLib, 2 );
+
+    rb_define_singleton_method( mROGL, "init_system", rogl_method_InitSystem, 1 );
     rb_define_singleton_method( mROGL, "term_system", rogl_method_TermSystem, 0 );
     rb_define_singleton_method( mROGL, "setup_command", rogl_method_SetupCommand, 1 );
 

@@ -6,9 +6,9 @@
 static void* g_DLLImage = NULL;
 static char g_DLLFilename[] = "/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib";
 
-int rogl_InitProcAddressSystem()
+int rogl_InitProcAddressSystem(const char* lib)
 {
-    g_DLLImage = dlopen(g_DLLFilename, (RTLD_LAZY|RTLD_GLOBAL));
+    g_DLLImage = dlopen(lib ? lib : g_DLLFilename, (RTLD_LAZY|RTLD_GLOBAL));
     if (g_DLLImage == NULL)
     {
         return 0;
@@ -41,9 +41,9 @@ void* rogl_GetProcAddress(const char* name)
 static HMODULE g_DLLImage = NULL;
 static char g_DLLFilename[] = "opengl32.dll";
 
-int rogl_InitProcAddressSystem()
+int rogl_InitProcAddressSystem(const char* lib)
 {
-    g_DLLImage = LoadLibraryA(g_DLLFilename);
+    g_DLLImage = LoadLibraryA(lib ? lib : g_DLLFilename);
     if (g_DLLImage == NULL)
     {
         return 0;
@@ -85,9 +85,9 @@ void* rogl_GetProcAddress(const char* name)
 static void* g_DLLImage = NULL;
 static char g_DLLFilename[] = "libGL.so";
 
-int rogl_InitProcAddressSystem()
+int rogl_InitProcAddressSystem(const char* lib)
 {
-    g_DLLImage = dlopen(g_DLLFilename, (RTLD_LAZY|RTLD_GLOBAL));
+    g_DLLImage = dlopen(lib ? lib : g_DLLFilename, (RTLD_LAZY|RTLD_GLOBAL));
     if (g_DLLImage == NULL)
     {
         return 0;
