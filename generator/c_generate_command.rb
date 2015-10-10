@@ -268,8 +268,6 @@ def generate_function_call(out, gl_std_cmd_map, gl_std_enum_map)
   # Prologue
   out.puts <<-ROGL_CPOINTER_CONVERTER
 
-static VALUE mROGL;
-
 #if SIZEOF_VOIDP == SIZEOF_LONG_LONG
 #define CPOINTER_AS_VALUE(ptr) (ULL2NUM((unsigned long long)(ptr)))
 #define VALUE_AS_CPOINTER(obj) ((void*)(NUM2ULL(obj)))
@@ -376,10 +374,12 @@ ROGL_CPOINTER_CONVERTER
   # Command Name <=> Function Pointer mapping
   out.puts "static const struct {"
   out.puts "    const char* name;"
-  out.puts "    void* fptr;"
+  out.puts "    void* rb_fptr;"
+  out.puts "    void* c_fptr;"
+  out.puts "    int c_argc;"
   out.puts "} rogl_CmdToFPMap[] = {"
   gl_std_cmd_map.each_pair do |api, map_entry|
-    out.puts "    {\"#{api}\", &rogl_pfn_#{api}},"
+    out.puts "    {\"#{api}\", &rogl_#{api}, &rogl_pfn_#{api}, #{map_entry.type_names.length}},"
   end
   out.puts "};"
   out.puts ""
@@ -387,13 +387,21 @@ ROGL_CPOINTER_CONVERTER
   out.puts "static const unsigned int rogl_CmdToFPCount = sizeof(rogl_CmdToFPMap)/sizeof(rogl_CmdToFPMap[0]); /* #{gl_std_cmd_map.length} */"
   out.puts ""
 
-  out.puts "static void* rogl_GetFunctionPointer(const char* name)"
+  out.puts "static void* rogl_GetFunctionPointer(const char* name, int* pArgCountOut, void** rb_fptr)"
   out.puts "{"
   out.puts "    for (unsigned int i = 0; i < rogl_CmdToFPCount; ++i)"
   out.puts "    {"
   out.puts "        if (strncmp(rogl_CmdToFPMap[i].name, name, strlen(rogl_CmdToFPMap[i].name)) == 0)"
   out.puts "        {"
-  out.puts "            return rogl_CmdToFPMap[i].fptr;"
+  out.puts "            if (pArgCountOut)"
+  out.puts "            {"
+  out.puts "                *pArgCountOut = rogl_CmdToFPMap[i].c_argc;"
+  out.puts "            }"
+  out.puts "            if (rb_fptr)"
+  out.puts "            {"
+  out.puts "                *rb_fptr = rogl_CmdToFPMap[i].rb_fptr;"
+  out.puts "            }"
+  out.puts "            return rogl_CmdToFPMap[i].c_fptr;"
   out.puts "        }"
   out.puts "    }"
   out.puts ""
@@ -403,19 +411,19 @@ ROGL_CPOINTER_CONVERTER
 
   # Command/Enum initializer
   # Command
-  out.puts "static void rogl_InitRubyCommand()"
+  out.puts "static void rogl_InitRubyCommand( VALUE* pmROGL )"
   out.puts "{"
   gl_std_cmd_map.each_pair do |api, map_entry|
-    out.puts "    rb_define_method(mROGL, \"#{api}\", rogl_#{api}, #{map_entry.type_names.length});"
+    out.puts "    rb_define_method(*pmROGL, \"#{api}\", rogl_#{api}, #{map_entry.type_names.length});"
   end
   out.puts "}"
   out.puts ""
 
   # Enum
-  out.puts "static void rogl_InitRubyEnum()"
+  out.puts "static void rogl_InitRubyEnum( VALUE* pmROGL )"
   out.puts "{"
   gl_std_enum_map.each do |enum|
-    out.print "    rb_define_const(mROGL, \"#{enum[0]}\", UINT2NUM(#{enum[1]}));\n"
+    out.print "    rb_define_const(*pmROGL, \"#{enum[0]}\", UINT2NUM(#{enum[1]}));\n"
   end
   out.puts "}"
   out.puts ""
@@ -433,13 +441,19 @@ ROGL_CPOINTER_CONVERTER
 
   out.puts <<-ROGL_MODULE_INITIALIZER_CODE
 
-static VALUE rogl_method_SetupCommand( VALUE self, VALUE command_name )
+static VALUE rogl_method_SetupCommand( VALUE self, VALUE mROGL, VALUE command_name )
 {
-    const char* name = RSTRING_PTR(command_name);
-    void** rogl_pfptr = rogl_GetFunctionPointer(name);
+    const char* name = StringValueCStr(command_name);
+    int argc = 0;
+    void* rb_fptr = NULL;
+    void** rogl_pfptr = rogl_GetFunctionPointer(name, &argc, &rb_fptr);
     if (rogl_pfptr)
     {
         *rogl_pfptr = rogl_GetProcAddress(name);
+        if (*rogl_pfptr)
+        {
+            rb_define_method(mROGL, name, rb_fptr, argc);
+        }
     }
 
     return *rogl_pfptr != NULL ? Qtrue : Qfalse;
@@ -490,16 +504,16 @@ static VALUE rogl_method_LoadLib( VALUE self, VALUE lib_name, VALUE lib_path )
 
 void Init_opengl_c()
 {
-    mROGL = rb_define_module("OpenGL");
+    VALUE mROGL = rb_define_module("OpenGL");
 
     rb_define_singleton_method( mROGL, "load_lib", rogl_method_LoadLib, 2 );
 
     rb_define_singleton_method( mROGL, "init_system", rogl_method_InitSystem, 1 );
     rb_define_singleton_method( mROGL, "term_system", rogl_method_TermSystem, 0 );
-    rb_define_singleton_method( mROGL, "setup_command", rogl_method_SetupCommand, 1 );
+    rb_define_singleton_method( mROGL, "setup_command", rogl_method_SetupCommand, 2 );
 
-    rogl_InitRubyCommand();
-    rogl_InitRubyEnum();
+    rogl_InitRubyCommand( &mROGL );
+    rogl_InitRubyEnum( &mROGL );
 }
 ROGL_MODULE_INITIALIZER_CODE
 end

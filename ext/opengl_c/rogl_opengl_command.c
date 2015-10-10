@@ -2098,8 +2098,6 @@ static ROGL_PFNGLGETNHISTOGRAMPROC rogl_pfn_glGetnHistogram = NULL;
 static ROGL_PFNGLGETNMINMAXPROC rogl_pfn_glGetnMinmax = NULL;
 static ROGL_PFNGLTEXTUREBARRIERPROC rogl_pfn_glTextureBarrier = NULL;
 
-static VALUE mROGL;
-
 #if SIZEOF_VOIDP == SIZEOF_LONG_LONG
 #define CPOINTER_AS_VALUE(ptr) (ULL2NUM((unsigned long long)(ptr)))
 #define VALUE_AS_CPOINTER(obj) ((void*)(NUM2ULL(obj)))
@@ -13656,3891 +13654,3901 @@ static VALUE rogl_glTextureBarrier(VALUE obj)
 
 static const struct {
     const char* name;
-    void* fptr;
+    void* rb_fptr;
+    void* c_fptr;
+    int c_argc;
 } rogl_CmdToFPMap[] = {
-    {"glCullFace", &rogl_pfn_glCullFace},
-    {"glFrontFace", &rogl_pfn_glFrontFace},
-    {"glHint", &rogl_pfn_glHint},
-    {"glLineWidth", &rogl_pfn_glLineWidth},
-    {"glPointSize", &rogl_pfn_glPointSize},
-    {"glPolygonMode", &rogl_pfn_glPolygonMode},
-    {"glScissor", &rogl_pfn_glScissor},
-    {"glTexParameterf", &rogl_pfn_glTexParameterf},
-    {"glTexParameterfv", &rogl_pfn_glTexParameterfv},
-    {"glTexParameteri", &rogl_pfn_glTexParameteri},
-    {"glTexParameteriv", &rogl_pfn_glTexParameteriv},
-    {"glTexImage1D", &rogl_pfn_glTexImage1D},
-    {"glTexImage2D", &rogl_pfn_glTexImage2D},
-    {"glDrawBuffer", &rogl_pfn_glDrawBuffer},
-    {"glClear", &rogl_pfn_glClear},
-    {"glClearColor", &rogl_pfn_glClearColor},
-    {"glClearStencil", &rogl_pfn_glClearStencil},
-    {"glClearDepth", &rogl_pfn_glClearDepth},
-    {"glStencilMask", &rogl_pfn_glStencilMask},
-    {"glColorMask", &rogl_pfn_glColorMask},
-    {"glDepthMask", &rogl_pfn_glDepthMask},
-    {"glDisable", &rogl_pfn_glDisable},
-    {"glEnable", &rogl_pfn_glEnable},
-    {"glFinish", &rogl_pfn_glFinish},
-    {"glFlush", &rogl_pfn_glFlush},
-    {"glBlendFunc", &rogl_pfn_glBlendFunc},
-    {"glLogicOp", &rogl_pfn_glLogicOp},
-    {"glStencilFunc", &rogl_pfn_glStencilFunc},
-    {"glStencilOp", &rogl_pfn_glStencilOp},
-    {"glDepthFunc", &rogl_pfn_glDepthFunc},
-    {"glPixelStoref", &rogl_pfn_glPixelStoref},
-    {"glPixelStorei", &rogl_pfn_glPixelStorei},
-    {"glReadBuffer", &rogl_pfn_glReadBuffer},
-    {"glReadPixels", &rogl_pfn_glReadPixels},
-    {"glGetBooleanv", &rogl_pfn_glGetBooleanv},
-    {"glGetDoublev", &rogl_pfn_glGetDoublev},
-    {"glGetError", &rogl_pfn_glGetError},
-    {"glGetFloatv", &rogl_pfn_glGetFloatv},
-    {"glGetIntegerv", &rogl_pfn_glGetIntegerv},
-    {"glGetString", &rogl_pfn_glGetString},
-    {"glGetTexImage", &rogl_pfn_glGetTexImage},
-    {"glGetTexParameterfv", &rogl_pfn_glGetTexParameterfv},
-    {"glGetTexParameteriv", &rogl_pfn_glGetTexParameteriv},
-    {"glGetTexLevelParameterfv", &rogl_pfn_glGetTexLevelParameterfv},
-    {"glGetTexLevelParameteriv", &rogl_pfn_glGetTexLevelParameteriv},
-    {"glIsEnabled", &rogl_pfn_glIsEnabled},
-    {"glDepthRange", &rogl_pfn_glDepthRange},
-    {"glViewport", &rogl_pfn_glViewport},
-    {"glNewList", &rogl_pfn_glNewList},
-    {"glEndList", &rogl_pfn_glEndList},
-    {"glCallList", &rogl_pfn_glCallList},
-    {"glCallLists", &rogl_pfn_glCallLists},
-    {"glDeleteLists", &rogl_pfn_glDeleteLists},
-    {"glGenLists", &rogl_pfn_glGenLists},
-    {"glListBase", &rogl_pfn_glListBase},
-    {"glBegin", &rogl_pfn_glBegin},
-    {"glBitmap", &rogl_pfn_glBitmap},
-    {"glColor3b", &rogl_pfn_glColor3b},
-    {"glColor3bv", &rogl_pfn_glColor3bv},
-    {"glColor3d", &rogl_pfn_glColor3d},
-    {"glColor3dv", &rogl_pfn_glColor3dv},
-    {"glColor3f", &rogl_pfn_glColor3f},
-    {"glColor3fv", &rogl_pfn_glColor3fv},
-    {"glColor3i", &rogl_pfn_glColor3i},
-    {"glColor3iv", &rogl_pfn_glColor3iv},
-    {"glColor3s", &rogl_pfn_glColor3s},
-    {"glColor3sv", &rogl_pfn_glColor3sv},
-    {"glColor3ub", &rogl_pfn_glColor3ub},
-    {"glColor3ubv", &rogl_pfn_glColor3ubv},
-    {"glColor3ui", &rogl_pfn_glColor3ui},
-    {"glColor3uiv", &rogl_pfn_glColor3uiv},
-    {"glColor3us", &rogl_pfn_glColor3us},
-    {"glColor3usv", &rogl_pfn_glColor3usv},
-    {"glColor4b", &rogl_pfn_glColor4b},
-    {"glColor4bv", &rogl_pfn_glColor4bv},
-    {"glColor4d", &rogl_pfn_glColor4d},
-    {"glColor4dv", &rogl_pfn_glColor4dv},
-    {"glColor4f", &rogl_pfn_glColor4f},
-    {"glColor4fv", &rogl_pfn_glColor4fv},
-    {"glColor4i", &rogl_pfn_glColor4i},
-    {"glColor4iv", &rogl_pfn_glColor4iv},
-    {"glColor4s", &rogl_pfn_glColor4s},
-    {"glColor4sv", &rogl_pfn_glColor4sv},
-    {"glColor4ub", &rogl_pfn_glColor4ub},
-    {"glColor4ubv", &rogl_pfn_glColor4ubv},
-    {"glColor4ui", &rogl_pfn_glColor4ui},
-    {"glColor4uiv", &rogl_pfn_glColor4uiv},
-    {"glColor4us", &rogl_pfn_glColor4us},
-    {"glColor4usv", &rogl_pfn_glColor4usv},
-    {"glEdgeFlag", &rogl_pfn_glEdgeFlag},
-    {"glEdgeFlagv", &rogl_pfn_glEdgeFlagv},
-    {"glEnd", &rogl_pfn_glEnd},
-    {"glIndexd", &rogl_pfn_glIndexd},
-    {"glIndexdv", &rogl_pfn_glIndexdv},
-    {"glIndexf", &rogl_pfn_glIndexf},
-    {"glIndexfv", &rogl_pfn_glIndexfv},
-    {"glIndexi", &rogl_pfn_glIndexi},
-    {"glIndexiv", &rogl_pfn_glIndexiv},
-    {"glIndexs", &rogl_pfn_glIndexs},
-    {"glIndexsv", &rogl_pfn_glIndexsv},
-    {"glNormal3b", &rogl_pfn_glNormal3b},
-    {"glNormal3bv", &rogl_pfn_glNormal3bv},
-    {"glNormal3d", &rogl_pfn_glNormal3d},
-    {"glNormal3dv", &rogl_pfn_glNormal3dv},
-    {"glNormal3f", &rogl_pfn_glNormal3f},
-    {"glNormal3fv", &rogl_pfn_glNormal3fv},
-    {"glNormal3i", &rogl_pfn_glNormal3i},
-    {"glNormal3iv", &rogl_pfn_glNormal3iv},
-    {"glNormal3s", &rogl_pfn_glNormal3s},
-    {"glNormal3sv", &rogl_pfn_glNormal3sv},
-    {"glRasterPos2d", &rogl_pfn_glRasterPos2d},
-    {"glRasterPos2dv", &rogl_pfn_glRasterPos2dv},
-    {"glRasterPos2f", &rogl_pfn_glRasterPos2f},
-    {"glRasterPos2fv", &rogl_pfn_glRasterPos2fv},
-    {"glRasterPos2i", &rogl_pfn_glRasterPos2i},
-    {"glRasterPos2iv", &rogl_pfn_glRasterPos2iv},
-    {"glRasterPos2s", &rogl_pfn_glRasterPos2s},
-    {"glRasterPos2sv", &rogl_pfn_glRasterPos2sv},
-    {"glRasterPos3d", &rogl_pfn_glRasterPos3d},
-    {"glRasterPos3dv", &rogl_pfn_glRasterPos3dv},
-    {"glRasterPos3f", &rogl_pfn_glRasterPos3f},
-    {"glRasterPos3fv", &rogl_pfn_glRasterPos3fv},
-    {"glRasterPos3i", &rogl_pfn_glRasterPos3i},
-    {"glRasterPos3iv", &rogl_pfn_glRasterPos3iv},
-    {"glRasterPos3s", &rogl_pfn_glRasterPos3s},
-    {"glRasterPos3sv", &rogl_pfn_glRasterPos3sv},
-    {"glRasterPos4d", &rogl_pfn_glRasterPos4d},
-    {"glRasterPos4dv", &rogl_pfn_glRasterPos4dv},
-    {"glRasterPos4f", &rogl_pfn_glRasterPos4f},
-    {"glRasterPos4fv", &rogl_pfn_glRasterPos4fv},
-    {"glRasterPos4i", &rogl_pfn_glRasterPos4i},
-    {"glRasterPos4iv", &rogl_pfn_glRasterPos4iv},
-    {"glRasterPos4s", &rogl_pfn_glRasterPos4s},
-    {"glRasterPos4sv", &rogl_pfn_glRasterPos4sv},
-    {"glRectd", &rogl_pfn_glRectd},
-    {"glRectdv", &rogl_pfn_glRectdv},
-    {"glRectf", &rogl_pfn_glRectf},
-    {"glRectfv", &rogl_pfn_glRectfv},
-    {"glRecti", &rogl_pfn_glRecti},
-    {"glRectiv", &rogl_pfn_glRectiv},
-    {"glRects", &rogl_pfn_glRects},
-    {"glRectsv", &rogl_pfn_glRectsv},
-    {"glTexCoord1d", &rogl_pfn_glTexCoord1d},
-    {"glTexCoord1dv", &rogl_pfn_glTexCoord1dv},
-    {"glTexCoord1f", &rogl_pfn_glTexCoord1f},
-    {"glTexCoord1fv", &rogl_pfn_glTexCoord1fv},
-    {"glTexCoord1i", &rogl_pfn_glTexCoord1i},
-    {"glTexCoord1iv", &rogl_pfn_glTexCoord1iv},
-    {"glTexCoord1s", &rogl_pfn_glTexCoord1s},
-    {"glTexCoord1sv", &rogl_pfn_glTexCoord1sv},
-    {"glTexCoord2d", &rogl_pfn_glTexCoord2d},
-    {"glTexCoord2dv", &rogl_pfn_glTexCoord2dv},
-    {"glTexCoord2f", &rogl_pfn_glTexCoord2f},
-    {"glTexCoord2fv", &rogl_pfn_glTexCoord2fv},
-    {"glTexCoord2i", &rogl_pfn_glTexCoord2i},
-    {"glTexCoord2iv", &rogl_pfn_glTexCoord2iv},
-    {"glTexCoord2s", &rogl_pfn_glTexCoord2s},
-    {"glTexCoord2sv", &rogl_pfn_glTexCoord2sv},
-    {"glTexCoord3d", &rogl_pfn_glTexCoord3d},
-    {"glTexCoord3dv", &rogl_pfn_glTexCoord3dv},
-    {"glTexCoord3f", &rogl_pfn_glTexCoord3f},
-    {"glTexCoord3fv", &rogl_pfn_glTexCoord3fv},
-    {"glTexCoord3i", &rogl_pfn_glTexCoord3i},
-    {"glTexCoord3iv", &rogl_pfn_glTexCoord3iv},
-    {"glTexCoord3s", &rogl_pfn_glTexCoord3s},
-    {"glTexCoord3sv", &rogl_pfn_glTexCoord3sv},
-    {"glTexCoord4d", &rogl_pfn_glTexCoord4d},
-    {"glTexCoord4dv", &rogl_pfn_glTexCoord4dv},
-    {"glTexCoord4f", &rogl_pfn_glTexCoord4f},
-    {"glTexCoord4fv", &rogl_pfn_glTexCoord4fv},
-    {"glTexCoord4i", &rogl_pfn_glTexCoord4i},
-    {"glTexCoord4iv", &rogl_pfn_glTexCoord4iv},
-    {"glTexCoord4s", &rogl_pfn_glTexCoord4s},
-    {"glTexCoord4sv", &rogl_pfn_glTexCoord4sv},
-    {"glVertex2d", &rogl_pfn_glVertex2d},
-    {"glVertex2dv", &rogl_pfn_glVertex2dv},
-    {"glVertex2f", &rogl_pfn_glVertex2f},
-    {"glVertex2fv", &rogl_pfn_glVertex2fv},
-    {"glVertex2i", &rogl_pfn_glVertex2i},
-    {"glVertex2iv", &rogl_pfn_glVertex2iv},
-    {"glVertex2s", &rogl_pfn_glVertex2s},
-    {"glVertex2sv", &rogl_pfn_glVertex2sv},
-    {"glVertex3d", &rogl_pfn_glVertex3d},
-    {"glVertex3dv", &rogl_pfn_glVertex3dv},
-    {"glVertex3f", &rogl_pfn_glVertex3f},
-    {"glVertex3fv", &rogl_pfn_glVertex3fv},
-    {"glVertex3i", &rogl_pfn_glVertex3i},
-    {"glVertex3iv", &rogl_pfn_glVertex3iv},
-    {"glVertex3s", &rogl_pfn_glVertex3s},
-    {"glVertex3sv", &rogl_pfn_glVertex3sv},
-    {"glVertex4d", &rogl_pfn_glVertex4d},
-    {"glVertex4dv", &rogl_pfn_glVertex4dv},
-    {"glVertex4f", &rogl_pfn_glVertex4f},
-    {"glVertex4fv", &rogl_pfn_glVertex4fv},
-    {"glVertex4i", &rogl_pfn_glVertex4i},
-    {"glVertex4iv", &rogl_pfn_glVertex4iv},
-    {"glVertex4s", &rogl_pfn_glVertex4s},
-    {"glVertex4sv", &rogl_pfn_glVertex4sv},
-    {"glClipPlane", &rogl_pfn_glClipPlane},
-    {"glColorMaterial", &rogl_pfn_glColorMaterial},
-    {"glFogf", &rogl_pfn_glFogf},
-    {"glFogfv", &rogl_pfn_glFogfv},
-    {"glFogi", &rogl_pfn_glFogi},
-    {"glFogiv", &rogl_pfn_glFogiv},
-    {"glLightf", &rogl_pfn_glLightf},
-    {"glLightfv", &rogl_pfn_glLightfv},
-    {"glLighti", &rogl_pfn_glLighti},
-    {"glLightiv", &rogl_pfn_glLightiv},
-    {"glLightModelf", &rogl_pfn_glLightModelf},
-    {"glLightModelfv", &rogl_pfn_glLightModelfv},
-    {"glLightModeli", &rogl_pfn_glLightModeli},
-    {"glLightModeliv", &rogl_pfn_glLightModeliv},
-    {"glLineStipple", &rogl_pfn_glLineStipple},
-    {"glMaterialf", &rogl_pfn_glMaterialf},
-    {"glMaterialfv", &rogl_pfn_glMaterialfv},
-    {"glMateriali", &rogl_pfn_glMateriali},
-    {"glMaterialiv", &rogl_pfn_glMaterialiv},
-    {"glPolygonStipple", &rogl_pfn_glPolygonStipple},
-    {"glShadeModel", &rogl_pfn_glShadeModel},
-    {"glTexEnvf", &rogl_pfn_glTexEnvf},
-    {"glTexEnvfv", &rogl_pfn_glTexEnvfv},
-    {"glTexEnvi", &rogl_pfn_glTexEnvi},
-    {"glTexEnviv", &rogl_pfn_glTexEnviv},
-    {"glTexGend", &rogl_pfn_glTexGend},
-    {"glTexGendv", &rogl_pfn_glTexGendv},
-    {"glTexGenf", &rogl_pfn_glTexGenf},
-    {"glTexGenfv", &rogl_pfn_glTexGenfv},
-    {"glTexGeni", &rogl_pfn_glTexGeni},
-    {"glTexGeniv", &rogl_pfn_glTexGeniv},
-    {"glFeedbackBuffer", &rogl_pfn_glFeedbackBuffer},
-    {"glSelectBuffer", &rogl_pfn_glSelectBuffer},
-    {"glRenderMode", &rogl_pfn_glRenderMode},
-    {"glInitNames", &rogl_pfn_glInitNames},
-    {"glLoadName", &rogl_pfn_glLoadName},
-    {"glPassThrough", &rogl_pfn_glPassThrough},
-    {"glPopName", &rogl_pfn_glPopName},
-    {"glPushName", &rogl_pfn_glPushName},
-    {"glClearAccum", &rogl_pfn_glClearAccum},
-    {"glClearIndex", &rogl_pfn_glClearIndex},
-    {"glIndexMask", &rogl_pfn_glIndexMask},
-    {"glAccum", &rogl_pfn_glAccum},
-    {"glPopAttrib", &rogl_pfn_glPopAttrib},
-    {"glPushAttrib", &rogl_pfn_glPushAttrib},
-    {"glMap1d", &rogl_pfn_glMap1d},
-    {"glMap1f", &rogl_pfn_glMap1f},
-    {"glMap2d", &rogl_pfn_glMap2d},
-    {"glMap2f", &rogl_pfn_glMap2f},
-    {"glMapGrid1d", &rogl_pfn_glMapGrid1d},
-    {"glMapGrid1f", &rogl_pfn_glMapGrid1f},
-    {"glMapGrid2d", &rogl_pfn_glMapGrid2d},
-    {"glMapGrid2f", &rogl_pfn_glMapGrid2f},
-    {"glEvalCoord1d", &rogl_pfn_glEvalCoord1d},
-    {"glEvalCoord1dv", &rogl_pfn_glEvalCoord1dv},
-    {"glEvalCoord1f", &rogl_pfn_glEvalCoord1f},
-    {"glEvalCoord1fv", &rogl_pfn_glEvalCoord1fv},
-    {"glEvalCoord2d", &rogl_pfn_glEvalCoord2d},
-    {"glEvalCoord2dv", &rogl_pfn_glEvalCoord2dv},
-    {"glEvalCoord2f", &rogl_pfn_glEvalCoord2f},
-    {"glEvalCoord2fv", &rogl_pfn_glEvalCoord2fv},
-    {"glEvalMesh1", &rogl_pfn_glEvalMesh1},
-    {"glEvalPoint1", &rogl_pfn_glEvalPoint1},
-    {"glEvalMesh2", &rogl_pfn_glEvalMesh2},
-    {"glEvalPoint2", &rogl_pfn_glEvalPoint2},
-    {"glAlphaFunc", &rogl_pfn_glAlphaFunc},
-    {"glPixelZoom", &rogl_pfn_glPixelZoom},
-    {"glPixelTransferf", &rogl_pfn_glPixelTransferf},
-    {"glPixelTransferi", &rogl_pfn_glPixelTransferi},
-    {"glPixelMapfv", &rogl_pfn_glPixelMapfv},
-    {"glPixelMapuiv", &rogl_pfn_glPixelMapuiv},
-    {"glPixelMapusv", &rogl_pfn_glPixelMapusv},
-    {"glCopyPixels", &rogl_pfn_glCopyPixels},
-    {"glDrawPixels", &rogl_pfn_glDrawPixels},
-    {"glGetClipPlane", &rogl_pfn_glGetClipPlane},
-    {"glGetLightfv", &rogl_pfn_glGetLightfv},
-    {"glGetLightiv", &rogl_pfn_glGetLightiv},
-    {"glGetMapdv", &rogl_pfn_glGetMapdv},
-    {"glGetMapfv", &rogl_pfn_glGetMapfv},
-    {"glGetMapiv", &rogl_pfn_glGetMapiv},
-    {"glGetMaterialfv", &rogl_pfn_glGetMaterialfv},
-    {"glGetMaterialiv", &rogl_pfn_glGetMaterialiv},
-    {"glGetPixelMapfv", &rogl_pfn_glGetPixelMapfv},
-    {"glGetPixelMapuiv", &rogl_pfn_glGetPixelMapuiv},
-    {"glGetPixelMapusv", &rogl_pfn_glGetPixelMapusv},
-    {"glGetPolygonStipple", &rogl_pfn_glGetPolygonStipple},
-    {"glGetTexEnvfv", &rogl_pfn_glGetTexEnvfv},
-    {"glGetTexEnviv", &rogl_pfn_glGetTexEnviv},
-    {"glGetTexGendv", &rogl_pfn_glGetTexGendv},
-    {"glGetTexGenfv", &rogl_pfn_glGetTexGenfv},
-    {"glGetTexGeniv", &rogl_pfn_glGetTexGeniv},
-    {"glIsList", &rogl_pfn_glIsList},
-    {"glFrustum", &rogl_pfn_glFrustum},
-    {"glLoadIdentity", &rogl_pfn_glLoadIdentity},
-    {"glLoadMatrixf", &rogl_pfn_glLoadMatrixf},
-    {"glLoadMatrixd", &rogl_pfn_glLoadMatrixd},
-    {"glMatrixMode", &rogl_pfn_glMatrixMode},
-    {"glMultMatrixf", &rogl_pfn_glMultMatrixf},
-    {"glMultMatrixd", &rogl_pfn_glMultMatrixd},
-    {"glOrtho", &rogl_pfn_glOrtho},
-    {"glPopMatrix", &rogl_pfn_glPopMatrix},
-    {"glPushMatrix", &rogl_pfn_glPushMatrix},
-    {"glRotated", &rogl_pfn_glRotated},
-    {"glRotatef", &rogl_pfn_glRotatef},
-    {"glScaled", &rogl_pfn_glScaled},
-    {"glScalef", &rogl_pfn_glScalef},
-    {"glTranslated", &rogl_pfn_glTranslated},
-    {"glTranslatef", &rogl_pfn_glTranslatef},
-    {"glDrawArrays", &rogl_pfn_glDrawArrays},
-    {"glDrawElements", &rogl_pfn_glDrawElements},
-    {"glGetPointerv", &rogl_pfn_glGetPointerv},
-    {"glPolygonOffset", &rogl_pfn_glPolygonOffset},
-    {"glCopyTexImage1D", &rogl_pfn_glCopyTexImage1D},
-    {"glCopyTexImage2D", &rogl_pfn_glCopyTexImage2D},
-    {"glCopyTexSubImage1D", &rogl_pfn_glCopyTexSubImage1D},
-    {"glCopyTexSubImage2D", &rogl_pfn_glCopyTexSubImage2D},
-    {"glTexSubImage1D", &rogl_pfn_glTexSubImage1D},
-    {"glTexSubImage2D", &rogl_pfn_glTexSubImage2D},
-    {"glBindTexture", &rogl_pfn_glBindTexture},
-    {"glDeleteTextures", &rogl_pfn_glDeleteTextures},
-    {"glGenTextures", &rogl_pfn_glGenTextures},
-    {"glIsTexture", &rogl_pfn_glIsTexture},
-    {"glArrayElement", &rogl_pfn_glArrayElement},
-    {"glColorPointer", &rogl_pfn_glColorPointer},
-    {"glDisableClientState", &rogl_pfn_glDisableClientState},
-    {"glEdgeFlagPointer", &rogl_pfn_glEdgeFlagPointer},
-    {"glEnableClientState", &rogl_pfn_glEnableClientState},
-    {"glIndexPointer", &rogl_pfn_glIndexPointer},
-    {"glInterleavedArrays", &rogl_pfn_glInterleavedArrays},
-    {"glNormalPointer", &rogl_pfn_glNormalPointer},
-    {"glTexCoordPointer", &rogl_pfn_glTexCoordPointer},
-    {"glVertexPointer", &rogl_pfn_glVertexPointer},
-    {"glAreTexturesResident", &rogl_pfn_glAreTexturesResident},
-    {"glPrioritizeTextures", &rogl_pfn_glPrioritizeTextures},
-    {"glIndexub", &rogl_pfn_glIndexub},
-    {"glIndexubv", &rogl_pfn_glIndexubv},
-    {"glPopClientAttrib", &rogl_pfn_glPopClientAttrib},
-    {"glPushClientAttrib", &rogl_pfn_glPushClientAttrib},
-    {"glDrawRangeElements", &rogl_pfn_glDrawRangeElements},
-    {"glTexImage3D", &rogl_pfn_glTexImage3D},
-    {"glTexSubImage3D", &rogl_pfn_glTexSubImage3D},
-    {"glCopyTexSubImage3D", &rogl_pfn_glCopyTexSubImage3D},
-    {"glActiveTexture", &rogl_pfn_glActiveTexture},
-    {"glSampleCoverage", &rogl_pfn_glSampleCoverage},
-    {"glCompressedTexImage3D", &rogl_pfn_glCompressedTexImage3D},
-    {"glCompressedTexImage2D", &rogl_pfn_glCompressedTexImage2D},
-    {"glCompressedTexImage1D", &rogl_pfn_glCompressedTexImage1D},
-    {"glCompressedTexSubImage3D", &rogl_pfn_glCompressedTexSubImage3D},
-    {"glCompressedTexSubImage2D", &rogl_pfn_glCompressedTexSubImage2D},
-    {"glCompressedTexSubImage1D", &rogl_pfn_glCompressedTexSubImage1D},
-    {"glGetCompressedTexImage", &rogl_pfn_glGetCompressedTexImage},
-    {"glClientActiveTexture", &rogl_pfn_glClientActiveTexture},
-    {"glMultiTexCoord1d", &rogl_pfn_glMultiTexCoord1d},
-    {"glMultiTexCoord1dv", &rogl_pfn_glMultiTexCoord1dv},
-    {"glMultiTexCoord1f", &rogl_pfn_glMultiTexCoord1f},
-    {"glMultiTexCoord1fv", &rogl_pfn_glMultiTexCoord1fv},
-    {"glMultiTexCoord1i", &rogl_pfn_glMultiTexCoord1i},
-    {"glMultiTexCoord1iv", &rogl_pfn_glMultiTexCoord1iv},
-    {"glMultiTexCoord1s", &rogl_pfn_glMultiTexCoord1s},
-    {"glMultiTexCoord1sv", &rogl_pfn_glMultiTexCoord1sv},
-    {"glMultiTexCoord2d", &rogl_pfn_glMultiTexCoord2d},
-    {"glMultiTexCoord2dv", &rogl_pfn_glMultiTexCoord2dv},
-    {"glMultiTexCoord2f", &rogl_pfn_glMultiTexCoord2f},
-    {"glMultiTexCoord2fv", &rogl_pfn_glMultiTexCoord2fv},
-    {"glMultiTexCoord2i", &rogl_pfn_glMultiTexCoord2i},
-    {"glMultiTexCoord2iv", &rogl_pfn_glMultiTexCoord2iv},
-    {"glMultiTexCoord2s", &rogl_pfn_glMultiTexCoord2s},
-    {"glMultiTexCoord2sv", &rogl_pfn_glMultiTexCoord2sv},
-    {"glMultiTexCoord3d", &rogl_pfn_glMultiTexCoord3d},
-    {"glMultiTexCoord3dv", &rogl_pfn_glMultiTexCoord3dv},
-    {"glMultiTexCoord3f", &rogl_pfn_glMultiTexCoord3f},
-    {"glMultiTexCoord3fv", &rogl_pfn_glMultiTexCoord3fv},
-    {"glMultiTexCoord3i", &rogl_pfn_glMultiTexCoord3i},
-    {"glMultiTexCoord3iv", &rogl_pfn_glMultiTexCoord3iv},
-    {"glMultiTexCoord3s", &rogl_pfn_glMultiTexCoord3s},
-    {"glMultiTexCoord3sv", &rogl_pfn_glMultiTexCoord3sv},
-    {"glMultiTexCoord4d", &rogl_pfn_glMultiTexCoord4d},
-    {"glMultiTexCoord4dv", &rogl_pfn_glMultiTexCoord4dv},
-    {"glMultiTexCoord4f", &rogl_pfn_glMultiTexCoord4f},
-    {"glMultiTexCoord4fv", &rogl_pfn_glMultiTexCoord4fv},
-    {"glMultiTexCoord4i", &rogl_pfn_glMultiTexCoord4i},
-    {"glMultiTexCoord4iv", &rogl_pfn_glMultiTexCoord4iv},
-    {"glMultiTexCoord4s", &rogl_pfn_glMultiTexCoord4s},
-    {"glMultiTexCoord4sv", &rogl_pfn_glMultiTexCoord4sv},
-    {"glLoadTransposeMatrixf", &rogl_pfn_glLoadTransposeMatrixf},
-    {"glLoadTransposeMatrixd", &rogl_pfn_glLoadTransposeMatrixd},
-    {"glMultTransposeMatrixf", &rogl_pfn_glMultTransposeMatrixf},
-    {"glMultTransposeMatrixd", &rogl_pfn_glMultTransposeMatrixd},
-    {"glBlendFuncSeparate", &rogl_pfn_glBlendFuncSeparate},
-    {"glMultiDrawArrays", &rogl_pfn_glMultiDrawArrays},
-    {"glMultiDrawElements", &rogl_pfn_glMultiDrawElements},
-    {"glPointParameterf", &rogl_pfn_glPointParameterf},
-    {"glPointParameterfv", &rogl_pfn_glPointParameterfv},
-    {"glPointParameteri", &rogl_pfn_glPointParameteri},
-    {"glPointParameteriv", &rogl_pfn_glPointParameteriv},
-    {"glFogCoordf", &rogl_pfn_glFogCoordf},
-    {"glFogCoordfv", &rogl_pfn_glFogCoordfv},
-    {"glFogCoordd", &rogl_pfn_glFogCoordd},
-    {"glFogCoorddv", &rogl_pfn_glFogCoorddv},
-    {"glFogCoordPointer", &rogl_pfn_glFogCoordPointer},
-    {"glSecondaryColor3b", &rogl_pfn_glSecondaryColor3b},
-    {"glSecondaryColor3bv", &rogl_pfn_glSecondaryColor3bv},
-    {"glSecondaryColor3d", &rogl_pfn_glSecondaryColor3d},
-    {"glSecondaryColor3dv", &rogl_pfn_glSecondaryColor3dv},
-    {"glSecondaryColor3f", &rogl_pfn_glSecondaryColor3f},
-    {"glSecondaryColor3fv", &rogl_pfn_glSecondaryColor3fv},
-    {"glSecondaryColor3i", &rogl_pfn_glSecondaryColor3i},
-    {"glSecondaryColor3iv", &rogl_pfn_glSecondaryColor3iv},
-    {"glSecondaryColor3s", &rogl_pfn_glSecondaryColor3s},
-    {"glSecondaryColor3sv", &rogl_pfn_glSecondaryColor3sv},
-    {"glSecondaryColor3ub", &rogl_pfn_glSecondaryColor3ub},
-    {"glSecondaryColor3ubv", &rogl_pfn_glSecondaryColor3ubv},
-    {"glSecondaryColor3ui", &rogl_pfn_glSecondaryColor3ui},
-    {"glSecondaryColor3uiv", &rogl_pfn_glSecondaryColor3uiv},
-    {"glSecondaryColor3us", &rogl_pfn_glSecondaryColor3us},
-    {"glSecondaryColor3usv", &rogl_pfn_glSecondaryColor3usv},
-    {"glSecondaryColorPointer", &rogl_pfn_glSecondaryColorPointer},
-    {"glWindowPos2d", &rogl_pfn_glWindowPos2d},
-    {"glWindowPos2dv", &rogl_pfn_glWindowPos2dv},
-    {"glWindowPos2f", &rogl_pfn_glWindowPos2f},
-    {"glWindowPos2fv", &rogl_pfn_glWindowPos2fv},
-    {"glWindowPos2i", &rogl_pfn_glWindowPos2i},
-    {"glWindowPos2iv", &rogl_pfn_glWindowPos2iv},
-    {"glWindowPos2s", &rogl_pfn_glWindowPos2s},
-    {"glWindowPos2sv", &rogl_pfn_glWindowPos2sv},
-    {"glWindowPos3d", &rogl_pfn_glWindowPos3d},
-    {"glWindowPos3dv", &rogl_pfn_glWindowPos3dv},
-    {"glWindowPos3f", &rogl_pfn_glWindowPos3f},
-    {"glWindowPos3fv", &rogl_pfn_glWindowPos3fv},
-    {"glWindowPos3i", &rogl_pfn_glWindowPos3i},
-    {"glWindowPos3iv", &rogl_pfn_glWindowPos3iv},
-    {"glWindowPos3s", &rogl_pfn_glWindowPos3s},
-    {"glWindowPos3sv", &rogl_pfn_glWindowPos3sv},
-    {"glBlendColor", &rogl_pfn_glBlendColor},
-    {"glBlendEquation", &rogl_pfn_glBlendEquation},
-    {"glGenQueries", &rogl_pfn_glGenQueries},
-    {"glDeleteQueries", &rogl_pfn_glDeleteQueries},
-    {"glIsQuery", &rogl_pfn_glIsQuery},
-    {"glBeginQuery", &rogl_pfn_glBeginQuery},
-    {"glEndQuery", &rogl_pfn_glEndQuery},
-    {"glGetQueryiv", &rogl_pfn_glGetQueryiv},
-    {"glGetQueryObjectiv", &rogl_pfn_glGetQueryObjectiv},
-    {"glGetQueryObjectuiv", &rogl_pfn_glGetQueryObjectuiv},
-    {"glBindBuffer", &rogl_pfn_glBindBuffer},
-    {"glDeleteBuffers", &rogl_pfn_glDeleteBuffers},
-    {"glGenBuffers", &rogl_pfn_glGenBuffers},
-    {"glIsBuffer", &rogl_pfn_glIsBuffer},
-    {"glBufferData", &rogl_pfn_glBufferData},
-    {"glBufferSubData", &rogl_pfn_glBufferSubData},
-    {"glGetBufferSubData", &rogl_pfn_glGetBufferSubData},
-    {"glMapBuffer", &rogl_pfn_glMapBuffer},
-    {"glUnmapBuffer", &rogl_pfn_glUnmapBuffer},
-    {"glGetBufferParameteriv", &rogl_pfn_glGetBufferParameteriv},
-    {"glGetBufferPointerv", &rogl_pfn_glGetBufferPointerv},
-    {"glBlendEquationSeparate", &rogl_pfn_glBlendEquationSeparate},
-    {"glDrawBuffers", &rogl_pfn_glDrawBuffers},
-    {"glStencilOpSeparate", &rogl_pfn_glStencilOpSeparate},
-    {"glStencilFuncSeparate", &rogl_pfn_glStencilFuncSeparate},
-    {"glStencilMaskSeparate", &rogl_pfn_glStencilMaskSeparate},
-    {"glAttachShader", &rogl_pfn_glAttachShader},
-    {"glBindAttribLocation", &rogl_pfn_glBindAttribLocation},
-    {"glCompileShader", &rogl_pfn_glCompileShader},
-    {"glCreateProgram", &rogl_pfn_glCreateProgram},
-    {"glCreateShader", &rogl_pfn_glCreateShader},
-    {"glDeleteProgram", &rogl_pfn_glDeleteProgram},
-    {"glDeleteShader", &rogl_pfn_glDeleteShader},
-    {"glDetachShader", &rogl_pfn_glDetachShader},
-    {"glDisableVertexAttribArray", &rogl_pfn_glDisableVertexAttribArray},
-    {"glEnableVertexAttribArray", &rogl_pfn_glEnableVertexAttribArray},
-    {"glGetActiveAttrib", &rogl_pfn_glGetActiveAttrib},
-    {"glGetActiveUniform", &rogl_pfn_glGetActiveUniform},
-    {"glGetAttachedShaders", &rogl_pfn_glGetAttachedShaders},
-    {"glGetAttribLocation", &rogl_pfn_glGetAttribLocation},
-    {"glGetProgramiv", &rogl_pfn_glGetProgramiv},
-    {"glGetProgramInfoLog", &rogl_pfn_glGetProgramInfoLog},
-    {"glGetShaderiv", &rogl_pfn_glGetShaderiv},
-    {"glGetShaderInfoLog", &rogl_pfn_glGetShaderInfoLog},
-    {"glGetShaderSource", &rogl_pfn_glGetShaderSource},
-    {"glGetUniformLocation", &rogl_pfn_glGetUniformLocation},
-    {"glGetUniformfv", &rogl_pfn_glGetUniformfv},
-    {"glGetUniformiv", &rogl_pfn_glGetUniformiv},
-    {"glGetVertexAttribdv", &rogl_pfn_glGetVertexAttribdv},
-    {"glGetVertexAttribfv", &rogl_pfn_glGetVertexAttribfv},
-    {"glGetVertexAttribiv", &rogl_pfn_glGetVertexAttribiv},
-    {"glGetVertexAttribPointerv", &rogl_pfn_glGetVertexAttribPointerv},
-    {"glIsProgram", &rogl_pfn_glIsProgram},
-    {"glIsShader", &rogl_pfn_glIsShader},
-    {"glLinkProgram", &rogl_pfn_glLinkProgram},
-    {"glShaderSource", &rogl_pfn_glShaderSource},
-    {"glUseProgram", &rogl_pfn_glUseProgram},
-    {"glUniform1f", &rogl_pfn_glUniform1f},
-    {"glUniform2f", &rogl_pfn_glUniform2f},
-    {"glUniform3f", &rogl_pfn_glUniform3f},
-    {"glUniform4f", &rogl_pfn_glUniform4f},
-    {"glUniform1i", &rogl_pfn_glUniform1i},
-    {"glUniform2i", &rogl_pfn_glUniform2i},
-    {"glUniform3i", &rogl_pfn_glUniform3i},
-    {"glUniform4i", &rogl_pfn_glUniform4i},
-    {"glUniform1fv", &rogl_pfn_glUniform1fv},
-    {"glUniform2fv", &rogl_pfn_glUniform2fv},
-    {"glUniform3fv", &rogl_pfn_glUniform3fv},
-    {"glUniform4fv", &rogl_pfn_glUniform4fv},
-    {"glUniform1iv", &rogl_pfn_glUniform1iv},
-    {"glUniform2iv", &rogl_pfn_glUniform2iv},
-    {"glUniform3iv", &rogl_pfn_glUniform3iv},
-    {"glUniform4iv", &rogl_pfn_glUniform4iv},
-    {"glUniformMatrix2fv", &rogl_pfn_glUniformMatrix2fv},
-    {"glUniformMatrix3fv", &rogl_pfn_glUniformMatrix3fv},
-    {"glUniformMatrix4fv", &rogl_pfn_glUniformMatrix4fv},
-    {"glValidateProgram", &rogl_pfn_glValidateProgram},
-    {"glVertexAttrib1d", &rogl_pfn_glVertexAttrib1d},
-    {"glVertexAttrib1dv", &rogl_pfn_glVertexAttrib1dv},
-    {"glVertexAttrib1f", &rogl_pfn_glVertexAttrib1f},
-    {"glVertexAttrib1fv", &rogl_pfn_glVertexAttrib1fv},
-    {"glVertexAttrib1s", &rogl_pfn_glVertexAttrib1s},
-    {"glVertexAttrib1sv", &rogl_pfn_glVertexAttrib1sv},
-    {"glVertexAttrib2d", &rogl_pfn_glVertexAttrib2d},
-    {"glVertexAttrib2dv", &rogl_pfn_glVertexAttrib2dv},
-    {"glVertexAttrib2f", &rogl_pfn_glVertexAttrib2f},
-    {"glVertexAttrib2fv", &rogl_pfn_glVertexAttrib2fv},
-    {"glVertexAttrib2s", &rogl_pfn_glVertexAttrib2s},
-    {"glVertexAttrib2sv", &rogl_pfn_glVertexAttrib2sv},
-    {"glVertexAttrib3d", &rogl_pfn_glVertexAttrib3d},
-    {"glVertexAttrib3dv", &rogl_pfn_glVertexAttrib3dv},
-    {"glVertexAttrib3f", &rogl_pfn_glVertexAttrib3f},
-    {"glVertexAttrib3fv", &rogl_pfn_glVertexAttrib3fv},
-    {"glVertexAttrib3s", &rogl_pfn_glVertexAttrib3s},
-    {"glVertexAttrib3sv", &rogl_pfn_glVertexAttrib3sv},
-    {"glVertexAttrib4Nbv", &rogl_pfn_glVertexAttrib4Nbv},
-    {"glVertexAttrib4Niv", &rogl_pfn_glVertexAttrib4Niv},
-    {"glVertexAttrib4Nsv", &rogl_pfn_glVertexAttrib4Nsv},
-    {"glVertexAttrib4Nub", &rogl_pfn_glVertexAttrib4Nub},
-    {"glVertexAttrib4Nubv", &rogl_pfn_glVertexAttrib4Nubv},
-    {"glVertexAttrib4Nuiv", &rogl_pfn_glVertexAttrib4Nuiv},
-    {"glVertexAttrib4Nusv", &rogl_pfn_glVertexAttrib4Nusv},
-    {"glVertexAttrib4bv", &rogl_pfn_glVertexAttrib4bv},
-    {"glVertexAttrib4d", &rogl_pfn_glVertexAttrib4d},
-    {"glVertexAttrib4dv", &rogl_pfn_glVertexAttrib4dv},
-    {"glVertexAttrib4f", &rogl_pfn_glVertexAttrib4f},
-    {"glVertexAttrib4fv", &rogl_pfn_glVertexAttrib4fv},
-    {"glVertexAttrib4iv", &rogl_pfn_glVertexAttrib4iv},
-    {"glVertexAttrib4s", &rogl_pfn_glVertexAttrib4s},
-    {"glVertexAttrib4sv", &rogl_pfn_glVertexAttrib4sv},
-    {"glVertexAttrib4ubv", &rogl_pfn_glVertexAttrib4ubv},
-    {"glVertexAttrib4uiv", &rogl_pfn_glVertexAttrib4uiv},
-    {"glVertexAttrib4usv", &rogl_pfn_glVertexAttrib4usv},
-    {"glVertexAttribPointer", &rogl_pfn_glVertexAttribPointer},
-    {"glUniformMatrix2x3fv", &rogl_pfn_glUniformMatrix2x3fv},
-    {"glUniformMatrix3x2fv", &rogl_pfn_glUniformMatrix3x2fv},
-    {"glUniformMatrix2x4fv", &rogl_pfn_glUniformMatrix2x4fv},
-    {"glUniformMatrix4x2fv", &rogl_pfn_glUniformMatrix4x2fv},
-    {"glUniformMatrix3x4fv", &rogl_pfn_glUniformMatrix3x4fv},
-    {"glUniformMatrix4x3fv", &rogl_pfn_glUniformMatrix4x3fv},
-    {"glColorMaski", &rogl_pfn_glColorMaski},
-    {"glGetBooleani_v", &rogl_pfn_glGetBooleani_v},
-    {"glGetIntegeri_v", &rogl_pfn_glGetIntegeri_v},
-    {"glEnablei", &rogl_pfn_glEnablei},
-    {"glDisablei", &rogl_pfn_glDisablei},
-    {"glIsEnabledi", &rogl_pfn_glIsEnabledi},
-    {"glBeginTransformFeedback", &rogl_pfn_glBeginTransformFeedback},
-    {"glEndTransformFeedback", &rogl_pfn_glEndTransformFeedback},
-    {"glBindBufferRange", &rogl_pfn_glBindBufferRange},
-    {"glBindBufferBase", &rogl_pfn_glBindBufferBase},
-    {"glTransformFeedbackVaryings", &rogl_pfn_glTransformFeedbackVaryings},
-    {"glGetTransformFeedbackVarying", &rogl_pfn_glGetTransformFeedbackVarying},
-    {"glClampColor", &rogl_pfn_glClampColor},
-    {"glBeginConditionalRender", &rogl_pfn_glBeginConditionalRender},
-    {"glEndConditionalRender", &rogl_pfn_glEndConditionalRender},
-    {"glVertexAttribIPointer", &rogl_pfn_glVertexAttribIPointer},
-    {"glGetVertexAttribIiv", &rogl_pfn_glGetVertexAttribIiv},
-    {"glGetVertexAttribIuiv", &rogl_pfn_glGetVertexAttribIuiv},
-    {"glVertexAttribI1i", &rogl_pfn_glVertexAttribI1i},
-    {"glVertexAttribI2i", &rogl_pfn_glVertexAttribI2i},
-    {"glVertexAttribI3i", &rogl_pfn_glVertexAttribI3i},
-    {"glVertexAttribI4i", &rogl_pfn_glVertexAttribI4i},
-    {"glVertexAttribI1ui", &rogl_pfn_glVertexAttribI1ui},
-    {"glVertexAttribI2ui", &rogl_pfn_glVertexAttribI2ui},
-    {"glVertexAttribI3ui", &rogl_pfn_glVertexAttribI3ui},
-    {"glVertexAttribI4ui", &rogl_pfn_glVertexAttribI4ui},
-    {"glVertexAttribI1iv", &rogl_pfn_glVertexAttribI1iv},
-    {"glVertexAttribI2iv", &rogl_pfn_glVertexAttribI2iv},
-    {"glVertexAttribI3iv", &rogl_pfn_glVertexAttribI3iv},
-    {"glVertexAttribI4iv", &rogl_pfn_glVertexAttribI4iv},
-    {"glVertexAttribI1uiv", &rogl_pfn_glVertexAttribI1uiv},
-    {"glVertexAttribI2uiv", &rogl_pfn_glVertexAttribI2uiv},
-    {"glVertexAttribI3uiv", &rogl_pfn_glVertexAttribI3uiv},
-    {"glVertexAttribI4uiv", &rogl_pfn_glVertexAttribI4uiv},
-    {"glVertexAttribI4bv", &rogl_pfn_glVertexAttribI4bv},
-    {"glVertexAttribI4sv", &rogl_pfn_glVertexAttribI4sv},
-    {"glVertexAttribI4ubv", &rogl_pfn_glVertexAttribI4ubv},
-    {"glVertexAttribI4usv", &rogl_pfn_glVertexAttribI4usv},
-    {"glGetUniformuiv", &rogl_pfn_glGetUniformuiv},
-    {"glBindFragDataLocation", &rogl_pfn_glBindFragDataLocation},
-    {"glGetFragDataLocation", &rogl_pfn_glGetFragDataLocation},
-    {"glUniform1ui", &rogl_pfn_glUniform1ui},
-    {"glUniform2ui", &rogl_pfn_glUniform2ui},
-    {"glUniform3ui", &rogl_pfn_glUniform3ui},
-    {"glUniform4ui", &rogl_pfn_glUniform4ui},
-    {"glUniform1uiv", &rogl_pfn_glUniform1uiv},
-    {"glUniform2uiv", &rogl_pfn_glUniform2uiv},
-    {"glUniform3uiv", &rogl_pfn_glUniform3uiv},
-    {"glUniform4uiv", &rogl_pfn_glUniform4uiv},
-    {"glTexParameterIiv", &rogl_pfn_glTexParameterIiv},
-    {"glTexParameterIuiv", &rogl_pfn_glTexParameterIuiv},
-    {"glGetTexParameterIiv", &rogl_pfn_glGetTexParameterIiv},
-    {"glGetTexParameterIuiv", &rogl_pfn_glGetTexParameterIuiv},
-    {"glClearBufferiv", &rogl_pfn_glClearBufferiv},
-    {"glClearBufferuiv", &rogl_pfn_glClearBufferuiv},
-    {"glClearBufferfv", &rogl_pfn_glClearBufferfv},
-    {"glClearBufferfi", &rogl_pfn_glClearBufferfi},
-    {"glGetStringi", &rogl_pfn_glGetStringi},
-    {"glIsRenderbuffer", &rogl_pfn_glIsRenderbuffer},
-    {"glBindRenderbuffer", &rogl_pfn_glBindRenderbuffer},
-    {"glDeleteRenderbuffers", &rogl_pfn_glDeleteRenderbuffers},
-    {"glGenRenderbuffers", &rogl_pfn_glGenRenderbuffers},
-    {"glRenderbufferStorage", &rogl_pfn_glRenderbufferStorage},
-    {"glGetRenderbufferParameteriv", &rogl_pfn_glGetRenderbufferParameteriv},
-    {"glIsFramebuffer", &rogl_pfn_glIsFramebuffer},
-    {"glBindFramebuffer", &rogl_pfn_glBindFramebuffer},
-    {"glDeleteFramebuffers", &rogl_pfn_glDeleteFramebuffers},
-    {"glGenFramebuffers", &rogl_pfn_glGenFramebuffers},
-    {"glCheckFramebufferStatus", &rogl_pfn_glCheckFramebufferStatus},
-    {"glFramebufferTexture1D", &rogl_pfn_glFramebufferTexture1D},
-    {"glFramebufferTexture2D", &rogl_pfn_glFramebufferTexture2D},
-    {"glFramebufferTexture3D", &rogl_pfn_glFramebufferTexture3D},
-    {"glFramebufferRenderbuffer", &rogl_pfn_glFramebufferRenderbuffer},
-    {"glGetFramebufferAttachmentParameteriv", &rogl_pfn_glGetFramebufferAttachmentParameteriv},
-    {"glGenerateMipmap", &rogl_pfn_glGenerateMipmap},
-    {"glBlitFramebuffer", &rogl_pfn_glBlitFramebuffer},
-    {"glRenderbufferStorageMultisample", &rogl_pfn_glRenderbufferStorageMultisample},
-    {"glFramebufferTextureLayer", &rogl_pfn_glFramebufferTextureLayer},
-    {"glMapBufferRange", &rogl_pfn_glMapBufferRange},
-    {"glFlushMappedBufferRange", &rogl_pfn_glFlushMappedBufferRange},
-    {"glBindVertexArray", &rogl_pfn_glBindVertexArray},
-    {"glDeleteVertexArrays", &rogl_pfn_glDeleteVertexArrays},
-    {"glGenVertexArrays", &rogl_pfn_glGenVertexArrays},
-    {"glIsVertexArray", &rogl_pfn_glIsVertexArray},
-    {"glDrawArraysInstanced", &rogl_pfn_glDrawArraysInstanced},
-    {"glDrawElementsInstanced", &rogl_pfn_glDrawElementsInstanced},
-    {"glTexBuffer", &rogl_pfn_glTexBuffer},
-    {"glPrimitiveRestartIndex", &rogl_pfn_glPrimitiveRestartIndex},
-    {"glCopyBufferSubData", &rogl_pfn_glCopyBufferSubData},
-    {"glGetUniformIndices", &rogl_pfn_glGetUniformIndices},
-    {"glGetActiveUniformsiv", &rogl_pfn_glGetActiveUniformsiv},
-    {"glGetActiveUniformName", &rogl_pfn_glGetActiveUniformName},
-    {"glGetUniformBlockIndex", &rogl_pfn_glGetUniformBlockIndex},
-    {"glGetActiveUniformBlockiv", &rogl_pfn_glGetActiveUniformBlockiv},
-    {"glGetActiveUniformBlockName", &rogl_pfn_glGetActiveUniformBlockName},
-    {"glUniformBlockBinding", &rogl_pfn_glUniformBlockBinding},
-    {"glDrawElementsBaseVertex", &rogl_pfn_glDrawElementsBaseVertex},
-    {"glDrawRangeElementsBaseVertex", &rogl_pfn_glDrawRangeElementsBaseVertex},
-    {"glDrawElementsInstancedBaseVertex", &rogl_pfn_glDrawElementsInstancedBaseVertex},
-    {"glMultiDrawElementsBaseVertex", &rogl_pfn_glMultiDrawElementsBaseVertex},
-    {"glProvokingVertex", &rogl_pfn_glProvokingVertex},
-    {"glFenceSync", &rogl_pfn_glFenceSync},
-    {"glIsSync", &rogl_pfn_glIsSync},
-    {"glDeleteSync", &rogl_pfn_glDeleteSync},
-    {"glClientWaitSync", &rogl_pfn_glClientWaitSync},
-    {"glWaitSync", &rogl_pfn_glWaitSync},
-    {"glGetInteger64v", &rogl_pfn_glGetInteger64v},
-    {"glGetSynciv", &rogl_pfn_glGetSynciv},
-    {"glGetInteger64i_v", &rogl_pfn_glGetInteger64i_v},
-    {"glGetBufferParameteri64v", &rogl_pfn_glGetBufferParameteri64v},
-    {"glFramebufferTexture", &rogl_pfn_glFramebufferTexture},
-    {"glTexImage2DMultisample", &rogl_pfn_glTexImage2DMultisample},
-    {"glTexImage3DMultisample", &rogl_pfn_glTexImage3DMultisample},
-    {"glGetMultisamplefv", &rogl_pfn_glGetMultisamplefv},
-    {"glSampleMaski", &rogl_pfn_glSampleMaski},
-    {"glBindFragDataLocationIndexed", &rogl_pfn_glBindFragDataLocationIndexed},
-    {"glGetFragDataIndex", &rogl_pfn_glGetFragDataIndex},
-    {"glGenSamplers", &rogl_pfn_glGenSamplers},
-    {"glDeleteSamplers", &rogl_pfn_glDeleteSamplers},
-    {"glIsSampler", &rogl_pfn_glIsSampler},
-    {"glBindSampler", &rogl_pfn_glBindSampler},
-    {"glSamplerParameteri", &rogl_pfn_glSamplerParameteri},
-    {"glSamplerParameteriv", &rogl_pfn_glSamplerParameteriv},
-    {"glSamplerParameterf", &rogl_pfn_glSamplerParameterf},
-    {"glSamplerParameterfv", &rogl_pfn_glSamplerParameterfv},
-    {"glSamplerParameterIiv", &rogl_pfn_glSamplerParameterIiv},
-    {"glSamplerParameterIuiv", &rogl_pfn_glSamplerParameterIuiv},
-    {"glGetSamplerParameteriv", &rogl_pfn_glGetSamplerParameteriv},
-    {"glGetSamplerParameterIiv", &rogl_pfn_glGetSamplerParameterIiv},
-    {"glGetSamplerParameterfv", &rogl_pfn_glGetSamplerParameterfv},
-    {"glGetSamplerParameterIuiv", &rogl_pfn_glGetSamplerParameterIuiv},
-    {"glQueryCounter", &rogl_pfn_glQueryCounter},
-    {"glGetQueryObjecti64v", &rogl_pfn_glGetQueryObjecti64v},
-    {"glGetQueryObjectui64v", &rogl_pfn_glGetQueryObjectui64v},
-    {"glVertexAttribDivisor", &rogl_pfn_glVertexAttribDivisor},
-    {"glVertexAttribP1ui", &rogl_pfn_glVertexAttribP1ui},
-    {"glVertexAttribP1uiv", &rogl_pfn_glVertexAttribP1uiv},
-    {"glVertexAttribP2ui", &rogl_pfn_glVertexAttribP2ui},
-    {"glVertexAttribP2uiv", &rogl_pfn_glVertexAttribP2uiv},
-    {"glVertexAttribP3ui", &rogl_pfn_glVertexAttribP3ui},
-    {"glVertexAttribP3uiv", &rogl_pfn_glVertexAttribP3uiv},
-    {"glVertexAttribP4ui", &rogl_pfn_glVertexAttribP4ui},
-    {"glVertexAttribP4uiv", &rogl_pfn_glVertexAttribP4uiv},
-    {"glVertexP2ui", &rogl_pfn_glVertexP2ui},
-    {"glVertexP2uiv", &rogl_pfn_glVertexP2uiv},
-    {"glVertexP3ui", &rogl_pfn_glVertexP3ui},
-    {"glVertexP3uiv", &rogl_pfn_glVertexP3uiv},
-    {"glVertexP4ui", &rogl_pfn_glVertexP4ui},
-    {"glVertexP4uiv", &rogl_pfn_glVertexP4uiv},
-    {"glTexCoordP1ui", &rogl_pfn_glTexCoordP1ui},
-    {"glTexCoordP1uiv", &rogl_pfn_glTexCoordP1uiv},
-    {"glTexCoordP2ui", &rogl_pfn_glTexCoordP2ui},
-    {"glTexCoordP2uiv", &rogl_pfn_glTexCoordP2uiv},
-    {"glTexCoordP3ui", &rogl_pfn_glTexCoordP3ui},
-    {"glTexCoordP3uiv", &rogl_pfn_glTexCoordP3uiv},
-    {"glTexCoordP4ui", &rogl_pfn_glTexCoordP4ui},
-    {"glTexCoordP4uiv", &rogl_pfn_glTexCoordP4uiv},
-    {"glMultiTexCoordP1ui", &rogl_pfn_glMultiTexCoordP1ui},
-    {"glMultiTexCoordP1uiv", &rogl_pfn_glMultiTexCoordP1uiv},
-    {"glMultiTexCoordP2ui", &rogl_pfn_glMultiTexCoordP2ui},
-    {"glMultiTexCoordP2uiv", &rogl_pfn_glMultiTexCoordP2uiv},
-    {"glMultiTexCoordP3ui", &rogl_pfn_glMultiTexCoordP3ui},
-    {"glMultiTexCoordP3uiv", &rogl_pfn_glMultiTexCoordP3uiv},
-    {"glMultiTexCoordP4ui", &rogl_pfn_glMultiTexCoordP4ui},
-    {"glMultiTexCoordP4uiv", &rogl_pfn_glMultiTexCoordP4uiv},
-    {"glNormalP3ui", &rogl_pfn_glNormalP3ui},
-    {"glNormalP3uiv", &rogl_pfn_glNormalP3uiv},
-    {"glColorP3ui", &rogl_pfn_glColorP3ui},
-    {"glColorP3uiv", &rogl_pfn_glColorP3uiv},
-    {"glColorP4ui", &rogl_pfn_glColorP4ui},
-    {"glColorP4uiv", &rogl_pfn_glColorP4uiv},
-    {"glSecondaryColorP3ui", &rogl_pfn_glSecondaryColorP3ui},
-    {"glSecondaryColorP3uiv", &rogl_pfn_glSecondaryColorP3uiv},
-    {"glMinSampleShading", &rogl_pfn_glMinSampleShading},
-    {"glBlendEquationi", &rogl_pfn_glBlendEquationi},
-    {"glBlendEquationSeparatei", &rogl_pfn_glBlendEquationSeparatei},
-    {"glBlendFunci", &rogl_pfn_glBlendFunci},
-    {"glBlendFuncSeparatei", &rogl_pfn_glBlendFuncSeparatei},
-    {"glDrawArraysIndirect", &rogl_pfn_glDrawArraysIndirect},
-    {"glDrawElementsIndirect", &rogl_pfn_glDrawElementsIndirect},
-    {"glUniform1d", &rogl_pfn_glUniform1d},
-    {"glUniform2d", &rogl_pfn_glUniform2d},
-    {"glUniform3d", &rogl_pfn_glUniform3d},
-    {"glUniform4d", &rogl_pfn_glUniform4d},
-    {"glUniform1dv", &rogl_pfn_glUniform1dv},
-    {"glUniform2dv", &rogl_pfn_glUniform2dv},
-    {"glUniform3dv", &rogl_pfn_glUniform3dv},
-    {"glUniform4dv", &rogl_pfn_glUniform4dv},
-    {"glUniformMatrix2dv", &rogl_pfn_glUniformMatrix2dv},
-    {"glUniformMatrix3dv", &rogl_pfn_glUniformMatrix3dv},
-    {"glUniformMatrix4dv", &rogl_pfn_glUniformMatrix4dv},
-    {"glUniformMatrix2x3dv", &rogl_pfn_glUniformMatrix2x3dv},
-    {"glUniformMatrix2x4dv", &rogl_pfn_glUniformMatrix2x4dv},
-    {"glUniformMatrix3x2dv", &rogl_pfn_glUniformMatrix3x2dv},
-    {"glUniformMatrix3x4dv", &rogl_pfn_glUniformMatrix3x4dv},
-    {"glUniformMatrix4x2dv", &rogl_pfn_glUniformMatrix4x2dv},
-    {"glUniformMatrix4x3dv", &rogl_pfn_glUniformMatrix4x3dv},
-    {"glGetUniformdv", &rogl_pfn_glGetUniformdv},
-    {"glGetSubroutineUniformLocation", &rogl_pfn_glGetSubroutineUniformLocation},
-    {"glGetSubroutineIndex", &rogl_pfn_glGetSubroutineIndex},
-    {"glGetActiveSubroutineUniformiv", &rogl_pfn_glGetActiveSubroutineUniformiv},
-    {"glGetActiveSubroutineUniformName", &rogl_pfn_glGetActiveSubroutineUniformName},
-    {"glGetActiveSubroutineName", &rogl_pfn_glGetActiveSubroutineName},
-    {"glUniformSubroutinesuiv", &rogl_pfn_glUniformSubroutinesuiv},
-    {"glGetUniformSubroutineuiv", &rogl_pfn_glGetUniformSubroutineuiv},
-    {"glGetProgramStageiv", &rogl_pfn_glGetProgramStageiv},
-    {"glPatchParameteri", &rogl_pfn_glPatchParameteri},
-    {"glPatchParameterfv", &rogl_pfn_glPatchParameterfv},
-    {"glBindTransformFeedback", &rogl_pfn_glBindTransformFeedback},
-    {"glDeleteTransformFeedbacks", &rogl_pfn_glDeleteTransformFeedbacks},
-    {"glGenTransformFeedbacks", &rogl_pfn_glGenTransformFeedbacks},
-    {"glIsTransformFeedback", &rogl_pfn_glIsTransformFeedback},
-    {"glPauseTransformFeedback", &rogl_pfn_glPauseTransformFeedback},
-    {"glResumeTransformFeedback", &rogl_pfn_glResumeTransformFeedback},
-    {"glDrawTransformFeedback", &rogl_pfn_glDrawTransformFeedback},
-    {"glDrawTransformFeedbackStream", &rogl_pfn_glDrawTransformFeedbackStream},
-    {"glBeginQueryIndexed", &rogl_pfn_glBeginQueryIndexed},
-    {"glEndQueryIndexed", &rogl_pfn_glEndQueryIndexed},
-    {"glGetQueryIndexediv", &rogl_pfn_glGetQueryIndexediv},
-    {"glReleaseShaderCompiler", &rogl_pfn_glReleaseShaderCompiler},
-    {"glShaderBinary", &rogl_pfn_glShaderBinary},
-    {"glGetShaderPrecisionFormat", &rogl_pfn_glGetShaderPrecisionFormat},
-    {"glDepthRangef", &rogl_pfn_glDepthRangef},
-    {"glClearDepthf", &rogl_pfn_glClearDepthf},
-    {"glGetProgramBinary", &rogl_pfn_glGetProgramBinary},
-    {"glProgramBinary", &rogl_pfn_glProgramBinary},
-    {"glProgramParameteri", &rogl_pfn_glProgramParameteri},
-    {"glUseProgramStages", &rogl_pfn_glUseProgramStages},
-    {"glActiveShaderProgram", &rogl_pfn_glActiveShaderProgram},
-    {"glCreateShaderProgramv", &rogl_pfn_glCreateShaderProgramv},
-    {"glBindProgramPipeline", &rogl_pfn_glBindProgramPipeline},
-    {"glDeleteProgramPipelines", &rogl_pfn_glDeleteProgramPipelines},
-    {"glGenProgramPipelines", &rogl_pfn_glGenProgramPipelines},
-    {"glIsProgramPipeline", &rogl_pfn_glIsProgramPipeline},
-    {"glGetProgramPipelineiv", &rogl_pfn_glGetProgramPipelineiv},
-    {"glProgramUniform1i", &rogl_pfn_glProgramUniform1i},
-    {"glProgramUniform1iv", &rogl_pfn_glProgramUniform1iv},
-    {"glProgramUniform1f", &rogl_pfn_glProgramUniform1f},
-    {"glProgramUniform1fv", &rogl_pfn_glProgramUniform1fv},
-    {"glProgramUniform1d", &rogl_pfn_glProgramUniform1d},
-    {"glProgramUniform1dv", &rogl_pfn_glProgramUniform1dv},
-    {"glProgramUniform1ui", &rogl_pfn_glProgramUniform1ui},
-    {"glProgramUniform1uiv", &rogl_pfn_glProgramUniform1uiv},
-    {"glProgramUniform2i", &rogl_pfn_glProgramUniform2i},
-    {"glProgramUniform2iv", &rogl_pfn_glProgramUniform2iv},
-    {"glProgramUniform2f", &rogl_pfn_glProgramUniform2f},
-    {"glProgramUniform2fv", &rogl_pfn_glProgramUniform2fv},
-    {"glProgramUniform2d", &rogl_pfn_glProgramUniform2d},
-    {"glProgramUniform2dv", &rogl_pfn_glProgramUniform2dv},
-    {"glProgramUniform2ui", &rogl_pfn_glProgramUniform2ui},
-    {"glProgramUniform2uiv", &rogl_pfn_glProgramUniform2uiv},
-    {"glProgramUniform3i", &rogl_pfn_glProgramUniform3i},
-    {"glProgramUniform3iv", &rogl_pfn_glProgramUniform3iv},
-    {"glProgramUniform3f", &rogl_pfn_glProgramUniform3f},
-    {"glProgramUniform3fv", &rogl_pfn_glProgramUniform3fv},
-    {"glProgramUniform3d", &rogl_pfn_glProgramUniform3d},
-    {"glProgramUniform3dv", &rogl_pfn_glProgramUniform3dv},
-    {"glProgramUniform3ui", &rogl_pfn_glProgramUniform3ui},
-    {"glProgramUniform3uiv", &rogl_pfn_glProgramUniform3uiv},
-    {"glProgramUniform4i", &rogl_pfn_glProgramUniform4i},
-    {"glProgramUniform4iv", &rogl_pfn_glProgramUniform4iv},
-    {"glProgramUniform4f", &rogl_pfn_glProgramUniform4f},
-    {"glProgramUniform4fv", &rogl_pfn_glProgramUniform4fv},
-    {"glProgramUniform4d", &rogl_pfn_glProgramUniform4d},
-    {"glProgramUniform4dv", &rogl_pfn_glProgramUniform4dv},
-    {"glProgramUniform4ui", &rogl_pfn_glProgramUniform4ui},
-    {"glProgramUniform4uiv", &rogl_pfn_glProgramUniform4uiv},
-    {"glProgramUniformMatrix2fv", &rogl_pfn_glProgramUniformMatrix2fv},
-    {"glProgramUniformMatrix3fv", &rogl_pfn_glProgramUniformMatrix3fv},
-    {"glProgramUniformMatrix4fv", &rogl_pfn_glProgramUniformMatrix4fv},
-    {"glProgramUniformMatrix2dv", &rogl_pfn_glProgramUniformMatrix2dv},
-    {"glProgramUniformMatrix3dv", &rogl_pfn_glProgramUniformMatrix3dv},
-    {"glProgramUniformMatrix4dv", &rogl_pfn_glProgramUniformMatrix4dv},
-    {"glProgramUniformMatrix2x3fv", &rogl_pfn_glProgramUniformMatrix2x3fv},
-    {"glProgramUniformMatrix3x2fv", &rogl_pfn_glProgramUniformMatrix3x2fv},
-    {"glProgramUniformMatrix2x4fv", &rogl_pfn_glProgramUniformMatrix2x4fv},
-    {"glProgramUniformMatrix4x2fv", &rogl_pfn_glProgramUniformMatrix4x2fv},
-    {"glProgramUniformMatrix3x4fv", &rogl_pfn_glProgramUniformMatrix3x4fv},
-    {"glProgramUniformMatrix4x3fv", &rogl_pfn_glProgramUniformMatrix4x3fv},
-    {"glProgramUniformMatrix2x3dv", &rogl_pfn_glProgramUniformMatrix2x3dv},
-    {"glProgramUniformMatrix3x2dv", &rogl_pfn_glProgramUniformMatrix3x2dv},
-    {"glProgramUniformMatrix2x4dv", &rogl_pfn_glProgramUniformMatrix2x4dv},
-    {"glProgramUniformMatrix4x2dv", &rogl_pfn_glProgramUniformMatrix4x2dv},
-    {"glProgramUniformMatrix3x4dv", &rogl_pfn_glProgramUniformMatrix3x4dv},
-    {"glProgramUniformMatrix4x3dv", &rogl_pfn_glProgramUniformMatrix4x3dv},
-    {"glValidateProgramPipeline", &rogl_pfn_glValidateProgramPipeline},
-    {"glGetProgramPipelineInfoLog", &rogl_pfn_glGetProgramPipelineInfoLog},
-    {"glVertexAttribL1d", &rogl_pfn_glVertexAttribL1d},
-    {"glVertexAttribL2d", &rogl_pfn_glVertexAttribL2d},
-    {"glVertexAttribL3d", &rogl_pfn_glVertexAttribL3d},
-    {"glVertexAttribL4d", &rogl_pfn_glVertexAttribL4d},
-    {"glVertexAttribL1dv", &rogl_pfn_glVertexAttribL1dv},
-    {"glVertexAttribL2dv", &rogl_pfn_glVertexAttribL2dv},
-    {"glVertexAttribL3dv", &rogl_pfn_glVertexAttribL3dv},
-    {"glVertexAttribL4dv", &rogl_pfn_glVertexAttribL4dv},
-    {"glVertexAttribLPointer", &rogl_pfn_glVertexAttribLPointer},
-    {"glGetVertexAttribLdv", &rogl_pfn_glGetVertexAttribLdv},
-    {"glViewportArrayv", &rogl_pfn_glViewportArrayv},
-    {"glViewportIndexedf", &rogl_pfn_glViewportIndexedf},
-    {"glViewportIndexedfv", &rogl_pfn_glViewportIndexedfv},
-    {"glScissorArrayv", &rogl_pfn_glScissorArrayv},
-    {"glScissorIndexed", &rogl_pfn_glScissorIndexed},
-    {"glScissorIndexedv", &rogl_pfn_glScissorIndexedv},
-    {"glDepthRangeArrayv", &rogl_pfn_glDepthRangeArrayv},
-    {"glDepthRangeIndexed", &rogl_pfn_glDepthRangeIndexed},
-    {"glGetFloati_v", &rogl_pfn_glGetFloati_v},
-    {"glGetDoublei_v", &rogl_pfn_glGetDoublei_v},
-    {"glDrawArraysInstancedBaseInstance", &rogl_pfn_glDrawArraysInstancedBaseInstance},
-    {"glDrawElementsInstancedBaseInstance", &rogl_pfn_glDrawElementsInstancedBaseInstance},
-    {"glDrawElementsInstancedBaseVertexBaseInstance", &rogl_pfn_glDrawElementsInstancedBaseVertexBaseInstance},
-    {"glGetInternalformativ", &rogl_pfn_glGetInternalformativ},
-    {"glGetActiveAtomicCounterBufferiv", &rogl_pfn_glGetActiveAtomicCounterBufferiv},
-    {"glBindImageTexture", &rogl_pfn_glBindImageTexture},
-    {"glMemoryBarrier", &rogl_pfn_glMemoryBarrier},
-    {"glTexStorage1D", &rogl_pfn_glTexStorage1D},
-    {"glTexStorage2D", &rogl_pfn_glTexStorage2D},
-    {"glTexStorage3D", &rogl_pfn_glTexStorage3D},
-    {"glDrawTransformFeedbackInstanced", &rogl_pfn_glDrawTransformFeedbackInstanced},
-    {"glDrawTransformFeedbackStreamInstanced", &rogl_pfn_glDrawTransformFeedbackStreamInstanced},
-    {"glClearBufferData", &rogl_pfn_glClearBufferData},
-    {"glClearBufferSubData", &rogl_pfn_glClearBufferSubData},
-    {"glDispatchCompute", &rogl_pfn_glDispatchCompute},
-    {"glDispatchComputeIndirect", &rogl_pfn_glDispatchComputeIndirect},
-    {"glCopyImageSubData", &rogl_pfn_glCopyImageSubData},
-    {"glFramebufferParameteri", &rogl_pfn_glFramebufferParameteri},
-    {"glGetFramebufferParameteriv", &rogl_pfn_glGetFramebufferParameteriv},
-    {"glGetInternalformati64v", &rogl_pfn_glGetInternalformati64v},
-    {"glInvalidateTexSubImage", &rogl_pfn_glInvalidateTexSubImage},
-    {"glInvalidateTexImage", &rogl_pfn_glInvalidateTexImage},
-    {"glInvalidateBufferSubData", &rogl_pfn_glInvalidateBufferSubData},
-    {"glInvalidateBufferData", &rogl_pfn_glInvalidateBufferData},
-    {"glInvalidateFramebuffer", &rogl_pfn_glInvalidateFramebuffer},
-    {"glInvalidateSubFramebuffer", &rogl_pfn_glInvalidateSubFramebuffer},
-    {"glMultiDrawArraysIndirect", &rogl_pfn_glMultiDrawArraysIndirect},
-    {"glMultiDrawElementsIndirect", &rogl_pfn_glMultiDrawElementsIndirect},
-    {"glGetProgramInterfaceiv", &rogl_pfn_glGetProgramInterfaceiv},
-    {"glGetProgramResourceIndex", &rogl_pfn_glGetProgramResourceIndex},
-    {"glGetProgramResourceName", &rogl_pfn_glGetProgramResourceName},
-    {"glGetProgramResourceiv", &rogl_pfn_glGetProgramResourceiv},
-    {"glGetProgramResourceLocation", &rogl_pfn_glGetProgramResourceLocation},
-    {"glGetProgramResourceLocationIndex", &rogl_pfn_glGetProgramResourceLocationIndex},
-    {"glShaderStorageBlockBinding", &rogl_pfn_glShaderStorageBlockBinding},
-    {"glTexBufferRange", &rogl_pfn_glTexBufferRange},
-    {"glTexStorage2DMultisample", &rogl_pfn_glTexStorage2DMultisample},
-    {"glTexStorage3DMultisample", &rogl_pfn_glTexStorage3DMultisample},
-    {"glTextureView", &rogl_pfn_glTextureView},
-    {"glBindVertexBuffer", &rogl_pfn_glBindVertexBuffer},
-    {"glVertexAttribFormat", &rogl_pfn_glVertexAttribFormat},
-    {"glVertexAttribIFormat", &rogl_pfn_glVertexAttribIFormat},
-    {"glVertexAttribLFormat", &rogl_pfn_glVertexAttribLFormat},
-    {"glVertexAttribBinding", &rogl_pfn_glVertexAttribBinding},
-    {"glVertexBindingDivisor", &rogl_pfn_glVertexBindingDivisor},
-    {"glDebugMessageControl", &rogl_pfn_glDebugMessageControl},
-    {"glDebugMessageInsert", &rogl_pfn_glDebugMessageInsert},
-    {"glDebugMessageCallback", &rogl_pfn_glDebugMessageCallback},
-    {"glGetDebugMessageLog", &rogl_pfn_glGetDebugMessageLog},
-    {"glPushDebugGroup", &rogl_pfn_glPushDebugGroup},
-    {"glPopDebugGroup", &rogl_pfn_glPopDebugGroup},
-    {"glObjectLabel", &rogl_pfn_glObjectLabel},
-    {"glGetObjectLabel", &rogl_pfn_glGetObjectLabel},
-    {"glObjectPtrLabel", &rogl_pfn_glObjectPtrLabel},
-    {"glGetObjectPtrLabel", &rogl_pfn_glGetObjectPtrLabel},
-    {"glBufferStorage", &rogl_pfn_glBufferStorage},
-    {"glClearTexImage", &rogl_pfn_glClearTexImage},
-    {"glClearTexSubImage", &rogl_pfn_glClearTexSubImage},
-    {"glBindBuffersBase", &rogl_pfn_glBindBuffersBase},
-    {"glBindBuffersRange", &rogl_pfn_glBindBuffersRange},
-    {"glBindTextures", &rogl_pfn_glBindTextures},
-    {"glBindSamplers", &rogl_pfn_glBindSamplers},
-    {"glBindImageTextures", &rogl_pfn_glBindImageTextures},
-    {"glBindVertexBuffers", &rogl_pfn_glBindVertexBuffers},
-    {"glClipControl", &rogl_pfn_glClipControl},
-    {"glCreateTransformFeedbacks", &rogl_pfn_glCreateTransformFeedbacks},
-    {"glTransformFeedbackBufferBase", &rogl_pfn_glTransformFeedbackBufferBase},
-    {"glTransformFeedbackBufferRange", &rogl_pfn_glTransformFeedbackBufferRange},
-    {"glGetTransformFeedbackiv", &rogl_pfn_glGetTransformFeedbackiv},
-    {"glGetTransformFeedbacki_v", &rogl_pfn_glGetTransformFeedbacki_v},
-    {"glGetTransformFeedbacki64_v", &rogl_pfn_glGetTransformFeedbacki64_v},
-    {"glCreateBuffers", &rogl_pfn_glCreateBuffers},
-    {"glNamedBufferStorage", &rogl_pfn_glNamedBufferStorage},
-    {"glNamedBufferData", &rogl_pfn_glNamedBufferData},
-    {"glNamedBufferSubData", &rogl_pfn_glNamedBufferSubData},
-    {"glCopyNamedBufferSubData", &rogl_pfn_glCopyNamedBufferSubData},
-    {"glClearNamedBufferData", &rogl_pfn_glClearNamedBufferData},
-    {"glClearNamedBufferSubData", &rogl_pfn_glClearNamedBufferSubData},
-    {"glMapNamedBuffer", &rogl_pfn_glMapNamedBuffer},
-    {"glMapNamedBufferRange", &rogl_pfn_glMapNamedBufferRange},
-    {"glUnmapNamedBuffer", &rogl_pfn_glUnmapNamedBuffer},
-    {"glFlushMappedNamedBufferRange", &rogl_pfn_glFlushMappedNamedBufferRange},
-    {"glGetNamedBufferParameteriv", &rogl_pfn_glGetNamedBufferParameteriv},
-    {"glGetNamedBufferParameteri64v", &rogl_pfn_glGetNamedBufferParameteri64v},
-    {"glGetNamedBufferPointerv", &rogl_pfn_glGetNamedBufferPointerv},
-    {"glGetNamedBufferSubData", &rogl_pfn_glGetNamedBufferSubData},
-    {"glCreateFramebuffers", &rogl_pfn_glCreateFramebuffers},
-    {"glNamedFramebufferRenderbuffer", &rogl_pfn_glNamedFramebufferRenderbuffer},
-    {"glNamedFramebufferParameteri", &rogl_pfn_glNamedFramebufferParameteri},
-    {"glNamedFramebufferTexture", &rogl_pfn_glNamedFramebufferTexture},
-    {"glNamedFramebufferTextureLayer", &rogl_pfn_glNamedFramebufferTextureLayer},
-    {"glNamedFramebufferDrawBuffer", &rogl_pfn_glNamedFramebufferDrawBuffer},
-    {"glNamedFramebufferDrawBuffers", &rogl_pfn_glNamedFramebufferDrawBuffers},
-    {"glNamedFramebufferReadBuffer", &rogl_pfn_glNamedFramebufferReadBuffer},
-    {"glInvalidateNamedFramebufferData", &rogl_pfn_glInvalidateNamedFramebufferData},
-    {"glInvalidateNamedFramebufferSubData", &rogl_pfn_glInvalidateNamedFramebufferSubData},
-    {"glClearNamedFramebufferiv", &rogl_pfn_glClearNamedFramebufferiv},
-    {"glClearNamedFramebufferuiv", &rogl_pfn_glClearNamedFramebufferuiv},
-    {"glClearNamedFramebufferfv", &rogl_pfn_glClearNamedFramebufferfv},
-    {"glClearNamedFramebufferfi", &rogl_pfn_glClearNamedFramebufferfi},
-    {"glBlitNamedFramebuffer", &rogl_pfn_glBlitNamedFramebuffer},
-    {"glCheckNamedFramebufferStatus", &rogl_pfn_glCheckNamedFramebufferStatus},
-    {"glGetNamedFramebufferParameteriv", &rogl_pfn_glGetNamedFramebufferParameteriv},
-    {"glGetNamedFramebufferAttachmentParameteriv", &rogl_pfn_glGetNamedFramebufferAttachmentParameteriv},
-    {"glCreateRenderbuffers", &rogl_pfn_glCreateRenderbuffers},
-    {"glNamedRenderbufferStorage", &rogl_pfn_glNamedRenderbufferStorage},
-    {"glNamedRenderbufferStorageMultisample", &rogl_pfn_glNamedRenderbufferStorageMultisample},
-    {"glGetNamedRenderbufferParameteriv", &rogl_pfn_glGetNamedRenderbufferParameteriv},
-    {"glCreateTextures", &rogl_pfn_glCreateTextures},
-    {"glTextureBuffer", &rogl_pfn_glTextureBuffer},
-    {"glTextureBufferRange", &rogl_pfn_glTextureBufferRange},
-    {"glTextureStorage1D", &rogl_pfn_glTextureStorage1D},
-    {"glTextureStorage2D", &rogl_pfn_glTextureStorage2D},
-    {"glTextureStorage3D", &rogl_pfn_glTextureStorage3D},
-    {"glTextureStorage2DMultisample", &rogl_pfn_glTextureStorage2DMultisample},
-    {"glTextureStorage3DMultisample", &rogl_pfn_glTextureStorage3DMultisample},
-    {"glTextureSubImage1D", &rogl_pfn_glTextureSubImage1D},
-    {"glTextureSubImage2D", &rogl_pfn_glTextureSubImage2D},
-    {"glTextureSubImage3D", &rogl_pfn_glTextureSubImage3D},
-    {"glCompressedTextureSubImage1D", &rogl_pfn_glCompressedTextureSubImage1D},
-    {"glCompressedTextureSubImage2D", &rogl_pfn_glCompressedTextureSubImage2D},
-    {"glCompressedTextureSubImage3D", &rogl_pfn_glCompressedTextureSubImage3D},
-    {"glCopyTextureSubImage1D", &rogl_pfn_glCopyTextureSubImage1D},
-    {"glCopyTextureSubImage2D", &rogl_pfn_glCopyTextureSubImage2D},
-    {"glCopyTextureSubImage3D", &rogl_pfn_glCopyTextureSubImage3D},
-    {"glTextureParameterf", &rogl_pfn_glTextureParameterf},
-    {"glTextureParameterfv", &rogl_pfn_glTextureParameterfv},
-    {"glTextureParameteri", &rogl_pfn_glTextureParameteri},
-    {"glTextureParameterIiv", &rogl_pfn_glTextureParameterIiv},
-    {"glTextureParameterIuiv", &rogl_pfn_glTextureParameterIuiv},
-    {"glTextureParameteriv", &rogl_pfn_glTextureParameteriv},
-    {"glGenerateTextureMipmap", &rogl_pfn_glGenerateTextureMipmap},
-    {"glBindTextureUnit", &rogl_pfn_glBindTextureUnit},
-    {"glGetTextureImage", &rogl_pfn_glGetTextureImage},
-    {"glGetCompressedTextureImage", &rogl_pfn_glGetCompressedTextureImage},
-    {"glGetTextureLevelParameterfv", &rogl_pfn_glGetTextureLevelParameterfv},
-    {"glGetTextureLevelParameteriv", &rogl_pfn_glGetTextureLevelParameteriv},
-    {"glGetTextureParameterfv", &rogl_pfn_glGetTextureParameterfv},
-    {"glGetTextureParameterIiv", &rogl_pfn_glGetTextureParameterIiv},
-    {"glGetTextureParameterIuiv", &rogl_pfn_glGetTextureParameterIuiv},
-    {"glGetTextureParameteriv", &rogl_pfn_glGetTextureParameteriv},
-    {"glCreateVertexArrays", &rogl_pfn_glCreateVertexArrays},
-    {"glDisableVertexArrayAttrib", &rogl_pfn_glDisableVertexArrayAttrib},
-    {"glEnableVertexArrayAttrib", &rogl_pfn_glEnableVertexArrayAttrib},
-    {"glVertexArrayElementBuffer", &rogl_pfn_glVertexArrayElementBuffer},
-    {"glVertexArrayVertexBuffer", &rogl_pfn_glVertexArrayVertexBuffer},
-    {"glVertexArrayVertexBuffers", &rogl_pfn_glVertexArrayVertexBuffers},
-    {"glVertexArrayAttribBinding", &rogl_pfn_glVertexArrayAttribBinding},
-    {"glVertexArrayAttribFormat", &rogl_pfn_glVertexArrayAttribFormat},
-    {"glVertexArrayAttribIFormat", &rogl_pfn_glVertexArrayAttribIFormat},
-    {"glVertexArrayAttribLFormat", &rogl_pfn_glVertexArrayAttribLFormat},
-    {"glVertexArrayBindingDivisor", &rogl_pfn_glVertexArrayBindingDivisor},
-    {"glGetVertexArrayiv", &rogl_pfn_glGetVertexArrayiv},
-    {"glGetVertexArrayIndexediv", &rogl_pfn_glGetVertexArrayIndexediv},
-    {"glGetVertexArrayIndexed64iv", &rogl_pfn_glGetVertexArrayIndexed64iv},
-    {"glCreateSamplers", &rogl_pfn_glCreateSamplers},
-    {"glCreateProgramPipelines", &rogl_pfn_glCreateProgramPipelines},
-    {"glCreateQueries", &rogl_pfn_glCreateQueries},
-    {"glGetQueryBufferObjecti64v", &rogl_pfn_glGetQueryBufferObjecti64v},
-    {"glGetQueryBufferObjectiv", &rogl_pfn_glGetQueryBufferObjectiv},
-    {"glGetQueryBufferObjectui64v", &rogl_pfn_glGetQueryBufferObjectui64v},
-    {"glGetQueryBufferObjectuiv", &rogl_pfn_glGetQueryBufferObjectuiv},
-    {"glMemoryBarrierByRegion", &rogl_pfn_glMemoryBarrierByRegion},
-    {"glGetTextureSubImage", &rogl_pfn_glGetTextureSubImage},
-    {"glGetCompressedTextureSubImage", &rogl_pfn_glGetCompressedTextureSubImage},
-    {"glGetGraphicsResetStatus", &rogl_pfn_glGetGraphicsResetStatus},
-    {"glGetnCompressedTexImage", &rogl_pfn_glGetnCompressedTexImage},
-    {"glGetnTexImage", &rogl_pfn_glGetnTexImage},
-    {"glGetnUniformdv", &rogl_pfn_glGetnUniformdv},
-    {"glGetnUniformfv", &rogl_pfn_glGetnUniformfv},
-    {"glGetnUniformiv", &rogl_pfn_glGetnUniformiv},
-    {"glGetnUniformuiv", &rogl_pfn_glGetnUniformuiv},
-    {"glReadnPixels", &rogl_pfn_glReadnPixels},
-    {"glGetnMapdv", &rogl_pfn_glGetnMapdv},
-    {"glGetnMapfv", &rogl_pfn_glGetnMapfv},
-    {"glGetnMapiv", &rogl_pfn_glGetnMapiv},
-    {"glGetnPixelMapfv", &rogl_pfn_glGetnPixelMapfv},
-    {"glGetnPixelMapuiv", &rogl_pfn_glGetnPixelMapuiv},
-    {"glGetnPixelMapusv", &rogl_pfn_glGetnPixelMapusv},
-    {"glGetnPolygonStipple", &rogl_pfn_glGetnPolygonStipple},
-    {"glGetnColorTable", &rogl_pfn_glGetnColorTable},
-    {"glGetnConvolutionFilter", &rogl_pfn_glGetnConvolutionFilter},
-    {"glGetnSeparableFilter", &rogl_pfn_glGetnSeparableFilter},
-    {"glGetnHistogram", &rogl_pfn_glGetnHistogram},
-    {"glGetnMinmax", &rogl_pfn_glGetnMinmax},
-    {"glTextureBarrier", &rogl_pfn_glTextureBarrier},
+    {"glCullFace", &rogl_glCullFace, &rogl_pfn_glCullFace, 1},
+    {"glFrontFace", &rogl_glFrontFace, &rogl_pfn_glFrontFace, 1},
+    {"glHint", &rogl_glHint, &rogl_pfn_glHint, 2},
+    {"glLineWidth", &rogl_glLineWidth, &rogl_pfn_glLineWidth, 1},
+    {"glPointSize", &rogl_glPointSize, &rogl_pfn_glPointSize, 1},
+    {"glPolygonMode", &rogl_glPolygonMode, &rogl_pfn_glPolygonMode, 2},
+    {"glScissor", &rogl_glScissor, &rogl_pfn_glScissor, 4},
+    {"glTexParameterf", &rogl_glTexParameterf, &rogl_pfn_glTexParameterf, 3},
+    {"glTexParameterfv", &rogl_glTexParameterfv, &rogl_pfn_glTexParameterfv, 3},
+    {"glTexParameteri", &rogl_glTexParameteri, &rogl_pfn_glTexParameteri, 3},
+    {"glTexParameteriv", &rogl_glTexParameteriv, &rogl_pfn_glTexParameteriv, 3},
+    {"glTexImage1D", &rogl_glTexImage1D, &rogl_pfn_glTexImage1D, 8},
+    {"glTexImage2D", &rogl_glTexImage2D, &rogl_pfn_glTexImage2D, 9},
+    {"glDrawBuffer", &rogl_glDrawBuffer, &rogl_pfn_glDrawBuffer, 1},
+    {"glClear", &rogl_glClear, &rogl_pfn_glClear, 1},
+    {"glClearColor", &rogl_glClearColor, &rogl_pfn_glClearColor, 4},
+    {"glClearStencil", &rogl_glClearStencil, &rogl_pfn_glClearStencil, 1},
+    {"glClearDepth", &rogl_glClearDepth, &rogl_pfn_glClearDepth, 1},
+    {"glStencilMask", &rogl_glStencilMask, &rogl_pfn_glStencilMask, 1},
+    {"glColorMask", &rogl_glColorMask, &rogl_pfn_glColorMask, 4},
+    {"glDepthMask", &rogl_glDepthMask, &rogl_pfn_glDepthMask, 1},
+    {"glDisable", &rogl_glDisable, &rogl_pfn_glDisable, 1},
+    {"glEnable", &rogl_glEnable, &rogl_pfn_glEnable, 1},
+    {"glFinish", &rogl_glFinish, &rogl_pfn_glFinish, 0},
+    {"glFlush", &rogl_glFlush, &rogl_pfn_glFlush, 0},
+    {"glBlendFunc", &rogl_glBlendFunc, &rogl_pfn_glBlendFunc, 2},
+    {"glLogicOp", &rogl_glLogicOp, &rogl_pfn_glLogicOp, 1},
+    {"glStencilFunc", &rogl_glStencilFunc, &rogl_pfn_glStencilFunc, 3},
+    {"glStencilOp", &rogl_glStencilOp, &rogl_pfn_glStencilOp, 3},
+    {"glDepthFunc", &rogl_glDepthFunc, &rogl_pfn_glDepthFunc, 1},
+    {"glPixelStoref", &rogl_glPixelStoref, &rogl_pfn_glPixelStoref, 2},
+    {"glPixelStorei", &rogl_glPixelStorei, &rogl_pfn_glPixelStorei, 2},
+    {"glReadBuffer", &rogl_glReadBuffer, &rogl_pfn_glReadBuffer, 1},
+    {"glReadPixels", &rogl_glReadPixels, &rogl_pfn_glReadPixels, 7},
+    {"glGetBooleanv", &rogl_glGetBooleanv, &rogl_pfn_glGetBooleanv, 2},
+    {"glGetDoublev", &rogl_glGetDoublev, &rogl_pfn_glGetDoublev, 2},
+    {"glGetError", &rogl_glGetError, &rogl_pfn_glGetError, 0},
+    {"glGetFloatv", &rogl_glGetFloatv, &rogl_pfn_glGetFloatv, 2},
+    {"glGetIntegerv", &rogl_glGetIntegerv, &rogl_pfn_glGetIntegerv, 2},
+    {"glGetString", &rogl_glGetString, &rogl_pfn_glGetString, 1},
+    {"glGetTexImage", &rogl_glGetTexImage, &rogl_pfn_glGetTexImage, 5},
+    {"glGetTexParameterfv", &rogl_glGetTexParameterfv, &rogl_pfn_glGetTexParameterfv, 3},
+    {"glGetTexParameteriv", &rogl_glGetTexParameteriv, &rogl_pfn_glGetTexParameteriv, 3},
+    {"glGetTexLevelParameterfv", &rogl_glGetTexLevelParameterfv, &rogl_pfn_glGetTexLevelParameterfv, 4},
+    {"glGetTexLevelParameteriv", &rogl_glGetTexLevelParameteriv, &rogl_pfn_glGetTexLevelParameteriv, 4},
+    {"glIsEnabled", &rogl_glIsEnabled, &rogl_pfn_glIsEnabled, 1},
+    {"glDepthRange", &rogl_glDepthRange, &rogl_pfn_glDepthRange, 2},
+    {"glViewport", &rogl_glViewport, &rogl_pfn_glViewport, 4},
+    {"glNewList", &rogl_glNewList, &rogl_pfn_glNewList, 2},
+    {"glEndList", &rogl_glEndList, &rogl_pfn_glEndList, 0},
+    {"glCallList", &rogl_glCallList, &rogl_pfn_glCallList, 1},
+    {"glCallLists", &rogl_glCallLists, &rogl_pfn_glCallLists, 3},
+    {"glDeleteLists", &rogl_glDeleteLists, &rogl_pfn_glDeleteLists, 2},
+    {"glGenLists", &rogl_glGenLists, &rogl_pfn_glGenLists, 1},
+    {"glListBase", &rogl_glListBase, &rogl_pfn_glListBase, 1},
+    {"glBegin", &rogl_glBegin, &rogl_pfn_glBegin, 1},
+    {"glBitmap", &rogl_glBitmap, &rogl_pfn_glBitmap, 7},
+    {"glColor3b", &rogl_glColor3b, &rogl_pfn_glColor3b, 3},
+    {"glColor3bv", &rogl_glColor3bv, &rogl_pfn_glColor3bv, 1},
+    {"glColor3d", &rogl_glColor3d, &rogl_pfn_glColor3d, 3},
+    {"glColor3dv", &rogl_glColor3dv, &rogl_pfn_glColor3dv, 1},
+    {"glColor3f", &rogl_glColor3f, &rogl_pfn_glColor3f, 3},
+    {"glColor3fv", &rogl_glColor3fv, &rogl_pfn_glColor3fv, 1},
+    {"glColor3i", &rogl_glColor3i, &rogl_pfn_glColor3i, 3},
+    {"glColor3iv", &rogl_glColor3iv, &rogl_pfn_glColor3iv, 1},
+    {"glColor3s", &rogl_glColor3s, &rogl_pfn_glColor3s, 3},
+    {"glColor3sv", &rogl_glColor3sv, &rogl_pfn_glColor3sv, 1},
+    {"glColor3ub", &rogl_glColor3ub, &rogl_pfn_glColor3ub, 3},
+    {"glColor3ubv", &rogl_glColor3ubv, &rogl_pfn_glColor3ubv, 1},
+    {"glColor3ui", &rogl_glColor3ui, &rogl_pfn_glColor3ui, 3},
+    {"glColor3uiv", &rogl_glColor3uiv, &rogl_pfn_glColor3uiv, 1},
+    {"glColor3us", &rogl_glColor3us, &rogl_pfn_glColor3us, 3},
+    {"glColor3usv", &rogl_glColor3usv, &rogl_pfn_glColor3usv, 1},
+    {"glColor4b", &rogl_glColor4b, &rogl_pfn_glColor4b, 4},
+    {"glColor4bv", &rogl_glColor4bv, &rogl_pfn_glColor4bv, 1},
+    {"glColor4d", &rogl_glColor4d, &rogl_pfn_glColor4d, 4},
+    {"glColor4dv", &rogl_glColor4dv, &rogl_pfn_glColor4dv, 1},
+    {"glColor4f", &rogl_glColor4f, &rogl_pfn_glColor4f, 4},
+    {"glColor4fv", &rogl_glColor4fv, &rogl_pfn_glColor4fv, 1},
+    {"glColor4i", &rogl_glColor4i, &rogl_pfn_glColor4i, 4},
+    {"glColor4iv", &rogl_glColor4iv, &rogl_pfn_glColor4iv, 1},
+    {"glColor4s", &rogl_glColor4s, &rogl_pfn_glColor4s, 4},
+    {"glColor4sv", &rogl_glColor4sv, &rogl_pfn_glColor4sv, 1},
+    {"glColor4ub", &rogl_glColor4ub, &rogl_pfn_glColor4ub, 4},
+    {"glColor4ubv", &rogl_glColor4ubv, &rogl_pfn_glColor4ubv, 1},
+    {"glColor4ui", &rogl_glColor4ui, &rogl_pfn_glColor4ui, 4},
+    {"glColor4uiv", &rogl_glColor4uiv, &rogl_pfn_glColor4uiv, 1},
+    {"glColor4us", &rogl_glColor4us, &rogl_pfn_glColor4us, 4},
+    {"glColor4usv", &rogl_glColor4usv, &rogl_pfn_glColor4usv, 1},
+    {"glEdgeFlag", &rogl_glEdgeFlag, &rogl_pfn_glEdgeFlag, 1},
+    {"glEdgeFlagv", &rogl_glEdgeFlagv, &rogl_pfn_glEdgeFlagv, 1},
+    {"glEnd", &rogl_glEnd, &rogl_pfn_glEnd, 0},
+    {"glIndexd", &rogl_glIndexd, &rogl_pfn_glIndexd, 1},
+    {"glIndexdv", &rogl_glIndexdv, &rogl_pfn_glIndexdv, 1},
+    {"glIndexf", &rogl_glIndexf, &rogl_pfn_glIndexf, 1},
+    {"glIndexfv", &rogl_glIndexfv, &rogl_pfn_glIndexfv, 1},
+    {"glIndexi", &rogl_glIndexi, &rogl_pfn_glIndexi, 1},
+    {"glIndexiv", &rogl_glIndexiv, &rogl_pfn_glIndexiv, 1},
+    {"glIndexs", &rogl_glIndexs, &rogl_pfn_glIndexs, 1},
+    {"glIndexsv", &rogl_glIndexsv, &rogl_pfn_glIndexsv, 1},
+    {"glNormal3b", &rogl_glNormal3b, &rogl_pfn_glNormal3b, 3},
+    {"glNormal3bv", &rogl_glNormal3bv, &rogl_pfn_glNormal3bv, 1},
+    {"glNormal3d", &rogl_glNormal3d, &rogl_pfn_glNormal3d, 3},
+    {"glNormal3dv", &rogl_glNormal3dv, &rogl_pfn_glNormal3dv, 1},
+    {"glNormal3f", &rogl_glNormal3f, &rogl_pfn_glNormal3f, 3},
+    {"glNormal3fv", &rogl_glNormal3fv, &rogl_pfn_glNormal3fv, 1},
+    {"glNormal3i", &rogl_glNormal3i, &rogl_pfn_glNormal3i, 3},
+    {"glNormal3iv", &rogl_glNormal3iv, &rogl_pfn_glNormal3iv, 1},
+    {"glNormal3s", &rogl_glNormal3s, &rogl_pfn_glNormal3s, 3},
+    {"glNormal3sv", &rogl_glNormal3sv, &rogl_pfn_glNormal3sv, 1},
+    {"glRasterPos2d", &rogl_glRasterPos2d, &rogl_pfn_glRasterPos2d, 2},
+    {"glRasterPos2dv", &rogl_glRasterPos2dv, &rogl_pfn_glRasterPos2dv, 1},
+    {"glRasterPos2f", &rogl_glRasterPos2f, &rogl_pfn_glRasterPos2f, 2},
+    {"glRasterPos2fv", &rogl_glRasterPos2fv, &rogl_pfn_glRasterPos2fv, 1},
+    {"glRasterPos2i", &rogl_glRasterPos2i, &rogl_pfn_glRasterPos2i, 2},
+    {"glRasterPos2iv", &rogl_glRasterPos2iv, &rogl_pfn_glRasterPos2iv, 1},
+    {"glRasterPos2s", &rogl_glRasterPos2s, &rogl_pfn_glRasterPos2s, 2},
+    {"glRasterPos2sv", &rogl_glRasterPos2sv, &rogl_pfn_glRasterPos2sv, 1},
+    {"glRasterPos3d", &rogl_glRasterPos3d, &rogl_pfn_glRasterPos3d, 3},
+    {"glRasterPos3dv", &rogl_glRasterPos3dv, &rogl_pfn_glRasterPos3dv, 1},
+    {"glRasterPos3f", &rogl_glRasterPos3f, &rogl_pfn_glRasterPos3f, 3},
+    {"glRasterPos3fv", &rogl_glRasterPos3fv, &rogl_pfn_glRasterPos3fv, 1},
+    {"glRasterPos3i", &rogl_glRasterPos3i, &rogl_pfn_glRasterPos3i, 3},
+    {"glRasterPos3iv", &rogl_glRasterPos3iv, &rogl_pfn_glRasterPos3iv, 1},
+    {"glRasterPos3s", &rogl_glRasterPos3s, &rogl_pfn_glRasterPos3s, 3},
+    {"glRasterPos3sv", &rogl_glRasterPos3sv, &rogl_pfn_glRasterPos3sv, 1},
+    {"glRasterPos4d", &rogl_glRasterPos4d, &rogl_pfn_glRasterPos4d, 4},
+    {"glRasterPos4dv", &rogl_glRasterPos4dv, &rogl_pfn_glRasterPos4dv, 1},
+    {"glRasterPos4f", &rogl_glRasterPos4f, &rogl_pfn_glRasterPos4f, 4},
+    {"glRasterPos4fv", &rogl_glRasterPos4fv, &rogl_pfn_glRasterPos4fv, 1},
+    {"glRasterPos4i", &rogl_glRasterPos4i, &rogl_pfn_glRasterPos4i, 4},
+    {"glRasterPos4iv", &rogl_glRasterPos4iv, &rogl_pfn_glRasterPos4iv, 1},
+    {"glRasterPos4s", &rogl_glRasterPos4s, &rogl_pfn_glRasterPos4s, 4},
+    {"glRasterPos4sv", &rogl_glRasterPos4sv, &rogl_pfn_glRasterPos4sv, 1},
+    {"glRectd", &rogl_glRectd, &rogl_pfn_glRectd, 4},
+    {"glRectdv", &rogl_glRectdv, &rogl_pfn_glRectdv, 2},
+    {"glRectf", &rogl_glRectf, &rogl_pfn_glRectf, 4},
+    {"glRectfv", &rogl_glRectfv, &rogl_pfn_glRectfv, 2},
+    {"glRecti", &rogl_glRecti, &rogl_pfn_glRecti, 4},
+    {"glRectiv", &rogl_glRectiv, &rogl_pfn_glRectiv, 2},
+    {"glRects", &rogl_glRects, &rogl_pfn_glRects, 4},
+    {"glRectsv", &rogl_glRectsv, &rogl_pfn_glRectsv, 2},
+    {"glTexCoord1d", &rogl_glTexCoord1d, &rogl_pfn_glTexCoord1d, 1},
+    {"glTexCoord1dv", &rogl_glTexCoord1dv, &rogl_pfn_glTexCoord1dv, 1},
+    {"glTexCoord1f", &rogl_glTexCoord1f, &rogl_pfn_glTexCoord1f, 1},
+    {"glTexCoord1fv", &rogl_glTexCoord1fv, &rogl_pfn_glTexCoord1fv, 1},
+    {"glTexCoord1i", &rogl_glTexCoord1i, &rogl_pfn_glTexCoord1i, 1},
+    {"glTexCoord1iv", &rogl_glTexCoord1iv, &rogl_pfn_glTexCoord1iv, 1},
+    {"glTexCoord1s", &rogl_glTexCoord1s, &rogl_pfn_glTexCoord1s, 1},
+    {"glTexCoord1sv", &rogl_glTexCoord1sv, &rogl_pfn_glTexCoord1sv, 1},
+    {"glTexCoord2d", &rogl_glTexCoord2d, &rogl_pfn_glTexCoord2d, 2},
+    {"glTexCoord2dv", &rogl_glTexCoord2dv, &rogl_pfn_glTexCoord2dv, 1},
+    {"glTexCoord2f", &rogl_glTexCoord2f, &rogl_pfn_glTexCoord2f, 2},
+    {"glTexCoord2fv", &rogl_glTexCoord2fv, &rogl_pfn_glTexCoord2fv, 1},
+    {"glTexCoord2i", &rogl_glTexCoord2i, &rogl_pfn_glTexCoord2i, 2},
+    {"glTexCoord2iv", &rogl_glTexCoord2iv, &rogl_pfn_glTexCoord2iv, 1},
+    {"glTexCoord2s", &rogl_glTexCoord2s, &rogl_pfn_glTexCoord2s, 2},
+    {"glTexCoord2sv", &rogl_glTexCoord2sv, &rogl_pfn_glTexCoord2sv, 1},
+    {"glTexCoord3d", &rogl_glTexCoord3d, &rogl_pfn_glTexCoord3d, 3},
+    {"glTexCoord3dv", &rogl_glTexCoord3dv, &rogl_pfn_glTexCoord3dv, 1},
+    {"glTexCoord3f", &rogl_glTexCoord3f, &rogl_pfn_glTexCoord3f, 3},
+    {"glTexCoord3fv", &rogl_glTexCoord3fv, &rogl_pfn_glTexCoord3fv, 1},
+    {"glTexCoord3i", &rogl_glTexCoord3i, &rogl_pfn_glTexCoord3i, 3},
+    {"glTexCoord3iv", &rogl_glTexCoord3iv, &rogl_pfn_glTexCoord3iv, 1},
+    {"glTexCoord3s", &rogl_glTexCoord3s, &rogl_pfn_glTexCoord3s, 3},
+    {"glTexCoord3sv", &rogl_glTexCoord3sv, &rogl_pfn_glTexCoord3sv, 1},
+    {"glTexCoord4d", &rogl_glTexCoord4d, &rogl_pfn_glTexCoord4d, 4},
+    {"glTexCoord4dv", &rogl_glTexCoord4dv, &rogl_pfn_glTexCoord4dv, 1},
+    {"glTexCoord4f", &rogl_glTexCoord4f, &rogl_pfn_glTexCoord4f, 4},
+    {"glTexCoord4fv", &rogl_glTexCoord4fv, &rogl_pfn_glTexCoord4fv, 1},
+    {"glTexCoord4i", &rogl_glTexCoord4i, &rogl_pfn_glTexCoord4i, 4},
+    {"glTexCoord4iv", &rogl_glTexCoord4iv, &rogl_pfn_glTexCoord4iv, 1},
+    {"glTexCoord4s", &rogl_glTexCoord4s, &rogl_pfn_glTexCoord4s, 4},
+    {"glTexCoord4sv", &rogl_glTexCoord4sv, &rogl_pfn_glTexCoord4sv, 1},
+    {"glVertex2d", &rogl_glVertex2d, &rogl_pfn_glVertex2d, 2},
+    {"glVertex2dv", &rogl_glVertex2dv, &rogl_pfn_glVertex2dv, 1},
+    {"glVertex2f", &rogl_glVertex2f, &rogl_pfn_glVertex2f, 2},
+    {"glVertex2fv", &rogl_glVertex2fv, &rogl_pfn_glVertex2fv, 1},
+    {"glVertex2i", &rogl_glVertex2i, &rogl_pfn_glVertex2i, 2},
+    {"glVertex2iv", &rogl_glVertex2iv, &rogl_pfn_glVertex2iv, 1},
+    {"glVertex2s", &rogl_glVertex2s, &rogl_pfn_glVertex2s, 2},
+    {"glVertex2sv", &rogl_glVertex2sv, &rogl_pfn_glVertex2sv, 1},
+    {"glVertex3d", &rogl_glVertex3d, &rogl_pfn_glVertex3d, 3},
+    {"glVertex3dv", &rogl_glVertex3dv, &rogl_pfn_glVertex3dv, 1},
+    {"glVertex3f", &rogl_glVertex3f, &rogl_pfn_glVertex3f, 3},
+    {"glVertex3fv", &rogl_glVertex3fv, &rogl_pfn_glVertex3fv, 1},
+    {"glVertex3i", &rogl_glVertex3i, &rogl_pfn_glVertex3i, 3},
+    {"glVertex3iv", &rogl_glVertex3iv, &rogl_pfn_glVertex3iv, 1},
+    {"glVertex3s", &rogl_glVertex3s, &rogl_pfn_glVertex3s, 3},
+    {"glVertex3sv", &rogl_glVertex3sv, &rogl_pfn_glVertex3sv, 1},
+    {"glVertex4d", &rogl_glVertex4d, &rogl_pfn_glVertex4d, 4},
+    {"glVertex4dv", &rogl_glVertex4dv, &rogl_pfn_glVertex4dv, 1},
+    {"glVertex4f", &rogl_glVertex4f, &rogl_pfn_glVertex4f, 4},
+    {"glVertex4fv", &rogl_glVertex4fv, &rogl_pfn_glVertex4fv, 1},
+    {"glVertex4i", &rogl_glVertex4i, &rogl_pfn_glVertex4i, 4},
+    {"glVertex4iv", &rogl_glVertex4iv, &rogl_pfn_glVertex4iv, 1},
+    {"glVertex4s", &rogl_glVertex4s, &rogl_pfn_glVertex4s, 4},
+    {"glVertex4sv", &rogl_glVertex4sv, &rogl_pfn_glVertex4sv, 1},
+    {"glClipPlane", &rogl_glClipPlane, &rogl_pfn_glClipPlane, 2},
+    {"glColorMaterial", &rogl_glColorMaterial, &rogl_pfn_glColorMaterial, 2},
+    {"glFogf", &rogl_glFogf, &rogl_pfn_glFogf, 2},
+    {"glFogfv", &rogl_glFogfv, &rogl_pfn_glFogfv, 2},
+    {"glFogi", &rogl_glFogi, &rogl_pfn_glFogi, 2},
+    {"glFogiv", &rogl_glFogiv, &rogl_pfn_glFogiv, 2},
+    {"glLightf", &rogl_glLightf, &rogl_pfn_glLightf, 3},
+    {"glLightfv", &rogl_glLightfv, &rogl_pfn_glLightfv, 3},
+    {"glLighti", &rogl_glLighti, &rogl_pfn_glLighti, 3},
+    {"glLightiv", &rogl_glLightiv, &rogl_pfn_glLightiv, 3},
+    {"glLightModelf", &rogl_glLightModelf, &rogl_pfn_glLightModelf, 2},
+    {"glLightModelfv", &rogl_glLightModelfv, &rogl_pfn_glLightModelfv, 2},
+    {"glLightModeli", &rogl_glLightModeli, &rogl_pfn_glLightModeli, 2},
+    {"glLightModeliv", &rogl_glLightModeliv, &rogl_pfn_glLightModeliv, 2},
+    {"glLineStipple", &rogl_glLineStipple, &rogl_pfn_glLineStipple, 2},
+    {"glMaterialf", &rogl_glMaterialf, &rogl_pfn_glMaterialf, 3},
+    {"glMaterialfv", &rogl_glMaterialfv, &rogl_pfn_glMaterialfv, 3},
+    {"glMateriali", &rogl_glMateriali, &rogl_pfn_glMateriali, 3},
+    {"glMaterialiv", &rogl_glMaterialiv, &rogl_pfn_glMaterialiv, 3},
+    {"glPolygonStipple", &rogl_glPolygonStipple, &rogl_pfn_glPolygonStipple, 1},
+    {"glShadeModel", &rogl_glShadeModel, &rogl_pfn_glShadeModel, 1},
+    {"glTexEnvf", &rogl_glTexEnvf, &rogl_pfn_glTexEnvf, 3},
+    {"glTexEnvfv", &rogl_glTexEnvfv, &rogl_pfn_glTexEnvfv, 3},
+    {"glTexEnvi", &rogl_glTexEnvi, &rogl_pfn_glTexEnvi, 3},
+    {"glTexEnviv", &rogl_glTexEnviv, &rogl_pfn_glTexEnviv, 3},
+    {"glTexGend", &rogl_glTexGend, &rogl_pfn_glTexGend, 3},
+    {"glTexGendv", &rogl_glTexGendv, &rogl_pfn_glTexGendv, 3},
+    {"glTexGenf", &rogl_glTexGenf, &rogl_pfn_glTexGenf, 3},
+    {"glTexGenfv", &rogl_glTexGenfv, &rogl_pfn_glTexGenfv, 3},
+    {"glTexGeni", &rogl_glTexGeni, &rogl_pfn_glTexGeni, 3},
+    {"glTexGeniv", &rogl_glTexGeniv, &rogl_pfn_glTexGeniv, 3},
+    {"glFeedbackBuffer", &rogl_glFeedbackBuffer, &rogl_pfn_glFeedbackBuffer, 3},
+    {"glSelectBuffer", &rogl_glSelectBuffer, &rogl_pfn_glSelectBuffer, 2},
+    {"glRenderMode", &rogl_glRenderMode, &rogl_pfn_glRenderMode, 1},
+    {"glInitNames", &rogl_glInitNames, &rogl_pfn_glInitNames, 0},
+    {"glLoadName", &rogl_glLoadName, &rogl_pfn_glLoadName, 1},
+    {"glPassThrough", &rogl_glPassThrough, &rogl_pfn_glPassThrough, 1},
+    {"glPopName", &rogl_glPopName, &rogl_pfn_glPopName, 0},
+    {"glPushName", &rogl_glPushName, &rogl_pfn_glPushName, 1},
+    {"glClearAccum", &rogl_glClearAccum, &rogl_pfn_glClearAccum, 4},
+    {"glClearIndex", &rogl_glClearIndex, &rogl_pfn_glClearIndex, 1},
+    {"glIndexMask", &rogl_glIndexMask, &rogl_pfn_glIndexMask, 1},
+    {"glAccum", &rogl_glAccum, &rogl_pfn_glAccum, 2},
+    {"glPopAttrib", &rogl_glPopAttrib, &rogl_pfn_glPopAttrib, 0},
+    {"glPushAttrib", &rogl_glPushAttrib, &rogl_pfn_glPushAttrib, 1},
+    {"glMap1d", &rogl_glMap1d, &rogl_pfn_glMap1d, 6},
+    {"glMap1f", &rogl_glMap1f, &rogl_pfn_glMap1f, 6},
+    {"glMap2d", &rogl_glMap2d, &rogl_pfn_glMap2d, 10},
+    {"glMap2f", &rogl_glMap2f, &rogl_pfn_glMap2f, 10},
+    {"glMapGrid1d", &rogl_glMapGrid1d, &rogl_pfn_glMapGrid1d, 3},
+    {"glMapGrid1f", &rogl_glMapGrid1f, &rogl_pfn_glMapGrid1f, 3},
+    {"glMapGrid2d", &rogl_glMapGrid2d, &rogl_pfn_glMapGrid2d, 6},
+    {"glMapGrid2f", &rogl_glMapGrid2f, &rogl_pfn_glMapGrid2f, 6},
+    {"glEvalCoord1d", &rogl_glEvalCoord1d, &rogl_pfn_glEvalCoord1d, 1},
+    {"glEvalCoord1dv", &rogl_glEvalCoord1dv, &rogl_pfn_glEvalCoord1dv, 1},
+    {"glEvalCoord1f", &rogl_glEvalCoord1f, &rogl_pfn_glEvalCoord1f, 1},
+    {"glEvalCoord1fv", &rogl_glEvalCoord1fv, &rogl_pfn_glEvalCoord1fv, 1},
+    {"glEvalCoord2d", &rogl_glEvalCoord2d, &rogl_pfn_glEvalCoord2d, 2},
+    {"glEvalCoord2dv", &rogl_glEvalCoord2dv, &rogl_pfn_glEvalCoord2dv, 1},
+    {"glEvalCoord2f", &rogl_glEvalCoord2f, &rogl_pfn_glEvalCoord2f, 2},
+    {"glEvalCoord2fv", &rogl_glEvalCoord2fv, &rogl_pfn_glEvalCoord2fv, 1},
+    {"glEvalMesh1", &rogl_glEvalMesh1, &rogl_pfn_glEvalMesh1, 3},
+    {"glEvalPoint1", &rogl_glEvalPoint1, &rogl_pfn_glEvalPoint1, 1},
+    {"glEvalMesh2", &rogl_glEvalMesh2, &rogl_pfn_glEvalMesh2, 5},
+    {"glEvalPoint2", &rogl_glEvalPoint2, &rogl_pfn_glEvalPoint2, 2},
+    {"glAlphaFunc", &rogl_glAlphaFunc, &rogl_pfn_glAlphaFunc, 2},
+    {"glPixelZoom", &rogl_glPixelZoom, &rogl_pfn_glPixelZoom, 2},
+    {"glPixelTransferf", &rogl_glPixelTransferf, &rogl_pfn_glPixelTransferf, 2},
+    {"glPixelTransferi", &rogl_glPixelTransferi, &rogl_pfn_glPixelTransferi, 2},
+    {"glPixelMapfv", &rogl_glPixelMapfv, &rogl_pfn_glPixelMapfv, 3},
+    {"glPixelMapuiv", &rogl_glPixelMapuiv, &rogl_pfn_glPixelMapuiv, 3},
+    {"glPixelMapusv", &rogl_glPixelMapusv, &rogl_pfn_glPixelMapusv, 3},
+    {"glCopyPixels", &rogl_glCopyPixels, &rogl_pfn_glCopyPixels, 5},
+    {"glDrawPixels", &rogl_glDrawPixels, &rogl_pfn_glDrawPixels, 5},
+    {"glGetClipPlane", &rogl_glGetClipPlane, &rogl_pfn_glGetClipPlane, 2},
+    {"glGetLightfv", &rogl_glGetLightfv, &rogl_pfn_glGetLightfv, 3},
+    {"glGetLightiv", &rogl_glGetLightiv, &rogl_pfn_glGetLightiv, 3},
+    {"glGetMapdv", &rogl_glGetMapdv, &rogl_pfn_glGetMapdv, 3},
+    {"glGetMapfv", &rogl_glGetMapfv, &rogl_pfn_glGetMapfv, 3},
+    {"glGetMapiv", &rogl_glGetMapiv, &rogl_pfn_glGetMapiv, 3},
+    {"glGetMaterialfv", &rogl_glGetMaterialfv, &rogl_pfn_glGetMaterialfv, 3},
+    {"glGetMaterialiv", &rogl_glGetMaterialiv, &rogl_pfn_glGetMaterialiv, 3},
+    {"glGetPixelMapfv", &rogl_glGetPixelMapfv, &rogl_pfn_glGetPixelMapfv, 2},
+    {"glGetPixelMapuiv", &rogl_glGetPixelMapuiv, &rogl_pfn_glGetPixelMapuiv, 2},
+    {"glGetPixelMapusv", &rogl_glGetPixelMapusv, &rogl_pfn_glGetPixelMapusv, 2},
+    {"glGetPolygonStipple", &rogl_glGetPolygonStipple, &rogl_pfn_glGetPolygonStipple, 1},
+    {"glGetTexEnvfv", &rogl_glGetTexEnvfv, &rogl_pfn_glGetTexEnvfv, 3},
+    {"glGetTexEnviv", &rogl_glGetTexEnviv, &rogl_pfn_glGetTexEnviv, 3},
+    {"glGetTexGendv", &rogl_glGetTexGendv, &rogl_pfn_glGetTexGendv, 3},
+    {"glGetTexGenfv", &rogl_glGetTexGenfv, &rogl_pfn_glGetTexGenfv, 3},
+    {"glGetTexGeniv", &rogl_glGetTexGeniv, &rogl_pfn_glGetTexGeniv, 3},
+    {"glIsList", &rogl_glIsList, &rogl_pfn_glIsList, 1},
+    {"glFrustum", &rogl_glFrustum, &rogl_pfn_glFrustum, 6},
+    {"glLoadIdentity", &rogl_glLoadIdentity, &rogl_pfn_glLoadIdentity, 0},
+    {"glLoadMatrixf", &rogl_glLoadMatrixf, &rogl_pfn_glLoadMatrixf, 1},
+    {"glLoadMatrixd", &rogl_glLoadMatrixd, &rogl_pfn_glLoadMatrixd, 1},
+    {"glMatrixMode", &rogl_glMatrixMode, &rogl_pfn_glMatrixMode, 1},
+    {"glMultMatrixf", &rogl_glMultMatrixf, &rogl_pfn_glMultMatrixf, 1},
+    {"glMultMatrixd", &rogl_glMultMatrixd, &rogl_pfn_glMultMatrixd, 1},
+    {"glOrtho", &rogl_glOrtho, &rogl_pfn_glOrtho, 6},
+    {"glPopMatrix", &rogl_glPopMatrix, &rogl_pfn_glPopMatrix, 0},
+    {"glPushMatrix", &rogl_glPushMatrix, &rogl_pfn_glPushMatrix, 0},
+    {"glRotated", &rogl_glRotated, &rogl_pfn_glRotated, 4},
+    {"glRotatef", &rogl_glRotatef, &rogl_pfn_glRotatef, 4},
+    {"glScaled", &rogl_glScaled, &rogl_pfn_glScaled, 3},
+    {"glScalef", &rogl_glScalef, &rogl_pfn_glScalef, 3},
+    {"glTranslated", &rogl_glTranslated, &rogl_pfn_glTranslated, 3},
+    {"glTranslatef", &rogl_glTranslatef, &rogl_pfn_glTranslatef, 3},
+    {"glDrawArrays", &rogl_glDrawArrays, &rogl_pfn_glDrawArrays, 3},
+    {"glDrawElements", &rogl_glDrawElements, &rogl_pfn_glDrawElements, 4},
+    {"glGetPointerv", &rogl_glGetPointerv, &rogl_pfn_glGetPointerv, 2},
+    {"glPolygonOffset", &rogl_glPolygonOffset, &rogl_pfn_glPolygonOffset, 2},
+    {"glCopyTexImage1D", &rogl_glCopyTexImage1D, &rogl_pfn_glCopyTexImage1D, 7},
+    {"glCopyTexImage2D", &rogl_glCopyTexImage2D, &rogl_pfn_glCopyTexImage2D, 8},
+    {"glCopyTexSubImage1D", &rogl_glCopyTexSubImage1D, &rogl_pfn_glCopyTexSubImage1D, 6},
+    {"glCopyTexSubImage2D", &rogl_glCopyTexSubImage2D, &rogl_pfn_glCopyTexSubImage2D, 8},
+    {"glTexSubImage1D", &rogl_glTexSubImage1D, &rogl_pfn_glTexSubImage1D, 7},
+    {"glTexSubImage2D", &rogl_glTexSubImage2D, &rogl_pfn_glTexSubImage2D, 9},
+    {"glBindTexture", &rogl_glBindTexture, &rogl_pfn_glBindTexture, 2},
+    {"glDeleteTextures", &rogl_glDeleteTextures, &rogl_pfn_glDeleteTextures, 2},
+    {"glGenTextures", &rogl_glGenTextures, &rogl_pfn_glGenTextures, 2},
+    {"glIsTexture", &rogl_glIsTexture, &rogl_pfn_glIsTexture, 1},
+    {"glArrayElement", &rogl_glArrayElement, &rogl_pfn_glArrayElement, 1},
+    {"glColorPointer", &rogl_glColorPointer, &rogl_pfn_glColorPointer, 4},
+    {"glDisableClientState", &rogl_glDisableClientState, &rogl_pfn_glDisableClientState, 1},
+    {"glEdgeFlagPointer", &rogl_glEdgeFlagPointer, &rogl_pfn_glEdgeFlagPointer, 2},
+    {"glEnableClientState", &rogl_glEnableClientState, &rogl_pfn_glEnableClientState, 1},
+    {"glIndexPointer", &rogl_glIndexPointer, &rogl_pfn_glIndexPointer, 3},
+    {"glInterleavedArrays", &rogl_glInterleavedArrays, &rogl_pfn_glInterleavedArrays, 3},
+    {"glNormalPointer", &rogl_glNormalPointer, &rogl_pfn_glNormalPointer, 3},
+    {"glTexCoordPointer", &rogl_glTexCoordPointer, &rogl_pfn_glTexCoordPointer, 4},
+    {"glVertexPointer", &rogl_glVertexPointer, &rogl_pfn_glVertexPointer, 4},
+    {"glAreTexturesResident", &rogl_glAreTexturesResident, &rogl_pfn_glAreTexturesResident, 3},
+    {"glPrioritizeTextures", &rogl_glPrioritizeTextures, &rogl_pfn_glPrioritizeTextures, 3},
+    {"glIndexub", &rogl_glIndexub, &rogl_pfn_glIndexub, 1},
+    {"glIndexubv", &rogl_glIndexubv, &rogl_pfn_glIndexubv, 1},
+    {"glPopClientAttrib", &rogl_glPopClientAttrib, &rogl_pfn_glPopClientAttrib, 0},
+    {"glPushClientAttrib", &rogl_glPushClientAttrib, &rogl_pfn_glPushClientAttrib, 1},
+    {"glDrawRangeElements", &rogl_glDrawRangeElements, &rogl_pfn_glDrawRangeElements, 6},
+    {"glTexImage3D", &rogl_glTexImage3D, &rogl_pfn_glTexImage3D, 10},
+    {"glTexSubImage3D", &rogl_glTexSubImage3D, &rogl_pfn_glTexSubImage3D, 11},
+    {"glCopyTexSubImage3D", &rogl_glCopyTexSubImage3D, &rogl_pfn_glCopyTexSubImage3D, 9},
+    {"glActiveTexture", &rogl_glActiveTexture, &rogl_pfn_glActiveTexture, 1},
+    {"glSampleCoverage", &rogl_glSampleCoverage, &rogl_pfn_glSampleCoverage, 2},
+    {"glCompressedTexImage3D", &rogl_glCompressedTexImage3D, &rogl_pfn_glCompressedTexImage3D, 9},
+    {"glCompressedTexImage2D", &rogl_glCompressedTexImage2D, &rogl_pfn_glCompressedTexImage2D, 8},
+    {"glCompressedTexImage1D", &rogl_glCompressedTexImage1D, &rogl_pfn_glCompressedTexImage1D, 7},
+    {"glCompressedTexSubImage3D", &rogl_glCompressedTexSubImage3D, &rogl_pfn_glCompressedTexSubImage3D, 11},
+    {"glCompressedTexSubImage2D", &rogl_glCompressedTexSubImage2D, &rogl_pfn_glCompressedTexSubImage2D, 9},
+    {"glCompressedTexSubImage1D", &rogl_glCompressedTexSubImage1D, &rogl_pfn_glCompressedTexSubImage1D, 7},
+    {"glGetCompressedTexImage", &rogl_glGetCompressedTexImage, &rogl_pfn_glGetCompressedTexImage, 3},
+    {"glClientActiveTexture", &rogl_glClientActiveTexture, &rogl_pfn_glClientActiveTexture, 1},
+    {"glMultiTexCoord1d", &rogl_glMultiTexCoord1d, &rogl_pfn_glMultiTexCoord1d, 2},
+    {"glMultiTexCoord1dv", &rogl_glMultiTexCoord1dv, &rogl_pfn_glMultiTexCoord1dv, 2},
+    {"glMultiTexCoord1f", &rogl_glMultiTexCoord1f, &rogl_pfn_glMultiTexCoord1f, 2},
+    {"glMultiTexCoord1fv", &rogl_glMultiTexCoord1fv, &rogl_pfn_glMultiTexCoord1fv, 2},
+    {"glMultiTexCoord1i", &rogl_glMultiTexCoord1i, &rogl_pfn_glMultiTexCoord1i, 2},
+    {"glMultiTexCoord1iv", &rogl_glMultiTexCoord1iv, &rogl_pfn_glMultiTexCoord1iv, 2},
+    {"glMultiTexCoord1s", &rogl_glMultiTexCoord1s, &rogl_pfn_glMultiTexCoord1s, 2},
+    {"glMultiTexCoord1sv", &rogl_glMultiTexCoord1sv, &rogl_pfn_glMultiTexCoord1sv, 2},
+    {"glMultiTexCoord2d", &rogl_glMultiTexCoord2d, &rogl_pfn_glMultiTexCoord2d, 3},
+    {"glMultiTexCoord2dv", &rogl_glMultiTexCoord2dv, &rogl_pfn_glMultiTexCoord2dv, 2},
+    {"glMultiTexCoord2f", &rogl_glMultiTexCoord2f, &rogl_pfn_glMultiTexCoord2f, 3},
+    {"glMultiTexCoord2fv", &rogl_glMultiTexCoord2fv, &rogl_pfn_glMultiTexCoord2fv, 2},
+    {"glMultiTexCoord2i", &rogl_glMultiTexCoord2i, &rogl_pfn_glMultiTexCoord2i, 3},
+    {"glMultiTexCoord2iv", &rogl_glMultiTexCoord2iv, &rogl_pfn_glMultiTexCoord2iv, 2},
+    {"glMultiTexCoord2s", &rogl_glMultiTexCoord2s, &rogl_pfn_glMultiTexCoord2s, 3},
+    {"glMultiTexCoord2sv", &rogl_glMultiTexCoord2sv, &rogl_pfn_glMultiTexCoord2sv, 2},
+    {"glMultiTexCoord3d", &rogl_glMultiTexCoord3d, &rogl_pfn_glMultiTexCoord3d, 4},
+    {"glMultiTexCoord3dv", &rogl_glMultiTexCoord3dv, &rogl_pfn_glMultiTexCoord3dv, 2},
+    {"glMultiTexCoord3f", &rogl_glMultiTexCoord3f, &rogl_pfn_glMultiTexCoord3f, 4},
+    {"glMultiTexCoord3fv", &rogl_glMultiTexCoord3fv, &rogl_pfn_glMultiTexCoord3fv, 2},
+    {"glMultiTexCoord3i", &rogl_glMultiTexCoord3i, &rogl_pfn_glMultiTexCoord3i, 4},
+    {"glMultiTexCoord3iv", &rogl_glMultiTexCoord3iv, &rogl_pfn_glMultiTexCoord3iv, 2},
+    {"glMultiTexCoord3s", &rogl_glMultiTexCoord3s, &rogl_pfn_glMultiTexCoord3s, 4},
+    {"glMultiTexCoord3sv", &rogl_glMultiTexCoord3sv, &rogl_pfn_glMultiTexCoord3sv, 2},
+    {"glMultiTexCoord4d", &rogl_glMultiTexCoord4d, &rogl_pfn_glMultiTexCoord4d, 5},
+    {"glMultiTexCoord4dv", &rogl_glMultiTexCoord4dv, &rogl_pfn_glMultiTexCoord4dv, 2},
+    {"glMultiTexCoord4f", &rogl_glMultiTexCoord4f, &rogl_pfn_glMultiTexCoord4f, 5},
+    {"glMultiTexCoord4fv", &rogl_glMultiTexCoord4fv, &rogl_pfn_glMultiTexCoord4fv, 2},
+    {"glMultiTexCoord4i", &rogl_glMultiTexCoord4i, &rogl_pfn_glMultiTexCoord4i, 5},
+    {"glMultiTexCoord4iv", &rogl_glMultiTexCoord4iv, &rogl_pfn_glMultiTexCoord4iv, 2},
+    {"glMultiTexCoord4s", &rogl_glMultiTexCoord4s, &rogl_pfn_glMultiTexCoord4s, 5},
+    {"glMultiTexCoord4sv", &rogl_glMultiTexCoord4sv, &rogl_pfn_glMultiTexCoord4sv, 2},
+    {"glLoadTransposeMatrixf", &rogl_glLoadTransposeMatrixf, &rogl_pfn_glLoadTransposeMatrixf, 1},
+    {"glLoadTransposeMatrixd", &rogl_glLoadTransposeMatrixd, &rogl_pfn_glLoadTransposeMatrixd, 1},
+    {"glMultTransposeMatrixf", &rogl_glMultTransposeMatrixf, &rogl_pfn_glMultTransposeMatrixf, 1},
+    {"glMultTransposeMatrixd", &rogl_glMultTransposeMatrixd, &rogl_pfn_glMultTransposeMatrixd, 1},
+    {"glBlendFuncSeparate", &rogl_glBlendFuncSeparate, &rogl_pfn_glBlendFuncSeparate, 4},
+    {"glMultiDrawArrays", &rogl_glMultiDrawArrays, &rogl_pfn_glMultiDrawArrays, 4},
+    {"glMultiDrawElements", &rogl_glMultiDrawElements, &rogl_pfn_glMultiDrawElements, 5},
+    {"glPointParameterf", &rogl_glPointParameterf, &rogl_pfn_glPointParameterf, 2},
+    {"glPointParameterfv", &rogl_glPointParameterfv, &rogl_pfn_glPointParameterfv, 2},
+    {"glPointParameteri", &rogl_glPointParameteri, &rogl_pfn_glPointParameteri, 2},
+    {"glPointParameteriv", &rogl_glPointParameteriv, &rogl_pfn_glPointParameteriv, 2},
+    {"glFogCoordf", &rogl_glFogCoordf, &rogl_pfn_glFogCoordf, 1},
+    {"glFogCoordfv", &rogl_glFogCoordfv, &rogl_pfn_glFogCoordfv, 1},
+    {"glFogCoordd", &rogl_glFogCoordd, &rogl_pfn_glFogCoordd, 1},
+    {"glFogCoorddv", &rogl_glFogCoorddv, &rogl_pfn_glFogCoorddv, 1},
+    {"glFogCoordPointer", &rogl_glFogCoordPointer, &rogl_pfn_glFogCoordPointer, 3},
+    {"glSecondaryColor3b", &rogl_glSecondaryColor3b, &rogl_pfn_glSecondaryColor3b, 3},
+    {"glSecondaryColor3bv", &rogl_glSecondaryColor3bv, &rogl_pfn_glSecondaryColor3bv, 1},
+    {"glSecondaryColor3d", &rogl_glSecondaryColor3d, &rogl_pfn_glSecondaryColor3d, 3},
+    {"glSecondaryColor3dv", &rogl_glSecondaryColor3dv, &rogl_pfn_glSecondaryColor3dv, 1},
+    {"glSecondaryColor3f", &rogl_glSecondaryColor3f, &rogl_pfn_glSecondaryColor3f, 3},
+    {"glSecondaryColor3fv", &rogl_glSecondaryColor3fv, &rogl_pfn_glSecondaryColor3fv, 1},
+    {"glSecondaryColor3i", &rogl_glSecondaryColor3i, &rogl_pfn_glSecondaryColor3i, 3},
+    {"glSecondaryColor3iv", &rogl_glSecondaryColor3iv, &rogl_pfn_glSecondaryColor3iv, 1},
+    {"glSecondaryColor3s", &rogl_glSecondaryColor3s, &rogl_pfn_glSecondaryColor3s, 3},
+    {"glSecondaryColor3sv", &rogl_glSecondaryColor3sv, &rogl_pfn_glSecondaryColor3sv, 1},
+    {"glSecondaryColor3ub", &rogl_glSecondaryColor3ub, &rogl_pfn_glSecondaryColor3ub, 3},
+    {"glSecondaryColor3ubv", &rogl_glSecondaryColor3ubv, &rogl_pfn_glSecondaryColor3ubv, 1},
+    {"glSecondaryColor3ui", &rogl_glSecondaryColor3ui, &rogl_pfn_glSecondaryColor3ui, 3},
+    {"glSecondaryColor3uiv", &rogl_glSecondaryColor3uiv, &rogl_pfn_glSecondaryColor3uiv, 1},
+    {"glSecondaryColor3us", &rogl_glSecondaryColor3us, &rogl_pfn_glSecondaryColor3us, 3},
+    {"glSecondaryColor3usv", &rogl_glSecondaryColor3usv, &rogl_pfn_glSecondaryColor3usv, 1},
+    {"glSecondaryColorPointer", &rogl_glSecondaryColorPointer, &rogl_pfn_glSecondaryColorPointer, 4},
+    {"glWindowPos2d", &rogl_glWindowPos2d, &rogl_pfn_glWindowPos2d, 2},
+    {"glWindowPos2dv", &rogl_glWindowPos2dv, &rogl_pfn_glWindowPos2dv, 1},
+    {"glWindowPos2f", &rogl_glWindowPos2f, &rogl_pfn_glWindowPos2f, 2},
+    {"glWindowPos2fv", &rogl_glWindowPos2fv, &rogl_pfn_glWindowPos2fv, 1},
+    {"glWindowPos2i", &rogl_glWindowPos2i, &rogl_pfn_glWindowPos2i, 2},
+    {"glWindowPos2iv", &rogl_glWindowPos2iv, &rogl_pfn_glWindowPos2iv, 1},
+    {"glWindowPos2s", &rogl_glWindowPos2s, &rogl_pfn_glWindowPos2s, 2},
+    {"glWindowPos2sv", &rogl_glWindowPos2sv, &rogl_pfn_glWindowPos2sv, 1},
+    {"glWindowPos3d", &rogl_glWindowPos3d, &rogl_pfn_glWindowPos3d, 3},
+    {"glWindowPos3dv", &rogl_glWindowPos3dv, &rogl_pfn_glWindowPos3dv, 1},
+    {"glWindowPos3f", &rogl_glWindowPos3f, &rogl_pfn_glWindowPos3f, 3},
+    {"glWindowPos3fv", &rogl_glWindowPos3fv, &rogl_pfn_glWindowPos3fv, 1},
+    {"glWindowPos3i", &rogl_glWindowPos3i, &rogl_pfn_glWindowPos3i, 3},
+    {"glWindowPos3iv", &rogl_glWindowPos3iv, &rogl_pfn_glWindowPos3iv, 1},
+    {"glWindowPos3s", &rogl_glWindowPos3s, &rogl_pfn_glWindowPos3s, 3},
+    {"glWindowPos3sv", &rogl_glWindowPos3sv, &rogl_pfn_glWindowPos3sv, 1},
+    {"glBlendColor", &rogl_glBlendColor, &rogl_pfn_glBlendColor, 4},
+    {"glBlendEquation", &rogl_glBlendEquation, &rogl_pfn_glBlendEquation, 1},
+    {"glGenQueries", &rogl_glGenQueries, &rogl_pfn_glGenQueries, 2},
+    {"glDeleteQueries", &rogl_glDeleteQueries, &rogl_pfn_glDeleteQueries, 2},
+    {"glIsQuery", &rogl_glIsQuery, &rogl_pfn_glIsQuery, 1},
+    {"glBeginQuery", &rogl_glBeginQuery, &rogl_pfn_glBeginQuery, 2},
+    {"glEndQuery", &rogl_glEndQuery, &rogl_pfn_glEndQuery, 1},
+    {"glGetQueryiv", &rogl_glGetQueryiv, &rogl_pfn_glGetQueryiv, 3},
+    {"glGetQueryObjectiv", &rogl_glGetQueryObjectiv, &rogl_pfn_glGetQueryObjectiv, 3},
+    {"glGetQueryObjectuiv", &rogl_glGetQueryObjectuiv, &rogl_pfn_glGetQueryObjectuiv, 3},
+    {"glBindBuffer", &rogl_glBindBuffer, &rogl_pfn_glBindBuffer, 2},
+    {"glDeleteBuffers", &rogl_glDeleteBuffers, &rogl_pfn_glDeleteBuffers, 2},
+    {"glGenBuffers", &rogl_glGenBuffers, &rogl_pfn_glGenBuffers, 2},
+    {"glIsBuffer", &rogl_glIsBuffer, &rogl_pfn_glIsBuffer, 1},
+    {"glBufferData", &rogl_glBufferData, &rogl_pfn_glBufferData, 4},
+    {"glBufferSubData", &rogl_glBufferSubData, &rogl_pfn_glBufferSubData, 4},
+    {"glGetBufferSubData", &rogl_glGetBufferSubData, &rogl_pfn_glGetBufferSubData, 4},
+    {"glMapBuffer", &rogl_glMapBuffer, &rogl_pfn_glMapBuffer, 2},
+    {"glUnmapBuffer", &rogl_glUnmapBuffer, &rogl_pfn_glUnmapBuffer, 1},
+    {"glGetBufferParameteriv", &rogl_glGetBufferParameteriv, &rogl_pfn_glGetBufferParameteriv, 3},
+    {"glGetBufferPointerv", &rogl_glGetBufferPointerv, &rogl_pfn_glGetBufferPointerv, 3},
+    {"glBlendEquationSeparate", &rogl_glBlendEquationSeparate, &rogl_pfn_glBlendEquationSeparate, 2},
+    {"glDrawBuffers", &rogl_glDrawBuffers, &rogl_pfn_glDrawBuffers, 2},
+    {"glStencilOpSeparate", &rogl_glStencilOpSeparate, &rogl_pfn_glStencilOpSeparate, 4},
+    {"glStencilFuncSeparate", &rogl_glStencilFuncSeparate, &rogl_pfn_glStencilFuncSeparate, 4},
+    {"glStencilMaskSeparate", &rogl_glStencilMaskSeparate, &rogl_pfn_glStencilMaskSeparate, 2},
+    {"glAttachShader", &rogl_glAttachShader, &rogl_pfn_glAttachShader, 2},
+    {"glBindAttribLocation", &rogl_glBindAttribLocation, &rogl_pfn_glBindAttribLocation, 3},
+    {"glCompileShader", &rogl_glCompileShader, &rogl_pfn_glCompileShader, 1},
+    {"glCreateProgram", &rogl_glCreateProgram, &rogl_pfn_glCreateProgram, 0},
+    {"glCreateShader", &rogl_glCreateShader, &rogl_pfn_glCreateShader, 1},
+    {"glDeleteProgram", &rogl_glDeleteProgram, &rogl_pfn_glDeleteProgram, 1},
+    {"glDeleteShader", &rogl_glDeleteShader, &rogl_pfn_glDeleteShader, 1},
+    {"glDetachShader", &rogl_glDetachShader, &rogl_pfn_glDetachShader, 2},
+    {"glDisableVertexAttribArray", &rogl_glDisableVertexAttribArray, &rogl_pfn_glDisableVertexAttribArray, 1},
+    {"glEnableVertexAttribArray", &rogl_glEnableVertexAttribArray, &rogl_pfn_glEnableVertexAttribArray, 1},
+    {"glGetActiveAttrib", &rogl_glGetActiveAttrib, &rogl_pfn_glGetActiveAttrib, 7},
+    {"glGetActiveUniform", &rogl_glGetActiveUniform, &rogl_pfn_glGetActiveUniform, 7},
+    {"glGetAttachedShaders", &rogl_glGetAttachedShaders, &rogl_pfn_glGetAttachedShaders, 4},
+    {"glGetAttribLocation", &rogl_glGetAttribLocation, &rogl_pfn_glGetAttribLocation, 2},
+    {"glGetProgramiv", &rogl_glGetProgramiv, &rogl_pfn_glGetProgramiv, 3},
+    {"glGetProgramInfoLog", &rogl_glGetProgramInfoLog, &rogl_pfn_glGetProgramInfoLog, 4},
+    {"glGetShaderiv", &rogl_glGetShaderiv, &rogl_pfn_glGetShaderiv, 3},
+    {"glGetShaderInfoLog", &rogl_glGetShaderInfoLog, &rogl_pfn_glGetShaderInfoLog, 4},
+    {"glGetShaderSource", &rogl_glGetShaderSource, &rogl_pfn_glGetShaderSource, 4},
+    {"glGetUniformLocation", &rogl_glGetUniformLocation, &rogl_pfn_glGetUniformLocation, 2},
+    {"glGetUniformfv", &rogl_glGetUniformfv, &rogl_pfn_glGetUniformfv, 3},
+    {"glGetUniformiv", &rogl_glGetUniformiv, &rogl_pfn_glGetUniformiv, 3},
+    {"glGetVertexAttribdv", &rogl_glGetVertexAttribdv, &rogl_pfn_glGetVertexAttribdv, 3},
+    {"glGetVertexAttribfv", &rogl_glGetVertexAttribfv, &rogl_pfn_glGetVertexAttribfv, 3},
+    {"glGetVertexAttribiv", &rogl_glGetVertexAttribiv, &rogl_pfn_glGetVertexAttribiv, 3},
+    {"glGetVertexAttribPointerv", &rogl_glGetVertexAttribPointerv, &rogl_pfn_glGetVertexAttribPointerv, 3},
+    {"glIsProgram", &rogl_glIsProgram, &rogl_pfn_glIsProgram, 1},
+    {"glIsShader", &rogl_glIsShader, &rogl_pfn_glIsShader, 1},
+    {"glLinkProgram", &rogl_glLinkProgram, &rogl_pfn_glLinkProgram, 1},
+    {"glShaderSource", &rogl_glShaderSource, &rogl_pfn_glShaderSource, 4},
+    {"glUseProgram", &rogl_glUseProgram, &rogl_pfn_glUseProgram, 1},
+    {"glUniform1f", &rogl_glUniform1f, &rogl_pfn_glUniform1f, 2},
+    {"glUniform2f", &rogl_glUniform2f, &rogl_pfn_glUniform2f, 3},
+    {"glUniform3f", &rogl_glUniform3f, &rogl_pfn_glUniform3f, 4},
+    {"glUniform4f", &rogl_glUniform4f, &rogl_pfn_glUniform4f, 5},
+    {"glUniform1i", &rogl_glUniform1i, &rogl_pfn_glUniform1i, 2},
+    {"glUniform2i", &rogl_glUniform2i, &rogl_pfn_glUniform2i, 3},
+    {"glUniform3i", &rogl_glUniform3i, &rogl_pfn_glUniform3i, 4},
+    {"glUniform4i", &rogl_glUniform4i, &rogl_pfn_glUniform4i, 5},
+    {"glUniform1fv", &rogl_glUniform1fv, &rogl_pfn_glUniform1fv, 3},
+    {"glUniform2fv", &rogl_glUniform2fv, &rogl_pfn_glUniform2fv, 3},
+    {"glUniform3fv", &rogl_glUniform3fv, &rogl_pfn_glUniform3fv, 3},
+    {"glUniform4fv", &rogl_glUniform4fv, &rogl_pfn_glUniform4fv, 3},
+    {"glUniform1iv", &rogl_glUniform1iv, &rogl_pfn_glUniform1iv, 3},
+    {"glUniform2iv", &rogl_glUniform2iv, &rogl_pfn_glUniform2iv, 3},
+    {"glUniform3iv", &rogl_glUniform3iv, &rogl_pfn_glUniform3iv, 3},
+    {"glUniform4iv", &rogl_glUniform4iv, &rogl_pfn_glUniform4iv, 3},
+    {"glUniformMatrix2fv", &rogl_glUniformMatrix2fv, &rogl_pfn_glUniformMatrix2fv, 4},
+    {"glUniformMatrix3fv", &rogl_glUniformMatrix3fv, &rogl_pfn_glUniformMatrix3fv, 4},
+    {"glUniformMatrix4fv", &rogl_glUniformMatrix4fv, &rogl_pfn_glUniformMatrix4fv, 4},
+    {"glValidateProgram", &rogl_glValidateProgram, &rogl_pfn_glValidateProgram, 1},
+    {"glVertexAttrib1d", &rogl_glVertexAttrib1d, &rogl_pfn_glVertexAttrib1d, 2},
+    {"glVertexAttrib1dv", &rogl_glVertexAttrib1dv, &rogl_pfn_glVertexAttrib1dv, 2},
+    {"glVertexAttrib1f", &rogl_glVertexAttrib1f, &rogl_pfn_glVertexAttrib1f, 2},
+    {"glVertexAttrib1fv", &rogl_glVertexAttrib1fv, &rogl_pfn_glVertexAttrib1fv, 2},
+    {"glVertexAttrib1s", &rogl_glVertexAttrib1s, &rogl_pfn_glVertexAttrib1s, 2},
+    {"glVertexAttrib1sv", &rogl_glVertexAttrib1sv, &rogl_pfn_glVertexAttrib1sv, 2},
+    {"glVertexAttrib2d", &rogl_glVertexAttrib2d, &rogl_pfn_glVertexAttrib2d, 3},
+    {"glVertexAttrib2dv", &rogl_glVertexAttrib2dv, &rogl_pfn_glVertexAttrib2dv, 2},
+    {"glVertexAttrib2f", &rogl_glVertexAttrib2f, &rogl_pfn_glVertexAttrib2f, 3},
+    {"glVertexAttrib2fv", &rogl_glVertexAttrib2fv, &rogl_pfn_glVertexAttrib2fv, 2},
+    {"glVertexAttrib2s", &rogl_glVertexAttrib2s, &rogl_pfn_glVertexAttrib2s, 3},
+    {"glVertexAttrib2sv", &rogl_glVertexAttrib2sv, &rogl_pfn_glVertexAttrib2sv, 2},
+    {"glVertexAttrib3d", &rogl_glVertexAttrib3d, &rogl_pfn_glVertexAttrib3d, 4},
+    {"glVertexAttrib3dv", &rogl_glVertexAttrib3dv, &rogl_pfn_glVertexAttrib3dv, 2},
+    {"glVertexAttrib3f", &rogl_glVertexAttrib3f, &rogl_pfn_glVertexAttrib3f, 4},
+    {"glVertexAttrib3fv", &rogl_glVertexAttrib3fv, &rogl_pfn_glVertexAttrib3fv, 2},
+    {"glVertexAttrib3s", &rogl_glVertexAttrib3s, &rogl_pfn_glVertexAttrib3s, 4},
+    {"glVertexAttrib3sv", &rogl_glVertexAttrib3sv, &rogl_pfn_glVertexAttrib3sv, 2},
+    {"glVertexAttrib4Nbv", &rogl_glVertexAttrib4Nbv, &rogl_pfn_glVertexAttrib4Nbv, 2},
+    {"glVertexAttrib4Niv", &rogl_glVertexAttrib4Niv, &rogl_pfn_glVertexAttrib4Niv, 2},
+    {"glVertexAttrib4Nsv", &rogl_glVertexAttrib4Nsv, &rogl_pfn_glVertexAttrib4Nsv, 2},
+    {"glVertexAttrib4Nub", &rogl_glVertexAttrib4Nub, &rogl_pfn_glVertexAttrib4Nub, 5},
+    {"glVertexAttrib4Nubv", &rogl_glVertexAttrib4Nubv, &rogl_pfn_glVertexAttrib4Nubv, 2},
+    {"glVertexAttrib4Nuiv", &rogl_glVertexAttrib4Nuiv, &rogl_pfn_glVertexAttrib4Nuiv, 2},
+    {"glVertexAttrib4Nusv", &rogl_glVertexAttrib4Nusv, &rogl_pfn_glVertexAttrib4Nusv, 2},
+    {"glVertexAttrib4bv", &rogl_glVertexAttrib4bv, &rogl_pfn_glVertexAttrib4bv, 2},
+    {"glVertexAttrib4d", &rogl_glVertexAttrib4d, &rogl_pfn_glVertexAttrib4d, 5},
+    {"glVertexAttrib4dv", &rogl_glVertexAttrib4dv, &rogl_pfn_glVertexAttrib4dv, 2},
+    {"glVertexAttrib4f", &rogl_glVertexAttrib4f, &rogl_pfn_glVertexAttrib4f, 5},
+    {"glVertexAttrib4fv", &rogl_glVertexAttrib4fv, &rogl_pfn_glVertexAttrib4fv, 2},
+    {"glVertexAttrib4iv", &rogl_glVertexAttrib4iv, &rogl_pfn_glVertexAttrib4iv, 2},
+    {"glVertexAttrib4s", &rogl_glVertexAttrib4s, &rogl_pfn_glVertexAttrib4s, 5},
+    {"glVertexAttrib4sv", &rogl_glVertexAttrib4sv, &rogl_pfn_glVertexAttrib4sv, 2},
+    {"glVertexAttrib4ubv", &rogl_glVertexAttrib4ubv, &rogl_pfn_glVertexAttrib4ubv, 2},
+    {"glVertexAttrib4uiv", &rogl_glVertexAttrib4uiv, &rogl_pfn_glVertexAttrib4uiv, 2},
+    {"glVertexAttrib4usv", &rogl_glVertexAttrib4usv, &rogl_pfn_glVertexAttrib4usv, 2},
+    {"glVertexAttribPointer", &rogl_glVertexAttribPointer, &rogl_pfn_glVertexAttribPointer, 6},
+    {"glUniformMatrix2x3fv", &rogl_glUniformMatrix2x3fv, &rogl_pfn_glUniformMatrix2x3fv, 4},
+    {"glUniformMatrix3x2fv", &rogl_glUniformMatrix3x2fv, &rogl_pfn_glUniformMatrix3x2fv, 4},
+    {"glUniformMatrix2x4fv", &rogl_glUniformMatrix2x4fv, &rogl_pfn_glUniformMatrix2x4fv, 4},
+    {"glUniformMatrix4x2fv", &rogl_glUniformMatrix4x2fv, &rogl_pfn_glUniformMatrix4x2fv, 4},
+    {"glUniformMatrix3x4fv", &rogl_glUniformMatrix3x4fv, &rogl_pfn_glUniformMatrix3x4fv, 4},
+    {"glUniformMatrix4x3fv", &rogl_glUniformMatrix4x3fv, &rogl_pfn_glUniformMatrix4x3fv, 4},
+    {"glColorMaski", &rogl_glColorMaski, &rogl_pfn_glColorMaski, 5},
+    {"glGetBooleani_v", &rogl_glGetBooleani_v, &rogl_pfn_glGetBooleani_v, 3},
+    {"glGetIntegeri_v", &rogl_glGetIntegeri_v, &rogl_pfn_glGetIntegeri_v, 3},
+    {"glEnablei", &rogl_glEnablei, &rogl_pfn_glEnablei, 2},
+    {"glDisablei", &rogl_glDisablei, &rogl_pfn_glDisablei, 2},
+    {"glIsEnabledi", &rogl_glIsEnabledi, &rogl_pfn_glIsEnabledi, 2},
+    {"glBeginTransformFeedback", &rogl_glBeginTransformFeedback, &rogl_pfn_glBeginTransformFeedback, 1},
+    {"glEndTransformFeedback", &rogl_glEndTransformFeedback, &rogl_pfn_glEndTransformFeedback, 0},
+    {"glBindBufferRange", &rogl_glBindBufferRange, &rogl_pfn_glBindBufferRange, 5},
+    {"glBindBufferBase", &rogl_glBindBufferBase, &rogl_pfn_glBindBufferBase, 3},
+    {"glTransformFeedbackVaryings", &rogl_glTransformFeedbackVaryings, &rogl_pfn_glTransformFeedbackVaryings, 4},
+    {"glGetTransformFeedbackVarying", &rogl_glGetTransformFeedbackVarying, &rogl_pfn_glGetTransformFeedbackVarying, 7},
+    {"glClampColor", &rogl_glClampColor, &rogl_pfn_glClampColor, 2},
+    {"glBeginConditionalRender", &rogl_glBeginConditionalRender, &rogl_pfn_glBeginConditionalRender, 2},
+    {"glEndConditionalRender", &rogl_glEndConditionalRender, &rogl_pfn_glEndConditionalRender, 0},
+    {"glVertexAttribIPointer", &rogl_glVertexAttribIPointer, &rogl_pfn_glVertexAttribIPointer, 5},
+    {"glGetVertexAttribIiv", &rogl_glGetVertexAttribIiv, &rogl_pfn_glGetVertexAttribIiv, 3},
+    {"glGetVertexAttribIuiv", &rogl_glGetVertexAttribIuiv, &rogl_pfn_glGetVertexAttribIuiv, 3},
+    {"glVertexAttribI1i", &rogl_glVertexAttribI1i, &rogl_pfn_glVertexAttribI1i, 2},
+    {"glVertexAttribI2i", &rogl_glVertexAttribI2i, &rogl_pfn_glVertexAttribI2i, 3},
+    {"glVertexAttribI3i", &rogl_glVertexAttribI3i, &rogl_pfn_glVertexAttribI3i, 4},
+    {"glVertexAttribI4i", &rogl_glVertexAttribI4i, &rogl_pfn_glVertexAttribI4i, 5},
+    {"glVertexAttribI1ui", &rogl_glVertexAttribI1ui, &rogl_pfn_glVertexAttribI1ui, 2},
+    {"glVertexAttribI2ui", &rogl_glVertexAttribI2ui, &rogl_pfn_glVertexAttribI2ui, 3},
+    {"glVertexAttribI3ui", &rogl_glVertexAttribI3ui, &rogl_pfn_glVertexAttribI3ui, 4},
+    {"glVertexAttribI4ui", &rogl_glVertexAttribI4ui, &rogl_pfn_glVertexAttribI4ui, 5},
+    {"glVertexAttribI1iv", &rogl_glVertexAttribI1iv, &rogl_pfn_glVertexAttribI1iv, 2},
+    {"glVertexAttribI2iv", &rogl_glVertexAttribI2iv, &rogl_pfn_glVertexAttribI2iv, 2},
+    {"glVertexAttribI3iv", &rogl_glVertexAttribI3iv, &rogl_pfn_glVertexAttribI3iv, 2},
+    {"glVertexAttribI4iv", &rogl_glVertexAttribI4iv, &rogl_pfn_glVertexAttribI4iv, 2},
+    {"glVertexAttribI1uiv", &rogl_glVertexAttribI1uiv, &rogl_pfn_glVertexAttribI1uiv, 2},
+    {"glVertexAttribI2uiv", &rogl_glVertexAttribI2uiv, &rogl_pfn_glVertexAttribI2uiv, 2},
+    {"glVertexAttribI3uiv", &rogl_glVertexAttribI3uiv, &rogl_pfn_glVertexAttribI3uiv, 2},
+    {"glVertexAttribI4uiv", &rogl_glVertexAttribI4uiv, &rogl_pfn_glVertexAttribI4uiv, 2},
+    {"glVertexAttribI4bv", &rogl_glVertexAttribI4bv, &rogl_pfn_glVertexAttribI4bv, 2},
+    {"glVertexAttribI4sv", &rogl_glVertexAttribI4sv, &rogl_pfn_glVertexAttribI4sv, 2},
+    {"glVertexAttribI4ubv", &rogl_glVertexAttribI4ubv, &rogl_pfn_glVertexAttribI4ubv, 2},
+    {"glVertexAttribI4usv", &rogl_glVertexAttribI4usv, &rogl_pfn_glVertexAttribI4usv, 2},
+    {"glGetUniformuiv", &rogl_glGetUniformuiv, &rogl_pfn_glGetUniformuiv, 3},
+    {"glBindFragDataLocation", &rogl_glBindFragDataLocation, &rogl_pfn_glBindFragDataLocation, 3},
+    {"glGetFragDataLocation", &rogl_glGetFragDataLocation, &rogl_pfn_glGetFragDataLocation, 2},
+    {"glUniform1ui", &rogl_glUniform1ui, &rogl_pfn_glUniform1ui, 2},
+    {"glUniform2ui", &rogl_glUniform2ui, &rogl_pfn_glUniform2ui, 3},
+    {"glUniform3ui", &rogl_glUniform3ui, &rogl_pfn_glUniform3ui, 4},
+    {"glUniform4ui", &rogl_glUniform4ui, &rogl_pfn_glUniform4ui, 5},
+    {"glUniform1uiv", &rogl_glUniform1uiv, &rogl_pfn_glUniform1uiv, 3},
+    {"glUniform2uiv", &rogl_glUniform2uiv, &rogl_pfn_glUniform2uiv, 3},
+    {"glUniform3uiv", &rogl_glUniform3uiv, &rogl_pfn_glUniform3uiv, 3},
+    {"glUniform4uiv", &rogl_glUniform4uiv, &rogl_pfn_glUniform4uiv, 3},
+    {"glTexParameterIiv", &rogl_glTexParameterIiv, &rogl_pfn_glTexParameterIiv, 3},
+    {"glTexParameterIuiv", &rogl_glTexParameterIuiv, &rogl_pfn_glTexParameterIuiv, 3},
+    {"glGetTexParameterIiv", &rogl_glGetTexParameterIiv, &rogl_pfn_glGetTexParameterIiv, 3},
+    {"glGetTexParameterIuiv", &rogl_glGetTexParameterIuiv, &rogl_pfn_glGetTexParameterIuiv, 3},
+    {"glClearBufferiv", &rogl_glClearBufferiv, &rogl_pfn_glClearBufferiv, 3},
+    {"glClearBufferuiv", &rogl_glClearBufferuiv, &rogl_pfn_glClearBufferuiv, 3},
+    {"glClearBufferfv", &rogl_glClearBufferfv, &rogl_pfn_glClearBufferfv, 3},
+    {"glClearBufferfi", &rogl_glClearBufferfi, &rogl_pfn_glClearBufferfi, 4},
+    {"glGetStringi", &rogl_glGetStringi, &rogl_pfn_glGetStringi, 2},
+    {"glIsRenderbuffer", &rogl_glIsRenderbuffer, &rogl_pfn_glIsRenderbuffer, 1},
+    {"glBindRenderbuffer", &rogl_glBindRenderbuffer, &rogl_pfn_glBindRenderbuffer, 2},
+    {"glDeleteRenderbuffers", &rogl_glDeleteRenderbuffers, &rogl_pfn_glDeleteRenderbuffers, 2},
+    {"glGenRenderbuffers", &rogl_glGenRenderbuffers, &rogl_pfn_glGenRenderbuffers, 2},
+    {"glRenderbufferStorage", &rogl_glRenderbufferStorage, &rogl_pfn_glRenderbufferStorage, 4},
+    {"glGetRenderbufferParameteriv", &rogl_glGetRenderbufferParameteriv, &rogl_pfn_glGetRenderbufferParameteriv, 3},
+    {"glIsFramebuffer", &rogl_glIsFramebuffer, &rogl_pfn_glIsFramebuffer, 1},
+    {"glBindFramebuffer", &rogl_glBindFramebuffer, &rogl_pfn_glBindFramebuffer, 2},
+    {"glDeleteFramebuffers", &rogl_glDeleteFramebuffers, &rogl_pfn_glDeleteFramebuffers, 2},
+    {"glGenFramebuffers", &rogl_glGenFramebuffers, &rogl_pfn_glGenFramebuffers, 2},
+    {"glCheckFramebufferStatus", &rogl_glCheckFramebufferStatus, &rogl_pfn_glCheckFramebufferStatus, 1},
+    {"glFramebufferTexture1D", &rogl_glFramebufferTexture1D, &rogl_pfn_glFramebufferTexture1D, 5},
+    {"glFramebufferTexture2D", &rogl_glFramebufferTexture2D, &rogl_pfn_glFramebufferTexture2D, 5},
+    {"glFramebufferTexture3D", &rogl_glFramebufferTexture3D, &rogl_pfn_glFramebufferTexture3D, 6},
+    {"glFramebufferRenderbuffer", &rogl_glFramebufferRenderbuffer, &rogl_pfn_glFramebufferRenderbuffer, 4},
+    {"glGetFramebufferAttachmentParameteriv", &rogl_glGetFramebufferAttachmentParameteriv, &rogl_pfn_glGetFramebufferAttachmentParameteriv, 4},
+    {"glGenerateMipmap", &rogl_glGenerateMipmap, &rogl_pfn_glGenerateMipmap, 1},
+    {"glBlitFramebuffer", &rogl_glBlitFramebuffer, &rogl_pfn_glBlitFramebuffer, 10},
+    {"glRenderbufferStorageMultisample", &rogl_glRenderbufferStorageMultisample, &rogl_pfn_glRenderbufferStorageMultisample, 5},
+    {"glFramebufferTextureLayer", &rogl_glFramebufferTextureLayer, &rogl_pfn_glFramebufferTextureLayer, 5},
+    {"glMapBufferRange", &rogl_glMapBufferRange, &rogl_pfn_glMapBufferRange, 4},
+    {"glFlushMappedBufferRange", &rogl_glFlushMappedBufferRange, &rogl_pfn_glFlushMappedBufferRange, 3},
+    {"glBindVertexArray", &rogl_glBindVertexArray, &rogl_pfn_glBindVertexArray, 1},
+    {"glDeleteVertexArrays", &rogl_glDeleteVertexArrays, &rogl_pfn_glDeleteVertexArrays, 2},
+    {"glGenVertexArrays", &rogl_glGenVertexArrays, &rogl_pfn_glGenVertexArrays, 2},
+    {"glIsVertexArray", &rogl_glIsVertexArray, &rogl_pfn_glIsVertexArray, 1},
+    {"glDrawArraysInstanced", &rogl_glDrawArraysInstanced, &rogl_pfn_glDrawArraysInstanced, 4},
+    {"glDrawElementsInstanced", &rogl_glDrawElementsInstanced, &rogl_pfn_glDrawElementsInstanced, 5},
+    {"glTexBuffer", &rogl_glTexBuffer, &rogl_pfn_glTexBuffer, 3},
+    {"glPrimitiveRestartIndex", &rogl_glPrimitiveRestartIndex, &rogl_pfn_glPrimitiveRestartIndex, 1},
+    {"glCopyBufferSubData", &rogl_glCopyBufferSubData, &rogl_pfn_glCopyBufferSubData, 5},
+    {"glGetUniformIndices", &rogl_glGetUniformIndices, &rogl_pfn_glGetUniformIndices, 4},
+    {"glGetActiveUniformsiv", &rogl_glGetActiveUniformsiv, &rogl_pfn_glGetActiveUniformsiv, 5},
+    {"glGetActiveUniformName", &rogl_glGetActiveUniformName, &rogl_pfn_glGetActiveUniformName, 5},
+    {"glGetUniformBlockIndex", &rogl_glGetUniformBlockIndex, &rogl_pfn_glGetUniformBlockIndex, 2},
+    {"glGetActiveUniformBlockiv", &rogl_glGetActiveUniformBlockiv, &rogl_pfn_glGetActiveUniformBlockiv, 4},
+    {"glGetActiveUniformBlockName", &rogl_glGetActiveUniformBlockName, &rogl_pfn_glGetActiveUniformBlockName, 5},
+    {"glUniformBlockBinding", &rogl_glUniformBlockBinding, &rogl_pfn_glUniformBlockBinding, 3},
+    {"glDrawElementsBaseVertex", &rogl_glDrawElementsBaseVertex, &rogl_pfn_glDrawElementsBaseVertex, 5},
+    {"glDrawRangeElementsBaseVertex", &rogl_glDrawRangeElementsBaseVertex, &rogl_pfn_glDrawRangeElementsBaseVertex, 7},
+    {"glDrawElementsInstancedBaseVertex", &rogl_glDrawElementsInstancedBaseVertex, &rogl_pfn_glDrawElementsInstancedBaseVertex, 6},
+    {"glMultiDrawElementsBaseVertex", &rogl_glMultiDrawElementsBaseVertex, &rogl_pfn_glMultiDrawElementsBaseVertex, 6},
+    {"glProvokingVertex", &rogl_glProvokingVertex, &rogl_pfn_glProvokingVertex, 1},
+    {"glFenceSync", &rogl_glFenceSync, &rogl_pfn_glFenceSync, 2},
+    {"glIsSync", &rogl_glIsSync, &rogl_pfn_glIsSync, 1},
+    {"glDeleteSync", &rogl_glDeleteSync, &rogl_pfn_glDeleteSync, 1},
+    {"glClientWaitSync", &rogl_glClientWaitSync, &rogl_pfn_glClientWaitSync, 3},
+    {"glWaitSync", &rogl_glWaitSync, &rogl_pfn_glWaitSync, 3},
+    {"glGetInteger64v", &rogl_glGetInteger64v, &rogl_pfn_glGetInteger64v, 2},
+    {"glGetSynciv", &rogl_glGetSynciv, &rogl_pfn_glGetSynciv, 5},
+    {"glGetInteger64i_v", &rogl_glGetInteger64i_v, &rogl_pfn_glGetInteger64i_v, 3},
+    {"glGetBufferParameteri64v", &rogl_glGetBufferParameteri64v, &rogl_pfn_glGetBufferParameteri64v, 3},
+    {"glFramebufferTexture", &rogl_glFramebufferTexture, &rogl_pfn_glFramebufferTexture, 4},
+    {"glTexImage2DMultisample", &rogl_glTexImage2DMultisample, &rogl_pfn_glTexImage2DMultisample, 6},
+    {"glTexImage3DMultisample", &rogl_glTexImage3DMultisample, &rogl_pfn_glTexImage3DMultisample, 7},
+    {"glGetMultisamplefv", &rogl_glGetMultisamplefv, &rogl_pfn_glGetMultisamplefv, 3},
+    {"glSampleMaski", &rogl_glSampleMaski, &rogl_pfn_glSampleMaski, 2},
+    {"glBindFragDataLocationIndexed", &rogl_glBindFragDataLocationIndexed, &rogl_pfn_glBindFragDataLocationIndexed, 4},
+    {"glGetFragDataIndex", &rogl_glGetFragDataIndex, &rogl_pfn_glGetFragDataIndex, 2},
+    {"glGenSamplers", &rogl_glGenSamplers, &rogl_pfn_glGenSamplers, 2},
+    {"glDeleteSamplers", &rogl_glDeleteSamplers, &rogl_pfn_glDeleteSamplers, 2},
+    {"glIsSampler", &rogl_glIsSampler, &rogl_pfn_glIsSampler, 1},
+    {"glBindSampler", &rogl_glBindSampler, &rogl_pfn_glBindSampler, 2},
+    {"glSamplerParameteri", &rogl_glSamplerParameteri, &rogl_pfn_glSamplerParameteri, 3},
+    {"glSamplerParameteriv", &rogl_glSamplerParameteriv, &rogl_pfn_glSamplerParameteriv, 3},
+    {"glSamplerParameterf", &rogl_glSamplerParameterf, &rogl_pfn_glSamplerParameterf, 3},
+    {"glSamplerParameterfv", &rogl_glSamplerParameterfv, &rogl_pfn_glSamplerParameterfv, 3},
+    {"glSamplerParameterIiv", &rogl_glSamplerParameterIiv, &rogl_pfn_glSamplerParameterIiv, 3},
+    {"glSamplerParameterIuiv", &rogl_glSamplerParameterIuiv, &rogl_pfn_glSamplerParameterIuiv, 3},
+    {"glGetSamplerParameteriv", &rogl_glGetSamplerParameteriv, &rogl_pfn_glGetSamplerParameteriv, 3},
+    {"glGetSamplerParameterIiv", &rogl_glGetSamplerParameterIiv, &rogl_pfn_glGetSamplerParameterIiv, 3},
+    {"glGetSamplerParameterfv", &rogl_glGetSamplerParameterfv, &rogl_pfn_glGetSamplerParameterfv, 3},
+    {"glGetSamplerParameterIuiv", &rogl_glGetSamplerParameterIuiv, &rogl_pfn_glGetSamplerParameterIuiv, 3},
+    {"glQueryCounter", &rogl_glQueryCounter, &rogl_pfn_glQueryCounter, 2},
+    {"glGetQueryObjecti64v", &rogl_glGetQueryObjecti64v, &rogl_pfn_glGetQueryObjecti64v, 3},
+    {"glGetQueryObjectui64v", &rogl_glGetQueryObjectui64v, &rogl_pfn_glGetQueryObjectui64v, 3},
+    {"glVertexAttribDivisor", &rogl_glVertexAttribDivisor, &rogl_pfn_glVertexAttribDivisor, 2},
+    {"glVertexAttribP1ui", &rogl_glVertexAttribP1ui, &rogl_pfn_glVertexAttribP1ui, 4},
+    {"glVertexAttribP1uiv", &rogl_glVertexAttribP1uiv, &rogl_pfn_glVertexAttribP1uiv, 4},
+    {"glVertexAttribP2ui", &rogl_glVertexAttribP2ui, &rogl_pfn_glVertexAttribP2ui, 4},
+    {"glVertexAttribP2uiv", &rogl_glVertexAttribP2uiv, &rogl_pfn_glVertexAttribP2uiv, 4},
+    {"glVertexAttribP3ui", &rogl_glVertexAttribP3ui, &rogl_pfn_glVertexAttribP3ui, 4},
+    {"glVertexAttribP3uiv", &rogl_glVertexAttribP3uiv, &rogl_pfn_glVertexAttribP3uiv, 4},
+    {"glVertexAttribP4ui", &rogl_glVertexAttribP4ui, &rogl_pfn_glVertexAttribP4ui, 4},
+    {"glVertexAttribP4uiv", &rogl_glVertexAttribP4uiv, &rogl_pfn_glVertexAttribP4uiv, 4},
+    {"glVertexP2ui", &rogl_glVertexP2ui, &rogl_pfn_glVertexP2ui, 2},
+    {"glVertexP2uiv", &rogl_glVertexP2uiv, &rogl_pfn_glVertexP2uiv, 2},
+    {"glVertexP3ui", &rogl_glVertexP3ui, &rogl_pfn_glVertexP3ui, 2},
+    {"glVertexP3uiv", &rogl_glVertexP3uiv, &rogl_pfn_glVertexP3uiv, 2},
+    {"glVertexP4ui", &rogl_glVertexP4ui, &rogl_pfn_glVertexP4ui, 2},
+    {"glVertexP4uiv", &rogl_glVertexP4uiv, &rogl_pfn_glVertexP4uiv, 2},
+    {"glTexCoordP1ui", &rogl_glTexCoordP1ui, &rogl_pfn_glTexCoordP1ui, 2},
+    {"glTexCoordP1uiv", &rogl_glTexCoordP1uiv, &rogl_pfn_glTexCoordP1uiv, 2},
+    {"glTexCoordP2ui", &rogl_glTexCoordP2ui, &rogl_pfn_glTexCoordP2ui, 2},
+    {"glTexCoordP2uiv", &rogl_glTexCoordP2uiv, &rogl_pfn_glTexCoordP2uiv, 2},
+    {"glTexCoordP3ui", &rogl_glTexCoordP3ui, &rogl_pfn_glTexCoordP3ui, 2},
+    {"glTexCoordP3uiv", &rogl_glTexCoordP3uiv, &rogl_pfn_glTexCoordP3uiv, 2},
+    {"glTexCoordP4ui", &rogl_glTexCoordP4ui, &rogl_pfn_glTexCoordP4ui, 2},
+    {"glTexCoordP4uiv", &rogl_glTexCoordP4uiv, &rogl_pfn_glTexCoordP4uiv, 2},
+    {"glMultiTexCoordP1ui", &rogl_glMultiTexCoordP1ui, &rogl_pfn_glMultiTexCoordP1ui, 3},
+    {"glMultiTexCoordP1uiv", &rogl_glMultiTexCoordP1uiv, &rogl_pfn_glMultiTexCoordP1uiv, 3},
+    {"glMultiTexCoordP2ui", &rogl_glMultiTexCoordP2ui, &rogl_pfn_glMultiTexCoordP2ui, 3},
+    {"glMultiTexCoordP2uiv", &rogl_glMultiTexCoordP2uiv, &rogl_pfn_glMultiTexCoordP2uiv, 3},
+    {"glMultiTexCoordP3ui", &rogl_glMultiTexCoordP3ui, &rogl_pfn_glMultiTexCoordP3ui, 3},
+    {"glMultiTexCoordP3uiv", &rogl_glMultiTexCoordP3uiv, &rogl_pfn_glMultiTexCoordP3uiv, 3},
+    {"glMultiTexCoordP4ui", &rogl_glMultiTexCoordP4ui, &rogl_pfn_glMultiTexCoordP4ui, 3},
+    {"glMultiTexCoordP4uiv", &rogl_glMultiTexCoordP4uiv, &rogl_pfn_glMultiTexCoordP4uiv, 3},
+    {"glNormalP3ui", &rogl_glNormalP3ui, &rogl_pfn_glNormalP3ui, 2},
+    {"glNormalP3uiv", &rogl_glNormalP3uiv, &rogl_pfn_glNormalP3uiv, 2},
+    {"glColorP3ui", &rogl_glColorP3ui, &rogl_pfn_glColorP3ui, 2},
+    {"glColorP3uiv", &rogl_glColorP3uiv, &rogl_pfn_glColorP3uiv, 2},
+    {"glColorP4ui", &rogl_glColorP4ui, &rogl_pfn_glColorP4ui, 2},
+    {"glColorP4uiv", &rogl_glColorP4uiv, &rogl_pfn_glColorP4uiv, 2},
+    {"glSecondaryColorP3ui", &rogl_glSecondaryColorP3ui, &rogl_pfn_glSecondaryColorP3ui, 2},
+    {"glSecondaryColorP3uiv", &rogl_glSecondaryColorP3uiv, &rogl_pfn_glSecondaryColorP3uiv, 2},
+    {"glMinSampleShading", &rogl_glMinSampleShading, &rogl_pfn_glMinSampleShading, 1},
+    {"glBlendEquationi", &rogl_glBlendEquationi, &rogl_pfn_glBlendEquationi, 2},
+    {"glBlendEquationSeparatei", &rogl_glBlendEquationSeparatei, &rogl_pfn_glBlendEquationSeparatei, 3},
+    {"glBlendFunci", &rogl_glBlendFunci, &rogl_pfn_glBlendFunci, 3},
+    {"glBlendFuncSeparatei", &rogl_glBlendFuncSeparatei, &rogl_pfn_glBlendFuncSeparatei, 5},
+    {"glDrawArraysIndirect", &rogl_glDrawArraysIndirect, &rogl_pfn_glDrawArraysIndirect, 2},
+    {"glDrawElementsIndirect", &rogl_glDrawElementsIndirect, &rogl_pfn_glDrawElementsIndirect, 3},
+    {"glUniform1d", &rogl_glUniform1d, &rogl_pfn_glUniform1d, 2},
+    {"glUniform2d", &rogl_glUniform2d, &rogl_pfn_glUniform2d, 3},
+    {"glUniform3d", &rogl_glUniform3d, &rogl_pfn_glUniform3d, 4},
+    {"glUniform4d", &rogl_glUniform4d, &rogl_pfn_glUniform4d, 5},
+    {"glUniform1dv", &rogl_glUniform1dv, &rogl_pfn_glUniform1dv, 3},
+    {"glUniform2dv", &rogl_glUniform2dv, &rogl_pfn_glUniform2dv, 3},
+    {"glUniform3dv", &rogl_glUniform3dv, &rogl_pfn_glUniform3dv, 3},
+    {"glUniform4dv", &rogl_glUniform4dv, &rogl_pfn_glUniform4dv, 3},
+    {"glUniformMatrix2dv", &rogl_glUniformMatrix2dv, &rogl_pfn_glUniformMatrix2dv, 4},
+    {"glUniformMatrix3dv", &rogl_glUniformMatrix3dv, &rogl_pfn_glUniformMatrix3dv, 4},
+    {"glUniformMatrix4dv", &rogl_glUniformMatrix4dv, &rogl_pfn_glUniformMatrix4dv, 4},
+    {"glUniformMatrix2x3dv", &rogl_glUniformMatrix2x3dv, &rogl_pfn_glUniformMatrix2x3dv, 4},
+    {"glUniformMatrix2x4dv", &rogl_glUniformMatrix2x4dv, &rogl_pfn_glUniformMatrix2x4dv, 4},
+    {"glUniformMatrix3x2dv", &rogl_glUniformMatrix3x2dv, &rogl_pfn_glUniformMatrix3x2dv, 4},
+    {"glUniformMatrix3x4dv", &rogl_glUniformMatrix3x4dv, &rogl_pfn_glUniformMatrix3x4dv, 4},
+    {"glUniformMatrix4x2dv", &rogl_glUniformMatrix4x2dv, &rogl_pfn_glUniformMatrix4x2dv, 4},
+    {"glUniformMatrix4x3dv", &rogl_glUniformMatrix4x3dv, &rogl_pfn_glUniformMatrix4x3dv, 4},
+    {"glGetUniformdv", &rogl_glGetUniformdv, &rogl_pfn_glGetUniformdv, 3},
+    {"glGetSubroutineUniformLocation", &rogl_glGetSubroutineUniformLocation, &rogl_pfn_glGetSubroutineUniformLocation, 3},
+    {"glGetSubroutineIndex", &rogl_glGetSubroutineIndex, &rogl_pfn_glGetSubroutineIndex, 3},
+    {"glGetActiveSubroutineUniformiv", &rogl_glGetActiveSubroutineUniformiv, &rogl_pfn_glGetActiveSubroutineUniformiv, 5},
+    {"glGetActiveSubroutineUniformName", &rogl_glGetActiveSubroutineUniformName, &rogl_pfn_glGetActiveSubroutineUniformName, 6},
+    {"glGetActiveSubroutineName", &rogl_glGetActiveSubroutineName, &rogl_pfn_glGetActiveSubroutineName, 6},
+    {"glUniformSubroutinesuiv", &rogl_glUniformSubroutinesuiv, &rogl_pfn_glUniformSubroutinesuiv, 3},
+    {"glGetUniformSubroutineuiv", &rogl_glGetUniformSubroutineuiv, &rogl_pfn_glGetUniformSubroutineuiv, 3},
+    {"glGetProgramStageiv", &rogl_glGetProgramStageiv, &rogl_pfn_glGetProgramStageiv, 4},
+    {"glPatchParameteri", &rogl_glPatchParameteri, &rogl_pfn_glPatchParameteri, 2},
+    {"glPatchParameterfv", &rogl_glPatchParameterfv, &rogl_pfn_glPatchParameterfv, 2},
+    {"glBindTransformFeedback", &rogl_glBindTransformFeedback, &rogl_pfn_glBindTransformFeedback, 2},
+    {"glDeleteTransformFeedbacks", &rogl_glDeleteTransformFeedbacks, &rogl_pfn_glDeleteTransformFeedbacks, 2},
+    {"glGenTransformFeedbacks", &rogl_glGenTransformFeedbacks, &rogl_pfn_glGenTransformFeedbacks, 2},
+    {"glIsTransformFeedback", &rogl_glIsTransformFeedback, &rogl_pfn_glIsTransformFeedback, 1},
+    {"glPauseTransformFeedback", &rogl_glPauseTransformFeedback, &rogl_pfn_glPauseTransformFeedback, 0},
+    {"glResumeTransformFeedback", &rogl_glResumeTransformFeedback, &rogl_pfn_glResumeTransformFeedback, 0},
+    {"glDrawTransformFeedback", &rogl_glDrawTransformFeedback, &rogl_pfn_glDrawTransformFeedback, 2},
+    {"glDrawTransformFeedbackStream", &rogl_glDrawTransformFeedbackStream, &rogl_pfn_glDrawTransformFeedbackStream, 3},
+    {"glBeginQueryIndexed", &rogl_glBeginQueryIndexed, &rogl_pfn_glBeginQueryIndexed, 3},
+    {"glEndQueryIndexed", &rogl_glEndQueryIndexed, &rogl_pfn_glEndQueryIndexed, 2},
+    {"glGetQueryIndexediv", &rogl_glGetQueryIndexediv, &rogl_pfn_glGetQueryIndexediv, 4},
+    {"glReleaseShaderCompiler", &rogl_glReleaseShaderCompiler, &rogl_pfn_glReleaseShaderCompiler, 0},
+    {"glShaderBinary", &rogl_glShaderBinary, &rogl_pfn_glShaderBinary, 5},
+    {"glGetShaderPrecisionFormat", &rogl_glGetShaderPrecisionFormat, &rogl_pfn_glGetShaderPrecisionFormat, 4},
+    {"glDepthRangef", &rogl_glDepthRangef, &rogl_pfn_glDepthRangef, 2},
+    {"glClearDepthf", &rogl_glClearDepthf, &rogl_pfn_glClearDepthf, 1},
+    {"glGetProgramBinary", &rogl_glGetProgramBinary, &rogl_pfn_glGetProgramBinary, 5},
+    {"glProgramBinary", &rogl_glProgramBinary, &rogl_pfn_glProgramBinary, 4},
+    {"glProgramParameteri", &rogl_glProgramParameteri, &rogl_pfn_glProgramParameteri, 3},
+    {"glUseProgramStages", &rogl_glUseProgramStages, &rogl_pfn_glUseProgramStages, 3},
+    {"glActiveShaderProgram", &rogl_glActiveShaderProgram, &rogl_pfn_glActiveShaderProgram, 2},
+    {"glCreateShaderProgramv", &rogl_glCreateShaderProgramv, &rogl_pfn_glCreateShaderProgramv, 3},
+    {"glBindProgramPipeline", &rogl_glBindProgramPipeline, &rogl_pfn_glBindProgramPipeline, 1},
+    {"glDeleteProgramPipelines", &rogl_glDeleteProgramPipelines, &rogl_pfn_glDeleteProgramPipelines, 2},
+    {"glGenProgramPipelines", &rogl_glGenProgramPipelines, &rogl_pfn_glGenProgramPipelines, 2},
+    {"glIsProgramPipeline", &rogl_glIsProgramPipeline, &rogl_pfn_glIsProgramPipeline, 1},
+    {"glGetProgramPipelineiv", &rogl_glGetProgramPipelineiv, &rogl_pfn_glGetProgramPipelineiv, 3},
+    {"glProgramUniform1i", &rogl_glProgramUniform1i, &rogl_pfn_glProgramUniform1i, 3},
+    {"glProgramUniform1iv", &rogl_glProgramUniform1iv, &rogl_pfn_glProgramUniform1iv, 4},
+    {"glProgramUniform1f", &rogl_glProgramUniform1f, &rogl_pfn_glProgramUniform1f, 3},
+    {"glProgramUniform1fv", &rogl_glProgramUniform1fv, &rogl_pfn_glProgramUniform1fv, 4},
+    {"glProgramUniform1d", &rogl_glProgramUniform1d, &rogl_pfn_glProgramUniform1d, 3},
+    {"glProgramUniform1dv", &rogl_glProgramUniform1dv, &rogl_pfn_glProgramUniform1dv, 4},
+    {"glProgramUniform1ui", &rogl_glProgramUniform1ui, &rogl_pfn_glProgramUniform1ui, 3},
+    {"glProgramUniform1uiv", &rogl_glProgramUniform1uiv, &rogl_pfn_glProgramUniform1uiv, 4},
+    {"glProgramUniform2i", &rogl_glProgramUniform2i, &rogl_pfn_glProgramUniform2i, 4},
+    {"glProgramUniform2iv", &rogl_glProgramUniform2iv, &rogl_pfn_glProgramUniform2iv, 4},
+    {"glProgramUniform2f", &rogl_glProgramUniform2f, &rogl_pfn_glProgramUniform2f, 4},
+    {"glProgramUniform2fv", &rogl_glProgramUniform2fv, &rogl_pfn_glProgramUniform2fv, 4},
+    {"glProgramUniform2d", &rogl_glProgramUniform2d, &rogl_pfn_glProgramUniform2d, 4},
+    {"glProgramUniform2dv", &rogl_glProgramUniform2dv, &rogl_pfn_glProgramUniform2dv, 4},
+    {"glProgramUniform2ui", &rogl_glProgramUniform2ui, &rogl_pfn_glProgramUniform2ui, 4},
+    {"glProgramUniform2uiv", &rogl_glProgramUniform2uiv, &rogl_pfn_glProgramUniform2uiv, 4},
+    {"glProgramUniform3i", &rogl_glProgramUniform3i, &rogl_pfn_glProgramUniform3i, 5},
+    {"glProgramUniform3iv", &rogl_glProgramUniform3iv, &rogl_pfn_glProgramUniform3iv, 4},
+    {"glProgramUniform3f", &rogl_glProgramUniform3f, &rogl_pfn_glProgramUniform3f, 5},
+    {"glProgramUniform3fv", &rogl_glProgramUniform3fv, &rogl_pfn_glProgramUniform3fv, 4},
+    {"glProgramUniform3d", &rogl_glProgramUniform3d, &rogl_pfn_glProgramUniform3d, 5},
+    {"glProgramUniform3dv", &rogl_glProgramUniform3dv, &rogl_pfn_glProgramUniform3dv, 4},
+    {"glProgramUniform3ui", &rogl_glProgramUniform3ui, &rogl_pfn_glProgramUniform3ui, 5},
+    {"glProgramUniform3uiv", &rogl_glProgramUniform3uiv, &rogl_pfn_glProgramUniform3uiv, 4},
+    {"glProgramUniform4i", &rogl_glProgramUniform4i, &rogl_pfn_glProgramUniform4i, 6},
+    {"glProgramUniform4iv", &rogl_glProgramUniform4iv, &rogl_pfn_glProgramUniform4iv, 4},
+    {"glProgramUniform4f", &rogl_glProgramUniform4f, &rogl_pfn_glProgramUniform4f, 6},
+    {"glProgramUniform4fv", &rogl_glProgramUniform4fv, &rogl_pfn_glProgramUniform4fv, 4},
+    {"glProgramUniform4d", &rogl_glProgramUniform4d, &rogl_pfn_glProgramUniform4d, 6},
+    {"glProgramUniform4dv", &rogl_glProgramUniform4dv, &rogl_pfn_glProgramUniform4dv, 4},
+    {"glProgramUniform4ui", &rogl_glProgramUniform4ui, &rogl_pfn_glProgramUniform4ui, 6},
+    {"glProgramUniform4uiv", &rogl_glProgramUniform4uiv, &rogl_pfn_glProgramUniform4uiv, 4},
+    {"glProgramUniformMatrix2fv", &rogl_glProgramUniformMatrix2fv, &rogl_pfn_glProgramUniformMatrix2fv, 5},
+    {"glProgramUniformMatrix3fv", &rogl_glProgramUniformMatrix3fv, &rogl_pfn_glProgramUniformMatrix3fv, 5},
+    {"glProgramUniformMatrix4fv", &rogl_glProgramUniformMatrix4fv, &rogl_pfn_glProgramUniformMatrix4fv, 5},
+    {"glProgramUniformMatrix2dv", &rogl_glProgramUniformMatrix2dv, &rogl_pfn_glProgramUniformMatrix2dv, 5},
+    {"glProgramUniformMatrix3dv", &rogl_glProgramUniformMatrix3dv, &rogl_pfn_glProgramUniformMatrix3dv, 5},
+    {"glProgramUniformMatrix4dv", &rogl_glProgramUniformMatrix4dv, &rogl_pfn_glProgramUniformMatrix4dv, 5},
+    {"glProgramUniformMatrix2x3fv", &rogl_glProgramUniformMatrix2x3fv, &rogl_pfn_glProgramUniformMatrix2x3fv, 5},
+    {"glProgramUniformMatrix3x2fv", &rogl_glProgramUniformMatrix3x2fv, &rogl_pfn_glProgramUniformMatrix3x2fv, 5},
+    {"glProgramUniformMatrix2x4fv", &rogl_glProgramUniformMatrix2x4fv, &rogl_pfn_glProgramUniformMatrix2x4fv, 5},
+    {"glProgramUniformMatrix4x2fv", &rogl_glProgramUniformMatrix4x2fv, &rogl_pfn_glProgramUniformMatrix4x2fv, 5},
+    {"glProgramUniformMatrix3x4fv", &rogl_glProgramUniformMatrix3x4fv, &rogl_pfn_glProgramUniformMatrix3x4fv, 5},
+    {"glProgramUniformMatrix4x3fv", &rogl_glProgramUniformMatrix4x3fv, &rogl_pfn_glProgramUniformMatrix4x3fv, 5},
+    {"glProgramUniformMatrix2x3dv", &rogl_glProgramUniformMatrix2x3dv, &rogl_pfn_glProgramUniformMatrix2x3dv, 5},
+    {"glProgramUniformMatrix3x2dv", &rogl_glProgramUniformMatrix3x2dv, &rogl_pfn_glProgramUniformMatrix3x2dv, 5},
+    {"glProgramUniformMatrix2x4dv", &rogl_glProgramUniformMatrix2x4dv, &rogl_pfn_glProgramUniformMatrix2x4dv, 5},
+    {"glProgramUniformMatrix4x2dv", &rogl_glProgramUniformMatrix4x2dv, &rogl_pfn_glProgramUniformMatrix4x2dv, 5},
+    {"glProgramUniformMatrix3x4dv", &rogl_glProgramUniformMatrix3x4dv, &rogl_pfn_glProgramUniformMatrix3x4dv, 5},
+    {"glProgramUniformMatrix4x3dv", &rogl_glProgramUniformMatrix4x3dv, &rogl_pfn_glProgramUniformMatrix4x3dv, 5},
+    {"glValidateProgramPipeline", &rogl_glValidateProgramPipeline, &rogl_pfn_glValidateProgramPipeline, 1},
+    {"glGetProgramPipelineInfoLog", &rogl_glGetProgramPipelineInfoLog, &rogl_pfn_glGetProgramPipelineInfoLog, 4},
+    {"glVertexAttribL1d", &rogl_glVertexAttribL1d, &rogl_pfn_glVertexAttribL1d, 2},
+    {"glVertexAttribL2d", &rogl_glVertexAttribL2d, &rogl_pfn_glVertexAttribL2d, 3},
+    {"glVertexAttribL3d", &rogl_glVertexAttribL3d, &rogl_pfn_glVertexAttribL3d, 4},
+    {"glVertexAttribL4d", &rogl_glVertexAttribL4d, &rogl_pfn_glVertexAttribL4d, 5},
+    {"glVertexAttribL1dv", &rogl_glVertexAttribL1dv, &rogl_pfn_glVertexAttribL1dv, 2},
+    {"glVertexAttribL2dv", &rogl_glVertexAttribL2dv, &rogl_pfn_glVertexAttribL2dv, 2},
+    {"glVertexAttribL3dv", &rogl_glVertexAttribL3dv, &rogl_pfn_glVertexAttribL3dv, 2},
+    {"glVertexAttribL4dv", &rogl_glVertexAttribL4dv, &rogl_pfn_glVertexAttribL4dv, 2},
+    {"glVertexAttribLPointer", &rogl_glVertexAttribLPointer, &rogl_pfn_glVertexAttribLPointer, 5},
+    {"glGetVertexAttribLdv", &rogl_glGetVertexAttribLdv, &rogl_pfn_glGetVertexAttribLdv, 3},
+    {"glViewportArrayv", &rogl_glViewportArrayv, &rogl_pfn_glViewportArrayv, 3},
+    {"glViewportIndexedf", &rogl_glViewportIndexedf, &rogl_pfn_glViewportIndexedf, 5},
+    {"glViewportIndexedfv", &rogl_glViewportIndexedfv, &rogl_pfn_glViewportIndexedfv, 2},
+    {"glScissorArrayv", &rogl_glScissorArrayv, &rogl_pfn_glScissorArrayv, 3},
+    {"glScissorIndexed", &rogl_glScissorIndexed, &rogl_pfn_glScissorIndexed, 5},
+    {"glScissorIndexedv", &rogl_glScissorIndexedv, &rogl_pfn_glScissorIndexedv, 2},
+    {"glDepthRangeArrayv", &rogl_glDepthRangeArrayv, &rogl_pfn_glDepthRangeArrayv, 3},
+    {"glDepthRangeIndexed", &rogl_glDepthRangeIndexed, &rogl_pfn_glDepthRangeIndexed, 3},
+    {"glGetFloati_v", &rogl_glGetFloati_v, &rogl_pfn_glGetFloati_v, 3},
+    {"glGetDoublei_v", &rogl_glGetDoublei_v, &rogl_pfn_glGetDoublei_v, 3},
+    {"glDrawArraysInstancedBaseInstance", &rogl_glDrawArraysInstancedBaseInstance, &rogl_pfn_glDrawArraysInstancedBaseInstance, 5},
+    {"glDrawElementsInstancedBaseInstance", &rogl_glDrawElementsInstancedBaseInstance, &rogl_pfn_glDrawElementsInstancedBaseInstance, 6},
+    {"glDrawElementsInstancedBaseVertexBaseInstance", &rogl_glDrawElementsInstancedBaseVertexBaseInstance, &rogl_pfn_glDrawElementsInstancedBaseVertexBaseInstance, 7},
+    {"glGetInternalformativ", &rogl_glGetInternalformativ, &rogl_pfn_glGetInternalformativ, 5},
+    {"glGetActiveAtomicCounterBufferiv", &rogl_glGetActiveAtomicCounterBufferiv, &rogl_pfn_glGetActiveAtomicCounterBufferiv, 4},
+    {"glBindImageTexture", &rogl_glBindImageTexture, &rogl_pfn_glBindImageTexture, 7},
+    {"glMemoryBarrier", &rogl_glMemoryBarrier, &rogl_pfn_glMemoryBarrier, 1},
+    {"glTexStorage1D", &rogl_glTexStorage1D, &rogl_pfn_glTexStorage1D, 4},
+    {"glTexStorage2D", &rogl_glTexStorage2D, &rogl_pfn_glTexStorage2D, 5},
+    {"glTexStorage3D", &rogl_glTexStorage3D, &rogl_pfn_glTexStorage3D, 6},
+    {"glDrawTransformFeedbackInstanced", &rogl_glDrawTransformFeedbackInstanced, &rogl_pfn_glDrawTransformFeedbackInstanced, 3},
+    {"glDrawTransformFeedbackStreamInstanced", &rogl_glDrawTransformFeedbackStreamInstanced, &rogl_pfn_glDrawTransformFeedbackStreamInstanced, 4},
+    {"glClearBufferData", &rogl_glClearBufferData, &rogl_pfn_glClearBufferData, 5},
+    {"glClearBufferSubData", &rogl_glClearBufferSubData, &rogl_pfn_glClearBufferSubData, 7},
+    {"glDispatchCompute", &rogl_glDispatchCompute, &rogl_pfn_glDispatchCompute, 3},
+    {"glDispatchComputeIndirect", &rogl_glDispatchComputeIndirect, &rogl_pfn_glDispatchComputeIndirect, 1},
+    {"glCopyImageSubData", &rogl_glCopyImageSubData, &rogl_pfn_glCopyImageSubData, 15},
+    {"glFramebufferParameteri", &rogl_glFramebufferParameteri, &rogl_pfn_glFramebufferParameteri, 3},
+    {"glGetFramebufferParameteriv", &rogl_glGetFramebufferParameteriv, &rogl_pfn_glGetFramebufferParameteriv, 3},
+    {"glGetInternalformati64v", &rogl_glGetInternalformati64v, &rogl_pfn_glGetInternalformati64v, 5},
+    {"glInvalidateTexSubImage", &rogl_glInvalidateTexSubImage, &rogl_pfn_glInvalidateTexSubImage, 8},
+    {"glInvalidateTexImage", &rogl_glInvalidateTexImage, &rogl_pfn_glInvalidateTexImage, 2},
+    {"glInvalidateBufferSubData", &rogl_glInvalidateBufferSubData, &rogl_pfn_glInvalidateBufferSubData, 3},
+    {"glInvalidateBufferData", &rogl_glInvalidateBufferData, &rogl_pfn_glInvalidateBufferData, 1},
+    {"glInvalidateFramebuffer", &rogl_glInvalidateFramebuffer, &rogl_pfn_glInvalidateFramebuffer, 3},
+    {"glInvalidateSubFramebuffer", &rogl_glInvalidateSubFramebuffer, &rogl_pfn_glInvalidateSubFramebuffer, 7},
+    {"glMultiDrawArraysIndirect", &rogl_glMultiDrawArraysIndirect, &rogl_pfn_glMultiDrawArraysIndirect, 4},
+    {"glMultiDrawElementsIndirect", &rogl_glMultiDrawElementsIndirect, &rogl_pfn_glMultiDrawElementsIndirect, 5},
+    {"glGetProgramInterfaceiv", &rogl_glGetProgramInterfaceiv, &rogl_pfn_glGetProgramInterfaceiv, 4},
+    {"glGetProgramResourceIndex", &rogl_glGetProgramResourceIndex, &rogl_pfn_glGetProgramResourceIndex, 3},
+    {"glGetProgramResourceName", &rogl_glGetProgramResourceName, &rogl_pfn_glGetProgramResourceName, 6},
+    {"glGetProgramResourceiv", &rogl_glGetProgramResourceiv, &rogl_pfn_glGetProgramResourceiv, 8},
+    {"glGetProgramResourceLocation", &rogl_glGetProgramResourceLocation, &rogl_pfn_glGetProgramResourceLocation, 3},
+    {"glGetProgramResourceLocationIndex", &rogl_glGetProgramResourceLocationIndex, &rogl_pfn_glGetProgramResourceLocationIndex, 3},
+    {"glShaderStorageBlockBinding", &rogl_glShaderStorageBlockBinding, &rogl_pfn_glShaderStorageBlockBinding, 3},
+    {"glTexBufferRange", &rogl_glTexBufferRange, &rogl_pfn_glTexBufferRange, 5},
+    {"glTexStorage2DMultisample", &rogl_glTexStorage2DMultisample, &rogl_pfn_glTexStorage2DMultisample, 6},
+    {"glTexStorage3DMultisample", &rogl_glTexStorage3DMultisample, &rogl_pfn_glTexStorage3DMultisample, 7},
+    {"glTextureView", &rogl_glTextureView, &rogl_pfn_glTextureView, 8},
+    {"glBindVertexBuffer", &rogl_glBindVertexBuffer, &rogl_pfn_glBindVertexBuffer, 4},
+    {"glVertexAttribFormat", &rogl_glVertexAttribFormat, &rogl_pfn_glVertexAttribFormat, 5},
+    {"glVertexAttribIFormat", &rogl_glVertexAttribIFormat, &rogl_pfn_glVertexAttribIFormat, 4},
+    {"glVertexAttribLFormat", &rogl_glVertexAttribLFormat, &rogl_pfn_glVertexAttribLFormat, 4},
+    {"glVertexAttribBinding", &rogl_glVertexAttribBinding, &rogl_pfn_glVertexAttribBinding, 2},
+    {"glVertexBindingDivisor", &rogl_glVertexBindingDivisor, &rogl_pfn_glVertexBindingDivisor, 2},
+    {"glDebugMessageControl", &rogl_glDebugMessageControl, &rogl_pfn_glDebugMessageControl, 6},
+    {"glDebugMessageInsert", &rogl_glDebugMessageInsert, &rogl_pfn_glDebugMessageInsert, 6},
+    {"glDebugMessageCallback", &rogl_glDebugMessageCallback, &rogl_pfn_glDebugMessageCallback, 2},
+    {"glGetDebugMessageLog", &rogl_glGetDebugMessageLog, &rogl_pfn_glGetDebugMessageLog, 8},
+    {"glPushDebugGroup", &rogl_glPushDebugGroup, &rogl_pfn_glPushDebugGroup, 4},
+    {"glPopDebugGroup", &rogl_glPopDebugGroup, &rogl_pfn_glPopDebugGroup, 0},
+    {"glObjectLabel", &rogl_glObjectLabel, &rogl_pfn_glObjectLabel, 4},
+    {"glGetObjectLabel", &rogl_glGetObjectLabel, &rogl_pfn_glGetObjectLabel, 5},
+    {"glObjectPtrLabel", &rogl_glObjectPtrLabel, &rogl_pfn_glObjectPtrLabel, 3},
+    {"glGetObjectPtrLabel", &rogl_glGetObjectPtrLabel, &rogl_pfn_glGetObjectPtrLabel, 4},
+    {"glBufferStorage", &rogl_glBufferStorage, &rogl_pfn_glBufferStorage, 4},
+    {"glClearTexImage", &rogl_glClearTexImage, &rogl_pfn_glClearTexImage, 5},
+    {"glClearTexSubImage", &rogl_glClearTexSubImage, &rogl_pfn_glClearTexSubImage, 11},
+    {"glBindBuffersBase", &rogl_glBindBuffersBase, &rogl_pfn_glBindBuffersBase, 4},
+    {"glBindBuffersRange", &rogl_glBindBuffersRange, &rogl_pfn_glBindBuffersRange, 6},
+    {"glBindTextures", &rogl_glBindTextures, &rogl_pfn_glBindTextures, 3},
+    {"glBindSamplers", &rogl_glBindSamplers, &rogl_pfn_glBindSamplers, 3},
+    {"glBindImageTextures", &rogl_glBindImageTextures, &rogl_pfn_glBindImageTextures, 3},
+    {"glBindVertexBuffers", &rogl_glBindVertexBuffers, &rogl_pfn_glBindVertexBuffers, 5},
+    {"glClipControl", &rogl_glClipControl, &rogl_pfn_glClipControl, 2},
+    {"glCreateTransformFeedbacks", &rogl_glCreateTransformFeedbacks, &rogl_pfn_glCreateTransformFeedbacks, 2},
+    {"glTransformFeedbackBufferBase", &rogl_glTransformFeedbackBufferBase, &rogl_pfn_glTransformFeedbackBufferBase, 3},
+    {"glTransformFeedbackBufferRange", &rogl_glTransformFeedbackBufferRange, &rogl_pfn_glTransformFeedbackBufferRange, 5},
+    {"glGetTransformFeedbackiv", &rogl_glGetTransformFeedbackiv, &rogl_pfn_glGetTransformFeedbackiv, 3},
+    {"glGetTransformFeedbacki_v", &rogl_glGetTransformFeedbacki_v, &rogl_pfn_glGetTransformFeedbacki_v, 4},
+    {"glGetTransformFeedbacki64_v", &rogl_glGetTransformFeedbacki64_v, &rogl_pfn_glGetTransformFeedbacki64_v, 4},
+    {"glCreateBuffers", &rogl_glCreateBuffers, &rogl_pfn_glCreateBuffers, 2},
+    {"glNamedBufferStorage", &rogl_glNamedBufferStorage, &rogl_pfn_glNamedBufferStorage, 4},
+    {"glNamedBufferData", &rogl_glNamedBufferData, &rogl_pfn_glNamedBufferData, 4},
+    {"glNamedBufferSubData", &rogl_glNamedBufferSubData, &rogl_pfn_glNamedBufferSubData, 4},
+    {"glCopyNamedBufferSubData", &rogl_glCopyNamedBufferSubData, &rogl_pfn_glCopyNamedBufferSubData, 5},
+    {"glClearNamedBufferData", &rogl_glClearNamedBufferData, &rogl_pfn_glClearNamedBufferData, 5},
+    {"glClearNamedBufferSubData", &rogl_glClearNamedBufferSubData, &rogl_pfn_glClearNamedBufferSubData, 7},
+    {"glMapNamedBuffer", &rogl_glMapNamedBuffer, &rogl_pfn_glMapNamedBuffer, 2},
+    {"glMapNamedBufferRange", &rogl_glMapNamedBufferRange, &rogl_pfn_glMapNamedBufferRange, 4},
+    {"glUnmapNamedBuffer", &rogl_glUnmapNamedBuffer, &rogl_pfn_glUnmapNamedBuffer, 1},
+    {"glFlushMappedNamedBufferRange", &rogl_glFlushMappedNamedBufferRange, &rogl_pfn_glFlushMappedNamedBufferRange, 3},
+    {"glGetNamedBufferParameteriv", &rogl_glGetNamedBufferParameteriv, &rogl_pfn_glGetNamedBufferParameteriv, 3},
+    {"glGetNamedBufferParameteri64v", &rogl_glGetNamedBufferParameteri64v, &rogl_pfn_glGetNamedBufferParameteri64v, 3},
+    {"glGetNamedBufferPointerv", &rogl_glGetNamedBufferPointerv, &rogl_pfn_glGetNamedBufferPointerv, 3},
+    {"glGetNamedBufferSubData", &rogl_glGetNamedBufferSubData, &rogl_pfn_glGetNamedBufferSubData, 4},
+    {"glCreateFramebuffers", &rogl_glCreateFramebuffers, &rogl_pfn_glCreateFramebuffers, 2},
+    {"glNamedFramebufferRenderbuffer", &rogl_glNamedFramebufferRenderbuffer, &rogl_pfn_glNamedFramebufferRenderbuffer, 4},
+    {"glNamedFramebufferParameteri", &rogl_glNamedFramebufferParameteri, &rogl_pfn_glNamedFramebufferParameteri, 3},
+    {"glNamedFramebufferTexture", &rogl_glNamedFramebufferTexture, &rogl_pfn_glNamedFramebufferTexture, 4},
+    {"glNamedFramebufferTextureLayer", &rogl_glNamedFramebufferTextureLayer, &rogl_pfn_glNamedFramebufferTextureLayer, 5},
+    {"glNamedFramebufferDrawBuffer", &rogl_glNamedFramebufferDrawBuffer, &rogl_pfn_glNamedFramebufferDrawBuffer, 2},
+    {"glNamedFramebufferDrawBuffers", &rogl_glNamedFramebufferDrawBuffers, &rogl_pfn_glNamedFramebufferDrawBuffers, 3},
+    {"glNamedFramebufferReadBuffer", &rogl_glNamedFramebufferReadBuffer, &rogl_pfn_glNamedFramebufferReadBuffer, 2},
+    {"glInvalidateNamedFramebufferData", &rogl_glInvalidateNamedFramebufferData, &rogl_pfn_glInvalidateNamedFramebufferData, 3},
+    {"glInvalidateNamedFramebufferSubData", &rogl_glInvalidateNamedFramebufferSubData, &rogl_pfn_glInvalidateNamedFramebufferSubData, 7},
+    {"glClearNamedFramebufferiv", &rogl_glClearNamedFramebufferiv, &rogl_pfn_glClearNamedFramebufferiv, 4},
+    {"glClearNamedFramebufferuiv", &rogl_glClearNamedFramebufferuiv, &rogl_pfn_glClearNamedFramebufferuiv, 4},
+    {"glClearNamedFramebufferfv", &rogl_glClearNamedFramebufferfv, &rogl_pfn_glClearNamedFramebufferfv, 4},
+    {"glClearNamedFramebufferfi", &rogl_glClearNamedFramebufferfi, &rogl_pfn_glClearNamedFramebufferfi, 4},
+    {"glBlitNamedFramebuffer", &rogl_glBlitNamedFramebuffer, &rogl_pfn_glBlitNamedFramebuffer, 12},
+    {"glCheckNamedFramebufferStatus", &rogl_glCheckNamedFramebufferStatus, &rogl_pfn_glCheckNamedFramebufferStatus, 2},
+    {"glGetNamedFramebufferParameteriv", &rogl_glGetNamedFramebufferParameteriv, &rogl_pfn_glGetNamedFramebufferParameteriv, 3},
+    {"glGetNamedFramebufferAttachmentParameteriv", &rogl_glGetNamedFramebufferAttachmentParameteriv, &rogl_pfn_glGetNamedFramebufferAttachmentParameteriv, 4},
+    {"glCreateRenderbuffers", &rogl_glCreateRenderbuffers, &rogl_pfn_glCreateRenderbuffers, 2},
+    {"glNamedRenderbufferStorage", &rogl_glNamedRenderbufferStorage, &rogl_pfn_glNamedRenderbufferStorage, 4},
+    {"glNamedRenderbufferStorageMultisample", &rogl_glNamedRenderbufferStorageMultisample, &rogl_pfn_glNamedRenderbufferStorageMultisample, 5},
+    {"glGetNamedRenderbufferParameteriv", &rogl_glGetNamedRenderbufferParameteriv, &rogl_pfn_glGetNamedRenderbufferParameteriv, 3},
+    {"glCreateTextures", &rogl_glCreateTextures, &rogl_pfn_glCreateTextures, 3},
+    {"glTextureBuffer", &rogl_glTextureBuffer, &rogl_pfn_glTextureBuffer, 3},
+    {"glTextureBufferRange", &rogl_glTextureBufferRange, &rogl_pfn_glTextureBufferRange, 5},
+    {"glTextureStorage1D", &rogl_glTextureStorage1D, &rogl_pfn_glTextureStorage1D, 4},
+    {"glTextureStorage2D", &rogl_glTextureStorage2D, &rogl_pfn_glTextureStorage2D, 5},
+    {"glTextureStorage3D", &rogl_glTextureStorage3D, &rogl_pfn_glTextureStorage3D, 6},
+    {"glTextureStorage2DMultisample", &rogl_glTextureStorage2DMultisample, &rogl_pfn_glTextureStorage2DMultisample, 6},
+    {"glTextureStorage3DMultisample", &rogl_glTextureStorage3DMultisample, &rogl_pfn_glTextureStorage3DMultisample, 7},
+    {"glTextureSubImage1D", &rogl_glTextureSubImage1D, &rogl_pfn_glTextureSubImage1D, 7},
+    {"glTextureSubImage2D", &rogl_glTextureSubImage2D, &rogl_pfn_glTextureSubImage2D, 9},
+    {"glTextureSubImage3D", &rogl_glTextureSubImage3D, &rogl_pfn_glTextureSubImage3D, 11},
+    {"glCompressedTextureSubImage1D", &rogl_glCompressedTextureSubImage1D, &rogl_pfn_glCompressedTextureSubImage1D, 7},
+    {"glCompressedTextureSubImage2D", &rogl_glCompressedTextureSubImage2D, &rogl_pfn_glCompressedTextureSubImage2D, 9},
+    {"glCompressedTextureSubImage3D", &rogl_glCompressedTextureSubImage3D, &rogl_pfn_glCompressedTextureSubImage3D, 11},
+    {"glCopyTextureSubImage1D", &rogl_glCopyTextureSubImage1D, &rogl_pfn_glCopyTextureSubImage1D, 6},
+    {"glCopyTextureSubImage2D", &rogl_glCopyTextureSubImage2D, &rogl_pfn_glCopyTextureSubImage2D, 8},
+    {"glCopyTextureSubImage3D", &rogl_glCopyTextureSubImage3D, &rogl_pfn_glCopyTextureSubImage3D, 9},
+    {"glTextureParameterf", &rogl_glTextureParameterf, &rogl_pfn_glTextureParameterf, 3},
+    {"glTextureParameterfv", &rogl_glTextureParameterfv, &rogl_pfn_glTextureParameterfv, 3},
+    {"glTextureParameteri", &rogl_glTextureParameteri, &rogl_pfn_glTextureParameteri, 3},
+    {"glTextureParameterIiv", &rogl_glTextureParameterIiv, &rogl_pfn_glTextureParameterIiv, 3},
+    {"glTextureParameterIuiv", &rogl_glTextureParameterIuiv, &rogl_pfn_glTextureParameterIuiv, 3},
+    {"glTextureParameteriv", &rogl_glTextureParameteriv, &rogl_pfn_glTextureParameteriv, 3},
+    {"glGenerateTextureMipmap", &rogl_glGenerateTextureMipmap, &rogl_pfn_glGenerateTextureMipmap, 1},
+    {"glBindTextureUnit", &rogl_glBindTextureUnit, &rogl_pfn_glBindTextureUnit, 2},
+    {"glGetTextureImage", &rogl_glGetTextureImage, &rogl_pfn_glGetTextureImage, 6},
+    {"glGetCompressedTextureImage", &rogl_glGetCompressedTextureImage, &rogl_pfn_glGetCompressedTextureImage, 4},
+    {"glGetTextureLevelParameterfv", &rogl_glGetTextureLevelParameterfv, &rogl_pfn_glGetTextureLevelParameterfv, 4},
+    {"glGetTextureLevelParameteriv", &rogl_glGetTextureLevelParameteriv, &rogl_pfn_glGetTextureLevelParameteriv, 4},
+    {"glGetTextureParameterfv", &rogl_glGetTextureParameterfv, &rogl_pfn_glGetTextureParameterfv, 3},
+    {"glGetTextureParameterIiv", &rogl_glGetTextureParameterIiv, &rogl_pfn_glGetTextureParameterIiv, 3},
+    {"glGetTextureParameterIuiv", &rogl_glGetTextureParameterIuiv, &rogl_pfn_glGetTextureParameterIuiv, 3},
+    {"glGetTextureParameteriv", &rogl_glGetTextureParameteriv, &rogl_pfn_glGetTextureParameteriv, 3},
+    {"glCreateVertexArrays", &rogl_glCreateVertexArrays, &rogl_pfn_glCreateVertexArrays, 2},
+    {"glDisableVertexArrayAttrib", &rogl_glDisableVertexArrayAttrib, &rogl_pfn_glDisableVertexArrayAttrib, 2},
+    {"glEnableVertexArrayAttrib", &rogl_glEnableVertexArrayAttrib, &rogl_pfn_glEnableVertexArrayAttrib, 2},
+    {"glVertexArrayElementBuffer", &rogl_glVertexArrayElementBuffer, &rogl_pfn_glVertexArrayElementBuffer, 2},
+    {"glVertexArrayVertexBuffer", &rogl_glVertexArrayVertexBuffer, &rogl_pfn_glVertexArrayVertexBuffer, 5},
+    {"glVertexArrayVertexBuffers", &rogl_glVertexArrayVertexBuffers, &rogl_pfn_glVertexArrayVertexBuffers, 6},
+    {"glVertexArrayAttribBinding", &rogl_glVertexArrayAttribBinding, &rogl_pfn_glVertexArrayAttribBinding, 3},
+    {"glVertexArrayAttribFormat", &rogl_glVertexArrayAttribFormat, &rogl_pfn_glVertexArrayAttribFormat, 6},
+    {"glVertexArrayAttribIFormat", &rogl_glVertexArrayAttribIFormat, &rogl_pfn_glVertexArrayAttribIFormat, 5},
+    {"glVertexArrayAttribLFormat", &rogl_glVertexArrayAttribLFormat, &rogl_pfn_glVertexArrayAttribLFormat, 5},
+    {"glVertexArrayBindingDivisor", &rogl_glVertexArrayBindingDivisor, &rogl_pfn_glVertexArrayBindingDivisor, 3},
+    {"glGetVertexArrayiv", &rogl_glGetVertexArrayiv, &rogl_pfn_glGetVertexArrayiv, 3},
+    {"glGetVertexArrayIndexediv", &rogl_glGetVertexArrayIndexediv, &rogl_pfn_glGetVertexArrayIndexediv, 4},
+    {"glGetVertexArrayIndexed64iv", &rogl_glGetVertexArrayIndexed64iv, &rogl_pfn_glGetVertexArrayIndexed64iv, 4},
+    {"glCreateSamplers", &rogl_glCreateSamplers, &rogl_pfn_glCreateSamplers, 2},
+    {"glCreateProgramPipelines", &rogl_glCreateProgramPipelines, &rogl_pfn_glCreateProgramPipelines, 2},
+    {"glCreateQueries", &rogl_glCreateQueries, &rogl_pfn_glCreateQueries, 3},
+    {"glGetQueryBufferObjecti64v", &rogl_glGetQueryBufferObjecti64v, &rogl_pfn_glGetQueryBufferObjecti64v, 4},
+    {"glGetQueryBufferObjectiv", &rogl_glGetQueryBufferObjectiv, &rogl_pfn_glGetQueryBufferObjectiv, 4},
+    {"glGetQueryBufferObjectui64v", &rogl_glGetQueryBufferObjectui64v, &rogl_pfn_glGetQueryBufferObjectui64v, 4},
+    {"glGetQueryBufferObjectuiv", &rogl_glGetQueryBufferObjectuiv, &rogl_pfn_glGetQueryBufferObjectuiv, 4},
+    {"glMemoryBarrierByRegion", &rogl_glMemoryBarrierByRegion, &rogl_pfn_glMemoryBarrierByRegion, 1},
+    {"glGetTextureSubImage", &rogl_glGetTextureSubImage, &rogl_pfn_glGetTextureSubImage, 12},
+    {"glGetCompressedTextureSubImage", &rogl_glGetCompressedTextureSubImage, &rogl_pfn_glGetCompressedTextureSubImage, 10},
+    {"glGetGraphicsResetStatus", &rogl_glGetGraphicsResetStatus, &rogl_pfn_glGetGraphicsResetStatus, 0},
+    {"glGetnCompressedTexImage", &rogl_glGetnCompressedTexImage, &rogl_pfn_glGetnCompressedTexImage, 4},
+    {"glGetnTexImage", &rogl_glGetnTexImage, &rogl_pfn_glGetnTexImage, 6},
+    {"glGetnUniformdv", &rogl_glGetnUniformdv, &rogl_pfn_glGetnUniformdv, 4},
+    {"glGetnUniformfv", &rogl_glGetnUniformfv, &rogl_pfn_glGetnUniformfv, 4},
+    {"glGetnUniformiv", &rogl_glGetnUniformiv, &rogl_pfn_glGetnUniformiv, 4},
+    {"glGetnUniformuiv", &rogl_glGetnUniformuiv, &rogl_pfn_glGetnUniformuiv, 4},
+    {"glReadnPixels", &rogl_glReadnPixels, &rogl_pfn_glReadnPixels, 8},
+    {"glGetnMapdv", &rogl_glGetnMapdv, &rogl_pfn_glGetnMapdv, 4},
+    {"glGetnMapfv", &rogl_glGetnMapfv, &rogl_pfn_glGetnMapfv, 4},
+    {"glGetnMapiv", &rogl_glGetnMapiv, &rogl_pfn_glGetnMapiv, 4},
+    {"glGetnPixelMapfv", &rogl_glGetnPixelMapfv, &rogl_pfn_glGetnPixelMapfv, 3},
+    {"glGetnPixelMapuiv", &rogl_glGetnPixelMapuiv, &rogl_pfn_glGetnPixelMapuiv, 3},
+    {"glGetnPixelMapusv", &rogl_glGetnPixelMapusv, &rogl_pfn_glGetnPixelMapusv, 3},
+    {"glGetnPolygonStipple", &rogl_glGetnPolygonStipple, &rogl_pfn_glGetnPolygonStipple, 2},
+    {"glGetnColorTable", &rogl_glGetnColorTable, &rogl_pfn_glGetnColorTable, 5},
+    {"glGetnConvolutionFilter", &rogl_glGetnConvolutionFilter, &rogl_pfn_glGetnConvolutionFilter, 5},
+    {"glGetnSeparableFilter", &rogl_glGetnSeparableFilter, &rogl_pfn_glGetnSeparableFilter, 8},
+    {"glGetnHistogram", &rogl_glGetnHistogram, &rogl_pfn_glGetnHistogram, 6},
+    {"glGetnMinmax", &rogl_glGetnMinmax, &rogl_pfn_glGetnMinmax, 6},
+    {"glTextureBarrier", &rogl_glTextureBarrier, &rogl_pfn_glTextureBarrier, 0},
 };
 
 static const unsigned int rogl_CmdToFPCount = sizeof(rogl_CmdToFPMap)/sizeof(rogl_CmdToFPMap[0]); /* 1044 */
 
-static void* rogl_GetFunctionPointer(const char* name)
+static void* rogl_GetFunctionPointer(const char* name, int* pArgCountOut, void** rb_fptr)
 {
     for (unsigned int i = 0; i < rogl_CmdToFPCount; ++i)
     {
         if (strncmp(rogl_CmdToFPMap[i].name, name, strlen(rogl_CmdToFPMap[i].name)) == 0)
         {
-            return rogl_CmdToFPMap[i].fptr;
+            if (pArgCountOut)
+            {
+                *pArgCountOut = rogl_CmdToFPMap[i].c_argc;
+            }
+            if (rb_fptr)
+            {
+                *rb_fptr = rogl_CmdToFPMap[i].rb_fptr;
+            }
+            return rogl_CmdToFPMap[i].c_fptr;
         }
     }
 
     return NULL;
 }
 
-static void rogl_InitRubyCommand()
+static void rogl_InitRubyCommand( VALUE* pmROGL )
 {
-    rb_define_method(mROGL, "glCullFace", rogl_glCullFace, 1);
-    rb_define_method(mROGL, "glFrontFace", rogl_glFrontFace, 1);
-    rb_define_method(mROGL, "glHint", rogl_glHint, 2);
-    rb_define_method(mROGL, "glLineWidth", rogl_glLineWidth, 1);
-    rb_define_method(mROGL, "glPointSize", rogl_glPointSize, 1);
-    rb_define_method(mROGL, "glPolygonMode", rogl_glPolygonMode, 2);
-    rb_define_method(mROGL, "glScissor", rogl_glScissor, 4);
-    rb_define_method(mROGL, "glTexParameterf", rogl_glTexParameterf, 3);
-    rb_define_method(mROGL, "glTexParameterfv", rogl_glTexParameterfv, 3);
-    rb_define_method(mROGL, "glTexParameteri", rogl_glTexParameteri, 3);
-    rb_define_method(mROGL, "glTexParameteriv", rogl_glTexParameteriv, 3);
-    rb_define_method(mROGL, "glTexImage1D", rogl_glTexImage1D, 8);
-    rb_define_method(mROGL, "glTexImage2D", rogl_glTexImage2D, 9);
-    rb_define_method(mROGL, "glDrawBuffer", rogl_glDrawBuffer, 1);
-    rb_define_method(mROGL, "glClear", rogl_glClear, 1);
-    rb_define_method(mROGL, "glClearColor", rogl_glClearColor, 4);
-    rb_define_method(mROGL, "glClearStencil", rogl_glClearStencil, 1);
-    rb_define_method(mROGL, "glClearDepth", rogl_glClearDepth, 1);
-    rb_define_method(mROGL, "glStencilMask", rogl_glStencilMask, 1);
-    rb_define_method(mROGL, "glColorMask", rogl_glColorMask, 4);
-    rb_define_method(mROGL, "glDepthMask", rogl_glDepthMask, 1);
-    rb_define_method(mROGL, "glDisable", rogl_glDisable, 1);
-    rb_define_method(mROGL, "glEnable", rogl_glEnable, 1);
-    rb_define_method(mROGL, "glFinish", rogl_glFinish, 0);
-    rb_define_method(mROGL, "glFlush", rogl_glFlush, 0);
-    rb_define_method(mROGL, "glBlendFunc", rogl_glBlendFunc, 2);
-    rb_define_method(mROGL, "glLogicOp", rogl_glLogicOp, 1);
-    rb_define_method(mROGL, "glStencilFunc", rogl_glStencilFunc, 3);
-    rb_define_method(mROGL, "glStencilOp", rogl_glStencilOp, 3);
-    rb_define_method(mROGL, "glDepthFunc", rogl_glDepthFunc, 1);
-    rb_define_method(mROGL, "glPixelStoref", rogl_glPixelStoref, 2);
-    rb_define_method(mROGL, "glPixelStorei", rogl_glPixelStorei, 2);
-    rb_define_method(mROGL, "glReadBuffer", rogl_glReadBuffer, 1);
-    rb_define_method(mROGL, "glReadPixels", rogl_glReadPixels, 7);
-    rb_define_method(mROGL, "glGetBooleanv", rogl_glGetBooleanv, 2);
-    rb_define_method(mROGL, "glGetDoublev", rogl_glGetDoublev, 2);
-    rb_define_method(mROGL, "glGetError", rogl_glGetError, 0);
-    rb_define_method(mROGL, "glGetFloatv", rogl_glGetFloatv, 2);
-    rb_define_method(mROGL, "glGetIntegerv", rogl_glGetIntegerv, 2);
-    rb_define_method(mROGL, "glGetString", rogl_glGetString, 1);
-    rb_define_method(mROGL, "glGetTexImage", rogl_glGetTexImage, 5);
-    rb_define_method(mROGL, "glGetTexParameterfv", rogl_glGetTexParameterfv, 3);
-    rb_define_method(mROGL, "glGetTexParameteriv", rogl_glGetTexParameteriv, 3);
-    rb_define_method(mROGL, "glGetTexLevelParameterfv", rogl_glGetTexLevelParameterfv, 4);
-    rb_define_method(mROGL, "glGetTexLevelParameteriv", rogl_glGetTexLevelParameteriv, 4);
-    rb_define_method(mROGL, "glIsEnabled", rogl_glIsEnabled, 1);
-    rb_define_method(mROGL, "glDepthRange", rogl_glDepthRange, 2);
-    rb_define_method(mROGL, "glViewport", rogl_glViewport, 4);
-    rb_define_method(mROGL, "glNewList", rogl_glNewList, 2);
-    rb_define_method(mROGL, "glEndList", rogl_glEndList, 0);
-    rb_define_method(mROGL, "glCallList", rogl_glCallList, 1);
-    rb_define_method(mROGL, "glCallLists", rogl_glCallLists, 3);
-    rb_define_method(mROGL, "glDeleteLists", rogl_glDeleteLists, 2);
-    rb_define_method(mROGL, "glGenLists", rogl_glGenLists, 1);
-    rb_define_method(mROGL, "glListBase", rogl_glListBase, 1);
-    rb_define_method(mROGL, "glBegin", rogl_glBegin, 1);
-    rb_define_method(mROGL, "glBitmap", rogl_glBitmap, 7);
-    rb_define_method(mROGL, "glColor3b", rogl_glColor3b, 3);
-    rb_define_method(mROGL, "glColor3bv", rogl_glColor3bv, 1);
-    rb_define_method(mROGL, "glColor3d", rogl_glColor3d, 3);
-    rb_define_method(mROGL, "glColor3dv", rogl_glColor3dv, 1);
-    rb_define_method(mROGL, "glColor3f", rogl_glColor3f, 3);
-    rb_define_method(mROGL, "glColor3fv", rogl_glColor3fv, 1);
-    rb_define_method(mROGL, "glColor3i", rogl_glColor3i, 3);
-    rb_define_method(mROGL, "glColor3iv", rogl_glColor3iv, 1);
-    rb_define_method(mROGL, "glColor3s", rogl_glColor3s, 3);
-    rb_define_method(mROGL, "glColor3sv", rogl_glColor3sv, 1);
-    rb_define_method(mROGL, "glColor3ub", rogl_glColor3ub, 3);
-    rb_define_method(mROGL, "glColor3ubv", rogl_glColor3ubv, 1);
-    rb_define_method(mROGL, "glColor3ui", rogl_glColor3ui, 3);
-    rb_define_method(mROGL, "glColor3uiv", rogl_glColor3uiv, 1);
-    rb_define_method(mROGL, "glColor3us", rogl_glColor3us, 3);
-    rb_define_method(mROGL, "glColor3usv", rogl_glColor3usv, 1);
-    rb_define_method(mROGL, "glColor4b", rogl_glColor4b, 4);
-    rb_define_method(mROGL, "glColor4bv", rogl_glColor4bv, 1);
-    rb_define_method(mROGL, "glColor4d", rogl_glColor4d, 4);
-    rb_define_method(mROGL, "glColor4dv", rogl_glColor4dv, 1);
-    rb_define_method(mROGL, "glColor4f", rogl_glColor4f, 4);
-    rb_define_method(mROGL, "glColor4fv", rogl_glColor4fv, 1);
-    rb_define_method(mROGL, "glColor4i", rogl_glColor4i, 4);
-    rb_define_method(mROGL, "glColor4iv", rogl_glColor4iv, 1);
-    rb_define_method(mROGL, "glColor4s", rogl_glColor4s, 4);
-    rb_define_method(mROGL, "glColor4sv", rogl_glColor4sv, 1);
-    rb_define_method(mROGL, "glColor4ub", rogl_glColor4ub, 4);
-    rb_define_method(mROGL, "glColor4ubv", rogl_glColor4ubv, 1);
-    rb_define_method(mROGL, "glColor4ui", rogl_glColor4ui, 4);
-    rb_define_method(mROGL, "glColor4uiv", rogl_glColor4uiv, 1);
-    rb_define_method(mROGL, "glColor4us", rogl_glColor4us, 4);
-    rb_define_method(mROGL, "glColor4usv", rogl_glColor4usv, 1);
-    rb_define_method(mROGL, "glEdgeFlag", rogl_glEdgeFlag, 1);
-    rb_define_method(mROGL, "glEdgeFlagv", rogl_glEdgeFlagv, 1);
-    rb_define_method(mROGL, "glEnd", rogl_glEnd, 0);
-    rb_define_method(mROGL, "glIndexd", rogl_glIndexd, 1);
-    rb_define_method(mROGL, "glIndexdv", rogl_glIndexdv, 1);
-    rb_define_method(mROGL, "glIndexf", rogl_glIndexf, 1);
-    rb_define_method(mROGL, "glIndexfv", rogl_glIndexfv, 1);
-    rb_define_method(mROGL, "glIndexi", rogl_glIndexi, 1);
-    rb_define_method(mROGL, "glIndexiv", rogl_glIndexiv, 1);
-    rb_define_method(mROGL, "glIndexs", rogl_glIndexs, 1);
-    rb_define_method(mROGL, "glIndexsv", rogl_glIndexsv, 1);
-    rb_define_method(mROGL, "glNormal3b", rogl_glNormal3b, 3);
-    rb_define_method(mROGL, "glNormal3bv", rogl_glNormal3bv, 1);
-    rb_define_method(mROGL, "glNormal3d", rogl_glNormal3d, 3);
-    rb_define_method(mROGL, "glNormal3dv", rogl_glNormal3dv, 1);
-    rb_define_method(mROGL, "glNormal3f", rogl_glNormal3f, 3);
-    rb_define_method(mROGL, "glNormal3fv", rogl_glNormal3fv, 1);
-    rb_define_method(mROGL, "glNormal3i", rogl_glNormal3i, 3);
-    rb_define_method(mROGL, "glNormal3iv", rogl_glNormal3iv, 1);
-    rb_define_method(mROGL, "glNormal3s", rogl_glNormal3s, 3);
-    rb_define_method(mROGL, "glNormal3sv", rogl_glNormal3sv, 1);
-    rb_define_method(mROGL, "glRasterPos2d", rogl_glRasterPos2d, 2);
-    rb_define_method(mROGL, "glRasterPos2dv", rogl_glRasterPos2dv, 1);
-    rb_define_method(mROGL, "glRasterPos2f", rogl_glRasterPos2f, 2);
-    rb_define_method(mROGL, "glRasterPos2fv", rogl_glRasterPos2fv, 1);
-    rb_define_method(mROGL, "glRasterPos2i", rogl_glRasterPos2i, 2);
-    rb_define_method(mROGL, "glRasterPos2iv", rogl_glRasterPos2iv, 1);
-    rb_define_method(mROGL, "glRasterPos2s", rogl_glRasterPos2s, 2);
-    rb_define_method(mROGL, "glRasterPos2sv", rogl_glRasterPos2sv, 1);
-    rb_define_method(mROGL, "glRasterPos3d", rogl_glRasterPos3d, 3);
-    rb_define_method(mROGL, "glRasterPos3dv", rogl_glRasterPos3dv, 1);
-    rb_define_method(mROGL, "glRasterPos3f", rogl_glRasterPos3f, 3);
-    rb_define_method(mROGL, "glRasterPos3fv", rogl_glRasterPos3fv, 1);
-    rb_define_method(mROGL, "glRasterPos3i", rogl_glRasterPos3i, 3);
-    rb_define_method(mROGL, "glRasterPos3iv", rogl_glRasterPos3iv, 1);
-    rb_define_method(mROGL, "glRasterPos3s", rogl_glRasterPos3s, 3);
-    rb_define_method(mROGL, "glRasterPos3sv", rogl_glRasterPos3sv, 1);
-    rb_define_method(mROGL, "glRasterPos4d", rogl_glRasterPos4d, 4);
-    rb_define_method(mROGL, "glRasterPos4dv", rogl_glRasterPos4dv, 1);
-    rb_define_method(mROGL, "glRasterPos4f", rogl_glRasterPos4f, 4);
-    rb_define_method(mROGL, "glRasterPos4fv", rogl_glRasterPos4fv, 1);
-    rb_define_method(mROGL, "glRasterPos4i", rogl_glRasterPos4i, 4);
-    rb_define_method(mROGL, "glRasterPos4iv", rogl_glRasterPos4iv, 1);
-    rb_define_method(mROGL, "glRasterPos4s", rogl_glRasterPos4s, 4);
-    rb_define_method(mROGL, "glRasterPos4sv", rogl_glRasterPos4sv, 1);
-    rb_define_method(mROGL, "glRectd", rogl_glRectd, 4);
-    rb_define_method(mROGL, "glRectdv", rogl_glRectdv, 2);
-    rb_define_method(mROGL, "glRectf", rogl_glRectf, 4);
-    rb_define_method(mROGL, "glRectfv", rogl_glRectfv, 2);
-    rb_define_method(mROGL, "glRecti", rogl_glRecti, 4);
-    rb_define_method(mROGL, "glRectiv", rogl_glRectiv, 2);
-    rb_define_method(mROGL, "glRects", rogl_glRects, 4);
-    rb_define_method(mROGL, "glRectsv", rogl_glRectsv, 2);
-    rb_define_method(mROGL, "glTexCoord1d", rogl_glTexCoord1d, 1);
-    rb_define_method(mROGL, "glTexCoord1dv", rogl_glTexCoord1dv, 1);
-    rb_define_method(mROGL, "glTexCoord1f", rogl_glTexCoord1f, 1);
-    rb_define_method(mROGL, "glTexCoord1fv", rogl_glTexCoord1fv, 1);
-    rb_define_method(mROGL, "glTexCoord1i", rogl_glTexCoord1i, 1);
-    rb_define_method(mROGL, "glTexCoord1iv", rogl_glTexCoord1iv, 1);
-    rb_define_method(mROGL, "glTexCoord1s", rogl_glTexCoord1s, 1);
-    rb_define_method(mROGL, "glTexCoord1sv", rogl_glTexCoord1sv, 1);
-    rb_define_method(mROGL, "glTexCoord2d", rogl_glTexCoord2d, 2);
-    rb_define_method(mROGL, "glTexCoord2dv", rogl_glTexCoord2dv, 1);
-    rb_define_method(mROGL, "glTexCoord2f", rogl_glTexCoord2f, 2);
-    rb_define_method(mROGL, "glTexCoord2fv", rogl_glTexCoord2fv, 1);
-    rb_define_method(mROGL, "glTexCoord2i", rogl_glTexCoord2i, 2);
-    rb_define_method(mROGL, "glTexCoord2iv", rogl_glTexCoord2iv, 1);
-    rb_define_method(mROGL, "glTexCoord2s", rogl_glTexCoord2s, 2);
-    rb_define_method(mROGL, "glTexCoord2sv", rogl_glTexCoord2sv, 1);
-    rb_define_method(mROGL, "glTexCoord3d", rogl_glTexCoord3d, 3);
-    rb_define_method(mROGL, "glTexCoord3dv", rogl_glTexCoord3dv, 1);
-    rb_define_method(mROGL, "glTexCoord3f", rogl_glTexCoord3f, 3);
-    rb_define_method(mROGL, "glTexCoord3fv", rogl_glTexCoord3fv, 1);
-    rb_define_method(mROGL, "glTexCoord3i", rogl_glTexCoord3i, 3);
-    rb_define_method(mROGL, "glTexCoord3iv", rogl_glTexCoord3iv, 1);
-    rb_define_method(mROGL, "glTexCoord3s", rogl_glTexCoord3s, 3);
-    rb_define_method(mROGL, "glTexCoord3sv", rogl_glTexCoord3sv, 1);
-    rb_define_method(mROGL, "glTexCoord4d", rogl_glTexCoord4d, 4);
-    rb_define_method(mROGL, "glTexCoord4dv", rogl_glTexCoord4dv, 1);
-    rb_define_method(mROGL, "glTexCoord4f", rogl_glTexCoord4f, 4);
-    rb_define_method(mROGL, "glTexCoord4fv", rogl_glTexCoord4fv, 1);
-    rb_define_method(mROGL, "glTexCoord4i", rogl_glTexCoord4i, 4);
-    rb_define_method(mROGL, "glTexCoord4iv", rogl_glTexCoord4iv, 1);
-    rb_define_method(mROGL, "glTexCoord4s", rogl_glTexCoord4s, 4);
-    rb_define_method(mROGL, "glTexCoord4sv", rogl_glTexCoord4sv, 1);
-    rb_define_method(mROGL, "glVertex2d", rogl_glVertex2d, 2);
-    rb_define_method(mROGL, "glVertex2dv", rogl_glVertex2dv, 1);
-    rb_define_method(mROGL, "glVertex2f", rogl_glVertex2f, 2);
-    rb_define_method(mROGL, "glVertex2fv", rogl_glVertex2fv, 1);
-    rb_define_method(mROGL, "glVertex2i", rogl_glVertex2i, 2);
-    rb_define_method(mROGL, "glVertex2iv", rogl_glVertex2iv, 1);
-    rb_define_method(mROGL, "glVertex2s", rogl_glVertex2s, 2);
-    rb_define_method(mROGL, "glVertex2sv", rogl_glVertex2sv, 1);
-    rb_define_method(mROGL, "glVertex3d", rogl_glVertex3d, 3);
-    rb_define_method(mROGL, "glVertex3dv", rogl_glVertex3dv, 1);
-    rb_define_method(mROGL, "glVertex3f", rogl_glVertex3f, 3);
-    rb_define_method(mROGL, "glVertex3fv", rogl_glVertex3fv, 1);
-    rb_define_method(mROGL, "glVertex3i", rogl_glVertex3i, 3);
-    rb_define_method(mROGL, "glVertex3iv", rogl_glVertex3iv, 1);
-    rb_define_method(mROGL, "glVertex3s", rogl_glVertex3s, 3);
-    rb_define_method(mROGL, "glVertex3sv", rogl_glVertex3sv, 1);
-    rb_define_method(mROGL, "glVertex4d", rogl_glVertex4d, 4);
-    rb_define_method(mROGL, "glVertex4dv", rogl_glVertex4dv, 1);
-    rb_define_method(mROGL, "glVertex4f", rogl_glVertex4f, 4);
-    rb_define_method(mROGL, "glVertex4fv", rogl_glVertex4fv, 1);
-    rb_define_method(mROGL, "glVertex4i", rogl_glVertex4i, 4);
-    rb_define_method(mROGL, "glVertex4iv", rogl_glVertex4iv, 1);
-    rb_define_method(mROGL, "glVertex4s", rogl_glVertex4s, 4);
-    rb_define_method(mROGL, "glVertex4sv", rogl_glVertex4sv, 1);
-    rb_define_method(mROGL, "glClipPlane", rogl_glClipPlane, 2);
-    rb_define_method(mROGL, "glColorMaterial", rogl_glColorMaterial, 2);
-    rb_define_method(mROGL, "glFogf", rogl_glFogf, 2);
-    rb_define_method(mROGL, "glFogfv", rogl_glFogfv, 2);
-    rb_define_method(mROGL, "glFogi", rogl_glFogi, 2);
-    rb_define_method(mROGL, "glFogiv", rogl_glFogiv, 2);
-    rb_define_method(mROGL, "glLightf", rogl_glLightf, 3);
-    rb_define_method(mROGL, "glLightfv", rogl_glLightfv, 3);
-    rb_define_method(mROGL, "glLighti", rogl_glLighti, 3);
-    rb_define_method(mROGL, "glLightiv", rogl_glLightiv, 3);
-    rb_define_method(mROGL, "glLightModelf", rogl_glLightModelf, 2);
-    rb_define_method(mROGL, "glLightModelfv", rogl_glLightModelfv, 2);
-    rb_define_method(mROGL, "glLightModeli", rogl_glLightModeli, 2);
-    rb_define_method(mROGL, "glLightModeliv", rogl_glLightModeliv, 2);
-    rb_define_method(mROGL, "glLineStipple", rogl_glLineStipple, 2);
-    rb_define_method(mROGL, "glMaterialf", rogl_glMaterialf, 3);
-    rb_define_method(mROGL, "glMaterialfv", rogl_glMaterialfv, 3);
-    rb_define_method(mROGL, "glMateriali", rogl_glMateriali, 3);
-    rb_define_method(mROGL, "glMaterialiv", rogl_glMaterialiv, 3);
-    rb_define_method(mROGL, "glPolygonStipple", rogl_glPolygonStipple, 1);
-    rb_define_method(mROGL, "glShadeModel", rogl_glShadeModel, 1);
-    rb_define_method(mROGL, "glTexEnvf", rogl_glTexEnvf, 3);
-    rb_define_method(mROGL, "glTexEnvfv", rogl_glTexEnvfv, 3);
-    rb_define_method(mROGL, "glTexEnvi", rogl_glTexEnvi, 3);
-    rb_define_method(mROGL, "glTexEnviv", rogl_glTexEnviv, 3);
-    rb_define_method(mROGL, "glTexGend", rogl_glTexGend, 3);
-    rb_define_method(mROGL, "glTexGendv", rogl_glTexGendv, 3);
-    rb_define_method(mROGL, "glTexGenf", rogl_glTexGenf, 3);
-    rb_define_method(mROGL, "glTexGenfv", rogl_glTexGenfv, 3);
-    rb_define_method(mROGL, "glTexGeni", rogl_glTexGeni, 3);
-    rb_define_method(mROGL, "glTexGeniv", rogl_glTexGeniv, 3);
-    rb_define_method(mROGL, "glFeedbackBuffer", rogl_glFeedbackBuffer, 3);
-    rb_define_method(mROGL, "glSelectBuffer", rogl_glSelectBuffer, 2);
-    rb_define_method(mROGL, "glRenderMode", rogl_glRenderMode, 1);
-    rb_define_method(mROGL, "glInitNames", rogl_glInitNames, 0);
-    rb_define_method(mROGL, "glLoadName", rogl_glLoadName, 1);
-    rb_define_method(mROGL, "glPassThrough", rogl_glPassThrough, 1);
-    rb_define_method(mROGL, "glPopName", rogl_glPopName, 0);
-    rb_define_method(mROGL, "glPushName", rogl_glPushName, 1);
-    rb_define_method(mROGL, "glClearAccum", rogl_glClearAccum, 4);
-    rb_define_method(mROGL, "glClearIndex", rogl_glClearIndex, 1);
-    rb_define_method(mROGL, "glIndexMask", rogl_glIndexMask, 1);
-    rb_define_method(mROGL, "glAccum", rogl_glAccum, 2);
-    rb_define_method(mROGL, "glPopAttrib", rogl_glPopAttrib, 0);
-    rb_define_method(mROGL, "glPushAttrib", rogl_glPushAttrib, 1);
-    rb_define_method(mROGL, "glMap1d", rogl_glMap1d, 6);
-    rb_define_method(mROGL, "glMap1f", rogl_glMap1f, 6);
-    rb_define_method(mROGL, "glMap2d", rogl_glMap2d, 10);
-    rb_define_method(mROGL, "glMap2f", rogl_glMap2f, 10);
-    rb_define_method(mROGL, "glMapGrid1d", rogl_glMapGrid1d, 3);
-    rb_define_method(mROGL, "glMapGrid1f", rogl_glMapGrid1f, 3);
-    rb_define_method(mROGL, "glMapGrid2d", rogl_glMapGrid2d, 6);
-    rb_define_method(mROGL, "glMapGrid2f", rogl_glMapGrid2f, 6);
-    rb_define_method(mROGL, "glEvalCoord1d", rogl_glEvalCoord1d, 1);
-    rb_define_method(mROGL, "glEvalCoord1dv", rogl_glEvalCoord1dv, 1);
-    rb_define_method(mROGL, "glEvalCoord1f", rogl_glEvalCoord1f, 1);
-    rb_define_method(mROGL, "glEvalCoord1fv", rogl_glEvalCoord1fv, 1);
-    rb_define_method(mROGL, "glEvalCoord2d", rogl_glEvalCoord2d, 2);
-    rb_define_method(mROGL, "glEvalCoord2dv", rogl_glEvalCoord2dv, 1);
-    rb_define_method(mROGL, "glEvalCoord2f", rogl_glEvalCoord2f, 2);
-    rb_define_method(mROGL, "glEvalCoord2fv", rogl_glEvalCoord2fv, 1);
-    rb_define_method(mROGL, "glEvalMesh1", rogl_glEvalMesh1, 3);
-    rb_define_method(mROGL, "glEvalPoint1", rogl_glEvalPoint1, 1);
-    rb_define_method(mROGL, "glEvalMesh2", rogl_glEvalMesh2, 5);
-    rb_define_method(mROGL, "glEvalPoint2", rogl_glEvalPoint2, 2);
-    rb_define_method(mROGL, "glAlphaFunc", rogl_glAlphaFunc, 2);
-    rb_define_method(mROGL, "glPixelZoom", rogl_glPixelZoom, 2);
-    rb_define_method(mROGL, "glPixelTransferf", rogl_glPixelTransferf, 2);
-    rb_define_method(mROGL, "glPixelTransferi", rogl_glPixelTransferi, 2);
-    rb_define_method(mROGL, "glPixelMapfv", rogl_glPixelMapfv, 3);
-    rb_define_method(mROGL, "glPixelMapuiv", rogl_glPixelMapuiv, 3);
-    rb_define_method(mROGL, "glPixelMapusv", rogl_glPixelMapusv, 3);
-    rb_define_method(mROGL, "glCopyPixels", rogl_glCopyPixels, 5);
-    rb_define_method(mROGL, "glDrawPixels", rogl_glDrawPixels, 5);
-    rb_define_method(mROGL, "glGetClipPlane", rogl_glGetClipPlane, 2);
-    rb_define_method(mROGL, "glGetLightfv", rogl_glGetLightfv, 3);
-    rb_define_method(mROGL, "glGetLightiv", rogl_glGetLightiv, 3);
-    rb_define_method(mROGL, "glGetMapdv", rogl_glGetMapdv, 3);
-    rb_define_method(mROGL, "glGetMapfv", rogl_glGetMapfv, 3);
-    rb_define_method(mROGL, "glGetMapiv", rogl_glGetMapiv, 3);
-    rb_define_method(mROGL, "glGetMaterialfv", rogl_glGetMaterialfv, 3);
-    rb_define_method(mROGL, "glGetMaterialiv", rogl_glGetMaterialiv, 3);
-    rb_define_method(mROGL, "glGetPixelMapfv", rogl_glGetPixelMapfv, 2);
-    rb_define_method(mROGL, "glGetPixelMapuiv", rogl_glGetPixelMapuiv, 2);
-    rb_define_method(mROGL, "glGetPixelMapusv", rogl_glGetPixelMapusv, 2);
-    rb_define_method(mROGL, "glGetPolygonStipple", rogl_glGetPolygonStipple, 1);
-    rb_define_method(mROGL, "glGetTexEnvfv", rogl_glGetTexEnvfv, 3);
-    rb_define_method(mROGL, "glGetTexEnviv", rogl_glGetTexEnviv, 3);
-    rb_define_method(mROGL, "glGetTexGendv", rogl_glGetTexGendv, 3);
-    rb_define_method(mROGL, "glGetTexGenfv", rogl_glGetTexGenfv, 3);
-    rb_define_method(mROGL, "glGetTexGeniv", rogl_glGetTexGeniv, 3);
-    rb_define_method(mROGL, "glIsList", rogl_glIsList, 1);
-    rb_define_method(mROGL, "glFrustum", rogl_glFrustum, 6);
-    rb_define_method(mROGL, "glLoadIdentity", rogl_glLoadIdentity, 0);
-    rb_define_method(mROGL, "glLoadMatrixf", rogl_glLoadMatrixf, 1);
-    rb_define_method(mROGL, "glLoadMatrixd", rogl_glLoadMatrixd, 1);
-    rb_define_method(mROGL, "glMatrixMode", rogl_glMatrixMode, 1);
-    rb_define_method(mROGL, "glMultMatrixf", rogl_glMultMatrixf, 1);
-    rb_define_method(mROGL, "glMultMatrixd", rogl_glMultMatrixd, 1);
-    rb_define_method(mROGL, "glOrtho", rogl_glOrtho, 6);
-    rb_define_method(mROGL, "glPopMatrix", rogl_glPopMatrix, 0);
-    rb_define_method(mROGL, "glPushMatrix", rogl_glPushMatrix, 0);
-    rb_define_method(mROGL, "glRotated", rogl_glRotated, 4);
-    rb_define_method(mROGL, "glRotatef", rogl_glRotatef, 4);
-    rb_define_method(mROGL, "glScaled", rogl_glScaled, 3);
-    rb_define_method(mROGL, "glScalef", rogl_glScalef, 3);
-    rb_define_method(mROGL, "glTranslated", rogl_glTranslated, 3);
-    rb_define_method(mROGL, "glTranslatef", rogl_glTranslatef, 3);
-    rb_define_method(mROGL, "glDrawArrays", rogl_glDrawArrays, 3);
-    rb_define_method(mROGL, "glDrawElements", rogl_glDrawElements, 4);
-    rb_define_method(mROGL, "glGetPointerv", rogl_glGetPointerv, 2);
-    rb_define_method(mROGL, "glPolygonOffset", rogl_glPolygonOffset, 2);
-    rb_define_method(mROGL, "glCopyTexImage1D", rogl_glCopyTexImage1D, 7);
-    rb_define_method(mROGL, "glCopyTexImage2D", rogl_glCopyTexImage2D, 8);
-    rb_define_method(mROGL, "glCopyTexSubImage1D", rogl_glCopyTexSubImage1D, 6);
-    rb_define_method(mROGL, "glCopyTexSubImage2D", rogl_glCopyTexSubImage2D, 8);
-    rb_define_method(mROGL, "glTexSubImage1D", rogl_glTexSubImage1D, 7);
-    rb_define_method(mROGL, "glTexSubImage2D", rogl_glTexSubImage2D, 9);
-    rb_define_method(mROGL, "glBindTexture", rogl_glBindTexture, 2);
-    rb_define_method(mROGL, "glDeleteTextures", rogl_glDeleteTextures, 2);
-    rb_define_method(mROGL, "glGenTextures", rogl_glGenTextures, 2);
-    rb_define_method(mROGL, "glIsTexture", rogl_glIsTexture, 1);
-    rb_define_method(mROGL, "glArrayElement", rogl_glArrayElement, 1);
-    rb_define_method(mROGL, "glColorPointer", rogl_glColorPointer, 4);
-    rb_define_method(mROGL, "glDisableClientState", rogl_glDisableClientState, 1);
-    rb_define_method(mROGL, "glEdgeFlagPointer", rogl_glEdgeFlagPointer, 2);
-    rb_define_method(mROGL, "glEnableClientState", rogl_glEnableClientState, 1);
-    rb_define_method(mROGL, "glIndexPointer", rogl_glIndexPointer, 3);
-    rb_define_method(mROGL, "glInterleavedArrays", rogl_glInterleavedArrays, 3);
-    rb_define_method(mROGL, "glNormalPointer", rogl_glNormalPointer, 3);
-    rb_define_method(mROGL, "glTexCoordPointer", rogl_glTexCoordPointer, 4);
-    rb_define_method(mROGL, "glVertexPointer", rogl_glVertexPointer, 4);
-    rb_define_method(mROGL, "glAreTexturesResident", rogl_glAreTexturesResident, 3);
-    rb_define_method(mROGL, "glPrioritizeTextures", rogl_glPrioritizeTextures, 3);
-    rb_define_method(mROGL, "glIndexub", rogl_glIndexub, 1);
-    rb_define_method(mROGL, "glIndexubv", rogl_glIndexubv, 1);
-    rb_define_method(mROGL, "glPopClientAttrib", rogl_glPopClientAttrib, 0);
-    rb_define_method(mROGL, "glPushClientAttrib", rogl_glPushClientAttrib, 1);
-    rb_define_method(mROGL, "glDrawRangeElements", rogl_glDrawRangeElements, 6);
-    rb_define_method(mROGL, "glTexImage3D", rogl_glTexImage3D, 10);
-    rb_define_method(mROGL, "glTexSubImage3D", rogl_glTexSubImage3D, 11);
-    rb_define_method(mROGL, "glCopyTexSubImage3D", rogl_glCopyTexSubImage3D, 9);
-    rb_define_method(mROGL, "glActiveTexture", rogl_glActiveTexture, 1);
-    rb_define_method(mROGL, "glSampleCoverage", rogl_glSampleCoverage, 2);
-    rb_define_method(mROGL, "glCompressedTexImage3D", rogl_glCompressedTexImage3D, 9);
-    rb_define_method(mROGL, "glCompressedTexImage2D", rogl_glCompressedTexImage2D, 8);
-    rb_define_method(mROGL, "glCompressedTexImage1D", rogl_glCompressedTexImage1D, 7);
-    rb_define_method(mROGL, "glCompressedTexSubImage3D", rogl_glCompressedTexSubImage3D, 11);
-    rb_define_method(mROGL, "glCompressedTexSubImage2D", rogl_glCompressedTexSubImage2D, 9);
-    rb_define_method(mROGL, "glCompressedTexSubImage1D", rogl_glCompressedTexSubImage1D, 7);
-    rb_define_method(mROGL, "glGetCompressedTexImage", rogl_glGetCompressedTexImage, 3);
-    rb_define_method(mROGL, "glClientActiveTexture", rogl_glClientActiveTexture, 1);
-    rb_define_method(mROGL, "glMultiTexCoord1d", rogl_glMultiTexCoord1d, 2);
-    rb_define_method(mROGL, "glMultiTexCoord1dv", rogl_glMultiTexCoord1dv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord1f", rogl_glMultiTexCoord1f, 2);
-    rb_define_method(mROGL, "glMultiTexCoord1fv", rogl_glMultiTexCoord1fv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord1i", rogl_glMultiTexCoord1i, 2);
-    rb_define_method(mROGL, "glMultiTexCoord1iv", rogl_glMultiTexCoord1iv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord1s", rogl_glMultiTexCoord1s, 2);
-    rb_define_method(mROGL, "glMultiTexCoord1sv", rogl_glMultiTexCoord1sv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord2d", rogl_glMultiTexCoord2d, 3);
-    rb_define_method(mROGL, "glMultiTexCoord2dv", rogl_glMultiTexCoord2dv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord2f", rogl_glMultiTexCoord2f, 3);
-    rb_define_method(mROGL, "glMultiTexCoord2fv", rogl_glMultiTexCoord2fv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord2i", rogl_glMultiTexCoord2i, 3);
-    rb_define_method(mROGL, "glMultiTexCoord2iv", rogl_glMultiTexCoord2iv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord2s", rogl_glMultiTexCoord2s, 3);
-    rb_define_method(mROGL, "glMultiTexCoord2sv", rogl_glMultiTexCoord2sv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord3d", rogl_glMultiTexCoord3d, 4);
-    rb_define_method(mROGL, "glMultiTexCoord3dv", rogl_glMultiTexCoord3dv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord3f", rogl_glMultiTexCoord3f, 4);
-    rb_define_method(mROGL, "glMultiTexCoord3fv", rogl_glMultiTexCoord3fv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord3i", rogl_glMultiTexCoord3i, 4);
-    rb_define_method(mROGL, "glMultiTexCoord3iv", rogl_glMultiTexCoord3iv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord3s", rogl_glMultiTexCoord3s, 4);
-    rb_define_method(mROGL, "glMultiTexCoord3sv", rogl_glMultiTexCoord3sv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord4d", rogl_glMultiTexCoord4d, 5);
-    rb_define_method(mROGL, "glMultiTexCoord4dv", rogl_glMultiTexCoord4dv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord4f", rogl_glMultiTexCoord4f, 5);
-    rb_define_method(mROGL, "glMultiTexCoord4fv", rogl_glMultiTexCoord4fv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord4i", rogl_glMultiTexCoord4i, 5);
-    rb_define_method(mROGL, "glMultiTexCoord4iv", rogl_glMultiTexCoord4iv, 2);
-    rb_define_method(mROGL, "glMultiTexCoord4s", rogl_glMultiTexCoord4s, 5);
-    rb_define_method(mROGL, "glMultiTexCoord4sv", rogl_glMultiTexCoord4sv, 2);
-    rb_define_method(mROGL, "glLoadTransposeMatrixf", rogl_glLoadTransposeMatrixf, 1);
-    rb_define_method(mROGL, "glLoadTransposeMatrixd", rogl_glLoadTransposeMatrixd, 1);
-    rb_define_method(mROGL, "glMultTransposeMatrixf", rogl_glMultTransposeMatrixf, 1);
-    rb_define_method(mROGL, "glMultTransposeMatrixd", rogl_glMultTransposeMatrixd, 1);
-    rb_define_method(mROGL, "glBlendFuncSeparate", rogl_glBlendFuncSeparate, 4);
-    rb_define_method(mROGL, "glMultiDrawArrays", rogl_glMultiDrawArrays, 4);
-    rb_define_method(mROGL, "glMultiDrawElements", rogl_glMultiDrawElements, 5);
-    rb_define_method(mROGL, "glPointParameterf", rogl_glPointParameterf, 2);
-    rb_define_method(mROGL, "glPointParameterfv", rogl_glPointParameterfv, 2);
-    rb_define_method(mROGL, "glPointParameteri", rogl_glPointParameteri, 2);
-    rb_define_method(mROGL, "glPointParameteriv", rogl_glPointParameteriv, 2);
-    rb_define_method(mROGL, "glFogCoordf", rogl_glFogCoordf, 1);
-    rb_define_method(mROGL, "glFogCoordfv", rogl_glFogCoordfv, 1);
-    rb_define_method(mROGL, "glFogCoordd", rogl_glFogCoordd, 1);
-    rb_define_method(mROGL, "glFogCoorddv", rogl_glFogCoorddv, 1);
-    rb_define_method(mROGL, "glFogCoordPointer", rogl_glFogCoordPointer, 3);
-    rb_define_method(mROGL, "glSecondaryColor3b", rogl_glSecondaryColor3b, 3);
-    rb_define_method(mROGL, "glSecondaryColor3bv", rogl_glSecondaryColor3bv, 1);
-    rb_define_method(mROGL, "glSecondaryColor3d", rogl_glSecondaryColor3d, 3);
-    rb_define_method(mROGL, "glSecondaryColor3dv", rogl_glSecondaryColor3dv, 1);
-    rb_define_method(mROGL, "glSecondaryColor3f", rogl_glSecondaryColor3f, 3);
-    rb_define_method(mROGL, "glSecondaryColor3fv", rogl_glSecondaryColor3fv, 1);
-    rb_define_method(mROGL, "glSecondaryColor3i", rogl_glSecondaryColor3i, 3);
-    rb_define_method(mROGL, "glSecondaryColor3iv", rogl_glSecondaryColor3iv, 1);
-    rb_define_method(mROGL, "glSecondaryColor3s", rogl_glSecondaryColor3s, 3);
-    rb_define_method(mROGL, "glSecondaryColor3sv", rogl_glSecondaryColor3sv, 1);
-    rb_define_method(mROGL, "glSecondaryColor3ub", rogl_glSecondaryColor3ub, 3);
-    rb_define_method(mROGL, "glSecondaryColor3ubv", rogl_glSecondaryColor3ubv, 1);
-    rb_define_method(mROGL, "glSecondaryColor3ui", rogl_glSecondaryColor3ui, 3);
-    rb_define_method(mROGL, "glSecondaryColor3uiv", rogl_glSecondaryColor3uiv, 1);
-    rb_define_method(mROGL, "glSecondaryColor3us", rogl_glSecondaryColor3us, 3);
-    rb_define_method(mROGL, "glSecondaryColor3usv", rogl_glSecondaryColor3usv, 1);
-    rb_define_method(mROGL, "glSecondaryColorPointer", rogl_glSecondaryColorPointer, 4);
-    rb_define_method(mROGL, "glWindowPos2d", rogl_glWindowPos2d, 2);
-    rb_define_method(mROGL, "glWindowPos2dv", rogl_glWindowPos2dv, 1);
-    rb_define_method(mROGL, "glWindowPos2f", rogl_glWindowPos2f, 2);
-    rb_define_method(mROGL, "glWindowPos2fv", rogl_glWindowPos2fv, 1);
-    rb_define_method(mROGL, "glWindowPos2i", rogl_glWindowPos2i, 2);
-    rb_define_method(mROGL, "glWindowPos2iv", rogl_glWindowPos2iv, 1);
-    rb_define_method(mROGL, "glWindowPos2s", rogl_glWindowPos2s, 2);
-    rb_define_method(mROGL, "glWindowPos2sv", rogl_glWindowPos2sv, 1);
-    rb_define_method(mROGL, "glWindowPos3d", rogl_glWindowPos3d, 3);
-    rb_define_method(mROGL, "glWindowPos3dv", rogl_glWindowPos3dv, 1);
-    rb_define_method(mROGL, "glWindowPos3f", rogl_glWindowPos3f, 3);
-    rb_define_method(mROGL, "glWindowPos3fv", rogl_glWindowPos3fv, 1);
-    rb_define_method(mROGL, "glWindowPos3i", rogl_glWindowPos3i, 3);
-    rb_define_method(mROGL, "glWindowPos3iv", rogl_glWindowPos3iv, 1);
-    rb_define_method(mROGL, "glWindowPos3s", rogl_glWindowPos3s, 3);
-    rb_define_method(mROGL, "glWindowPos3sv", rogl_glWindowPos3sv, 1);
-    rb_define_method(mROGL, "glBlendColor", rogl_glBlendColor, 4);
-    rb_define_method(mROGL, "glBlendEquation", rogl_glBlendEquation, 1);
-    rb_define_method(mROGL, "glGenQueries", rogl_glGenQueries, 2);
-    rb_define_method(mROGL, "glDeleteQueries", rogl_glDeleteQueries, 2);
-    rb_define_method(mROGL, "glIsQuery", rogl_glIsQuery, 1);
-    rb_define_method(mROGL, "glBeginQuery", rogl_glBeginQuery, 2);
-    rb_define_method(mROGL, "glEndQuery", rogl_glEndQuery, 1);
-    rb_define_method(mROGL, "glGetQueryiv", rogl_glGetQueryiv, 3);
-    rb_define_method(mROGL, "glGetQueryObjectiv", rogl_glGetQueryObjectiv, 3);
-    rb_define_method(mROGL, "glGetQueryObjectuiv", rogl_glGetQueryObjectuiv, 3);
-    rb_define_method(mROGL, "glBindBuffer", rogl_glBindBuffer, 2);
-    rb_define_method(mROGL, "glDeleteBuffers", rogl_glDeleteBuffers, 2);
-    rb_define_method(mROGL, "glGenBuffers", rogl_glGenBuffers, 2);
-    rb_define_method(mROGL, "glIsBuffer", rogl_glIsBuffer, 1);
-    rb_define_method(mROGL, "glBufferData", rogl_glBufferData, 4);
-    rb_define_method(mROGL, "glBufferSubData", rogl_glBufferSubData, 4);
-    rb_define_method(mROGL, "glGetBufferSubData", rogl_glGetBufferSubData, 4);
-    rb_define_method(mROGL, "glMapBuffer", rogl_glMapBuffer, 2);
-    rb_define_method(mROGL, "glUnmapBuffer", rogl_glUnmapBuffer, 1);
-    rb_define_method(mROGL, "glGetBufferParameteriv", rogl_glGetBufferParameteriv, 3);
-    rb_define_method(mROGL, "glGetBufferPointerv", rogl_glGetBufferPointerv, 3);
-    rb_define_method(mROGL, "glBlendEquationSeparate", rogl_glBlendEquationSeparate, 2);
-    rb_define_method(mROGL, "glDrawBuffers", rogl_glDrawBuffers, 2);
-    rb_define_method(mROGL, "glStencilOpSeparate", rogl_glStencilOpSeparate, 4);
-    rb_define_method(mROGL, "glStencilFuncSeparate", rogl_glStencilFuncSeparate, 4);
-    rb_define_method(mROGL, "glStencilMaskSeparate", rogl_glStencilMaskSeparate, 2);
-    rb_define_method(mROGL, "glAttachShader", rogl_glAttachShader, 2);
-    rb_define_method(mROGL, "glBindAttribLocation", rogl_glBindAttribLocation, 3);
-    rb_define_method(mROGL, "glCompileShader", rogl_glCompileShader, 1);
-    rb_define_method(mROGL, "glCreateProgram", rogl_glCreateProgram, 0);
-    rb_define_method(mROGL, "glCreateShader", rogl_glCreateShader, 1);
-    rb_define_method(mROGL, "glDeleteProgram", rogl_glDeleteProgram, 1);
-    rb_define_method(mROGL, "glDeleteShader", rogl_glDeleteShader, 1);
-    rb_define_method(mROGL, "glDetachShader", rogl_glDetachShader, 2);
-    rb_define_method(mROGL, "glDisableVertexAttribArray", rogl_glDisableVertexAttribArray, 1);
-    rb_define_method(mROGL, "glEnableVertexAttribArray", rogl_glEnableVertexAttribArray, 1);
-    rb_define_method(mROGL, "glGetActiveAttrib", rogl_glGetActiveAttrib, 7);
-    rb_define_method(mROGL, "glGetActiveUniform", rogl_glGetActiveUniform, 7);
-    rb_define_method(mROGL, "glGetAttachedShaders", rogl_glGetAttachedShaders, 4);
-    rb_define_method(mROGL, "glGetAttribLocation", rogl_glGetAttribLocation, 2);
-    rb_define_method(mROGL, "glGetProgramiv", rogl_glGetProgramiv, 3);
-    rb_define_method(mROGL, "glGetProgramInfoLog", rogl_glGetProgramInfoLog, 4);
-    rb_define_method(mROGL, "glGetShaderiv", rogl_glGetShaderiv, 3);
-    rb_define_method(mROGL, "glGetShaderInfoLog", rogl_glGetShaderInfoLog, 4);
-    rb_define_method(mROGL, "glGetShaderSource", rogl_glGetShaderSource, 4);
-    rb_define_method(mROGL, "glGetUniformLocation", rogl_glGetUniformLocation, 2);
-    rb_define_method(mROGL, "glGetUniformfv", rogl_glGetUniformfv, 3);
-    rb_define_method(mROGL, "glGetUniformiv", rogl_glGetUniformiv, 3);
-    rb_define_method(mROGL, "glGetVertexAttribdv", rogl_glGetVertexAttribdv, 3);
-    rb_define_method(mROGL, "glGetVertexAttribfv", rogl_glGetVertexAttribfv, 3);
-    rb_define_method(mROGL, "glGetVertexAttribiv", rogl_glGetVertexAttribiv, 3);
-    rb_define_method(mROGL, "glGetVertexAttribPointerv", rogl_glGetVertexAttribPointerv, 3);
-    rb_define_method(mROGL, "glIsProgram", rogl_glIsProgram, 1);
-    rb_define_method(mROGL, "glIsShader", rogl_glIsShader, 1);
-    rb_define_method(mROGL, "glLinkProgram", rogl_glLinkProgram, 1);
-    rb_define_method(mROGL, "glShaderSource", rogl_glShaderSource, 4);
-    rb_define_method(mROGL, "glUseProgram", rogl_glUseProgram, 1);
-    rb_define_method(mROGL, "glUniform1f", rogl_glUniform1f, 2);
-    rb_define_method(mROGL, "glUniform2f", rogl_glUniform2f, 3);
-    rb_define_method(mROGL, "glUniform3f", rogl_glUniform3f, 4);
-    rb_define_method(mROGL, "glUniform4f", rogl_glUniform4f, 5);
-    rb_define_method(mROGL, "glUniform1i", rogl_glUniform1i, 2);
-    rb_define_method(mROGL, "glUniform2i", rogl_glUniform2i, 3);
-    rb_define_method(mROGL, "glUniform3i", rogl_glUniform3i, 4);
-    rb_define_method(mROGL, "glUniform4i", rogl_glUniform4i, 5);
-    rb_define_method(mROGL, "glUniform1fv", rogl_glUniform1fv, 3);
-    rb_define_method(mROGL, "glUniform2fv", rogl_glUniform2fv, 3);
-    rb_define_method(mROGL, "glUniform3fv", rogl_glUniform3fv, 3);
-    rb_define_method(mROGL, "glUniform4fv", rogl_glUniform4fv, 3);
-    rb_define_method(mROGL, "glUniform1iv", rogl_glUniform1iv, 3);
-    rb_define_method(mROGL, "glUniform2iv", rogl_glUniform2iv, 3);
-    rb_define_method(mROGL, "glUniform3iv", rogl_glUniform3iv, 3);
-    rb_define_method(mROGL, "glUniform4iv", rogl_glUniform4iv, 3);
-    rb_define_method(mROGL, "glUniformMatrix2fv", rogl_glUniformMatrix2fv, 4);
-    rb_define_method(mROGL, "glUniformMatrix3fv", rogl_glUniformMatrix3fv, 4);
-    rb_define_method(mROGL, "glUniformMatrix4fv", rogl_glUniformMatrix4fv, 4);
-    rb_define_method(mROGL, "glValidateProgram", rogl_glValidateProgram, 1);
-    rb_define_method(mROGL, "glVertexAttrib1d", rogl_glVertexAttrib1d, 2);
-    rb_define_method(mROGL, "glVertexAttrib1dv", rogl_glVertexAttrib1dv, 2);
-    rb_define_method(mROGL, "glVertexAttrib1f", rogl_glVertexAttrib1f, 2);
-    rb_define_method(mROGL, "glVertexAttrib1fv", rogl_glVertexAttrib1fv, 2);
-    rb_define_method(mROGL, "glVertexAttrib1s", rogl_glVertexAttrib1s, 2);
-    rb_define_method(mROGL, "glVertexAttrib1sv", rogl_glVertexAttrib1sv, 2);
-    rb_define_method(mROGL, "glVertexAttrib2d", rogl_glVertexAttrib2d, 3);
-    rb_define_method(mROGL, "glVertexAttrib2dv", rogl_glVertexAttrib2dv, 2);
-    rb_define_method(mROGL, "glVertexAttrib2f", rogl_glVertexAttrib2f, 3);
-    rb_define_method(mROGL, "glVertexAttrib2fv", rogl_glVertexAttrib2fv, 2);
-    rb_define_method(mROGL, "glVertexAttrib2s", rogl_glVertexAttrib2s, 3);
-    rb_define_method(mROGL, "glVertexAttrib2sv", rogl_glVertexAttrib2sv, 2);
-    rb_define_method(mROGL, "glVertexAttrib3d", rogl_glVertexAttrib3d, 4);
-    rb_define_method(mROGL, "glVertexAttrib3dv", rogl_glVertexAttrib3dv, 2);
-    rb_define_method(mROGL, "glVertexAttrib3f", rogl_glVertexAttrib3f, 4);
-    rb_define_method(mROGL, "glVertexAttrib3fv", rogl_glVertexAttrib3fv, 2);
-    rb_define_method(mROGL, "glVertexAttrib3s", rogl_glVertexAttrib3s, 4);
-    rb_define_method(mROGL, "glVertexAttrib3sv", rogl_glVertexAttrib3sv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4Nbv", rogl_glVertexAttrib4Nbv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4Niv", rogl_glVertexAttrib4Niv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4Nsv", rogl_glVertexAttrib4Nsv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4Nub", rogl_glVertexAttrib4Nub, 5);
-    rb_define_method(mROGL, "glVertexAttrib4Nubv", rogl_glVertexAttrib4Nubv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4Nuiv", rogl_glVertexAttrib4Nuiv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4Nusv", rogl_glVertexAttrib4Nusv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4bv", rogl_glVertexAttrib4bv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4d", rogl_glVertexAttrib4d, 5);
-    rb_define_method(mROGL, "glVertexAttrib4dv", rogl_glVertexAttrib4dv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4f", rogl_glVertexAttrib4f, 5);
-    rb_define_method(mROGL, "glVertexAttrib4fv", rogl_glVertexAttrib4fv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4iv", rogl_glVertexAttrib4iv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4s", rogl_glVertexAttrib4s, 5);
-    rb_define_method(mROGL, "glVertexAttrib4sv", rogl_glVertexAttrib4sv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4ubv", rogl_glVertexAttrib4ubv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4uiv", rogl_glVertexAttrib4uiv, 2);
-    rb_define_method(mROGL, "glVertexAttrib4usv", rogl_glVertexAttrib4usv, 2);
-    rb_define_method(mROGL, "glVertexAttribPointer", rogl_glVertexAttribPointer, 6);
-    rb_define_method(mROGL, "glUniformMatrix2x3fv", rogl_glUniformMatrix2x3fv, 4);
-    rb_define_method(mROGL, "glUniformMatrix3x2fv", rogl_glUniformMatrix3x2fv, 4);
-    rb_define_method(mROGL, "glUniformMatrix2x4fv", rogl_glUniformMatrix2x4fv, 4);
-    rb_define_method(mROGL, "glUniformMatrix4x2fv", rogl_glUniformMatrix4x2fv, 4);
-    rb_define_method(mROGL, "glUniformMatrix3x4fv", rogl_glUniformMatrix3x4fv, 4);
-    rb_define_method(mROGL, "glUniformMatrix4x3fv", rogl_glUniformMatrix4x3fv, 4);
-    rb_define_method(mROGL, "glColorMaski", rogl_glColorMaski, 5);
-    rb_define_method(mROGL, "glGetBooleani_v", rogl_glGetBooleani_v, 3);
-    rb_define_method(mROGL, "glGetIntegeri_v", rogl_glGetIntegeri_v, 3);
-    rb_define_method(mROGL, "glEnablei", rogl_glEnablei, 2);
-    rb_define_method(mROGL, "glDisablei", rogl_glDisablei, 2);
-    rb_define_method(mROGL, "glIsEnabledi", rogl_glIsEnabledi, 2);
-    rb_define_method(mROGL, "glBeginTransformFeedback", rogl_glBeginTransformFeedback, 1);
-    rb_define_method(mROGL, "glEndTransformFeedback", rogl_glEndTransformFeedback, 0);
-    rb_define_method(mROGL, "glBindBufferRange", rogl_glBindBufferRange, 5);
-    rb_define_method(mROGL, "glBindBufferBase", rogl_glBindBufferBase, 3);
-    rb_define_method(mROGL, "glTransformFeedbackVaryings", rogl_glTransformFeedbackVaryings, 4);
-    rb_define_method(mROGL, "glGetTransformFeedbackVarying", rogl_glGetTransformFeedbackVarying, 7);
-    rb_define_method(mROGL, "glClampColor", rogl_glClampColor, 2);
-    rb_define_method(mROGL, "glBeginConditionalRender", rogl_glBeginConditionalRender, 2);
-    rb_define_method(mROGL, "glEndConditionalRender", rogl_glEndConditionalRender, 0);
-    rb_define_method(mROGL, "glVertexAttribIPointer", rogl_glVertexAttribIPointer, 5);
-    rb_define_method(mROGL, "glGetVertexAttribIiv", rogl_glGetVertexAttribIiv, 3);
-    rb_define_method(mROGL, "glGetVertexAttribIuiv", rogl_glGetVertexAttribIuiv, 3);
-    rb_define_method(mROGL, "glVertexAttribI1i", rogl_glVertexAttribI1i, 2);
-    rb_define_method(mROGL, "glVertexAttribI2i", rogl_glVertexAttribI2i, 3);
-    rb_define_method(mROGL, "glVertexAttribI3i", rogl_glVertexAttribI3i, 4);
-    rb_define_method(mROGL, "glVertexAttribI4i", rogl_glVertexAttribI4i, 5);
-    rb_define_method(mROGL, "glVertexAttribI1ui", rogl_glVertexAttribI1ui, 2);
-    rb_define_method(mROGL, "glVertexAttribI2ui", rogl_glVertexAttribI2ui, 3);
-    rb_define_method(mROGL, "glVertexAttribI3ui", rogl_glVertexAttribI3ui, 4);
-    rb_define_method(mROGL, "glVertexAttribI4ui", rogl_glVertexAttribI4ui, 5);
-    rb_define_method(mROGL, "glVertexAttribI1iv", rogl_glVertexAttribI1iv, 2);
-    rb_define_method(mROGL, "glVertexAttribI2iv", rogl_glVertexAttribI2iv, 2);
-    rb_define_method(mROGL, "glVertexAttribI3iv", rogl_glVertexAttribI3iv, 2);
-    rb_define_method(mROGL, "glVertexAttribI4iv", rogl_glVertexAttribI4iv, 2);
-    rb_define_method(mROGL, "glVertexAttribI1uiv", rogl_glVertexAttribI1uiv, 2);
-    rb_define_method(mROGL, "glVertexAttribI2uiv", rogl_glVertexAttribI2uiv, 2);
-    rb_define_method(mROGL, "glVertexAttribI3uiv", rogl_glVertexAttribI3uiv, 2);
-    rb_define_method(mROGL, "glVertexAttribI4uiv", rogl_glVertexAttribI4uiv, 2);
-    rb_define_method(mROGL, "glVertexAttribI4bv", rogl_glVertexAttribI4bv, 2);
-    rb_define_method(mROGL, "glVertexAttribI4sv", rogl_glVertexAttribI4sv, 2);
-    rb_define_method(mROGL, "glVertexAttribI4ubv", rogl_glVertexAttribI4ubv, 2);
-    rb_define_method(mROGL, "glVertexAttribI4usv", rogl_glVertexAttribI4usv, 2);
-    rb_define_method(mROGL, "glGetUniformuiv", rogl_glGetUniformuiv, 3);
-    rb_define_method(mROGL, "glBindFragDataLocation", rogl_glBindFragDataLocation, 3);
-    rb_define_method(mROGL, "glGetFragDataLocation", rogl_glGetFragDataLocation, 2);
-    rb_define_method(mROGL, "glUniform1ui", rogl_glUniform1ui, 2);
-    rb_define_method(mROGL, "glUniform2ui", rogl_glUniform2ui, 3);
-    rb_define_method(mROGL, "glUniform3ui", rogl_glUniform3ui, 4);
-    rb_define_method(mROGL, "glUniform4ui", rogl_glUniform4ui, 5);
-    rb_define_method(mROGL, "glUniform1uiv", rogl_glUniform1uiv, 3);
-    rb_define_method(mROGL, "glUniform2uiv", rogl_glUniform2uiv, 3);
-    rb_define_method(mROGL, "glUniform3uiv", rogl_glUniform3uiv, 3);
-    rb_define_method(mROGL, "glUniform4uiv", rogl_glUniform4uiv, 3);
-    rb_define_method(mROGL, "glTexParameterIiv", rogl_glTexParameterIiv, 3);
-    rb_define_method(mROGL, "glTexParameterIuiv", rogl_glTexParameterIuiv, 3);
-    rb_define_method(mROGL, "glGetTexParameterIiv", rogl_glGetTexParameterIiv, 3);
-    rb_define_method(mROGL, "glGetTexParameterIuiv", rogl_glGetTexParameterIuiv, 3);
-    rb_define_method(mROGL, "glClearBufferiv", rogl_glClearBufferiv, 3);
-    rb_define_method(mROGL, "glClearBufferuiv", rogl_glClearBufferuiv, 3);
-    rb_define_method(mROGL, "glClearBufferfv", rogl_glClearBufferfv, 3);
-    rb_define_method(mROGL, "glClearBufferfi", rogl_glClearBufferfi, 4);
-    rb_define_method(mROGL, "glGetStringi", rogl_glGetStringi, 2);
-    rb_define_method(mROGL, "glIsRenderbuffer", rogl_glIsRenderbuffer, 1);
-    rb_define_method(mROGL, "glBindRenderbuffer", rogl_glBindRenderbuffer, 2);
-    rb_define_method(mROGL, "glDeleteRenderbuffers", rogl_glDeleteRenderbuffers, 2);
-    rb_define_method(mROGL, "glGenRenderbuffers", rogl_glGenRenderbuffers, 2);
-    rb_define_method(mROGL, "glRenderbufferStorage", rogl_glRenderbufferStorage, 4);
-    rb_define_method(mROGL, "glGetRenderbufferParameteriv", rogl_glGetRenderbufferParameteriv, 3);
-    rb_define_method(mROGL, "glIsFramebuffer", rogl_glIsFramebuffer, 1);
-    rb_define_method(mROGL, "glBindFramebuffer", rogl_glBindFramebuffer, 2);
-    rb_define_method(mROGL, "glDeleteFramebuffers", rogl_glDeleteFramebuffers, 2);
-    rb_define_method(mROGL, "glGenFramebuffers", rogl_glGenFramebuffers, 2);
-    rb_define_method(mROGL, "glCheckFramebufferStatus", rogl_glCheckFramebufferStatus, 1);
-    rb_define_method(mROGL, "glFramebufferTexture1D", rogl_glFramebufferTexture1D, 5);
-    rb_define_method(mROGL, "glFramebufferTexture2D", rogl_glFramebufferTexture2D, 5);
-    rb_define_method(mROGL, "glFramebufferTexture3D", rogl_glFramebufferTexture3D, 6);
-    rb_define_method(mROGL, "glFramebufferRenderbuffer", rogl_glFramebufferRenderbuffer, 4);
-    rb_define_method(mROGL, "glGetFramebufferAttachmentParameteriv", rogl_glGetFramebufferAttachmentParameteriv, 4);
-    rb_define_method(mROGL, "glGenerateMipmap", rogl_glGenerateMipmap, 1);
-    rb_define_method(mROGL, "glBlitFramebuffer", rogl_glBlitFramebuffer, 10);
-    rb_define_method(mROGL, "glRenderbufferStorageMultisample", rogl_glRenderbufferStorageMultisample, 5);
-    rb_define_method(mROGL, "glFramebufferTextureLayer", rogl_glFramebufferTextureLayer, 5);
-    rb_define_method(mROGL, "glMapBufferRange", rogl_glMapBufferRange, 4);
-    rb_define_method(mROGL, "glFlushMappedBufferRange", rogl_glFlushMappedBufferRange, 3);
-    rb_define_method(mROGL, "glBindVertexArray", rogl_glBindVertexArray, 1);
-    rb_define_method(mROGL, "glDeleteVertexArrays", rogl_glDeleteVertexArrays, 2);
-    rb_define_method(mROGL, "glGenVertexArrays", rogl_glGenVertexArrays, 2);
-    rb_define_method(mROGL, "glIsVertexArray", rogl_glIsVertexArray, 1);
-    rb_define_method(mROGL, "glDrawArraysInstanced", rogl_glDrawArraysInstanced, 4);
-    rb_define_method(mROGL, "glDrawElementsInstanced", rogl_glDrawElementsInstanced, 5);
-    rb_define_method(mROGL, "glTexBuffer", rogl_glTexBuffer, 3);
-    rb_define_method(mROGL, "glPrimitiveRestartIndex", rogl_glPrimitiveRestartIndex, 1);
-    rb_define_method(mROGL, "glCopyBufferSubData", rogl_glCopyBufferSubData, 5);
-    rb_define_method(mROGL, "glGetUniformIndices", rogl_glGetUniformIndices, 4);
-    rb_define_method(mROGL, "glGetActiveUniformsiv", rogl_glGetActiveUniformsiv, 5);
-    rb_define_method(mROGL, "glGetActiveUniformName", rogl_glGetActiveUniformName, 5);
-    rb_define_method(mROGL, "glGetUniformBlockIndex", rogl_glGetUniformBlockIndex, 2);
-    rb_define_method(mROGL, "glGetActiveUniformBlockiv", rogl_glGetActiveUniformBlockiv, 4);
-    rb_define_method(mROGL, "glGetActiveUniformBlockName", rogl_glGetActiveUniformBlockName, 5);
-    rb_define_method(mROGL, "glUniformBlockBinding", rogl_glUniformBlockBinding, 3);
-    rb_define_method(mROGL, "glDrawElementsBaseVertex", rogl_glDrawElementsBaseVertex, 5);
-    rb_define_method(mROGL, "glDrawRangeElementsBaseVertex", rogl_glDrawRangeElementsBaseVertex, 7);
-    rb_define_method(mROGL, "glDrawElementsInstancedBaseVertex", rogl_glDrawElementsInstancedBaseVertex, 6);
-    rb_define_method(mROGL, "glMultiDrawElementsBaseVertex", rogl_glMultiDrawElementsBaseVertex, 6);
-    rb_define_method(mROGL, "glProvokingVertex", rogl_glProvokingVertex, 1);
-    rb_define_method(mROGL, "glFenceSync", rogl_glFenceSync, 2);
-    rb_define_method(mROGL, "glIsSync", rogl_glIsSync, 1);
-    rb_define_method(mROGL, "glDeleteSync", rogl_glDeleteSync, 1);
-    rb_define_method(mROGL, "glClientWaitSync", rogl_glClientWaitSync, 3);
-    rb_define_method(mROGL, "glWaitSync", rogl_glWaitSync, 3);
-    rb_define_method(mROGL, "glGetInteger64v", rogl_glGetInteger64v, 2);
-    rb_define_method(mROGL, "glGetSynciv", rogl_glGetSynciv, 5);
-    rb_define_method(mROGL, "glGetInteger64i_v", rogl_glGetInteger64i_v, 3);
-    rb_define_method(mROGL, "glGetBufferParameteri64v", rogl_glGetBufferParameteri64v, 3);
-    rb_define_method(mROGL, "glFramebufferTexture", rogl_glFramebufferTexture, 4);
-    rb_define_method(mROGL, "glTexImage2DMultisample", rogl_glTexImage2DMultisample, 6);
-    rb_define_method(mROGL, "glTexImage3DMultisample", rogl_glTexImage3DMultisample, 7);
-    rb_define_method(mROGL, "glGetMultisamplefv", rogl_glGetMultisamplefv, 3);
-    rb_define_method(mROGL, "glSampleMaski", rogl_glSampleMaski, 2);
-    rb_define_method(mROGL, "glBindFragDataLocationIndexed", rogl_glBindFragDataLocationIndexed, 4);
-    rb_define_method(mROGL, "glGetFragDataIndex", rogl_glGetFragDataIndex, 2);
-    rb_define_method(mROGL, "glGenSamplers", rogl_glGenSamplers, 2);
-    rb_define_method(mROGL, "glDeleteSamplers", rogl_glDeleteSamplers, 2);
-    rb_define_method(mROGL, "glIsSampler", rogl_glIsSampler, 1);
-    rb_define_method(mROGL, "glBindSampler", rogl_glBindSampler, 2);
-    rb_define_method(mROGL, "glSamplerParameteri", rogl_glSamplerParameteri, 3);
-    rb_define_method(mROGL, "glSamplerParameteriv", rogl_glSamplerParameteriv, 3);
-    rb_define_method(mROGL, "glSamplerParameterf", rogl_glSamplerParameterf, 3);
-    rb_define_method(mROGL, "glSamplerParameterfv", rogl_glSamplerParameterfv, 3);
-    rb_define_method(mROGL, "glSamplerParameterIiv", rogl_glSamplerParameterIiv, 3);
-    rb_define_method(mROGL, "glSamplerParameterIuiv", rogl_glSamplerParameterIuiv, 3);
-    rb_define_method(mROGL, "glGetSamplerParameteriv", rogl_glGetSamplerParameteriv, 3);
-    rb_define_method(mROGL, "glGetSamplerParameterIiv", rogl_glGetSamplerParameterIiv, 3);
-    rb_define_method(mROGL, "glGetSamplerParameterfv", rogl_glGetSamplerParameterfv, 3);
-    rb_define_method(mROGL, "glGetSamplerParameterIuiv", rogl_glGetSamplerParameterIuiv, 3);
-    rb_define_method(mROGL, "glQueryCounter", rogl_glQueryCounter, 2);
-    rb_define_method(mROGL, "glGetQueryObjecti64v", rogl_glGetQueryObjecti64v, 3);
-    rb_define_method(mROGL, "glGetQueryObjectui64v", rogl_glGetQueryObjectui64v, 3);
-    rb_define_method(mROGL, "glVertexAttribDivisor", rogl_glVertexAttribDivisor, 2);
-    rb_define_method(mROGL, "glVertexAttribP1ui", rogl_glVertexAttribP1ui, 4);
-    rb_define_method(mROGL, "glVertexAttribP1uiv", rogl_glVertexAttribP1uiv, 4);
-    rb_define_method(mROGL, "glVertexAttribP2ui", rogl_glVertexAttribP2ui, 4);
-    rb_define_method(mROGL, "glVertexAttribP2uiv", rogl_glVertexAttribP2uiv, 4);
-    rb_define_method(mROGL, "glVertexAttribP3ui", rogl_glVertexAttribP3ui, 4);
-    rb_define_method(mROGL, "glVertexAttribP3uiv", rogl_glVertexAttribP3uiv, 4);
-    rb_define_method(mROGL, "glVertexAttribP4ui", rogl_glVertexAttribP4ui, 4);
-    rb_define_method(mROGL, "glVertexAttribP4uiv", rogl_glVertexAttribP4uiv, 4);
-    rb_define_method(mROGL, "glVertexP2ui", rogl_glVertexP2ui, 2);
-    rb_define_method(mROGL, "glVertexP2uiv", rogl_glVertexP2uiv, 2);
-    rb_define_method(mROGL, "glVertexP3ui", rogl_glVertexP3ui, 2);
-    rb_define_method(mROGL, "glVertexP3uiv", rogl_glVertexP3uiv, 2);
-    rb_define_method(mROGL, "glVertexP4ui", rogl_glVertexP4ui, 2);
-    rb_define_method(mROGL, "glVertexP4uiv", rogl_glVertexP4uiv, 2);
-    rb_define_method(mROGL, "glTexCoordP1ui", rogl_glTexCoordP1ui, 2);
-    rb_define_method(mROGL, "glTexCoordP1uiv", rogl_glTexCoordP1uiv, 2);
-    rb_define_method(mROGL, "glTexCoordP2ui", rogl_glTexCoordP2ui, 2);
-    rb_define_method(mROGL, "glTexCoordP2uiv", rogl_glTexCoordP2uiv, 2);
-    rb_define_method(mROGL, "glTexCoordP3ui", rogl_glTexCoordP3ui, 2);
-    rb_define_method(mROGL, "glTexCoordP3uiv", rogl_glTexCoordP3uiv, 2);
-    rb_define_method(mROGL, "glTexCoordP4ui", rogl_glTexCoordP4ui, 2);
-    rb_define_method(mROGL, "glTexCoordP4uiv", rogl_glTexCoordP4uiv, 2);
-    rb_define_method(mROGL, "glMultiTexCoordP1ui", rogl_glMultiTexCoordP1ui, 3);
-    rb_define_method(mROGL, "glMultiTexCoordP1uiv", rogl_glMultiTexCoordP1uiv, 3);
-    rb_define_method(mROGL, "glMultiTexCoordP2ui", rogl_glMultiTexCoordP2ui, 3);
-    rb_define_method(mROGL, "glMultiTexCoordP2uiv", rogl_glMultiTexCoordP2uiv, 3);
-    rb_define_method(mROGL, "glMultiTexCoordP3ui", rogl_glMultiTexCoordP3ui, 3);
-    rb_define_method(mROGL, "glMultiTexCoordP3uiv", rogl_glMultiTexCoordP3uiv, 3);
-    rb_define_method(mROGL, "glMultiTexCoordP4ui", rogl_glMultiTexCoordP4ui, 3);
-    rb_define_method(mROGL, "glMultiTexCoordP4uiv", rogl_glMultiTexCoordP4uiv, 3);
-    rb_define_method(mROGL, "glNormalP3ui", rogl_glNormalP3ui, 2);
-    rb_define_method(mROGL, "glNormalP3uiv", rogl_glNormalP3uiv, 2);
-    rb_define_method(mROGL, "glColorP3ui", rogl_glColorP3ui, 2);
-    rb_define_method(mROGL, "glColorP3uiv", rogl_glColorP3uiv, 2);
-    rb_define_method(mROGL, "glColorP4ui", rogl_glColorP4ui, 2);
-    rb_define_method(mROGL, "glColorP4uiv", rogl_glColorP4uiv, 2);
-    rb_define_method(mROGL, "glSecondaryColorP3ui", rogl_glSecondaryColorP3ui, 2);
-    rb_define_method(mROGL, "glSecondaryColorP3uiv", rogl_glSecondaryColorP3uiv, 2);
-    rb_define_method(mROGL, "glMinSampleShading", rogl_glMinSampleShading, 1);
-    rb_define_method(mROGL, "glBlendEquationi", rogl_glBlendEquationi, 2);
-    rb_define_method(mROGL, "glBlendEquationSeparatei", rogl_glBlendEquationSeparatei, 3);
-    rb_define_method(mROGL, "glBlendFunci", rogl_glBlendFunci, 3);
-    rb_define_method(mROGL, "glBlendFuncSeparatei", rogl_glBlendFuncSeparatei, 5);
-    rb_define_method(mROGL, "glDrawArraysIndirect", rogl_glDrawArraysIndirect, 2);
-    rb_define_method(mROGL, "glDrawElementsIndirect", rogl_glDrawElementsIndirect, 3);
-    rb_define_method(mROGL, "glUniform1d", rogl_glUniform1d, 2);
-    rb_define_method(mROGL, "glUniform2d", rogl_glUniform2d, 3);
-    rb_define_method(mROGL, "glUniform3d", rogl_glUniform3d, 4);
-    rb_define_method(mROGL, "glUniform4d", rogl_glUniform4d, 5);
-    rb_define_method(mROGL, "glUniform1dv", rogl_glUniform1dv, 3);
-    rb_define_method(mROGL, "glUniform2dv", rogl_glUniform2dv, 3);
-    rb_define_method(mROGL, "glUniform3dv", rogl_glUniform3dv, 3);
-    rb_define_method(mROGL, "glUniform4dv", rogl_glUniform4dv, 3);
-    rb_define_method(mROGL, "glUniformMatrix2dv", rogl_glUniformMatrix2dv, 4);
-    rb_define_method(mROGL, "glUniformMatrix3dv", rogl_glUniformMatrix3dv, 4);
-    rb_define_method(mROGL, "glUniformMatrix4dv", rogl_glUniformMatrix4dv, 4);
-    rb_define_method(mROGL, "glUniformMatrix2x3dv", rogl_glUniformMatrix2x3dv, 4);
-    rb_define_method(mROGL, "glUniformMatrix2x4dv", rogl_glUniformMatrix2x4dv, 4);
-    rb_define_method(mROGL, "glUniformMatrix3x2dv", rogl_glUniformMatrix3x2dv, 4);
-    rb_define_method(mROGL, "glUniformMatrix3x4dv", rogl_glUniformMatrix3x4dv, 4);
-    rb_define_method(mROGL, "glUniformMatrix4x2dv", rogl_glUniformMatrix4x2dv, 4);
-    rb_define_method(mROGL, "glUniformMatrix4x3dv", rogl_glUniformMatrix4x3dv, 4);
-    rb_define_method(mROGL, "glGetUniformdv", rogl_glGetUniformdv, 3);
-    rb_define_method(mROGL, "glGetSubroutineUniformLocation", rogl_glGetSubroutineUniformLocation, 3);
-    rb_define_method(mROGL, "glGetSubroutineIndex", rogl_glGetSubroutineIndex, 3);
-    rb_define_method(mROGL, "glGetActiveSubroutineUniformiv", rogl_glGetActiveSubroutineUniformiv, 5);
-    rb_define_method(mROGL, "glGetActiveSubroutineUniformName", rogl_glGetActiveSubroutineUniformName, 6);
-    rb_define_method(mROGL, "glGetActiveSubroutineName", rogl_glGetActiveSubroutineName, 6);
-    rb_define_method(mROGL, "glUniformSubroutinesuiv", rogl_glUniformSubroutinesuiv, 3);
-    rb_define_method(mROGL, "glGetUniformSubroutineuiv", rogl_glGetUniformSubroutineuiv, 3);
-    rb_define_method(mROGL, "glGetProgramStageiv", rogl_glGetProgramStageiv, 4);
-    rb_define_method(mROGL, "glPatchParameteri", rogl_glPatchParameteri, 2);
-    rb_define_method(mROGL, "glPatchParameterfv", rogl_glPatchParameterfv, 2);
-    rb_define_method(mROGL, "glBindTransformFeedback", rogl_glBindTransformFeedback, 2);
-    rb_define_method(mROGL, "glDeleteTransformFeedbacks", rogl_glDeleteTransformFeedbacks, 2);
-    rb_define_method(mROGL, "glGenTransformFeedbacks", rogl_glGenTransformFeedbacks, 2);
-    rb_define_method(mROGL, "glIsTransformFeedback", rogl_glIsTransformFeedback, 1);
-    rb_define_method(mROGL, "glPauseTransformFeedback", rogl_glPauseTransformFeedback, 0);
-    rb_define_method(mROGL, "glResumeTransformFeedback", rogl_glResumeTransformFeedback, 0);
-    rb_define_method(mROGL, "glDrawTransformFeedback", rogl_glDrawTransformFeedback, 2);
-    rb_define_method(mROGL, "glDrawTransformFeedbackStream", rogl_glDrawTransformFeedbackStream, 3);
-    rb_define_method(mROGL, "glBeginQueryIndexed", rogl_glBeginQueryIndexed, 3);
-    rb_define_method(mROGL, "glEndQueryIndexed", rogl_glEndQueryIndexed, 2);
-    rb_define_method(mROGL, "glGetQueryIndexediv", rogl_glGetQueryIndexediv, 4);
-    rb_define_method(mROGL, "glReleaseShaderCompiler", rogl_glReleaseShaderCompiler, 0);
-    rb_define_method(mROGL, "glShaderBinary", rogl_glShaderBinary, 5);
-    rb_define_method(mROGL, "glGetShaderPrecisionFormat", rogl_glGetShaderPrecisionFormat, 4);
-    rb_define_method(mROGL, "glDepthRangef", rogl_glDepthRangef, 2);
-    rb_define_method(mROGL, "glClearDepthf", rogl_glClearDepthf, 1);
-    rb_define_method(mROGL, "glGetProgramBinary", rogl_glGetProgramBinary, 5);
-    rb_define_method(mROGL, "glProgramBinary", rogl_glProgramBinary, 4);
-    rb_define_method(mROGL, "glProgramParameteri", rogl_glProgramParameteri, 3);
-    rb_define_method(mROGL, "glUseProgramStages", rogl_glUseProgramStages, 3);
-    rb_define_method(mROGL, "glActiveShaderProgram", rogl_glActiveShaderProgram, 2);
-    rb_define_method(mROGL, "glCreateShaderProgramv", rogl_glCreateShaderProgramv, 3);
-    rb_define_method(mROGL, "glBindProgramPipeline", rogl_glBindProgramPipeline, 1);
-    rb_define_method(mROGL, "glDeleteProgramPipelines", rogl_glDeleteProgramPipelines, 2);
-    rb_define_method(mROGL, "glGenProgramPipelines", rogl_glGenProgramPipelines, 2);
-    rb_define_method(mROGL, "glIsProgramPipeline", rogl_glIsProgramPipeline, 1);
-    rb_define_method(mROGL, "glGetProgramPipelineiv", rogl_glGetProgramPipelineiv, 3);
-    rb_define_method(mROGL, "glProgramUniform1i", rogl_glProgramUniform1i, 3);
-    rb_define_method(mROGL, "glProgramUniform1iv", rogl_glProgramUniform1iv, 4);
-    rb_define_method(mROGL, "glProgramUniform1f", rogl_glProgramUniform1f, 3);
-    rb_define_method(mROGL, "glProgramUniform1fv", rogl_glProgramUniform1fv, 4);
-    rb_define_method(mROGL, "glProgramUniform1d", rogl_glProgramUniform1d, 3);
-    rb_define_method(mROGL, "glProgramUniform1dv", rogl_glProgramUniform1dv, 4);
-    rb_define_method(mROGL, "glProgramUniform1ui", rogl_glProgramUniform1ui, 3);
-    rb_define_method(mROGL, "glProgramUniform1uiv", rogl_glProgramUniform1uiv, 4);
-    rb_define_method(mROGL, "glProgramUniform2i", rogl_glProgramUniform2i, 4);
-    rb_define_method(mROGL, "glProgramUniform2iv", rogl_glProgramUniform2iv, 4);
-    rb_define_method(mROGL, "glProgramUniform2f", rogl_glProgramUniform2f, 4);
-    rb_define_method(mROGL, "glProgramUniform2fv", rogl_glProgramUniform2fv, 4);
-    rb_define_method(mROGL, "glProgramUniform2d", rogl_glProgramUniform2d, 4);
-    rb_define_method(mROGL, "glProgramUniform2dv", rogl_glProgramUniform2dv, 4);
-    rb_define_method(mROGL, "glProgramUniform2ui", rogl_glProgramUniform2ui, 4);
-    rb_define_method(mROGL, "glProgramUniform2uiv", rogl_glProgramUniform2uiv, 4);
-    rb_define_method(mROGL, "glProgramUniform3i", rogl_glProgramUniform3i, 5);
-    rb_define_method(mROGL, "glProgramUniform3iv", rogl_glProgramUniform3iv, 4);
-    rb_define_method(mROGL, "glProgramUniform3f", rogl_glProgramUniform3f, 5);
-    rb_define_method(mROGL, "glProgramUniform3fv", rogl_glProgramUniform3fv, 4);
-    rb_define_method(mROGL, "glProgramUniform3d", rogl_glProgramUniform3d, 5);
-    rb_define_method(mROGL, "glProgramUniform3dv", rogl_glProgramUniform3dv, 4);
-    rb_define_method(mROGL, "glProgramUniform3ui", rogl_glProgramUniform3ui, 5);
-    rb_define_method(mROGL, "glProgramUniform3uiv", rogl_glProgramUniform3uiv, 4);
-    rb_define_method(mROGL, "glProgramUniform4i", rogl_glProgramUniform4i, 6);
-    rb_define_method(mROGL, "glProgramUniform4iv", rogl_glProgramUniform4iv, 4);
-    rb_define_method(mROGL, "glProgramUniform4f", rogl_glProgramUniform4f, 6);
-    rb_define_method(mROGL, "glProgramUniform4fv", rogl_glProgramUniform4fv, 4);
-    rb_define_method(mROGL, "glProgramUniform4d", rogl_glProgramUniform4d, 6);
-    rb_define_method(mROGL, "glProgramUniform4dv", rogl_glProgramUniform4dv, 4);
-    rb_define_method(mROGL, "glProgramUniform4ui", rogl_glProgramUniform4ui, 6);
-    rb_define_method(mROGL, "glProgramUniform4uiv", rogl_glProgramUniform4uiv, 4);
-    rb_define_method(mROGL, "glProgramUniformMatrix2fv", rogl_glProgramUniformMatrix2fv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix3fv", rogl_glProgramUniformMatrix3fv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix4fv", rogl_glProgramUniformMatrix4fv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix2dv", rogl_glProgramUniformMatrix2dv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix3dv", rogl_glProgramUniformMatrix3dv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix4dv", rogl_glProgramUniformMatrix4dv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix2x3fv", rogl_glProgramUniformMatrix2x3fv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix3x2fv", rogl_glProgramUniformMatrix3x2fv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix2x4fv", rogl_glProgramUniformMatrix2x4fv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix4x2fv", rogl_glProgramUniformMatrix4x2fv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix3x4fv", rogl_glProgramUniformMatrix3x4fv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix4x3fv", rogl_glProgramUniformMatrix4x3fv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix2x3dv", rogl_glProgramUniformMatrix2x3dv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix3x2dv", rogl_glProgramUniformMatrix3x2dv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix2x4dv", rogl_glProgramUniformMatrix2x4dv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix4x2dv", rogl_glProgramUniformMatrix4x2dv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix3x4dv", rogl_glProgramUniformMatrix3x4dv, 5);
-    rb_define_method(mROGL, "glProgramUniformMatrix4x3dv", rogl_glProgramUniformMatrix4x3dv, 5);
-    rb_define_method(mROGL, "glValidateProgramPipeline", rogl_glValidateProgramPipeline, 1);
-    rb_define_method(mROGL, "glGetProgramPipelineInfoLog", rogl_glGetProgramPipelineInfoLog, 4);
-    rb_define_method(mROGL, "glVertexAttribL1d", rogl_glVertexAttribL1d, 2);
-    rb_define_method(mROGL, "glVertexAttribL2d", rogl_glVertexAttribL2d, 3);
-    rb_define_method(mROGL, "glVertexAttribL3d", rogl_glVertexAttribL3d, 4);
-    rb_define_method(mROGL, "glVertexAttribL4d", rogl_glVertexAttribL4d, 5);
-    rb_define_method(mROGL, "glVertexAttribL1dv", rogl_glVertexAttribL1dv, 2);
-    rb_define_method(mROGL, "glVertexAttribL2dv", rogl_glVertexAttribL2dv, 2);
-    rb_define_method(mROGL, "glVertexAttribL3dv", rogl_glVertexAttribL3dv, 2);
-    rb_define_method(mROGL, "glVertexAttribL4dv", rogl_glVertexAttribL4dv, 2);
-    rb_define_method(mROGL, "glVertexAttribLPointer", rogl_glVertexAttribLPointer, 5);
-    rb_define_method(mROGL, "glGetVertexAttribLdv", rogl_glGetVertexAttribLdv, 3);
-    rb_define_method(mROGL, "glViewportArrayv", rogl_glViewportArrayv, 3);
-    rb_define_method(mROGL, "glViewportIndexedf", rogl_glViewportIndexedf, 5);
-    rb_define_method(mROGL, "glViewportIndexedfv", rogl_glViewportIndexedfv, 2);
-    rb_define_method(mROGL, "glScissorArrayv", rogl_glScissorArrayv, 3);
-    rb_define_method(mROGL, "glScissorIndexed", rogl_glScissorIndexed, 5);
-    rb_define_method(mROGL, "glScissorIndexedv", rogl_glScissorIndexedv, 2);
-    rb_define_method(mROGL, "glDepthRangeArrayv", rogl_glDepthRangeArrayv, 3);
-    rb_define_method(mROGL, "glDepthRangeIndexed", rogl_glDepthRangeIndexed, 3);
-    rb_define_method(mROGL, "glGetFloati_v", rogl_glGetFloati_v, 3);
-    rb_define_method(mROGL, "glGetDoublei_v", rogl_glGetDoublei_v, 3);
-    rb_define_method(mROGL, "glDrawArraysInstancedBaseInstance", rogl_glDrawArraysInstancedBaseInstance, 5);
-    rb_define_method(mROGL, "glDrawElementsInstancedBaseInstance", rogl_glDrawElementsInstancedBaseInstance, 6);
-    rb_define_method(mROGL, "glDrawElementsInstancedBaseVertexBaseInstance", rogl_glDrawElementsInstancedBaseVertexBaseInstance, 7);
-    rb_define_method(mROGL, "glGetInternalformativ", rogl_glGetInternalformativ, 5);
-    rb_define_method(mROGL, "glGetActiveAtomicCounterBufferiv", rogl_glGetActiveAtomicCounterBufferiv, 4);
-    rb_define_method(mROGL, "glBindImageTexture", rogl_glBindImageTexture, 7);
-    rb_define_method(mROGL, "glMemoryBarrier", rogl_glMemoryBarrier, 1);
-    rb_define_method(mROGL, "glTexStorage1D", rogl_glTexStorage1D, 4);
-    rb_define_method(mROGL, "glTexStorage2D", rogl_glTexStorage2D, 5);
-    rb_define_method(mROGL, "glTexStorage3D", rogl_glTexStorage3D, 6);
-    rb_define_method(mROGL, "glDrawTransformFeedbackInstanced", rogl_glDrawTransformFeedbackInstanced, 3);
-    rb_define_method(mROGL, "glDrawTransformFeedbackStreamInstanced", rogl_glDrawTransformFeedbackStreamInstanced, 4);
-    rb_define_method(mROGL, "glClearBufferData", rogl_glClearBufferData, 5);
-    rb_define_method(mROGL, "glClearBufferSubData", rogl_glClearBufferSubData, 7);
-    rb_define_method(mROGL, "glDispatchCompute", rogl_glDispatchCompute, 3);
-    rb_define_method(mROGL, "glDispatchComputeIndirect", rogl_glDispatchComputeIndirect, 1);
-    rb_define_method(mROGL, "glCopyImageSubData", rogl_glCopyImageSubData, 15);
-    rb_define_method(mROGL, "glFramebufferParameteri", rogl_glFramebufferParameteri, 3);
-    rb_define_method(mROGL, "glGetFramebufferParameteriv", rogl_glGetFramebufferParameteriv, 3);
-    rb_define_method(mROGL, "glGetInternalformati64v", rogl_glGetInternalformati64v, 5);
-    rb_define_method(mROGL, "glInvalidateTexSubImage", rogl_glInvalidateTexSubImage, 8);
-    rb_define_method(mROGL, "glInvalidateTexImage", rogl_glInvalidateTexImage, 2);
-    rb_define_method(mROGL, "glInvalidateBufferSubData", rogl_glInvalidateBufferSubData, 3);
-    rb_define_method(mROGL, "glInvalidateBufferData", rogl_glInvalidateBufferData, 1);
-    rb_define_method(mROGL, "glInvalidateFramebuffer", rogl_glInvalidateFramebuffer, 3);
-    rb_define_method(mROGL, "glInvalidateSubFramebuffer", rogl_glInvalidateSubFramebuffer, 7);
-    rb_define_method(mROGL, "glMultiDrawArraysIndirect", rogl_glMultiDrawArraysIndirect, 4);
-    rb_define_method(mROGL, "glMultiDrawElementsIndirect", rogl_glMultiDrawElementsIndirect, 5);
-    rb_define_method(mROGL, "glGetProgramInterfaceiv", rogl_glGetProgramInterfaceiv, 4);
-    rb_define_method(mROGL, "glGetProgramResourceIndex", rogl_glGetProgramResourceIndex, 3);
-    rb_define_method(mROGL, "glGetProgramResourceName", rogl_glGetProgramResourceName, 6);
-    rb_define_method(mROGL, "glGetProgramResourceiv", rogl_glGetProgramResourceiv, 8);
-    rb_define_method(mROGL, "glGetProgramResourceLocation", rogl_glGetProgramResourceLocation, 3);
-    rb_define_method(mROGL, "glGetProgramResourceLocationIndex", rogl_glGetProgramResourceLocationIndex, 3);
-    rb_define_method(mROGL, "glShaderStorageBlockBinding", rogl_glShaderStorageBlockBinding, 3);
-    rb_define_method(mROGL, "glTexBufferRange", rogl_glTexBufferRange, 5);
-    rb_define_method(mROGL, "glTexStorage2DMultisample", rogl_glTexStorage2DMultisample, 6);
-    rb_define_method(mROGL, "glTexStorage3DMultisample", rogl_glTexStorage3DMultisample, 7);
-    rb_define_method(mROGL, "glTextureView", rogl_glTextureView, 8);
-    rb_define_method(mROGL, "glBindVertexBuffer", rogl_glBindVertexBuffer, 4);
-    rb_define_method(mROGL, "glVertexAttribFormat", rogl_glVertexAttribFormat, 5);
-    rb_define_method(mROGL, "glVertexAttribIFormat", rogl_glVertexAttribIFormat, 4);
-    rb_define_method(mROGL, "glVertexAttribLFormat", rogl_glVertexAttribLFormat, 4);
-    rb_define_method(mROGL, "glVertexAttribBinding", rogl_glVertexAttribBinding, 2);
-    rb_define_method(mROGL, "glVertexBindingDivisor", rogl_glVertexBindingDivisor, 2);
-    rb_define_method(mROGL, "glDebugMessageControl", rogl_glDebugMessageControl, 6);
-    rb_define_method(mROGL, "glDebugMessageInsert", rogl_glDebugMessageInsert, 6);
-    rb_define_method(mROGL, "glDebugMessageCallback", rogl_glDebugMessageCallback, 2);
-    rb_define_method(mROGL, "glGetDebugMessageLog", rogl_glGetDebugMessageLog, 8);
-    rb_define_method(mROGL, "glPushDebugGroup", rogl_glPushDebugGroup, 4);
-    rb_define_method(mROGL, "glPopDebugGroup", rogl_glPopDebugGroup, 0);
-    rb_define_method(mROGL, "glObjectLabel", rogl_glObjectLabel, 4);
-    rb_define_method(mROGL, "glGetObjectLabel", rogl_glGetObjectLabel, 5);
-    rb_define_method(mROGL, "glObjectPtrLabel", rogl_glObjectPtrLabel, 3);
-    rb_define_method(mROGL, "glGetObjectPtrLabel", rogl_glGetObjectPtrLabel, 4);
-    rb_define_method(mROGL, "glBufferStorage", rogl_glBufferStorage, 4);
-    rb_define_method(mROGL, "glClearTexImage", rogl_glClearTexImage, 5);
-    rb_define_method(mROGL, "glClearTexSubImage", rogl_glClearTexSubImage, 11);
-    rb_define_method(mROGL, "glBindBuffersBase", rogl_glBindBuffersBase, 4);
-    rb_define_method(mROGL, "glBindBuffersRange", rogl_glBindBuffersRange, 6);
-    rb_define_method(mROGL, "glBindTextures", rogl_glBindTextures, 3);
-    rb_define_method(mROGL, "glBindSamplers", rogl_glBindSamplers, 3);
-    rb_define_method(mROGL, "glBindImageTextures", rogl_glBindImageTextures, 3);
-    rb_define_method(mROGL, "glBindVertexBuffers", rogl_glBindVertexBuffers, 5);
-    rb_define_method(mROGL, "glClipControl", rogl_glClipControl, 2);
-    rb_define_method(mROGL, "glCreateTransformFeedbacks", rogl_glCreateTransformFeedbacks, 2);
-    rb_define_method(mROGL, "glTransformFeedbackBufferBase", rogl_glTransformFeedbackBufferBase, 3);
-    rb_define_method(mROGL, "glTransformFeedbackBufferRange", rogl_glTransformFeedbackBufferRange, 5);
-    rb_define_method(mROGL, "glGetTransformFeedbackiv", rogl_glGetTransformFeedbackiv, 3);
-    rb_define_method(mROGL, "glGetTransformFeedbacki_v", rogl_glGetTransformFeedbacki_v, 4);
-    rb_define_method(mROGL, "glGetTransformFeedbacki64_v", rogl_glGetTransformFeedbacki64_v, 4);
-    rb_define_method(mROGL, "glCreateBuffers", rogl_glCreateBuffers, 2);
-    rb_define_method(mROGL, "glNamedBufferStorage", rogl_glNamedBufferStorage, 4);
-    rb_define_method(mROGL, "glNamedBufferData", rogl_glNamedBufferData, 4);
-    rb_define_method(mROGL, "glNamedBufferSubData", rogl_glNamedBufferSubData, 4);
-    rb_define_method(mROGL, "glCopyNamedBufferSubData", rogl_glCopyNamedBufferSubData, 5);
-    rb_define_method(mROGL, "glClearNamedBufferData", rogl_glClearNamedBufferData, 5);
-    rb_define_method(mROGL, "glClearNamedBufferSubData", rogl_glClearNamedBufferSubData, 7);
-    rb_define_method(mROGL, "glMapNamedBuffer", rogl_glMapNamedBuffer, 2);
-    rb_define_method(mROGL, "glMapNamedBufferRange", rogl_glMapNamedBufferRange, 4);
-    rb_define_method(mROGL, "glUnmapNamedBuffer", rogl_glUnmapNamedBuffer, 1);
-    rb_define_method(mROGL, "glFlushMappedNamedBufferRange", rogl_glFlushMappedNamedBufferRange, 3);
-    rb_define_method(mROGL, "glGetNamedBufferParameteriv", rogl_glGetNamedBufferParameteriv, 3);
-    rb_define_method(mROGL, "glGetNamedBufferParameteri64v", rogl_glGetNamedBufferParameteri64v, 3);
-    rb_define_method(mROGL, "glGetNamedBufferPointerv", rogl_glGetNamedBufferPointerv, 3);
-    rb_define_method(mROGL, "glGetNamedBufferSubData", rogl_glGetNamedBufferSubData, 4);
-    rb_define_method(mROGL, "glCreateFramebuffers", rogl_glCreateFramebuffers, 2);
-    rb_define_method(mROGL, "glNamedFramebufferRenderbuffer", rogl_glNamedFramebufferRenderbuffer, 4);
-    rb_define_method(mROGL, "glNamedFramebufferParameteri", rogl_glNamedFramebufferParameteri, 3);
-    rb_define_method(mROGL, "glNamedFramebufferTexture", rogl_glNamedFramebufferTexture, 4);
-    rb_define_method(mROGL, "glNamedFramebufferTextureLayer", rogl_glNamedFramebufferTextureLayer, 5);
-    rb_define_method(mROGL, "glNamedFramebufferDrawBuffer", rogl_glNamedFramebufferDrawBuffer, 2);
-    rb_define_method(mROGL, "glNamedFramebufferDrawBuffers", rogl_glNamedFramebufferDrawBuffers, 3);
-    rb_define_method(mROGL, "glNamedFramebufferReadBuffer", rogl_glNamedFramebufferReadBuffer, 2);
-    rb_define_method(mROGL, "glInvalidateNamedFramebufferData", rogl_glInvalidateNamedFramebufferData, 3);
-    rb_define_method(mROGL, "glInvalidateNamedFramebufferSubData", rogl_glInvalidateNamedFramebufferSubData, 7);
-    rb_define_method(mROGL, "glClearNamedFramebufferiv", rogl_glClearNamedFramebufferiv, 4);
-    rb_define_method(mROGL, "glClearNamedFramebufferuiv", rogl_glClearNamedFramebufferuiv, 4);
-    rb_define_method(mROGL, "glClearNamedFramebufferfv", rogl_glClearNamedFramebufferfv, 4);
-    rb_define_method(mROGL, "glClearNamedFramebufferfi", rogl_glClearNamedFramebufferfi, 4);
-    rb_define_method(mROGL, "glBlitNamedFramebuffer", rogl_glBlitNamedFramebuffer, 12);
-    rb_define_method(mROGL, "glCheckNamedFramebufferStatus", rogl_glCheckNamedFramebufferStatus, 2);
-    rb_define_method(mROGL, "glGetNamedFramebufferParameteriv", rogl_glGetNamedFramebufferParameteriv, 3);
-    rb_define_method(mROGL, "glGetNamedFramebufferAttachmentParameteriv", rogl_glGetNamedFramebufferAttachmentParameteriv, 4);
-    rb_define_method(mROGL, "glCreateRenderbuffers", rogl_glCreateRenderbuffers, 2);
-    rb_define_method(mROGL, "glNamedRenderbufferStorage", rogl_glNamedRenderbufferStorage, 4);
-    rb_define_method(mROGL, "glNamedRenderbufferStorageMultisample", rogl_glNamedRenderbufferStorageMultisample, 5);
-    rb_define_method(mROGL, "glGetNamedRenderbufferParameteriv", rogl_glGetNamedRenderbufferParameteriv, 3);
-    rb_define_method(mROGL, "glCreateTextures", rogl_glCreateTextures, 3);
-    rb_define_method(mROGL, "glTextureBuffer", rogl_glTextureBuffer, 3);
-    rb_define_method(mROGL, "glTextureBufferRange", rogl_glTextureBufferRange, 5);
-    rb_define_method(mROGL, "glTextureStorage1D", rogl_glTextureStorage1D, 4);
-    rb_define_method(mROGL, "glTextureStorage2D", rogl_glTextureStorage2D, 5);
-    rb_define_method(mROGL, "glTextureStorage3D", rogl_glTextureStorage3D, 6);
-    rb_define_method(mROGL, "glTextureStorage2DMultisample", rogl_glTextureStorage2DMultisample, 6);
-    rb_define_method(mROGL, "glTextureStorage3DMultisample", rogl_glTextureStorage3DMultisample, 7);
-    rb_define_method(mROGL, "glTextureSubImage1D", rogl_glTextureSubImage1D, 7);
-    rb_define_method(mROGL, "glTextureSubImage2D", rogl_glTextureSubImage2D, 9);
-    rb_define_method(mROGL, "glTextureSubImage3D", rogl_glTextureSubImage3D, 11);
-    rb_define_method(mROGL, "glCompressedTextureSubImage1D", rogl_glCompressedTextureSubImage1D, 7);
-    rb_define_method(mROGL, "glCompressedTextureSubImage2D", rogl_glCompressedTextureSubImage2D, 9);
-    rb_define_method(mROGL, "glCompressedTextureSubImage3D", rogl_glCompressedTextureSubImage3D, 11);
-    rb_define_method(mROGL, "glCopyTextureSubImage1D", rogl_glCopyTextureSubImage1D, 6);
-    rb_define_method(mROGL, "glCopyTextureSubImage2D", rogl_glCopyTextureSubImage2D, 8);
-    rb_define_method(mROGL, "glCopyTextureSubImage3D", rogl_glCopyTextureSubImage3D, 9);
-    rb_define_method(mROGL, "glTextureParameterf", rogl_glTextureParameterf, 3);
-    rb_define_method(mROGL, "glTextureParameterfv", rogl_glTextureParameterfv, 3);
-    rb_define_method(mROGL, "glTextureParameteri", rogl_glTextureParameteri, 3);
-    rb_define_method(mROGL, "glTextureParameterIiv", rogl_glTextureParameterIiv, 3);
-    rb_define_method(mROGL, "glTextureParameterIuiv", rogl_glTextureParameterIuiv, 3);
-    rb_define_method(mROGL, "glTextureParameteriv", rogl_glTextureParameteriv, 3);
-    rb_define_method(mROGL, "glGenerateTextureMipmap", rogl_glGenerateTextureMipmap, 1);
-    rb_define_method(mROGL, "glBindTextureUnit", rogl_glBindTextureUnit, 2);
-    rb_define_method(mROGL, "glGetTextureImage", rogl_glGetTextureImage, 6);
-    rb_define_method(mROGL, "glGetCompressedTextureImage", rogl_glGetCompressedTextureImage, 4);
-    rb_define_method(mROGL, "glGetTextureLevelParameterfv", rogl_glGetTextureLevelParameterfv, 4);
-    rb_define_method(mROGL, "glGetTextureLevelParameteriv", rogl_glGetTextureLevelParameteriv, 4);
-    rb_define_method(mROGL, "glGetTextureParameterfv", rogl_glGetTextureParameterfv, 3);
-    rb_define_method(mROGL, "glGetTextureParameterIiv", rogl_glGetTextureParameterIiv, 3);
-    rb_define_method(mROGL, "glGetTextureParameterIuiv", rogl_glGetTextureParameterIuiv, 3);
-    rb_define_method(mROGL, "glGetTextureParameteriv", rogl_glGetTextureParameteriv, 3);
-    rb_define_method(mROGL, "glCreateVertexArrays", rogl_glCreateVertexArrays, 2);
-    rb_define_method(mROGL, "glDisableVertexArrayAttrib", rogl_glDisableVertexArrayAttrib, 2);
-    rb_define_method(mROGL, "glEnableVertexArrayAttrib", rogl_glEnableVertexArrayAttrib, 2);
-    rb_define_method(mROGL, "glVertexArrayElementBuffer", rogl_glVertexArrayElementBuffer, 2);
-    rb_define_method(mROGL, "glVertexArrayVertexBuffer", rogl_glVertexArrayVertexBuffer, 5);
-    rb_define_method(mROGL, "glVertexArrayVertexBuffers", rogl_glVertexArrayVertexBuffers, 6);
-    rb_define_method(mROGL, "glVertexArrayAttribBinding", rogl_glVertexArrayAttribBinding, 3);
-    rb_define_method(mROGL, "glVertexArrayAttribFormat", rogl_glVertexArrayAttribFormat, 6);
-    rb_define_method(mROGL, "glVertexArrayAttribIFormat", rogl_glVertexArrayAttribIFormat, 5);
-    rb_define_method(mROGL, "glVertexArrayAttribLFormat", rogl_glVertexArrayAttribLFormat, 5);
-    rb_define_method(mROGL, "glVertexArrayBindingDivisor", rogl_glVertexArrayBindingDivisor, 3);
-    rb_define_method(mROGL, "glGetVertexArrayiv", rogl_glGetVertexArrayiv, 3);
-    rb_define_method(mROGL, "glGetVertexArrayIndexediv", rogl_glGetVertexArrayIndexediv, 4);
-    rb_define_method(mROGL, "glGetVertexArrayIndexed64iv", rogl_glGetVertexArrayIndexed64iv, 4);
-    rb_define_method(mROGL, "glCreateSamplers", rogl_glCreateSamplers, 2);
-    rb_define_method(mROGL, "glCreateProgramPipelines", rogl_glCreateProgramPipelines, 2);
-    rb_define_method(mROGL, "glCreateQueries", rogl_glCreateQueries, 3);
-    rb_define_method(mROGL, "glGetQueryBufferObjecti64v", rogl_glGetQueryBufferObjecti64v, 4);
-    rb_define_method(mROGL, "glGetQueryBufferObjectiv", rogl_glGetQueryBufferObjectiv, 4);
-    rb_define_method(mROGL, "glGetQueryBufferObjectui64v", rogl_glGetQueryBufferObjectui64v, 4);
-    rb_define_method(mROGL, "glGetQueryBufferObjectuiv", rogl_glGetQueryBufferObjectuiv, 4);
-    rb_define_method(mROGL, "glMemoryBarrierByRegion", rogl_glMemoryBarrierByRegion, 1);
-    rb_define_method(mROGL, "glGetTextureSubImage", rogl_glGetTextureSubImage, 12);
-    rb_define_method(mROGL, "glGetCompressedTextureSubImage", rogl_glGetCompressedTextureSubImage, 10);
-    rb_define_method(mROGL, "glGetGraphicsResetStatus", rogl_glGetGraphicsResetStatus, 0);
-    rb_define_method(mROGL, "glGetnCompressedTexImage", rogl_glGetnCompressedTexImage, 4);
-    rb_define_method(mROGL, "glGetnTexImage", rogl_glGetnTexImage, 6);
-    rb_define_method(mROGL, "glGetnUniformdv", rogl_glGetnUniformdv, 4);
-    rb_define_method(mROGL, "glGetnUniformfv", rogl_glGetnUniformfv, 4);
-    rb_define_method(mROGL, "glGetnUniformiv", rogl_glGetnUniformiv, 4);
-    rb_define_method(mROGL, "glGetnUniformuiv", rogl_glGetnUniformuiv, 4);
-    rb_define_method(mROGL, "glReadnPixels", rogl_glReadnPixels, 8);
-    rb_define_method(mROGL, "glGetnMapdv", rogl_glGetnMapdv, 4);
-    rb_define_method(mROGL, "glGetnMapfv", rogl_glGetnMapfv, 4);
-    rb_define_method(mROGL, "glGetnMapiv", rogl_glGetnMapiv, 4);
-    rb_define_method(mROGL, "glGetnPixelMapfv", rogl_glGetnPixelMapfv, 3);
-    rb_define_method(mROGL, "glGetnPixelMapuiv", rogl_glGetnPixelMapuiv, 3);
-    rb_define_method(mROGL, "glGetnPixelMapusv", rogl_glGetnPixelMapusv, 3);
-    rb_define_method(mROGL, "glGetnPolygonStipple", rogl_glGetnPolygonStipple, 2);
-    rb_define_method(mROGL, "glGetnColorTable", rogl_glGetnColorTable, 5);
-    rb_define_method(mROGL, "glGetnConvolutionFilter", rogl_glGetnConvolutionFilter, 5);
-    rb_define_method(mROGL, "glGetnSeparableFilter", rogl_glGetnSeparableFilter, 8);
-    rb_define_method(mROGL, "glGetnHistogram", rogl_glGetnHistogram, 6);
-    rb_define_method(mROGL, "glGetnMinmax", rogl_glGetnMinmax, 6);
-    rb_define_method(mROGL, "glTextureBarrier", rogl_glTextureBarrier, 0);
+    rb_define_method(*pmROGL, "glCullFace", rogl_glCullFace, 1);
+    rb_define_method(*pmROGL, "glFrontFace", rogl_glFrontFace, 1);
+    rb_define_method(*pmROGL, "glHint", rogl_glHint, 2);
+    rb_define_method(*pmROGL, "glLineWidth", rogl_glLineWidth, 1);
+    rb_define_method(*pmROGL, "glPointSize", rogl_glPointSize, 1);
+    rb_define_method(*pmROGL, "glPolygonMode", rogl_glPolygonMode, 2);
+    rb_define_method(*pmROGL, "glScissor", rogl_glScissor, 4);
+    rb_define_method(*pmROGL, "glTexParameterf", rogl_glTexParameterf, 3);
+    rb_define_method(*pmROGL, "glTexParameterfv", rogl_glTexParameterfv, 3);
+    rb_define_method(*pmROGL, "glTexParameteri", rogl_glTexParameteri, 3);
+    rb_define_method(*pmROGL, "glTexParameteriv", rogl_glTexParameteriv, 3);
+    rb_define_method(*pmROGL, "glTexImage1D", rogl_glTexImage1D, 8);
+    rb_define_method(*pmROGL, "glTexImage2D", rogl_glTexImage2D, 9);
+    rb_define_method(*pmROGL, "glDrawBuffer", rogl_glDrawBuffer, 1);
+    rb_define_method(*pmROGL, "glClear", rogl_glClear, 1);
+    rb_define_method(*pmROGL, "glClearColor", rogl_glClearColor, 4);
+    rb_define_method(*pmROGL, "glClearStencil", rogl_glClearStencil, 1);
+    rb_define_method(*pmROGL, "glClearDepth", rogl_glClearDepth, 1);
+    rb_define_method(*pmROGL, "glStencilMask", rogl_glStencilMask, 1);
+    rb_define_method(*pmROGL, "glColorMask", rogl_glColorMask, 4);
+    rb_define_method(*pmROGL, "glDepthMask", rogl_glDepthMask, 1);
+    rb_define_method(*pmROGL, "glDisable", rogl_glDisable, 1);
+    rb_define_method(*pmROGL, "glEnable", rogl_glEnable, 1);
+    rb_define_method(*pmROGL, "glFinish", rogl_glFinish, 0);
+    rb_define_method(*pmROGL, "glFlush", rogl_glFlush, 0);
+    rb_define_method(*pmROGL, "glBlendFunc", rogl_glBlendFunc, 2);
+    rb_define_method(*pmROGL, "glLogicOp", rogl_glLogicOp, 1);
+    rb_define_method(*pmROGL, "glStencilFunc", rogl_glStencilFunc, 3);
+    rb_define_method(*pmROGL, "glStencilOp", rogl_glStencilOp, 3);
+    rb_define_method(*pmROGL, "glDepthFunc", rogl_glDepthFunc, 1);
+    rb_define_method(*pmROGL, "glPixelStoref", rogl_glPixelStoref, 2);
+    rb_define_method(*pmROGL, "glPixelStorei", rogl_glPixelStorei, 2);
+    rb_define_method(*pmROGL, "glReadBuffer", rogl_glReadBuffer, 1);
+    rb_define_method(*pmROGL, "glReadPixels", rogl_glReadPixels, 7);
+    rb_define_method(*pmROGL, "glGetBooleanv", rogl_glGetBooleanv, 2);
+    rb_define_method(*pmROGL, "glGetDoublev", rogl_glGetDoublev, 2);
+    rb_define_method(*pmROGL, "glGetError", rogl_glGetError, 0);
+    rb_define_method(*pmROGL, "glGetFloatv", rogl_glGetFloatv, 2);
+    rb_define_method(*pmROGL, "glGetIntegerv", rogl_glGetIntegerv, 2);
+    rb_define_method(*pmROGL, "glGetString", rogl_glGetString, 1);
+    rb_define_method(*pmROGL, "glGetTexImage", rogl_glGetTexImage, 5);
+    rb_define_method(*pmROGL, "glGetTexParameterfv", rogl_glGetTexParameterfv, 3);
+    rb_define_method(*pmROGL, "glGetTexParameteriv", rogl_glGetTexParameteriv, 3);
+    rb_define_method(*pmROGL, "glGetTexLevelParameterfv", rogl_glGetTexLevelParameterfv, 4);
+    rb_define_method(*pmROGL, "glGetTexLevelParameteriv", rogl_glGetTexLevelParameteriv, 4);
+    rb_define_method(*pmROGL, "glIsEnabled", rogl_glIsEnabled, 1);
+    rb_define_method(*pmROGL, "glDepthRange", rogl_glDepthRange, 2);
+    rb_define_method(*pmROGL, "glViewport", rogl_glViewport, 4);
+    rb_define_method(*pmROGL, "glNewList", rogl_glNewList, 2);
+    rb_define_method(*pmROGL, "glEndList", rogl_glEndList, 0);
+    rb_define_method(*pmROGL, "glCallList", rogl_glCallList, 1);
+    rb_define_method(*pmROGL, "glCallLists", rogl_glCallLists, 3);
+    rb_define_method(*pmROGL, "glDeleteLists", rogl_glDeleteLists, 2);
+    rb_define_method(*pmROGL, "glGenLists", rogl_glGenLists, 1);
+    rb_define_method(*pmROGL, "glListBase", rogl_glListBase, 1);
+    rb_define_method(*pmROGL, "glBegin", rogl_glBegin, 1);
+    rb_define_method(*pmROGL, "glBitmap", rogl_glBitmap, 7);
+    rb_define_method(*pmROGL, "glColor3b", rogl_glColor3b, 3);
+    rb_define_method(*pmROGL, "glColor3bv", rogl_glColor3bv, 1);
+    rb_define_method(*pmROGL, "glColor3d", rogl_glColor3d, 3);
+    rb_define_method(*pmROGL, "glColor3dv", rogl_glColor3dv, 1);
+    rb_define_method(*pmROGL, "glColor3f", rogl_glColor3f, 3);
+    rb_define_method(*pmROGL, "glColor3fv", rogl_glColor3fv, 1);
+    rb_define_method(*pmROGL, "glColor3i", rogl_glColor3i, 3);
+    rb_define_method(*pmROGL, "glColor3iv", rogl_glColor3iv, 1);
+    rb_define_method(*pmROGL, "glColor3s", rogl_glColor3s, 3);
+    rb_define_method(*pmROGL, "glColor3sv", rogl_glColor3sv, 1);
+    rb_define_method(*pmROGL, "glColor3ub", rogl_glColor3ub, 3);
+    rb_define_method(*pmROGL, "glColor3ubv", rogl_glColor3ubv, 1);
+    rb_define_method(*pmROGL, "glColor3ui", rogl_glColor3ui, 3);
+    rb_define_method(*pmROGL, "glColor3uiv", rogl_glColor3uiv, 1);
+    rb_define_method(*pmROGL, "glColor3us", rogl_glColor3us, 3);
+    rb_define_method(*pmROGL, "glColor3usv", rogl_glColor3usv, 1);
+    rb_define_method(*pmROGL, "glColor4b", rogl_glColor4b, 4);
+    rb_define_method(*pmROGL, "glColor4bv", rogl_glColor4bv, 1);
+    rb_define_method(*pmROGL, "glColor4d", rogl_glColor4d, 4);
+    rb_define_method(*pmROGL, "glColor4dv", rogl_glColor4dv, 1);
+    rb_define_method(*pmROGL, "glColor4f", rogl_glColor4f, 4);
+    rb_define_method(*pmROGL, "glColor4fv", rogl_glColor4fv, 1);
+    rb_define_method(*pmROGL, "glColor4i", rogl_glColor4i, 4);
+    rb_define_method(*pmROGL, "glColor4iv", rogl_glColor4iv, 1);
+    rb_define_method(*pmROGL, "glColor4s", rogl_glColor4s, 4);
+    rb_define_method(*pmROGL, "glColor4sv", rogl_glColor4sv, 1);
+    rb_define_method(*pmROGL, "glColor4ub", rogl_glColor4ub, 4);
+    rb_define_method(*pmROGL, "glColor4ubv", rogl_glColor4ubv, 1);
+    rb_define_method(*pmROGL, "glColor4ui", rogl_glColor4ui, 4);
+    rb_define_method(*pmROGL, "glColor4uiv", rogl_glColor4uiv, 1);
+    rb_define_method(*pmROGL, "glColor4us", rogl_glColor4us, 4);
+    rb_define_method(*pmROGL, "glColor4usv", rogl_glColor4usv, 1);
+    rb_define_method(*pmROGL, "glEdgeFlag", rogl_glEdgeFlag, 1);
+    rb_define_method(*pmROGL, "glEdgeFlagv", rogl_glEdgeFlagv, 1);
+    rb_define_method(*pmROGL, "glEnd", rogl_glEnd, 0);
+    rb_define_method(*pmROGL, "glIndexd", rogl_glIndexd, 1);
+    rb_define_method(*pmROGL, "glIndexdv", rogl_glIndexdv, 1);
+    rb_define_method(*pmROGL, "glIndexf", rogl_glIndexf, 1);
+    rb_define_method(*pmROGL, "glIndexfv", rogl_glIndexfv, 1);
+    rb_define_method(*pmROGL, "glIndexi", rogl_glIndexi, 1);
+    rb_define_method(*pmROGL, "glIndexiv", rogl_glIndexiv, 1);
+    rb_define_method(*pmROGL, "glIndexs", rogl_glIndexs, 1);
+    rb_define_method(*pmROGL, "glIndexsv", rogl_glIndexsv, 1);
+    rb_define_method(*pmROGL, "glNormal3b", rogl_glNormal3b, 3);
+    rb_define_method(*pmROGL, "glNormal3bv", rogl_glNormal3bv, 1);
+    rb_define_method(*pmROGL, "glNormal3d", rogl_glNormal3d, 3);
+    rb_define_method(*pmROGL, "glNormal3dv", rogl_glNormal3dv, 1);
+    rb_define_method(*pmROGL, "glNormal3f", rogl_glNormal3f, 3);
+    rb_define_method(*pmROGL, "glNormal3fv", rogl_glNormal3fv, 1);
+    rb_define_method(*pmROGL, "glNormal3i", rogl_glNormal3i, 3);
+    rb_define_method(*pmROGL, "glNormal3iv", rogl_glNormal3iv, 1);
+    rb_define_method(*pmROGL, "glNormal3s", rogl_glNormal3s, 3);
+    rb_define_method(*pmROGL, "glNormal3sv", rogl_glNormal3sv, 1);
+    rb_define_method(*pmROGL, "glRasterPos2d", rogl_glRasterPos2d, 2);
+    rb_define_method(*pmROGL, "glRasterPos2dv", rogl_glRasterPos2dv, 1);
+    rb_define_method(*pmROGL, "glRasterPos2f", rogl_glRasterPos2f, 2);
+    rb_define_method(*pmROGL, "glRasterPos2fv", rogl_glRasterPos2fv, 1);
+    rb_define_method(*pmROGL, "glRasterPos2i", rogl_glRasterPos2i, 2);
+    rb_define_method(*pmROGL, "glRasterPos2iv", rogl_glRasterPos2iv, 1);
+    rb_define_method(*pmROGL, "glRasterPos2s", rogl_glRasterPos2s, 2);
+    rb_define_method(*pmROGL, "glRasterPos2sv", rogl_glRasterPos2sv, 1);
+    rb_define_method(*pmROGL, "glRasterPos3d", rogl_glRasterPos3d, 3);
+    rb_define_method(*pmROGL, "glRasterPos3dv", rogl_glRasterPos3dv, 1);
+    rb_define_method(*pmROGL, "glRasterPos3f", rogl_glRasterPos3f, 3);
+    rb_define_method(*pmROGL, "glRasterPos3fv", rogl_glRasterPos3fv, 1);
+    rb_define_method(*pmROGL, "glRasterPos3i", rogl_glRasterPos3i, 3);
+    rb_define_method(*pmROGL, "glRasterPos3iv", rogl_glRasterPos3iv, 1);
+    rb_define_method(*pmROGL, "glRasterPos3s", rogl_glRasterPos3s, 3);
+    rb_define_method(*pmROGL, "glRasterPos3sv", rogl_glRasterPos3sv, 1);
+    rb_define_method(*pmROGL, "glRasterPos4d", rogl_glRasterPos4d, 4);
+    rb_define_method(*pmROGL, "glRasterPos4dv", rogl_glRasterPos4dv, 1);
+    rb_define_method(*pmROGL, "glRasterPos4f", rogl_glRasterPos4f, 4);
+    rb_define_method(*pmROGL, "glRasterPos4fv", rogl_glRasterPos4fv, 1);
+    rb_define_method(*pmROGL, "glRasterPos4i", rogl_glRasterPos4i, 4);
+    rb_define_method(*pmROGL, "glRasterPos4iv", rogl_glRasterPos4iv, 1);
+    rb_define_method(*pmROGL, "glRasterPos4s", rogl_glRasterPos4s, 4);
+    rb_define_method(*pmROGL, "glRasterPos4sv", rogl_glRasterPos4sv, 1);
+    rb_define_method(*pmROGL, "glRectd", rogl_glRectd, 4);
+    rb_define_method(*pmROGL, "glRectdv", rogl_glRectdv, 2);
+    rb_define_method(*pmROGL, "glRectf", rogl_glRectf, 4);
+    rb_define_method(*pmROGL, "glRectfv", rogl_glRectfv, 2);
+    rb_define_method(*pmROGL, "glRecti", rogl_glRecti, 4);
+    rb_define_method(*pmROGL, "glRectiv", rogl_glRectiv, 2);
+    rb_define_method(*pmROGL, "glRects", rogl_glRects, 4);
+    rb_define_method(*pmROGL, "glRectsv", rogl_glRectsv, 2);
+    rb_define_method(*pmROGL, "glTexCoord1d", rogl_glTexCoord1d, 1);
+    rb_define_method(*pmROGL, "glTexCoord1dv", rogl_glTexCoord1dv, 1);
+    rb_define_method(*pmROGL, "glTexCoord1f", rogl_glTexCoord1f, 1);
+    rb_define_method(*pmROGL, "glTexCoord1fv", rogl_glTexCoord1fv, 1);
+    rb_define_method(*pmROGL, "glTexCoord1i", rogl_glTexCoord1i, 1);
+    rb_define_method(*pmROGL, "glTexCoord1iv", rogl_glTexCoord1iv, 1);
+    rb_define_method(*pmROGL, "glTexCoord1s", rogl_glTexCoord1s, 1);
+    rb_define_method(*pmROGL, "glTexCoord1sv", rogl_glTexCoord1sv, 1);
+    rb_define_method(*pmROGL, "glTexCoord2d", rogl_glTexCoord2d, 2);
+    rb_define_method(*pmROGL, "glTexCoord2dv", rogl_glTexCoord2dv, 1);
+    rb_define_method(*pmROGL, "glTexCoord2f", rogl_glTexCoord2f, 2);
+    rb_define_method(*pmROGL, "glTexCoord2fv", rogl_glTexCoord2fv, 1);
+    rb_define_method(*pmROGL, "glTexCoord2i", rogl_glTexCoord2i, 2);
+    rb_define_method(*pmROGL, "glTexCoord2iv", rogl_glTexCoord2iv, 1);
+    rb_define_method(*pmROGL, "glTexCoord2s", rogl_glTexCoord2s, 2);
+    rb_define_method(*pmROGL, "glTexCoord2sv", rogl_glTexCoord2sv, 1);
+    rb_define_method(*pmROGL, "glTexCoord3d", rogl_glTexCoord3d, 3);
+    rb_define_method(*pmROGL, "glTexCoord3dv", rogl_glTexCoord3dv, 1);
+    rb_define_method(*pmROGL, "glTexCoord3f", rogl_glTexCoord3f, 3);
+    rb_define_method(*pmROGL, "glTexCoord3fv", rogl_glTexCoord3fv, 1);
+    rb_define_method(*pmROGL, "glTexCoord3i", rogl_glTexCoord3i, 3);
+    rb_define_method(*pmROGL, "glTexCoord3iv", rogl_glTexCoord3iv, 1);
+    rb_define_method(*pmROGL, "glTexCoord3s", rogl_glTexCoord3s, 3);
+    rb_define_method(*pmROGL, "glTexCoord3sv", rogl_glTexCoord3sv, 1);
+    rb_define_method(*pmROGL, "glTexCoord4d", rogl_glTexCoord4d, 4);
+    rb_define_method(*pmROGL, "glTexCoord4dv", rogl_glTexCoord4dv, 1);
+    rb_define_method(*pmROGL, "glTexCoord4f", rogl_glTexCoord4f, 4);
+    rb_define_method(*pmROGL, "glTexCoord4fv", rogl_glTexCoord4fv, 1);
+    rb_define_method(*pmROGL, "glTexCoord4i", rogl_glTexCoord4i, 4);
+    rb_define_method(*pmROGL, "glTexCoord4iv", rogl_glTexCoord4iv, 1);
+    rb_define_method(*pmROGL, "glTexCoord4s", rogl_glTexCoord4s, 4);
+    rb_define_method(*pmROGL, "glTexCoord4sv", rogl_glTexCoord4sv, 1);
+    rb_define_method(*pmROGL, "glVertex2d", rogl_glVertex2d, 2);
+    rb_define_method(*pmROGL, "glVertex2dv", rogl_glVertex2dv, 1);
+    rb_define_method(*pmROGL, "glVertex2f", rogl_glVertex2f, 2);
+    rb_define_method(*pmROGL, "glVertex2fv", rogl_glVertex2fv, 1);
+    rb_define_method(*pmROGL, "glVertex2i", rogl_glVertex2i, 2);
+    rb_define_method(*pmROGL, "glVertex2iv", rogl_glVertex2iv, 1);
+    rb_define_method(*pmROGL, "glVertex2s", rogl_glVertex2s, 2);
+    rb_define_method(*pmROGL, "glVertex2sv", rogl_glVertex2sv, 1);
+    rb_define_method(*pmROGL, "glVertex3d", rogl_glVertex3d, 3);
+    rb_define_method(*pmROGL, "glVertex3dv", rogl_glVertex3dv, 1);
+    rb_define_method(*pmROGL, "glVertex3f", rogl_glVertex3f, 3);
+    rb_define_method(*pmROGL, "glVertex3fv", rogl_glVertex3fv, 1);
+    rb_define_method(*pmROGL, "glVertex3i", rogl_glVertex3i, 3);
+    rb_define_method(*pmROGL, "glVertex3iv", rogl_glVertex3iv, 1);
+    rb_define_method(*pmROGL, "glVertex3s", rogl_glVertex3s, 3);
+    rb_define_method(*pmROGL, "glVertex3sv", rogl_glVertex3sv, 1);
+    rb_define_method(*pmROGL, "glVertex4d", rogl_glVertex4d, 4);
+    rb_define_method(*pmROGL, "glVertex4dv", rogl_glVertex4dv, 1);
+    rb_define_method(*pmROGL, "glVertex4f", rogl_glVertex4f, 4);
+    rb_define_method(*pmROGL, "glVertex4fv", rogl_glVertex4fv, 1);
+    rb_define_method(*pmROGL, "glVertex4i", rogl_glVertex4i, 4);
+    rb_define_method(*pmROGL, "glVertex4iv", rogl_glVertex4iv, 1);
+    rb_define_method(*pmROGL, "glVertex4s", rogl_glVertex4s, 4);
+    rb_define_method(*pmROGL, "glVertex4sv", rogl_glVertex4sv, 1);
+    rb_define_method(*pmROGL, "glClipPlane", rogl_glClipPlane, 2);
+    rb_define_method(*pmROGL, "glColorMaterial", rogl_glColorMaterial, 2);
+    rb_define_method(*pmROGL, "glFogf", rogl_glFogf, 2);
+    rb_define_method(*pmROGL, "glFogfv", rogl_glFogfv, 2);
+    rb_define_method(*pmROGL, "glFogi", rogl_glFogi, 2);
+    rb_define_method(*pmROGL, "glFogiv", rogl_glFogiv, 2);
+    rb_define_method(*pmROGL, "glLightf", rogl_glLightf, 3);
+    rb_define_method(*pmROGL, "glLightfv", rogl_glLightfv, 3);
+    rb_define_method(*pmROGL, "glLighti", rogl_glLighti, 3);
+    rb_define_method(*pmROGL, "glLightiv", rogl_glLightiv, 3);
+    rb_define_method(*pmROGL, "glLightModelf", rogl_glLightModelf, 2);
+    rb_define_method(*pmROGL, "glLightModelfv", rogl_glLightModelfv, 2);
+    rb_define_method(*pmROGL, "glLightModeli", rogl_glLightModeli, 2);
+    rb_define_method(*pmROGL, "glLightModeliv", rogl_glLightModeliv, 2);
+    rb_define_method(*pmROGL, "glLineStipple", rogl_glLineStipple, 2);
+    rb_define_method(*pmROGL, "glMaterialf", rogl_glMaterialf, 3);
+    rb_define_method(*pmROGL, "glMaterialfv", rogl_glMaterialfv, 3);
+    rb_define_method(*pmROGL, "glMateriali", rogl_glMateriali, 3);
+    rb_define_method(*pmROGL, "glMaterialiv", rogl_glMaterialiv, 3);
+    rb_define_method(*pmROGL, "glPolygonStipple", rogl_glPolygonStipple, 1);
+    rb_define_method(*pmROGL, "glShadeModel", rogl_glShadeModel, 1);
+    rb_define_method(*pmROGL, "glTexEnvf", rogl_glTexEnvf, 3);
+    rb_define_method(*pmROGL, "glTexEnvfv", rogl_glTexEnvfv, 3);
+    rb_define_method(*pmROGL, "glTexEnvi", rogl_glTexEnvi, 3);
+    rb_define_method(*pmROGL, "glTexEnviv", rogl_glTexEnviv, 3);
+    rb_define_method(*pmROGL, "glTexGend", rogl_glTexGend, 3);
+    rb_define_method(*pmROGL, "glTexGendv", rogl_glTexGendv, 3);
+    rb_define_method(*pmROGL, "glTexGenf", rogl_glTexGenf, 3);
+    rb_define_method(*pmROGL, "glTexGenfv", rogl_glTexGenfv, 3);
+    rb_define_method(*pmROGL, "glTexGeni", rogl_glTexGeni, 3);
+    rb_define_method(*pmROGL, "glTexGeniv", rogl_glTexGeniv, 3);
+    rb_define_method(*pmROGL, "glFeedbackBuffer", rogl_glFeedbackBuffer, 3);
+    rb_define_method(*pmROGL, "glSelectBuffer", rogl_glSelectBuffer, 2);
+    rb_define_method(*pmROGL, "glRenderMode", rogl_glRenderMode, 1);
+    rb_define_method(*pmROGL, "glInitNames", rogl_glInitNames, 0);
+    rb_define_method(*pmROGL, "glLoadName", rogl_glLoadName, 1);
+    rb_define_method(*pmROGL, "glPassThrough", rogl_glPassThrough, 1);
+    rb_define_method(*pmROGL, "glPopName", rogl_glPopName, 0);
+    rb_define_method(*pmROGL, "glPushName", rogl_glPushName, 1);
+    rb_define_method(*pmROGL, "glClearAccum", rogl_glClearAccum, 4);
+    rb_define_method(*pmROGL, "glClearIndex", rogl_glClearIndex, 1);
+    rb_define_method(*pmROGL, "glIndexMask", rogl_glIndexMask, 1);
+    rb_define_method(*pmROGL, "glAccum", rogl_glAccum, 2);
+    rb_define_method(*pmROGL, "glPopAttrib", rogl_glPopAttrib, 0);
+    rb_define_method(*pmROGL, "glPushAttrib", rogl_glPushAttrib, 1);
+    rb_define_method(*pmROGL, "glMap1d", rogl_glMap1d, 6);
+    rb_define_method(*pmROGL, "glMap1f", rogl_glMap1f, 6);
+    rb_define_method(*pmROGL, "glMap2d", rogl_glMap2d, 10);
+    rb_define_method(*pmROGL, "glMap2f", rogl_glMap2f, 10);
+    rb_define_method(*pmROGL, "glMapGrid1d", rogl_glMapGrid1d, 3);
+    rb_define_method(*pmROGL, "glMapGrid1f", rogl_glMapGrid1f, 3);
+    rb_define_method(*pmROGL, "glMapGrid2d", rogl_glMapGrid2d, 6);
+    rb_define_method(*pmROGL, "glMapGrid2f", rogl_glMapGrid2f, 6);
+    rb_define_method(*pmROGL, "glEvalCoord1d", rogl_glEvalCoord1d, 1);
+    rb_define_method(*pmROGL, "glEvalCoord1dv", rogl_glEvalCoord1dv, 1);
+    rb_define_method(*pmROGL, "glEvalCoord1f", rogl_glEvalCoord1f, 1);
+    rb_define_method(*pmROGL, "glEvalCoord1fv", rogl_glEvalCoord1fv, 1);
+    rb_define_method(*pmROGL, "glEvalCoord2d", rogl_glEvalCoord2d, 2);
+    rb_define_method(*pmROGL, "glEvalCoord2dv", rogl_glEvalCoord2dv, 1);
+    rb_define_method(*pmROGL, "glEvalCoord2f", rogl_glEvalCoord2f, 2);
+    rb_define_method(*pmROGL, "glEvalCoord2fv", rogl_glEvalCoord2fv, 1);
+    rb_define_method(*pmROGL, "glEvalMesh1", rogl_glEvalMesh1, 3);
+    rb_define_method(*pmROGL, "glEvalPoint1", rogl_glEvalPoint1, 1);
+    rb_define_method(*pmROGL, "glEvalMesh2", rogl_glEvalMesh2, 5);
+    rb_define_method(*pmROGL, "glEvalPoint2", rogl_glEvalPoint2, 2);
+    rb_define_method(*pmROGL, "glAlphaFunc", rogl_glAlphaFunc, 2);
+    rb_define_method(*pmROGL, "glPixelZoom", rogl_glPixelZoom, 2);
+    rb_define_method(*pmROGL, "glPixelTransferf", rogl_glPixelTransferf, 2);
+    rb_define_method(*pmROGL, "glPixelTransferi", rogl_glPixelTransferi, 2);
+    rb_define_method(*pmROGL, "glPixelMapfv", rogl_glPixelMapfv, 3);
+    rb_define_method(*pmROGL, "glPixelMapuiv", rogl_glPixelMapuiv, 3);
+    rb_define_method(*pmROGL, "glPixelMapusv", rogl_glPixelMapusv, 3);
+    rb_define_method(*pmROGL, "glCopyPixels", rogl_glCopyPixels, 5);
+    rb_define_method(*pmROGL, "glDrawPixels", rogl_glDrawPixels, 5);
+    rb_define_method(*pmROGL, "glGetClipPlane", rogl_glGetClipPlane, 2);
+    rb_define_method(*pmROGL, "glGetLightfv", rogl_glGetLightfv, 3);
+    rb_define_method(*pmROGL, "glGetLightiv", rogl_glGetLightiv, 3);
+    rb_define_method(*pmROGL, "glGetMapdv", rogl_glGetMapdv, 3);
+    rb_define_method(*pmROGL, "glGetMapfv", rogl_glGetMapfv, 3);
+    rb_define_method(*pmROGL, "glGetMapiv", rogl_glGetMapiv, 3);
+    rb_define_method(*pmROGL, "glGetMaterialfv", rogl_glGetMaterialfv, 3);
+    rb_define_method(*pmROGL, "glGetMaterialiv", rogl_glGetMaterialiv, 3);
+    rb_define_method(*pmROGL, "glGetPixelMapfv", rogl_glGetPixelMapfv, 2);
+    rb_define_method(*pmROGL, "glGetPixelMapuiv", rogl_glGetPixelMapuiv, 2);
+    rb_define_method(*pmROGL, "glGetPixelMapusv", rogl_glGetPixelMapusv, 2);
+    rb_define_method(*pmROGL, "glGetPolygonStipple", rogl_glGetPolygonStipple, 1);
+    rb_define_method(*pmROGL, "glGetTexEnvfv", rogl_glGetTexEnvfv, 3);
+    rb_define_method(*pmROGL, "glGetTexEnviv", rogl_glGetTexEnviv, 3);
+    rb_define_method(*pmROGL, "glGetTexGendv", rogl_glGetTexGendv, 3);
+    rb_define_method(*pmROGL, "glGetTexGenfv", rogl_glGetTexGenfv, 3);
+    rb_define_method(*pmROGL, "glGetTexGeniv", rogl_glGetTexGeniv, 3);
+    rb_define_method(*pmROGL, "glIsList", rogl_glIsList, 1);
+    rb_define_method(*pmROGL, "glFrustum", rogl_glFrustum, 6);
+    rb_define_method(*pmROGL, "glLoadIdentity", rogl_glLoadIdentity, 0);
+    rb_define_method(*pmROGL, "glLoadMatrixf", rogl_glLoadMatrixf, 1);
+    rb_define_method(*pmROGL, "glLoadMatrixd", rogl_glLoadMatrixd, 1);
+    rb_define_method(*pmROGL, "glMatrixMode", rogl_glMatrixMode, 1);
+    rb_define_method(*pmROGL, "glMultMatrixf", rogl_glMultMatrixf, 1);
+    rb_define_method(*pmROGL, "glMultMatrixd", rogl_glMultMatrixd, 1);
+    rb_define_method(*pmROGL, "glOrtho", rogl_glOrtho, 6);
+    rb_define_method(*pmROGL, "glPopMatrix", rogl_glPopMatrix, 0);
+    rb_define_method(*pmROGL, "glPushMatrix", rogl_glPushMatrix, 0);
+    rb_define_method(*pmROGL, "glRotated", rogl_glRotated, 4);
+    rb_define_method(*pmROGL, "glRotatef", rogl_glRotatef, 4);
+    rb_define_method(*pmROGL, "glScaled", rogl_glScaled, 3);
+    rb_define_method(*pmROGL, "glScalef", rogl_glScalef, 3);
+    rb_define_method(*pmROGL, "glTranslated", rogl_glTranslated, 3);
+    rb_define_method(*pmROGL, "glTranslatef", rogl_glTranslatef, 3);
+    rb_define_method(*pmROGL, "glDrawArrays", rogl_glDrawArrays, 3);
+    rb_define_method(*pmROGL, "glDrawElements", rogl_glDrawElements, 4);
+    rb_define_method(*pmROGL, "glGetPointerv", rogl_glGetPointerv, 2);
+    rb_define_method(*pmROGL, "glPolygonOffset", rogl_glPolygonOffset, 2);
+    rb_define_method(*pmROGL, "glCopyTexImage1D", rogl_glCopyTexImage1D, 7);
+    rb_define_method(*pmROGL, "glCopyTexImage2D", rogl_glCopyTexImage2D, 8);
+    rb_define_method(*pmROGL, "glCopyTexSubImage1D", rogl_glCopyTexSubImage1D, 6);
+    rb_define_method(*pmROGL, "glCopyTexSubImage2D", rogl_glCopyTexSubImage2D, 8);
+    rb_define_method(*pmROGL, "glTexSubImage1D", rogl_glTexSubImage1D, 7);
+    rb_define_method(*pmROGL, "glTexSubImage2D", rogl_glTexSubImage2D, 9);
+    rb_define_method(*pmROGL, "glBindTexture", rogl_glBindTexture, 2);
+    rb_define_method(*pmROGL, "glDeleteTextures", rogl_glDeleteTextures, 2);
+    rb_define_method(*pmROGL, "glGenTextures", rogl_glGenTextures, 2);
+    rb_define_method(*pmROGL, "glIsTexture", rogl_glIsTexture, 1);
+    rb_define_method(*pmROGL, "glArrayElement", rogl_glArrayElement, 1);
+    rb_define_method(*pmROGL, "glColorPointer", rogl_glColorPointer, 4);
+    rb_define_method(*pmROGL, "glDisableClientState", rogl_glDisableClientState, 1);
+    rb_define_method(*pmROGL, "glEdgeFlagPointer", rogl_glEdgeFlagPointer, 2);
+    rb_define_method(*pmROGL, "glEnableClientState", rogl_glEnableClientState, 1);
+    rb_define_method(*pmROGL, "glIndexPointer", rogl_glIndexPointer, 3);
+    rb_define_method(*pmROGL, "glInterleavedArrays", rogl_glInterleavedArrays, 3);
+    rb_define_method(*pmROGL, "glNormalPointer", rogl_glNormalPointer, 3);
+    rb_define_method(*pmROGL, "glTexCoordPointer", rogl_glTexCoordPointer, 4);
+    rb_define_method(*pmROGL, "glVertexPointer", rogl_glVertexPointer, 4);
+    rb_define_method(*pmROGL, "glAreTexturesResident", rogl_glAreTexturesResident, 3);
+    rb_define_method(*pmROGL, "glPrioritizeTextures", rogl_glPrioritizeTextures, 3);
+    rb_define_method(*pmROGL, "glIndexub", rogl_glIndexub, 1);
+    rb_define_method(*pmROGL, "glIndexubv", rogl_glIndexubv, 1);
+    rb_define_method(*pmROGL, "glPopClientAttrib", rogl_glPopClientAttrib, 0);
+    rb_define_method(*pmROGL, "glPushClientAttrib", rogl_glPushClientAttrib, 1);
+    rb_define_method(*pmROGL, "glDrawRangeElements", rogl_glDrawRangeElements, 6);
+    rb_define_method(*pmROGL, "glTexImage3D", rogl_glTexImage3D, 10);
+    rb_define_method(*pmROGL, "glTexSubImage3D", rogl_glTexSubImage3D, 11);
+    rb_define_method(*pmROGL, "glCopyTexSubImage3D", rogl_glCopyTexSubImage3D, 9);
+    rb_define_method(*pmROGL, "glActiveTexture", rogl_glActiveTexture, 1);
+    rb_define_method(*pmROGL, "glSampleCoverage", rogl_glSampleCoverage, 2);
+    rb_define_method(*pmROGL, "glCompressedTexImage3D", rogl_glCompressedTexImage3D, 9);
+    rb_define_method(*pmROGL, "glCompressedTexImage2D", rogl_glCompressedTexImage2D, 8);
+    rb_define_method(*pmROGL, "glCompressedTexImage1D", rogl_glCompressedTexImage1D, 7);
+    rb_define_method(*pmROGL, "glCompressedTexSubImage3D", rogl_glCompressedTexSubImage3D, 11);
+    rb_define_method(*pmROGL, "glCompressedTexSubImage2D", rogl_glCompressedTexSubImage2D, 9);
+    rb_define_method(*pmROGL, "glCompressedTexSubImage1D", rogl_glCompressedTexSubImage1D, 7);
+    rb_define_method(*pmROGL, "glGetCompressedTexImage", rogl_glGetCompressedTexImage, 3);
+    rb_define_method(*pmROGL, "glClientActiveTexture", rogl_glClientActiveTexture, 1);
+    rb_define_method(*pmROGL, "glMultiTexCoord1d", rogl_glMultiTexCoord1d, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord1dv", rogl_glMultiTexCoord1dv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord1f", rogl_glMultiTexCoord1f, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord1fv", rogl_glMultiTexCoord1fv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord1i", rogl_glMultiTexCoord1i, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord1iv", rogl_glMultiTexCoord1iv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord1s", rogl_glMultiTexCoord1s, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord1sv", rogl_glMultiTexCoord1sv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord2d", rogl_glMultiTexCoord2d, 3);
+    rb_define_method(*pmROGL, "glMultiTexCoord2dv", rogl_glMultiTexCoord2dv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord2f", rogl_glMultiTexCoord2f, 3);
+    rb_define_method(*pmROGL, "glMultiTexCoord2fv", rogl_glMultiTexCoord2fv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord2i", rogl_glMultiTexCoord2i, 3);
+    rb_define_method(*pmROGL, "glMultiTexCoord2iv", rogl_glMultiTexCoord2iv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord2s", rogl_glMultiTexCoord2s, 3);
+    rb_define_method(*pmROGL, "glMultiTexCoord2sv", rogl_glMultiTexCoord2sv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord3d", rogl_glMultiTexCoord3d, 4);
+    rb_define_method(*pmROGL, "glMultiTexCoord3dv", rogl_glMultiTexCoord3dv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord3f", rogl_glMultiTexCoord3f, 4);
+    rb_define_method(*pmROGL, "glMultiTexCoord3fv", rogl_glMultiTexCoord3fv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord3i", rogl_glMultiTexCoord3i, 4);
+    rb_define_method(*pmROGL, "glMultiTexCoord3iv", rogl_glMultiTexCoord3iv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord3s", rogl_glMultiTexCoord3s, 4);
+    rb_define_method(*pmROGL, "glMultiTexCoord3sv", rogl_glMultiTexCoord3sv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord4d", rogl_glMultiTexCoord4d, 5);
+    rb_define_method(*pmROGL, "glMultiTexCoord4dv", rogl_glMultiTexCoord4dv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord4f", rogl_glMultiTexCoord4f, 5);
+    rb_define_method(*pmROGL, "glMultiTexCoord4fv", rogl_glMultiTexCoord4fv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord4i", rogl_glMultiTexCoord4i, 5);
+    rb_define_method(*pmROGL, "glMultiTexCoord4iv", rogl_glMultiTexCoord4iv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoord4s", rogl_glMultiTexCoord4s, 5);
+    rb_define_method(*pmROGL, "glMultiTexCoord4sv", rogl_glMultiTexCoord4sv, 2);
+    rb_define_method(*pmROGL, "glLoadTransposeMatrixf", rogl_glLoadTransposeMatrixf, 1);
+    rb_define_method(*pmROGL, "glLoadTransposeMatrixd", rogl_glLoadTransposeMatrixd, 1);
+    rb_define_method(*pmROGL, "glMultTransposeMatrixf", rogl_glMultTransposeMatrixf, 1);
+    rb_define_method(*pmROGL, "glMultTransposeMatrixd", rogl_glMultTransposeMatrixd, 1);
+    rb_define_method(*pmROGL, "glBlendFuncSeparate", rogl_glBlendFuncSeparate, 4);
+    rb_define_method(*pmROGL, "glMultiDrawArrays", rogl_glMultiDrawArrays, 4);
+    rb_define_method(*pmROGL, "glMultiDrawElements", rogl_glMultiDrawElements, 5);
+    rb_define_method(*pmROGL, "glPointParameterf", rogl_glPointParameterf, 2);
+    rb_define_method(*pmROGL, "glPointParameterfv", rogl_glPointParameterfv, 2);
+    rb_define_method(*pmROGL, "glPointParameteri", rogl_glPointParameteri, 2);
+    rb_define_method(*pmROGL, "glPointParameteriv", rogl_glPointParameteriv, 2);
+    rb_define_method(*pmROGL, "glFogCoordf", rogl_glFogCoordf, 1);
+    rb_define_method(*pmROGL, "glFogCoordfv", rogl_glFogCoordfv, 1);
+    rb_define_method(*pmROGL, "glFogCoordd", rogl_glFogCoordd, 1);
+    rb_define_method(*pmROGL, "glFogCoorddv", rogl_glFogCoorddv, 1);
+    rb_define_method(*pmROGL, "glFogCoordPointer", rogl_glFogCoordPointer, 3);
+    rb_define_method(*pmROGL, "glSecondaryColor3b", rogl_glSecondaryColor3b, 3);
+    rb_define_method(*pmROGL, "glSecondaryColor3bv", rogl_glSecondaryColor3bv, 1);
+    rb_define_method(*pmROGL, "glSecondaryColor3d", rogl_glSecondaryColor3d, 3);
+    rb_define_method(*pmROGL, "glSecondaryColor3dv", rogl_glSecondaryColor3dv, 1);
+    rb_define_method(*pmROGL, "glSecondaryColor3f", rogl_glSecondaryColor3f, 3);
+    rb_define_method(*pmROGL, "glSecondaryColor3fv", rogl_glSecondaryColor3fv, 1);
+    rb_define_method(*pmROGL, "glSecondaryColor3i", rogl_glSecondaryColor3i, 3);
+    rb_define_method(*pmROGL, "glSecondaryColor3iv", rogl_glSecondaryColor3iv, 1);
+    rb_define_method(*pmROGL, "glSecondaryColor3s", rogl_glSecondaryColor3s, 3);
+    rb_define_method(*pmROGL, "glSecondaryColor3sv", rogl_glSecondaryColor3sv, 1);
+    rb_define_method(*pmROGL, "glSecondaryColor3ub", rogl_glSecondaryColor3ub, 3);
+    rb_define_method(*pmROGL, "glSecondaryColor3ubv", rogl_glSecondaryColor3ubv, 1);
+    rb_define_method(*pmROGL, "glSecondaryColor3ui", rogl_glSecondaryColor3ui, 3);
+    rb_define_method(*pmROGL, "glSecondaryColor3uiv", rogl_glSecondaryColor3uiv, 1);
+    rb_define_method(*pmROGL, "glSecondaryColor3us", rogl_glSecondaryColor3us, 3);
+    rb_define_method(*pmROGL, "glSecondaryColor3usv", rogl_glSecondaryColor3usv, 1);
+    rb_define_method(*pmROGL, "glSecondaryColorPointer", rogl_glSecondaryColorPointer, 4);
+    rb_define_method(*pmROGL, "glWindowPos2d", rogl_glWindowPos2d, 2);
+    rb_define_method(*pmROGL, "glWindowPos2dv", rogl_glWindowPos2dv, 1);
+    rb_define_method(*pmROGL, "glWindowPos2f", rogl_glWindowPos2f, 2);
+    rb_define_method(*pmROGL, "glWindowPos2fv", rogl_glWindowPos2fv, 1);
+    rb_define_method(*pmROGL, "glWindowPos2i", rogl_glWindowPos2i, 2);
+    rb_define_method(*pmROGL, "glWindowPos2iv", rogl_glWindowPos2iv, 1);
+    rb_define_method(*pmROGL, "glWindowPos2s", rogl_glWindowPos2s, 2);
+    rb_define_method(*pmROGL, "glWindowPos2sv", rogl_glWindowPos2sv, 1);
+    rb_define_method(*pmROGL, "glWindowPos3d", rogl_glWindowPos3d, 3);
+    rb_define_method(*pmROGL, "glWindowPos3dv", rogl_glWindowPos3dv, 1);
+    rb_define_method(*pmROGL, "glWindowPos3f", rogl_glWindowPos3f, 3);
+    rb_define_method(*pmROGL, "glWindowPos3fv", rogl_glWindowPos3fv, 1);
+    rb_define_method(*pmROGL, "glWindowPos3i", rogl_glWindowPos3i, 3);
+    rb_define_method(*pmROGL, "glWindowPos3iv", rogl_glWindowPos3iv, 1);
+    rb_define_method(*pmROGL, "glWindowPos3s", rogl_glWindowPos3s, 3);
+    rb_define_method(*pmROGL, "glWindowPos3sv", rogl_glWindowPos3sv, 1);
+    rb_define_method(*pmROGL, "glBlendColor", rogl_glBlendColor, 4);
+    rb_define_method(*pmROGL, "glBlendEquation", rogl_glBlendEquation, 1);
+    rb_define_method(*pmROGL, "glGenQueries", rogl_glGenQueries, 2);
+    rb_define_method(*pmROGL, "glDeleteQueries", rogl_glDeleteQueries, 2);
+    rb_define_method(*pmROGL, "glIsQuery", rogl_glIsQuery, 1);
+    rb_define_method(*pmROGL, "glBeginQuery", rogl_glBeginQuery, 2);
+    rb_define_method(*pmROGL, "glEndQuery", rogl_glEndQuery, 1);
+    rb_define_method(*pmROGL, "glGetQueryiv", rogl_glGetQueryiv, 3);
+    rb_define_method(*pmROGL, "glGetQueryObjectiv", rogl_glGetQueryObjectiv, 3);
+    rb_define_method(*pmROGL, "glGetQueryObjectuiv", rogl_glGetQueryObjectuiv, 3);
+    rb_define_method(*pmROGL, "glBindBuffer", rogl_glBindBuffer, 2);
+    rb_define_method(*pmROGL, "glDeleteBuffers", rogl_glDeleteBuffers, 2);
+    rb_define_method(*pmROGL, "glGenBuffers", rogl_glGenBuffers, 2);
+    rb_define_method(*pmROGL, "glIsBuffer", rogl_glIsBuffer, 1);
+    rb_define_method(*pmROGL, "glBufferData", rogl_glBufferData, 4);
+    rb_define_method(*pmROGL, "glBufferSubData", rogl_glBufferSubData, 4);
+    rb_define_method(*pmROGL, "glGetBufferSubData", rogl_glGetBufferSubData, 4);
+    rb_define_method(*pmROGL, "glMapBuffer", rogl_glMapBuffer, 2);
+    rb_define_method(*pmROGL, "glUnmapBuffer", rogl_glUnmapBuffer, 1);
+    rb_define_method(*pmROGL, "glGetBufferParameteriv", rogl_glGetBufferParameteriv, 3);
+    rb_define_method(*pmROGL, "glGetBufferPointerv", rogl_glGetBufferPointerv, 3);
+    rb_define_method(*pmROGL, "glBlendEquationSeparate", rogl_glBlendEquationSeparate, 2);
+    rb_define_method(*pmROGL, "glDrawBuffers", rogl_glDrawBuffers, 2);
+    rb_define_method(*pmROGL, "glStencilOpSeparate", rogl_glStencilOpSeparate, 4);
+    rb_define_method(*pmROGL, "glStencilFuncSeparate", rogl_glStencilFuncSeparate, 4);
+    rb_define_method(*pmROGL, "glStencilMaskSeparate", rogl_glStencilMaskSeparate, 2);
+    rb_define_method(*pmROGL, "glAttachShader", rogl_glAttachShader, 2);
+    rb_define_method(*pmROGL, "glBindAttribLocation", rogl_glBindAttribLocation, 3);
+    rb_define_method(*pmROGL, "glCompileShader", rogl_glCompileShader, 1);
+    rb_define_method(*pmROGL, "glCreateProgram", rogl_glCreateProgram, 0);
+    rb_define_method(*pmROGL, "glCreateShader", rogl_glCreateShader, 1);
+    rb_define_method(*pmROGL, "glDeleteProgram", rogl_glDeleteProgram, 1);
+    rb_define_method(*pmROGL, "glDeleteShader", rogl_glDeleteShader, 1);
+    rb_define_method(*pmROGL, "glDetachShader", rogl_glDetachShader, 2);
+    rb_define_method(*pmROGL, "glDisableVertexAttribArray", rogl_glDisableVertexAttribArray, 1);
+    rb_define_method(*pmROGL, "glEnableVertexAttribArray", rogl_glEnableVertexAttribArray, 1);
+    rb_define_method(*pmROGL, "glGetActiveAttrib", rogl_glGetActiveAttrib, 7);
+    rb_define_method(*pmROGL, "glGetActiveUniform", rogl_glGetActiveUniform, 7);
+    rb_define_method(*pmROGL, "glGetAttachedShaders", rogl_glGetAttachedShaders, 4);
+    rb_define_method(*pmROGL, "glGetAttribLocation", rogl_glGetAttribLocation, 2);
+    rb_define_method(*pmROGL, "glGetProgramiv", rogl_glGetProgramiv, 3);
+    rb_define_method(*pmROGL, "glGetProgramInfoLog", rogl_glGetProgramInfoLog, 4);
+    rb_define_method(*pmROGL, "glGetShaderiv", rogl_glGetShaderiv, 3);
+    rb_define_method(*pmROGL, "glGetShaderInfoLog", rogl_glGetShaderInfoLog, 4);
+    rb_define_method(*pmROGL, "glGetShaderSource", rogl_glGetShaderSource, 4);
+    rb_define_method(*pmROGL, "glGetUniformLocation", rogl_glGetUniformLocation, 2);
+    rb_define_method(*pmROGL, "glGetUniformfv", rogl_glGetUniformfv, 3);
+    rb_define_method(*pmROGL, "glGetUniformiv", rogl_glGetUniformiv, 3);
+    rb_define_method(*pmROGL, "glGetVertexAttribdv", rogl_glGetVertexAttribdv, 3);
+    rb_define_method(*pmROGL, "glGetVertexAttribfv", rogl_glGetVertexAttribfv, 3);
+    rb_define_method(*pmROGL, "glGetVertexAttribiv", rogl_glGetVertexAttribiv, 3);
+    rb_define_method(*pmROGL, "glGetVertexAttribPointerv", rogl_glGetVertexAttribPointerv, 3);
+    rb_define_method(*pmROGL, "glIsProgram", rogl_glIsProgram, 1);
+    rb_define_method(*pmROGL, "glIsShader", rogl_glIsShader, 1);
+    rb_define_method(*pmROGL, "glLinkProgram", rogl_glLinkProgram, 1);
+    rb_define_method(*pmROGL, "glShaderSource", rogl_glShaderSource, 4);
+    rb_define_method(*pmROGL, "glUseProgram", rogl_glUseProgram, 1);
+    rb_define_method(*pmROGL, "glUniform1f", rogl_glUniform1f, 2);
+    rb_define_method(*pmROGL, "glUniform2f", rogl_glUniform2f, 3);
+    rb_define_method(*pmROGL, "glUniform3f", rogl_glUniform3f, 4);
+    rb_define_method(*pmROGL, "glUniform4f", rogl_glUniform4f, 5);
+    rb_define_method(*pmROGL, "glUniform1i", rogl_glUniform1i, 2);
+    rb_define_method(*pmROGL, "glUniform2i", rogl_glUniform2i, 3);
+    rb_define_method(*pmROGL, "glUniform3i", rogl_glUniform3i, 4);
+    rb_define_method(*pmROGL, "glUniform4i", rogl_glUniform4i, 5);
+    rb_define_method(*pmROGL, "glUniform1fv", rogl_glUniform1fv, 3);
+    rb_define_method(*pmROGL, "glUniform2fv", rogl_glUniform2fv, 3);
+    rb_define_method(*pmROGL, "glUniform3fv", rogl_glUniform3fv, 3);
+    rb_define_method(*pmROGL, "glUniform4fv", rogl_glUniform4fv, 3);
+    rb_define_method(*pmROGL, "glUniform1iv", rogl_glUniform1iv, 3);
+    rb_define_method(*pmROGL, "glUniform2iv", rogl_glUniform2iv, 3);
+    rb_define_method(*pmROGL, "glUniform3iv", rogl_glUniform3iv, 3);
+    rb_define_method(*pmROGL, "glUniform4iv", rogl_glUniform4iv, 3);
+    rb_define_method(*pmROGL, "glUniformMatrix2fv", rogl_glUniformMatrix2fv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix3fv", rogl_glUniformMatrix3fv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix4fv", rogl_glUniformMatrix4fv, 4);
+    rb_define_method(*pmROGL, "glValidateProgram", rogl_glValidateProgram, 1);
+    rb_define_method(*pmROGL, "glVertexAttrib1d", rogl_glVertexAttrib1d, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib1dv", rogl_glVertexAttrib1dv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib1f", rogl_glVertexAttrib1f, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib1fv", rogl_glVertexAttrib1fv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib1s", rogl_glVertexAttrib1s, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib1sv", rogl_glVertexAttrib1sv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib2d", rogl_glVertexAttrib2d, 3);
+    rb_define_method(*pmROGL, "glVertexAttrib2dv", rogl_glVertexAttrib2dv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib2f", rogl_glVertexAttrib2f, 3);
+    rb_define_method(*pmROGL, "glVertexAttrib2fv", rogl_glVertexAttrib2fv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib2s", rogl_glVertexAttrib2s, 3);
+    rb_define_method(*pmROGL, "glVertexAttrib2sv", rogl_glVertexAttrib2sv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib3d", rogl_glVertexAttrib3d, 4);
+    rb_define_method(*pmROGL, "glVertexAttrib3dv", rogl_glVertexAttrib3dv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib3f", rogl_glVertexAttrib3f, 4);
+    rb_define_method(*pmROGL, "glVertexAttrib3fv", rogl_glVertexAttrib3fv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib3s", rogl_glVertexAttrib3s, 4);
+    rb_define_method(*pmROGL, "glVertexAttrib3sv", rogl_glVertexAttrib3sv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4Nbv", rogl_glVertexAttrib4Nbv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4Niv", rogl_glVertexAttrib4Niv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4Nsv", rogl_glVertexAttrib4Nsv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4Nub", rogl_glVertexAttrib4Nub, 5);
+    rb_define_method(*pmROGL, "glVertexAttrib4Nubv", rogl_glVertexAttrib4Nubv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4Nuiv", rogl_glVertexAttrib4Nuiv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4Nusv", rogl_glVertexAttrib4Nusv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4bv", rogl_glVertexAttrib4bv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4d", rogl_glVertexAttrib4d, 5);
+    rb_define_method(*pmROGL, "glVertexAttrib4dv", rogl_glVertexAttrib4dv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4f", rogl_glVertexAttrib4f, 5);
+    rb_define_method(*pmROGL, "glVertexAttrib4fv", rogl_glVertexAttrib4fv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4iv", rogl_glVertexAttrib4iv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4s", rogl_glVertexAttrib4s, 5);
+    rb_define_method(*pmROGL, "glVertexAttrib4sv", rogl_glVertexAttrib4sv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4ubv", rogl_glVertexAttrib4ubv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4uiv", rogl_glVertexAttrib4uiv, 2);
+    rb_define_method(*pmROGL, "glVertexAttrib4usv", rogl_glVertexAttrib4usv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribPointer", rogl_glVertexAttribPointer, 6);
+    rb_define_method(*pmROGL, "glUniformMatrix2x3fv", rogl_glUniformMatrix2x3fv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix3x2fv", rogl_glUniformMatrix3x2fv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix2x4fv", rogl_glUniformMatrix2x4fv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix4x2fv", rogl_glUniformMatrix4x2fv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix3x4fv", rogl_glUniformMatrix3x4fv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix4x3fv", rogl_glUniformMatrix4x3fv, 4);
+    rb_define_method(*pmROGL, "glColorMaski", rogl_glColorMaski, 5);
+    rb_define_method(*pmROGL, "glGetBooleani_v", rogl_glGetBooleani_v, 3);
+    rb_define_method(*pmROGL, "glGetIntegeri_v", rogl_glGetIntegeri_v, 3);
+    rb_define_method(*pmROGL, "glEnablei", rogl_glEnablei, 2);
+    rb_define_method(*pmROGL, "glDisablei", rogl_glDisablei, 2);
+    rb_define_method(*pmROGL, "glIsEnabledi", rogl_glIsEnabledi, 2);
+    rb_define_method(*pmROGL, "glBeginTransformFeedback", rogl_glBeginTransformFeedback, 1);
+    rb_define_method(*pmROGL, "glEndTransformFeedback", rogl_glEndTransformFeedback, 0);
+    rb_define_method(*pmROGL, "glBindBufferRange", rogl_glBindBufferRange, 5);
+    rb_define_method(*pmROGL, "glBindBufferBase", rogl_glBindBufferBase, 3);
+    rb_define_method(*pmROGL, "glTransformFeedbackVaryings", rogl_glTransformFeedbackVaryings, 4);
+    rb_define_method(*pmROGL, "glGetTransformFeedbackVarying", rogl_glGetTransformFeedbackVarying, 7);
+    rb_define_method(*pmROGL, "glClampColor", rogl_glClampColor, 2);
+    rb_define_method(*pmROGL, "glBeginConditionalRender", rogl_glBeginConditionalRender, 2);
+    rb_define_method(*pmROGL, "glEndConditionalRender", rogl_glEndConditionalRender, 0);
+    rb_define_method(*pmROGL, "glVertexAttribIPointer", rogl_glVertexAttribIPointer, 5);
+    rb_define_method(*pmROGL, "glGetVertexAttribIiv", rogl_glGetVertexAttribIiv, 3);
+    rb_define_method(*pmROGL, "glGetVertexAttribIuiv", rogl_glGetVertexAttribIuiv, 3);
+    rb_define_method(*pmROGL, "glVertexAttribI1i", rogl_glVertexAttribI1i, 2);
+    rb_define_method(*pmROGL, "glVertexAttribI2i", rogl_glVertexAttribI2i, 3);
+    rb_define_method(*pmROGL, "glVertexAttribI3i", rogl_glVertexAttribI3i, 4);
+    rb_define_method(*pmROGL, "glVertexAttribI4i", rogl_glVertexAttribI4i, 5);
+    rb_define_method(*pmROGL, "glVertexAttribI1ui", rogl_glVertexAttribI1ui, 2);
+    rb_define_method(*pmROGL, "glVertexAttribI2ui", rogl_glVertexAttribI2ui, 3);
+    rb_define_method(*pmROGL, "glVertexAttribI3ui", rogl_glVertexAttribI3ui, 4);
+    rb_define_method(*pmROGL, "glVertexAttribI4ui", rogl_glVertexAttribI4ui, 5);
+    rb_define_method(*pmROGL, "glVertexAttribI1iv", rogl_glVertexAttribI1iv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribI2iv", rogl_glVertexAttribI2iv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribI3iv", rogl_glVertexAttribI3iv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribI4iv", rogl_glVertexAttribI4iv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribI1uiv", rogl_glVertexAttribI1uiv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribI2uiv", rogl_glVertexAttribI2uiv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribI3uiv", rogl_glVertexAttribI3uiv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribI4uiv", rogl_glVertexAttribI4uiv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribI4bv", rogl_glVertexAttribI4bv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribI4sv", rogl_glVertexAttribI4sv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribI4ubv", rogl_glVertexAttribI4ubv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribI4usv", rogl_glVertexAttribI4usv, 2);
+    rb_define_method(*pmROGL, "glGetUniformuiv", rogl_glGetUniformuiv, 3);
+    rb_define_method(*pmROGL, "glBindFragDataLocation", rogl_glBindFragDataLocation, 3);
+    rb_define_method(*pmROGL, "glGetFragDataLocation", rogl_glGetFragDataLocation, 2);
+    rb_define_method(*pmROGL, "glUniform1ui", rogl_glUniform1ui, 2);
+    rb_define_method(*pmROGL, "glUniform2ui", rogl_glUniform2ui, 3);
+    rb_define_method(*pmROGL, "glUniform3ui", rogl_glUniform3ui, 4);
+    rb_define_method(*pmROGL, "glUniform4ui", rogl_glUniform4ui, 5);
+    rb_define_method(*pmROGL, "glUniform1uiv", rogl_glUniform1uiv, 3);
+    rb_define_method(*pmROGL, "glUniform2uiv", rogl_glUniform2uiv, 3);
+    rb_define_method(*pmROGL, "glUniform3uiv", rogl_glUniform3uiv, 3);
+    rb_define_method(*pmROGL, "glUniform4uiv", rogl_glUniform4uiv, 3);
+    rb_define_method(*pmROGL, "glTexParameterIiv", rogl_glTexParameterIiv, 3);
+    rb_define_method(*pmROGL, "glTexParameterIuiv", rogl_glTexParameterIuiv, 3);
+    rb_define_method(*pmROGL, "glGetTexParameterIiv", rogl_glGetTexParameterIiv, 3);
+    rb_define_method(*pmROGL, "glGetTexParameterIuiv", rogl_glGetTexParameterIuiv, 3);
+    rb_define_method(*pmROGL, "glClearBufferiv", rogl_glClearBufferiv, 3);
+    rb_define_method(*pmROGL, "glClearBufferuiv", rogl_glClearBufferuiv, 3);
+    rb_define_method(*pmROGL, "glClearBufferfv", rogl_glClearBufferfv, 3);
+    rb_define_method(*pmROGL, "glClearBufferfi", rogl_glClearBufferfi, 4);
+    rb_define_method(*pmROGL, "glGetStringi", rogl_glGetStringi, 2);
+    rb_define_method(*pmROGL, "glIsRenderbuffer", rogl_glIsRenderbuffer, 1);
+    rb_define_method(*pmROGL, "glBindRenderbuffer", rogl_glBindRenderbuffer, 2);
+    rb_define_method(*pmROGL, "glDeleteRenderbuffers", rogl_glDeleteRenderbuffers, 2);
+    rb_define_method(*pmROGL, "glGenRenderbuffers", rogl_glGenRenderbuffers, 2);
+    rb_define_method(*pmROGL, "glRenderbufferStorage", rogl_glRenderbufferStorage, 4);
+    rb_define_method(*pmROGL, "glGetRenderbufferParameteriv", rogl_glGetRenderbufferParameteriv, 3);
+    rb_define_method(*pmROGL, "glIsFramebuffer", rogl_glIsFramebuffer, 1);
+    rb_define_method(*pmROGL, "glBindFramebuffer", rogl_glBindFramebuffer, 2);
+    rb_define_method(*pmROGL, "glDeleteFramebuffers", rogl_glDeleteFramebuffers, 2);
+    rb_define_method(*pmROGL, "glGenFramebuffers", rogl_glGenFramebuffers, 2);
+    rb_define_method(*pmROGL, "glCheckFramebufferStatus", rogl_glCheckFramebufferStatus, 1);
+    rb_define_method(*pmROGL, "glFramebufferTexture1D", rogl_glFramebufferTexture1D, 5);
+    rb_define_method(*pmROGL, "glFramebufferTexture2D", rogl_glFramebufferTexture2D, 5);
+    rb_define_method(*pmROGL, "glFramebufferTexture3D", rogl_glFramebufferTexture3D, 6);
+    rb_define_method(*pmROGL, "glFramebufferRenderbuffer", rogl_glFramebufferRenderbuffer, 4);
+    rb_define_method(*pmROGL, "glGetFramebufferAttachmentParameteriv", rogl_glGetFramebufferAttachmentParameteriv, 4);
+    rb_define_method(*pmROGL, "glGenerateMipmap", rogl_glGenerateMipmap, 1);
+    rb_define_method(*pmROGL, "glBlitFramebuffer", rogl_glBlitFramebuffer, 10);
+    rb_define_method(*pmROGL, "glRenderbufferStorageMultisample", rogl_glRenderbufferStorageMultisample, 5);
+    rb_define_method(*pmROGL, "glFramebufferTextureLayer", rogl_glFramebufferTextureLayer, 5);
+    rb_define_method(*pmROGL, "glMapBufferRange", rogl_glMapBufferRange, 4);
+    rb_define_method(*pmROGL, "glFlushMappedBufferRange", rogl_glFlushMappedBufferRange, 3);
+    rb_define_method(*pmROGL, "glBindVertexArray", rogl_glBindVertexArray, 1);
+    rb_define_method(*pmROGL, "glDeleteVertexArrays", rogl_glDeleteVertexArrays, 2);
+    rb_define_method(*pmROGL, "glGenVertexArrays", rogl_glGenVertexArrays, 2);
+    rb_define_method(*pmROGL, "glIsVertexArray", rogl_glIsVertexArray, 1);
+    rb_define_method(*pmROGL, "glDrawArraysInstanced", rogl_glDrawArraysInstanced, 4);
+    rb_define_method(*pmROGL, "glDrawElementsInstanced", rogl_glDrawElementsInstanced, 5);
+    rb_define_method(*pmROGL, "glTexBuffer", rogl_glTexBuffer, 3);
+    rb_define_method(*pmROGL, "glPrimitiveRestartIndex", rogl_glPrimitiveRestartIndex, 1);
+    rb_define_method(*pmROGL, "glCopyBufferSubData", rogl_glCopyBufferSubData, 5);
+    rb_define_method(*pmROGL, "glGetUniformIndices", rogl_glGetUniformIndices, 4);
+    rb_define_method(*pmROGL, "glGetActiveUniformsiv", rogl_glGetActiveUniformsiv, 5);
+    rb_define_method(*pmROGL, "glGetActiveUniformName", rogl_glGetActiveUniformName, 5);
+    rb_define_method(*pmROGL, "glGetUniformBlockIndex", rogl_glGetUniformBlockIndex, 2);
+    rb_define_method(*pmROGL, "glGetActiveUniformBlockiv", rogl_glGetActiveUniformBlockiv, 4);
+    rb_define_method(*pmROGL, "glGetActiveUniformBlockName", rogl_glGetActiveUniformBlockName, 5);
+    rb_define_method(*pmROGL, "glUniformBlockBinding", rogl_glUniformBlockBinding, 3);
+    rb_define_method(*pmROGL, "glDrawElementsBaseVertex", rogl_glDrawElementsBaseVertex, 5);
+    rb_define_method(*pmROGL, "glDrawRangeElementsBaseVertex", rogl_glDrawRangeElementsBaseVertex, 7);
+    rb_define_method(*pmROGL, "glDrawElementsInstancedBaseVertex", rogl_glDrawElementsInstancedBaseVertex, 6);
+    rb_define_method(*pmROGL, "glMultiDrawElementsBaseVertex", rogl_glMultiDrawElementsBaseVertex, 6);
+    rb_define_method(*pmROGL, "glProvokingVertex", rogl_glProvokingVertex, 1);
+    rb_define_method(*pmROGL, "glFenceSync", rogl_glFenceSync, 2);
+    rb_define_method(*pmROGL, "glIsSync", rogl_glIsSync, 1);
+    rb_define_method(*pmROGL, "glDeleteSync", rogl_glDeleteSync, 1);
+    rb_define_method(*pmROGL, "glClientWaitSync", rogl_glClientWaitSync, 3);
+    rb_define_method(*pmROGL, "glWaitSync", rogl_glWaitSync, 3);
+    rb_define_method(*pmROGL, "glGetInteger64v", rogl_glGetInteger64v, 2);
+    rb_define_method(*pmROGL, "glGetSynciv", rogl_glGetSynciv, 5);
+    rb_define_method(*pmROGL, "glGetInteger64i_v", rogl_glGetInteger64i_v, 3);
+    rb_define_method(*pmROGL, "glGetBufferParameteri64v", rogl_glGetBufferParameteri64v, 3);
+    rb_define_method(*pmROGL, "glFramebufferTexture", rogl_glFramebufferTexture, 4);
+    rb_define_method(*pmROGL, "glTexImage2DMultisample", rogl_glTexImage2DMultisample, 6);
+    rb_define_method(*pmROGL, "glTexImage3DMultisample", rogl_glTexImage3DMultisample, 7);
+    rb_define_method(*pmROGL, "glGetMultisamplefv", rogl_glGetMultisamplefv, 3);
+    rb_define_method(*pmROGL, "glSampleMaski", rogl_glSampleMaski, 2);
+    rb_define_method(*pmROGL, "glBindFragDataLocationIndexed", rogl_glBindFragDataLocationIndexed, 4);
+    rb_define_method(*pmROGL, "glGetFragDataIndex", rogl_glGetFragDataIndex, 2);
+    rb_define_method(*pmROGL, "glGenSamplers", rogl_glGenSamplers, 2);
+    rb_define_method(*pmROGL, "glDeleteSamplers", rogl_glDeleteSamplers, 2);
+    rb_define_method(*pmROGL, "glIsSampler", rogl_glIsSampler, 1);
+    rb_define_method(*pmROGL, "glBindSampler", rogl_glBindSampler, 2);
+    rb_define_method(*pmROGL, "glSamplerParameteri", rogl_glSamplerParameteri, 3);
+    rb_define_method(*pmROGL, "glSamplerParameteriv", rogl_glSamplerParameteriv, 3);
+    rb_define_method(*pmROGL, "glSamplerParameterf", rogl_glSamplerParameterf, 3);
+    rb_define_method(*pmROGL, "glSamplerParameterfv", rogl_glSamplerParameterfv, 3);
+    rb_define_method(*pmROGL, "glSamplerParameterIiv", rogl_glSamplerParameterIiv, 3);
+    rb_define_method(*pmROGL, "glSamplerParameterIuiv", rogl_glSamplerParameterIuiv, 3);
+    rb_define_method(*pmROGL, "glGetSamplerParameteriv", rogl_glGetSamplerParameteriv, 3);
+    rb_define_method(*pmROGL, "glGetSamplerParameterIiv", rogl_glGetSamplerParameterIiv, 3);
+    rb_define_method(*pmROGL, "glGetSamplerParameterfv", rogl_glGetSamplerParameterfv, 3);
+    rb_define_method(*pmROGL, "glGetSamplerParameterIuiv", rogl_glGetSamplerParameterIuiv, 3);
+    rb_define_method(*pmROGL, "glQueryCounter", rogl_glQueryCounter, 2);
+    rb_define_method(*pmROGL, "glGetQueryObjecti64v", rogl_glGetQueryObjecti64v, 3);
+    rb_define_method(*pmROGL, "glGetQueryObjectui64v", rogl_glGetQueryObjectui64v, 3);
+    rb_define_method(*pmROGL, "glVertexAttribDivisor", rogl_glVertexAttribDivisor, 2);
+    rb_define_method(*pmROGL, "glVertexAttribP1ui", rogl_glVertexAttribP1ui, 4);
+    rb_define_method(*pmROGL, "glVertexAttribP1uiv", rogl_glVertexAttribP1uiv, 4);
+    rb_define_method(*pmROGL, "glVertexAttribP2ui", rogl_glVertexAttribP2ui, 4);
+    rb_define_method(*pmROGL, "glVertexAttribP2uiv", rogl_glVertexAttribP2uiv, 4);
+    rb_define_method(*pmROGL, "glVertexAttribP3ui", rogl_glVertexAttribP3ui, 4);
+    rb_define_method(*pmROGL, "glVertexAttribP3uiv", rogl_glVertexAttribP3uiv, 4);
+    rb_define_method(*pmROGL, "glVertexAttribP4ui", rogl_glVertexAttribP4ui, 4);
+    rb_define_method(*pmROGL, "glVertexAttribP4uiv", rogl_glVertexAttribP4uiv, 4);
+    rb_define_method(*pmROGL, "glVertexP2ui", rogl_glVertexP2ui, 2);
+    rb_define_method(*pmROGL, "glVertexP2uiv", rogl_glVertexP2uiv, 2);
+    rb_define_method(*pmROGL, "glVertexP3ui", rogl_glVertexP3ui, 2);
+    rb_define_method(*pmROGL, "glVertexP3uiv", rogl_glVertexP3uiv, 2);
+    rb_define_method(*pmROGL, "glVertexP4ui", rogl_glVertexP4ui, 2);
+    rb_define_method(*pmROGL, "glVertexP4uiv", rogl_glVertexP4uiv, 2);
+    rb_define_method(*pmROGL, "glTexCoordP1ui", rogl_glTexCoordP1ui, 2);
+    rb_define_method(*pmROGL, "glTexCoordP1uiv", rogl_glTexCoordP1uiv, 2);
+    rb_define_method(*pmROGL, "glTexCoordP2ui", rogl_glTexCoordP2ui, 2);
+    rb_define_method(*pmROGL, "glTexCoordP2uiv", rogl_glTexCoordP2uiv, 2);
+    rb_define_method(*pmROGL, "glTexCoordP3ui", rogl_glTexCoordP3ui, 2);
+    rb_define_method(*pmROGL, "glTexCoordP3uiv", rogl_glTexCoordP3uiv, 2);
+    rb_define_method(*pmROGL, "glTexCoordP4ui", rogl_glTexCoordP4ui, 2);
+    rb_define_method(*pmROGL, "glTexCoordP4uiv", rogl_glTexCoordP4uiv, 2);
+    rb_define_method(*pmROGL, "glMultiTexCoordP1ui", rogl_glMultiTexCoordP1ui, 3);
+    rb_define_method(*pmROGL, "glMultiTexCoordP1uiv", rogl_glMultiTexCoordP1uiv, 3);
+    rb_define_method(*pmROGL, "glMultiTexCoordP2ui", rogl_glMultiTexCoordP2ui, 3);
+    rb_define_method(*pmROGL, "glMultiTexCoordP2uiv", rogl_glMultiTexCoordP2uiv, 3);
+    rb_define_method(*pmROGL, "glMultiTexCoordP3ui", rogl_glMultiTexCoordP3ui, 3);
+    rb_define_method(*pmROGL, "glMultiTexCoordP3uiv", rogl_glMultiTexCoordP3uiv, 3);
+    rb_define_method(*pmROGL, "glMultiTexCoordP4ui", rogl_glMultiTexCoordP4ui, 3);
+    rb_define_method(*pmROGL, "glMultiTexCoordP4uiv", rogl_glMultiTexCoordP4uiv, 3);
+    rb_define_method(*pmROGL, "glNormalP3ui", rogl_glNormalP3ui, 2);
+    rb_define_method(*pmROGL, "glNormalP3uiv", rogl_glNormalP3uiv, 2);
+    rb_define_method(*pmROGL, "glColorP3ui", rogl_glColorP3ui, 2);
+    rb_define_method(*pmROGL, "glColorP3uiv", rogl_glColorP3uiv, 2);
+    rb_define_method(*pmROGL, "glColorP4ui", rogl_glColorP4ui, 2);
+    rb_define_method(*pmROGL, "glColorP4uiv", rogl_glColorP4uiv, 2);
+    rb_define_method(*pmROGL, "glSecondaryColorP3ui", rogl_glSecondaryColorP3ui, 2);
+    rb_define_method(*pmROGL, "glSecondaryColorP3uiv", rogl_glSecondaryColorP3uiv, 2);
+    rb_define_method(*pmROGL, "glMinSampleShading", rogl_glMinSampleShading, 1);
+    rb_define_method(*pmROGL, "glBlendEquationi", rogl_glBlendEquationi, 2);
+    rb_define_method(*pmROGL, "glBlendEquationSeparatei", rogl_glBlendEquationSeparatei, 3);
+    rb_define_method(*pmROGL, "glBlendFunci", rogl_glBlendFunci, 3);
+    rb_define_method(*pmROGL, "glBlendFuncSeparatei", rogl_glBlendFuncSeparatei, 5);
+    rb_define_method(*pmROGL, "glDrawArraysIndirect", rogl_glDrawArraysIndirect, 2);
+    rb_define_method(*pmROGL, "glDrawElementsIndirect", rogl_glDrawElementsIndirect, 3);
+    rb_define_method(*pmROGL, "glUniform1d", rogl_glUniform1d, 2);
+    rb_define_method(*pmROGL, "glUniform2d", rogl_glUniform2d, 3);
+    rb_define_method(*pmROGL, "glUniform3d", rogl_glUniform3d, 4);
+    rb_define_method(*pmROGL, "glUniform4d", rogl_glUniform4d, 5);
+    rb_define_method(*pmROGL, "glUniform1dv", rogl_glUniform1dv, 3);
+    rb_define_method(*pmROGL, "glUniform2dv", rogl_glUniform2dv, 3);
+    rb_define_method(*pmROGL, "glUniform3dv", rogl_glUniform3dv, 3);
+    rb_define_method(*pmROGL, "glUniform4dv", rogl_glUniform4dv, 3);
+    rb_define_method(*pmROGL, "glUniformMatrix2dv", rogl_glUniformMatrix2dv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix3dv", rogl_glUniformMatrix3dv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix4dv", rogl_glUniformMatrix4dv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix2x3dv", rogl_glUniformMatrix2x3dv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix2x4dv", rogl_glUniformMatrix2x4dv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix3x2dv", rogl_glUniformMatrix3x2dv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix3x4dv", rogl_glUniformMatrix3x4dv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix4x2dv", rogl_glUniformMatrix4x2dv, 4);
+    rb_define_method(*pmROGL, "glUniformMatrix4x3dv", rogl_glUniformMatrix4x3dv, 4);
+    rb_define_method(*pmROGL, "glGetUniformdv", rogl_glGetUniformdv, 3);
+    rb_define_method(*pmROGL, "glGetSubroutineUniformLocation", rogl_glGetSubroutineUniformLocation, 3);
+    rb_define_method(*pmROGL, "glGetSubroutineIndex", rogl_glGetSubroutineIndex, 3);
+    rb_define_method(*pmROGL, "glGetActiveSubroutineUniformiv", rogl_glGetActiveSubroutineUniformiv, 5);
+    rb_define_method(*pmROGL, "glGetActiveSubroutineUniformName", rogl_glGetActiveSubroutineUniformName, 6);
+    rb_define_method(*pmROGL, "glGetActiveSubroutineName", rogl_glGetActiveSubroutineName, 6);
+    rb_define_method(*pmROGL, "glUniformSubroutinesuiv", rogl_glUniformSubroutinesuiv, 3);
+    rb_define_method(*pmROGL, "glGetUniformSubroutineuiv", rogl_glGetUniformSubroutineuiv, 3);
+    rb_define_method(*pmROGL, "glGetProgramStageiv", rogl_glGetProgramStageiv, 4);
+    rb_define_method(*pmROGL, "glPatchParameteri", rogl_glPatchParameteri, 2);
+    rb_define_method(*pmROGL, "glPatchParameterfv", rogl_glPatchParameterfv, 2);
+    rb_define_method(*pmROGL, "glBindTransformFeedback", rogl_glBindTransformFeedback, 2);
+    rb_define_method(*pmROGL, "glDeleteTransformFeedbacks", rogl_glDeleteTransformFeedbacks, 2);
+    rb_define_method(*pmROGL, "glGenTransformFeedbacks", rogl_glGenTransformFeedbacks, 2);
+    rb_define_method(*pmROGL, "glIsTransformFeedback", rogl_glIsTransformFeedback, 1);
+    rb_define_method(*pmROGL, "glPauseTransformFeedback", rogl_glPauseTransformFeedback, 0);
+    rb_define_method(*pmROGL, "glResumeTransformFeedback", rogl_glResumeTransformFeedback, 0);
+    rb_define_method(*pmROGL, "glDrawTransformFeedback", rogl_glDrawTransformFeedback, 2);
+    rb_define_method(*pmROGL, "glDrawTransformFeedbackStream", rogl_glDrawTransformFeedbackStream, 3);
+    rb_define_method(*pmROGL, "glBeginQueryIndexed", rogl_glBeginQueryIndexed, 3);
+    rb_define_method(*pmROGL, "glEndQueryIndexed", rogl_glEndQueryIndexed, 2);
+    rb_define_method(*pmROGL, "glGetQueryIndexediv", rogl_glGetQueryIndexediv, 4);
+    rb_define_method(*pmROGL, "glReleaseShaderCompiler", rogl_glReleaseShaderCompiler, 0);
+    rb_define_method(*pmROGL, "glShaderBinary", rogl_glShaderBinary, 5);
+    rb_define_method(*pmROGL, "glGetShaderPrecisionFormat", rogl_glGetShaderPrecisionFormat, 4);
+    rb_define_method(*pmROGL, "glDepthRangef", rogl_glDepthRangef, 2);
+    rb_define_method(*pmROGL, "glClearDepthf", rogl_glClearDepthf, 1);
+    rb_define_method(*pmROGL, "glGetProgramBinary", rogl_glGetProgramBinary, 5);
+    rb_define_method(*pmROGL, "glProgramBinary", rogl_glProgramBinary, 4);
+    rb_define_method(*pmROGL, "glProgramParameteri", rogl_glProgramParameteri, 3);
+    rb_define_method(*pmROGL, "glUseProgramStages", rogl_glUseProgramStages, 3);
+    rb_define_method(*pmROGL, "glActiveShaderProgram", rogl_glActiveShaderProgram, 2);
+    rb_define_method(*pmROGL, "glCreateShaderProgramv", rogl_glCreateShaderProgramv, 3);
+    rb_define_method(*pmROGL, "glBindProgramPipeline", rogl_glBindProgramPipeline, 1);
+    rb_define_method(*pmROGL, "glDeleteProgramPipelines", rogl_glDeleteProgramPipelines, 2);
+    rb_define_method(*pmROGL, "glGenProgramPipelines", rogl_glGenProgramPipelines, 2);
+    rb_define_method(*pmROGL, "glIsProgramPipeline", rogl_glIsProgramPipeline, 1);
+    rb_define_method(*pmROGL, "glGetProgramPipelineiv", rogl_glGetProgramPipelineiv, 3);
+    rb_define_method(*pmROGL, "glProgramUniform1i", rogl_glProgramUniform1i, 3);
+    rb_define_method(*pmROGL, "glProgramUniform1iv", rogl_glProgramUniform1iv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform1f", rogl_glProgramUniform1f, 3);
+    rb_define_method(*pmROGL, "glProgramUniform1fv", rogl_glProgramUniform1fv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform1d", rogl_glProgramUniform1d, 3);
+    rb_define_method(*pmROGL, "glProgramUniform1dv", rogl_glProgramUniform1dv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform1ui", rogl_glProgramUniform1ui, 3);
+    rb_define_method(*pmROGL, "glProgramUniform1uiv", rogl_glProgramUniform1uiv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform2i", rogl_glProgramUniform2i, 4);
+    rb_define_method(*pmROGL, "glProgramUniform2iv", rogl_glProgramUniform2iv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform2f", rogl_glProgramUniform2f, 4);
+    rb_define_method(*pmROGL, "glProgramUniform2fv", rogl_glProgramUniform2fv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform2d", rogl_glProgramUniform2d, 4);
+    rb_define_method(*pmROGL, "glProgramUniform2dv", rogl_glProgramUniform2dv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform2ui", rogl_glProgramUniform2ui, 4);
+    rb_define_method(*pmROGL, "glProgramUniform2uiv", rogl_glProgramUniform2uiv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform3i", rogl_glProgramUniform3i, 5);
+    rb_define_method(*pmROGL, "glProgramUniform3iv", rogl_glProgramUniform3iv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform3f", rogl_glProgramUniform3f, 5);
+    rb_define_method(*pmROGL, "glProgramUniform3fv", rogl_glProgramUniform3fv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform3d", rogl_glProgramUniform3d, 5);
+    rb_define_method(*pmROGL, "glProgramUniform3dv", rogl_glProgramUniform3dv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform3ui", rogl_glProgramUniform3ui, 5);
+    rb_define_method(*pmROGL, "glProgramUniform3uiv", rogl_glProgramUniform3uiv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform4i", rogl_glProgramUniform4i, 6);
+    rb_define_method(*pmROGL, "glProgramUniform4iv", rogl_glProgramUniform4iv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform4f", rogl_glProgramUniform4f, 6);
+    rb_define_method(*pmROGL, "glProgramUniform4fv", rogl_glProgramUniform4fv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform4d", rogl_glProgramUniform4d, 6);
+    rb_define_method(*pmROGL, "glProgramUniform4dv", rogl_glProgramUniform4dv, 4);
+    rb_define_method(*pmROGL, "glProgramUniform4ui", rogl_glProgramUniform4ui, 6);
+    rb_define_method(*pmROGL, "glProgramUniform4uiv", rogl_glProgramUniform4uiv, 4);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix2fv", rogl_glProgramUniformMatrix2fv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix3fv", rogl_glProgramUniformMatrix3fv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix4fv", rogl_glProgramUniformMatrix4fv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix2dv", rogl_glProgramUniformMatrix2dv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix3dv", rogl_glProgramUniformMatrix3dv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix4dv", rogl_glProgramUniformMatrix4dv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix2x3fv", rogl_glProgramUniformMatrix2x3fv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix3x2fv", rogl_glProgramUniformMatrix3x2fv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix2x4fv", rogl_glProgramUniformMatrix2x4fv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix4x2fv", rogl_glProgramUniformMatrix4x2fv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix3x4fv", rogl_glProgramUniformMatrix3x4fv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix4x3fv", rogl_glProgramUniformMatrix4x3fv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix2x3dv", rogl_glProgramUniformMatrix2x3dv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix3x2dv", rogl_glProgramUniformMatrix3x2dv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix2x4dv", rogl_glProgramUniformMatrix2x4dv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix4x2dv", rogl_glProgramUniformMatrix4x2dv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix3x4dv", rogl_glProgramUniformMatrix3x4dv, 5);
+    rb_define_method(*pmROGL, "glProgramUniformMatrix4x3dv", rogl_glProgramUniformMatrix4x3dv, 5);
+    rb_define_method(*pmROGL, "glValidateProgramPipeline", rogl_glValidateProgramPipeline, 1);
+    rb_define_method(*pmROGL, "glGetProgramPipelineInfoLog", rogl_glGetProgramPipelineInfoLog, 4);
+    rb_define_method(*pmROGL, "glVertexAttribL1d", rogl_glVertexAttribL1d, 2);
+    rb_define_method(*pmROGL, "glVertexAttribL2d", rogl_glVertexAttribL2d, 3);
+    rb_define_method(*pmROGL, "glVertexAttribL3d", rogl_glVertexAttribL3d, 4);
+    rb_define_method(*pmROGL, "glVertexAttribL4d", rogl_glVertexAttribL4d, 5);
+    rb_define_method(*pmROGL, "glVertexAttribL1dv", rogl_glVertexAttribL1dv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribL2dv", rogl_glVertexAttribL2dv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribL3dv", rogl_glVertexAttribL3dv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribL4dv", rogl_glVertexAttribL4dv, 2);
+    rb_define_method(*pmROGL, "glVertexAttribLPointer", rogl_glVertexAttribLPointer, 5);
+    rb_define_method(*pmROGL, "glGetVertexAttribLdv", rogl_glGetVertexAttribLdv, 3);
+    rb_define_method(*pmROGL, "glViewportArrayv", rogl_glViewportArrayv, 3);
+    rb_define_method(*pmROGL, "glViewportIndexedf", rogl_glViewportIndexedf, 5);
+    rb_define_method(*pmROGL, "glViewportIndexedfv", rogl_glViewportIndexedfv, 2);
+    rb_define_method(*pmROGL, "glScissorArrayv", rogl_glScissorArrayv, 3);
+    rb_define_method(*pmROGL, "glScissorIndexed", rogl_glScissorIndexed, 5);
+    rb_define_method(*pmROGL, "glScissorIndexedv", rogl_glScissorIndexedv, 2);
+    rb_define_method(*pmROGL, "glDepthRangeArrayv", rogl_glDepthRangeArrayv, 3);
+    rb_define_method(*pmROGL, "glDepthRangeIndexed", rogl_glDepthRangeIndexed, 3);
+    rb_define_method(*pmROGL, "glGetFloati_v", rogl_glGetFloati_v, 3);
+    rb_define_method(*pmROGL, "glGetDoublei_v", rogl_glGetDoublei_v, 3);
+    rb_define_method(*pmROGL, "glDrawArraysInstancedBaseInstance", rogl_glDrawArraysInstancedBaseInstance, 5);
+    rb_define_method(*pmROGL, "glDrawElementsInstancedBaseInstance", rogl_glDrawElementsInstancedBaseInstance, 6);
+    rb_define_method(*pmROGL, "glDrawElementsInstancedBaseVertexBaseInstance", rogl_glDrawElementsInstancedBaseVertexBaseInstance, 7);
+    rb_define_method(*pmROGL, "glGetInternalformativ", rogl_glGetInternalformativ, 5);
+    rb_define_method(*pmROGL, "glGetActiveAtomicCounterBufferiv", rogl_glGetActiveAtomicCounterBufferiv, 4);
+    rb_define_method(*pmROGL, "glBindImageTexture", rogl_glBindImageTexture, 7);
+    rb_define_method(*pmROGL, "glMemoryBarrier", rogl_glMemoryBarrier, 1);
+    rb_define_method(*pmROGL, "glTexStorage1D", rogl_glTexStorage1D, 4);
+    rb_define_method(*pmROGL, "glTexStorage2D", rogl_glTexStorage2D, 5);
+    rb_define_method(*pmROGL, "glTexStorage3D", rogl_glTexStorage3D, 6);
+    rb_define_method(*pmROGL, "glDrawTransformFeedbackInstanced", rogl_glDrawTransformFeedbackInstanced, 3);
+    rb_define_method(*pmROGL, "glDrawTransformFeedbackStreamInstanced", rogl_glDrawTransformFeedbackStreamInstanced, 4);
+    rb_define_method(*pmROGL, "glClearBufferData", rogl_glClearBufferData, 5);
+    rb_define_method(*pmROGL, "glClearBufferSubData", rogl_glClearBufferSubData, 7);
+    rb_define_method(*pmROGL, "glDispatchCompute", rogl_glDispatchCompute, 3);
+    rb_define_method(*pmROGL, "glDispatchComputeIndirect", rogl_glDispatchComputeIndirect, 1);
+    rb_define_method(*pmROGL, "glCopyImageSubData", rogl_glCopyImageSubData, 15);
+    rb_define_method(*pmROGL, "glFramebufferParameteri", rogl_glFramebufferParameteri, 3);
+    rb_define_method(*pmROGL, "glGetFramebufferParameteriv", rogl_glGetFramebufferParameteriv, 3);
+    rb_define_method(*pmROGL, "glGetInternalformati64v", rogl_glGetInternalformati64v, 5);
+    rb_define_method(*pmROGL, "glInvalidateTexSubImage", rogl_glInvalidateTexSubImage, 8);
+    rb_define_method(*pmROGL, "glInvalidateTexImage", rogl_glInvalidateTexImage, 2);
+    rb_define_method(*pmROGL, "glInvalidateBufferSubData", rogl_glInvalidateBufferSubData, 3);
+    rb_define_method(*pmROGL, "glInvalidateBufferData", rogl_glInvalidateBufferData, 1);
+    rb_define_method(*pmROGL, "glInvalidateFramebuffer", rogl_glInvalidateFramebuffer, 3);
+    rb_define_method(*pmROGL, "glInvalidateSubFramebuffer", rogl_glInvalidateSubFramebuffer, 7);
+    rb_define_method(*pmROGL, "glMultiDrawArraysIndirect", rogl_glMultiDrawArraysIndirect, 4);
+    rb_define_method(*pmROGL, "glMultiDrawElementsIndirect", rogl_glMultiDrawElementsIndirect, 5);
+    rb_define_method(*pmROGL, "glGetProgramInterfaceiv", rogl_glGetProgramInterfaceiv, 4);
+    rb_define_method(*pmROGL, "glGetProgramResourceIndex", rogl_glGetProgramResourceIndex, 3);
+    rb_define_method(*pmROGL, "glGetProgramResourceName", rogl_glGetProgramResourceName, 6);
+    rb_define_method(*pmROGL, "glGetProgramResourceiv", rogl_glGetProgramResourceiv, 8);
+    rb_define_method(*pmROGL, "glGetProgramResourceLocation", rogl_glGetProgramResourceLocation, 3);
+    rb_define_method(*pmROGL, "glGetProgramResourceLocationIndex", rogl_glGetProgramResourceLocationIndex, 3);
+    rb_define_method(*pmROGL, "glShaderStorageBlockBinding", rogl_glShaderStorageBlockBinding, 3);
+    rb_define_method(*pmROGL, "glTexBufferRange", rogl_glTexBufferRange, 5);
+    rb_define_method(*pmROGL, "glTexStorage2DMultisample", rogl_glTexStorage2DMultisample, 6);
+    rb_define_method(*pmROGL, "glTexStorage3DMultisample", rogl_glTexStorage3DMultisample, 7);
+    rb_define_method(*pmROGL, "glTextureView", rogl_glTextureView, 8);
+    rb_define_method(*pmROGL, "glBindVertexBuffer", rogl_glBindVertexBuffer, 4);
+    rb_define_method(*pmROGL, "glVertexAttribFormat", rogl_glVertexAttribFormat, 5);
+    rb_define_method(*pmROGL, "glVertexAttribIFormat", rogl_glVertexAttribIFormat, 4);
+    rb_define_method(*pmROGL, "glVertexAttribLFormat", rogl_glVertexAttribLFormat, 4);
+    rb_define_method(*pmROGL, "glVertexAttribBinding", rogl_glVertexAttribBinding, 2);
+    rb_define_method(*pmROGL, "glVertexBindingDivisor", rogl_glVertexBindingDivisor, 2);
+    rb_define_method(*pmROGL, "glDebugMessageControl", rogl_glDebugMessageControl, 6);
+    rb_define_method(*pmROGL, "glDebugMessageInsert", rogl_glDebugMessageInsert, 6);
+    rb_define_method(*pmROGL, "glDebugMessageCallback", rogl_glDebugMessageCallback, 2);
+    rb_define_method(*pmROGL, "glGetDebugMessageLog", rogl_glGetDebugMessageLog, 8);
+    rb_define_method(*pmROGL, "glPushDebugGroup", rogl_glPushDebugGroup, 4);
+    rb_define_method(*pmROGL, "glPopDebugGroup", rogl_glPopDebugGroup, 0);
+    rb_define_method(*pmROGL, "glObjectLabel", rogl_glObjectLabel, 4);
+    rb_define_method(*pmROGL, "glGetObjectLabel", rogl_glGetObjectLabel, 5);
+    rb_define_method(*pmROGL, "glObjectPtrLabel", rogl_glObjectPtrLabel, 3);
+    rb_define_method(*pmROGL, "glGetObjectPtrLabel", rogl_glGetObjectPtrLabel, 4);
+    rb_define_method(*pmROGL, "glBufferStorage", rogl_glBufferStorage, 4);
+    rb_define_method(*pmROGL, "glClearTexImage", rogl_glClearTexImage, 5);
+    rb_define_method(*pmROGL, "glClearTexSubImage", rogl_glClearTexSubImage, 11);
+    rb_define_method(*pmROGL, "glBindBuffersBase", rogl_glBindBuffersBase, 4);
+    rb_define_method(*pmROGL, "glBindBuffersRange", rogl_glBindBuffersRange, 6);
+    rb_define_method(*pmROGL, "glBindTextures", rogl_glBindTextures, 3);
+    rb_define_method(*pmROGL, "glBindSamplers", rogl_glBindSamplers, 3);
+    rb_define_method(*pmROGL, "glBindImageTextures", rogl_glBindImageTextures, 3);
+    rb_define_method(*pmROGL, "glBindVertexBuffers", rogl_glBindVertexBuffers, 5);
+    rb_define_method(*pmROGL, "glClipControl", rogl_glClipControl, 2);
+    rb_define_method(*pmROGL, "glCreateTransformFeedbacks", rogl_glCreateTransformFeedbacks, 2);
+    rb_define_method(*pmROGL, "glTransformFeedbackBufferBase", rogl_glTransformFeedbackBufferBase, 3);
+    rb_define_method(*pmROGL, "glTransformFeedbackBufferRange", rogl_glTransformFeedbackBufferRange, 5);
+    rb_define_method(*pmROGL, "glGetTransformFeedbackiv", rogl_glGetTransformFeedbackiv, 3);
+    rb_define_method(*pmROGL, "glGetTransformFeedbacki_v", rogl_glGetTransformFeedbacki_v, 4);
+    rb_define_method(*pmROGL, "glGetTransformFeedbacki64_v", rogl_glGetTransformFeedbacki64_v, 4);
+    rb_define_method(*pmROGL, "glCreateBuffers", rogl_glCreateBuffers, 2);
+    rb_define_method(*pmROGL, "glNamedBufferStorage", rogl_glNamedBufferStorage, 4);
+    rb_define_method(*pmROGL, "glNamedBufferData", rogl_glNamedBufferData, 4);
+    rb_define_method(*pmROGL, "glNamedBufferSubData", rogl_glNamedBufferSubData, 4);
+    rb_define_method(*pmROGL, "glCopyNamedBufferSubData", rogl_glCopyNamedBufferSubData, 5);
+    rb_define_method(*pmROGL, "glClearNamedBufferData", rogl_glClearNamedBufferData, 5);
+    rb_define_method(*pmROGL, "glClearNamedBufferSubData", rogl_glClearNamedBufferSubData, 7);
+    rb_define_method(*pmROGL, "glMapNamedBuffer", rogl_glMapNamedBuffer, 2);
+    rb_define_method(*pmROGL, "glMapNamedBufferRange", rogl_glMapNamedBufferRange, 4);
+    rb_define_method(*pmROGL, "glUnmapNamedBuffer", rogl_glUnmapNamedBuffer, 1);
+    rb_define_method(*pmROGL, "glFlushMappedNamedBufferRange", rogl_glFlushMappedNamedBufferRange, 3);
+    rb_define_method(*pmROGL, "glGetNamedBufferParameteriv", rogl_glGetNamedBufferParameteriv, 3);
+    rb_define_method(*pmROGL, "glGetNamedBufferParameteri64v", rogl_glGetNamedBufferParameteri64v, 3);
+    rb_define_method(*pmROGL, "glGetNamedBufferPointerv", rogl_glGetNamedBufferPointerv, 3);
+    rb_define_method(*pmROGL, "glGetNamedBufferSubData", rogl_glGetNamedBufferSubData, 4);
+    rb_define_method(*pmROGL, "glCreateFramebuffers", rogl_glCreateFramebuffers, 2);
+    rb_define_method(*pmROGL, "glNamedFramebufferRenderbuffer", rogl_glNamedFramebufferRenderbuffer, 4);
+    rb_define_method(*pmROGL, "glNamedFramebufferParameteri", rogl_glNamedFramebufferParameteri, 3);
+    rb_define_method(*pmROGL, "glNamedFramebufferTexture", rogl_glNamedFramebufferTexture, 4);
+    rb_define_method(*pmROGL, "glNamedFramebufferTextureLayer", rogl_glNamedFramebufferTextureLayer, 5);
+    rb_define_method(*pmROGL, "glNamedFramebufferDrawBuffer", rogl_glNamedFramebufferDrawBuffer, 2);
+    rb_define_method(*pmROGL, "glNamedFramebufferDrawBuffers", rogl_glNamedFramebufferDrawBuffers, 3);
+    rb_define_method(*pmROGL, "glNamedFramebufferReadBuffer", rogl_glNamedFramebufferReadBuffer, 2);
+    rb_define_method(*pmROGL, "glInvalidateNamedFramebufferData", rogl_glInvalidateNamedFramebufferData, 3);
+    rb_define_method(*pmROGL, "glInvalidateNamedFramebufferSubData", rogl_glInvalidateNamedFramebufferSubData, 7);
+    rb_define_method(*pmROGL, "glClearNamedFramebufferiv", rogl_glClearNamedFramebufferiv, 4);
+    rb_define_method(*pmROGL, "glClearNamedFramebufferuiv", rogl_glClearNamedFramebufferuiv, 4);
+    rb_define_method(*pmROGL, "glClearNamedFramebufferfv", rogl_glClearNamedFramebufferfv, 4);
+    rb_define_method(*pmROGL, "glClearNamedFramebufferfi", rogl_glClearNamedFramebufferfi, 4);
+    rb_define_method(*pmROGL, "glBlitNamedFramebuffer", rogl_glBlitNamedFramebuffer, 12);
+    rb_define_method(*pmROGL, "glCheckNamedFramebufferStatus", rogl_glCheckNamedFramebufferStatus, 2);
+    rb_define_method(*pmROGL, "glGetNamedFramebufferParameteriv", rogl_glGetNamedFramebufferParameteriv, 3);
+    rb_define_method(*pmROGL, "glGetNamedFramebufferAttachmentParameteriv", rogl_glGetNamedFramebufferAttachmentParameteriv, 4);
+    rb_define_method(*pmROGL, "glCreateRenderbuffers", rogl_glCreateRenderbuffers, 2);
+    rb_define_method(*pmROGL, "glNamedRenderbufferStorage", rogl_glNamedRenderbufferStorage, 4);
+    rb_define_method(*pmROGL, "glNamedRenderbufferStorageMultisample", rogl_glNamedRenderbufferStorageMultisample, 5);
+    rb_define_method(*pmROGL, "glGetNamedRenderbufferParameteriv", rogl_glGetNamedRenderbufferParameteriv, 3);
+    rb_define_method(*pmROGL, "glCreateTextures", rogl_glCreateTextures, 3);
+    rb_define_method(*pmROGL, "glTextureBuffer", rogl_glTextureBuffer, 3);
+    rb_define_method(*pmROGL, "glTextureBufferRange", rogl_glTextureBufferRange, 5);
+    rb_define_method(*pmROGL, "glTextureStorage1D", rogl_glTextureStorage1D, 4);
+    rb_define_method(*pmROGL, "glTextureStorage2D", rogl_glTextureStorage2D, 5);
+    rb_define_method(*pmROGL, "glTextureStorage3D", rogl_glTextureStorage3D, 6);
+    rb_define_method(*pmROGL, "glTextureStorage2DMultisample", rogl_glTextureStorage2DMultisample, 6);
+    rb_define_method(*pmROGL, "glTextureStorage3DMultisample", rogl_glTextureStorage3DMultisample, 7);
+    rb_define_method(*pmROGL, "glTextureSubImage1D", rogl_glTextureSubImage1D, 7);
+    rb_define_method(*pmROGL, "glTextureSubImage2D", rogl_glTextureSubImage2D, 9);
+    rb_define_method(*pmROGL, "glTextureSubImage3D", rogl_glTextureSubImage3D, 11);
+    rb_define_method(*pmROGL, "glCompressedTextureSubImage1D", rogl_glCompressedTextureSubImage1D, 7);
+    rb_define_method(*pmROGL, "glCompressedTextureSubImage2D", rogl_glCompressedTextureSubImage2D, 9);
+    rb_define_method(*pmROGL, "glCompressedTextureSubImage3D", rogl_glCompressedTextureSubImage3D, 11);
+    rb_define_method(*pmROGL, "glCopyTextureSubImage1D", rogl_glCopyTextureSubImage1D, 6);
+    rb_define_method(*pmROGL, "glCopyTextureSubImage2D", rogl_glCopyTextureSubImage2D, 8);
+    rb_define_method(*pmROGL, "glCopyTextureSubImage3D", rogl_glCopyTextureSubImage3D, 9);
+    rb_define_method(*pmROGL, "glTextureParameterf", rogl_glTextureParameterf, 3);
+    rb_define_method(*pmROGL, "glTextureParameterfv", rogl_glTextureParameterfv, 3);
+    rb_define_method(*pmROGL, "glTextureParameteri", rogl_glTextureParameteri, 3);
+    rb_define_method(*pmROGL, "glTextureParameterIiv", rogl_glTextureParameterIiv, 3);
+    rb_define_method(*pmROGL, "glTextureParameterIuiv", rogl_glTextureParameterIuiv, 3);
+    rb_define_method(*pmROGL, "glTextureParameteriv", rogl_glTextureParameteriv, 3);
+    rb_define_method(*pmROGL, "glGenerateTextureMipmap", rogl_glGenerateTextureMipmap, 1);
+    rb_define_method(*pmROGL, "glBindTextureUnit", rogl_glBindTextureUnit, 2);
+    rb_define_method(*pmROGL, "glGetTextureImage", rogl_glGetTextureImage, 6);
+    rb_define_method(*pmROGL, "glGetCompressedTextureImage", rogl_glGetCompressedTextureImage, 4);
+    rb_define_method(*pmROGL, "glGetTextureLevelParameterfv", rogl_glGetTextureLevelParameterfv, 4);
+    rb_define_method(*pmROGL, "glGetTextureLevelParameteriv", rogl_glGetTextureLevelParameteriv, 4);
+    rb_define_method(*pmROGL, "glGetTextureParameterfv", rogl_glGetTextureParameterfv, 3);
+    rb_define_method(*pmROGL, "glGetTextureParameterIiv", rogl_glGetTextureParameterIiv, 3);
+    rb_define_method(*pmROGL, "glGetTextureParameterIuiv", rogl_glGetTextureParameterIuiv, 3);
+    rb_define_method(*pmROGL, "glGetTextureParameteriv", rogl_glGetTextureParameteriv, 3);
+    rb_define_method(*pmROGL, "glCreateVertexArrays", rogl_glCreateVertexArrays, 2);
+    rb_define_method(*pmROGL, "glDisableVertexArrayAttrib", rogl_glDisableVertexArrayAttrib, 2);
+    rb_define_method(*pmROGL, "glEnableVertexArrayAttrib", rogl_glEnableVertexArrayAttrib, 2);
+    rb_define_method(*pmROGL, "glVertexArrayElementBuffer", rogl_glVertexArrayElementBuffer, 2);
+    rb_define_method(*pmROGL, "glVertexArrayVertexBuffer", rogl_glVertexArrayVertexBuffer, 5);
+    rb_define_method(*pmROGL, "glVertexArrayVertexBuffers", rogl_glVertexArrayVertexBuffers, 6);
+    rb_define_method(*pmROGL, "glVertexArrayAttribBinding", rogl_glVertexArrayAttribBinding, 3);
+    rb_define_method(*pmROGL, "glVertexArrayAttribFormat", rogl_glVertexArrayAttribFormat, 6);
+    rb_define_method(*pmROGL, "glVertexArrayAttribIFormat", rogl_glVertexArrayAttribIFormat, 5);
+    rb_define_method(*pmROGL, "glVertexArrayAttribLFormat", rogl_glVertexArrayAttribLFormat, 5);
+    rb_define_method(*pmROGL, "glVertexArrayBindingDivisor", rogl_glVertexArrayBindingDivisor, 3);
+    rb_define_method(*pmROGL, "glGetVertexArrayiv", rogl_glGetVertexArrayiv, 3);
+    rb_define_method(*pmROGL, "glGetVertexArrayIndexediv", rogl_glGetVertexArrayIndexediv, 4);
+    rb_define_method(*pmROGL, "glGetVertexArrayIndexed64iv", rogl_glGetVertexArrayIndexed64iv, 4);
+    rb_define_method(*pmROGL, "glCreateSamplers", rogl_glCreateSamplers, 2);
+    rb_define_method(*pmROGL, "glCreateProgramPipelines", rogl_glCreateProgramPipelines, 2);
+    rb_define_method(*pmROGL, "glCreateQueries", rogl_glCreateQueries, 3);
+    rb_define_method(*pmROGL, "glGetQueryBufferObjecti64v", rogl_glGetQueryBufferObjecti64v, 4);
+    rb_define_method(*pmROGL, "glGetQueryBufferObjectiv", rogl_glGetQueryBufferObjectiv, 4);
+    rb_define_method(*pmROGL, "glGetQueryBufferObjectui64v", rogl_glGetQueryBufferObjectui64v, 4);
+    rb_define_method(*pmROGL, "glGetQueryBufferObjectuiv", rogl_glGetQueryBufferObjectuiv, 4);
+    rb_define_method(*pmROGL, "glMemoryBarrierByRegion", rogl_glMemoryBarrierByRegion, 1);
+    rb_define_method(*pmROGL, "glGetTextureSubImage", rogl_glGetTextureSubImage, 12);
+    rb_define_method(*pmROGL, "glGetCompressedTextureSubImage", rogl_glGetCompressedTextureSubImage, 10);
+    rb_define_method(*pmROGL, "glGetGraphicsResetStatus", rogl_glGetGraphicsResetStatus, 0);
+    rb_define_method(*pmROGL, "glGetnCompressedTexImage", rogl_glGetnCompressedTexImage, 4);
+    rb_define_method(*pmROGL, "glGetnTexImage", rogl_glGetnTexImage, 6);
+    rb_define_method(*pmROGL, "glGetnUniformdv", rogl_glGetnUniformdv, 4);
+    rb_define_method(*pmROGL, "glGetnUniformfv", rogl_glGetnUniformfv, 4);
+    rb_define_method(*pmROGL, "glGetnUniformiv", rogl_glGetnUniformiv, 4);
+    rb_define_method(*pmROGL, "glGetnUniformuiv", rogl_glGetnUniformuiv, 4);
+    rb_define_method(*pmROGL, "glReadnPixels", rogl_glReadnPixels, 8);
+    rb_define_method(*pmROGL, "glGetnMapdv", rogl_glGetnMapdv, 4);
+    rb_define_method(*pmROGL, "glGetnMapfv", rogl_glGetnMapfv, 4);
+    rb_define_method(*pmROGL, "glGetnMapiv", rogl_glGetnMapiv, 4);
+    rb_define_method(*pmROGL, "glGetnPixelMapfv", rogl_glGetnPixelMapfv, 3);
+    rb_define_method(*pmROGL, "glGetnPixelMapuiv", rogl_glGetnPixelMapuiv, 3);
+    rb_define_method(*pmROGL, "glGetnPixelMapusv", rogl_glGetnPixelMapusv, 3);
+    rb_define_method(*pmROGL, "glGetnPolygonStipple", rogl_glGetnPolygonStipple, 2);
+    rb_define_method(*pmROGL, "glGetnColorTable", rogl_glGetnColorTable, 5);
+    rb_define_method(*pmROGL, "glGetnConvolutionFilter", rogl_glGetnConvolutionFilter, 5);
+    rb_define_method(*pmROGL, "glGetnSeparableFilter", rogl_glGetnSeparableFilter, 8);
+    rb_define_method(*pmROGL, "glGetnHistogram", rogl_glGetnHistogram, 6);
+    rb_define_method(*pmROGL, "glGetnMinmax", rogl_glGetnMinmax, 6);
+    rb_define_method(*pmROGL, "glTextureBarrier", rogl_glTextureBarrier, 0);
 }
 
-static void rogl_InitRubyEnum()
+static void rogl_InitRubyEnum( VALUE* pmROGL )
 {
-    rb_define_const(mROGL, "GL_DEPTH_BUFFER_BIT", UINT2NUM(0x00000100));
-    rb_define_const(mROGL, "GL_STENCIL_BUFFER_BIT", UINT2NUM(0x00000400));
-    rb_define_const(mROGL, "GL_COLOR_BUFFER_BIT", UINT2NUM(0x00004000));
-    rb_define_const(mROGL, "GL_FALSE", UINT2NUM(0));
-    rb_define_const(mROGL, "GL_TRUE", UINT2NUM(1));
-    rb_define_const(mROGL, "GL_POINTS", UINT2NUM(0x0000));
-    rb_define_const(mROGL, "GL_LINES", UINT2NUM(0x0001));
-    rb_define_const(mROGL, "GL_LINE_LOOP", UINT2NUM(0x0002));
-    rb_define_const(mROGL, "GL_LINE_STRIP", UINT2NUM(0x0003));
-    rb_define_const(mROGL, "GL_TRIANGLES", UINT2NUM(0x0004));
-    rb_define_const(mROGL, "GL_TRIANGLE_STRIP", UINT2NUM(0x0005));
-    rb_define_const(mROGL, "GL_TRIANGLE_FAN", UINT2NUM(0x0006));
-    rb_define_const(mROGL, "GL_QUADS", UINT2NUM(0x0007));
-    rb_define_const(mROGL, "GL_NEVER", UINT2NUM(0x0200));
-    rb_define_const(mROGL, "GL_LESS", UINT2NUM(0x0201));
-    rb_define_const(mROGL, "GL_EQUAL", UINT2NUM(0x0202));
-    rb_define_const(mROGL, "GL_LEQUAL", UINT2NUM(0x0203));
-    rb_define_const(mROGL, "GL_GREATER", UINT2NUM(0x0204));
-    rb_define_const(mROGL, "GL_NOTEQUAL", UINT2NUM(0x0205));
-    rb_define_const(mROGL, "GL_GEQUAL", UINT2NUM(0x0206));
-    rb_define_const(mROGL, "GL_ALWAYS", UINT2NUM(0x0207));
-    rb_define_const(mROGL, "GL_ZERO", UINT2NUM(0));
-    rb_define_const(mROGL, "GL_ONE", UINT2NUM(1));
-    rb_define_const(mROGL, "GL_SRC_COLOR", UINT2NUM(0x0300));
-    rb_define_const(mROGL, "GL_ONE_MINUS_SRC_COLOR", UINT2NUM(0x0301));
-    rb_define_const(mROGL, "GL_SRC_ALPHA", UINT2NUM(0x0302));
-    rb_define_const(mROGL, "GL_ONE_MINUS_SRC_ALPHA", UINT2NUM(0x0303));
-    rb_define_const(mROGL, "GL_DST_ALPHA", UINT2NUM(0x0304));
-    rb_define_const(mROGL, "GL_ONE_MINUS_DST_ALPHA", UINT2NUM(0x0305));
-    rb_define_const(mROGL, "GL_DST_COLOR", UINT2NUM(0x0306));
-    rb_define_const(mROGL, "GL_ONE_MINUS_DST_COLOR", UINT2NUM(0x0307));
-    rb_define_const(mROGL, "GL_SRC_ALPHA_SATURATE", UINT2NUM(0x0308));
-    rb_define_const(mROGL, "GL_NONE", UINT2NUM(0));
-    rb_define_const(mROGL, "GL_FRONT_LEFT", UINT2NUM(0x0400));
-    rb_define_const(mROGL, "GL_FRONT_RIGHT", UINT2NUM(0x0401));
-    rb_define_const(mROGL, "GL_BACK_LEFT", UINT2NUM(0x0402));
-    rb_define_const(mROGL, "GL_BACK_RIGHT", UINT2NUM(0x0403));
-    rb_define_const(mROGL, "GL_FRONT", UINT2NUM(0x0404));
-    rb_define_const(mROGL, "GL_BACK", UINT2NUM(0x0405));
-    rb_define_const(mROGL, "GL_LEFT", UINT2NUM(0x0406));
-    rb_define_const(mROGL, "GL_RIGHT", UINT2NUM(0x0407));
-    rb_define_const(mROGL, "GL_FRONT_AND_BACK", UINT2NUM(0x0408));
-    rb_define_const(mROGL, "GL_NO_ERROR", UINT2NUM(0));
-    rb_define_const(mROGL, "GL_INVALID_ENUM", UINT2NUM(0x0500));
-    rb_define_const(mROGL, "GL_INVALID_VALUE", UINT2NUM(0x0501));
-    rb_define_const(mROGL, "GL_INVALID_OPERATION", UINT2NUM(0x0502));
-    rb_define_const(mROGL, "GL_OUT_OF_MEMORY", UINT2NUM(0x0505));
-    rb_define_const(mROGL, "GL_CW", UINT2NUM(0x0900));
-    rb_define_const(mROGL, "GL_CCW", UINT2NUM(0x0901));
-    rb_define_const(mROGL, "GL_POINT_SIZE", UINT2NUM(0x0B11));
-    rb_define_const(mROGL, "GL_POINT_SIZE_RANGE", UINT2NUM(0x0B12));
-    rb_define_const(mROGL, "GL_POINT_SIZE_GRANULARITY", UINT2NUM(0x0B13));
-    rb_define_const(mROGL, "GL_LINE_SMOOTH", UINT2NUM(0x0B20));
-    rb_define_const(mROGL, "GL_LINE_WIDTH", UINT2NUM(0x0B21));
-    rb_define_const(mROGL, "GL_LINE_WIDTH_RANGE", UINT2NUM(0x0B22));
-    rb_define_const(mROGL, "GL_LINE_WIDTH_GRANULARITY", UINT2NUM(0x0B23));
-    rb_define_const(mROGL, "GL_POLYGON_MODE", UINT2NUM(0x0B40));
-    rb_define_const(mROGL, "GL_POLYGON_SMOOTH", UINT2NUM(0x0B41));
-    rb_define_const(mROGL, "GL_CULL_FACE", UINT2NUM(0x0B44));
-    rb_define_const(mROGL, "GL_CULL_FACE_MODE", UINT2NUM(0x0B45));
-    rb_define_const(mROGL, "GL_FRONT_FACE", UINT2NUM(0x0B46));
-    rb_define_const(mROGL, "GL_DEPTH_RANGE", UINT2NUM(0x0B70));
-    rb_define_const(mROGL, "GL_DEPTH_TEST", UINT2NUM(0x0B71));
-    rb_define_const(mROGL, "GL_DEPTH_WRITEMASK", UINT2NUM(0x0B72));
-    rb_define_const(mROGL, "GL_DEPTH_CLEAR_VALUE", UINT2NUM(0x0B73));
-    rb_define_const(mROGL, "GL_DEPTH_FUNC", UINT2NUM(0x0B74));
-    rb_define_const(mROGL, "GL_STENCIL_TEST", UINT2NUM(0x0B90));
-    rb_define_const(mROGL, "GL_STENCIL_CLEAR_VALUE", UINT2NUM(0x0B91));
-    rb_define_const(mROGL, "GL_STENCIL_FUNC", UINT2NUM(0x0B92));
-    rb_define_const(mROGL, "GL_STENCIL_VALUE_MASK", UINT2NUM(0x0B93));
-    rb_define_const(mROGL, "GL_STENCIL_FAIL", UINT2NUM(0x0B94));
-    rb_define_const(mROGL, "GL_STENCIL_PASS_DEPTH_FAIL", UINT2NUM(0x0B95));
-    rb_define_const(mROGL, "GL_STENCIL_PASS_DEPTH_PASS", UINT2NUM(0x0B96));
-    rb_define_const(mROGL, "GL_STENCIL_REF", UINT2NUM(0x0B97));
-    rb_define_const(mROGL, "GL_STENCIL_WRITEMASK", UINT2NUM(0x0B98));
-    rb_define_const(mROGL, "GL_VIEWPORT", UINT2NUM(0x0BA2));
-    rb_define_const(mROGL, "GL_DITHER", UINT2NUM(0x0BD0));
-    rb_define_const(mROGL, "GL_BLEND_DST", UINT2NUM(0x0BE0));
-    rb_define_const(mROGL, "GL_BLEND_SRC", UINT2NUM(0x0BE1));
-    rb_define_const(mROGL, "GL_BLEND", UINT2NUM(0x0BE2));
-    rb_define_const(mROGL, "GL_LOGIC_OP_MODE", UINT2NUM(0x0BF0));
-    rb_define_const(mROGL, "GL_COLOR_LOGIC_OP", UINT2NUM(0x0BF2));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER", UINT2NUM(0x0C01));
-    rb_define_const(mROGL, "GL_READ_BUFFER", UINT2NUM(0x0C02));
-    rb_define_const(mROGL, "GL_SCISSOR_BOX", UINT2NUM(0x0C10));
-    rb_define_const(mROGL, "GL_SCISSOR_TEST", UINT2NUM(0x0C11));
-    rb_define_const(mROGL, "GL_COLOR_CLEAR_VALUE", UINT2NUM(0x0C22));
-    rb_define_const(mROGL, "GL_COLOR_WRITEMASK", UINT2NUM(0x0C23));
-    rb_define_const(mROGL, "GL_DOUBLEBUFFER", UINT2NUM(0x0C32));
-    rb_define_const(mROGL, "GL_STEREO", UINT2NUM(0x0C33));
-    rb_define_const(mROGL, "GL_LINE_SMOOTH_HINT", UINT2NUM(0x0C52));
-    rb_define_const(mROGL, "GL_POLYGON_SMOOTH_HINT", UINT2NUM(0x0C53));
-    rb_define_const(mROGL, "GL_UNPACK_SWAP_BYTES", UINT2NUM(0x0CF0));
-    rb_define_const(mROGL, "GL_UNPACK_LSB_FIRST", UINT2NUM(0x0CF1));
-    rb_define_const(mROGL, "GL_UNPACK_ROW_LENGTH", UINT2NUM(0x0CF2));
-    rb_define_const(mROGL, "GL_UNPACK_SKIP_ROWS", UINT2NUM(0x0CF3));
-    rb_define_const(mROGL, "GL_UNPACK_SKIP_PIXELS", UINT2NUM(0x0CF4));
-    rb_define_const(mROGL, "GL_UNPACK_ALIGNMENT", UINT2NUM(0x0CF5));
-    rb_define_const(mROGL, "GL_PACK_SWAP_BYTES", UINT2NUM(0x0D00));
-    rb_define_const(mROGL, "GL_PACK_LSB_FIRST", UINT2NUM(0x0D01));
-    rb_define_const(mROGL, "GL_PACK_ROW_LENGTH", UINT2NUM(0x0D02));
-    rb_define_const(mROGL, "GL_PACK_SKIP_ROWS", UINT2NUM(0x0D03));
-    rb_define_const(mROGL, "GL_PACK_SKIP_PIXELS", UINT2NUM(0x0D04));
-    rb_define_const(mROGL, "GL_PACK_ALIGNMENT", UINT2NUM(0x0D05));
-    rb_define_const(mROGL, "GL_MAX_TEXTURE_SIZE", UINT2NUM(0x0D33));
-    rb_define_const(mROGL, "GL_MAX_VIEWPORT_DIMS", UINT2NUM(0x0D3A));
-    rb_define_const(mROGL, "GL_SUBPIXEL_BITS", UINT2NUM(0x0D50));
-    rb_define_const(mROGL, "GL_TEXTURE_1D", UINT2NUM(0x0DE0));
-    rb_define_const(mROGL, "GL_TEXTURE_2D", UINT2NUM(0x0DE1));
-    rb_define_const(mROGL, "GL_POLYGON_OFFSET_UNITS", UINT2NUM(0x2A00));
-    rb_define_const(mROGL, "GL_POLYGON_OFFSET_POINT", UINT2NUM(0x2A01));
-    rb_define_const(mROGL, "GL_POLYGON_OFFSET_LINE", UINT2NUM(0x2A02));
-    rb_define_const(mROGL, "GL_POLYGON_OFFSET_FILL", UINT2NUM(0x8037));
-    rb_define_const(mROGL, "GL_POLYGON_OFFSET_FACTOR", UINT2NUM(0x8038));
-    rb_define_const(mROGL, "GL_TEXTURE_BINDING_1D", UINT2NUM(0x8068));
-    rb_define_const(mROGL, "GL_TEXTURE_BINDING_2D", UINT2NUM(0x8069));
-    rb_define_const(mROGL, "GL_TEXTURE_WIDTH", UINT2NUM(0x1000));
-    rb_define_const(mROGL, "GL_TEXTURE_HEIGHT", UINT2NUM(0x1001));
-    rb_define_const(mROGL, "GL_TEXTURE_INTERNAL_FORMAT", UINT2NUM(0x1003));
-    rb_define_const(mROGL, "GL_TEXTURE_BORDER_COLOR", UINT2NUM(0x1004));
-    rb_define_const(mROGL, "GL_TEXTURE_RED_SIZE", UINT2NUM(0x805C));
-    rb_define_const(mROGL, "GL_TEXTURE_GREEN_SIZE", UINT2NUM(0x805D));
-    rb_define_const(mROGL, "GL_TEXTURE_BLUE_SIZE", UINT2NUM(0x805E));
-    rb_define_const(mROGL, "GL_TEXTURE_ALPHA_SIZE", UINT2NUM(0x805F));
-    rb_define_const(mROGL, "GL_DONT_CARE", UINT2NUM(0x1100));
-    rb_define_const(mROGL, "GL_FASTEST", UINT2NUM(0x1101));
-    rb_define_const(mROGL, "GL_NICEST", UINT2NUM(0x1102));
-    rb_define_const(mROGL, "GL_BYTE", UINT2NUM(0x1400));
-    rb_define_const(mROGL, "GL_UNSIGNED_BYTE", UINT2NUM(0x1401));
-    rb_define_const(mROGL, "GL_SHORT", UINT2NUM(0x1402));
-    rb_define_const(mROGL, "GL_UNSIGNED_SHORT", UINT2NUM(0x1403));
-    rb_define_const(mROGL, "GL_INT", UINT2NUM(0x1404));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT", UINT2NUM(0x1405));
-    rb_define_const(mROGL, "GL_FLOAT", UINT2NUM(0x1406));
-    rb_define_const(mROGL, "GL_DOUBLE", UINT2NUM(0x140A));
-    rb_define_const(mROGL, "GL_STACK_OVERFLOW", UINT2NUM(0x0503));
-    rb_define_const(mROGL, "GL_STACK_UNDERFLOW", UINT2NUM(0x0504));
-    rb_define_const(mROGL, "GL_CLEAR", UINT2NUM(0x1500));
-    rb_define_const(mROGL, "GL_AND", UINT2NUM(0x1501));
-    rb_define_const(mROGL, "GL_AND_REVERSE", UINT2NUM(0x1502));
-    rb_define_const(mROGL, "GL_COPY", UINT2NUM(0x1503));
-    rb_define_const(mROGL, "GL_AND_INVERTED", UINT2NUM(0x1504));
-    rb_define_const(mROGL, "GL_NOOP", UINT2NUM(0x1505));
-    rb_define_const(mROGL, "GL_XOR", UINT2NUM(0x1506));
-    rb_define_const(mROGL, "GL_OR", UINT2NUM(0x1507));
-    rb_define_const(mROGL, "GL_NOR", UINT2NUM(0x1508));
-    rb_define_const(mROGL, "GL_EQUIV", UINT2NUM(0x1509));
-    rb_define_const(mROGL, "GL_INVERT", UINT2NUM(0x150A));
-    rb_define_const(mROGL, "GL_OR_REVERSE", UINT2NUM(0x150B));
-    rb_define_const(mROGL, "GL_COPY_INVERTED", UINT2NUM(0x150C));
-    rb_define_const(mROGL, "GL_OR_INVERTED", UINT2NUM(0x150D));
-    rb_define_const(mROGL, "GL_NAND", UINT2NUM(0x150E));
-    rb_define_const(mROGL, "GL_SET", UINT2NUM(0x150F));
-    rb_define_const(mROGL, "GL_TEXTURE", UINT2NUM(0x1702));
-    rb_define_const(mROGL, "GL_COLOR", UINT2NUM(0x1800));
-    rb_define_const(mROGL, "GL_DEPTH", UINT2NUM(0x1801));
-    rb_define_const(mROGL, "GL_STENCIL", UINT2NUM(0x1802));
-    rb_define_const(mROGL, "GL_STENCIL_INDEX", UINT2NUM(0x1901));
-    rb_define_const(mROGL, "GL_DEPTH_COMPONENT", UINT2NUM(0x1902));
-    rb_define_const(mROGL, "GL_RED", UINT2NUM(0x1903));
-    rb_define_const(mROGL, "GL_GREEN", UINT2NUM(0x1904));
-    rb_define_const(mROGL, "GL_BLUE", UINT2NUM(0x1905));
-    rb_define_const(mROGL, "GL_ALPHA", UINT2NUM(0x1906));
-    rb_define_const(mROGL, "GL_RGB", UINT2NUM(0x1907));
-    rb_define_const(mROGL, "GL_RGBA", UINT2NUM(0x1908));
-    rb_define_const(mROGL, "GL_POINT", UINT2NUM(0x1B00));
-    rb_define_const(mROGL, "GL_LINE", UINT2NUM(0x1B01));
-    rb_define_const(mROGL, "GL_FILL", UINT2NUM(0x1B02));
-    rb_define_const(mROGL, "GL_KEEP", UINT2NUM(0x1E00));
-    rb_define_const(mROGL, "GL_REPLACE", UINT2NUM(0x1E01));
-    rb_define_const(mROGL, "GL_INCR", UINT2NUM(0x1E02));
-    rb_define_const(mROGL, "GL_DECR", UINT2NUM(0x1E03));
-    rb_define_const(mROGL, "GL_VENDOR", UINT2NUM(0x1F00));
-    rb_define_const(mROGL, "GL_RENDERER", UINT2NUM(0x1F01));
-    rb_define_const(mROGL, "GL_VERSION", UINT2NUM(0x1F02));
-    rb_define_const(mROGL, "GL_EXTENSIONS", UINT2NUM(0x1F03));
-    rb_define_const(mROGL, "GL_NEAREST", UINT2NUM(0x2600));
-    rb_define_const(mROGL, "GL_LINEAR", UINT2NUM(0x2601));
-    rb_define_const(mROGL, "GL_NEAREST_MIPMAP_NEAREST", UINT2NUM(0x2700));
-    rb_define_const(mROGL, "GL_LINEAR_MIPMAP_NEAREST", UINT2NUM(0x2701));
-    rb_define_const(mROGL, "GL_NEAREST_MIPMAP_LINEAR", UINT2NUM(0x2702));
-    rb_define_const(mROGL, "GL_LINEAR_MIPMAP_LINEAR", UINT2NUM(0x2703));
-    rb_define_const(mROGL, "GL_TEXTURE_MAG_FILTER", UINT2NUM(0x2800));
-    rb_define_const(mROGL, "GL_TEXTURE_MIN_FILTER", UINT2NUM(0x2801));
-    rb_define_const(mROGL, "GL_TEXTURE_WRAP_S", UINT2NUM(0x2802));
-    rb_define_const(mROGL, "GL_TEXTURE_WRAP_T", UINT2NUM(0x2803));
-    rb_define_const(mROGL, "GL_PROXY_TEXTURE_1D", UINT2NUM(0x8063));
-    rb_define_const(mROGL, "GL_PROXY_TEXTURE_2D", UINT2NUM(0x8064));
-    rb_define_const(mROGL, "GL_REPEAT", UINT2NUM(0x2901));
-    rb_define_const(mROGL, "GL_R3_G3_B2", UINT2NUM(0x2A10));
-    rb_define_const(mROGL, "GL_RGB4", UINT2NUM(0x804F));
-    rb_define_const(mROGL, "GL_RGB5", UINT2NUM(0x8050));
-    rb_define_const(mROGL, "GL_RGB8", UINT2NUM(0x8051));
-    rb_define_const(mROGL, "GL_RGB10", UINT2NUM(0x8052));
-    rb_define_const(mROGL, "GL_RGB12", UINT2NUM(0x8053));
-    rb_define_const(mROGL, "GL_RGB16", UINT2NUM(0x8054));
-    rb_define_const(mROGL, "GL_RGBA2", UINT2NUM(0x8055));
-    rb_define_const(mROGL, "GL_RGBA4", UINT2NUM(0x8056));
-    rb_define_const(mROGL, "GL_RGB5_A1", UINT2NUM(0x8057));
-    rb_define_const(mROGL, "GL_RGBA8", UINT2NUM(0x8058));
-    rb_define_const(mROGL, "GL_RGB10_A2", UINT2NUM(0x8059));
-    rb_define_const(mROGL, "GL_RGBA12", UINT2NUM(0x805A));
-    rb_define_const(mROGL, "GL_RGBA16", UINT2NUM(0x805B));
-    rb_define_const(mROGL, "GL_CURRENT_BIT", UINT2NUM(0x00000001));
-    rb_define_const(mROGL, "GL_POINT_BIT", UINT2NUM(0x00000002));
-    rb_define_const(mROGL, "GL_LINE_BIT", UINT2NUM(0x00000004));
-    rb_define_const(mROGL, "GL_POLYGON_BIT", UINT2NUM(0x00000008));
-    rb_define_const(mROGL, "GL_POLYGON_STIPPLE_BIT", UINT2NUM(0x00000010));
-    rb_define_const(mROGL, "GL_PIXEL_MODE_BIT", UINT2NUM(0x00000020));
-    rb_define_const(mROGL, "GL_LIGHTING_BIT", UINT2NUM(0x00000040));
-    rb_define_const(mROGL, "GL_FOG_BIT", UINT2NUM(0x00000080));
-    rb_define_const(mROGL, "GL_ACCUM_BUFFER_BIT", UINT2NUM(0x00000200));
-    rb_define_const(mROGL, "GL_VIEWPORT_BIT", UINT2NUM(0x00000800));
-    rb_define_const(mROGL, "GL_TRANSFORM_BIT", UINT2NUM(0x00001000));
-    rb_define_const(mROGL, "GL_ENABLE_BIT", UINT2NUM(0x00002000));
-    rb_define_const(mROGL, "GL_HINT_BIT", UINT2NUM(0x00008000));
-    rb_define_const(mROGL, "GL_EVAL_BIT", UINT2NUM(0x00010000));
-    rb_define_const(mROGL, "GL_LIST_BIT", UINT2NUM(0x00020000));
-    rb_define_const(mROGL, "GL_TEXTURE_BIT", UINT2NUM(0x00040000));
-    rb_define_const(mROGL, "GL_SCISSOR_BIT", UINT2NUM(0x00080000));
-    rb_define_const(mROGL, "GL_ALL_ATTRIB_BITS", UINT2NUM(0xFFFFFFFF));
-    rb_define_const(mROGL, "GL_CLIENT_PIXEL_STORE_BIT", UINT2NUM(0x00000001));
-    rb_define_const(mROGL, "GL_CLIENT_VERTEX_ARRAY_BIT", UINT2NUM(0x00000002));
-    rb_define_const(mROGL, "GL_CLIENT_ALL_ATTRIB_BITS", UINT2NUM(0xFFFFFFFF));
-    rb_define_const(mROGL, "GL_QUAD_STRIP", UINT2NUM(0x0008));
-    rb_define_const(mROGL, "GL_POLYGON", UINT2NUM(0x0009));
-    rb_define_const(mROGL, "GL_ACCUM", UINT2NUM(0x0100));
-    rb_define_const(mROGL, "GL_LOAD", UINT2NUM(0x0101));
-    rb_define_const(mROGL, "GL_RETURN", UINT2NUM(0x0102));
-    rb_define_const(mROGL, "GL_MULT", UINT2NUM(0x0103));
-    rb_define_const(mROGL, "GL_ADD", UINT2NUM(0x0104));
-    rb_define_const(mROGL, "GL_AUX0", UINT2NUM(0x0409));
-    rb_define_const(mROGL, "GL_AUX1", UINT2NUM(0x040A));
-    rb_define_const(mROGL, "GL_AUX2", UINT2NUM(0x040B));
-    rb_define_const(mROGL, "GL_AUX3", UINT2NUM(0x040C));
-    rb_define_const(mROGL, "GL_2D", UINT2NUM(0x0600));
-    rb_define_const(mROGL, "GL_3D", UINT2NUM(0x0601));
-    rb_define_const(mROGL, "GL_3D_COLOR", UINT2NUM(0x0602));
-    rb_define_const(mROGL, "GL_3D_COLOR_TEXTURE", UINT2NUM(0x0603));
-    rb_define_const(mROGL, "GL_4D_COLOR_TEXTURE", UINT2NUM(0x0604));
-    rb_define_const(mROGL, "GL_PASS_THROUGH_TOKEN", UINT2NUM(0x0700));
-    rb_define_const(mROGL, "GL_POINT_TOKEN", UINT2NUM(0x0701));
-    rb_define_const(mROGL, "GL_LINE_TOKEN", UINT2NUM(0x0702));
-    rb_define_const(mROGL, "GL_POLYGON_TOKEN", UINT2NUM(0x0703));
-    rb_define_const(mROGL, "GL_BITMAP_TOKEN", UINT2NUM(0x0704));
-    rb_define_const(mROGL, "GL_DRAW_PIXEL_TOKEN", UINT2NUM(0x0705));
-    rb_define_const(mROGL, "GL_COPY_PIXEL_TOKEN", UINT2NUM(0x0706));
-    rb_define_const(mROGL, "GL_LINE_RESET_TOKEN", UINT2NUM(0x0707));
-    rb_define_const(mROGL, "GL_EXP", UINT2NUM(0x0800));
-    rb_define_const(mROGL, "GL_EXP2", UINT2NUM(0x0801));
-    rb_define_const(mROGL, "GL_COEFF", UINT2NUM(0x0A00));
-    rb_define_const(mROGL, "GL_ORDER", UINT2NUM(0x0A01));
-    rb_define_const(mROGL, "GL_DOMAIN", UINT2NUM(0x0A02));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_I_TO_I", UINT2NUM(0x0C70));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_S_TO_S", UINT2NUM(0x0C71));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_I_TO_R", UINT2NUM(0x0C72));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_I_TO_G", UINT2NUM(0x0C73));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_I_TO_B", UINT2NUM(0x0C74));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_I_TO_A", UINT2NUM(0x0C75));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_R_TO_R", UINT2NUM(0x0C76));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_G_TO_G", UINT2NUM(0x0C77));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_B_TO_B", UINT2NUM(0x0C78));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_A_TO_A", UINT2NUM(0x0C79));
-    rb_define_const(mROGL, "GL_VERTEX_ARRAY_POINTER", UINT2NUM(0x808E));
-    rb_define_const(mROGL, "GL_NORMAL_ARRAY_POINTER", UINT2NUM(0x808F));
-    rb_define_const(mROGL, "GL_COLOR_ARRAY_POINTER", UINT2NUM(0x8090));
-    rb_define_const(mROGL, "GL_INDEX_ARRAY_POINTER", UINT2NUM(0x8091));
-    rb_define_const(mROGL, "GL_TEXTURE_COORD_ARRAY_POINTER", UINT2NUM(0x8092));
-    rb_define_const(mROGL, "GL_EDGE_FLAG_ARRAY_POINTER", UINT2NUM(0x8093));
-    rb_define_const(mROGL, "GL_FEEDBACK_BUFFER_POINTER", UINT2NUM(0x0DF0));
-    rb_define_const(mROGL, "GL_SELECTION_BUFFER_POINTER", UINT2NUM(0x0DF3));
-    rb_define_const(mROGL, "GL_CURRENT_COLOR", UINT2NUM(0x0B00));
-    rb_define_const(mROGL, "GL_CURRENT_INDEX", UINT2NUM(0x0B01));
-    rb_define_const(mROGL, "GL_CURRENT_NORMAL", UINT2NUM(0x0B02));
-    rb_define_const(mROGL, "GL_CURRENT_TEXTURE_COORDS", UINT2NUM(0x0B03));
-    rb_define_const(mROGL, "GL_CURRENT_RASTER_COLOR", UINT2NUM(0x0B04));
-    rb_define_const(mROGL, "GL_CURRENT_RASTER_INDEX", UINT2NUM(0x0B05));
-    rb_define_const(mROGL, "GL_CURRENT_RASTER_TEXTURE_COORDS", UINT2NUM(0x0B06));
-    rb_define_const(mROGL, "GL_CURRENT_RASTER_POSITION", UINT2NUM(0x0B07));
-    rb_define_const(mROGL, "GL_CURRENT_RASTER_POSITION_VALID", UINT2NUM(0x0B08));
-    rb_define_const(mROGL, "GL_CURRENT_RASTER_DISTANCE", UINT2NUM(0x0B09));
-    rb_define_const(mROGL, "GL_POINT_SMOOTH", UINT2NUM(0x0B10));
-    rb_define_const(mROGL, "GL_LINE_STIPPLE", UINT2NUM(0x0B24));
-    rb_define_const(mROGL, "GL_LINE_STIPPLE_PATTERN", UINT2NUM(0x0B25));
-    rb_define_const(mROGL, "GL_LINE_STIPPLE_REPEAT", UINT2NUM(0x0B26));
-    rb_define_const(mROGL, "GL_LIST_MODE", UINT2NUM(0x0B30));
-    rb_define_const(mROGL, "GL_MAX_LIST_NESTING", UINT2NUM(0x0B31));
-    rb_define_const(mROGL, "GL_LIST_BASE", UINT2NUM(0x0B32));
-    rb_define_const(mROGL, "GL_LIST_INDEX", UINT2NUM(0x0B33));
-    rb_define_const(mROGL, "GL_POLYGON_STIPPLE", UINT2NUM(0x0B42));
-    rb_define_const(mROGL, "GL_EDGE_FLAG", UINT2NUM(0x0B43));
-    rb_define_const(mROGL, "GL_LIGHTING", UINT2NUM(0x0B50));
-    rb_define_const(mROGL, "GL_LIGHT_MODEL_LOCAL_VIEWER", UINT2NUM(0x0B51));
-    rb_define_const(mROGL, "GL_LIGHT_MODEL_TWO_SIDE", UINT2NUM(0x0B52));
-    rb_define_const(mROGL, "GL_LIGHT_MODEL_AMBIENT", UINT2NUM(0x0B53));
-    rb_define_const(mROGL, "GL_SHADE_MODEL", UINT2NUM(0x0B54));
-    rb_define_const(mROGL, "GL_COLOR_MATERIAL_FACE", UINT2NUM(0x0B55));
-    rb_define_const(mROGL, "GL_COLOR_MATERIAL_PARAMETER", UINT2NUM(0x0B56));
-    rb_define_const(mROGL, "GL_COLOR_MATERIAL", UINT2NUM(0x0B57));
-    rb_define_const(mROGL, "GL_FOG", UINT2NUM(0x0B60));
-    rb_define_const(mROGL, "GL_FOG_INDEX", UINT2NUM(0x0B61));
-    rb_define_const(mROGL, "GL_FOG_DENSITY", UINT2NUM(0x0B62));
-    rb_define_const(mROGL, "GL_FOG_START", UINT2NUM(0x0B63));
-    rb_define_const(mROGL, "GL_FOG_END", UINT2NUM(0x0B64));
-    rb_define_const(mROGL, "GL_FOG_MODE", UINT2NUM(0x0B65));
-    rb_define_const(mROGL, "GL_FOG_COLOR", UINT2NUM(0x0B66));
-    rb_define_const(mROGL, "GL_ACCUM_CLEAR_VALUE", UINT2NUM(0x0B80));
-    rb_define_const(mROGL, "GL_MATRIX_MODE", UINT2NUM(0x0BA0));
-    rb_define_const(mROGL, "GL_NORMALIZE", UINT2NUM(0x0BA1));
-    rb_define_const(mROGL, "GL_MODELVIEW_STACK_DEPTH", UINT2NUM(0x0BA3));
-    rb_define_const(mROGL, "GL_PROJECTION_STACK_DEPTH", UINT2NUM(0x0BA4));
-    rb_define_const(mROGL, "GL_TEXTURE_STACK_DEPTH", UINT2NUM(0x0BA5));
-    rb_define_const(mROGL, "GL_MODELVIEW_MATRIX", UINT2NUM(0x0BA6));
-    rb_define_const(mROGL, "GL_PROJECTION_MATRIX", UINT2NUM(0x0BA7));
-    rb_define_const(mROGL, "GL_TEXTURE_MATRIX", UINT2NUM(0x0BA8));
-    rb_define_const(mROGL, "GL_ATTRIB_STACK_DEPTH", UINT2NUM(0x0BB0));
-    rb_define_const(mROGL, "GL_CLIENT_ATTRIB_STACK_DEPTH", UINT2NUM(0x0BB1));
-    rb_define_const(mROGL, "GL_ALPHA_TEST", UINT2NUM(0x0BC0));
-    rb_define_const(mROGL, "GL_ALPHA_TEST_FUNC", UINT2NUM(0x0BC1));
-    rb_define_const(mROGL, "GL_ALPHA_TEST_REF", UINT2NUM(0x0BC2));
-    rb_define_const(mROGL, "GL_INDEX_LOGIC_OP", UINT2NUM(0x0BF1));
-    rb_define_const(mROGL, "GL_LOGIC_OP", UINT2NUM(0x0BF1));
-    rb_define_const(mROGL, "GL_AUX_BUFFERS", UINT2NUM(0x0C00));
-    rb_define_const(mROGL, "GL_INDEX_CLEAR_VALUE", UINT2NUM(0x0C20));
-    rb_define_const(mROGL, "GL_INDEX_WRITEMASK", UINT2NUM(0x0C21));
-    rb_define_const(mROGL, "GL_INDEX_MODE", UINT2NUM(0x0C30));
-    rb_define_const(mROGL, "GL_RGBA_MODE", UINT2NUM(0x0C31));
-    rb_define_const(mROGL, "GL_RENDER_MODE", UINT2NUM(0x0C40));
-    rb_define_const(mROGL, "GL_PERSPECTIVE_CORRECTION_HINT", UINT2NUM(0x0C50));
-    rb_define_const(mROGL, "GL_POINT_SMOOTH_HINT", UINT2NUM(0x0C51));
-    rb_define_const(mROGL, "GL_FOG_HINT", UINT2NUM(0x0C54));
-    rb_define_const(mROGL, "GL_TEXTURE_GEN_S", UINT2NUM(0x0C60));
-    rb_define_const(mROGL, "GL_TEXTURE_GEN_T", UINT2NUM(0x0C61));
-    rb_define_const(mROGL, "GL_TEXTURE_GEN_R", UINT2NUM(0x0C62));
-    rb_define_const(mROGL, "GL_TEXTURE_GEN_Q", UINT2NUM(0x0C63));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_I_TO_I_SIZE", UINT2NUM(0x0CB0));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_S_TO_S_SIZE", UINT2NUM(0x0CB1));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_I_TO_R_SIZE", UINT2NUM(0x0CB2));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_I_TO_G_SIZE", UINT2NUM(0x0CB3));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_I_TO_B_SIZE", UINT2NUM(0x0CB4));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_I_TO_A_SIZE", UINT2NUM(0x0CB5));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_R_TO_R_SIZE", UINT2NUM(0x0CB6));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_G_TO_G_SIZE", UINT2NUM(0x0CB7));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_B_TO_B_SIZE", UINT2NUM(0x0CB8));
-    rb_define_const(mROGL, "GL_PIXEL_MAP_A_TO_A_SIZE", UINT2NUM(0x0CB9));
-    rb_define_const(mROGL, "GL_MAP_COLOR", UINT2NUM(0x0D10));
-    rb_define_const(mROGL, "GL_MAP_STENCIL", UINT2NUM(0x0D11));
-    rb_define_const(mROGL, "GL_INDEX_SHIFT", UINT2NUM(0x0D12));
-    rb_define_const(mROGL, "GL_INDEX_OFFSET", UINT2NUM(0x0D13));
-    rb_define_const(mROGL, "GL_RED_SCALE", UINT2NUM(0x0D14));
-    rb_define_const(mROGL, "GL_RED_BIAS", UINT2NUM(0x0D15));
-    rb_define_const(mROGL, "GL_ZOOM_X", UINT2NUM(0x0D16));
-    rb_define_const(mROGL, "GL_ZOOM_Y", UINT2NUM(0x0D17));
-    rb_define_const(mROGL, "GL_GREEN_SCALE", UINT2NUM(0x0D18));
-    rb_define_const(mROGL, "GL_GREEN_BIAS", UINT2NUM(0x0D19));
-    rb_define_const(mROGL, "GL_BLUE_SCALE", UINT2NUM(0x0D1A));
-    rb_define_const(mROGL, "GL_BLUE_BIAS", UINT2NUM(0x0D1B));
-    rb_define_const(mROGL, "GL_ALPHA_SCALE", UINT2NUM(0x0D1C));
-    rb_define_const(mROGL, "GL_ALPHA_BIAS", UINT2NUM(0x0D1D));
-    rb_define_const(mROGL, "GL_DEPTH_SCALE", UINT2NUM(0x0D1E));
-    rb_define_const(mROGL, "GL_DEPTH_BIAS", UINT2NUM(0x0D1F));
-    rb_define_const(mROGL, "GL_MAX_EVAL_ORDER", UINT2NUM(0x0D30));
-    rb_define_const(mROGL, "GL_MAX_LIGHTS", UINT2NUM(0x0D31));
-    rb_define_const(mROGL, "GL_MAX_CLIP_PLANES", UINT2NUM(0x0D32));
-    rb_define_const(mROGL, "GL_MAX_PIXEL_MAP_TABLE", UINT2NUM(0x0D34));
-    rb_define_const(mROGL, "GL_MAX_ATTRIB_STACK_DEPTH", UINT2NUM(0x0D35));
-    rb_define_const(mROGL, "GL_MAX_MODELVIEW_STACK_DEPTH", UINT2NUM(0x0D36));
-    rb_define_const(mROGL, "GL_MAX_NAME_STACK_DEPTH", UINT2NUM(0x0D37));
-    rb_define_const(mROGL, "GL_MAX_PROJECTION_STACK_DEPTH", UINT2NUM(0x0D38));
-    rb_define_const(mROGL, "GL_MAX_TEXTURE_STACK_DEPTH", UINT2NUM(0x0D39));
-    rb_define_const(mROGL, "GL_MAX_CLIENT_ATTRIB_STACK_DEPTH", UINT2NUM(0x0D3B));
-    rb_define_const(mROGL, "GL_INDEX_BITS", UINT2NUM(0x0D51));
-    rb_define_const(mROGL, "GL_RED_BITS", UINT2NUM(0x0D52));
-    rb_define_const(mROGL, "GL_GREEN_BITS", UINT2NUM(0x0D53));
-    rb_define_const(mROGL, "GL_BLUE_BITS", UINT2NUM(0x0D54));
-    rb_define_const(mROGL, "GL_ALPHA_BITS", UINT2NUM(0x0D55));
-    rb_define_const(mROGL, "GL_DEPTH_BITS", UINT2NUM(0x0D56));
-    rb_define_const(mROGL, "GL_STENCIL_BITS", UINT2NUM(0x0D57));
-    rb_define_const(mROGL, "GL_ACCUM_RED_BITS", UINT2NUM(0x0D58));
-    rb_define_const(mROGL, "GL_ACCUM_GREEN_BITS", UINT2NUM(0x0D59));
-    rb_define_const(mROGL, "GL_ACCUM_BLUE_BITS", UINT2NUM(0x0D5A));
-    rb_define_const(mROGL, "GL_ACCUM_ALPHA_BITS", UINT2NUM(0x0D5B));
-    rb_define_const(mROGL, "GL_NAME_STACK_DEPTH", UINT2NUM(0x0D70));
-    rb_define_const(mROGL, "GL_AUTO_NORMAL", UINT2NUM(0x0D80));
-    rb_define_const(mROGL, "GL_MAP1_COLOR_4", UINT2NUM(0x0D90));
-    rb_define_const(mROGL, "GL_MAP1_INDEX", UINT2NUM(0x0D91));
-    rb_define_const(mROGL, "GL_MAP1_NORMAL", UINT2NUM(0x0D92));
-    rb_define_const(mROGL, "GL_MAP1_TEXTURE_COORD_1", UINT2NUM(0x0D93));
-    rb_define_const(mROGL, "GL_MAP1_TEXTURE_COORD_2", UINT2NUM(0x0D94));
-    rb_define_const(mROGL, "GL_MAP1_TEXTURE_COORD_3", UINT2NUM(0x0D95));
-    rb_define_const(mROGL, "GL_MAP1_TEXTURE_COORD_4", UINT2NUM(0x0D96));
-    rb_define_const(mROGL, "GL_MAP1_VERTEX_3", UINT2NUM(0x0D97));
-    rb_define_const(mROGL, "GL_MAP1_VERTEX_4", UINT2NUM(0x0D98));
-    rb_define_const(mROGL, "GL_MAP2_COLOR_4", UINT2NUM(0x0DB0));
-    rb_define_const(mROGL, "GL_MAP2_INDEX", UINT2NUM(0x0DB1));
-    rb_define_const(mROGL, "GL_MAP2_NORMAL", UINT2NUM(0x0DB2));
-    rb_define_const(mROGL, "GL_MAP2_TEXTURE_COORD_1", UINT2NUM(0x0DB3));
-    rb_define_const(mROGL, "GL_MAP2_TEXTURE_COORD_2", UINT2NUM(0x0DB4));
-    rb_define_const(mROGL, "GL_MAP2_TEXTURE_COORD_3", UINT2NUM(0x0DB5));
-    rb_define_const(mROGL, "GL_MAP2_TEXTURE_COORD_4", UINT2NUM(0x0DB6));
-    rb_define_const(mROGL, "GL_MAP2_VERTEX_3", UINT2NUM(0x0DB7));
-    rb_define_const(mROGL, "GL_MAP2_VERTEX_4", UINT2NUM(0x0DB8));
-    rb_define_const(mROGL, "GL_MAP1_GRID_DOMAIN", UINT2NUM(0x0DD0));
-    rb_define_const(mROGL, "GL_MAP1_GRID_SEGMENTS", UINT2NUM(0x0DD1));
-    rb_define_const(mROGL, "GL_MAP2_GRID_DOMAIN", UINT2NUM(0x0DD2));
-    rb_define_const(mROGL, "GL_MAP2_GRID_SEGMENTS", UINT2NUM(0x0DD3));
-    rb_define_const(mROGL, "GL_FEEDBACK_BUFFER_SIZE", UINT2NUM(0x0DF1));
-    rb_define_const(mROGL, "GL_FEEDBACK_BUFFER_TYPE", UINT2NUM(0x0DF2));
-    rb_define_const(mROGL, "GL_SELECTION_BUFFER_SIZE", UINT2NUM(0x0DF4));
-    rb_define_const(mROGL, "GL_VERTEX_ARRAY", UINT2NUM(0x8074));
-    rb_define_const(mROGL, "GL_NORMAL_ARRAY", UINT2NUM(0x8075));
-    rb_define_const(mROGL, "GL_COLOR_ARRAY", UINT2NUM(0x8076));
-    rb_define_const(mROGL, "GL_INDEX_ARRAY", UINT2NUM(0x8077));
-    rb_define_const(mROGL, "GL_TEXTURE_COORD_ARRAY", UINT2NUM(0x8078));
-    rb_define_const(mROGL, "GL_EDGE_FLAG_ARRAY", UINT2NUM(0x8079));
-    rb_define_const(mROGL, "GL_VERTEX_ARRAY_SIZE", UINT2NUM(0x807A));
-    rb_define_const(mROGL, "GL_VERTEX_ARRAY_TYPE", UINT2NUM(0x807B));
-    rb_define_const(mROGL, "GL_VERTEX_ARRAY_STRIDE", UINT2NUM(0x807C));
-    rb_define_const(mROGL, "GL_NORMAL_ARRAY_TYPE", UINT2NUM(0x807E));
-    rb_define_const(mROGL, "GL_NORMAL_ARRAY_STRIDE", UINT2NUM(0x807F));
-    rb_define_const(mROGL, "GL_COLOR_ARRAY_SIZE", UINT2NUM(0x8081));
-    rb_define_const(mROGL, "GL_COLOR_ARRAY_TYPE", UINT2NUM(0x8082));
-    rb_define_const(mROGL, "GL_COLOR_ARRAY_STRIDE", UINT2NUM(0x8083));
-    rb_define_const(mROGL, "GL_INDEX_ARRAY_TYPE", UINT2NUM(0x8085));
-    rb_define_const(mROGL, "GL_INDEX_ARRAY_STRIDE", UINT2NUM(0x8086));
-    rb_define_const(mROGL, "GL_TEXTURE_COORD_ARRAY_SIZE", UINT2NUM(0x8088));
-    rb_define_const(mROGL, "GL_TEXTURE_COORD_ARRAY_TYPE", UINT2NUM(0x8089));
-    rb_define_const(mROGL, "GL_TEXTURE_COORD_ARRAY_STRIDE", UINT2NUM(0x808A));
-    rb_define_const(mROGL, "GL_EDGE_FLAG_ARRAY_STRIDE", UINT2NUM(0x808C));
-    rb_define_const(mROGL, "GL_TEXTURE_COMPONENTS", UINT2NUM(0x1003));
-    rb_define_const(mROGL, "GL_TEXTURE_BORDER", UINT2NUM(0x1005));
-    rb_define_const(mROGL, "GL_TEXTURE_LUMINANCE_SIZE", UINT2NUM(0x8060));
-    rb_define_const(mROGL, "GL_TEXTURE_INTENSITY_SIZE", UINT2NUM(0x8061));
-    rb_define_const(mROGL, "GL_TEXTURE_PRIORITY", UINT2NUM(0x8066));
-    rb_define_const(mROGL, "GL_TEXTURE_RESIDENT", UINT2NUM(0x8067));
-    rb_define_const(mROGL, "GL_AMBIENT", UINT2NUM(0x1200));
-    rb_define_const(mROGL, "GL_DIFFUSE", UINT2NUM(0x1201));
-    rb_define_const(mROGL, "GL_SPECULAR", UINT2NUM(0x1202));
-    rb_define_const(mROGL, "GL_POSITION", UINT2NUM(0x1203));
-    rb_define_const(mROGL, "GL_SPOT_DIRECTION", UINT2NUM(0x1204));
-    rb_define_const(mROGL, "GL_SPOT_EXPONENT", UINT2NUM(0x1205));
-    rb_define_const(mROGL, "GL_SPOT_CUTOFF", UINT2NUM(0x1206));
-    rb_define_const(mROGL, "GL_CONSTANT_ATTENUATION", UINT2NUM(0x1207));
-    rb_define_const(mROGL, "GL_LINEAR_ATTENUATION", UINT2NUM(0x1208));
-    rb_define_const(mROGL, "GL_QUADRATIC_ATTENUATION", UINT2NUM(0x1209));
-    rb_define_const(mROGL, "GL_COMPILE", UINT2NUM(0x1300));
-    rb_define_const(mROGL, "GL_COMPILE_AND_EXECUTE", UINT2NUM(0x1301));
-    rb_define_const(mROGL, "GL_2_BYTES", UINT2NUM(0x1407));
-    rb_define_const(mROGL, "GL_3_BYTES", UINT2NUM(0x1408));
-    rb_define_const(mROGL, "GL_4_BYTES", UINT2NUM(0x1409));
-    rb_define_const(mROGL, "GL_EMISSION", UINT2NUM(0x1600));
-    rb_define_const(mROGL, "GL_SHININESS", UINT2NUM(0x1601));
-    rb_define_const(mROGL, "GL_AMBIENT_AND_DIFFUSE", UINT2NUM(0x1602));
-    rb_define_const(mROGL, "GL_COLOR_INDEXES", UINT2NUM(0x1603));
-    rb_define_const(mROGL, "GL_MODELVIEW", UINT2NUM(0x1700));
-    rb_define_const(mROGL, "GL_PROJECTION", UINT2NUM(0x1701));
-    rb_define_const(mROGL, "GL_COLOR_INDEX", UINT2NUM(0x1900));
-    rb_define_const(mROGL, "GL_LUMINANCE", UINT2NUM(0x1909));
-    rb_define_const(mROGL, "GL_LUMINANCE_ALPHA", UINT2NUM(0x190A));
-    rb_define_const(mROGL, "GL_BITMAP", UINT2NUM(0x1A00));
-    rb_define_const(mROGL, "GL_RENDER", UINT2NUM(0x1C00));
-    rb_define_const(mROGL, "GL_FEEDBACK", UINT2NUM(0x1C01));
-    rb_define_const(mROGL, "GL_SELECT", UINT2NUM(0x1C02));
-    rb_define_const(mROGL, "GL_FLAT", UINT2NUM(0x1D00));
-    rb_define_const(mROGL, "GL_SMOOTH", UINT2NUM(0x1D01));
-    rb_define_const(mROGL, "GL_S", UINT2NUM(0x2000));
-    rb_define_const(mROGL, "GL_T", UINT2NUM(0x2001));
-    rb_define_const(mROGL, "GL_R", UINT2NUM(0x2002));
-    rb_define_const(mROGL, "GL_Q", UINT2NUM(0x2003));
-    rb_define_const(mROGL, "GL_MODULATE", UINT2NUM(0x2100));
-    rb_define_const(mROGL, "GL_DECAL", UINT2NUM(0x2101));
-    rb_define_const(mROGL, "GL_TEXTURE_ENV_MODE", UINT2NUM(0x2200));
-    rb_define_const(mROGL, "GL_TEXTURE_ENV_COLOR", UINT2NUM(0x2201));
-    rb_define_const(mROGL, "GL_TEXTURE_ENV", UINT2NUM(0x2300));
-    rb_define_const(mROGL, "GL_EYE_LINEAR", UINT2NUM(0x2400));
-    rb_define_const(mROGL, "GL_OBJECT_LINEAR", UINT2NUM(0x2401));
-    rb_define_const(mROGL, "GL_SPHERE_MAP", UINT2NUM(0x2402));
-    rb_define_const(mROGL, "GL_TEXTURE_GEN_MODE", UINT2NUM(0x2500));
-    rb_define_const(mROGL, "GL_OBJECT_PLANE", UINT2NUM(0x2501));
-    rb_define_const(mROGL, "GL_EYE_PLANE", UINT2NUM(0x2502));
-    rb_define_const(mROGL, "GL_CLAMP", UINT2NUM(0x2900));
-    rb_define_const(mROGL, "GL_ALPHA4", UINT2NUM(0x803B));
-    rb_define_const(mROGL, "GL_ALPHA8", UINT2NUM(0x803C));
-    rb_define_const(mROGL, "GL_ALPHA12", UINT2NUM(0x803D));
-    rb_define_const(mROGL, "GL_ALPHA16", UINT2NUM(0x803E));
-    rb_define_const(mROGL, "GL_LUMINANCE4", UINT2NUM(0x803F));
-    rb_define_const(mROGL, "GL_LUMINANCE8", UINT2NUM(0x8040));
-    rb_define_const(mROGL, "GL_LUMINANCE12", UINT2NUM(0x8041));
-    rb_define_const(mROGL, "GL_LUMINANCE16", UINT2NUM(0x8042));
-    rb_define_const(mROGL, "GL_LUMINANCE4_ALPHA4", UINT2NUM(0x8043));
-    rb_define_const(mROGL, "GL_LUMINANCE6_ALPHA2", UINT2NUM(0x8044));
-    rb_define_const(mROGL, "GL_LUMINANCE8_ALPHA8", UINT2NUM(0x8045));
-    rb_define_const(mROGL, "GL_LUMINANCE12_ALPHA4", UINT2NUM(0x8046));
-    rb_define_const(mROGL, "GL_LUMINANCE12_ALPHA12", UINT2NUM(0x8047));
-    rb_define_const(mROGL, "GL_LUMINANCE16_ALPHA16", UINT2NUM(0x8048));
-    rb_define_const(mROGL, "GL_INTENSITY", UINT2NUM(0x8049));
-    rb_define_const(mROGL, "GL_INTENSITY4", UINT2NUM(0x804A));
-    rb_define_const(mROGL, "GL_INTENSITY8", UINT2NUM(0x804B));
-    rb_define_const(mROGL, "GL_INTENSITY12", UINT2NUM(0x804C));
-    rb_define_const(mROGL, "GL_INTENSITY16", UINT2NUM(0x804D));
-    rb_define_const(mROGL, "GL_V2F", UINT2NUM(0x2A20));
-    rb_define_const(mROGL, "GL_V3F", UINT2NUM(0x2A21));
-    rb_define_const(mROGL, "GL_C4UB_V2F", UINT2NUM(0x2A22));
-    rb_define_const(mROGL, "GL_C4UB_V3F", UINT2NUM(0x2A23));
-    rb_define_const(mROGL, "GL_C3F_V3F", UINT2NUM(0x2A24));
-    rb_define_const(mROGL, "GL_N3F_V3F", UINT2NUM(0x2A25));
-    rb_define_const(mROGL, "GL_C4F_N3F_V3F", UINT2NUM(0x2A26));
-    rb_define_const(mROGL, "GL_T2F_V3F", UINT2NUM(0x2A27));
-    rb_define_const(mROGL, "GL_T4F_V4F", UINT2NUM(0x2A28));
-    rb_define_const(mROGL, "GL_T2F_C4UB_V3F", UINT2NUM(0x2A29));
-    rb_define_const(mROGL, "GL_T2F_C3F_V3F", UINT2NUM(0x2A2A));
-    rb_define_const(mROGL, "GL_T2F_N3F_V3F", UINT2NUM(0x2A2B));
-    rb_define_const(mROGL, "GL_T2F_C4F_N3F_V3F", UINT2NUM(0x2A2C));
-    rb_define_const(mROGL, "GL_T4F_C4F_N3F_V4F", UINT2NUM(0x2A2D));
-    rb_define_const(mROGL, "GL_CLIP_PLANE0", UINT2NUM(0x3000));
-    rb_define_const(mROGL, "GL_CLIP_PLANE1", UINT2NUM(0x3001));
-    rb_define_const(mROGL, "GL_CLIP_PLANE2", UINT2NUM(0x3002));
-    rb_define_const(mROGL, "GL_CLIP_PLANE3", UINT2NUM(0x3003));
-    rb_define_const(mROGL, "GL_CLIP_PLANE4", UINT2NUM(0x3004));
-    rb_define_const(mROGL, "GL_CLIP_PLANE5", UINT2NUM(0x3005));
-    rb_define_const(mROGL, "GL_LIGHT0", UINT2NUM(0x4000));
-    rb_define_const(mROGL, "GL_LIGHT1", UINT2NUM(0x4001));
-    rb_define_const(mROGL, "GL_LIGHT2", UINT2NUM(0x4002));
-    rb_define_const(mROGL, "GL_LIGHT3", UINT2NUM(0x4003));
-    rb_define_const(mROGL, "GL_LIGHT4", UINT2NUM(0x4004));
-    rb_define_const(mROGL, "GL_LIGHT5", UINT2NUM(0x4005));
-    rb_define_const(mROGL, "GL_LIGHT6", UINT2NUM(0x4006));
-    rb_define_const(mROGL, "GL_LIGHT7", UINT2NUM(0x4007));
-    rb_define_const(mROGL, "GL_UNSIGNED_BYTE_3_3_2", UINT2NUM(0x8032));
-    rb_define_const(mROGL, "GL_UNSIGNED_SHORT_4_4_4_4", UINT2NUM(0x8033));
-    rb_define_const(mROGL, "GL_UNSIGNED_SHORT_5_5_5_1", UINT2NUM(0x8034));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_8_8_8_8", UINT2NUM(0x8035));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_10_10_10_2", UINT2NUM(0x8036));
-    rb_define_const(mROGL, "GL_TEXTURE_BINDING_3D", UINT2NUM(0x806A));
-    rb_define_const(mROGL, "GL_PACK_SKIP_IMAGES", UINT2NUM(0x806B));
-    rb_define_const(mROGL, "GL_PACK_IMAGE_HEIGHT", UINT2NUM(0x806C));
-    rb_define_const(mROGL, "GL_UNPACK_SKIP_IMAGES", UINT2NUM(0x806D));
-    rb_define_const(mROGL, "GL_UNPACK_IMAGE_HEIGHT", UINT2NUM(0x806E));
-    rb_define_const(mROGL, "GL_TEXTURE_3D", UINT2NUM(0x806F));
-    rb_define_const(mROGL, "GL_PROXY_TEXTURE_3D", UINT2NUM(0x8070));
-    rb_define_const(mROGL, "GL_TEXTURE_DEPTH", UINT2NUM(0x8071));
-    rb_define_const(mROGL, "GL_TEXTURE_WRAP_R", UINT2NUM(0x8072));
-    rb_define_const(mROGL, "GL_MAX_3D_TEXTURE_SIZE", UINT2NUM(0x8073));
-    rb_define_const(mROGL, "GL_UNSIGNED_BYTE_2_3_3_REV", UINT2NUM(0x8362));
-    rb_define_const(mROGL, "GL_UNSIGNED_SHORT_5_6_5", UINT2NUM(0x8363));
-    rb_define_const(mROGL, "GL_UNSIGNED_SHORT_5_6_5_REV", UINT2NUM(0x8364));
-    rb_define_const(mROGL, "GL_UNSIGNED_SHORT_4_4_4_4_REV", UINT2NUM(0x8365));
-    rb_define_const(mROGL, "GL_UNSIGNED_SHORT_1_5_5_5_REV", UINT2NUM(0x8366));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_8_8_8_8_REV", UINT2NUM(0x8367));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_2_10_10_10_REV", UINT2NUM(0x8368));
-    rb_define_const(mROGL, "GL_BGR", UINT2NUM(0x80E0));
-    rb_define_const(mROGL, "GL_BGRA", UINT2NUM(0x80E1));
-    rb_define_const(mROGL, "GL_MAX_ELEMENTS_VERTICES", UINT2NUM(0x80E8));
-    rb_define_const(mROGL, "GL_MAX_ELEMENTS_INDICES", UINT2NUM(0x80E9));
-    rb_define_const(mROGL, "GL_CLAMP_TO_EDGE", UINT2NUM(0x812F));
-    rb_define_const(mROGL, "GL_TEXTURE_MIN_LOD", UINT2NUM(0x813A));
-    rb_define_const(mROGL, "GL_TEXTURE_MAX_LOD", UINT2NUM(0x813B));
-    rb_define_const(mROGL, "GL_TEXTURE_BASE_LEVEL", UINT2NUM(0x813C));
-    rb_define_const(mROGL, "GL_TEXTURE_MAX_LEVEL", UINT2NUM(0x813D));
-    rb_define_const(mROGL, "GL_SMOOTH_POINT_SIZE_RANGE", UINT2NUM(0x0B12));
-    rb_define_const(mROGL, "GL_SMOOTH_POINT_SIZE_GRANULARITY", UINT2NUM(0x0B13));
-    rb_define_const(mROGL, "GL_SMOOTH_LINE_WIDTH_RANGE", UINT2NUM(0x0B22));
-    rb_define_const(mROGL, "GL_SMOOTH_LINE_WIDTH_GRANULARITY", UINT2NUM(0x0B23));
-    rb_define_const(mROGL, "GL_ALIASED_LINE_WIDTH_RANGE", UINT2NUM(0x846E));
-    rb_define_const(mROGL, "GL_RESCALE_NORMAL", UINT2NUM(0x803A));
-    rb_define_const(mROGL, "GL_LIGHT_MODEL_COLOR_CONTROL", UINT2NUM(0x81F8));
-    rb_define_const(mROGL, "GL_SINGLE_COLOR", UINT2NUM(0x81F9));
-    rb_define_const(mROGL, "GL_SEPARATE_SPECULAR_COLOR", UINT2NUM(0x81FA));
-    rb_define_const(mROGL, "GL_ALIASED_POINT_SIZE_RANGE", UINT2NUM(0x846D));
-    rb_define_const(mROGL, "GL_TEXTURE0", UINT2NUM(0x84C0));
-    rb_define_const(mROGL, "GL_TEXTURE1", UINT2NUM(0x84C1));
-    rb_define_const(mROGL, "GL_TEXTURE2", UINT2NUM(0x84C2));
-    rb_define_const(mROGL, "GL_TEXTURE3", UINT2NUM(0x84C3));
-    rb_define_const(mROGL, "GL_TEXTURE4", UINT2NUM(0x84C4));
-    rb_define_const(mROGL, "GL_TEXTURE5", UINT2NUM(0x84C5));
-    rb_define_const(mROGL, "GL_TEXTURE6", UINT2NUM(0x84C6));
-    rb_define_const(mROGL, "GL_TEXTURE7", UINT2NUM(0x84C7));
-    rb_define_const(mROGL, "GL_TEXTURE8", UINT2NUM(0x84C8));
-    rb_define_const(mROGL, "GL_TEXTURE9", UINT2NUM(0x84C9));
-    rb_define_const(mROGL, "GL_TEXTURE10", UINT2NUM(0x84CA));
-    rb_define_const(mROGL, "GL_TEXTURE11", UINT2NUM(0x84CB));
-    rb_define_const(mROGL, "GL_TEXTURE12", UINT2NUM(0x84CC));
-    rb_define_const(mROGL, "GL_TEXTURE13", UINT2NUM(0x84CD));
-    rb_define_const(mROGL, "GL_TEXTURE14", UINT2NUM(0x84CE));
-    rb_define_const(mROGL, "GL_TEXTURE15", UINT2NUM(0x84CF));
-    rb_define_const(mROGL, "GL_TEXTURE16", UINT2NUM(0x84D0));
-    rb_define_const(mROGL, "GL_TEXTURE17", UINT2NUM(0x84D1));
-    rb_define_const(mROGL, "GL_TEXTURE18", UINT2NUM(0x84D2));
-    rb_define_const(mROGL, "GL_TEXTURE19", UINT2NUM(0x84D3));
-    rb_define_const(mROGL, "GL_TEXTURE20", UINT2NUM(0x84D4));
-    rb_define_const(mROGL, "GL_TEXTURE21", UINT2NUM(0x84D5));
-    rb_define_const(mROGL, "GL_TEXTURE22", UINT2NUM(0x84D6));
-    rb_define_const(mROGL, "GL_TEXTURE23", UINT2NUM(0x84D7));
-    rb_define_const(mROGL, "GL_TEXTURE24", UINT2NUM(0x84D8));
-    rb_define_const(mROGL, "GL_TEXTURE25", UINT2NUM(0x84D9));
-    rb_define_const(mROGL, "GL_TEXTURE26", UINT2NUM(0x84DA));
-    rb_define_const(mROGL, "GL_TEXTURE27", UINT2NUM(0x84DB));
-    rb_define_const(mROGL, "GL_TEXTURE28", UINT2NUM(0x84DC));
-    rb_define_const(mROGL, "GL_TEXTURE29", UINT2NUM(0x84DD));
-    rb_define_const(mROGL, "GL_TEXTURE30", UINT2NUM(0x84DE));
-    rb_define_const(mROGL, "GL_TEXTURE31", UINT2NUM(0x84DF));
-    rb_define_const(mROGL, "GL_ACTIVE_TEXTURE", UINT2NUM(0x84E0));
-    rb_define_const(mROGL, "GL_MULTISAMPLE", UINT2NUM(0x809D));
-    rb_define_const(mROGL, "GL_SAMPLE_ALPHA_TO_COVERAGE", UINT2NUM(0x809E));
-    rb_define_const(mROGL, "GL_SAMPLE_ALPHA_TO_ONE", UINT2NUM(0x809F));
-    rb_define_const(mROGL, "GL_SAMPLE_COVERAGE", UINT2NUM(0x80A0));
-    rb_define_const(mROGL, "GL_SAMPLE_BUFFERS", UINT2NUM(0x80A8));
-    rb_define_const(mROGL, "GL_SAMPLES", UINT2NUM(0x80A9));
-    rb_define_const(mROGL, "GL_SAMPLE_COVERAGE_VALUE", UINT2NUM(0x80AA));
-    rb_define_const(mROGL, "GL_SAMPLE_COVERAGE_INVERT", UINT2NUM(0x80AB));
-    rb_define_const(mROGL, "GL_TEXTURE_CUBE_MAP", UINT2NUM(0x8513));
-    rb_define_const(mROGL, "GL_TEXTURE_BINDING_CUBE_MAP", UINT2NUM(0x8514));
-    rb_define_const(mROGL, "GL_TEXTURE_CUBE_MAP_POSITIVE_X", UINT2NUM(0x8515));
-    rb_define_const(mROGL, "GL_TEXTURE_CUBE_MAP_NEGATIVE_X", UINT2NUM(0x8516));
-    rb_define_const(mROGL, "GL_TEXTURE_CUBE_MAP_POSITIVE_Y", UINT2NUM(0x8517));
-    rb_define_const(mROGL, "GL_TEXTURE_CUBE_MAP_NEGATIVE_Y", UINT2NUM(0x8518));
-    rb_define_const(mROGL, "GL_TEXTURE_CUBE_MAP_POSITIVE_Z", UINT2NUM(0x8519));
-    rb_define_const(mROGL, "GL_TEXTURE_CUBE_MAP_NEGATIVE_Z", UINT2NUM(0x851A));
-    rb_define_const(mROGL, "GL_PROXY_TEXTURE_CUBE_MAP", UINT2NUM(0x851B));
-    rb_define_const(mROGL, "GL_MAX_CUBE_MAP_TEXTURE_SIZE", UINT2NUM(0x851C));
-    rb_define_const(mROGL, "GL_COMPRESSED_RGB", UINT2NUM(0x84ED));
-    rb_define_const(mROGL, "GL_COMPRESSED_RGBA", UINT2NUM(0x84EE));
-    rb_define_const(mROGL, "GL_TEXTURE_COMPRESSION_HINT", UINT2NUM(0x84EF));
-    rb_define_const(mROGL, "GL_TEXTURE_COMPRESSED_IMAGE_SIZE", UINT2NUM(0x86A0));
-    rb_define_const(mROGL, "GL_TEXTURE_COMPRESSED", UINT2NUM(0x86A1));
-    rb_define_const(mROGL, "GL_NUM_COMPRESSED_TEXTURE_FORMATS", UINT2NUM(0x86A2));
-    rb_define_const(mROGL, "GL_COMPRESSED_TEXTURE_FORMATS", UINT2NUM(0x86A3));
-    rb_define_const(mROGL, "GL_CLAMP_TO_BORDER", UINT2NUM(0x812D));
-    rb_define_const(mROGL, "GL_CLIENT_ACTIVE_TEXTURE", UINT2NUM(0x84E1));
-    rb_define_const(mROGL, "GL_MAX_TEXTURE_UNITS", UINT2NUM(0x84E2));
-    rb_define_const(mROGL, "GL_TRANSPOSE_MODELVIEW_MATRIX", UINT2NUM(0x84E3));
-    rb_define_const(mROGL, "GL_TRANSPOSE_PROJECTION_MATRIX", UINT2NUM(0x84E4));
-    rb_define_const(mROGL, "GL_TRANSPOSE_TEXTURE_MATRIX", UINT2NUM(0x84E5));
-    rb_define_const(mROGL, "GL_TRANSPOSE_COLOR_MATRIX", UINT2NUM(0x84E6));
-    rb_define_const(mROGL, "GL_MULTISAMPLE_BIT", UINT2NUM(0x20000000));
-    rb_define_const(mROGL, "GL_NORMAL_MAP", UINT2NUM(0x8511));
-    rb_define_const(mROGL, "GL_REFLECTION_MAP", UINT2NUM(0x8512));
-    rb_define_const(mROGL, "GL_COMPRESSED_ALPHA", UINT2NUM(0x84E9));
-    rb_define_const(mROGL, "GL_COMPRESSED_LUMINANCE", UINT2NUM(0x84EA));
-    rb_define_const(mROGL, "GL_COMPRESSED_LUMINANCE_ALPHA", UINT2NUM(0x84EB));
-    rb_define_const(mROGL, "GL_COMPRESSED_INTENSITY", UINT2NUM(0x84EC));
-    rb_define_const(mROGL, "GL_COMBINE", UINT2NUM(0x8570));
-    rb_define_const(mROGL, "GL_COMBINE_RGB", UINT2NUM(0x8571));
-    rb_define_const(mROGL, "GL_COMBINE_ALPHA", UINT2NUM(0x8572));
-    rb_define_const(mROGL, "GL_SOURCE0_RGB", UINT2NUM(0x8580));
-    rb_define_const(mROGL, "GL_SOURCE1_RGB", UINT2NUM(0x8581));
-    rb_define_const(mROGL, "GL_SOURCE2_RGB", UINT2NUM(0x8582));
-    rb_define_const(mROGL, "GL_SOURCE0_ALPHA", UINT2NUM(0x8588));
-    rb_define_const(mROGL, "GL_SOURCE1_ALPHA", UINT2NUM(0x8589));
-    rb_define_const(mROGL, "GL_SOURCE2_ALPHA", UINT2NUM(0x858A));
-    rb_define_const(mROGL, "GL_OPERAND0_RGB", UINT2NUM(0x8590));
-    rb_define_const(mROGL, "GL_OPERAND1_RGB", UINT2NUM(0x8591));
-    rb_define_const(mROGL, "GL_OPERAND2_RGB", UINT2NUM(0x8592));
-    rb_define_const(mROGL, "GL_OPERAND0_ALPHA", UINT2NUM(0x8598));
-    rb_define_const(mROGL, "GL_OPERAND1_ALPHA", UINT2NUM(0x8599));
-    rb_define_const(mROGL, "GL_OPERAND2_ALPHA", UINT2NUM(0x859A));
-    rb_define_const(mROGL, "GL_RGB_SCALE", UINT2NUM(0x8573));
-    rb_define_const(mROGL, "GL_ADD_SIGNED", UINT2NUM(0x8574));
-    rb_define_const(mROGL, "GL_INTERPOLATE", UINT2NUM(0x8575));
-    rb_define_const(mROGL, "GL_SUBTRACT", UINT2NUM(0x84E7));
-    rb_define_const(mROGL, "GL_CONSTANT", UINT2NUM(0x8576));
-    rb_define_const(mROGL, "GL_PRIMARY_COLOR", UINT2NUM(0x8577));
-    rb_define_const(mROGL, "GL_PREVIOUS", UINT2NUM(0x8578));
-    rb_define_const(mROGL, "GL_DOT3_RGB", UINT2NUM(0x86AE));
-    rb_define_const(mROGL, "GL_DOT3_RGBA", UINT2NUM(0x86AF));
-    rb_define_const(mROGL, "GL_BLEND_DST_RGB", UINT2NUM(0x80C8));
-    rb_define_const(mROGL, "GL_BLEND_SRC_RGB", UINT2NUM(0x80C9));
-    rb_define_const(mROGL, "GL_BLEND_DST_ALPHA", UINT2NUM(0x80CA));
-    rb_define_const(mROGL, "GL_BLEND_SRC_ALPHA", UINT2NUM(0x80CB));
-    rb_define_const(mROGL, "GL_POINT_FADE_THRESHOLD_SIZE", UINT2NUM(0x8128));
-    rb_define_const(mROGL, "GL_DEPTH_COMPONENT16", UINT2NUM(0x81A5));
-    rb_define_const(mROGL, "GL_DEPTH_COMPONENT24", UINT2NUM(0x81A6));
-    rb_define_const(mROGL, "GL_DEPTH_COMPONENT32", UINT2NUM(0x81A7));
-    rb_define_const(mROGL, "GL_MIRRORED_REPEAT", UINT2NUM(0x8370));
-    rb_define_const(mROGL, "GL_MAX_TEXTURE_LOD_BIAS", UINT2NUM(0x84FD));
-    rb_define_const(mROGL, "GL_TEXTURE_LOD_BIAS", UINT2NUM(0x8501));
-    rb_define_const(mROGL, "GL_INCR_WRAP", UINT2NUM(0x8507));
-    rb_define_const(mROGL, "GL_DECR_WRAP", UINT2NUM(0x8508));
-    rb_define_const(mROGL, "GL_TEXTURE_DEPTH_SIZE", UINT2NUM(0x884A));
-    rb_define_const(mROGL, "GL_TEXTURE_COMPARE_MODE", UINT2NUM(0x884C));
-    rb_define_const(mROGL, "GL_TEXTURE_COMPARE_FUNC", UINT2NUM(0x884D));
-    rb_define_const(mROGL, "GL_POINT_SIZE_MIN", UINT2NUM(0x8126));
-    rb_define_const(mROGL, "GL_POINT_SIZE_MAX", UINT2NUM(0x8127));
-    rb_define_const(mROGL, "GL_POINT_DISTANCE_ATTENUATION", UINT2NUM(0x8129));
-    rb_define_const(mROGL, "GL_GENERATE_MIPMAP", UINT2NUM(0x8191));
-    rb_define_const(mROGL, "GL_GENERATE_MIPMAP_HINT", UINT2NUM(0x8192));
-    rb_define_const(mROGL, "GL_FOG_COORDINATE_SOURCE", UINT2NUM(0x8450));
-    rb_define_const(mROGL, "GL_FOG_COORDINATE", UINT2NUM(0x8451));
-    rb_define_const(mROGL, "GL_FRAGMENT_DEPTH", UINT2NUM(0x8452));
-    rb_define_const(mROGL, "GL_CURRENT_FOG_COORDINATE", UINT2NUM(0x8453));
-    rb_define_const(mROGL, "GL_FOG_COORDINATE_ARRAY_TYPE", UINT2NUM(0x8454));
-    rb_define_const(mROGL, "GL_FOG_COORDINATE_ARRAY_STRIDE", UINT2NUM(0x8455));
-    rb_define_const(mROGL, "GL_FOG_COORDINATE_ARRAY_POINTER", UINT2NUM(0x8456));
-    rb_define_const(mROGL, "GL_FOG_COORDINATE_ARRAY", UINT2NUM(0x8457));
-    rb_define_const(mROGL, "GL_COLOR_SUM", UINT2NUM(0x8458));
-    rb_define_const(mROGL, "GL_CURRENT_SECONDARY_COLOR", UINT2NUM(0x8459));
-    rb_define_const(mROGL, "GL_SECONDARY_COLOR_ARRAY_SIZE", UINT2NUM(0x845A));
-    rb_define_const(mROGL, "GL_SECONDARY_COLOR_ARRAY_TYPE", UINT2NUM(0x845B));
-    rb_define_const(mROGL, "GL_SECONDARY_COLOR_ARRAY_STRIDE", UINT2NUM(0x845C));
-    rb_define_const(mROGL, "GL_SECONDARY_COLOR_ARRAY_POINTER", UINT2NUM(0x845D));
-    rb_define_const(mROGL, "GL_SECONDARY_COLOR_ARRAY", UINT2NUM(0x845E));
-    rb_define_const(mROGL, "GL_TEXTURE_FILTER_CONTROL", UINT2NUM(0x8500));
-    rb_define_const(mROGL, "GL_DEPTH_TEXTURE_MODE", UINT2NUM(0x884B));
-    rb_define_const(mROGL, "GL_COMPARE_R_TO_TEXTURE", UINT2NUM(0x884E));
-    rb_define_const(mROGL, "GL_FUNC_ADD", UINT2NUM(0x8006));
-    rb_define_const(mROGL, "GL_FUNC_SUBTRACT", UINT2NUM(0x800A));
-    rb_define_const(mROGL, "GL_FUNC_REVERSE_SUBTRACT", UINT2NUM(0x800B));
-    rb_define_const(mROGL, "GL_MIN", UINT2NUM(0x8007));
-    rb_define_const(mROGL, "GL_MAX", UINT2NUM(0x8008));
-    rb_define_const(mROGL, "GL_CONSTANT_COLOR", UINT2NUM(0x8001));
-    rb_define_const(mROGL, "GL_ONE_MINUS_CONSTANT_COLOR", UINT2NUM(0x8002));
-    rb_define_const(mROGL, "GL_CONSTANT_ALPHA", UINT2NUM(0x8003));
-    rb_define_const(mROGL, "GL_ONE_MINUS_CONSTANT_ALPHA", UINT2NUM(0x8004));
-    rb_define_const(mROGL, "GL_BUFFER_SIZE", UINT2NUM(0x8764));
-    rb_define_const(mROGL, "GL_BUFFER_USAGE", UINT2NUM(0x8765));
-    rb_define_const(mROGL, "GL_QUERY_COUNTER_BITS", UINT2NUM(0x8864));
-    rb_define_const(mROGL, "GL_CURRENT_QUERY", UINT2NUM(0x8865));
-    rb_define_const(mROGL, "GL_QUERY_RESULT", UINT2NUM(0x8866));
-    rb_define_const(mROGL, "GL_QUERY_RESULT_AVAILABLE", UINT2NUM(0x8867));
-    rb_define_const(mROGL, "GL_ARRAY_BUFFER", UINT2NUM(0x8892));
-    rb_define_const(mROGL, "GL_ELEMENT_ARRAY_BUFFER", UINT2NUM(0x8893));
-    rb_define_const(mROGL, "GL_ARRAY_BUFFER_BINDING", UINT2NUM(0x8894));
-    rb_define_const(mROGL, "GL_ELEMENT_ARRAY_BUFFER_BINDING", UINT2NUM(0x8895));
-    rb_define_const(mROGL, "GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING", UINT2NUM(0x889F));
-    rb_define_const(mROGL, "GL_READ_ONLY", UINT2NUM(0x88B8));
-    rb_define_const(mROGL, "GL_WRITE_ONLY", UINT2NUM(0x88B9));
-    rb_define_const(mROGL, "GL_READ_WRITE", UINT2NUM(0x88BA));
-    rb_define_const(mROGL, "GL_BUFFER_ACCESS", UINT2NUM(0x88BB));
-    rb_define_const(mROGL, "GL_BUFFER_MAPPED", UINT2NUM(0x88BC));
-    rb_define_const(mROGL, "GL_BUFFER_MAP_POINTER", UINT2NUM(0x88BD));
-    rb_define_const(mROGL, "GL_STREAM_DRAW", UINT2NUM(0x88E0));
-    rb_define_const(mROGL, "GL_STREAM_READ", UINT2NUM(0x88E1));
-    rb_define_const(mROGL, "GL_STREAM_COPY", UINT2NUM(0x88E2));
-    rb_define_const(mROGL, "GL_STATIC_DRAW", UINT2NUM(0x88E4));
-    rb_define_const(mROGL, "GL_STATIC_READ", UINT2NUM(0x88E5));
-    rb_define_const(mROGL, "GL_STATIC_COPY", UINT2NUM(0x88E6));
-    rb_define_const(mROGL, "GL_DYNAMIC_DRAW", UINT2NUM(0x88E8));
-    rb_define_const(mROGL, "GL_DYNAMIC_READ", UINT2NUM(0x88E9));
-    rb_define_const(mROGL, "GL_DYNAMIC_COPY", UINT2NUM(0x88EA));
-    rb_define_const(mROGL, "GL_SAMPLES_PASSED", UINT2NUM(0x8914));
-    rb_define_const(mROGL, "GL_SRC1_ALPHA", UINT2NUM(0x8589));
-    rb_define_const(mROGL, "GL_VERTEX_ARRAY_BUFFER_BINDING", UINT2NUM(0x8896));
-    rb_define_const(mROGL, "GL_NORMAL_ARRAY_BUFFER_BINDING", UINT2NUM(0x8897));
-    rb_define_const(mROGL, "GL_COLOR_ARRAY_BUFFER_BINDING", UINT2NUM(0x8898));
-    rb_define_const(mROGL, "GL_INDEX_ARRAY_BUFFER_BINDING", UINT2NUM(0x8899));
-    rb_define_const(mROGL, "GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING", UINT2NUM(0x889A));
-    rb_define_const(mROGL, "GL_EDGE_FLAG_ARRAY_BUFFER_BINDING", UINT2NUM(0x889B));
-    rb_define_const(mROGL, "GL_SECONDARY_COLOR_ARRAY_BUFFER_BINDING", UINT2NUM(0x889C));
-    rb_define_const(mROGL, "GL_FOG_COORDINATE_ARRAY_BUFFER_BINDING", UINT2NUM(0x889D));
-    rb_define_const(mROGL, "GL_WEIGHT_ARRAY_BUFFER_BINDING", UINT2NUM(0x889E));
-    rb_define_const(mROGL, "GL_FOG_COORD_SRC", UINT2NUM(0x8450));
-    rb_define_const(mROGL, "GL_FOG_COORD", UINT2NUM(0x8451));
-    rb_define_const(mROGL, "GL_CURRENT_FOG_COORD", UINT2NUM(0x8453));
-    rb_define_const(mROGL, "GL_FOG_COORD_ARRAY_TYPE", UINT2NUM(0x8454));
-    rb_define_const(mROGL, "GL_FOG_COORD_ARRAY_STRIDE", UINT2NUM(0x8455));
-    rb_define_const(mROGL, "GL_FOG_COORD_ARRAY_POINTER", UINT2NUM(0x8456));
-    rb_define_const(mROGL, "GL_FOG_COORD_ARRAY", UINT2NUM(0x8457));
-    rb_define_const(mROGL, "GL_FOG_COORD_ARRAY_BUFFER_BINDING", UINT2NUM(0x889D));
-    rb_define_const(mROGL, "GL_SRC0_RGB", UINT2NUM(0x8580));
-    rb_define_const(mROGL, "GL_SRC1_RGB", UINT2NUM(0x8581));
-    rb_define_const(mROGL, "GL_SRC2_RGB", UINT2NUM(0x8582));
-    rb_define_const(mROGL, "GL_SRC0_ALPHA", UINT2NUM(0x8588));
-    rb_define_const(mROGL, "GL_SRC2_ALPHA", UINT2NUM(0x858A));
-    rb_define_const(mROGL, "GL_BLEND_EQUATION_RGB", UINT2NUM(0x8009));
-    rb_define_const(mROGL, "GL_VERTEX_ATTRIB_ARRAY_ENABLED", UINT2NUM(0x8622));
-    rb_define_const(mROGL, "GL_VERTEX_ATTRIB_ARRAY_SIZE", UINT2NUM(0x8623));
-    rb_define_const(mROGL, "GL_VERTEX_ATTRIB_ARRAY_STRIDE", UINT2NUM(0x8624));
-    rb_define_const(mROGL, "GL_VERTEX_ATTRIB_ARRAY_TYPE", UINT2NUM(0x8625));
-    rb_define_const(mROGL, "GL_CURRENT_VERTEX_ATTRIB", UINT2NUM(0x8626));
-    rb_define_const(mROGL, "GL_VERTEX_PROGRAM_POINT_SIZE", UINT2NUM(0x8642));
-    rb_define_const(mROGL, "GL_VERTEX_ATTRIB_ARRAY_POINTER", UINT2NUM(0x8645));
-    rb_define_const(mROGL, "GL_STENCIL_BACK_FUNC", UINT2NUM(0x8800));
-    rb_define_const(mROGL, "GL_STENCIL_BACK_FAIL", UINT2NUM(0x8801));
-    rb_define_const(mROGL, "GL_STENCIL_BACK_PASS_DEPTH_FAIL", UINT2NUM(0x8802));
-    rb_define_const(mROGL, "GL_STENCIL_BACK_PASS_DEPTH_PASS", UINT2NUM(0x8803));
-    rb_define_const(mROGL, "GL_MAX_DRAW_BUFFERS", UINT2NUM(0x8824));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER0", UINT2NUM(0x8825));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER1", UINT2NUM(0x8826));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER2", UINT2NUM(0x8827));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER3", UINT2NUM(0x8828));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER4", UINT2NUM(0x8829));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER5", UINT2NUM(0x882A));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER6", UINT2NUM(0x882B));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER7", UINT2NUM(0x882C));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER8", UINT2NUM(0x882D));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER9", UINT2NUM(0x882E));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER10", UINT2NUM(0x882F));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER11", UINT2NUM(0x8830));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER12", UINT2NUM(0x8831));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER13", UINT2NUM(0x8832));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER14", UINT2NUM(0x8833));
-    rb_define_const(mROGL, "GL_DRAW_BUFFER15", UINT2NUM(0x8834));
-    rb_define_const(mROGL, "GL_BLEND_EQUATION_ALPHA", UINT2NUM(0x883D));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_ATTRIBS", UINT2NUM(0x8869));
-    rb_define_const(mROGL, "GL_VERTEX_ATTRIB_ARRAY_NORMALIZED", UINT2NUM(0x886A));
-    rb_define_const(mROGL, "GL_MAX_TEXTURE_IMAGE_UNITS", UINT2NUM(0x8872));
-    rb_define_const(mROGL, "GL_FRAGMENT_SHADER", UINT2NUM(0x8B30));
-    rb_define_const(mROGL, "GL_VERTEX_SHADER", UINT2NUM(0x8B31));
-    rb_define_const(mROGL, "GL_MAX_FRAGMENT_UNIFORM_COMPONENTS", UINT2NUM(0x8B49));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_UNIFORM_COMPONENTS", UINT2NUM(0x8B4A));
-    rb_define_const(mROGL, "GL_MAX_VARYING_FLOATS", UINT2NUM(0x8B4B));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS", UINT2NUM(0x8B4C));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS", UINT2NUM(0x8B4D));
-    rb_define_const(mROGL, "GL_SHADER_TYPE", UINT2NUM(0x8B4F));
-    rb_define_const(mROGL, "GL_FLOAT_VEC2", UINT2NUM(0x8B50));
-    rb_define_const(mROGL, "GL_FLOAT_VEC3", UINT2NUM(0x8B51));
-    rb_define_const(mROGL, "GL_FLOAT_VEC4", UINT2NUM(0x8B52));
-    rb_define_const(mROGL, "GL_INT_VEC2", UINT2NUM(0x8B53));
-    rb_define_const(mROGL, "GL_INT_VEC3", UINT2NUM(0x8B54));
-    rb_define_const(mROGL, "GL_INT_VEC4", UINT2NUM(0x8B55));
-    rb_define_const(mROGL, "GL_BOOL", UINT2NUM(0x8B56));
-    rb_define_const(mROGL, "GL_BOOL_VEC2", UINT2NUM(0x8B57));
-    rb_define_const(mROGL, "GL_BOOL_VEC3", UINT2NUM(0x8B58));
-    rb_define_const(mROGL, "GL_BOOL_VEC4", UINT2NUM(0x8B59));
-    rb_define_const(mROGL, "GL_FLOAT_MAT2", UINT2NUM(0x8B5A));
-    rb_define_const(mROGL, "GL_FLOAT_MAT3", UINT2NUM(0x8B5B));
-    rb_define_const(mROGL, "GL_FLOAT_MAT4", UINT2NUM(0x8B5C));
-    rb_define_const(mROGL, "GL_SAMPLER_1D", UINT2NUM(0x8B5D));
-    rb_define_const(mROGL, "GL_SAMPLER_2D", UINT2NUM(0x8B5E));
-    rb_define_const(mROGL, "GL_SAMPLER_3D", UINT2NUM(0x8B5F));
-    rb_define_const(mROGL, "GL_SAMPLER_CUBE", UINT2NUM(0x8B60));
-    rb_define_const(mROGL, "GL_SAMPLER_1D_SHADOW", UINT2NUM(0x8B61));
-    rb_define_const(mROGL, "GL_SAMPLER_2D_SHADOW", UINT2NUM(0x8B62));
-    rb_define_const(mROGL, "GL_DELETE_STATUS", UINT2NUM(0x8B80));
-    rb_define_const(mROGL, "GL_COMPILE_STATUS", UINT2NUM(0x8B81));
-    rb_define_const(mROGL, "GL_LINK_STATUS", UINT2NUM(0x8B82));
-    rb_define_const(mROGL, "GL_VALIDATE_STATUS", UINT2NUM(0x8B83));
-    rb_define_const(mROGL, "GL_INFO_LOG_LENGTH", UINT2NUM(0x8B84));
-    rb_define_const(mROGL, "GL_ATTACHED_SHADERS", UINT2NUM(0x8B85));
-    rb_define_const(mROGL, "GL_ACTIVE_UNIFORMS", UINT2NUM(0x8B86));
-    rb_define_const(mROGL, "GL_ACTIVE_UNIFORM_MAX_LENGTH", UINT2NUM(0x8B87));
-    rb_define_const(mROGL, "GL_SHADER_SOURCE_LENGTH", UINT2NUM(0x8B88));
-    rb_define_const(mROGL, "GL_ACTIVE_ATTRIBUTES", UINT2NUM(0x8B89));
-    rb_define_const(mROGL, "GL_ACTIVE_ATTRIBUTE_MAX_LENGTH", UINT2NUM(0x8B8A));
-    rb_define_const(mROGL, "GL_FRAGMENT_SHADER_DERIVATIVE_HINT", UINT2NUM(0x8B8B));
-    rb_define_const(mROGL, "GL_SHADING_LANGUAGE_VERSION", UINT2NUM(0x8B8C));
-    rb_define_const(mROGL, "GL_CURRENT_PROGRAM", UINT2NUM(0x8B8D));
-    rb_define_const(mROGL, "GL_POINT_SPRITE_COORD_ORIGIN", UINT2NUM(0x8CA0));
-    rb_define_const(mROGL, "GL_LOWER_LEFT", UINT2NUM(0x8CA1));
-    rb_define_const(mROGL, "GL_UPPER_LEFT", UINT2NUM(0x8CA2));
-    rb_define_const(mROGL, "GL_STENCIL_BACK_REF", UINT2NUM(0x8CA3));
-    rb_define_const(mROGL, "GL_STENCIL_BACK_VALUE_MASK", UINT2NUM(0x8CA4));
-    rb_define_const(mROGL, "GL_STENCIL_BACK_WRITEMASK", UINT2NUM(0x8CA5));
-    rb_define_const(mROGL, "GL_VERTEX_PROGRAM_TWO_SIDE", UINT2NUM(0x8643));
-    rb_define_const(mROGL, "GL_POINT_SPRITE", UINT2NUM(0x8861));
-    rb_define_const(mROGL, "GL_COORD_REPLACE", UINT2NUM(0x8862));
-    rb_define_const(mROGL, "GL_MAX_TEXTURE_COORDS", UINT2NUM(0x8871));
-    rb_define_const(mROGL, "GL_PIXEL_PACK_BUFFER", UINT2NUM(0x88EB));
-    rb_define_const(mROGL, "GL_PIXEL_UNPACK_BUFFER", UINT2NUM(0x88EC));
-    rb_define_const(mROGL, "GL_PIXEL_PACK_BUFFER_BINDING", UINT2NUM(0x88ED));
-    rb_define_const(mROGL, "GL_PIXEL_UNPACK_BUFFER_BINDING", UINT2NUM(0x88EF));
-    rb_define_const(mROGL, "GL_FLOAT_MAT2x3", UINT2NUM(0x8B65));
-    rb_define_const(mROGL, "GL_FLOAT_MAT2x4", UINT2NUM(0x8B66));
-    rb_define_const(mROGL, "GL_FLOAT_MAT3x2", UINT2NUM(0x8B67));
-    rb_define_const(mROGL, "GL_FLOAT_MAT3x4", UINT2NUM(0x8B68));
-    rb_define_const(mROGL, "GL_FLOAT_MAT4x2", UINT2NUM(0x8B69));
-    rb_define_const(mROGL, "GL_FLOAT_MAT4x3", UINT2NUM(0x8B6A));
-    rb_define_const(mROGL, "GL_SRGB", UINT2NUM(0x8C40));
-    rb_define_const(mROGL, "GL_SRGB8", UINT2NUM(0x8C41));
-    rb_define_const(mROGL, "GL_SRGB_ALPHA", UINT2NUM(0x8C42));
-    rb_define_const(mROGL, "GL_SRGB8_ALPHA8", UINT2NUM(0x8C43));
-    rb_define_const(mROGL, "GL_COMPRESSED_SRGB", UINT2NUM(0x8C48));
-    rb_define_const(mROGL, "GL_COMPRESSED_SRGB_ALPHA", UINT2NUM(0x8C49));
-    rb_define_const(mROGL, "GL_CURRENT_RASTER_SECONDARY_COLOR", UINT2NUM(0x845F));
-    rb_define_const(mROGL, "GL_SLUMINANCE_ALPHA", UINT2NUM(0x8C44));
-    rb_define_const(mROGL, "GL_SLUMINANCE8_ALPHA8", UINT2NUM(0x8C45));
-    rb_define_const(mROGL, "GL_SLUMINANCE", UINT2NUM(0x8C46));
-    rb_define_const(mROGL, "GL_SLUMINANCE8", UINT2NUM(0x8C47));
-    rb_define_const(mROGL, "GL_COMPRESSED_SLUMINANCE", UINT2NUM(0x8C4A));
-    rb_define_const(mROGL, "GL_COMPRESSED_SLUMINANCE_ALPHA", UINT2NUM(0x8C4B));
-    rb_define_const(mROGL, "GL_COMPARE_REF_TO_TEXTURE", UINT2NUM(0x884E));
-    rb_define_const(mROGL, "GL_CLIP_DISTANCE0", UINT2NUM(0x3000));
-    rb_define_const(mROGL, "GL_CLIP_DISTANCE1", UINT2NUM(0x3001));
-    rb_define_const(mROGL, "GL_CLIP_DISTANCE2", UINT2NUM(0x3002));
-    rb_define_const(mROGL, "GL_CLIP_DISTANCE3", UINT2NUM(0x3003));
-    rb_define_const(mROGL, "GL_CLIP_DISTANCE4", UINT2NUM(0x3004));
-    rb_define_const(mROGL, "GL_CLIP_DISTANCE5", UINT2NUM(0x3005));
-    rb_define_const(mROGL, "GL_CLIP_DISTANCE6", UINT2NUM(0x3006));
-    rb_define_const(mROGL, "GL_CLIP_DISTANCE7", UINT2NUM(0x3007));
-    rb_define_const(mROGL, "GL_MAX_CLIP_DISTANCES", UINT2NUM(0x0D32));
-    rb_define_const(mROGL, "GL_MAJOR_VERSION", UINT2NUM(0x821B));
-    rb_define_const(mROGL, "GL_MINOR_VERSION", UINT2NUM(0x821C));
-    rb_define_const(mROGL, "GL_NUM_EXTENSIONS", UINT2NUM(0x821D));
-    rb_define_const(mROGL, "GL_CONTEXT_FLAGS", UINT2NUM(0x821E));
-    rb_define_const(mROGL, "GL_COMPRESSED_RED", UINT2NUM(0x8225));
-    rb_define_const(mROGL, "GL_COMPRESSED_RG", UINT2NUM(0x8226));
-    rb_define_const(mROGL, "GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT", UINT2NUM(0x00000001));
-    rb_define_const(mROGL, "GL_RGBA32F", UINT2NUM(0x8814));
-    rb_define_const(mROGL, "GL_RGB32F", UINT2NUM(0x8815));
-    rb_define_const(mROGL, "GL_RGBA16F", UINT2NUM(0x881A));
-    rb_define_const(mROGL, "GL_RGB16F", UINT2NUM(0x881B));
-    rb_define_const(mROGL, "GL_VERTEX_ATTRIB_ARRAY_INTEGER", UINT2NUM(0x88FD));
-    rb_define_const(mROGL, "GL_MAX_ARRAY_TEXTURE_LAYERS", UINT2NUM(0x88FF));
-    rb_define_const(mROGL, "GL_MIN_PROGRAM_TEXEL_OFFSET", UINT2NUM(0x8904));
-    rb_define_const(mROGL, "GL_MAX_PROGRAM_TEXEL_OFFSET", UINT2NUM(0x8905));
-    rb_define_const(mROGL, "GL_CLAMP_READ_COLOR", UINT2NUM(0x891C));
-    rb_define_const(mROGL, "GL_FIXED_ONLY", UINT2NUM(0x891D));
-    rb_define_const(mROGL, "GL_MAX_VARYING_COMPONENTS", UINT2NUM(0x8B4B));
-    rb_define_const(mROGL, "GL_TEXTURE_1D_ARRAY", UINT2NUM(0x8C18));
-    rb_define_const(mROGL, "GL_PROXY_TEXTURE_1D_ARRAY", UINT2NUM(0x8C19));
-    rb_define_const(mROGL, "GL_TEXTURE_2D_ARRAY", UINT2NUM(0x8C1A));
-    rb_define_const(mROGL, "GL_PROXY_TEXTURE_2D_ARRAY", UINT2NUM(0x8C1B));
-    rb_define_const(mROGL, "GL_TEXTURE_BINDING_1D_ARRAY", UINT2NUM(0x8C1C));
-    rb_define_const(mROGL, "GL_TEXTURE_BINDING_2D_ARRAY", UINT2NUM(0x8C1D));
-    rb_define_const(mROGL, "GL_R11F_G11F_B10F", UINT2NUM(0x8C3A));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_10F_11F_11F_REV", UINT2NUM(0x8C3B));
-    rb_define_const(mROGL, "GL_RGB9_E5", UINT2NUM(0x8C3D));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_5_9_9_9_REV", UINT2NUM(0x8C3E));
-    rb_define_const(mROGL, "GL_TEXTURE_SHARED_SIZE", UINT2NUM(0x8C3F));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH", UINT2NUM(0x8C76));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_MODE", UINT2NUM(0x8C7F));
-    rb_define_const(mROGL, "GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS", UINT2NUM(0x8C80));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_VARYINGS", UINT2NUM(0x8C83));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_START", UINT2NUM(0x8C84));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_SIZE", UINT2NUM(0x8C85));
-    rb_define_const(mROGL, "GL_PRIMITIVES_GENERATED", UINT2NUM(0x8C87));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN", UINT2NUM(0x8C88));
-    rb_define_const(mROGL, "GL_RASTERIZER_DISCARD", UINT2NUM(0x8C89));
-    rb_define_const(mROGL, "GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS", UINT2NUM(0x8C8A));
-    rb_define_const(mROGL, "GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS", UINT2NUM(0x8C8B));
-    rb_define_const(mROGL, "GL_INTERLEAVED_ATTRIBS", UINT2NUM(0x8C8C));
-    rb_define_const(mROGL, "GL_SEPARATE_ATTRIBS", UINT2NUM(0x8C8D));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_BUFFER", UINT2NUM(0x8C8E));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_BINDING", UINT2NUM(0x8C8F));
-    rb_define_const(mROGL, "GL_RGBA32UI", UINT2NUM(0x8D70));
-    rb_define_const(mROGL, "GL_RGB32UI", UINT2NUM(0x8D71));
-    rb_define_const(mROGL, "GL_RGBA16UI", UINT2NUM(0x8D76));
-    rb_define_const(mROGL, "GL_RGB16UI", UINT2NUM(0x8D77));
-    rb_define_const(mROGL, "GL_RGBA8UI", UINT2NUM(0x8D7C));
-    rb_define_const(mROGL, "GL_RGB8UI", UINT2NUM(0x8D7D));
-    rb_define_const(mROGL, "GL_RGBA32I", UINT2NUM(0x8D82));
-    rb_define_const(mROGL, "GL_RGB32I", UINT2NUM(0x8D83));
-    rb_define_const(mROGL, "GL_RGBA16I", UINT2NUM(0x8D88));
-    rb_define_const(mROGL, "GL_RGB16I", UINT2NUM(0x8D89));
-    rb_define_const(mROGL, "GL_RGBA8I", UINT2NUM(0x8D8E));
-    rb_define_const(mROGL, "GL_RGB8I", UINT2NUM(0x8D8F));
-    rb_define_const(mROGL, "GL_RED_INTEGER", UINT2NUM(0x8D94));
-    rb_define_const(mROGL, "GL_GREEN_INTEGER", UINT2NUM(0x8D95));
-    rb_define_const(mROGL, "GL_BLUE_INTEGER", UINT2NUM(0x8D96));
-    rb_define_const(mROGL, "GL_RGB_INTEGER", UINT2NUM(0x8D98));
-    rb_define_const(mROGL, "GL_RGBA_INTEGER", UINT2NUM(0x8D99));
-    rb_define_const(mROGL, "GL_BGR_INTEGER", UINT2NUM(0x8D9A));
-    rb_define_const(mROGL, "GL_BGRA_INTEGER", UINT2NUM(0x8D9B));
-    rb_define_const(mROGL, "GL_SAMPLER_1D_ARRAY", UINT2NUM(0x8DC0));
-    rb_define_const(mROGL, "GL_SAMPLER_2D_ARRAY", UINT2NUM(0x8DC1));
-    rb_define_const(mROGL, "GL_SAMPLER_1D_ARRAY_SHADOW", UINT2NUM(0x8DC3));
-    rb_define_const(mROGL, "GL_SAMPLER_2D_ARRAY_SHADOW", UINT2NUM(0x8DC4));
-    rb_define_const(mROGL, "GL_SAMPLER_CUBE_SHADOW", UINT2NUM(0x8DC5));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_VEC2", UINT2NUM(0x8DC6));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_VEC3", UINT2NUM(0x8DC7));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_VEC4", UINT2NUM(0x8DC8));
-    rb_define_const(mROGL, "GL_INT_SAMPLER_1D", UINT2NUM(0x8DC9));
-    rb_define_const(mROGL, "GL_INT_SAMPLER_2D", UINT2NUM(0x8DCA));
-    rb_define_const(mROGL, "GL_INT_SAMPLER_3D", UINT2NUM(0x8DCB));
-    rb_define_const(mROGL, "GL_INT_SAMPLER_CUBE", UINT2NUM(0x8DCC));
-    rb_define_const(mROGL, "GL_INT_SAMPLER_1D_ARRAY", UINT2NUM(0x8DCE));
-    rb_define_const(mROGL, "GL_INT_SAMPLER_2D_ARRAY", UINT2NUM(0x8DCF));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_SAMPLER_1D", UINT2NUM(0x8DD1));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_SAMPLER_2D", UINT2NUM(0x8DD2));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_SAMPLER_3D", UINT2NUM(0x8DD3));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_SAMPLER_CUBE", UINT2NUM(0x8DD4));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_SAMPLER_1D_ARRAY", UINT2NUM(0x8DD6));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_SAMPLER_2D_ARRAY", UINT2NUM(0x8DD7));
-    rb_define_const(mROGL, "GL_QUERY_WAIT", UINT2NUM(0x8E13));
-    rb_define_const(mROGL, "GL_QUERY_NO_WAIT", UINT2NUM(0x8E14));
-    rb_define_const(mROGL, "GL_QUERY_BY_REGION_WAIT", UINT2NUM(0x8E15));
-    rb_define_const(mROGL, "GL_QUERY_BY_REGION_NO_WAIT", UINT2NUM(0x8E16));
-    rb_define_const(mROGL, "GL_BUFFER_ACCESS_FLAGS", UINT2NUM(0x911F));
-    rb_define_const(mROGL, "GL_BUFFER_MAP_LENGTH", UINT2NUM(0x9120));
-    rb_define_const(mROGL, "GL_BUFFER_MAP_OFFSET", UINT2NUM(0x9121));
-    rb_define_const(mROGL, "GL_DEPTH_COMPONENT32F", UINT2NUM(0x8CAC));
-    rb_define_const(mROGL, "GL_DEPTH32F_STENCIL8", UINT2NUM(0x8CAD));
-    rb_define_const(mROGL, "GL_FLOAT_32_UNSIGNED_INT_24_8_REV", UINT2NUM(0x8DAD));
-    rb_define_const(mROGL, "GL_INVALID_FRAMEBUFFER_OPERATION", UINT2NUM(0x0506));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING", UINT2NUM(0x8210));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE", UINT2NUM(0x8211));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE", UINT2NUM(0x8212));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE", UINT2NUM(0x8213));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE", UINT2NUM(0x8214));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE", UINT2NUM(0x8215));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE", UINT2NUM(0x8216));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE", UINT2NUM(0x8217));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_DEFAULT", UINT2NUM(0x8218));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_UNDEFINED", UINT2NUM(0x8219));
-    rb_define_const(mROGL, "GL_DEPTH_STENCIL_ATTACHMENT", UINT2NUM(0x821A));
-    rb_define_const(mROGL, "GL_MAX_RENDERBUFFER_SIZE", UINT2NUM(0x84E8));
-    rb_define_const(mROGL, "GL_DEPTH_STENCIL", UINT2NUM(0x84F9));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_24_8", UINT2NUM(0x84FA));
-    rb_define_const(mROGL, "GL_DEPTH24_STENCIL8", UINT2NUM(0x88F0));
-    rb_define_const(mROGL, "GL_TEXTURE_STENCIL_SIZE", UINT2NUM(0x88F1));
-    rb_define_const(mROGL, "GL_TEXTURE_RED_TYPE", UINT2NUM(0x8C10));
-    rb_define_const(mROGL, "GL_TEXTURE_GREEN_TYPE", UINT2NUM(0x8C11));
-    rb_define_const(mROGL, "GL_TEXTURE_BLUE_TYPE", UINT2NUM(0x8C12));
-    rb_define_const(mROGL, "GL_TEXTURE_ALPHA_TYPE", UINT2NUM(0x8C13));
-    rb_define_const(mROGL, "GL_TEXTURE_DEPTH_TYPE", UINT2NUM(0x8C16));
-    rb_define_const(mROGL, "GL_UNSIGNED_NORMALIZED", UINT2NUM(0x8C17));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_BINDING", UINT2NUM(0x8CA6));
-    rb_define_const(mROGL, "GL_DRAW_FRAMEBUFFER_BINDING", UINT2NUM(0x8CA6));
-    rb_define_const(mROGL, "GL_RENDERBUFFER_BINDING", UINT2NUM(0x8CA7));
-    rb_define_const(mROGL, "GL_READ_FRAMEBUFFER", UINT2NUM(0x8CA8));
-    rb_define_const(mROGL, "GL_DRAW_FRAMEBUFFER", UINT2NUM(0x8CA9));
-    rb_define_const(mROGL, "GL_READ_FRAMEBUFFER_BINDING", UINT2NUM(0x8CAA));
-    rb_define_const(mROGL, "GL_RENDERBUFFER_SAMPLES", UINT2NUM(0x8CAB));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE", UINT2NUM(0x8CD0));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME", UINT2NUM(0x8CD1));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL", UINT2NUM(0x8CD2));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE", UINT2NUM(0x8CD3));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER", UINT2NUM(0x8CD4));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_COMPLETE", UINT2NUM(0x8CD5));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT", UINT2NUM(0x8CD6));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT", UINT2NUM(0x8CD7));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER", UINT2NUM(0x8CDB));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER", UINT2NUM(0x8CDC));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_UNSUPPORTED", UINT2NUM(0x8CDD));
-    rb_define_const(mROGL, "GL_MAX_COLOR_ATTACHMENTS", UINT2NUM(0x8CDF));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT0", UINT2NUM(0x8CE0));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT1", UINT2NUM(0x8CE1));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT2", UINT2NUM(0x8CE2));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT3", UINT2NUM(0x8CE3));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT4", UINT2NUM(0x8CE4));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT5", UINT2NUM(0x8CE5));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT6", UINT2NUM(0x8CE6));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT7", UINT2NUM(0x8CE7));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT8", UINT2NUM(0x8CE8));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT9", UINT2NUM(0x8CE9));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT10", UINT2NUM(0x8CEA));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT11", UINT2NUM(0x8CEB));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT12", UINT2NUM(0x8CEC));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT13", UINT2NUM(0x8CED));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT14", UINT2NUM(0x8CEE));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT15", UINT2NUM(0x8CEF));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT16", UINT2NUM(0x8CF0));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT17", UINT2NUM(0x8CF1));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT18", UINT2NUM(0x8CF2));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT19", UINT2NUM(0x8CF3));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT20", UINT2NUM(0x8CF4));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT21", UINT2NUM(0x8CF5));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT22", UINT2NUM(0x8CF6));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT23", UINT2NUM(0x8CF7));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT24", UINT2NUM(0x8CF8));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT25", UINT2NUM(0x8CF9));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT26", UINT2NUM(0x8CFA));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT27", UINT2NUM(0x8CFB));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT28", UINT2NUM(0x8CFC));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT29", UINT2NUM(0x8CFD));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT30", UINT2NUM(0x8CFE));
-    rb_define_const(mROGL, "GL_COLOR_ATTACHMENT31", UINT2NUM(0x8CFF));
-    rb_define_const(mROGL, "GL_DEPTH_ATTACHMENT", UINT2NUM(0x8D00));
-    rb_define_const(mROGL, "GL_STENCIL_ATTACHMENT", UINT2NUM(0x8D20));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER", UINT2NUM(0x8D40));
-    rb_define_const(mROGL, "GL_RENDERBUFFER", UINT2NUM(0x8D41));
-    rb_define_const(mROGL, "GL_RENDERBUFFER_WIDTH", UINT2NUM(0x8D42));
-    rb_define_const(mROGL, "GL_RENDERBUFFER_HEIGHT", UINT2NUM(0x8D43));
-    rb_define_const(mROGL, "GL_RENDERBUFFER_INTERNAL_FORMAT", UINT2NUM(0x8D44));
-    rb_define_const(mROGL, "GL_STENCIL_INDEX1", UINT2NUM(0x8D46));
-    rb_define_const(mROGL, "GL_STENCIL_INDEX4", UINT2NUM(0x8D47));
-    rb_define_const(mROGL, "GL_STENCIL_INDEX8", UINT2NUM(0x8D48));
-    rb_define_const(mROGL, "GL_STENCIL_INDEX16", UINT2NUM(0x8D49));
-    rb_define_const(mROGL, "GL_RENDERBUFFER_RED_SIZE", UINT2NUM(0x8D50));
-    rb_define_const(mROGL, "GL_RENDERBUFFER_GREEN_SIZE", UINT2NUM(0x8D51));
-    rb_define_const(mROGL, "GL_RENDERBUFFER_BLUE_SIZE", UINT2NUM(0x8D52));
-    rb_define_const(mROGL, "GL_RENDERBUFFER_ALPHA_SIZE", UINT2NUM(0x8D53));
-    rb_define_const(mROGL, "GL_RENDERBUFFER_DEPTH_SIZE", UINT2NUM(0x8D54));
-    rb_define_const(mROGL, "GL_RENDERBUFFER_STENCIL_SIZE", UINT2NUM(0x8D55));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE", UINT2NUM(0x8D56));
-    rb_define_const(mROGL, "GL_MAX_SAMPLES", UINT2NUM(0x8D57));
-    rb_define_const(mROGL, "GL_INDEX", UINT2NUM(0x8222));
-    rb_define_const(mROGL, "GL_TEXTURE_LUMINANCE_TYPE", UINT2NUM(0x8C14));
-    rb_define_const(mROGL, "GL_TEXTURE_INTENSITY_TYPE", UINT2NUM(0x8C15));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_SRGB", UINT2NUM(0x8DB9));
-    rb_define_const(mROGL, "GL_HALF_FLOAT", UINT2NUM(0x140B));
-    rb_define_const(mROGL, "GL_MAP_READ_BIT", UINT2NUM(0x0001));
-    rb_define_const(mROGL, "GL_MAP_WRITE_BIT", UINT2NUM(0x0002));
-    rb_define_const(mROGL, "GL_MAP_INVALIDATE_RANGE_BIT", UINT2NUM(0x0004));
-    rb_define_const(mROGL, "GL_MAP_INVALIDATE_BUFFER_BIT", UINT2NUM(0x0008));
-    rb_define_const(mROGL, "GL_MAP_FLUSH_EXPLICIT_BIT", UINT2NUM(0x0010));
-    rb_define_const(mROGL, "GL_MAP_UNSYNCHRONIZED_BIT", UINT2NUM(0x0020));
-    rb_define_const(mROGL, "GL_COMPRESSED_RED_RGTC1", UINT2NUM(0x8DBB));
-    rb_define_const(mROGL, "GL_COMPRESSED_SIGNED_RED_RGTC1", UINT2NUM(0x8DBC));
-    rb_define_const(mROGL, "GL_COMPRESSED_RG_RGTC2", UINT2NUM(0x8DBD));
-    rb_define_const(mROGL, "GL_COMPRESSED_SIGNED_RG_RGTC2", UINT2NUM(0x8DBE));
-    rb_define_const(mROGL, "GL_RG", UINT2NUM(0x8227));
-    rb_define_const(mROGL, "GL_RG_INTEGER", UINT2NUM(0x8228));
-    rb_define_const(mROGL, "GL_R8", UINT2NUM(0x8229));
-    rb_define_const(mROGL, "GL_R16", UINT2NUM(0x822A));
-    rb_define_const(mROGL, "GL_RG8", UINT2NUM(0x822B));
-    rb_define_const(mROGL, "GL_RG16", UINT2NUM(0x822C));
-    rb_define_const(mROGL, "GL_R16F", UINT2NUM(0x822D));
-    rb_define_const(mROGL, "GL_R32F", UINT2NUM(0x822E));
-    rb_define_const(mROGL, "GL_RG16F", UINT2NUM(0x822F));
-    rb_define_const(mROGL, "GL_RG32F", UINT2NUM(0x8230));
-    rb_define_const(mROGL, "GL_R8I", UINT2NUM(0x8231));
-    rb_define_const(mROGL, "GL_R8UI", UINT2NUM(0x8232));
-    rb_define_const(mROGL, "GL_R16I", UINT2NUM(0x8233));
-    rb_define_const(mROGL, "GL_R16UI", UINT2NUM(0x8234));
-    rb_define_const(mROGL, "GL_R32I", UINT2NUM(0x8235));
-    rb_define_const(mROGL, "GL_R32UI", UINT2NUM(0x8236));
-    rb_define_const(mROGL, "GL_RG8I", UINT2NUM(0x8237));
-    rb_define_const(mROGL, "GL_RG8UI", UINT2NUM(0x8238));
-    rb_define_const(mROGL, "GL_RG16I", UINT2NUM(0x8239));
-    rb_define_const(mROGL, "GL_RG16UI", UINT2NUM(0x823A));
-    rb_define_const(mROGL, "GL_RG32I", UINT2NUM(0x823B));
-    rb_define_const(mROGL, "GL_RG32UI", UINT2NUM(0x823C));
-    rb_define_const(mROGL, "GL_VERTEX_ARRAY_BINDING", UINT2NUM(0x85B5));
-    rb_define_const(mROGL, "GL_CLAMP_VERTEX_COLOR", UINT2NUM(0x891A));
-    rb_define_const(mROGL, "GL_CLAMP_FRAGMENT_COLOR", UINT2NUM(0x891B));
-    rb_define_const(mROGL, "GL_ALPHA_INTEGER", UINT2NUM(0x8D97));
-    rb_define_const(mROGL, "GL_SAMPLER_2D_RECT", UINT2NUM(0x8B63));
-    rb_define_const(mROGL, "GL_SAMPLER_2D_RECT_SHADOW", UINT2NUM(0x8B64));
-    rb_define_const(mROGL, "GL_SAMPLER_BUFFER", UINT2NUM(0x8DC2));
-    rb_define_const(mROGL, "GL_INT_SAMPLER_2D_RECT", UINT2NUM(0x8DCD));
-    rb_define_const(mROGL, "GL_INT_SAMPLER_BUFFER", UINT2NUM(0x8DD0));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_SAMPLER_2D_RECT", UINT2NUM(0x8DD5));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_SAMPLER_BUFFER", UINT2NUM(0x8DD8));
-    rb_define_const(mROGL, "GL_TEXTURE_BUFFER", UINT2NUM(0x8C2A));
-    rb_define_const(mROGL, "GL_MAX_TEXTURE_BUFFER_SIZE", UINT2NUM(0x8C2B));
-    rb_define_const(mROGL, "GL_TEXTURE_BINDING_BUFFER", UINT2NUM(0x8C2C));
-    rb_define_const(mROGL, "GL_TEXTURE_BUFFER_DATA_STORE_BINDING", UINT2NUM(0x8C2D));
-    rb_define_const(mROGL, "GL_TEXTURE_RECTANGLE", UINT2NUM(0x84F5));
-    rb_define_const(mROGL, "GL_TEXTURE_BINDING_RECTANGLE", UINT2NUM(0x84F6));
-    rb_define_const(mROGL, "GL_PROXY_TEXTURE_RECTANGLE", UINT2NUM(0x84F7));
-    rb_define_const(mROGL, "GL_MAX_RECTANGLE_TEXTURE_SIZE", UINT2NUM(0x84F8));
-    rb_define_const(mROGL, "GL_R8_SNORM", UINT2NUM(0x8F94));
-    rb_define_const(mROGL, "GL_RG8_SNORM", UINT2NUM(0x8F95));
-    rb_define_const(mROGL, "GL_RGB8_SNORM", UINT2NUM(0x8F96));
-    rb_define_const(mROGL, "GL_RGBA8_SNORM", UINT2NUM(0x8F97));
-    rb_define_const(mROGL, "GL_R16_SNORM", UINT2NUM(0x8F98));
-    rb_define_const(mROGL, "GL_RG16_SNORM", UINT2NUM(0x8F99));
-    rb_define_const(mROGL, "GL_RGB16_SNORM", UINT2NUM(0x8F9A));
-    rb_define_const(mROGL, "GL_RGBA16_SNORM", UINT2NUM(0x8F9B));
-    rb_define_const(mROGL, "GL_SIGNED_NORMALIZED", UINT2NUM(0x8F9C));
-    rb_define_const(mROGL, "GL_PRIMITIVE_RESTART", UINT2NUM(0x8F9D));
-    rb_define_const(mROGL, "GL_PRIMITIVE_RESTART_INDEX", UINT2NUM(0x8F9E));
-    rb_define_const(mROGL, "GL_COPY_READ_BUFFER", UINT2NUM(0x8F36));
-    rb_define_const(mROGL, "GL_COPY_WRITE_BUFFER", UINT2NUM(0x8F37));
-    rb_define_const(mROGL, "GL_UNIFORM_BUFFER", UINT2NUM(0x8A11));
-    rb_define_const(mROGL, "GL_UNIFORM_BUFFER_BINDING", UINT2NUM(0x8A28));
-    rb_define_const(mROGL, "GL_UNIFORM_BUFFER_START", UINT2NUM(0x8A29));
-    rb_define_const(mROGL, "GL_UNIFORM_BUFFER_SIZE", UINT2NUM(0x8A2A));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_UNIFORM_BLOCKS", UINT2NUM(0x8A2B));
-    rb_define_const(mROGL, "GL_MAX_GEOMETRY_UNIFORM_BLOCKS", UINT2NUM(0x8A2C));
-    rb_define_const(mROGL, "GL_MAX_FRAGMENT_UNIFORM_BLOCKS", UINT2NUM(0x8A2D));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_UNIFORM_BLOCKS", UINT2NUM(0x8A2E));
-    rb_define_const(mROGL, "GL_MAX_UNIFORM_BUFFER_BINDINGS", UINT2NUM(0x8A2F));
-    rb_define_const(mROGL, "GL_MAX_UNIFORM_BLOCK_SIZE", UINT2NUM(0x8A30));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS", UINT2NUM(0x8A31));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS", UINT2NUM(0x8A32));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS", UINT2NUM(0x8A33));
-    rb_define_const(mROGL, "GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT", UINT2NUM(0x8A34));
-    rb_define_const(mROGL, "GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH", UINT2NUM(0x8A35));
-    rb_define_const(mROGL, "GL_ACTIVE_UNIFORM_BLOCKS", UINT2NUM(0x8A36));
-    rb_define_const(mROGL, "GL_UNIFORM_TYPE", UINT2NUM(0x8A37));
-    rb_define_const(mROGL, "GL_UNIFORM_SIZE", UINT2NUM(0x8A38));
-    rb_define_const(mROGL, "GL_UNIFORM_NAME_LENGTH", UINT2NUM(0x8A39));
-    rb_define_const(mROGL, "GL_UNIFORM_BLOCK_INDEX", UINT2NUM(0x8A3A));
-    rb_define_const(mROGL, "GL_UNIFORM_OFFSET", UINT2NUM(0x8A3B));
-    rb_define_const(mROGL, "GL_UNIFORM_ARRAY_STRIDE", UINT2NUM(0x8A3C));
-    rb_define_const(mROGL, "GL_UNIFORM_MATRIX_STRIDE", UINT2NUM(0x8A3D));
-    rb_define_const(mROGL, "GL_UNIFORM_IS_ROW_MAJOR", UINT2NUM(0x8A3E));
-    rb_define_const(mROGL, "GL_UNIFORM_BLOCK_BINDING", UINT2NUM(0x8A3F));
-    rb_define_const(mROGL, "GL_UNIFORM_BLOCK_DATA_SIZE", UINT2NUM(0x8A40));
-    rb_define_const(mROGL, "GL_UNIFORM_BLOCK_NAME_LENGTH", UINT2NUM(0x8A41));
-    rb_define_const(mROGL, "GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS", UINT2NUM(0x8A42));
-    rb_define_const(mROGL, "GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES", UINT2NUM(0x8A43));
-    rb_define_const(mROGL, "GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER", UINT2NUM(0x8A44));
-    rb_define_const(mROGL, "GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER", UINT2NUM(0x8A45));
-    rb_define_const(mROGL, "GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER", UINT2NUM(0x8A46));
-    rb_define_const(mROGL, "GL_INVALID_INDEX", UINT2NUM(0xFFFFFFFF));
-    rb_define_const(mROGL, "GL_CONTEXT_CORE_PROFILE_BIT", UINT2NUM(0x00000001));
-    rb_define_const(mROGL, "GL_CONTEXT_COMPATIBILITY_PROFILE_BIT", UINT2NUM(0x00000002));
-    rb_define_const(mROGL, "GL_LINES_ADJACENCY", UINT2NUM(0x000A));
-    rb_define_const(mROGL, "GL_LINE_STRIP_ADJACENCY", UINT2NUM(0x000B));
-    rb_define_const(mROGL, "GL_TRIANGLES_ADJACENCY", UINT2NUM(0x000C));
-    rb_define_const(mROGL, "GL_TRIANGLE_STRIP_ADJACENCY", UINT2NUM(0x000D));
-    rb_define_const(mROGL, "GL_PROGRAM_POINT_SIZE", UINT2NUM(0x8642));
-    rb_define_const(mROGL, "GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS", UINT2NUM(0x8C29));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_ATTACHMENT_LAYERED", UINT2NUM(0x8DA7));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS", UINT2NUM(0x8DA8));
-    rb_define_const(mROGL, "GL_GEOMETRY_SHADER", UINT2NUM(0x8DD9));
-    rb_define_const(mROGL, "GL_GEOMETRY_VERTICES_OUT", UINT2NUM(0x8916));
-    rb_define_const(mROGL, "GL_GEOMETRY_INPUT_TYPE", UINT2NUM(0x8917));
-    rb_define_const(mROGL, "GL_GEOMETRY_OUTPUT_TYPE", UINT2NUM(0x8918));
-    rb_define_const(mROGL, "GL_MAX_GEOMETRY_UNIFORM_COMPONENTS", UINT2NUM(0x8DDF));
-    rb_define_const(mROGL, "GL_MAX_GEOMETRY_OUTPUT_VERTICES", UINT2NUM(0x8DE0));
-    rb_define_const(mROGL, "GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS", UINT2NUM(0x8DE1));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_OUTPUT_COMPONENTS", UINT2NUM(0x9122));
-    rb_define_const(mROGL, "GL_MAX_GEOMETRY_INPUT_COMPONENTS", UINT2NUM(0x9123));
-    rb_define_const(mROGL, "GL_MAX_GEOMETRY_OUTPUT_COMPONENTS", UINT2NUM(0x9124));
-    rb_define_const(mROGL, "GL_MAX_FRAGMENT_INPUT_COMPONENTS", UINT2NUM(0x9125));
-    rb_define_const(mROGL, "GL_CONTEXT_PROFILE_MASK", UINT2NUM(0x9126));
-    rb_define_const(mROGL, "GL_DEPTH_CLAMP", UINT2NUM(0x864F));
-    rb_define_const(mROGL, "GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION", UINT2NUM(0x8E4C));
-    rb_define_const(mROGL, "GL_FIRST_VERTEX_CONVENTION", UINT2NUM(0x8E4D));
-    rb_define_const(mROGL, "GL_LAST_VERTEX_CONVENTION", UINT2NUM(0x8E4E));
-    rb_define_const(mROGL, "GL_PROVOKING_VERTEX", UINT2NUM(0x8E4F));
-    rb_define_const(mROGL, "GL_TEXTURE_CUBE_MAP_SEAMLESS", UINT2NUM(0x884F));
-    rb_define_const(mROGL, "GL_MAX_SERVER_WAIT_TIMEOUT", UINT2NUM(0x9111));
-    rb_define_const(mROGL, "GL_OBJECT_TYPE", UINT2NUM(0x9112));
-    rb_define_const(mROGL, "GL_SYNC_CONDITION", UINT2NUM(0x9113));
-    rb_define_const(mROGL, "GL_SYNC_STATUS", UINT2NUM(0x9114));
-    rb_define_const(mROGL, "GL_SYNC_FLAGS", UINT2NUM(0x9115));
-    rb_define_const(mROGL, "GL_SYNC_FENCE", UINT2NUM(0x9116));
-    rb_define_const(mROGL, "GL_SYNC_GPU_COMMANDS_COMPLETE", UINT2NUM(0x9117));
-    rb_define_const(mROGL, "GL_UNSIGNALED", UINT2NUM(0x9118));
-    rb_define_const(mROGL, "GL_SIGNALED", UINT2NUM(0x9119));
-    rb_define_const(mROGL, "GL_ALREADY_SIGNALED", UINT2NUM(0x911A));
-    rb_define_const(mROGL, "GL_TIMEOUT_EXPIRED", UINT2NUM(0x911B));
-    rb_define_const(mROGL, "GL_CONDITION_SATISFIED", UINT2NUM(0x911C));
-    rb_define_const(mROGL, "GL_WAIT_FAILED", UINT2NUM(0x911D));
-    rb_define_const(mROGL, "GL_TIMEOUT_IGNORED", UINT2NUM(0xFFFFFFFFFFFFFFFF));
-    rb_define_const(mROGL, "GL_SYNC_FLUSH_COMMANDS_BIT", UINT2NUM(0x00000001));
-    rb_define_const(mROGL, "GL_SAMPLE_POSITION", UINT2NUM(0x8E50));
-    rb_define_const(mROGL, "GL_SAMPLE_MASK", UINT2NUM(0x8E51));
-    rb_define_const(mROGL, "GL_SAMPLE_MASK_VALUE", UINT2NUM(0x8E52));
-    rb_define_const(mROGL, "GL_MAX_SAMPLE_MASK_WORDS", UINT2NUM(0x8E59));
-    rb_define_const(mROGL, "GL_TEXTURE_2D_MULTISAMPLE", UINT2NUM(0x9100));
-    rb_define_const(mROGL, "GL_PROXY_TEXTURE_2D_MULTISAMPLE", UINT2NUM(0x9101));
-    rb_define_const(mROGL, "GL_TEXTURE_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x9102));
-    rb_define_const(mROGL, "GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x9103));
-    rb_define_const(mROGL, "GL_TEXTURE_BINDING_2D_MULTISAMPLE", UINT2NUM(0x9104));
-    rb_define_const(mROGL, "GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x9105));
-    rb_define_const(mROGL, "GL_TEXTURE_SAMPLES", UINT2NUM(0x9106));
-    rb_define_const(mROGL, "GL_TEXTURE_FIXED_SAMPLE_LOCATIONS", UINT2NUM(0x9107));
-    rb_define_const(mROGL, "GL_SAMPLER_2D_MULTISAMPLE", UINT2NUM(0x9108));
-    rb_define_const(mROGL, "GL_INT_SAMPLER_2D_MULTISAMPLE", UINT2NUM(0x9109));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE", UINT2NUM(0x910A));
-    rb_define_const(mROGL, "GL_SAMPLER_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x910B));
-    rb_define_const(mROGL, "GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x910C));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x910D));
-    rb_define_const(mROGL, "GL_MAX_COLOR_TEXTURE_SAMPLES", UINT2NUM(0x910E));
-    rb_define_const(mROGL, "GL_MAX_DEPTH_TEXTURE_SAMPLES", UINT2NUM(0x910F));
-    rb_define_const(mROGL, "GL_MAX_INTEGER_SAMPLES", UINT2NUM(0x9110));
-    rb_define_const(mROGL, "GL_VERTEX_ATTRIB_ARRAY_DIVISOR", UINT2NUM(0x88FE));
-    rb_define_const(mROGL, "GL_SRC1_COLOR", UINT2NUM(0x88F9));
-    rb_define_const(mROGL, "GL_ONE_MINUS_SRC1_COLOR", UINT2NUM(0x88FA));
-    rb_define_const(mROGL, "GL_ONE_MINUS_SRC1_ALPHA", UINT2NUM(0x88FB));
-    rb_define_const(mROGL, "GL_MAX_DUAL_SOURCE_DRAW_BUFFERS", UINT2NUM(0x88FC));
-    rb_define_const(mROGL, "GL_ANY_SAMPLES_PASSED", UINT2NUM(0x8C2F));
-    rb_define_const(mROGL, "GL_SAMPLER_BINDING", UINT2NUM(0x8919));
-    rb_define_const(mROGL, "GL_RGB10_A2UI", UINT2NUM(0x906F));
-    rb_define_const(mROGL, "GL_TEXTURE_SWIZZLE_R", UINT2NUM(0x8E42));
-    rb_define_const(mROGL, "GL_TEXTURE_SWIZZLE_G", UINT2NUM(0x8E43));
-    rb_define_const(mROGL, "GL_TEXTURE_SWIZZLE_B", UINT2NUM(0x8E44));
-    rb_define_const(mROGL, "GL_TEXTURE_SWIZZLE_A", UINT2NUM(0x8E45));
-    rb_define_const(mROGL, "GL_TEXTURE_SWIZZLE_RGBA", UINT2NUM(0x8E46));
-    rb_define_const(mROGL, "GL_TIME_ELAPSED", UINT2NUM(0x88BF));
-    rb_define_const(mROGL, "GL_TIMESTAMP", UINT2NUM(0x8E28));
-    rb_define_const(mROGL, "GL_INT_2_10_10_10_REV", UINT2NUM(0x8D9F));
-    rb_define_const(mROGL, "GL_SAMPLE_SHADING", UINT2NUM(0x8C36));
-    rb_define_const(mROGL, "GL_MIN_SAMPLE_SHADING_VALUE", UINT2NUM(0x8C37));
-    rb_define_const(mROGL, "GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET", UINT2NUM(0x8E5E));
-    rb_define_const(mROGL, "GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET", UINT2NUM(0x8E5F));
-    rb_define_const(mROGL, "GL_TEXTURE_CUBE_MAP_ARRAY", UINT2NUM(0x9009));
-    rb_define_const(mROGL, "GL_TEXTURE_BINDING_CUBE_MAP_ARRAY", UINT2NUM(0x900A));
-    rb_define_const(mROGL, "GL_PROXY_TEXTURE_CUBE_MAP_ARRAY", UINT2NUM(0x900B));
-    rb_define_const(mROGL, "GL_SAMPLER_CUBE_MAP_ARRAY", UINT2NUM(0x900C));
-    rb_define_const(mROGL, "GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW", UINT2NUM(0x900D));
-    rb_define_const(mROGL, "GL_INT_SAMPLER_CUBE_MAP_ARRAY", UINT2NUM(0x900E));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY", UINT2NUM(0x900F));
-    rb_define_const(mROGL, "GL_DRAW_INDIRECT_BUFFER", UINT2NUM(0x8F3F));
-    rb_define_const(mROGL, "GL_DRAW_INDIRECT_BUFFER_BINDING", UINT2NUM(0x8F43));
-    rb_define_const(mROGL, "GL_GEOMETRY_SHADER_INVOCATIONS", UINT2NUM(0x887F));
-    rb_define_const(mROGL, "GL_MAX_GEOMETRY_SHADER_INVOCATIONS", UINT2NUM(0x8E5A));
-    rb_define_const(mROGL, "GL_MIN_FRAGMENT_INTERPOLATION_OFFSET", UINT2NUM(0x8E5B));
-    rb_define_const(mROGL, "GL_MAX_FRAGMENT_INTERPOLATION_OFFSET", UINT2NUM(0x8E5C));
-    rb_define_const(mROGL, "GL_FRAGMENT_INTERPOLATION_OFFSET_BITS", UINT2NUM(0x8E5D));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_STREAMS", UINT2NUM(0x8E71));
-    rb_define_const(mROGL, "GL_DOUBLE_VEC2", UINT2NUM(0x8FFC));
-    rb_define_const(mROGL, "GL_DOUBLE_VEC3", UINT2NUM(0x8FFD));
-    rb_define_const(mROGL, "GL_DOUBLE_VEC4", UINT2NUM(0x8FFE));
-    rb_define_const(mROGL, "GL_DOUBLE_MAT2", UINT2NUM(0x8F46));
-    rb_define_const(mROGL, "GL_DOUBLE_MAT3", UINT2NUM(0x8F47));
-    rb_define_const(mROGL, "GL_DOUBLE_MAT4", UINT2NUM(0x8F48));
-    rb_define_const(mROGL, "GL_DOUBLE_MAT2x3", UINT2NUM(0x8F49));
-    rb_define_const(mROGL, "GL_DOUBLE_MAT2x4", UINT2NUM(0x8F4A));
-    rb_define_const(mROGL, "GL_DOUBLE_MAT3x2", UINT2NUM(0x8F4B));
-    rb_define_const(mROGL, "GL_DOUBLE_MAT3x4", UINT2NUM(0x8F4C));
-    rb_define_const(mROGL, "GL_DOUBLE_MAT4x2", UINT2NUM(0x8F4D));
-    rb_define_const(mROGL, "GL_DOUBLE_MAT4x3", UINT2NUM(0x8F4E));
-    rb_define_const(mROGL, "GL_ACTIVE_SUBROUTINES", UINT2NUM(0x8DE5));
-    rb_define_const(mROGL, "GL_ACTIVE_SUBROUTINE_UNIFORMS", UINT2NUM(0x8DE6));
-    rb_define_const(mROGL, "GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS", UINT2NUM(0x8E47));
-    rb_define_const(mROGL, "GL_ACTIVE_SUBROUTINE_MAX_LENGTH", UINT2NUM(0x8E48));
-    rb_define_const(mROGL, "GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH", UINT2NUM(0x8E49));
-    rb_define_const(mROGL, "GL_MAX_SUBROUTINES", UINT2NUM(0x8DE7));
-    rb_define_const(mROGL, "GL_MAX_SUBROUTINE_UNIFORM_LOCATIONS", UINT2NUM(0x8DE8));
-    rb_define_const(mROGL, "GL_NUM_COMPATIBLE_SUBROUTINES", UINT2NUM(0x8E4A));
-    rb_define_const(mROGL, "GL_COMPATIBLE_SUBROUTINES", UINT2NUM(0x8E4B));
-    rb_define_const(mROGL, "GL_PATCHES", UINT2NUM(0x000E));
-    rb_define_const(mROGL, "GL_PATCH_VERTICES", UINT2NUM(0x8E72));
-    rb_define_const(mROGL, "GL_PATCH_DEFAULT_INNER_LEVEL", UINT2NUM(0x8E73));
-    rb_define_const(mROGL, "GL_PATCH_DEFAULT_OUTER_LEVEL", UINT2NUM(0x8E74));
-    rb_define_const(mROGL, "GL_TESS_CONTROL_OUTPUT_VERTICES", UINT2NUM(0x8E75));
-    rb_define_const(mROGL, "GL_TESS_GEN_MODE", UINT2NUM(0x8E76));
-    rb_define_const(mROGL, "GL_TESS_GEN_SPACING", UINT2NUM(0x8E77));
-    rb_define_const(mROGL, "GL_TESS_GEN_VERTEX_ORDER", UINT2NUM(0x8E78));
-    rb_define_const(mROGL, "GL_TESS_GEN_POINT_MODE", UINT2NUM(0x8E79));
-    rb_define_const(mROGL, "GL_ISOLINES", UINT2NUM(0x8E7A));
-    rb_define_const(mROGL, "GL_FRACTIONAL_ODD", UINT2NUM(0x8E7B));
-    rb_define_const(mROGL, "GL_FRACTIONAL_EVEN", UINT2NUM(0x8E7C));
-    rb_define_const(mROGL, "GL_MAX_PATCH_VERTICES", UINT2NUM(0x8E7D));
-    rb_define_const(mROGL, "GL_MAX_TESS_GEN_LEVEL", UINT2NUM(0x8E7E));
-    rb_define_const(mROGL, "GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS", UINT2NUM(0x8E7F));
-    rb_define_const(mROGL, "GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS", UINT2NUM(0x8E80));
-    rb_define_const(mROGL, "GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS", UINT2NUM(0x8E81));
-    rb_define_const(mROGL, "GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS", UINT2NUM(0x8E82));
-    rb_define_const(mROGL, "GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS", UINT2NUM(0x8E83));
-    rb_define_const(mROGL, "GL_MAX_TESS_PATCH_COMPONENTS", UINT2NUM(0x8E84));
-    rb_define_const(mROGL, "GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS", UINT2NUM(0x8E85));
-    rb_define_const(mROGL, "GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS", UINT2NUM(0x8E86));
-    rb_define_const(mROGL, "GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS", UINT2NUM(0x8E89));
-    rb_define_const(mROGL, "GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS", UINT2NUM(0x8E8A));
-    rb_define_const(mROGL, "GL_MAX_TESS_CONTROL_INPUT_COMPONENTS", UINT2NUM(0x886C));
-    rb_define_const(mROGL, "GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS", UINT2NUM(0x886D));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS", UINT2NUM(0x8E1E));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS", UINT2NUM(0x8E1F));
-    rb_define_const(mROGL, "GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_CONTROL_SHADER", UINT2NUM(0x84F0));
-    rb_define_const(mROGL, "GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_EVALUATION_SHADER", UINT2NUM(0x84F1));
-    rb_define_const(mROGL, "GL_TESS_EVALUATION_SHADER", UINT2NUM(0x8E87));
-    rb_define_const(mROGL, "GL_TESS_CONTROL_SHADER", UINT2NUM(0x8E88));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK", UINT2NUM(0x8E22));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED", UINT2NUM(0x8E23));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE", UINT2NUM(0x8E24));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_BINDING", UINT2NUM(0x8E25));
-    rb_define_const(mROGL, "GL_MAX_TRANSFORM_FEEDBACK_BUFFERS", UINT2NUM(0x8E70));
-    rb_define_const(mROGL, "GL_FIXED", UINT2NUM(0x140C));
-    rb_define_const(mROGL, "GL_IMPLEMENTATION_COLOR_READ_TYPE", UINT2NUM(0x8B9A));
-    rb_define_const(mROGL, "GL_IMPLEMENTATION_COLOR_READ_FORMAT", UINT2NUM(0x8B9B));
-    rb_define_const(mROGL, "GL_LOW_FLOAT", UINT2NUM(0x8DF0));
-    rb_define_const(mROGL, "GL_MEDIUM_FLOAT", UINT2NUM(0x8DF1));
-    rb_define_const(mROGL, "GL_HIGH_FLOAT", UINT2NUM(0x8DF2));
-    rb_define_const(mROGL, "GL_LOW_INT", UINT2NUM(0x8DF3));
-    rb_define_const(mROGL, "GL_MEDIUM_INT", UINT2NUM(0x8DF4));
-    rb_define_const(mROGL, "GL_HIGH_INT", UINT2NUM(0x8DF5));
-    rb_define_const(mROGL, "GL_SHADER_COMPILER", UINT2NUM(0x8DFA));
-    rb_define_const(mROGL, "GL_SHADER_BINARY_FORMATS", UINT2NUM(0x8DF8));
-    rb_define_const(mROGL, "GL_NUM_SHADER_BINARY_FORMATS", UINT2NUM(0x8DF9));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_UNIFORM_VECTORS", UINT2NUM(0x8DFB));
-    rb_define_const(mROGL, "GL_MAX_VARYING_VECTORS", UINT2NUM(0x8DFC));
-    rb_define_const(mROGL, "GL_MAX_FRAGMENT_UNIFORM_VECTORS", UINT2NUM(0x8DFD));
-    rb_define_const(mROGL, "GL_RGB565", UINT2NUM(0x8D62));
-    rb_define_const(mROGL, "GL_PROGRAM_BINARY_RETRIEVABLE_HINT", UINT2NUM(0x8257));
-    rb_define_const(mROGL, "GL_PROGRAM_BINARY_LENGTH", UINT2NUM(0x8741));
-    rb_define_const(mROGL, "GL_NUM_PROGRAM_BINARY_FORMATS", UINT2NUM(0x87FE));
-    rb_define_const(mROGL, "GL_PROGRAM_BINARY_FORMATS", UINT2NUM(0x87FF));
-    rb_define_const(mROGL, "GL_VERTEX_SHADER_BIT", UINT2NUM(0x00000001));
-    rb_define_const(mROGL, "GL_FRAGMENT_SHADER_BIT", UINT2NUM(0x00000002));
-    rb_define_const(mROGL, "GL_GEOMETRY_SHADER_BIT", UINT2NUM(0x00000004));
-    rb_define_const(mROGL, "GL_TESS_CONTROL_SHADER_BIT", UINT2NUM(0x00000008));
-    rb_define_const(mROGL, "GL_TESS_EVALUATION_SHADER_BIT", UINT2NUM(0x00000010));
-    rb_define_const(mROGL, "GL_ALL_SHADER_BITS", UINT2NUM(0xFFFFFFFF));
-    rb_define_const(mROGL, "GL_PROGRAM_SEPARABLE", UINT2NUM(0x8258));
-    rb_define_const(mROGL, "GL_ACTIVE_PROGRAM", UINT2NUM(0x8259));
-    rb_define_const(mROGL, "GL_PROGRAM_PIPELINE_BINDING", UINT2NUM(0x825A));
-    rb_define_const(mROGL, "GL_MAX_VIEWPORTS", UINT2NUM(0x825B));
-    rb_define_const(mROGL, "GL_VIEWPORT_SUBPIXEL_BITS", UINT2NUM(0x825C));
-    rb_define_const(mROGL, "GL_VIEWPORT_BOUNDS_RANGE", UINT2NUM(0x825D));
-    rb_define_const(mROGL, "GL_LAYER_PROVOKING_VERTEX", UINT2NUM(0x825E));
-    rb_define_const(mROGL, "GL_VIEWPORT_INDEX_PROVOKING_VERTEX", UINT2NUM(0x825F));
-    rb_define_const(mROGL, "GL_UNDEFINED_VERTEX", UINT2NUM(0x8260));
-    rb_define_const(mROGL, "GL_COPY_READ_BUFFER_BINDING", UINT2NUM(0x8F36));
-    rb_define_const(mROGL, "GL_COPY_WRITE_BUFFER_BINDING", UINT2NUM(0x8F37));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_ACTIVE", UINT2NUM(0x8E24));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_PAUSED", UINT2NUM(0x8E23));
-    rb_define_const(mROGL, "GL_UNPACK_COMPRESSED_BLOCK_WIDTH", UINT2NUM(0x9127));
-    rb_define_const(mROGL, "GL_UNPACK_COMPRESSED_BLOCK_HEIGHT", UINT2NUM(0x9128));
-    rb_define_const(mROGL, "GL_UNPACK_COMPRESSED_BLOCK_DEPTH", UINT2NUM(0x9129));
-    rb_define_const(mROGL, "GL_UNPACK_COMPRESSED_BLOCK_SIZE", UINT2NUM(0x912A));
-    rb_define_const(mROGL, "GL_PACK_COMPRESSED_BLOCK_WIDTH", UINT2NUM(0x912B));
-    rb_define_const(mROGL, "GL_PACK_COMPRESSED_BLOCK_HEIGHT", UINT2NUM(0x912C));
-    rb_define_const(mROGL, "GL_PACK_COMPRESSED_BLOCK_DEPTH", UINT2NUM(0x912D));
-    rb_define_const(mROGL, "GL_PACK_COMPRESSED_BLOCK_SIZE", UINT2NUM(0x912E));
-    rb_define_const(mROGL, "GL_NUM_SAMPLE_COUNTS", UINT2NUM(0x9380));
-    rb_define_const(mROGL, "GL_MIN_MAP_BUFFER_ALIGNMENT", UINT2NUM(0x90BC));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER", UINT2NUM(0x92C0));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER_BINDING", UINT2NUM(0x92C1));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER_START", UINT2NUM(0x92C2));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER_SIZE", UINT2NUM(0x92C3));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE", UINT2NUM(0x92C4));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS", UINT2NUM(0x92C5));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES", UINT2NUM(0x92C6));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER", UINT2NUM(0x92C7));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER", UINT2NUM(0x92C8));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER", UINT2NUM(0x92C9));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER", UINT2NUM(0x92CA));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER", UINT2NUM(0x92CB));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92CC));
-    rb_define_const(mROGL, "GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92CD));
-    rb_define_const(mROGL, "GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92CE));
-    rb_define_const(mROGL, "GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92CF));
-    rb_define_const(mROGL, "GL_MAX_FRAGMENT_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92D0));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92D1));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_ATOMIC_COUNTERS", UINT2NUM(0x92D2));
-    rb_define_const(mROGL, "GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS", UINT2NUM(0x92D3));
-    rb_define_const(mROGL, "GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS", UINT2NUM(0x92D4));
-    rb_define_const(mROGL, "GL_MAX_GEOMETRY_ATOMIC_COUNTERS", UINT2NUM(0x92D5));
-    rb_define_const(mROGL, "GL_MAX_FRAGMENT_ATOMIC_COUNTERS", UINT2NUM(0x92D6));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_ATOMIC_COUNTERS", UINT2NUM(0x92D7));
-    rb_define_const(mROGL, "GL_MAX_ATOMIC_COUNTER_BUFFER_SIZE", UINT2NUM(0x92D8));
-    rb_define_const(mROGL, "GL_MAX_ATOMIC_COUNTER_BUFFER_BINDINGS", UINT2NUM(0x92DC));
-    rb_define_const(mROGL, "GL_ACTIVE_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92D9));
-    rb_define_const(mROGL, "GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX", UINT2NUM(0x92DA));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_ATOMIC_COUNTER", UINT2NUM(0x92DB));
-    rb_define_const(mROGL, "GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT", UINT2NUM(0x00000001));
-    rb_define_const(mROGL, "GL_ELEMENT_ARRAY_BARRIER_BIT", UINT2NUM(0x00000002));
-    rb_define_const(mROGL, "GL_UNIFORM_BARRIER_BIT", UINT2NUM(0x00000004));
-    rb_define_const(mROGL, "GL_TEXTURE_FETCH_BARRIER_BIT", UINT2NUM(0x00000008));
-    rb_define_const(mROGL, "GL_SHADER_IMAGE_ACCESS_BARRIER_BIT", UINT2NUM(0x00000020));
-    rb_define_const(mROGL, "GL_COMMAND_BARRIER_BIT", UINT2NUM(0x00000040));
-    rb_define_const(mROGL, "GL_PIXEL_BUFFER_BARRIER_BIT", UINT2NUM(0x00000080));
-    rb_define_const(mROGL, "GL_TEXTURE_UPDATE_BARRIER_BIT", UINT2NUM(0x00000100));
-    rb_define_const(mROGL, "GL_BUFFER_UPDATE_BARRIER_BIT", UINT2NUM(0x00000200));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_BARRIER_BIT", UINT2NUM(0x00000400));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_BARRIER_BIT", UINT2NUM(0x00000800));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BARRIER_BIT", UINT2NUM(0x00001000));
-    rb_define_const(mROGL, "GL_ALL_BARRIER_BITS", UINT2NUM(0xFFFFFFFF));
-    rb_define_const(mROGL, "GL_MAX_IMAGE_UNITS", UINT2NUM(0x8F38));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS", UINT2NUM(0x8F39));
-    rb_define_const(mROGL, "GL_IMAGE_BINDING_NAME", UINT2NUM(0x8F3A));
-    rb_define_const(mROGL, "GL_IMAGE_BINDING_LEVEL", UINT2NUM(0x8F3B));
-    rb_define_const(mROGL, "GL_IMAGE_BINDING_LAYERED", UINT2NUM(0x8F3C));
-    rb_define_const(mROGL, "GL_IMAGE_BINDING_LAYER", UINT2NUM(0x8F3D));
-    rb_define_const(mROGL, "GL_IMAGE_BINDING_ACCESS", UINT2NUM(0x8F3E));
-    rb_define_const(mROGL, "GL_IMAGE_1D", UINT2NUM(0x904C));
-    rb_define_const(mROGL, "GL_IMAGE_2D", UINT2NUM(0x904D));
-    rb_define_const(mROGL, "GL_IMAGE_3D", UINT2NUM(0x904E));
-    rb_define_const(mROGL, "GL_IMAGE_2D_RECT", UINT2NUM(0x904F));
-    rb_define_const(mROGL, "GL_IMAGE_CUBE", UINT2NUM(0x9050));
-    rb_define_const(mROGL, "GL_IMAGE_BUFFER", UINT2NUM(0x9051));
-    rb_define_const(mROGL, "GL_IMAGE_1D_ARRAY", UINT2NUM(0x9052));
-    rb_define_const(mROGL, "GL_IMAGE_2D_ARRAY", UINT2NUM(0x9053));
-    rb_define_const(mROGL, "GL_IMAGE_CUBE_MAP_ARRAY", UINT2NUM(0x9054));
-    rb_define_const(mROGL, "GL_IMAGE_2D_MULTISAMPLE", UINT2NUM(0x9055));
-    rb_define_const(mROGL, "GL_IMAGE_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x9056));
-    rb_define_const(mROGL, "GL_INT_IMAGE_1D", UINT2NUM(0x9057));
-    rb_define_const(mROGL, "GL_INT_IMAGE_2D", UINT2NUM(0x9058));
-    rb_define_const(mROGL, "GL_INT_IMAGE_3D", UINT2NUM(0x9059));
-    rb_define_const(mROGL, "GL_INT_IMAGE_2D_RECT", UINT2NUM(0x905A));
-    rb_define_const(mROGL, "GL_INT_IMAGE_CUBE", UINT2NUM(0x905B));
-    rb_define_const(mROGL, "GL_INT_IMAGE_BUFFER", UINT2NUM(0x905C));
-    rb_define_const(mROGL, "GL_INT_IMAGE_1D_ARRAY", UINT2NUM(0x905D));
-    rb_define_const(mROGL, "GL_INT_IMAGE_2D_ARRAY", UINT2NUM(0x905E));
-    rb_define_const(mROGL, "GL_INT_IMAGE_CUBE_MAP_ARRAY", UINT2NUM(0x905F));
-    rb_define_const(mROGL, "GL_INT_IMAGE_2D_MULTISAMPLE", UINT2NUM(0x9060));
-    rb_define_const(mROGL, "GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x9061));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_IMAGE_1D", UINT2NUM(0x9062));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_IMAGE_2D", UINT2NUM(0x9063));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_IMAGE_3D", UINT2NUM(0x9064));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_IMAGE_2D_RECT", UINT2NUM(0x9065));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_IMAGE_CUBE", UINT2NUM(0x9066));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_IMAGE_BUFFER", UINT2NUM(0x9067));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_IMAGE_1D_ARRAY", UINT2NUM(0x9068));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_IMAGE_2D_ARRAY", UINT2NUM(0x9069));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY", UINT2NUM(0x906A));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE", UINT2NUM(0x906B));
-    rb_define_const(mROGL, "GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x906C));
-    rb_define_const(mROGL, "GL_MAX_IMAGE_SAMPLES", UINT2NUM(0x906D));
-    rb_define_const(mROGL, "GL_IMAGE_BINDING_FORMAT", UINT2NUM(0x906E));
-    rb_define_const(mROGL, "GL_IMAGE_FORMAT_COMPATIBILITY_TYPE", UINT2NUM(0x90C7));
-    rb_define_const(mROGL, "GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE", UINT2NUM(0x90C8));
-    rb_define_const(mROGL, "GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS", UINT2NUM(0x90C9));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_IMAGE_UNIFORMS", UINT2NUM(0x90CA));
-    rb_define_const(mROGL, "GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS", UINT2NUM(0x90CB));
-    rb_define_const(mROGL, "GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS", UINT2NUM(0x90CC));
-    rb_define_const(mROGL, "GL_MAX_GEOMETRY_IMAGE_UNIFORMS", UINT2NUM(0x90CD));
-    rb_define_const(mROGL, "GL_MAX_FRAGMENT_IMAGE_UNIFORMS", UINT2NUM(0x90CE));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_IMAGE_UNIFORMS", UINT2NUM(0x90CF));
-    rb_define_const(mROGL, "GL_COMPRESSED_RGBA_BPTC_UNORM", UINT2NUM(0x8E8C));
-    rb_define_const(mROGL, "GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM", UINT2NUM(0x8E8D));
-    rb_define_const(mROGL, "GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT", UINT2NUM(0x8E8E));
-    rb_define_const(mROGL, "GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT", UINT2NUM(0x8E8F));
-    rb_define_const(mROGL, "GL_TEXTURE_IMMUTABLE_FORMAT", UINT2NUM(0x912F));
-    rb_define_const(mROGL, "GL_NUM_SHADING_LANGUAGE_VERSIONS", UINT2NUM(0x82E9));
-    rb_define_const(mROGL, "GL_VERTEX_ATTRIB_ARRAY_LONG", UINT2NUM(0x874E));
-    rb_define_const(mROGL, "GL_COMPRESSED_RGB8_ETC2", UINT2NUM(0x9274));
-    rb_define_const(mROGL, "GL_COMPRESSED_SRGB8_ETC2", UINT2NUM(0x9275));
-    rb_define_const(mROGL, "GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2", UINT2NUM(0x9276));
-    rb_define_const(mROGL, "GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2", UINT2NUM(0x9277));
-    rb_define_const(mROGL, "GL_COMPRESSED_RGBA8_ETC2_EAC", UINT2NUM(0x9278));
-    rb_define_const(mROGL, "GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC", UINT2NUM(0x9279));
-    rb_define_const(mROGL, "GL_COMPRESSED_R11_EAC", UINT2NUM(0x9270));
-    rb_define_const(mROGL, "GL_COMPRESSED_SIGNED_R11_EAC", UINT2NUM(0x9271));
-    rb_define_const(mROGL, "GL_COMPRESSED_RG11_EAC", UINT2NUM(0x9272));
-    rb_define_const(mROGL, "GL_COMPRESSED_SIGNED_RG11_EAC", UINT2NUM(0x9273));
-    rb_define_const(mROGL, "GL_PRIMITIVE_RESTART_FIXED_INDEX", UINT2NUM(0x8D69));
-    rb_define_const(mROGL, "GL_ANY_SAMPLES_PASSED_CONSERVATIVE", UINT2NUM(0x8D6A));
-    rb_define_const(mROGL, "GL_MAX_ELEMENT_INDEX", UINT2NUM(0x8D6B));
-    rb_define_const(mROGL, "GL_COMPUTE_SHADER", UINT2NUM(0x91B9));
-    rb_define_const(mROGL, "GL_MAX_COMPUTE_UNIFORM_BLOCKS", UINT2NUM(0x91BB));
-    rb_define_const(mROGL, "GL_MAX_COMPUTE_TEXTURE_IMAGE_UNITS", UINT2NUM(0x91BC));
-    rb_define_const(mROGL, "GL_MAX_COMPUTE_IMAGE_UNIFORMS", UINT2NUM(0x91BD));
-    rb_define_const(mROGL, "GL_MAX_COMPUTE_SHARED_MEMORY_SIZE", UINT2NUM(0x8262));
-    rb_define_const(mROGL, "GL_MAX_COMPUTE_UNIFORM_COMPONENTS", UINT2NUM(0x8263));
-    rb_define_const(mROGL, "GL_MAX_COMPUTE_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x8264));
-    rb_define_const(mROGL, "GL_MAX_COMPUTE_ATOMIC_COUNTERS", UINT2NUM(0x8265));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS", UINT2NUM(0x8266));
-    rb_define_const(mROGL, "GL_MAX_COMPUTE_WORK_GROUP_INVOCATIONS", UINT2NUM(0x90EB));
-    rb_define_const(mROGL, "GL_MAX_COMPUTE_WORK_GROUP_COUNT", UINT2NUM(0x91BE));
-    rb_define_const(mROGL, "GL_MAX_COMPUTE_WORK_GROUP_SIZE", UINT2NUM(0x91BF));
-    rb_define_const(mROGL, "GL_COMPUTE_WORK_GROUP_SIZE", UINT2NUM(0x8267));
-    rb_define_const(mROGL, "GL_UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER", UINT2NUM(0x90EC));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER", UINT2NUM(0x90ED));
-    rb_define_const(mROGL, "GL_DISPATCH_INDIRECT_BUFFER", UINT2NUM(0x90EE));
-    rb_define_const(mROGL, "GL_DISPATCH_INDIRECT_BUFFER_BINDING", UINT2NUM(0x90EF));
-    rb_define_const(mROGL, "GL_COMPUTE_SHADER_BIT", UINT2NUM(0x00000020));
-    rb_define_const(mROGL, "GL_DEBUG_OUTPUT_SYNCHRONOUS", UINT2NUM(0x8242));
-    rb_define_const(mROGL, "GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH", UINT2NUM(0x8243));
-    rb_define_const(mROGL, "GL_DEBUG_CALLBACK_FUNCTION", UINT2NUM(0x8244));
-    rb_define_const(mROGL, "GL_DEBUG_CALLBACK_USER_PARAM", UINT2NUM(0x8245));
-    rb_define_const(mROGL, "GL_DEBUG_SOURCE_API", UINT2NUM(0x8246));
-    rb_define_const(mROGL, "GL_DEBUG_SOURCE_WINDOW_SYSTEM", UINT2NUM(0x8247));
-    rb_define_const(mROGL, "GL_DEBUG_SOURCE_SHADER_COMPILER", UINT2NUM(0x8248));
-    rb_define_const(mROGL, "GL_DEBUG_SOURCE_THIRD_PARTY", UINT2NUM(0x8249));
-    rb_define_const(mROGL, "GL_DEBUG_SOURCE_APPLICATION", UINT2NUM(0x824A));
-    rb_define_const(mROGL, "GL_DEBUG_SOURCE_OTHER", UINT2NUM(0x824B));
-    rb_define_const(mROGL, "GL_DEBUG_TYPE_ERROR", UINT2NUM(0x824C));
-    rb_define_const(mROGL, "GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR", UINT2NUM(0x824D));
-    rb_define_const(mROGL, "GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR", UINT2NUM(0x824E));
-    rb_define_const(mROGL, "GL_DEBUG_TYPE_PORTABILITY", UINT2NUM(0x824F));
-    rb_define_const(mROGL, "GL_DEBUG_TYPE_PERFORMANCE", UINT2NUM(0x8250));
-    rb_define_const(mROGL, "GL_DEBUG_TYPE_OTHER", UINT2NUM(0x8251));
-    rb_define_const(mROGL, "GL_MAX_DEBUG_MESSAGE_LENGTH", UINT2NUM(0x9143));
-    rb_define_const(mROGL, "GL_MAX_DEBUG_LOGGED_MESSAGES", UINT2NUM(0x9144));
-    rb_define_const(mROGL, "GL_DEBUG_LOGGED_MESSAGES", UINT2NUM(0x9145));
-    rb_define_const(mROGL, "GL_DEBUG_SEVERITY_HIGH", UINT2NUM(0x9146));
-    rb_define_const(mROGL, "GL_DEBUG_SEVERITY_MEDIUM", UINT2NUM(0x9147));
-    rb_define_const(mROGL, "GL_DEBUG_SEVERITY_LOW", UINT2NUM(0x9148));
-    rb_define_const(mROGL, "GL_DEBUG_TYPE_MARKER", UINT2NUM(0x8268));
-    rb_define_const(mROGL, "GL_DEBUG_TYPE_PUSH_GROUP", UINT2NUM(0x8269));
-    rb_define_const(mROGL, "GL_DEBUG_TYPE_POP_GROUP", UINT2NUM(0x826A));
-    rb_define_const(mROGL, "GL_DEBUG_SEVERITY_NOTIFICATION", UINT2NUM(0x826B));
-    rb_define_const(mROGL, "GL_MAX_DEBUG_GROUP_STACK_DEPTH", UINT2NUM(0x826C));
-    rb_define_const(mROGL, "GL_DEBUG_GROUP_STACK_DEPTH", UINT2NUM(0x826D));
-    rb_define_const(mROGL, "GL_BUFFER", UINT2NUM(0x82E0));
-    rb_define_const(mROGL, "GL_SHADER", UINT2NUM(0x82E1));
-    rb_define_const(mROGL, "GL_PROGRAM", UINT2NUM(0x82E2));
-    rb_define_const(mROGL, "GL_QUERY", UINT2NUM(0x82E3));
-    rb_define_const(mROGL, "GL_PROGRAM_PIPELINE", UINT2NUM(0x82E4));
-    rb_define_const(mROGL, "GL_SAMPLER", UINT2NUM(0x82E6));
-    rb_define_const(mROGL, "GL_MAX_LABEL_LENGTH", UINT2NUM(0x82E8));
-    rb_define_const(mROGL, "GL_DEBUG_OUTPUT", UINT2NUM(0x92E0));
-    rb_define_const(mROGL, "GL_CONTEXT_FLAG_DEBUG_BIT", UINT2NUM(0x00000002));
-    rb_define_const(mROGL, "GL_MAX_UNIFORM_LOCATIONS", UINT2NUM(0x826E));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_DEFAULT_WIDTH", UINT2NUM(0x9310));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_DEFAULT_HEIGHT", UINT2NUM(0x9311));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_DEFAULT_LAYERS", UINT2NUM(0x9312));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_DEFAULT_SAMPLES", UINT2NUM(0x9313));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS", UINT2NUM(0x9314));
-    rb_define_const(mROGL, "GL_MAX_FRAMEBUFFER_WIDTH", UINT2NUM(0x9315));
-    rb_define_const(mROGL, "GL_MAX_FRAMEBUFFER_HEIGHT", UINT2NUM(0x9316));
-    rb_define_const(mROGL, "GL_MAX_FRAMEBUFFER_LAYERS", UINT2NUM(0x9317));
-    rb_define_const(mROGL, "GL_MAX_FRAMEBUFFER_SAMPLES", UINT2NUM(0x9318));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_SUPPORTED", UINT2NUM(0x826F));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_PREFERRED", UINT2NUM(0x8270));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_RED_SIZE", UINT2NUM(0x8271));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_GREEN_SIZE", UINT2NUM(0x8272));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_BLUE_SIZE", UINT2NUM(0x8273));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_ALPHA_SIZE", UINT2NUM(0x8274));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_DEPTH_SIZE", UINT2NUM(0x8275));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_STENCIL_SIZE", UINT2NUM(0x8276));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_SHARED_SIZE", UINT2NUM(0x8277));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_RED_TYPE", UINT2NUM(0x8278));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_GREEN_TYPE", UINT2NUM(0x8279));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_BLUE_TYPE", UINT2NUM(0x827A));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_ALPHA_TYPE", UINT2NUM(0x827B));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_DEPTH_TYPE", UINT2NUM(0x827C));
-    rb_define_const(mROGL, "GL_INTERNALFORMAT_STENCIL_TYPE", UINT2NUM(0x827D));
-    rb_define_const(mROGL, "GL_MAX_WIDTH", UINT2NUM(0x827E));
-    rb_define_const(mROGL, "GL_MAX_HEIGHT", UINT2NUM(0x827F));
-    rb_define_const(mROGL, "GL_MAX_DEPTH", UINT2NUM(0x8280));
-    rb_define_const(mROGL, "GL_MAX_LAYERS", UINT2NUM(0x8281));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_DIMENSIONS", UINT2NUM(0x8282));
-    rb_define_const(mROGL, "GL_COLOR_COMPONENTS", UINT2NUM(0x8283));
-    rb_define_const(mROGL, "GL_DEPTH_COMPONENTS", UINT2NUM(0x8284));
-    rb_define_const(mROGL, "GL_STENCIL_COMPONENTS", UINT2NUM(0x8285));
-    rb_define_const(mROGL, "GL_COLOR_RENDERABLE", UINT2NUM(0x8286));
-    rb_define_const(mROGL, "GL_DEPTH_RENDERABLE", UINT2NUM(0x8287));
-    rb_define_const(mROGL, "GL_STENCIL_RENDERABLE", UINT2NUM(0x8288));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_RENDERABLE", UINT2NUM(0x8289));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_RENDERABLE_LAYERED", UINT2NUM(0x828A));
-    rb_define_const(mROGL, "GL_FRAMEBUFFER_BLEND", UINT2NUM(0x828B));
-    rb_define_const(mROGL, "GL_READ_PIXELS", UINT2NUM(0x828C));
-    rb_define_const(mROGL, "GL_READ_PIXELS_FORMAT", UINT2NUM(0x828D));
-    rb_define_const(mROGL, "GL_READ_PIXELS_TYPE", UINT2NUM(0x828E));
-    rb_define_const(mROGL, "GL_TEXTURE_IMAGE_FORMAT", UINT2NUM(0x828F));
-    rb_define_const(mROGL, "GL_TEXTURE_IMAGE_TYPE", UINT2NUM(0x8290));
-    rb_define_const(mROGL, "GL_GET_TEXTURE_IMAGE_FORMAT", UINT2NUM(0x8291));
-    rb_define_const(mROGL, "GL_GET_TEXTURE_IMAGE_TYPE", UINT2NUM(0x8292));
-    rb_define_const(mROGL, "GL_MIPMAP", UINT2NUM(0x8293));
-    rb_define_const(mROGL, "GL_MANUAL_GENERATE_MIPMAP", UINT2NUM(0x8294));
-    rb_define_const(mROGL, "GL_AUTO_GENERATE_MIPMAP", UINT2NUM(0x8295));
-    rb_define_const(mROGL, "GL_COLOR_ENCODING", UINT2NUM(0x8296));
-    rb_define_const(mROGL, "GL_SRGB_READ", UINT2NUM(0x8297));
-    rb_define_const(mROGL, "GL_SRGB_WRITE", UINT2NUM(0x8298));
-    rb_define_const(mROGL, "GL_FILTER", UINT2NUM(0x829A));
-    rb_define_const(mROGL, "GL_VERTEX_TEXTURE", UINT2NUM(0x829B));
-    rb_define_const(mROGL, "GL_TESS_CONTROL_TEXTURE", UINT2NUM(0x829C));
-    rb_define_const(mROGL, "GL_TESS_EVALUATION_TEXTURE", UINT2NUM(0x829D));
-    rb_define_const(mROGL, "GL_GEOMETRY_TEXTURE", UINT2NUM(0x829E));
-    rb_define_const(mROGL, "GL_FRAGMENT_TEXTURE", UINT2NUM(0x829F));
-    rb_define_const(mROGL, "GL_COMPUTE_TEXTURE", UINT2NUM(0x82A0));
-    rb_define_const(mROGL, "GL_TEXTURE_SHADOW", UINT2NUM(0x82A1));
-    rb_define_const(mROGL, "GL_TEXTURE_GATHER", UINT2NUM(0x82A2));
-    rb_define_const(mROGL, "GL_TEXTURE_GATHER_SHADOW", UINT2NUM(0x82A3));
-    rb_define_const(mROGL, "GL_SHADER_IMAGE_LOAD", UINT2NUM(0x82A4));
-    rb_define_const(mROGL, "GL_SHADER_IMAGE_STORE", UINT2NUM(0x82A5));
-    rb_define_const(mROGL, "GL_SHADER_IMAGE_ATOMIC", UINT2NUM(0x82A6));
-    rb_define_const(mROGL, "GL_IMAGE_TEXEL_SIZE", UINT2NUM(0x82A7));
-    rb_define_const(mROGL, "GL_IMAGE_COMPATIBILITY_CLASS", UINT2NUM(0x82A8));
-    rb_define_const(mROGL, "GL_IMAGE_PIXEL_FORMAT", UINT2NUM(0x82A9));
-    rb_define_const(mROGL, "GL_IMAGE_PIXEL_TYPE", UINT2NUM(0x82AA));
-    rb_define_const(mROGL, "GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST", UINT2NUM(0x82AC));
-    rb_define_const(mROGL, "GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST", UINT2NUM(0x82AD));
-    rb_define_const(mROGL, "GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE", UINT2NUM(0x82AE));
-    rb_define_const(mROGL, "GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE", UINT2NUM(0x82AF));
-    rb_define_const(mROGL, "GL_TEXTURE_COMPRESSED_BLOCK_WIDTH", UINT2NUM(0x82B1));
-    rb_define_const(mROGL, "GL_TEXTURE_COMPRESSED_BLOCK_HEIGHT", UINT2NUM(0x82B2));
-    rb_define_const(mROGL, "GL_TEXTURE_COMPRESSED_BLOCK_SIZE", UINT2NUM(0x82B3));
-    rb_define_const(mROGL, "GL_CLEAR_BUFFER", UINT2NUM(0x82B4));
-    rb_define_const(mROGL, "GL_TEXTURE_VIEW", UINT2NUM(0x82B5));
-    rb_define_const(mROGL, "GL_VIEW_COMPATIBILITY_CLASS", UINT2NUM(0x82B6));
-    rb_define_const(mROGL, "GL_FULL_SUPPORT", UINT2NUM(0x82B7));
-    rb_define_const(mROGL, "GL_CAVEAT_SUPPORT", UINT2NUM(0x82B8));
-    rb_define_const(mROGL, "GL_IMAGE_CLASS_4_X_32", UINT2NUM(0x82B9));
-    rb_define_const(mROGL, "GL_IMAGE_CLASS_2_X_32", UINT2NUM(0x82BA));
-    rb_define_const(mROGL, "GL_IMAGE_CLASS_1_X_32", UINT2NUM(0x82BB));
-    rb_define_const(mROGL, "GL_IMAGE_CLASS_4_X_16", UINT2NUM(0x82BC));
-    rb_define_const(mROGL, "GL_IMAGE_CLASS_2_X_16", UINT2NUM(0x82BD));
-    rb_define_const(mROGL, "GL_IMAGE_CLASS_1_X_16", UINT2NUM(0x82BE));
-    rb_define_const(mROGL, "GL_IMAGE_CLASS_4_X_8", UINT2NUM(0x82BF));
-    rb_define_const(mROGL, "GL_IMAGE_CLASS_2_X_8", UINT2NUM(0x82C0));
-    rb_define_const(mROGL, "GL_IMAGE_CLASS_1_X_8", UINT2NUM(0x82C1));
-    rb_define_const(mROGL, "GL_IMAGE_CLASS_11_11_10", UINT2NUM(0x82C2));
-    rb_define_const(mROGL, "GL_IMAGE_CLASS_10_10_10_2", UINT2NUM(0x82C3));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_128_BITS", UINT2NUM(0x82C4));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_96_BITS", UINT2NUM(0x82C5));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_64_BITS", UINT2NUM(0x82C6));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_48_BITS", UINT2NUM(0x82C7));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_32_BITS", UINT2NUM(0x82C8));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_24_BITS", UINT2NUM(0x82C9));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_16_BITS", UINT2NUM(0x82CA));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_8_BITS", UINT2NUM(0x82CB));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_S3TC_DXT1_RGB", UINT2NUM(0x82CC));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_S3TC_DXT1_RGBA", UINT2NUM(0x82CD));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_S3TC_DXT3_RGBA", UINT2NUM(0x82CE));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_S3TC_DXT5_RGBA", UINT2NUM(0x82CF));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_RGTC1_RED", UINT2NUM(0x82D0));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_RGTC2_RG", UINT2NUM(0x82D1));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_BPTC_UNORM", UINT2NUM(0x82D2));
-    rb_define_const(mROGL, "GL_VIEW_CLASS_BPTC_FLOAT", UINT2NUM(0x82D3));
-    rb_define_const(mROGL, "GL_UNIFORM", UINT2NUM(0x92E1));
-    rb_define_const(mROGL, "GL_UNIFORM_BLOCK", UINT2NUM(0x92E2));
-    rb_define_const(mROGL, "GL_PROGRAM_INPUT", UINT2NUM(0x92E3));
-    rb_define_const(mROGL, "GL_PROGRAM_OUTPUT", UINT2NUM(0x92E4));
-    rb_define_const(mROGL, "GL_BUFFER_VARIABLE", UINT2NUM(0x92E5));
-    rb_define_const(mROGL, "GL_SHADER_STORAGE_BLOCK", UINT2NUM(0x92E6));
-    rb_define_const(mROGL, "GL_VERTEX_SUBROUTINE", UINT2NUM(0x92E8));
-    rb_define_const(mROGL, "GL_TESS_CONTROL_SUBROUTINE", UINT2NUM(0x92E9));
-    rb_define_const(mROGL, "GL_TESS_EVALUATION_SUBROUTINE", UINT2NUM(0x92EA));
-    rb_define_const(mROGL, "GL_GEOMETRY_SUBROUTINE", UINT2NUM(0x92EB));
-    rb_define_const(mROGL, "GL_FRAGMENT_SUBROUTINE", UINT2NUM(0x92EC));
-    rb_define_const(mROGL, "GL_COMPUTE_SUBROUTINE", UINT2NUM(0x92ED));
-    rb_define_const(mROGL, "GL_VERTEX_SUBROUTINE_UNIFORM", UINT2NUM(0x92EE));
-    rb_define_const(mROGL, "GL_TESS_CONTROL_SUBROUTINE_UNIFORM", UINT2NUM(0x92EF));
-    rb_define_const(mROGL, "GL_TESS_EVALUATION_SUBROUTINE_UNIFORM", UINT2NUM(0x92F0));
-    rb_define_const(mROGL, "GL_GEOMETRY_SUBROUTINE_UNIFORM", UINT2NUM(0x92F1));
-    rb_define_const(mROGL, "GL_FRAGMENT_SUBROUTINE_UNIFORM", UINT2NUM(0x92F2));
-    rb_define_const(mROGL, "GL_COMPUTE_SUBROUTINE_UNIFORM", UINT2NUM(0x92F3));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_VARYING", UINT2NUM(0x92F4));
-    rb_define_const(mROGL, "GL_ACTIVE_RESOURCES", UINT2NUM(0x92F5));
-    rb_define_const(mROGL, "GL_MAX_NAME_LENGTH", UINT2NUM(0x92F6));
-    rb_define_const(mROGL, "GL_MAX_NUM_ACTIVE_VARIABLES", UINT2NUM(0x92F7));
-    rb_define_const(mROGL, "GL_MAX_NUM_COMPATIBLE_SUBROUTINES", UINT2NUM(0x92F8));
-    rb_define_const(mROGL, "GL_NAME_LENGTH", UINT2NUM(0x92F9));
-    rb_define_const(mROGL, "GL_TYPE", UINT2NUM(0x92FA));
-    rb_define_const(mROGL, "GL_ARRAY_SIZE", UINT2NUM(0x92FB));
-    rb_define_const(mROGL, "GL_OFFSET", UINT2NUM(0x92FC));
-    rb_define_const(mROGL, "GL_BLOCK_INDEX", UINT2NUM(0x92FD));
-    rb_define_const(mROGL, "GL_ARRAY_STRIDE", UINT2NUM(0x92FE));
-    rb_define_const(mROGL, "GL_MATRIX_STRIDE", UINT2NUM(0x92FF));
-    rb_define_const(mROGL, "GL_IS_ROW_MAJOR", UINT2NUM(0x9300));
-    rb_define_const(mROGL, "GL_ATOMIC_COUNTER_BUFFER_INDEX", UINT2NUM(0x9301));
-    rb_define_const(mROGL, "GL_BUFFER_BINDING", UINT2NUM(0x9302));
-    rb_define_const(mROGL, "GL_BUFFER_DATA_SIZE", UINT2NUM(0x9303));
-    rb_define_const(mROGL, "GL_NUM_ACTIVE_VARIABLES", UINT2NUM(0x9304));
-    rb_define_const(mROGL, "GL_ACTIVE_VARIABLES", UINT2NUM(0x9305));
-    rb_define_const(mROGL, "GL_REFERENCED_BY_VERTEX_SHADER", UINT2NUM(0x9306));
-    rb_define_const(mROGL, "GL_REFERENCED_BY_TESS_CONTROL_SHADER", UINT2NUM(0x9307));
-    rb_define_const(mROGL, "GL_REFERENCED_BY_TESS_EVALUATION_SHADER", UINT2NUM(0x9308));
-    rb_define_const(mROGL, "GL_REFERENCED_BY_GEOMETRY_SHADER", UINT2NUM(0x9309));
-    rb_define_const(mROGL, "GL_REFERENCED_BY_FRAGMENT_SHADER", UINT2NUM(0x930A));
-    rb_define_const(mROGL, "GL_REFERENCED_BY_COMPUTE_SHADER", UINT2NUM(0x930B));
-    rb_define_const(mROGL, "GL_TOP_LEVEL_ARRAY_SIZE", UINT2NUM(0x930C));
-    rb_define_const(mROGL, "GL_TOP_LEVEL_ARRAY_STRIDE", UINT2NUM(0x930D));
-    rb_define_const(mROGL, "GL_LOCATION", UINT2NUM(0x930E));
-    rb_define_const(mROGL, "GL_LOCATION_INDEX", UINT2NUM(0x930F));
-    rb_define_const(mROGL, "GL_IS_PER_PATCH", UINT2NUM(0x92E7));
-    rb_define_const(mROGL, "GL_SHADER_STORAGE_BUFFER", UINT2NUM(0x90D2));
-    rb_define_const(mROGL, "GL_SHADER_STORAGE_BUFFER_BINDING", UINT2NUM(0x90D3));
-    rb_define_const(mROGL, "GL_SHADER_STORAGE_BUFFER_START", UINT2NUM(0x90D4));
-    rb_define_const(mROGL, "GL_SHADER_STORAGE_BUFFER_SIZE", UINT2NUM(0x90D5));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90D6));
-    rb_define_const(mROGL, "GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90D7));
-    rb_define_const(mROGL, "GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90D8));
-    rb_define_const(mROGL, "GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90D9));
-    rb_define_const(mROGL, "GL_MAX_FRAGMENT_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90DA));
-    rb_define_const(mROGL, "GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90DB));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90DC));
-    rb_define_const(mROGL, "GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS", UINT2NUM(0x90DD));
-    rb_define_const(mROGL, "GL_MAX_SHADER_STORAGE_BLOCK_SIZE", UINT2NUM(0x90DE));
-    rb_define_const(mROGL, "GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT", UINT2NUM(0x90DF));
-    rb_define_const(mROGL, "GL_SHADER_STORAGE_BARRIER_BIT", UINT2NUM(0x00002000));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES", UINT2NUM(0x8F39));
-    rb_define_const(mROGL, "GL_DEPTH_STENCIL_TEXTURE_MODE", UINT2NUM(0x90EA));
-    rb_define_const(mROGL, "GL_TEXTURE_BUFFER_OFFSET", UINT2NUM(0x919D));
-    rb_define_const(mROGL, "GL_TEXTURE_BUFFER_SIZE", UINT2NUM(0x919E));
-    rb_define_const(mROGL, "GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT", UINT2NUM(0x919F));
-    rb_define_const(mROGL, "GL_TEXTURE_VIEW_MIN_LEVEL", UINT2NUM(0x82DB));
-    rb_define_const(mROGL, "GL_TEXTURE_VIEW_NUM_LEVELS", UINT2NUM(0x82DC));
-    rb_define_const(mROGL, "GL_TEXTURE_VIEW_MIN_LAYER", UINT2NUM(0x82DD));
-    rb_define_const(mROGL, "GL_TEXTURE_VIEW_NUM_LAYERS", UINT2NUM(0x82DE));
-    rb_define_const(mROGL, "GL_TEXTURE_IMMUTABLE_LEVELS", UINT2NUM(0x82DF));
-    rb_define_const(mROGL, "GL_VERTEX_ATTRIB_BINDING", UINT2NUM(0x82D4));
-    rb_define_const(mROGL, "GL_VERTEX_ATTRIB_RELATIVE_OFFSET", UINT2NUM(0x82D5));
-    rb_define_const(mROGL, "GL_VERTEX_BINDING_DIVISOR", UINT2NUM(0x82D6));
-    rb_define_const(mROGL, "GL_VERTEX_BINDING_OFFSET", UINT2NUM(0x82D7));
-    rb_define_const(mROGL, "GL_VERTEX_BINDING_STRIDE", UINT2NUM(0x82D8));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET", UINT2NUM(0x82D9));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_ATTRIB_BINDINGS", UINT2NUM(0x82DA));
-    rb_define_const(mROGL, "GL_VERTEX_BINDING_BUFFER", UINT2NUM(0x8F4F));
-    rb_define_const(mROGL, "GL_DISPLAY_LIST", UINT2NUM(0x82E7));
-    rb_define_const(mROGL, "GL_MAX_VERTEX_ATTRIB_STRIDE", UINT2NUM(0x82E5));
-    rb_define_const(mROGL, "GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED", UINT2NUM(0x8221));
-    rb_define_const(mROGL, "GL_TEXTURE_BUFFER_BINDING", UINT2NUM(0x8C2A));
-    rb_define_const(mROGL, "GL_MAP_PERSISTENT_BIT", UINT2NUM(0x0040));
-    rb_define_const(mROGL, "GL_MAP_COHERENT_BIT", UINT2NUM(0x0080));
-    rb_define_const(mROGL, "GL_DYNAMIC_STORAGE_BIT", UINT2NUM(0x0100));
-    rb_define_const(mROGL, "GL_CLIENT_STORAGE_BIT", UINT2NUM(0x0200));
-    rb_define_const(mROGL, "GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT", UINT2NUM(0x00004000));
-    rb_define_const(mROGL, "GL_BUFFER_IMMUTABLE_STORAGE", UINT2NUM(0x821F));
-    rb_define_const(mROGL, "GL_BUFFER_STORAGE_FLAGS", UINT2NUM(0x8220));
-    rb_define_const(mROGL, "GL_CLEAR_TEXTURE", UINT2NUM(0x9365));
-    rb_define_const(mROGL, "GL_LOCATION_COMPONENT", UINT2NUM(0x934A));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_INDEX", UINT2NUM(0x934B));
-    rb_define_const(mROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE", UINT2NUM(0x934C));
-    rb_define_const(mROGL, "GL_QUERY_BUFFER", UINT2NUM(0x9192));
-    rb_define_const(mROGL, "GL_QUERY_BUFFER_BARRIER_BIT", UINT2NUM(0x00008000));
-    rb_define_const(mROGL, "GL_QUERY_BUFFER_BINDING", UINT2NUM(0x9193));
-    rb_define_const(mROGL, "GL_QUERY_RESULT_NO_WAIT", UINT2NUM(0x9194));
-    rb_define_const(mROGL, "GL_MIRROR_CLAMP_TO_EDGE", UINT2NUM(0x8743));
-    rb_define_const(mROGL, "GL_CONTEXT_LOST", UINT2NUM(0x0507));
-    rb_define_const(mROGL, "GL_NEGATIVE_ONE_TO_ONE", UINT2NUM(0x935E));
-    rb_define_const(mROGL, "GL_ZERO_TO_ONE", UINT2NUM(0x935F));
-    rb_define_const(mROGL, "GL_CLIP_ORIGIN", UINT2NUM(0x935C));
-    rb_define_const(mROGL, "GL_CLIP_DEPTH_MODE", UINT2NUM(0x935D));
-    rb_define_const(mROGL, "GL_QUERY_WAIT_INVERTED", UINT2NUM(0x8E17));
-    rb_define_const(mROGL, "GL_QUERY_NO_WAIT_INVERTED", UINT2NUM(0x8E18));
-    rb_define_const(mROGL, "GL_QUERY_BY_REGION_WAIT_INVERTED", UINT2NUM(0x8E19));
-    rb_define_const(mROGL, "GL_QUERY_BY_REGION_NO_WAIT_INVERTED", UINT2NUM(0x8E1A));
-    rb_define_const(mROGL, "GL_MAX_CULL_DISTANCES", UINT2NUM(0x82F9));
-    rb_define_const(mROGL, "GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES", UINT2NUM(0x82FA));
-    rb_define_const(mROGL, "GL_TEXTURE_TARGET", UINT2NUM(0x1006));
-    rb_define_const(mROGL, "GL_QUERY_TARGET", UINT2NUM(0x82EA));
-    rb_define_const(mROGL, "GL_GUILTY_CONTEXT_RESET", UINT2NUM(0x8253));
-    rb_define_const(mROGL, "GL_INNOCENT_CONTEXT_RESET", UINT2NUM(0x8254));
-    rb_define_const(mROGL, "GL_UNKNOWN_CONTEXT_RESET", UINT2NUM(0x8255));
-    rb_define_const(mROGL, "GL_RESET_NOTIFICATION_STRATEGY", UINT2NUM(0x8256));
-    rb_define_const(mROGL, "GL_LOSE_CONTEXT_ON_RESET", UINT2NUM(0x8252));
-    rb_define_const(mROGL, "GL_NO_RESET_NOTIFICATION", UINT2NUM(0x8261));
-    rb_define_const(mROGL, "GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT", UINT2NUM(0x00000004));
-    rb_define_const(mROGL, "GL_CONTEXT_RELEASE_BEHAVIOR", UINT2NUM(0x82FB));
-    rb_define_const(mROGL, "GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH", UINT2NUM(0x82FC));
+    rb_define_const(*pmROGL, "GL_DEPTH_BUFFER_BIT", UINT2NUM(0x00000100));
+    rb_define_const(*pmROGL, "GL_STENCIL_BUFFER_BIT", UINT2NUM(0x00000400));
+    rb_define_const(*pmROGL, "GL_COLOR_BUFFER_BIT", UINT2NUM(0x00004000));
+    rb_define_const(*pmROGL, "GL_FALSE", UINT2NUM(0));
+    rb_define_const(*pmROGL, "GL_TRUE", UINT2NUM(1));
+    rb_define_const(*pmROGL, "GL_POINTS", UINT2NUM(0x0000));
+    rb_define_const(*pmROGL, "GL_LINES", UINT2NUM(0x0001));
+    rb_define_const(*pmROGL, "GL_LINE_LOOP", UINT2NUM(0x0002));
+    rb_define_const(*pmROGL, "GL_LINE_STRIP", UINT2NUM(0x0003));
+    rb_define_const(*pmROGL, "GL_TRIANGLES", UINT2NUM(0x0004));
+    rb_define_const(*pmROGL, "GL_TRIANGLE_STRIP", UINT2NUM(0x0005));
+    rb_define_const(*pmROGL, "GL_TRIANGLE_FAN", UINT2NUM(0x0006));
+    rb_define_const(*pmROGL, "GL_QUADS", UINT2NUM(0x0007));
+    rb_define_const(*pmROGL, "GL_NEVER", UINT2NUM(0x0200));
+    rb_define_const(*pmROGL, "GL_LESS", UINT2NUM(0x0201));
+    rb_define_const(*pmROGL, "GL_EQUAL", UINT2NUM(0x0202));
+    rb_define_const(*pmROGL, "GL_LEQUAL", UINT2NUM(0x0203));
+    rb_define_const(*pmROGL, "GL_GREATER", UINT2NUM(0x0204));
+    rb_define_const(*pmROGL, "GL_NOTEQUAL", UINT2NUM(0x0205));
+    rb_define_const(*pmROGL, "GL_GEQUAL", UINT2NUM(0x0206));
+    rb_define_const(*pmROGL, "GL_ALWAYS", UINT2NUM(0x0207));
+    rb_define_const(*pmROGL, "GL_ZERO", UINT2NUM(0));
+    rb_define_const(*pmROGL, "GL_ONE", UINT2NUM(1));
+    rb_define_const(*pmROGL, "GL_SRC_COLOR", UINT2NUM(0x0300));
+    rb_define_const(*pmROGL, "GL_ONE_MINUS_SRC_COLOR", UINT2NUM(0x0301));
+    rb_define_const(*pmROGL, "GL_SRC_ALPHA", UINT2NUM(0x0302));
+    rb_define_const(*pmROGL, "GL_ONE_MINUS_SRC_ALPHA", UINT2NUM(0x0303));
+    rb_define_const(*pmROGL, "GL_DST_ALPHA", UINT2NUM(0x0304));
+    rb_define_const(*pmROGL, "GL_ONE_MINUS_DST_ALPHA", UINT2NUM(0x0305));
+    rb_define_const(*pmROGL, "GL_DST_COLOR", UINT2NUM(0x0306));
+    rb_define_const(*pmROGL, "GL_ONE_MINUS_DST_COLOR", UINT2NUM(0x0307));
+    rb_define_const(*pmROGL, "GL_SRC_ALPHA_SATURATE", UINT2NUM(0x0308));
+    rb_define_const(*pmROGL, "GL_NONE", UINT2NUM(0));
+    rb_define_const(*pmROGL, "GL_FRONT_LEFT", UINT2NUM(0x0400));
+    rb_define_const(*pmROGL, "GL_FRONT_RIGHT", UINT2NUM(0x0401));
+    rb_define_const(*pmROGL, "GL_BACK_LEFT", UINT2NUM(0x0402));
+    rb_define_const(*pmROGL, "GL_BACK_RIGHT", UINT2NUM(0x0403));
+    rb_define_const(*pmROGL, "GL_FRONT", UINT2NUM(0x0404));
+    rb_define_const(*pmROGL, "GL_BACK", UINT2NUM(0x0405));
+    rb_define_const(*pmROGL, "GL_LEFT", UINT2NUM(0x0406));
+    rb_define_const(*pmROGL, "GL_RIGHT", UINT2NUM(0x0407));
+    rb_define_const(*pmROGL, "GL_FRONT_AND_BACK", UINT2NUM(0x0408));
+    rb_define_const(*pmROGL, "GL_NO_ERROR", UINT2NUM(0));
+    rb_define_const(*pmROGL, "GL_INVALID_ENUM", UINT2NUM(0x0500));
+    rb_define_const(*pmROGL, "GL_INVALID_VALUE", UINT2NUM(0x0501));
+    rb_define_const(*pmROGL, "GL_INVALID_OPERATION", UINT2NUM(0x0502));
+    rb_define_const(*pmROGL, "GL_OUT_OF_MEMORY", UINT2NUM(0x0505));
+    rb_define_const(*pmROGL, "GL_CW", UINT2NUM(0x0900));
+    rb_define_const(*pmROGL, "GL_CCW", UINT2NUM(0x0901));
+    rb_define_const(*pmROGL, "GL_POINT_SIZE", UINT2NUM(0x0B11));
+    rb_define_const(*pmROGL, "GL_POINT_SIZE_RANGE", UINT2NUM(0x0B12));
+    rb_define_const(*pmROGL, "GL_POINT_SIZE_GRANULARITY", UINT2NUM(0x0B13));
+    rb_define_const(*pmROGL, "GL_LINE_SMOOTH", UINT2NUM(0x0B20));
+    rb_define_const(*pmROGL, "GL_LINE_WIDTH", UINT2NUM(0x0B21));
+    rb_define_const(*pmROGL, "GL_LINE_WIDTH_RANGE", UINT2NUM(0x0B22));
+    rb_define_const(*pmROGL, "GL_LINE_WIDTH_GRANULARITY", UINT2NUM(0x0B23));
+    rb_define_const(*pmROGL, "GL_POLYGON_MODE", UINT2NUM(0x0B40));
+    rb_define_const(*pmROGL, "GL_POLYGON_SMOOTH", UINT2NUM(0x0B41));
+    rb_define_const(*pmROGL, "GL_CULL_FACE", UINT2NUM(0x0B44));
+    rb_define_const(*pmROGL, "GL_CULL_FACE_MODE", UINT2NUM(0x0B45));
+    rb_define_const(*pmROGL, "GL_FRONT_FACE", UINT2NUM(0x0B46));
+    rb_define_const(*pmROGL, "GL_DEPTH_RANGE", UINT2NUM(0x0B70));
+    rb_define_const(*pmROGL, "GL_DEPTH_TEST", UINT2NUM(0x0B71));
+    rb_define_const(*pmROGL, "GL_DEPTH_WRITEMASK", UINT2NUM(0x0B72));
+    rb_define_const(*pmROGL, "GL_DEPTH_CLEAR_VALUE", UINT2NUM(0x0B73));
+    rb_define_const(*pmROGL, "GL_DEPTH_FUNC", UINT2NUM(0x0B74));
+    rb_define_const(*pmROGL, "GL_STENCIL_TEST", UINT2NUM(0x0B90));
+    rb_define_const(*pmROGL, "GL_STENCIL_CLEAR_VALUE", UINT2NUM(0x0B91));
+    rb_define_const(*pmROGL, "GL_STENCIL_FUNC", UINT2NUM(0x0B92));
+    rb_define_const(*pmROGL, "GL_STENCIL_VALUE_MASK", UINT2NUM(0x0B93));
+    rb_define_const(*pmROGL, "GL_STENCIL_FAIL", UINT2NUM(0x0B94));
+    rb_define_const(*pmROGL, "GL_STENCIL_PASS_DEPTH_FAIL", UINT2NUM(0x0B95));
+    rb_define_const(*pmROGL, "GL_STENCIL_PASS_DEPTH_PASS", UINT2NUM(0x0B96));
+    rb_define_const(*pmROGL, "GL_STENCIL_REF", UINT2NUM(0x0B97));
+    rb_define_const(*pmROGL, "GL_STENCIL_WRITEMASK", UINT2NUM(0x0B98));
+    rb_define_const(*pmROGL, "GL_VIEWPORT", UINT2NUM(0x0BA2));
+    rb_define_const(*pmROGL, "GL_DITHER", UINT2NUM(0x0BD0));
+    rb_define_const(*pmROGL, "GL_BLEND_DST", UINT2NUM(0x0BE0));
+    rb_define_const(*pmROGL, "GL_BLEND_SRC", UINT2NUM(0x0BE1));
+    rb_define_const(*pmROGL, "GL_BLEND", UINT2NUM(0x0BE2));
+    rb_define_const(*pmROGL, "GL_LOGIC_OP_MODE", UINT2NUM(0x0BF0));
+    rb_define_const(*pmROGL, "GL_COLOR_LOGIC_OP", UINT2NUM(0x0BF2));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER", UINT2NUM(0x0C01));
+    rb_define_const(*pmROGL, "GL_READ_BUFFER", UINT2NUM(0x0C02));
+    rb_define_const(*pmROGL, "GL_SCISSOR_BOX", UINT2NUM(0x0C10));
+    rb_define_const(*pmROGL, "GL_SCISSOR_TEST", UINT2NUM(0x0C11));
+    rb_define_const(*pmROGL, "GL_COLOR_CLEAR_VALUE", UINT2NUM(0x0C22));
+    rb_define_const(*pmROGL, "GL_COLOR_WRITEMASK", UINT2NUM(0x0C23));
+    rb_define_const(*pmROGL, "GL_DOUBLEBUFFER", UINT2NUM(0x0C32));
+    rb_define_const(*pmROGL, "GL_STEREO", UINT2NUM(0x0C33));
+    rb_define_const(*pmROGL, "GL_LINE_SMOOTH_HINT", UINT2NUM(0x0C52));
+    rb_define_const(*pmROGL, "GL_POLYGON_SMOOTH_HINT", UINT2NUM(0x0C53));
+    rb_define_const(*pmROGL, "GL_UNPACK_SWAP_BYTES", UINT2NUM(0x0CF0));
+    rb_define_const(*pmROGL, "GL_UNPACK_LSB_FIRST", UINT2NUM(0x0CF1));
+    rb_define_const(*pmROGL, "GL_UNPACK_ROW_LENGTH", UINT2NUM(0x0CF2));
+    rb_define_const(*pmROGL, "GL_UNPACK_SKIP_ROWS", UINT2NUM(0x0CF3));
+    rb_define_const(*pmROGL, "GL_UNPACK_SKIP_PIXELS", UINT2NUM(0x0CF4));
+    rb_define_const(*pmROGL, "GL_UNPACK_ALIGNMENT", UINT2NUM(0x0CF5));
+    rb_define_const(*pmROGL, "GL_PACK_SWAP_BYTES", UINT2NUM(0x0D00));
+    rb_define_const(*pmROGL, "GL_PACK_LSB_FIRST", UINT2NUM(0x0D01));
+    rb_define_const(*pmROGL, "GL_PACK_ROW_LENGTH", UINT2NUM(0x0D02));
+    rb_define_const(*pmROGL, "GL_PACK_SKIP_ROWS", UINT2NUM(0x0D03));
+    rb_define_const(*pmROGL, "GL_PACK_SKIP_PIXELS", UINT2NUM(0x0D04));
+    rb_define_const(*pmROGL, "GL_PACK_ALIGNMENT", UINT2NUM(0x0D05));
+    rb_define_const(*pmROGL, "GL_MAX_TEXTURE_SIZE", UINT2NUM(0x0D33));
+    rb_define_const(*pmROGL, "GL_MAX_VIEWPORT_DIMS", UINT2NUM(0x0D3A));
+    rb_define_const(*pmROGL, "GL_SUBPIXEL_BITS", UINT2NUM(0x0D50));
+    rb_define_const(*pmROGL, "GL_TEXTURE_1D", UINT2NUM(0x0DE0));
+    rb_define_const(*pmROGL, "GL_TEXTURE_2D", UINT2NUM(0x0DE1));
+    rb_define_const(*pmROGL, "GL_POLYGON_OFFSET_UNITS", UINT2NUM(0x2A00));
+    rb_define_const(*pmROGL, "GL_POLYGON_OFFSET_POINT", UINT2NUM(0x2A01));
+    rb_define_const(*pmROGL, "GL_POLYGON_OFFSET_LINE", UINT2NUM(0x2A02));
+    rb_define_const(*pmROGL, "GL_POLYGON_OFFSET_FILL", UINT2NUM(0x8037));
+    rb_define_const(*pmROGL, "GL_POLYGON_OFFSET_FACTOR", UINT2NUM(0x8038));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BINDING_1D", UINT2NUM(0x8068));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BINDING_2D", UINT2NUM(0x8069));
+    rb_define_const(*pmROGL, "GL_TEXTURE_WIDTH", UINT2NUM(0x1000));
+    rb_define_const(*pmROGL, "GL_TEXTURE_HEIGHT", UINT2NUM(0x1001));
+    rb_define_const(*pmROGL, "GL_TEXTURE_INTERNAL_FORMAT", UINT2NUM(0x1003));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BORDER_COLOR", UINT2NUM(0x1004));
+    rb_define_const(*pmROGL, "GL_TEXTURE_RED_SIZE", UINT2NUM(0x805C));
+    rb_define_const(*pmROGL, "GL_TEXTURE_GREEN_SIZE", UINT2NUM(0x805D));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BLUE_SIZE", UINT2NUM(0x805E));
+    rb_define_const(*pmROGL, "GL_TEXTURE_ALPHA_SIZE", UINT2NUM(0x805F));
+    rb_define_const(*pmROGL, "GL_DONT_CARE", UINT2NUM(0x1100));
+    rb_define_const(*pmROGL, "GL_FASTEST", UINT2NUM(0x1101));
+    rb_define_const(*pmROGL, "GL_NICEST", UINT2NUM(0x1102));
+    rb_define_const(*pmROGL, "GL_BYTE", UINT2NUM(0x1400));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_BYTE", UINT2NUM(0x1401));
+    rb_define_const(*pmROGL, "GL_SHORT", UINT2NUM(0x1402));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_SHORT", UINT2NUM(0x1403));
+    rb_define_const(*pmROGL, "GL_INT", UINT2NUM(0x1404));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT", UINT2NUM(0x1405));
+    rb_define_const(*pmROGL, "GL_FLOAT", UINT2NUM(0x1406));
+    rb_define_const(*pmROGL, "GL_DOUBLE", UINT2NUM(0x140A));
+    rb_define_const(*pmROGL, "GL_STACK_OVERFLOW", UINT2NUM(0x0503));
+    rb_define_const(*pmROGL, "GL_STACK_UNDERFLOW", UINT2NUM(0x0504));
+    rb_define_const(*pmROGL, "GL_CLEAR", UINT2NUM(0x1500));
+    rb_define_const(*pmROGL, "GL_AND", UINT2NUM(0x1501));
+    rb_define_const(*pmROGL, "GL_AND_REVERSE", UINT2NUM(0x1502));
+    rb_define_const(*pmROGL, "GL_COPY", UINT2NUM(0x1503));
+    rb_define_const(*pmROGL, "GL_AND_INVERTED", UINT2NUM(0x1504));
+    rb_define_const(*pmROGL, "GL_NOOP", UINT2NUM(0x1505));
+    rb_define_const(*pmROGL, "GL_XOR", UINT2NUM(0x1506));
+    rb_define_const(*pmROGL, "GL_OR", UINT2NUM(0x1507));
+    rb_define_const(*pmROGL, "GL_NOR", UINT2NUM(0x1508));
+    rb_define_const(*pmROGL, "GL_EQUIV", UINT2NUM(0x1509));
+    rb_define_const(*pmROGL, "GL_INVERT", UINT2NUM(0x150A));
+    rb_define_const(*pmROGL, "GL_OR_REVERSE", UINT2NUM(0x150B));
+    rb_define_const(*pmROGL, "GL_COPY_INVERTED", UINT2NUM(0x150C));
+    rb_define_const(*pmROGL, "GL_OR_INVERTED", UINT2NUM(0x150D));
+    rb_define_const(*pmROGL, "GL_NAND", UINT2NUM(0x150E));
+    rb_define_const(*pmROGL, "GL_SET", UINT2NUM(0x150F));
+    rb_define_const(*pmROGL, "GL_TEXTURE", UINT2NUM(0x1702));
+    rb_define_const(*pmROGL, "GL_COLOR", UINT2NUM(0x1800));
+    rb_define_const(*pmROGL, "GL_DEPTH", UINT2NUM(0x1801));
+    rb_define_const(*pmROGL, "GL_STENCIL", UINT2NUM(0x1802));
+    rb_define_const(*pmROGL, "GL_STENCIL_INDEX", UINT2NUM(0x1901));
+    rb_define_const(*pmROGL, "GL_DEPTH_COMPONENT", UINT2NUM(0x1902));
+    rb_define_const(*pmROGL, "GL_RED", UINT2NUM(0x1903));
+    rb_define_const(*pmROGL, "GL_GREEN", UINT2NUM(0x1904));
+    rb_define_const(*pmROGL, "GL_BLUE", UINT2NUM(0x1905));
+    rb_define_const(*pmROGL, "GL_ALPHA", UINT2NUM(0x1906));
+    rb_define_const(*pmROGL, "GL_RGB", UINT2NUM(0x1907));
+    rb_define_const(*pmROGL, "GL_RGBA", UINT2NUM(0x1908));
+    rb_define_const(*pmROGL, "GL_POINT", UINT2NUM(0x1B00));
+    rb_define_const(*pmROGL, "GL_LINE", UINT2NUM(0x1B01));
+    rb_define_const(*pmROGL, "GL_FILL", UINT2NUM(0x1B02));
+    rb_define_const(*pmROGL, "GL_KEEP", UINT2NUM(0x1E00));
+    rb_define_const(*pmROGL, "GL_REPLACE", UINT2NUM(0x1E01));
+    rb_define_const(*pmROGL, "GL_INCR", UINT2NUM(0x1E02));
+    rb_define_const(*pmROGL, "GL_DECR", UINT2NUM(0x1E03));
+    rb_define_const(*pmROGL, "GL_VENDOR", UINT2NUM(0x1F00));
+    rb_define_const(*pmROGL, "GL_RENDERER", UINT2NUM(0x1F01));
+    rb_define_const(*pmROGL, "GL_VERSION", UINT2NUM(0x1F02));
+    rb_define_const(*pmROGL, "GL_EXTENSIONS", UINT2NUM(0x1F03));
+    rb_define_const(*pmROGL, "GL_NEAREST", UINT2NUM(0x2600));
+    rb_define_const(*pmROGL, "GL_LINEAR", UINT2NUM(0x2601));
+    rb_define_const(*pmROGL, "GL_NEAREST_MIPMAP_NEAREST", UINT2NUM(0x2700));
+    rb_define_const(*pmROGL, "GL_LINEAR_MIPMAP_NEAREST", UINT2NUM(0x2701));
+    rb_define_const(*pmROGL, "GL_NEAREST_MIPMAP_LINEAR", UINT2NUM(0x2702));
+    rb_define_const(*pmROGL, "GL_LINEAR_MIPMAP_LINEAR", UINT2NUM(0x2703));
+    rb_define_const(*pmROGL, "GL_TEXTURE_MAG_FILTER", UINT2NUM(0x2800));
+    rb_define_const(*pmROGL, "GL_TEXTURE_MIN_FILTER", UINT2NUM(0x2801));
+    rb_define_const(*pmROGL, "GL_TEXTURE_WRAP_S", UINT2NUM(0x2802));
+    rb_define_const(*pmROGL, "GL_TEXTURE_WRAP_T", UINT2NUM(0x2803));
+    rb_define_const(*pmROGL, "GL_PROXY_TEXTURE_1D", UINT2NUM(0x8063));
+    rb_define_const(*pmROGL, "GL_PROXY_TEXTURE_2D", UINT2NUM(0x8064));
+    rb_define_const(*pmROGL, "GL_REPEAT", UINT2NUM(0x2901));
+    rb_define_const(*pmROGL, "GL_R3_G3_B2", UINT2NUM(0x2A10));
+    rb_define_const(*pmROGL, "GL_RGB4", UINT2NUM(0x804F));
+    rb_define_const(*pmROGL, "GL_RGB5", UINT2NUM(0x8050));
+    rb_define_const(*pmROGL, "GL_RGB8", UINT2NUM(0x8051));
+    rb_define_const(*pmROGL, "GL_RGB10", UINT2NUM(0x8052));
+    rb_define_const(*pmROGL, "GL_RGB12", UINT2NUM(0x8053));
+    rb_define_const(*pmROGL, "GL_RGB16", UINT2NUM(0x8054));
+    rb_define_const(*pmROGL, "GL_RGBA2", UINT2NUM(0x8055));
+    rb_define_const(*pmROGL, "GL_RGBA4", UINT2NUM(0x8056));
+    rb_define_const(*pmROGL, "GL_RGB5_A1", UINT2NUM(0x8057));
+    rb_define_const(*pmROGL, "GL_RGBA8", UINT2NUM(0x8058));
+    rb_define_const(*pmROGL, "GL_RGB10_A2", UINT2NUM(0x8059));
+    rb_define_const(*pmROGL, "GL_RGBA12", UINT2NUM(0x805A));
+    rb_define_const(*pmROGL, "GL_RGBA16", UINT2NUM(0x805B));
+    rb_define_const(*pmROGL, "GL_CURRENT_BIT", UINT2NUM(0x00000001));
+    rb_define_const(*pmROGL, "GL_POINT_BIT", UINT2NUM(0x00000002));
+    rb_define_const(*pmROGL, "GL_LINE_BIT", UINT2NUM(0x00000004));
+    rb_define_const(*pmROGL, "GL_POLYGON_BIT", UINT2NUM(0x00000008));
+    rb_define_const(*pmROGL, "GL_POLYGON_STIPPLE_BIT", UINT2NUM(0x00000010));
+    rb_define_const(*pmROGL, "GL_PIXEL_MODE_BIT", UINT2NUM(0x00000020));
+    rb_define_const(*pmROGL, "GL_LIGHTING_BIT", UINT2NUM(0x00000040));
+    rb_define_const(*pmROGL, "GL_FOG_BIT", UINT2NUM(0x00000080));
+    rb_define_const(*pmROGL, "GL_ACCUM_BUFFER_BIT", UINT2NUM(0x00000200));
+    rb_define_const(*pmROGL, "GL_VIEWPORT_BIT", UINT2NUM(0x00000800));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_BIT", UINT2NUM(0x00001000));
+    rb_define_const(*pmROGL, "GL_ENABLE_BIT", UINT2NUM(0x00002000));
+    rb_define_const(*pmROGL, "GL_HINT_BIT", UINT2NUM(0x00008000));
+    rb_define_const(*pmROGL, "GL_EVAL_BIT", UINT2NUM(0x00010000));
+    rb_define_const(*pmROGL, "GL_LIST_BIT", UINT2NUM(0x00020000));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BIT", UINT2NUM(0x00040000));
+    rb_define_const(*pmROGL, "GL_SCISSOR_BIT", UINT2NUM(0x00080000));
+    rb_define_const(*pmROGL, "GL_ALL_ATTRIB_BITS", UINT2NUM(0xFFFFFFFF));
+    rb_define_const(*pmROGL, "GL_CLIENT_PIXEL_STORE_BIT", UINT2NUM(0x00000001));
+    rb_define_const(*pmROGL, "GL_CLIENT_VERTEX_ARRAY_BIT", UINT2NUM(0x00000002));
+    rb_define_const(*pmROGL, "GL_CLIENT_ALL_ATTRIB_BITS", UINT2NUM(0xFFFFFFFF));
+    rb_define_const(*pmROGL, "GL_QUAD_STRIP", UINT2NUM(0x0008));
+    rb_define_const(*pmROGL, "GL_POLYGON", UINT2NUM(0x0009));
+    rb_define_const(*pmROGL, "GL_ACCUM", UINT2NUM(0x0100));
+    rb_define_const(*pmROGL, "GL_LOAD", UINT2NUM(0x0101));
+    rb_define_const(*pmROGL, "GL_RETURN", UINT2NUM(0x0102));
+    rb_define_const(*pmROGL, "GL_MULT", UINT2NUM(0x0103));
+    rb_define_const(*pmROGL, "GL_ADD", UINT2NUM(0x0104));
+    rb_define_const(*pmROGL, "GL_AUX0", UINT2NUM(0x0409));
+    rb_define_const(*pmROGL, "GL_AUX1", UINT2NUM(0x040A));
+    rb_define_const(*pmROGL, "GL_AUX2", UINT2NUM(0x040B));
+    rb_define_const(*pmROGL, "GL_AUX3", UINT2NUM(0x040C));
+    rb_define_const(*pmROGL, "GL_2D", UINT2NUM(0x0600));
+    rb_define_const(*pmROGL, "GL_3D", UINT2NUM(0x0601));
+    rb_define_const(*pmROGL, "GL_3D_COLOR", UINT2NUM(0x0602));
+    rb_define_const(*pmROGL, "GL_3D_COLOR_TEXTURE", UINT2NUM(0x0603));
+    rb_define_const(*pmROGL, "GL_4D_COLOR_TEXTURE", UINT2NUM(0x0604));
+    rb_define_const(*pmROGL, "GL_PASS_THROUGH_TOKEN", UINT2NUM(0x0700));
+    rb_define_const(*pmROGL, "GL_POINT_TOKEN", UINT2NUM(0x0701));
+    rb_define_const(*pmROGL, "GL_LINE_TOKEN", UINT2NUM(0x0702));
+    rb_define_const(*pmROGL, "GL_POLYGON_TOKEN", UINT2NUM(0x0703));
+    rb_define_const(*pmROGL, "GL_BITMAP_TOKEN", UINT2NUM(0x0704));
+    rb_define_const(*pmROGL, "GL_DRAW_PIXEL_TOKEN", UINT2NUM(0x0705));
+    rb_define_const(*pmROGL, "GL_COPY_PIXEL_TOKEN", UINT2NUM(0x0706));
+    rb_define_const(*pmROGL, "GL_LINE_RESET_TOKEN", UINT2NUM(0x0707));
+    rb_define_const(*pmROGL, "GL_EXP", UINT2NUM(0x0800));
+    rb_define_const(*pmROGL, "GL_EXP2", UINT2NUM(0x0801));
+    rb_define_const(*pmROGL, "GL_COEFF", UINT2NUM(0x0A00));
+    rb_define_const(*pmROGL, "GL_ORDER", UINT2NUM(0x0A01));
+    rb_define_const(*pmROGL, "GL_DOMAIN", UINT2NUM(0x0A02));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_I_TO_I", UINT2NUM(0x0C70));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_S_TO_S", UINT2NUM(0x0C71));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_I_TO_R", UINT2NUM(0x0C72));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_I_TO_G", UINT2NUM(0x0C73));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_I_TO_B", UINT2NUM(0x0C74));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_I_TO_A", UINT2NUM(0x0C75));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_R_TO_R", UINT2NUM(0x0C76));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_G_TO_G", UINT2NUM(0x0C77));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_B_TO_B", UINT2NUM(0x0C78));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_A_TO_A", UINT2NUM(0x0C79));
+    rb_define_const(*pmROGL, "GL_VERTEX_ARRAY_POINTER", UINT2NUM(0x808E));
+    rb_define_const(*pmROGL, "GL_NORMAL_ARRAY_POINTER", UINT2NUM(0x808F));
+    rb_define_const(*pmROGL, "GL_COLOR_ARRAY_POINTER", UINT2NUM(0x8090));
+    rb_define_const(*pmROGL, "GL_INDEX_ARRAY_POINTER", UINT2NUM(0x8091));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COORD_ARRAY_POINTER", UINT2NUM(0x8092));
+    rb_define_const(*pmROGL, "GL_EDGE_FLAG_ARRAY_POINTER", UINT2NUM(0x8093));
+    rb_define_const(*pmROGL, "GL_FEEDBACK_BUFFER_POINTER", UINT2NUM(0x0DF0));
+    rb_define_const(*pmROGL, "GL_SELECTION_BUFFER_POINTER", UINT2NUM(0x0DF3));
+    rb_define_const(*pmROGL, "GL_CURRENT_COLOR", UINT2NUM(0x0B00));
+    rb_define_const(*pmROGL, "GL_CURRENT_INDEX", UINT2NUM(0x0B01));
+    rb_define_const(*pmROGL, "GL_CURRENT_NORMAL", UINT2NUM(0x0B02));
+    rb_define_const(*pmROGL, "GL_CURRENT_TEXTURE_COORDS", UINT2NUM(0x0B03));
+    rb_define_const(*pmROGL, "GL_CURRENT_RASTER_COLOR", UINT2NUM(0x0B04));
+    rb_define_const(*pmROGL, "GL_CURRENT_RASTER_INDEX", UINT2NUM(0x0B05));
+    rb_define_const(*pmROGL, "GL_CURRENT_RASTER_TEXTURE_COORDS", UINT2NUM(0x0B06));
+    rb_define_const(*pmROGL, "GL_CURRENT_RASTER_POSITION", UINT2NUM(0x0B07));
+    rb_define_const(*pmROGL, "GL_CURRENT_RASTER_POSITION_VALID", UINT2NUM(0x0B08));
+    rb_define_const(*pmROGL, "GL_CURRENT_RASTER_DISTANCE", UINT2NUM(0x0B09));
+    rb_define_const(*pmROGL, "GL_POINT_SMOOTH", UINT2NUM(0x0B10));
+    rb_define_const(*pmROGL, "GL_LINE_STIPPLE", UINT2NUM(0x0B24));
+    rb_define_const(*pmROGL, "GL_LINE_STIPPLE_PATTERN", UINT2NUM(0x0B25));
+    rb_define_const(*pmROGL, "GL_LINE_STIPPLE_REPEAT", UINT2NUM(0x0B26));
+    rb_define_const(*pmROGL, "GL_LIST_MODE", UINT2NUM(0x0B30));
+    rb_define_const(*pmROGL, "GL_MAX_LIST_NESTING", UINT2NUM(0x0B31));
+    rb_define_const(*pmROGL, "GL_LIST_BASE", UINT2NUM(0x0B32));
+    rb_define_const(*pmROGL, "GL_LIST_INDEX", UINT2NUM(0x0B33));
+    rb_define_const(*pmROGL, "GL_POLYGON_STIPPLE", UINT2NUM(0x0B42));
+    rb_define_const(*pmROGL, "GL_EDGE_FLAG", UINT2NUM(0x0B43));
+    rb_define_const(*pmROGL, "GL_LIGHTING", UINT2NUM(0x0B50));
+    rb_define_const(*pmROGL, "GL_LIGHT_MODEL_LOCAL_VIEWER", UINT2NUM(0x0B51));
+    rb_define_const(*pmROGL, "GL_LIGHT_MODEL_TWO_SIDE", UINT2NUM(0x0B52));
+    rb_define_const(*pmROGL, "GL_LIGHT_MODEL_AMBIENT", UINT2NUM(0x0B53));
+    rb_define_const(*pmROGL, "GL_SHADE_MODEL", UINT2NUM(0x0B54));
+    rb_define_const(*pmROGL, "GL_COLOR_MATERIAL_FACE", UINT2NUM(0x0B55));
+    rb_define_const(*pmROGL, "GL_COLOR_MATERIAL_PARAMETER", UINT2NUM(0x0B56));
+    rb_define_const(*pmROGL, "GL_COLOR_MATERIAL", UINT2NUM(0x0B57));
+    rb_define_const(*pmROGL, "GL_FOG", UINT2NUM(0x0B60));
+    rb_define_const(*pmROGL, "GL_FOG_INDEX", UINT2NUM(0x0B61));
+    rb_define_const(*pmROGL, "GL_FOG_DENSITY", UINT2NUM(0x0B62));
+    rb_define_const(*pmROGL, "GL_FOG_START", UINT2NUM(0x0B63));
+    rb_define_const(*pmROGL, "GL_FOG_END", UINT2NUM(0x0B64));
+    rb_define_const(*pmROGL, "GL_FOG_MODE", UINT2NUM(0x0B65));
+    rb_define_const(*pmROGL, "GL_FOG_COLOR", UINT2NUM(0x0B66));
+    rb_define_const(*pmROGL, "GL_ACCUM_CLEAR_VALUE", UINT2NUM(0x0B80));
+    rb_define_const(*pmROGL, "GL_MATRIX_MODE", UINT2NUM(0x0BA0));
+    rb_define_const(*pmROGL, "GL_NORMALIZE", UINT2NUM(0x0BA1));
+    rb_define_const(*pmROGL, "GL_MODELVIEW_STACK_DEPTH", UINT2NUM(0x0BA3));
+    rb_define_const(*pmROGL, "GL_PROJECTION_STACK_DEPTH", UINT2NUM(0x0BA4));
+    rb_define_const(*pmROGL, "GL_TEXTURE_STACK_DEPTH", UINT2NUM(0x0BA5));
+    rb_define_const(*pmROGL, "GL_MODELVIEW_MATRIX", UINT2NUM(0x0BA6));
+    rb_define_const(*pmROGL, "GL_PROJECTION_MATRIX", UINT2NUM(0x0BA7));
+    rb_define_const(*pmROGL, "GL_TEXTURE_MATRIX", UINT2NUM(0x0BA8));
+    rb_define_const(*pmROGL, "GL_ATTRIB_STACK_DEPTH", UINT2NUM(0x0BB0));
+    rb_define_const(*pmROGL, "GL_CLIENT_ATTRIB_STACK_DEPTH", UINT2NUM(0x0BB1));
+    rb_define_const(*pmROGL, "GL_ALPHA_TEST", UINT2NUM(0x0BC0));
+    rb_define_const(*pmROGL, "GL_ALPHA_TEST_FUNC", UINT2NUM(0x0BC1));
+    rb_define_const(*pmROGL, "GL_ALPHA_TEST_REF", UINT2NUM(0x0BC2));
+    rb_define_const(*pmROGL, "GL_INDEX_LOGIC_OP", UINT2NUM(0x0BF1));
+    rb_define_const(*pmROGL, "GL_LOGIC_OP", UINT2NUM(0x0BF1));
+    rb_define_const(*pmROGL, "GL_AUX_BUFFERS", UINT2NUM(0x0C00));
+    rb_define_const(*pmROGL, "GL_INDEX_CLEAR_VALUE", UINT2NUM(0x0C20));
+    rb_define_const(*pmROGL, "GL_INDEX_WRITEMASK", UINT2NUM(0x0C21));
+    rb_define_const(*pmROGL, "GL_INDEX_MODE", UINT2NUM(0x0C30));
+    rb_define_const(*pmROGL, "GL_RGBA_MODE", UINT2NUM(0x0C31));
+    rb_define_const(*pmROGL, "GL_RENDER_MODE", UINT2NUM(0x0C40));
+    rb_define_const(*pmROGL, "GL_PERSPECTIVE_CORRECTION_HINT", UINT2NUM(0x0C50));
+    rb_define_const(*pmROGL, "GL_POINT_SMOOTH_HINT", UINT2NUM(0x0C51));
+    rb_define_const(*pmROGL, "GL_FOG_HINT", UINT2NUM(0x0C54));
+    rb_define_const(*pmROGL, "GL_TEXTURE_GEN_S", UINT2NUM(0x0C60));
+    rb_define_const(*pmROGL, "GL_TEXTURE_GEN_T", UINT2NUM(0x0C61));
+    rb_define_const(*pmROGL, "GL_TEXTURE_GEN_R", UINT2NUM(0x0C62));
+    rb_define_const(*pmROGL, "GL_TEXTURE_GEN_Q", UINT2NUM(0x0C63));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_I_TO_I_SIZE", UINT2NUM(0x0CB0));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_S_TO_S_SIZE", UINT2NUM(0x0CB1));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_I_TO_R_SIZE", UINT2NUM(0x0CB2));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_I_TO_G_SIZE", UINT2NUM(0x0CB3));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_I_TO_B_SIZE", UINT2NUM(0x0CB4));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_I_TO_A_SIZE", UINT2NUM(0x0CB5));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_R_TO_R_SIZE", UINT2NUM(0x0CB6));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_G_TO_G_SIZE", UINT2NUM(0x0CB7));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_B_TO_B_SIZE", UINT2NUM(0x0CB8));
+    rb_define_const(*pmROGL, "GL_PIXEL_MAP_A_TO_A_SIZE", UINT2NUM(0x0CB9));
+    rb_define_const(*pmROGL, "GL_MAP_COLOR", UINT2NUM(0x0D10));
+    rb_define_const(*pmROGL, "GL_MAP_STENCIL", UINT2NUM(0x0D11));
+    rb_define_const(*pmROGL, "GL_INDEX_SHIFT", UINT2NUM(0x0D12));
+    rb_define_const(*pmROGL, "GL_INDEX_OFFSET", UINT2NUM(0x0D13));
+    rb_define_const(*pmROGL, "GL_RED_SCALE", UINT2NUM(0x0D14));
+    rb_define_const(*pmROGL, "GL_RED_BIAS", UINT2NUM(0x0D15));
+    rb_define_const(*pmROGL, "GL_ZOOM_X", UINT2NUM(0x0D16));
+    rb_define_const(*pmROGL, "GL_ZOOM_Y", UINT2NUM(0x0D17));
+    rb_define_const(*pmROGL, "GL_GREEN_SCALE", UINT2NUM(0x0D18));
+    rb_define_const(*pmROGL, "GL_GREEN_BIAS", UINT2NUM(0x0D19));
+    rb_define_const(*pmROGL, "GL_BLUE_SCALE", UINT2NUM(0x0D1A));
+    rb_define_const(*pmROGL, "GL_BLUE_BIAS", UINT2NUM(0x0D1B));
+    rb_define_const(*pmROGL, "GL_ALPHA_SCALE", UINT2NUM(0x0D1C));
+    rb_define_const(*pmROGL, "GL_ALPHA_BIAS", UINT2NUM(0x0D1D));
+    rb_define_const(*pmROGL, "GL_DEPTH_SCALE", UINT2NUM(0x0D1E));
+    rb_define_const(*pmROGL, "GL_DEPTH_BIAS", UINT2NUM(0x0D1F));
+    rb_define_const(*pmROGL, "GL_MAX_EVAL_ORDER", UINT2NUM(0x0D30));
+    rb_define_const(*pmROGL, "GL_MAX_LIGHTS", UINT2NUM(0x0D31));
+    rb_define_const(*pmROGL, "GL_MAX_CLIP_PLANES", UINT2NUM(0x0D32));
+    rb_define_const(*pmROGL, "GL_MAX_PIXEL_MAP_TABLE", UINT2NUM(0x0D34));
+    rb_define_const(*pmROGL, "GL_MAX_ATTRIB_STACK_DEPTH", UINT2NUM(0x0D35));
+    rb_define_const(*pmROGL, "GL_MAX_MODELVIEW_STACK_DEPTH", UINT2NUM(0x0D36));
+    rb_define_const(*pmROGL, "GL_MAX_NAME_STACK_DEPTH", UINT2NUM(0x0D37));
+    rb_define_const(*pmROGL, "GL_MAX_PROJECTION_STACK_DEPTH", UINT2NUM(0x0D38));
+    rb_define_const(*pmROGL, "GL_MAX_TEXTURE_STACK_DEPTH", UINT2NUM(0x0D39));
+    rb_define_const(*pmROGL, "GL_MAX_CLIENT_ATTRIB_STACK_DEPTH", UINT2NUM(0x0D3B));
+    rb_define_const(*pmROGL, "GL_INDEX_BITS", UINT2NUM(0x0D51));
+    rb_define_const(*pmROGL, "GL_RED_BITS", UINT2NUM(0x0D52));
+    rb_define_const(*pmROGL, "GL_GREEN_BITS", UINT2NUM(0x0D53));
+    rb_define_const(*pmROGL, "GL_BLUE_BITS", UINT2NUM(0x0D54));
+    rb_define_const(*pmROGL, "GL_ALPHA_BITS", UINT2NUM(0x0D55));
+    rb_define_const(*pmROGL, "GL_DEPTH_BITS", UINT2NUM(0x0D56));
+    rb_define_const(*pmROGL, "GL_STENCIL_BITS", UINT2NUM(0x0D57));
+    rb_define_const(*pmROGL, "GL_ACCUM_RED_BITS", UINT2NUM(0x0D58));
+    rb_define_const(*pmROGL, "GL_ACCUM_GREEN_BITS", UINT2NUM(0x0D59));
+    rb_define_const(*pmROGL, "GL_ACCUM_BLUE_BITS", UINT2NUM(0x0D5A));
+    rb_define_const(*pmROGL, "GL_ACCUM_ALPHA_BITS", UINT2NUM(0x0D5B));
+    rb_define_const(*pmROGL, "GL_NAME_STACK_DEPTH", UINT2NUM(0x0D70));
+    rb_define_const(*pmROGL, "GL_AUTO_NORMAL", UINT2NUM(0x0D80));
+    rb_define_const(*pmROGL, "GL_MAP1_COLOR_4", UINT2NUM(0x0D90));
+    rb_define_const(*pmROGL, "GL_MAP1_INDEX", UINT2NUM(0x0D91));
+    rb_define_const(*pmROGL, "GL_MAP1_NORMAL", UINT2NUM(0x0D92));
+    rb_define_const(*pmROGL, "GL_MAP1_TEXTURE_COORD_1", UINT2NUM(0x0D93));
+    rb_define_const(*pmROGL, "GL_MAP1_TEXTURE_COORD_2", UINT2NUM(0x0D94));
+    rb_define_const(*pmROGL, "GL_MAP1_TEXTURE_COORD_3", UINT2NUM(0x0D95));
+    rb_define_const(*pmROGL, "GL_MAP1_TEXTURE_COORD_4", UINT2NUM(0x0D96));
+    rb_define_const(*pmROGL, "GL_MAP1_VERTEX_3", UINT2NUM(0x0D97));
+    rb_define_const(*pmROGL, "GL_MAP1_VERTEX_4", UINT2NUM(0x0D98));
+    rb_define_const(*pmROGL, "GL_MAP2_COLOR_4", UINT2NUM(0x0DB0));
+    rb_define_const(*pmROGL, "GL_MAP2_INDEX", UINT2NUM(0x0DB1));
+    rb_define_const(*pmROGL, "GL_MAP2_NORMAL", UINT2NUM(0x0DB2));
+    rb_define_const(*pmROGL, "GL_MAP2_TEXTURE_COORD_1", UINT2NUM(0x0DB3));
+    rb_define_const(*pmROGL, "GL_MAP2_TEXTURE_COORD_2", UINT2NUM(0x0DB4));
+    rb_define_const(*pmROGL, "GL_MAP2_TEXTURE_COORD_3", UINT2NUM(0x0DB5));
+    rb_define_const(*pmROGL, "GL_MAP2_TEXTURE_COORD_4", UINT2NUM(0x0DB6));
+    rb_define_const(*pmROGL, "GL_MAP2_VERTEX_3", UINT2NUM(0x0DB7));
+    rb_define_const(*pmROGL, "GL_MAP2_VERTEX_4", UINT2NUM(0x0DB8));
+    rb_define_const(*pmROGL, "GL_MAP1_GRID_DOMAIN", UINT2NUM(0x0DD0));
+    rb_define_const(*pmROGL, "GL_MAP1_GRID_SEGMENTS", UINT2NUM(0x0DD1));
+    rb_define_const(*pmROGL, "GL_MAP2_GRID_DOMAIN", UINT2NUM(0x0DD2));
+    rb_define_const(*pmROGL, "GL_MAP2_GRID_SEGMENTS", UINT2NUM(0x0DD3));
+    rb_define_const(*pmROGL, "GL_FEEDBACK_BUFFER_SIZE", UINT2NUM(0x0DF1));
+    rb_define_const(*pmROGL, "GL_FEEDBACK_BUFFER_TYPE", UINT2NUM(0x0DF2));
+    rb_define_const(*pmROGL, "GL_SELECTION_BUFFER_SIZE", UINT2NUM(0x0DF4));
+    rb_define_const(*pmROGL, "GL_VERTEX_ARRAY", UINT2NUM(0x8074));
+    rb_define_const(*pmROGL, "GL_NORMAL_ARRAY", UINT2NUM(0x8075));
+    rb_define_const(*pmROGL, "GL_COLOR_ARRAY", UINT2NUM(0x8076));
+    rb_define_const(*pmROGL, "GL_INDEX_ARRAY", UINT2NUM(0x8077));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COORD_ARRAY", UINT2NUM(0x8078));
+    rb_define_const(*pmROGL, "GL_EDGE_FLAG_ARRAY", UINT2NUM(0x8079));
+    rb_define_const(*pmROGL, "GL_VERTEX_ARRAY_SIZE", UINT2NUM(0x807A));
+    rb_define_const(*pmROGL, "GL_VERTEX_ARRAY_TYPE", UINT2NUM(0x807B));
+    rb_define_const(*pmROGL, "GL_VERTEX_ARRAY_STRIDE", UINT2NUM(0x807C));
+    rb_define_const(*pmROGL, "GL_NORMAL_ARRAY_TYPE", UINT2NUM(0x807E));
+    rb_define_const(*pmROGL, "GL_NORMAL_ARRAY_STRIDE", UINT2NUM(0x807F));
+    rb_define_const(*pmROGL, "GL_COLOR_ARRAY_SIZE", UINT2NUM(0x8081));
+    rb_define_const(*pmROGL, "GL_COLOR_ARRAY_TYPE", UINT2NUM(0x8082));
+    rb_define_const(*pmROGL, "GL_COLOR_ARRAY_STRIDE", UINT2NUM(0x8083));
+    rb_define_const(*pmROGL, "GL_INDEX_ARRAY_TYPE", UINT2NUM(0x8085));
+    rb_define_const(*pmROGL, "GL_INDEX_ARRAY_STRIDE", UINT2NUM(0x8086));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COORD_ARRAY_SIZE", UINT2NUM(0x8088));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COORD_ARRAY_TYPE", UINT2NUM(0x8089));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COORD_ARRAY_STRIDE", UINT2NUM(0x808A));
+    rb_define_const(*pmROGL, "GL_EDGE_FLAG_ARRAY_STRIDE", UINT2NUM(0x808C));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COMPONENTS", UINT2NUM(0x1003));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BORDER", UINT2NUM(0x1005));
+    rb_define_const(*pmROGL, "GL_TEXTURE_LUMINANCE_SIZE", UINT2NUM(0x8060));
+    rb_define_const(*pmROGL, "GL_TEXTURE_INTENSITY_SIZE", UINT2NUM(0x8061));
+    rb_define_const(*pmROGL, "GL_TEXTURE_PRIORITY", UINT2NUM(0x8066));
+    rb_define_const(*pmROGL, "GL_TEXTURE_RESIDENT", UINT2NUM(0x8067));
+    rb_define_const(*pmROGL, "GL_AMBIENT", UINT2NUM(0x1200));
+    rb_define_const(*pmROGL, "GL_DIFFUSE", UINT2NUM(0x1201));
+    rb_define_const(*pmROGL, "GL_SPECULAR", UINT2NUM(0x1202));
+    rb_define_const(*pmROGL, "GL_POSITION", UINT2NUM(0x1203));
+    rb_define_const(*pmROGL, "GL_SPOT_DIRECTION", UINT2NUM(0x1204));
+    rb_define_const(*pmROGL, "GL_SPOT_EXPONENT", UINT2NUM(0x1205));
+    rb_define_const(*pmROGL, "GL_SPOT_CUTOFF", UINT2NUM(0x1206));
+    rb_define_const(*pmROGL, "GL_CONSTANT_ATTENUATION", UINT2NUM(0x1207));
+    rb_define_const(*pmROGL, "GL_LINEAR_ATTENUATION", UINT2NUM(0x1208));
+    rb_define_const(*pmROGL, "GL_QUADRATIC_ATTENUATION", UINT2NUM(0x1209));
+    rb_define_const(*pmROGL, "GL_COMPILE", UINT2NUM(0x1300));
+    rb_define_const(*pmROGL, "GL_COMPILE_AND_EXECUTE", UINT2NUM(0x1301));
+    rb_define_const(*pmROGL, "GL_2_BYTES", UINT2NUM(0x1407));
+    rb_define_const(*pmROGL, "GL_3_BYTES", UINT2NUM(0x1408));
+    rb_define_const(*pmROGL, "GL_4_BYTES", UINT2NUM(0x1409));
+    rb_define_const(*pmROGL, "GL_EMISSION", UINT2NUM(0x1600));
+    rb_define_const(*pmROGL, "GL_SHININESS", UINT2NUM(0x1601));
+    rb_define_const(*pmROGL, "GL_AMBIENT_AND_DIFFUSE", UINT2NUM(0x1602));
+    rb_define_const(*pmROGL, "GL_COLOR_INDEXES", UINT2NUM(0x1603));
+    rb_define_const(*pmROGL, "GL_MODELVIEW", UINT2NUM(0x1700));
+    rb_define_const(*pmROGL, "GL_PROJECTION", UINT2NUM(0x1701));
+    rb_define_const(*pmROGL, "GL_COLOR_INDEX", UINT2NUM(0x1900));
+    rb_define_const(*pmROGL, "GL_LUMINANCE", UINT2NUM(0x1909));
+    rb_define_const(*pmROGL, "GL_LUMINANCE_ALPHA", UINT2NUM(0x190A));
+    rb_define_const(*pmROGL, "GL_BITMAP", UINT2NUM(0x1A00));
+    rb_define_const(*pmROGL, "GL_RENDER", UINT2NUM(0x1C00));
+    rb_define_const(*pmROGL, "GL_FEEDBACK", UINT2NUM(0x1C01));
+    rb_define_const(*pmROGL, "GL_SELECT", UINT2NUM(0x1C02));
+    rb_define_const(*pmROGL, "GL_FLAT", UINT2NUM(0x1D00));
+    rb_define_const(*pmROGL, "GL_SMOOTH", UINT2NUM(0x1D01));
+    rb_define_const(*pmROGL, "GL_S", UINT2NUM(0x2000));
+    rb_define_const(*pmROGL, "GL_T", UINT2NUM(0x2001));
+    rb_define_const(*pmROGL, "GL_R", UINT2NUM(0x2002));
+    rb_define_const(*pmROGL, "GL_Q", UINT2NUM(0x2003));
+    rb_define_const(*pmROGL, "GL_MODULATE", UINT2NUM(0x2100));
+    rb_define_const(*pmROGL, "GL_DECAL", UINT2NUM(0x2101));
+    rb_define_const(*pmROGL, "GL_TEXTURE_ENV_MODE", UINT2NUM(0x2200));
+    rb_define_const(*pmROGL, "GL_TEXTURE_ENV_COLOR", UINT2NUM(0x2201));
+    rb_define_const(*pmROGL, "GL_TEXTURE_ENV", UINT2NUM(0x2300));
+    rb_define_const(*pmROGL, "GL_EYE_LINEAR", UINT2NUM(0x2400));
+    rb_define_const(*pmROGL, "GL_OBJECT_LINEAR", UINT2NUM(0x2401));
+    rb_define_const(*pmROGL, "GL_SPHERE_MAP", UINT2NUM(0x2402));
+    rb_define_const(*pmROGL, "GL_TEXTURE_GEN_MODE", UINT2NUM(0x2500));
+    rb_define_const(*pmROGL, "GL_OBJECT_PLANE", UINT2NUM(0x2501));
+    rb_define_const(*pmROGL, "GL_EYE_PLANE", UINT2NUM(0x2502));
+    rb_define_const(*pmROGL, "GL_CLAMP", UINT2NUM(0x2900));
+    rb_define_const(*pmROGL, "GL_ALPHA4", UINT2NUM(0x803B));
+    rb_define_const(*pmROGL, "GL_ALPHA8", UINT2NUM(0x803C));
+    rb_define_const(*pmROGL, "GL_ALPHA12", UINT2NUM(0x803D));
+    rb_define_const(*pmROGL, "GL_ALPHA16", UINT2NUM(0x803E));
+    rb_define_const(*pmROGL, "GL_LUMINANCE4", UINT2NUM(0x803F));
+    rb_define_const(*pmROGL, "GL_LUMINANCE8", UINT2NUM(0x8040));
+    rb_define_const(*pmROGL, "GL_LUMINANCE12", UINT2NUM(0x8041));
+    rb_define_const(*pmROGL, "GL_LUMINANCE16", UINT2NUM(0x8042));
+    rb_define_const(*pmROGL, "GL_LUMINANCE4_ALPHA4", UINT2NUM(0x8043));
+    rb_define_const(*pmROGL, "GL_LUMINANCE6_ALPHA2", UINT2NUM(0x8044));
+    rb_define_const(*pmROGL, "GL_LUMINANCE8_ALPHA8", UINT2NUM(0x8045));
+    rb_define_const(*pmROGL, "GL_LUMINANCE12_ALPHA4", UINT2NUM(0x8046));
+    rb_define_const(*pmROGL, "GL_LUMINANCE12_ALPHA12", UINT2NUM(0x8047));
+    rb_define_const(*pmROGL, "GL_LUMINANCE16_ALPHA16", UINT2NUM(0x8048));
+    rb_define_const(*pmROGL, "GL_INTENSITY", UINT2NUM(0x8049));
+    rb_define_const(*pmROGL, "GL_INTENSITY4", UINT2NUM(0x804A));
+    rb_define_const(*pmROGL, "GL_INTENSITY8", UINT2NUM(0x804B));
+    rb_define_const(*pmROGL, "GL_INTENSITY12", UINT2NUM(0x804C));
+    rb_define_const(*pmROGL, "GL_INTENSITY16", UINT2NUM(0x804D));
+    rb_define_const(*pmROGL, "GL_V2F", UINT2NUM(0x2A20));
+    rb_define_const(*pmROGL, "GL_V3F", UINT2NUM(0x2A21));
+    rb_define_const(*pmROGL, "GL_C4UB_V2F", UINT2NUM(0x2A22));
+    rb_define_const(*pmROGL, "GL_C4UB_V3F", UINT2NUM(0x2A23));
+    rb_define_const(*pmROGL, "GL_C3F_V3F", UINT2NUM(0x2A24));
+    rb_define_const(*pmROGL, "GL_N3F_V3F", UINT2NUM(0x2A25));
+    rb_define_const(*pmROGL, "GL_C4F_N3F_V3F", UINT2NUM(0x2A26));
+    rb_define_const(*pmROGL, "GL_T2F_V3F", UINT2NUM(0x2A27));
+    rb_define_const(*pmROGL, "GL_T4F_V4F", UINT2NUM(0x2A28));
+    rb_define_const(*pmROGL, "GL_T2F_C4UB_V3F", UINT2NUM(0x2A29));
+    rb_define_const(*pmROGL, "GL_T2F_C3F_V3F", UINT2NUM(0x2A2A));
+    rb_define_const(*pmROGL, "GL_T2F_N3F_V3F", UINT2NUM(0x2A2B));
+    rb_define_const(*pmROGL, "GL_T2F_C4F_N3F_V3F", UINT2NUM(0x2A2C));
+    rb_define_const(*pmROGL, "GL_T4F_C4F_N3F_V4F", UINT2NUM(0x2A2D));
+    rb_define_const(*pmROGL, "GL_CLIP_PLANE0", UINT2NUM(0x3000));
+    rb_define_const(*pmROGL, "GL_CLIP_PLANE1", UINT2NUM(0x3001));
+    rb_define_const(*pmROGL, "GL_CLIP_PLANE2", UINT2NUM(0x3002));
+    rb_define_const(*pmROGL, "GL_CLIP_PLANE3", UINT2NUM(0x3003));
+    rb_define_const(*pmROGL, "GL_CLIP_PLANE4", UINT2NUM(0x3004));
+    rb_define_const(*pmROGL, "GL_CLIP_PLANE5", UINT2NUM(0x3005));
+    rb_define_const(*pmROGL, "GL_LIGHT0", UINT2NUM(0x4000));
+    rb_define_const(*pmROGL, "GL_LIGHT1", UINT2NUM(0x4001));
+    rb_define_const(*pmROGL, "GL_LIGHT2", UINT2NUM(0x4002));
+    rb_define_const(*pmROGL, "GL_LIGHT3", UINT2NUM(0x4003));
+    rb_define_const(*pmROGL, "GL_LIGHT4", UINT2NUM(0x4004));
+    rb_define_const(*pmROGL, "GL_LIGHT5", UINT2NUM(0x4005));
+    rb_define_const(*pmROGL, "GL_LIGHT6", UINT2NUM(0x4006));
+    rb_define_const(*pmROGL, "GL_LIGHT7", UINT2NUM(0x4007));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_BYTE_3_3_2", UINT2NUM(0x8032));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_SHORT_4_4_4_4", UINT2NUM(0x8033));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_SHORT_5_5_5_1", UINT2NUM(0x8034));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_8_8_8_8", UINT2NUM(0x8035));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_10_10_10_2", UINT2NUM(0x8036));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BINDING_3D", UINT2NUM(0x806A));
+    rb_define_const(*pmROGL, "GL_PACK_SKIP_IMAGES", UINT2NUM(0x806B));
+    rb_define_const(*pmROGL, "GL_PACK_IMAGE_HEIGHT", UINT2NUM(0x806C));
+    rb_define_const(*pmROGL, "GL_UNPACK_SKIP_IMAGES", UINT2NUM(0x806D));
+    rb_define_const(*pmROGL, "GL_UNPACK_IMAGE_HEIGHT", UINT2NUM(0x806E));
+    rb_define_const(*pmROGL, "GL_TEXTURE_3D", UINT2NUM(0x806F));
+    rb_define_const(*pmROGL, "GL_PROXY_TEXTURE_3D", UINT2NUM(0x8070));
+    rb_define_const(*pmROGL, "GL_TEXTURE_DEPTH", UINT2NUM(0x8071));
+    rb_define_const(*pmROGL, "GL_TEXTURE_WRAP_R", UINT2NUM(0x8072));
+    rb_define_const(*pmROGL, "GL_MAX_3D_TEXTURE_SIZE", UINT2NUM(0x8073));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_BYTE_2_3_3_REV", UINT2NUM(0x8362));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_SHORT_5_6_5", UINT2NUM(0x8363));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_SHORT_5_6_5_REV", UINT2NUM(0x8364));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_SHORT_4_4_4_4_REV", UINT2NUM(0x8365));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_SHORT_1_5_5_5_REV", UINT2NUM(0x8366));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_8_8_8_8_REV", UINT2NUM(0x8367));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_2_10_10_10_REV", UINT2NUM(0x8368));
+    rb_define_const(*pmROGL, "GL_BGR", UINT2NUM(0x80E0));
+    rb_define_const(*pmROGL, "GL_BGRA", UINT2NUM(0x80E1));
+    rb_define_const(*pmROGL, "GL_MAX_ELEMENTS_VERTICES", UINT2NUM(0x80E8));
+    rb_define_const(*pmROGL, "GL_MAX_ELEMENTS_INDICES", UINT2NUM(0x80E9));
+    rb_define_const(*pmROGL, "GL_CLAMP_TO_EDGE", UINT2NUM(0x812F));
+    rb_define_const(*pmROGL, "GL_TEXTURE_MIN_LOD", UINT2NUM(0x813A));
+    rb_define_const(*pmROGL, "GL_TEXTURE_MAX_LOD", UINT2NUM(0x813B));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BASE_LEVEL", UINT2NUM(0x813C));
+    rb_define_const(*pmROGL, "GL_TEXTURE_MAX_LEVEL", UINT2NUM(0x813D));
+    rb_define_const(*pmROGL, "GL_SMOOTH_POINT_SIZE_RANGE", UINT2NUM(0x0B12));
+    rb_define_const(*pmROGL, "GL_SMOOTH_POINT_SIZE_GRANULARITY", UINT2NUM(0x0B13));
+    rb_define_const(*pmROGL, "GL_SMOOTH_LINE_WIDTH_RANGE", UINT2NUM(0x0B22));
+    rb_define_const(*pmROGL, "GL_SMOOTH_LINE_WIDTH_GRANULARITY", UINT2NUM(0x0B23));
+    rb_define_const(*pmROGL, "GL_ALIASED_LINE_WIDTH_RANGE", UINT2NUM(0x846E));
+    rb_define_const(*pmROGL, "GL_RESCALE_NORMAL", UINT2NUM(0x803A));
+    rb_define_const(*pmROGL, "GL_LIGHT_MODEL_COLOR_CONTROL", UINT2NUM(0x81F8));
+    rb_define_const(*pmROGL, "GL_SINGLE_COLOR", UINT2NUM(0x81F9));
+    rb_define_const(*pmROGL, "GL_SEPARATE_SPECULAR_COLOR", UINT2NUM(0x81FA));
+    rb_define_const(*pmROGL, "GL_ALIASED_POINT_SIZE_RANGE", UINT2NUM(0x846D));
+    rb_define_const(*pmROGL, "GL_TEXTURE0", UINT2NUM(0x84C0));
+    rb_define_const(*pmROGL, "GL_TEXTURE1", UINT2NUM(0x84C1));
+    rb_define_const(*pmROGL, "GL_TEXTURE2", UINT2NUM(0x84C2));
+    rb_define_const(*pmROGL, "GL_TEXTURE3", UINT2NUM(0x84C3));
+    rb_define_const(*pmROGL, "GL_TEXTURE4", UINT2NUM(0x84C4));
+    rb_define_const(*pmROGL, "GL_TEXTURE5", UINT2NUM(0x84C5));
+    rb_define_const(*pmROGL, "GL_TEXTURE6", UINT2NUM(0x84C6));
+    rb_define_const(*pmROGL, "GL_TEXTURE7", UINT2NUM(0x84C7));
+    rb_define_const(*pmROGL, "GL_TEXTURE8", UINT2NUM(0x84C8));
+    rb_define_const(*pmROGL, "GL_TEXTURE9", UINT2NUM(0x84C9));
+    rb_define_const(*pmROGL, "GL_TEXTURE10", UINT2NUM(0x84CA));
+    rb_define_const(*pmROGL, "GL_TEXTURE11", UINT2NUM(0x84CB));
+    rb_define_const(*pmROGL, "GL_TEXTURE12", UINT2NUM(0x84CC));
+    rb_define_const(*pmROGL, "GL_TEXTURE13", UINT2NUM(0x84CD));
+    rb_define_const(*pmROGL, "GL_TEXTURE14", UINT2NUM(0x84CE));
+    rb_define_const(*pmROGL, "GL_TEXTURE15", UINT2NUM(0x84CF));
+    rb_define_const(*pmROGL, "GL_TEXTURE16", UINT2NUM(0x84D0));
+    rb_define_const(*pmROGL, "GL_TEXTURE17", UINT2NUM(0x84D1));
+    rb_define_const(*pmROGL, "GL_TEXTURE18", UINT2NUM(0x84D2));
+    rb_define_const(*pmROGL, "GL_TEXTURE19", UINT2NUM(0x84D3));
+    rb_define_const(*pmROGL, "GL_TEXTURE20", UINT2NUM(0x84D4));
+    rb_define_const(*pmROGL, "GL_TEXTURE21", UINT2NUM(0x84D5));
+    rb_define_const(*pmROGL, "GL_TEXTURE22", UINT2NUM(0x84D6));
+    rb_define_const(*pmROGL, "GL_TEXTURE23", UINT2NUM(0x84D7));
+    rb_define_const(*pmROGL, "GL_TEXTURE24", UINT2NUM(0x84D8));
+    rb_define_const(*pmROGL, "GL_TEXTURE25", UINT2NUM(0x84D9));
+    rb_define_const(*pmROGL, "GL_TEXTURE26", UINT2NUM(0x84DA));
+    rb_define_const(*pmROGL, "GL_TEXTURE27", UINT2NUM(0x84DB));
+    rb_define_const(*pmROGL, "GL_TEXTURE28", UINT2NUM(0x84DC));
+    rb_define_const(*pmROGL, "GL_TEXTURE29", UINT2NUM(0x84DD));
+    rb_define_const(*pmROGL, "GL_TEXTURE30", UINT2NUM(0x84DE));
+    rb_define_const(*pmROGL, "GL_TEXTURE31", UINT2NUM(0x84DF));
+    rb_define_const(*pmROGL, "GL_ACTIVE_TEXTURE", UINT2NUM(0x84E0));
+    rb_define_const(*pmROGL, "GL_MULTISAMPLE", UINT2NUM(0x809D));
+    rb_define_const(*pmROGL, "GL_SAMPLE_ALPHA_TO_COVERAGE", UINT2NUM(0x809E));
+    rb_define_const(*pmROGL, "GL_SAMPLE_ALPHA_TO_ONE", UINT2NUM(0x809F));
+    rb_define_const(*pmROGL, "GL_SAMPLE_COVERAGE", UINT2NUM(0x80A0));
+    rb_define_const(*pmROGL, "GL_SAMPLE_BUFFERS", UINT2NUM(0x80A8));
+    rb_define_const(*pmROGL, "GL_SAMPLES", UINT2NUM(0x80A9));
+    rb_define_const(*pmROGL, "GL_SAMPLE_COVERAGE_VALUE", UINT2NUM(0x80AA));
+    rb_define_const(*pmROGL, "GL_SAMPLE_COVERAGE_INVERT", UINT2NUM(0x80AB));
+    rb_define_const(*pmROGL, "GL_TEXTURE_CUBE_MAP", UINT2NUM(0x8513));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BINDING_CUBE_MAP", UINT2NUM(0x8514));
+    rb_define_const(*pmROGL, "GL_TEXTURE_CUBE_MAP_POSITIVE_X", UINT2NUM(0x8515));
+    rb_define_const(*pmROGL, "GL_TEXTURE_CUBE_MAP_NEGATIVE_X", UINT2NUM(0x8516));
+    rb_define_const(*pmROGL, "GL_TEXTURE_CUBE_MAP_POSITIVE_Y", UINT2NUM(0x8517));
+    rb_define_const(*pmROGL, "GL_TEXTURE_CUBE_MAP_NEGATIVE_Y", UINT2NUM(0x8518));
+    rb_define_const(*pmROGL, "GL_TEXTURE_CUBE_MAP_POSITIVE_Z", UINT2NUM(0x8519));
+    rb_define_const(*pmROGL, "GL_TEXTURE_CUBE_MAP_NEGATIVE_Z", UINT2NUM(0x851A));
+    rb_define_const(*pmROGL, "GL_PROXY_TEXTURE_CUBE_MAP", UINT2NUM(0x851B));
+    rb_define_const(*pmROGL, "GL_MAX_CUBE_MAP_TEXTURE_SIZE", UINT2NUM(0x851C));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_RGB", UINT2NUM(0x84ED));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_RGBA", UINT2NUM(0x84EE));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COMPRESSION_HINT", UINT2NUM(0x84EF));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COMPRESSED_IMAGE_SIZE", UINT2NUM(0x86A0));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COMPRESSED", UINT2NUM(0x86A1));
+    rb_define_const(*pmROGL, "GL_NUM_COMPRESSED_TEXTURE_FORMATS", UINT2NUM(0x86A2));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_TEXTURE_FORMATS", UINT2NUM(0x86A3));
+    rb_define_const(*pmROGL, "GL_CLAMP_TO_BORDER", UINT2NUM(0x812D));
+    rb_define_const(*pmROGL, "GL_CLIENT_ACTIVE_TEXTURE", UINT2NUM(0x84E1));
+    rb_define_const(*pmROGL, "GL_MAX_TEXTURE_UNITS", UINT2NUM(0x84E2));
+    rb_define_const(*pmROGL, "GL_TRANSPOSE_MODELVIEW_MATRIX", UINT2NUM(0x84E3));
+    rb_define_const(*pmROGL, "GL_TRANSPOSE_PROJECTION_MATRIX", UINT2NUM(0x84E4));
+    rb_define_const(*pmROGL, "GL_TRANSPOSE_TEXTURE_MATRIX", UINT2NUM(0x84E5));
+    rb_define_const(*pmROGL, "GL_TRANSPOSE_COLOR_MATRIX", UINT2NUM(0x84E6));
+    rb_define_const(*pmROGL, "GL_MULTISAMPLE_BIT", UINT2NUM(0x20000000));
+    rb_define_const(*pmROGL, "GL_NORMAL_MAP", UINT2NUM(0x8511));
+    rb_define_const(*pmROGL, "GL_REFLECTION_MAP", UINT2NUM(0x8512));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_ALPHA", UINT2NUM(0x84E9));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_LUMINANCE", UINT2NUM(0x84EA));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_LUMINANCE_ALPHA", UINT2NUM(0x84EB));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_INTENSITY", UINT2NUM(0x84EC));
+    rb_define_const(*pmROGL, "GL_COMBINE", UINT2NUM(0x8570));
+    rb_define_const(*pmROGL, "GL_COMBINE_RGB", UINT2NUM(0x8571));
+    rb_define_const(*pmROGL, "GL_COMBINE_ALPHA", UINT2NUM(0x8572));
+    rb_define_const(*pmROGL, "GL_SOURCE0_RGB", UINT2NUM(0x8580));
+    rb_define_const(*pmROGL, "GL_SOURCE1_RGB", UINT2NUM(0x8581));
+    rb_define_const(*pmROGL, "GL_SOURCE2_RGB", UINT2NUM(0x8582));
+    rb_define_const(*pmROGL, "GL_SOURCE0_ALPHA", UINT2NUM(0x8588));
+    rb_define_const(*pmROGL, "GL_SOURCE1_ALPHA", UINT2NUM(0x8589));
+    rb_define_const(*pmROGL, "GL_SOURCE2_ALPHA", UINT2NUM(0x858A));
+    rb_define_const(*pmROGL, "GL_OPERAND0_RGB", UINT2NUM(0x8590));
+    rb_define_const(*pmROGL, "GL_OPERAND1_RGB", UINT2NUM(0x8591));
+    rb_define_const(*pmROGL, "GL_OPERAND2_RGB", UINT2NUM(0x8592));
+    rb_define_const(*pmROGL, "GL_OPERAND0_ALPHA", UINT2NUM(0x8598));
+    rb_define_const(*pmROGL, "GL_OPERAND1_ALPHA", UINT2NUM(0x8599));
+    rb_define_const(*pmROGL, "GL_OPERAND2_ALPHA", UINT2NUM(0x859A));
+    rb_define_const(*pmROGL, "GL_RGB_SCALE", UINT2NUM(0x8573));
+    rb_define_const(*pmROGL, "GL_ADD_SIGNED", UINT2NUM(0x8574));
+    rb_define_const(*pmROGL, "GL_INTERPOLATE", UINT2NUM(0x8575));
+    rb_define_const(*pmROGL, "GL_SUBTRACT", UINT2NUM(0x84E7));
+    rb_define_const(*pmROGL, "GL_CONSTANT", UINT2NUM(0x8576));
+    rb_define_const(*pmROGL, "GL_PRIMARY_COLOR", UINT2NUM(0x8577));
+    rb_define_const(*pmROGL, "GL_PREVIOUS", UINT2NUM(0x8578));
+    rb_define_const(*pmROGL, "GL_DOT3_RGB", UINT2NUM(0x86AE));
+    rb_define_const(*pmROGL, "GL_DOT3_RGBA", UINT2NUM(0x86AF));
+    rb_define_const(*pmROGL, "GL_BLEND_DST_RGB", UINT2NUM(0x80C8));
+    rb_define_const(*pmROGL, "GL_BLEND_SRC_RGB", UINT2NUM(0x80C9));
+    rb_define_const(*pmROGL, "GL_BLEND_DST_ALPHA", UINT2NUM(0x80CA));
+    rb_define_const(*pmROGL, "GL_BLEND_SRC_ALPHA", UINT2NUM(0x80CB));
+    rb_define_const(*pmROGL, "GL_POINT_FADE_THRESHOLD_SIZE", UINT2NUM(0x8128));
+    rb_define_const(*pmROGL, "GL_DEPTH_COMPONENT16", UINT2NUM(0x81A5));
+    rb_define_const(*pmROGL, "GL_DEPTH_COMPONENT24", UINT2NUM(0x81A6));
+    rb_define_const(*pmROGL, "GL_DEPTH_COMPONENT32", UINT2NUM(0x81A7));
+    rb_define_const(*pmROGL, "GL_MIRRORED_REPEAT", UINT2NUM(0x8370));
+    rb_define_const(*pmROGL, "GL_MAX_TEXTURE_LOD_BIAS", UINT2NUM(0x84FD));
+    rb_define_const(*pmROGL, "GL_TEXTURE_LOD_BIAS", UINT2NUM(0x8501));
+    rb_define_const(*pmROGL, "GL_INCR_WRAP", UINT2NUM(0x8507));
+    rb_define_const(*pmROGL, "GL_DECR_WRAP", UINT2NUM(0x8508));
+    rb_define_const(*pmROGL, "GL_TEXTURE_DEPTH_SIZE", UINT2NUM(0x884A));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COMPARE_MODE", UINT2NUM(0x884C));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COMPARE_FUNC", UINT2NUM(0x884D));
+    rb_define_const(*pmROGL, "GL_POINT_SIZE_MIN", UINT2NUM(0x8126));
+    rb_define_const(*pmROGL, "GL_POINT_SIZE_MAX", UINT2NUM(0x8127));
+    rb_define_const(*pmROGL, "GL_POINT_DISTANCE_ATTENUATION", UINT2NUM(0x8129));
+    rb_define_const(*pmROGL, "GL_GENERATE_MIPMAP", UINT2NUM(0x8191));
+    rb_define_const(*pmROGL, "GL_GENERATE_MIPMAP_HINT", UINT2NUM(0x8192));
+    rb_define_const(*pmROGL, "GL_FOG_COORDINATE_SOURCE", UINT2NUM(0x8450));
+    rb_define_const(*pmROGL, "GL_FOG_COORDINATE", UINT2NUM(0x8451));
+    rb_define_const(*pmROGL, "GL_FRAGMENT_DEPTH", UINT2NUM(0x8452));
+    rb_define_const(*pmROGL, "GL_CURRENT_FOG_COORDINATE", UINT2NUM(0x8453));
+    rb_define_const(*pmROGL, "GL_FOG_COORDINATE_ARRAY_TYPE", UINT2NUM(0x8454));
+    rb_define_const(*pmROGL, "GL_FOG_COORDINATE_ARRAY_STRIDE", UINT2NUM(0x8455));
+    rb_define_const(*pmROGL, "GL_FOG_COORDINATE_ARRAY_POINTER", UINT2NUM(0x8456));
+    rb_define_const(*pmROGL, "GL_FOG_COORDINATE_ARRAY", UINT2NUM(0x8457));
+    rb_define_const(*pmROGL, "GL_COLOR_SUM", UINT2NUM(0x8458));
+    rb_define_const(*pmROGL, "GL_CURRENT_SECONDARY_COLOR", UINT2NUM(0x8459));
+    rb_define_const(*pmROGL, "GL_SECONDARY_COLOR_ARRAY_SIZE", UINT2NUM(0x845A));
+    rb_define_const(*pmROGL, "GL_SECONDARY_COLOR_ARRAY_TYPE", UINT2NUM(0x845B));
+    rb_define_const(*pmROGL, "GL_SECONDARY_COLOR_ARRAY_STRIDE", UINT2NUM(0x845C));
+    rb_define_const(*pmROGL, "GL_SECONDARY_COLOR_ARRAY_POINTER", UINT2NUM(0x845D));
+    rb_define_const(*pmROGL, "GL_SECONDARY_COLOR_ARRAY", UINT2NUM(0x845E));
+    rb_define_const(*pmROGL, "GL_TEXTURE_FILTER_CONTROL", UINT2NUM(0x8500));
+    rb_define_const(*pmROGL, "GL_DEPTH_TEXTURE_MODE", UINT2NUM(0x884B));
+    rb_define_const(*pmROGL, "GL_COMPARE_R_TO_TEXTURE", UINT2NUM(0x884E));
+    rb_define_const(*pmROGL, "GL_FUNC_ADD", UINT2NUM(0x8006));
+    rb_define_const(*pmROGL, "GL_FUNC_SUBTRACT", UINT2NUM(0x800A));
+    rb_define_const(*pmROGL, "GL_FUNC_REVERSE_SUBTRACT", UINT2NUM(0x800B));
+    rb_define_const(*pmROGL, "GL_MIN", UINT2NUM(0x8007));
+    rb_define_const(*pmROGL, "GL_MAX", UINT2NUM(0x8008));
+    rb_define_const(*pmROGL, "GL_CONSTANT_COLOR", UINT2NUM(0x8001));
+    rb_define_const(*pmROGL, "GL_ONE_MINUS_CONSTANT_COLOR", UINT2NUM(0x8002));
+    rb_define_const(*pmROGL, "GL_CONSTANT_ALPHA", UINT2NUM(0x8003));
+    rb_define_const(*pmROGL, "GL_ONE_MINUS_CONSTANT_ALPHA", UINT2NUM(0x8004));
+    rb_define_const(*pmROGL, "GL_BUFFER_SIZE", UINT2NUM(0x8764));
+    rb_define_const(*pmROGL, "GL_BUFFER_USAGE", UINT2NUM(0x8765));
+    rb_define_const(*pmROGL, "GL_QUERY_COUNTER_BITS", UINT2NUM(0x8864));
+    rb_define_const(*pmROGL, "GL_CURRENT_QUERY", UINT2NUM(0x8865));
+    rb_define_const(*pmROGL, "GL_QUERY_RESULT", UINT2NUM(0x8866));
+    rb_define_const(*pmROGL, "GL_QUERY_RESULT_AVAILABLE", UINT2NUM(0x8867));
+    rb_define_const(*pmROGL, "GL_ARRAY_BUFFER", UINT2NUM(0x8892));
+    rb_define_const(*pmROGL, "GL_ELEMENT_ARRAY_BUFFER", UINT2NUM(0x8893));
+    rb_define_const(*pmROGL, "GL_ARRAY_BUFFER_BINDING", UINT2NUM(0x8894));
+    rb_define_const(*pmROGL, "GL_ELEMENT_ARRAY_BUFFER_BINDING", UINT2NUM(0x8895));
+    rb_define_const(*pmROGL, "GL_VERTEX_ATTRIB_ARRAY_BUFFER_BINDING", UINT2NUM(0x889F));
+    rb_define_const(*pmROGL, "GL_READ_ONLY", UINT2NUM(0x88B8));
+    rb_define_const(*pmROGL, "GL_WRITE_ONLY", UINT2NUM(0x88B9));
+    rb_define_const(*pmROGL, "GL_READ_WRITE", UINT2NUM(0x88BA));
+    rb_define_const(*pmROGL, "GL_BUFFER_ACCESS", UINT2NUM(0x88BB));
+    rb_define_const(*pmROGL, "GL_BUFFER_MAPPED", UINT2NUM(0x88BC));
+    rb_define_const(*pmROGL, "GL_BUFFER_MAP_POINTER", UINT2NUM(0x88BD));
+    rb_define_const(*pmROGL, "GL_STREAM_DRAW", UINT2NUM(0x88E0));
+    rb_define_const(*pmROGL, "GL_STREAM_READ", UINT2NUM(0x88E1));
+    rb_define_const(*pmROGL, "GL_STREAM_COPY", UINT2NUM(0x88E2));
+    rb_define_const(*pmROGL, "GL_STATIC_DRAW", UINT2NUM(0x88E4));
+    rb_define_const(*pmROGL, "GL_STATIC_READ", UINT2NUM(0x88E5));
+    rb_define_const(*pmROGL, "GL_STATIC_COPY", UINT2NUM(0x88E6));
+    rb_define_const(*pmROGL, "GL_DYNAMIC_DRAW", UINT2NUM(0x88E8));
+    rb_define_const(*pmROGL, "GL_DYNAMIC_READ", UINT2NUM(0x88E9));
+    rb_define_const(*pmROGL, "GL_DYNAMIC_COPY", UINT2NUM(0x88EA));
+    rb_define_const(*pmROGL, "GL_SAMPLES_PASSED", UINT2NUM(0x8914));
+    rb_define_const(*pmROGL, "GL_SRC1_ALPHA", UINT2NUM(0x8589));
+    rb_define_const(*pmROGL, "GL_VERTEX_ARRAY_BUFFER_BINDING", UINT2NUM(0x8896));
+    rb_define_const(*pmROGL, "GL_NORMAL_ARRAY_BUFFER_BINDING", UINT2NUM(0x8897));
+    rb_define_const(*pmROGL, "GL_COLOR_ARRAY_BUFFER_BINDING", UINT2NUM(0x8898));
+    rb_define_const(*pmROGL, "GL_INDEX_ARRAY_BUFFER_BINDING", UINT2NUM(0x8899));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COORD_ARRAY_BUFFER_BINDING", UINT2NUM(0x889A));
+    rb_define_const(*pmROGL, "GL_EDGE_FLAG_ARRAY_BUFFER_BINDING", UINT2NUM(0x889B));
+    rb_define_const(*pmROGL, "GL_SECONDARY_COLOR_ARRAY_BUFFER_BINDING", UINT2NUM(0x889C));
+    rb_define_const(*pmROGL, "GL_FOG_COORDINATE_ARRAY_BUFFER_BINDING", UINT2NUM(0x889D));
+    rb_define_const(*pmROGL, "GL_WEIGHT_ARRAY_BUFFER_BINDING", UINT2NUM(0x889E));
+    rb_define_const(*pmROGL, "GL_FOG_COORD_SRC", UINT2NUM(0x8450));
+    rb_define_const(*pmROGL, "GL_FOG_COORD", UINT2NUM(0x8451));
+    rb_define_const(*pmROGL, "GL_CURRENT_FOG_COORD", UINT2NUM(0x8453));
+    rb_define_const(*pmROGL, "GL_FOG_COORD_ARRAY_TYPE", UINT2NUM(0x8454));
+    rb_define_const(*pmROGL, "GL_FOG_COORD_ARRAY_STRIDE", UINT2NUM(0x8455));
+    rb_define_const(*pmROGL, "GL_FOG_COORD_ARRAY_POINTER", UINT2NUM(0x8456));
+    rb_define_const(*pmROGL, "GL_FOG_COORD_ARRAY", UINT2NUM(0x8457));
+    rb_define_const(*pmROGL, "GL_FOG_COORD_ARRAY_BUFFER_BINDING", UINT2NUM(0x889D));
+    rb_define_const(*pmROGL, "GL_SRC0_RGB", UINT2NUM(0x8580));
+    rb_define_const(*pmROGL, "GL_SRC1_RGB", UINT2NUM(0x8581));
+    rb_define_const(*pmROGL, "GL_SRC2_RGB", UINT2NUM(0x8582));
+    rb_define_const(*pmROGL, "GL_SRC0_ALPHA", UINT2NUM(0x8588));
+    rb_define_const(*pmROGL, "GL_SRC2_ALPHA", UINT2NUM(0x858A));
+    rb_define_const(*pmROGL, "GL_BLEND_EQUATION_RGB", UINT2NUM(0x8009));
+    rb_define_const(*pmROGL, "GL_VERTEX_ATTRIB_ARRAY_ENABLED", UINT2NUM(0x8622));
+    rb_define_const(*pmROGL, "GL_VERTEX_ATTRIB_ARRAY_SIZE", UINT2NUM(0x8623));
+    rb_define_const(*pmROGL, "GL_VERTEX_ATTRIB_ARRAY_STRIDE", UINT2NUM(0x8624));
+    rb_define_const(*pmROGL, "GL_VERTEX_ATTRIB_ARRAY_TYPE", UINT2NUM(0x8625));
+    rb_define_const(*pmROGL, "GL_CURRENT_VERTEX_ATTRIB", UINT2NUM(0x8626));
+    rb_define_const(*pmROGL, "GL_VERTEX_PROGRAM_POINT_SIZE", UINT2NUM(0x8642));
+    rb_define_const(*pmROGL, "GL_VERTEX_ATTRIB_ARRAY_POINTER", UINT2NUM(0x8645));
+    rb_define_const(*pmROGL, "GL_STENCIL_BACK_FUNC", UINT2NUM(0x8800));
+    rb_define_const(*pmROGL, "GL_STENCIL_BACK_FAIL", UINT2NUM(0x8801));
+    rb_define_const(*pmROGL, "GL_STENCIL_BACK_PASS_DEPTH_FAIL", UINT2NUM(0x8802));
+    rb_define_const(*pmROGL, "GL_STENCIL_BACK_PASS_DEPTH_PASS", UINT2NUM(0x8803));
+    rb_define_const(*pmROGL, "GL_MAX_DRAW_BUFFERS", UINT2NUM(0x8824));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER0", UINT2NUM(0x8825));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER1", UINT2NUM(0x8826));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER2", UINT2NUM(0x8827));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER3", UINT2NUM(0x8828));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER4", UINT2NUM(0x8829));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER5", UINT2NUM(0x882A));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER6", UINT2NUM(0x882B));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER7", UINT2NUM(0x882C));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER8", UINT2NUM(0x882D));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER9", UINT2NUM(0x882E));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER10", UINT2NUM(0x882F));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER11", UINT2NUM(0x8830));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER12", UINT2NUM(0x8831));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER13", UINT2NUM(0x8832));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER14", UINT2NUM(0x8833));
+    rb_define_const(*pmROGL, "GL_DRAW_BUFFER15", UINT2NUM(0x8834));
+    rb_define_const(*pmROGL, "GL_BLEND_EQUATION_ALPHA", UINT2NUM(0x883D));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_ATTRIBS", UINT2NUM(0x8869));
+    rb_define_const(*pmROGL, "GL_VERTEX_ATTRIB_ARRAY_NORMALIZED", UINT2NUM(0x886A));
+    rb_define_const(*pmROGL, "GL_MAX_TEXTURE_IMAGE_UNITS", UINT2NUM(0x8872));
+    rb_define_const(*pmROGL, "GL_FRAGMENT_SHADER", UINT2NUM(0x8B30));
+    rb_define_const(*pmROGL, "GL_VERTEX_SHADER", UINT2NUM(0x8B31));
+    rb_define_const(*pmROGL, "GL_MAX_FRAGMENT_UNIFORM_COMPONENTS", UINT2NUM(0x8B49));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_UNIFORM_COMPONENTS", UINT2NUM(0x8B4A));
+    rb_define_const(*pmROGL, "GL_MAX_VARYING_FLOATS", UINT2NUM(0x8B4B));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS", UINT2NUM(0x8B4C));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS", UINT2NUM(0x8B4D));
+    rb_define_const(*pmROGL, "GL_SHADER_TYPE", UINT2NUM(0x8B4F));
+    rb_define_const(*pmROGL, "GL_FLOAT_VEC2", UINT2NUM(0x8B50));
+    rb_define_const(*pmROGL, "GL_FLOAT_VEC3", UINT2NUM(0x8B51));
+    rb_define_const(*pmROGL, "GL_FLOAT_VEC4", UINT2NUM(0x8B52));
+    rb_define_const(*pmROGL, "GL_INT_VEC2", UINT2NUM(0x8B53));
+    rb_define_const(*pmROGL, "GL_INT_VEC3", UINT2NUM(0x8B54));
+    rb_define_const(*pmROGL, "GL_INT_VEC4", UINT2NUM(0x8B55));
+    rb_define_const(*pmROGL, "GL_BOOL", UINT2NUM(0x8B56));
+    rb_define_const(*pmROGL, "GL_BOOL_VEC2", UINT2NUM(0x8B57));
+    rb_define_const(*pmROGL, "GL_BOOL_VEC3", UINT2NUM(0x8B58));
+    rb_define_const(*pmROGL, "GL_BOOL_VEC4", UINT2NUM(0x8B59));
+    rb_define_const(*pmROGL, "GL_FLOAT_MAT2", UINT2NUM(0x8B5A));
+    rb_define_const(*pmROGL, "GL_FLOAT_MAT3", UINT2NUM(0x8B5B));
+    rb_define_const(*pmROGL, "GL_FLOAT_MAT4", UINT2NUM(0x8B5C));
+    rb_define_const(*pmROGL, "GL_SAMPLER_1D", UINT2NUM(0x8B5D));
+    rb_define_const(*pmROGL, "GL_SAMPLER_2D", UINT2NUM(0x8B5E));
+    rb_define_const(*pmROGL, "GL_SAMPLER_3D", UINT2NUM(0x8B5F));
+    rb_define_const(*pmROGL, "GL_SAMPLER_CUBE", UINT2NUM(0x8B60));
+    rb_define_const(*pmROGL, "GL_SAMPLER_1D_SHADOW", UINT2NUM(0x8B61));
+    rb_define_const(*pmROGL, "GL_SAMPLER_2D_SHADOW", UINT2NUM(0x8B62));
+    rb_define_const(*pmROGL, "GL_DELETE_STATUS", UINT2NUM(0x8B80));
+    rb_define_const(*pmROGL, "GL_COMPILE_STATUS", UINT2NUM(0x8B81));
+    rb_define_const(*pmROGL, "GL_LINK_STATUS", UINT2NUM(0x8B82));
+    rb_define_const(*pmROGL, "GL_VALIDATE_STATUS", UINT2NUM(0x8B83));
+    rb_define_const(*pmROGL, "GL_INFO_LOG_LENGTH", UINT2NUM(0x8B84));
+    rb_define_const(*pmROGL, "GL_ATTACHED_SHADERS", UINT2NUM(0x8B85));
+    rb_define_const(*pmROGL, "GL_ACTIVE_UNIFORMS", UINT2NUM(0x8B86));
+    rb_define_const(*pmROGL, "GL_ACTIVE_UNIFORM_MAX_LENGTH", UINT2NUM(0x8B87));
+    rb_define_const(*pmROGL, "GL_SHADER_SOURCE_LENGTH", UINT2NUM(0x8B88));
+    rb_define_const(*pmROGL, "GL_ACTIVE_ATTRIBUTES", UINT2NUM(0x8B89));
+    rb_define_const(*pmROGL, "GL_ACTIVE_ATTRIBUTE_MAX_LENGTH", UINT2NUM(0x8B8A));
+    rb_define_const(*pmROGL, "GL_FRAGMENT_SHADER_DERIVATIVE_HINT", UINT2NUM(0x8B8B));
+    rb_define_const(*pmROGL, "GL_SHADING_LANGUAGE_VERSION", UINT2NUM(0x8B8C));
+    rb_define_const(*pmROGL, "GL_CURRENT_PROGRAM", UINT2NUM(0x8B8D));
+    rb_define_const(*pmROGL, "GL_POINT_SPRITE_COORD_ORIGIN", UINT2NUM(0x8CA0));
+    rb_define_const(*pmROGL, "GL_LOWER_LEFT", UINT2NUM(0x8CA1));
+    rb_define_const(*pmROGL, "GL_UPPER_LEFT", UINT2NUM(0x8CA2));
+    rb_define_const(*pmROGL, "GL_STENCIL_BACK_REF", UINT2NUM(0x8CA3));
+    rb_define_const(*pmROGL, "GL_STENCIL_BACK_VALUE_MASK", UINT2NUM(0x8CA4));
+    rb_define_const(*pmROGL, "GL_STENCIL_BACK_WRITEMASK", UINT2NUM(0x8CA5));
+    rb_define_const(*pmROGL, "GL_VERTEX_PROGRAM_TWO_SIDE", UINT2NUM(0x8643));
+    rb_define_const(*pmROGL, "GL_POINT_SPRITE", UINT2NUM(0x8861));
+    rb_define_const(*pmROGL, "GL_COORD_REPLACE", UINT2NUM(0x8862));
+    rb_define_const(*pmROGL, "GL_MAX_TEXTURE_COORDS", UINT2NUM(0x8871));
+    rb_define_const(*pmROGL, "GL_PIXEL_PACK_BUFFER", UINT2NUM(0x88EB));
+    rb_define_const(*pmROGL, "GL_PIXEL_UNPACK_BUFFER", UINT2NUM(0x88EC));
+    rb_define_const(*pmROGL, "GL_PIXEL_PACK_BUFFER_BINDING", UINT2NUM(0x88ED));
+    rb_define_const(*pmROGL, "GL_PIXEL_UNPACK_BUFFER_BINDING", UINT2NUM(0x88EF));
+    rb_define_const(*pmROGL, "GL_FLOAT_MAT2x3", UINT2NUM(0x8B65));
+    rb_define_const(*pmROGL, "GL_FLOAT_MAT2x4", UINT2NUM(0x8B66));
+    rb_define_const(*pmROGL, "GL_FLOAT_MAT3x2", UINT2NUM(0x8B67));
+    rb_define_const(*pmROGL, "GL_FLOAT_MAT3x4", UINT2NUM(0x8B68));
+    rb_define_const(*pmROGL, "GL_FLOAT_MAT4x2", UINT2NUM(0x8B69));
+    rb_define_const(*pmROGL, "GL_FLOAT_MAT4x3", UINT2NUM(0x8B6A));
+    rb_define_const(*pmROGL, "GL_SRGB", UINT2NUM(0x8C40));
+    rb_define_const(*pmROGL, "GL_SRGB8", UINT2NUM(0x8C41));
+    rb_define_const(*pmROGL, "GL_SRGB_ALPHA", UINT2NUM(0x8C42));
+    rb_define_const(*pmROGL, "GL_SRGB8_ALPHA8", UINT2NUM(0x8C43));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_SRGB", UINT2NUM(0x8C48));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_SRGB_ALPHA", UINT2NUM(0x8C49));
+    rb_define_const(*pmROGL, "GL_CURRENT_RASTER_SECONDARY_COLOR", UINT2NUM(0x845F));
+    rb_define_const(*pmROGL, "GL_SLUMINANCE_ALPHA", UINT2NUM(0x8C44));
+    rb_define_const(*pmROGL, "GL_SLUMINANCE8_ALPHA8", UINT2NUM(0x8C45));
+    rb_define_const(*pmROGL, "GL_SLUMINANCE", UINT2NUM(0x8C46));
+    rb_define_const(*pmROGL, "GL_SLUMINANCE8", UINT2NUM(0x8C47));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_SLUMINANCE", UINT2NUM(0x8C4A));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_SLUMINANCE_ALPHA", UINT2NUM(0x8C4B));
+    rb_define_const(*pmROGL, "GL_COMPARE_REF_TO_TEXTURE", UINT2NUM(0x884E));
+    rb_define_const(*pmROGL, "GL_CLIP_DISTANCE0", UINT2NUM(0x3000));
+    rb_define_const(*pmROGL, "GL_CLIP_DISTANCE1", UINT2NUM(0x3001));
+    rb_define_const(*pmROGL, "GL_CLIP_DISTANCE2", UINT2NUM(0x3002));
+    rb_define_const(*pmROGL, "GL_CLIP_DISTANCE3", UINT2NUM(0x3003));
+    rb_define_const(*pmROGL, "GL_CLIP_DISTANCE4", UINT2NUM(0x3004));
+    rb_define_const(*pmROGL, "GL_CLIP_DISTANCE5", UINT2NUM(0x3005));
+    rb_define_const(*pmROGL, "GL_CLIP_DISTANCE6", UINT2NUM(0x3006));
+    rb_define_const(*pmROGL, "GL_CLIP_DISTANCE7", UINT2NUM(0x3007));
+    rb_define_const(*pmROGL, "GL_MAX_CLIP_DISTANCES", UINT2NUM(0x0D32));
+    rb_define_const(*pmROGL, "GL_MAJOR_VERSION", UINT2NUM(0x821B));
+    rb_define_const(*pmROGL, "GL_MINOR_VERSION", UINT2NUM(0x821C));
+    rb_define_const(*pmROGL, "GL_NUM_EXTENSIONS", UINT2NUM(0x821D));
+    rb_define_const(*pmROGL, "GL_CONTEXT_FLAGS", UINT2NUM(0x821E));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_RED", UINT2NUM(0x8225));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_RG", UINT2NUM(0x8226));
+    rb_define_const(*pmROGL, "GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT", UINT2NUM(0x00000001));
+    rb_define_const(*pmROGL, "GL_RGBA32F", UINT2NUM(0x8814));
+    rb_define_const(*pmROGL, "GL_RGB32F", UINT2NUM(0x8815));
+    rb_define_const(*pmROGL, "GL_RGBA16F", UINT2NUM(0x881A));
+    rb_define_const(*pmROGL, "GL_RGB16F", UINT2NUM(0x881B));
+    rb_define_const(*pmROGL, "GL_VERTEX_ATTRIB_ARRAY_INTEGER", UINT2NUM(0x88FD));
+    rb_define_const(*pmROGL, "GL_MAX_ARRAY_TEXTURE_LAYERS", UINT2NUM(0x88FF));
+    rb_define_const(*pmROGL, "GL_MIN_PROGRAM_TEXEL_OFFSET", UINT2NUM(0x8904));
+    rb_define_const(*pmROGL, "GL_MAX_PROGRAM_TEXEL_OFFSET", UINT2NUM(0x8905));
+    rb_define_const(*pmROGL, "GL_CLAMP_READ_COLOR", UINT2NUM(0x891C));
+    rb_define_const(*pmROGL, "GL_FIXED_ONLY", UINT2NUM(0x891D));
+    rb_define_const(*pmROGL, "GL_MAX_VARYING_COMPONENTS", UINT2NUM(0x8B4B));
+    rb_define_const(*pmROGL, "GL_TEXTURE_1D_ARRAY", UINT2NUM(0x8C18));
+    rb_define_const(*pmROGL, "GL_PROXY_TEXTURE_1D_ARRAY", UINT2NUM(0x8C19));
+    rb_define_const(*pmROGL, "GL_TEXTURE_2D_ARRAY", UINT2NUM(0x8C1A));
+    rb_define_const(*pmROGL, "GL_PROXY_TEXTURE_2D_ARRAY", UINT2NUM(0x8C1B));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BINDING_1D_ARRAY", UINT2NUM(0x8C1C));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BINDING_2D_ARRAY", UINT2NUM(0x8C1D));
+    rb_define_const(*pmROGL, "GL_R11F_G11F_B10F", UINT2NUM(0x8C3A));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_10F_11F_11F_REV", UINT2NUM(0x8C3B));
+    rb_define_const(*pmROGL, "GL_RGB9_E5", UINT2NUM(0x8C3D));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_5_9_9_9_REV", UINT2NUM(0x8C3E));
+    rb_define_const(*pmROGL, "GL_TEXTURE_SHARED_SIZE", UINT2NUM(0x8C3F));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_VARYING_MAX_LENGTH", UINT2NUM(0x8C76));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_MODE", UINT2NUM(0x8C7F));
+    rb_define_const(*pmROGL, "GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_COMPONENTS", UINT2NUM(0x8C80));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_VARYINGS", UINT2NUM(0x8C83));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_START", UINT2NUM(0x8C84));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_SIZE", UINT2NUM(0x8C85));
+    rb_define_const(*pmROGL, "GL_PRIMITIVES_GENERATED", UINT2NUM(0x8C87));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN", UINT2NUM(0x8C88));
+    rb_define_const(*pmROGL, "GL_RASTERIZER_DISCARD", UINT2NUM(0x8C89));
+    rb_define_const(*pmROGL, "GL_MAX_TRANSFORM_FEEDBACK_INTERLEAVED_COMPONENTS", UINT2NUM(0x8C8A));
+    rb_define_const(*pmROGL, "GL_MAX_TRANSFORM_FEEDBACK_SEPARATE_ATTRIBS", UINT2NUM(0x8C8B));
+    rb_define_const(*pmROGL, "GL_INTERLEAVED_ATTRIBS", UINT2NUM(0x8C8C));
+    rb_define_const(*pmROGL, "GL_SEPARATE_ATTRIBS", UINT2NUM(0x8C8D));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_BUFFER", UINT2NUM(0x8C8E));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_BINDING", UINT2NUM(0x8C8F));
+    rb_define_const(*pmROGL, "GL_RGBA32UI", UINT2NUM(0x8D70));
+    rb_define_const(*pmROGL, "GL_RGB32UI", UINT2NUM(0x8D71));
+    rb_define_const(*pmROGL, "GL_RGBA16UI", UINT2NUM(0x8D76));
+    rb_define_const(*pmROGL, "GL_RGB16UI", UINT2NUM(0x8D77));
+    rb_define_const(*pmROGL, "GL_RGBA8UI", UINT2NUM(0x8D7C));
+    rb_define_const(*pmROGL, "GL_RGB8UI", UINT2NUM(0x8D7D));
+    rb_define_const(*pmROGL, "GL_RGBA32I", UINT2NUM(0x8D82));
+    rb_define_const(*pmROGL, "GL_RGB32I", UINT2NUM(0x8D83));
+    rb_define_const(*pmROGL, "GL_RGBA16I", UINT2NUM(0x8D88));
+    rb_define_const(*pmROGL, "GL_RGB16I", UINT2NUM(0x8D89));
+    rb_define_const(*pmROGL, "GL_RGBA8I", UINT2NUM(0x8D8E));
+    rb_define_const(*pmROGL, "GL_RGB8I", UINT2NUM(0x8D8F));
+    rb_define_const(*pmROGL, "GL_RED_INTEGER", UINT2NUM(0x8D94));
+    rb_define_const(*pmROGL, "GL_GREEN_INTEGER", UINT2NUM(0x8D95));
+    rb_define_const(*pmROGL, "GL_BLUE_INTEGER", UINT2NUM(0x8D96));
+    rb_define_const(*pmROGL, "GL_RGB_INTEGER", UINT2NUM(0x8D98));
+    rb_define_const(*pmROGL, "GL_RGBA_INTEGER", UINT2NUM(0x8D99));
+    rb_define_const(*pmROGL, "GL_BGR_INTEGER", UINT2NUM(0x8D9A));
+    rb_define_const(*pmROGL, "GL_BGRA_INTEGER", UINT2NUM(0x8D9B));
+    rb_define_const(*pmROGL, "GL_SAMPLER_1D_ARRAY", UINT2NUM(0x8DC0));
+    rb_define_const(*pmROGL, "GL_SAMPLER_2D_ARRAY", UINT2NUM(0x8DC1));
+    rb_define_const(*pmROGL, "GL_SAMPLER_1D_ARRAY_SHADOW", UINT2NUM(0x8DC3));
+    rb_define_const(*pmROGL, "GL_SAMPLER_2D_ARRAY_SHADOW", UINT2NUM(0x8DC4));
+    rb_define_const(*pmROGL, "GL_SAMPLER_CUBE_SHADOW", UINT2NUM(0x8DC5));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_VEC2", UINT2NUM(0x8DC6));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_VEC3", UINT2NUM(0x8DC7));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_VEC4", UINT2NUM(0x8DC8));
+    rb_define_const(*pmROGL, "GL_INT_SAMPLER_1D", UINT2NUM(0x8DC9));
+    rb_define_const(*pmROGL, "GL_INT_SAMPLER_2D", UINT2NUM(0x8DCA));
+    rb_define_const(*pmROGL, "GL_INT_SAMPLER_3D", UINT2NUM(0x8DCB));
+    rb_define_const(*pmROGL, "GL_INT_SAMPLER_CUBE", UINT2NUM(0x8DCC));
+    rb_define_const(*pmROGL, "GL_INT_SAMPLER_1D_ARRAY", UINT2NUM(0x8DCE));
+    rb_define_const(*pmROGL, "GL_INT_SAMPLER_2D_ARRAY", UINT2NUM(0x8DCF));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_SAMPLER_1D", UINT2NUM(0x8DD1));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_SAMPLER_2D", UINT2NUM(0x8DD2));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_SAMPLER_3D", UINT2NUM(0x8DD3));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_SAMPLER_CUBE", UINT2NUM(0x8DD4));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_SAMPLER_1D_ARRAY", UINT2NUM(0x8DD6));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_SAMPLER_2D_ARRAY", UINT2NUM(0x8DD7));
+    rb_define_const(*pmROGL, "GL_QUERY_WAIT", UINT2NUM(0x8E13));
+    rb_define_const(*pmROGL, "GL_QUERY_NO_WAIT", UINT2NUM(0x8E14));
+    rb_define_const(*pmROGL, "GL_QUERY_BY_REGION_WAIT", UINT2NUM(0x8E15));
+    rb_define_const(*pmROGL, "GL_QUERY_BY_REGION_NO_WAIT", UINT2NUM(0x8E16));
+    rb_define_const(*pmROGL, "GL_BUFFER_ACCESS_FLAGS", UINT2NUM(0x911F));
+    rb_define_const(*pmROGL, "GL_BUFFER_MAP_LENGTH", UINT2NUM(0x9120));
+    rb_define_const(*pmROGL, "GL_BUFFER_MAP_OFFSET", UINT2NUM(0x9121));
+    rb_define_const(*pmROGL, "GL_DEPTH_COMPONENT32F", UINT2NUM(0x8CAC));
+    rb_define_const(*pmROGL, "GL_DEPTH32F_STENCIL8", UINT2NUM(0x8CAD));
+    rb_define_const(*pmROGL, "GL_FLOAT_32_UNSIGNED_INT_24_8_REV", UINT2NUM(0x8DAD));
+    rb_define_const(*pmROGL, "GL_INVALID_FRAMEBUFFER_OPERATION", UINT2NUM(0x0506));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING", UINT2NUM(0x8210));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE", UINT2NUM(0x8211));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_RED_SIZE", UINT2NUM(0x8212));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_GREEN_SIZE", UINT2NUM(0x8213));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_BLUE_SIZE", UINT2NUM(0x8214));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE", UINT2NUM(0x8215));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE", UINT2NUM(0x8216));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE", UINT2NUM(0x8217));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_DEFAULT", UINT2NUM(0x8218));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_UNDEFINED", UINT2NUM(0x8219));
+    rb_define_const(*pmROGL, "GL_DEPTH_STENCIL_ATTACHMENT", UINT2NUM(0x821A));
+    rb_define_const(*pmROGL, "GL_MAX_RENDERBUFFER_SIZE", UINT2NUM(0x84E8));
+    rb_define_const(*pmROGL, "GL_DEPTH_STENCIL", UINT2NUM(0x84F9));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_24_8", UINT2NUM(0x84FA));
+    rb_define_const(*pmROGL, "GL_DEPTH24_STENCIL8", UINT2NUM(0x88F0));
+    rb_define_const(*pmROGL, "GL_TEXTURE_STENCIL_SIZE", UINT2NUM(0x88F1));
+    rb_define_const(*pmROGL, "GL_TEXTURE_RED_TYPE", UINT2NUM(0x8C10));
+    rb_define_const(*pmROGL, "GL_TEXTURE_GREEN_TYPE", UINT2NUM(0x8C11));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BLUE_TYPE", UINT2NUM(0x8C12));
+    rb_define_const(*pmROGL, "GL_TEXTURE_ALPHA_TYPE", UINT2NUM(0x8C13));
+    rb_define_const(*pmROGL, "GL_TEXTURE_DEPTH_TYPE", UINT2NUM(0x8C16));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_NORMALIZED", UINT2NUM(0x8C17));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_BINDING", UINT2NUM(0x8CA6));
+    rb_define_const(*pmROGL, "GL_DRAW_FRAMEBUFFER_BINDING", UINT2NUM(0x8CA6));
+    rb_define_const(*pmROGL, "GL_RENDERBUFFER_BINDING", UINT2NUM(0x8CA7));
+    rb_define_const(*pmROGL, "GL_READ_FRAMEBUFFER", UINT2NUM(0x8CA8));
+    rb_define_const(*pmROGL, "GL_DRAW_FRAMEBUFFER", UINT2NUM(0x8CA9));
+    rb_define_const(*pmROGL, "GL_READ_FRAMEBUFFER_BINDING", UINT2NUM(0x8CAA));
+    rb_define_const(*pmROGL, "GL_RENDERBUFFER_SAMPLES", UINT2NUM(0x8CAB));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE", UINT2NUM(0x8CD0));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME", UINT2NUM(0x8CD1));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL", UINT2NUM(0x8CD2));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE", UINT2NUM(0x8CD3));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER", UINT2NUM(0x8CD4));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_COMPLETE", UINT2NUM(0x8CD5));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT", UINT2NUM(0x8CD6));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT", UINT2NUM(0x8CD7));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER", UINT2NUM(0x8CDB));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER", UINT2NUM(0x8CDC));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_UNSUPPORTED", UINT2NUM(0x8CDD));
+    rb_define_const(*pmROGL, "GL_MAX_COLOR_ATTACHMENTS", UINT2NUM(0x8CDF));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT0", UINT2NUM(0x8CE0));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT1", UINT2NUM(0x8CE1));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT2", UINT2NUM(0x8CE2));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT3", UINT2NUM(0x8CE3));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT4", UINT2NUM(0x8CE4));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT5", UINT2NUM(0x8CE5));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT6", UINT2NUM(0x8CE6));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT7", UINT2NUM(0x8CE7));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT8", UINT2NUM(0x8CE8));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT9", UINT2NUM(0x8CE9));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT10", UINT2NUM(0x8CEA));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT11", UINT2NUM(0x8CEB));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT12", UINT2NUM(0x8CEC));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT13", UINT2NUM(0x8CED));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT14", UINT2NUM(0x8CEE));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT15", UINT2NUM(0x8CEF));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT16", UINT2NUM(0x8CF0));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT17", UINT2NUM(0x8CF1));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT18", UINT2NUM(0x8CF2));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT19", UINT2NUM(0x8CF3));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT20", UINT2NUM(0x8CF4));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT21", UINT2NUM(0x8CF5));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT22", UINT2NUM(0x8CF6));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT23", UINT2NUM(0x8CF7));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT24", UINT2NUM(0x8CF8));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT25", UINT2NUM(0x8CF9));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT26", UINT2NUM(0x8CFA));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT27", UINT2NUM(0x8CFB));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT28", UINT2NUM(0x8CFC));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT29", UINT2NUM(0x8CFD));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT30", UINT2NUM(0x8CFE));
+    rb_define_const(*pmROGL, "GL_COLOR_ATTACHMENT31", UINT2NUM(0x8CFF));
+    rb_define_const(*pmROGL, "GL_DEPTH_ATTACHMENT", UINT2NUM(0x8D00));
+    rb_define_const(*pmROGL, "GL_STENCIL_ATTACHMENT", UINT2NUM(0x8D20));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER", UINT2NUM(0x8D40));
+    rb_define_const(*pmROGL, "GL_RENDERBUFFER", UINT2NUM(0x8D41));
+    rb_define_const(*pmROGL, "GL_RENDERBUFFER_WIDTH", UINT2NUM(0x8D42));
+    rb_define_const(*pmROGL, "GL_RENDERBUFFER_HEIGHT", UINT2NUM(0x8D43));
+    rb_define_const(*pmROGL, "GL_RENDERBUFFER_INTERNAL_FORMAT", UINT2NUM(0x8D44));
+    rb_define_const(*pmROGL, "GL_STENCIL_INDEX1", UINT2NUM(0x8D46));
+    rb_define_const(*pmROGL, "GL_STENCIL_INDEX4", UINT2NUM(0x8D47));
+    rb_define_const(*pmROGL, "GL_STENCIL_INDEX8", UINT2NUM(0x8D48));
+    rb_define_const(*pmROGL, "GL_STENCIL_INDEX16", UINT2NUM(0x8D49));
+    rb_define_const(*pmROGL, "GL_RENDERBUFFER_RED_SIZE", UINT2NUM(0x8D50));
+    rb_define_const(*pmROGL, "GL_RENDERBUFFER_GREEN_SIZE", UINT2NUM(0x8D51));
+    rb_define_const(*pmROGL, "GL_RENDERBUFFER_BLUE_SIZE", UINT2NUM(0x8D52));
+    rb_define_const(*pmROGL, "GL_RENDERBUFFER_ALPHA_SIZE", UINT2NUM(0x8D53));
+    rb_define_const(*pmROGL, "GL_RENDERBUFFER_DEPTH_SIZE", UINT2NUM(0x8D54));
+    rb_define_const(*pmROGL, "GL_RENDERBUFFER_STENCIL_SIZE", UINT2NUM(0x8D55));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE", UINT2NUM(0x8D56));
+    rb_define_const(*pmROGL, "GL_MAX_SAMPLES", UINT2NUM(0x8D57));
+    rb_define_const(*pmROGL, "GL_INDEX", UINT2NUM(0x8222));
+    rb_define_const(*pmROGL, "GL_TEXTURE_LUMINANCE_TYPE", UINT2NUM(0x8C14));
+    rb_define_const(*pmROGL, "GL_TEXTURE_INTENSITY_TYPE", UINT2NUM(0x8C15));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_SRGB", UINT2NUM(0x8DB9));
+    rb_define_const(*pmROGL, "GL_HALF_FLOAT", UINT2NUM(0x140B));
+    rb_define_const(*pmROGL, "GL_MAP_READ_BIT", UINT2NUM(0x0001));
+    rb_define_const(*pmROGL, "GL_MAP_WRITE_BIT", UINT2NUM(0x0002));
+    rb_define_const(*pmROGL, "GL_MAP_INVALIDATE_RANGE_BIT", UINT2NUM(0x0004));
+    rb_define_const(*pmROGL, "GL_MAP_INVALIDATE_BUFFER_BIT", UINT2NUM(0x0008));
+    rb_define_const(*pmROGL, "GL_MAP_FLUSH_EXPLICIT_BIT", UINT2NUM(0x0010));
+    rb_define_const(*pmROGL, "GL_MAP_UNSYNCHRONIZED_BIT", UINT2NUM(0x0020));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_RED_RGTC1", UINT2NUM(0x8DBB));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_SIGNED_RED_RGTC1", UINT2NUM(0x8DBC));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_RG_RGTC2", UINT2NUM(0x8DBD));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_SIGNED_RG_RGTC2", UINT2NUM(0x8DBE));
+    rb_define_const(*pmROGL, "GL_RG", UINT2NUM(0x8227));
+    rb_define_const(*pmROGL, "GL_RG_INTEGER", UINT2NUM(0x8228));
+    rb_define_const(*pmROGL, "GL_R8", UINT2NUM(0x8229));
+    rb_define_const(*pmROGL, "GL_R16", UINT2NUM(0x822A));
+    rb_define_const(*pmROGL, "GL_RG8", UINT2NUM(0x822B));
+    rb_define_const(*pmROGL, "GL_RG16", UINT2NUM(0x822C));
+    rb_define_const(*pmROGL, "GL_R16F", UINT2NUM(0x822D));
+    rb_define_const(*pmROGL, "GL_R32F", UINT2NUM(0x822E));
+    rb_define_const(*pmROGL, "GL_RG16F", UINT2NUM(0x822F));
+    rb_define_const(*pmROGL, "GL_RG32F", UINT2NUM(0x8230));
+    rb_define_const(*pmROGL, "GL_R8I", UINT2NUM(0x8231));
+    rb_define_const(*pmROGL, "GL_R8UI", UINT2NUM(0x8232));
+    rb_define_const(*pmROGL, "GL_R16I", UINT2NUM(0x8233));
+    rb_define_const(*pmROGL, "GL_R16UI", UINT2NUM(0x8234));
+    rb_define_const(*pmROGL, "GL_R32I", UINT2NUM(0x8235));
+    rb_define_const(*pmROGL, "GL_R32UI", UINT2NUM(0x8236));
+    rb_define_const(*pmROGL, "GL_RG8I", UINT2NUM(0x8237));
+    rb_define_const(*pmROGL, "GL_RG8UI", UINT2NUM(0x8238));
+    rb_define_const(*pmROGL, "GL_RG16I", UINT2NUM(0x8239));
+    rb_define_const(*pmROGL, "GL_RG16UI", UINT2NUM(0x823A));
+    rb_define_const(*pmROGL, "GL_RG32I", UINT2NUM(0x823B));
+    rb_define_const(*pmROGL, "GL_RG32UI", UINT2NUM(0x823C));
+    rb_define_const(*pmROGL, "GL_VERTEX_ARRAY_BINDING", UINT2NUM(0x85B5));
+    rb_define_const(*pmROGL, "GL_CLAMP_VERTEX_COLOR", UINT2NUM(0x891A));
+    rb_define_const(*pmROGL, "GL_CLAMP_FRAGMENT_COLOR", UINT2NUM(0x891B));
+    rb_define_const(*pmROGL, "GL_ALPHA_INTEGER", UINT2NUM(0x8D97));
+    rb_define_const(*pmROGL, "GL_SAMPLER_2D_RECT", UINT2NUM(0x8B63));
+    rb_define_const(*pmROGL, "GL_SAMPLER_2D_RECT_SHADOW", UINT2NUM(0x8B64));
+    rb_define_const(*pmROGL, "GL_SAMPLER_BUFFER", UINT2NUM(0x8DC2));
+    rb_define_const(*pmROGL, "GL_INT_SAMPLER_2D_RECT", UINT2NUM(0x8DCD));
+    rb_define_const(*pmROGL, "GL_INT_SAMPLER_BUFFER", UINT2NUM(0x8DD0));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_SAMPLER_2D_RECT", UINT2NUM(0x8DD5));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_SAMPLER_BUFFER", UINT2NUM(0x8DD8));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BUFFER", UINT2NUM(0x8C2A));
+    rb_define_const(*pmROGL, "GL_MAX_TEXTURE_BUFFER_SIZE", UINT2NUM(0x8C2B));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BINDING_BUFFER", UINT2NUM(0x8C2C));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BUFFER_DATA_STORE_BINDING", UINT2NUM(0x8C2D));
+    rb_define_const(*pmROGL, "GL_TEXTURE_RECTANGLE", UINT2NUM(0x84F5));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BINDING_RECTANGLE", UINT2NUM(0x84F6));
+    rb_define_const(*pmROGL, "GL_PROXY_TEXTURE_RECTANGLE", UINT2NUM(0x84F7));
+    rb_define_const(*pmROGL, "GL_MAX_RECTANGLE_TEXTURE_SIZE", UINT2NUM(0x84F8));
+    rb_define_const(*pmROGL, "GL_R8_SNORM", UINT2NUM(0x8F94));
+    rb_define_const(*pmROGL, "GL_RG8_SNORM", UINT2NUM(0x8F95));
+    rb_define_const(*pmROGL, "GL_RGB8_SNORM", UINT2NUM(0x8F96));
+    rb_define_const(*pmROGL, "GL_RGBA8_SNORM", UINT2NUM(0x8F97));
+    rb_define_const(*pmROGL, "GL_R16_SNORM", UINT2NUM(0x8F98));
+    rb_define_const(*pmROGL, "GL_RG16_SNORM", UINT2NUM(0x8F99));
+    rb_define_const(*pmROGL, "GL_RGB16_SNORM", UINT2NUM(0x8F9A));
+    rb_define_const(*pmROGL, "GL_RGBA16_SNORM", UINT2NUM(0x8F9B));
+    rb_define_const(*pmROGL, "GL_SIGNED_NORMALIZED", UINT2NUM(0x8F9C));
+    rb_define_const(*pmROGL, "GL_PRIMITIVE_RESTART", UINT2NUM(0x8F9D));
+    rb_define_const(*pmROGL, "GL_PRIMITIVE_RESTART_INDEX", UINT2NUM(0x8F9E));
+    rb_define_const(*pmROGL, "GL_COPY_READ_BUFFER", UINT2NUM(0x8F36));
+    rb_define_const(*pmROGL, "GL_COPY_WRITE_BUFFER", UINT2NUM(0x8F37));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BUFFER", UINT2NUM(0x8A11));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BUFFER_BINDING", UINT2NUM(0x8A28));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BUFFER_START", UINT2NUM(0x8A29));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BUFFER_SIZE", UINT2NUM(0x8A2A));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_UNIFORM_BLOCKS", UINT2NUM(0x8A2B));
+    rb_define_const(*pmROGL, "GL_MAX_GEOMETRY_UNIFORM_BLOCKS", UINT2NUM(0x8A2C));
+    rb_define_const(*pmROGL, "GL_MAX_FRAGMENT_UNIFORM_BLOCKS", UINT2NUM(0x8A2D));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_UNIFORM_BLOCKS", UINT2NUM(0x8A2E));
+    rb_define_const(*pmROGL, "GL_MAX_UNIFORM_BUFFER_BINDINGS", UINT2NUM(0x8A2F));
+    rb_define_const(*pmROGL, "GL_MAX_UNIFORM_BLOCK_SIZE", UINT2NUM(0x8A30));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS", UINT2NUM(0x8A31));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS", UINT2NUM(0x8A32));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS", UINT2NUM(0x8A33));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT", UINT2NUM(0x8A34));
+    rb_define_const(*pmROGL, "GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH", UINT2NUM(0x8A35));
+    rb_define_const(*pmROGL, "GL_ACTIVE_UNIFORM_BLOCKS", UINT2NUM(0x8A36));
+    rb_define_const(*pmROGL, "GL_UNIFORM_TYPE", UINT2NUM(0x8A37));
+    rb_define_const(*pmROGL, "GL_UNIFORM_SIZE", UINT2NUM(0x8A38));
+    rb_define_const(*pmROGL, "GL_UNIFORM_NAME_LENGTH", UINT2NUM(0x8A39));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BLOCK_INDEX", UINT2NUM(0x8A3A));
+    rb_define_const(*pmROGL, "GL_UNIFORM_OFFSET", UINT2NUM(0x8A3B));
+    rb_define_const(*pmROGL, "GL_UNIFORM_ARRAY_STRIDE", UINT2NUM(0x8A3C));
+    rb_define_const(*pmROGL, "GL_UNIFORM_MATRIX_STRIDE", UINT2NUM(0x8A3D));
+    rb_define_const(*pmROGL, "GL_UNIFORM_IS_ROW_MAJOR", UINT2NUM(0x8A3E));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BLOCK_BINDING", UINT2NUM(0x8A3F));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BLOCK_DATA_SIZE", UINT2NUM(0x8A40));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BLOCK_NAME_LENGTH", UINT2NUM(0x8A41));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS", UINT2NUM(0x8A42));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES", UINT2NUM(0x8A43));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER", UINT2NUM(0x8A44));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER", UINT2NUM(0x8A45));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER", UINT2NUM(0x8A46));
+    rb_define_const(*pmROGL, "GL_INVALID_INDEX", UINT2NUM(0xFFFFFFFF));
+    rb_define_const(*pmROGL, "GL_CONTEXT_CORE_PROFILE_BIT", UINT2NUM(0x00000001));
+    rb_define_const(*pmROGL, "GL_CONTEXT_COMPATIBILITY_PROFILE_BIT", UINT2NUM(0x00000002));
+    rb_define_const(*pmROGL, "GL_LINES_ADJACENCY", UINT2NUM(0x000A));
+    rb_define_const(*pmROGL, "GL_LINE_STRIP_ADJACENCY", UINT2NUM(0x000B));
+    rb_define_const(*pmROGL, "GL_TRIANGLES_ADJACENCY", UINT2NUM(0x000C));
+    rb_define_const(*pmROGL, "GL_TRIANGLE_STRIP_ADJACENCY", UINT2NUM(0x000D));
+    rb_define_const(*pmROGL, "GL_PROGRAM_POINT_SIZE", UINT2NUM(0x8642));
+    rb_define_const(*pmROGL, "GL_MAX_GEOMETRY_TEXTURE_IMAGE_UNITS", UINT2NUM(0x8C29));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_ATTACHMENT_LAYERED", UINT2NUM(0x8DA7));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS", UINT2NUM(0x8DA8));
+    rb_define_const(*pmROGL, "GL_GEOMETRY_SHADER", UINT2NUM(0x8DD9));
+    rb_define_const(*pmROGL, "GL_GEOMETRY_VERTICES_OUT", UINT2NUM(0x8916));
+    rb_define_const(*pmROGL, "GL_GEOMETRY_INPUT_TYPE", UINT2NUM(0x8917));
+    rb_define_const(*pmROGL, "GL_GEOMETRY_OUTPUT_TYPE", UINT2NUM(0x8918));
+    rb_define_const(*pmROGL, "GL_MAX_GEOMETRY_UNIFORM_COMPONENTS", UINT2NUM(0x8DDF));
+    rb_define_const(*pmROGL, "GL_MAX_GEOMETRY_OUTPUT_VERTICES", UINT2NUM(0x8DE0));
+    rb_define_const(*pmROGL, "GL_MAX_GEOMETRY_TOTAL_OUTPUT_COMPONENTS", UINT2NUM(0x8DE1));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_OUTPUT_COMPONENTS", UINT2NUM(0x9122));
+    rb_define_const(*pmROGL, "GL_MAX_GEOMETRY_INPUT_COMPONENTS", UINT2NUM(0x9123));
+    rb_define_const(*pmROGL, "GL_MAX_GEOMETRY_OUTPUT_COMPONENTS", UINT2NUM(0x9124));
+    rb_define_const(*pmROGL, "GL_MAX_FRAGMENT_INPUT_COMPONENTS", UINT2NUM(0x9125));
+    rb_define_const(*pmROGL, "GL_CONTEXT_PROFILE_MASK", UINT2NUM(0x9126));
+    rb_define_const(*pmROGL, "GL_DEPTH_CLAMP", UINT2NUM(0x864F));
+    rb_define_const(*pmROGL, "GL_QUADS_FOLLOW_PROVOKING_VERTEX_CONVENTION", UINT2NUM(0x8E4C));
+    rb_define_const(*pmROGL, "GL_FIRST_VERTEX_CONVENTION", UINT2NUM(0x8E4D));
+    rb_define_const(*pmROGL, "GL_LAST_VERTEX_CONVENTION", UINT2NUM(0x8E4E));
+    rb_define_const(*pmROGL, "GL_PROVOKING_VERTEX", UINT2NUM(0x8E4F));
+    rb_define_const(*pmROGL, "GL_TEXTURE_CUBE_MAP_SEAMLESS", UINT2NUM(0x884F));
+    rb_define_const(*pmROGL, "GL_MAX_SERVER_WAIT_TIMEOUT", UINT2NUM(0x9111));
+    rb_define_const(*pmROGL, "GL_OBJECT_TYPE", UINT2NUM(0x9112));
+    rb_define_const(*pmROGL, "GL_SYNC_CONDITION", UINT2NUM(0x9113));
+    rb_define_const(*pmROGL, "GL_SYNC_STATUS", UINT2NUM(0x9114));
+    rb_define_const(*pmROGL, "GL_SYNC_FLAGS", UINT2NUM(0x9115));
+    rb_define_const(*pmROGL, "GL_SYNC_FENCE", UINT2NUM(0x9116));
+    rb_define_const(*pmROGL, "GL_SYNC_GPU_COMMANDS_COMPLETE", UINT2NUM(0x9117));
+    rb_define_const(*pmROGL, "GL_UNSIGNALED", UINT2NUM(0x9118));
+    rb_define_const(*pmROGL, "GL_SIGNALED", UINT2NUM(0x9119));
+    rb_define_const(*pmROGL, "GL_ALREADY_SIGNALED", UINT2NUM(0x911A));
+    rb_define_const(*pmROGL, "GL_TIMEOUT_EXPIRED", UINT2NUM(0x911B));
+    rb_define_const(*pmROGL, "GL_CONDITION_SATISFIED", UINT2NUM(0x911C));
+    rb_define_const(*pmROGL, "GL_WAIT_FAILED", UINT2NUM(0x911D));
+    rb_define_const(*pmROGL, "GL_TIMEOUT_IGNORED", UINT2NUM(0xFFFFFFFFFFFFFFFF));
+    rb_define_const(*pmROGL, "GL_SYNC_FLUSH_COMMANDS_BIT", UINT2NUM(0x00000001));
+    rb_define_const(*pmROGL, "GL_SAMPLE_POSITION", UINT2NUM(0x8E50));
+    rb_define_const(*pmROGL, "GL_SAMPLE_MASK", UINT2NUM(0x8E51));
+    rb_define_const(*pmROGL, "GL_SAMPLE_MASK_VALUE", UINT2NUM(0x8E52));
+    rb_define_const(*pmROGL, "GL_MAX_SAMPLE_MASK_WORDS", UINT2NUM(0x8E59));
+    rb_define_const(*pmROGL, "GL_TEXTURE_2D_MULTISAMPLE", UINT2NUM(0x9100));
+    rb_define_const(*pmROGL, "GL_PROXY_TEXTURE_2D_MULTISAMPLE", UINT2NUM(0x9101));
+    rb_define_const(*pmROGL, "GL_TEXTURE_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x9102));
+    rb_define_const(*pmROGL, "GL_PROXY_TEXTURE_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x9103));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BINDING_2D_MULTISAMPLE", UINT2NUM(0x9104));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x9105));
+    rb_define_const(*pmROGL, "GL_TEXTURE_SAMPLES", UINT2NUM(0x9106));
+    rb_define_const(*pmROGL, "GL_TEXTURE_FIXED_SAMPLE_LOCATIONS", UINT2NUM(0x9107));
+    rb_define_const(*pmROGL, "GL_SAMPLER_2D_MULTISAMPLE", UINT2NUM(0x9108));
+    rb_define_const(*pmROGL, "GL_INT_SAMPLER_2D_MULTISAMPLE", UINT2NUM(0x9109));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE", UINT2NUM(0x910A));
+    rb_define_const(*pmROGL, "GL_SAMPLER_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x910B));
+    rb_define_const(*pmROGL, "GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x910C));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x910D));
+    rb_define_const(*pmROGL, "GL_MAX_COLOR_TEXTURE_SAMPLES", UINT2NUM(0x910E));
+    rb_define_const(*pmROGL, "GL_MAX_DEPTH_TEXTURE_SAMPLES", UINT2NUM(0x910F));
+    rb_define_const(*pmROGL, "GL_MAX_INTEGER_SAMPLES", UINT2NUM(0x9110));
+    rb_define_const(*pmROGL, "GL_VERTEX_ATTRIB_ARRAY_DIVISOR", UINT2NUM(0x88FE));
+    rb_define_const(*pmROGL, "GL_SRC1_COLOR", UINT2NUM(0x88F9));
+    rb_define_const(*pmROGL, "GL_ONE_MINUS_SRC1_COLOR", UINT2NUM(0x88FA));
+    rb_define_const(*pmROGL, "GL_ONE_MINUS_SRC1_ALPHA", UINT2NUM(0x88FB));
+    rb_define_const(*pmROGL, "GL_MAX_DUAL_SOURCE_DRAW_BUFFERS", UINT2NUM(0x88FC));
+    rb_define_const(*pmROGL, "GL_ANY_SAMPLES_PASSED", UINT2NUM(0x8C2F));
+    rb_define_const(*pmROGL, "GL_SAMPLER_BINDING", UINT2NUM(0x8919));
+    rb_define_const(*pmROGL, "GL_RGB10_A2UI", UINT2NUM(0x906F));
+    rb_define_const(*pmROGL, "GL_TEXTURE_SWIZZLE_R", UINT2NUM(0x8E42));
+    rb_define_const(*pmROGL, "GL_TEXTURE_SWIZZLE_G", UINT2NUM(0x8E43));
+    rb_define_const(*pmROGL, "GL_TEXTURE_SWIZZLE_B", UINT2NUM(0x8E44));
+    rb_define_const(*pmROGL, "GL_TEXTURE_SWIZZLE_A", UINT2NUM(0x8E45));
+    rb_define_const(*pmROGL, "GL_TEXTURE_SWIZZLE_RGBA", UINT2NUM(0x8E46));
+    rb_define_const(*pmROGL, "GL_TIME_ELAPSED", UINT2NUM(0x88BF));
+    rb_define_const(*pmROGL, "GL_TIMESTAMP", UINT2NUM(0x8E28));
+    rb_define_const(*pmROGL, "GL_INT_2_10_10_10_REV", UINT2NUM(0x8D9F));
+    rb_define_const(*pmROGL, "GL_SAMPLE_SHADING", UINT2NUM(0x8C36));
+    rb_define_const(*pmROGL, "GL_MIN_SAMPLE_SHADING_VALUE", UINT2NUM(0x8C37));
+    rb_define_const(*pmROGL, "GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET", UINT2NUM(0x8E5E));
+    rb_define_const(*pmROGL, "GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET", UINT2NUM(0x8E5F));
+    rb_define_const(*pmROGL, "GL_TEXTURE_CUBE_MAP_ARRAY", UINT2NUM(0x9009));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BINDING_CUBE_MAP_ARRAY", UINT2NUM(0x900A));
+    rb_define_const(*pmROGL, "GL_PROXY_TEXTURE_CUBE_MAP_ARRAY", UINT2NUM(0x900B));
+    rb_define_const(*pmROGL, "GL_SAMPLER_CUBE_MAP_ARRAY", UINT2NUM(0x900C));
+    rb_define_const(*pmROGL, "GL_SAMPLER_CUBE_MAP_ARRAY_SHADOW", UINT2NUM(0x900D));
+    rb_define_const(*pmROGL, "GL_INT_SAMPLER_CUBE_MAP_ARRAY", UINT2NUM(0x900E));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY", UINT2NUM(0x900F));
+    rb_define_const(*pmROGL, "GL_DRAW_INDIRECT_BUFFER", UINT2NUM(0x8F3F));
+    rb_define_const(*pmROGL, "GL_DRAW_INDIRECT_BUFFER_BINDING", UINT2NUM(0x8F43));
+    rb_define_const(*pmROGL, "GL_GEOMETRY_SHADER_INVOCATIONS", UINT2NUM(0x887F));
+    rb_define_const(*pmROGL, "GL_MAX_GEOMETRY_SHADER_INVOCATIONS", UINT2NUM(0x8E5A));
+    rb_define_const(*pmROGL, "GL_MIN_FRAGMENT_INTERPOLATION_OFFSET", UINT2NUM(0x8E5B));
+    rb_define_const(*pmROGL, "GL_MAX_FRAGMENT_INTERPOLATION_OFFSET", UINT2NUM(0x8E5C));
+    rb_define_const(*pmROGL, "GL_FRAGMENT_INTERPOLATION_OFFSET_BITS", UINT2NUM(0x8E5D));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_STREAMS", UINT2NUM(0x8E71));
+    rb_define_const(*pmROGL, "GL_DOUBLE_VEC2", UINT2NUM(0x8FFC));
+    rb_define_const(*pmROGL, "GL_DOUBLE_VEC3", UINT2NUM(0x8FFD));
+    rb_define_const(*pmROGL, "GL_DOUBLE_VEC4", UINT2NUM(0x8FFE));
+    rb_define_const(*pmROGL, "GL_DOUBLE_MAT2", UINT2NUM(0x8F46));
+    rb_define_const(*pmROGL, "GL_DOUBLE_MAT3", UINT2NUM(0x8F47));
+    rb_define_const(*pmROGL, "GL_DOUBLE_MAT4", UINT2NUM(0x8F48));
+    rb_define_const(*pmROGL, "GL_DOUBLE_MAT2x3", UINT2NUM(0x8F49));
+    rb_define_const(*pmROGL, "GL_DOUBLE_MAT2x4", UINT2NUM(0x8F4A));
+    rb_define_const(*pmROGL, "GL_DOUBLE_MAT3x2", UINT2NUM(0x8F4B));
+    rb_define_const(*pmROGL, "GL_DOUBLE_MAT3x4", UINT2NUM(0x8F4C));
+    rb_define_const(*pmROGL, "GL_DOUBLE_MAT4x2", UINT2NUM(0x8F4D));
+    rb_define_const(*pmROGL, "GL_DOUBLE_MAT4x3", UINT2NUM(0x8F4E));
+    rb_define_const(*pmROGL, "GL_ACTIVE_SUBROUTINES", UINT2NUM(0x8DE5));
+    rb_define_const(*pmROGL, "GL_ACTIVE_SUBROUTINE_UNIFORMS", UINT2NUM(0x8DE6));
+    rb_define_const(*pmROGL, "GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS", UINT2NUM(0x8E47));
+    rb_define_const(*pmROGL, "GL_ACTIVE_SUBROUTINE_MAX_LENGTH", UINT2NUM(0x8E48));
+    rb_define_const(*pmROGL, "GL_ACTIVE_SUBROUTINE_UNIFORM_MAX_LENGTH", UINT2NUM(0x8E49));
+    rb_define_const(*pmROGL, "GL_MAX_SUBROUTINES", UINT2NUM(0x8DE7));
+    rb_define_const(*pmROGL, "GL_MAX_SUBROUTINE_UNIFORM_LOCATIONS", UINT2NUM(0x8DE8));
+    rb_define_const(*pmROGL, "GL_NUM_COMPATIBLE_SUBROUTINES", UINT2NUM(0x8E4A));
+    rb_define_const(*pmROGL, "GL_COMPATIBLE_SUBROUTINES", UINT2NUM(0x8E4B));
+    rb_define_const(*pmROGL, "GL_PATCHES", UINT2NUM(0x000E));
+    rb_define_const(*pmROGL, "GL_PATCH_VERTICES", UINT2NUM(0x8E72));
+    rb_define_const(*pmROGL, "GL_PATCH_DEFAULT_INNER_LEVEL", UINT2NUM(0x8E73));
+    rb_define_const(*pmROGL, "GL_PATCH_DEFAULT_OUTER_LEVEL", UINT2NUM(0x8E74));
+    rb_define_const(*pmROGL, "GL_TESS_CONTROL_OUTPUT_VERTICES", UINT2NUM(0x8E75));
+    rb_define_const(*pmROGL, "GL_TESS_GEN_MODE", UINT2NUM(0x8E76));
+    rb_define_const(*pmROGL, "GL_TESS_GEN_SPACING", UINT2NUM(0x8E77));
+    rb_define_const(*pmROGL, "GL_TESS_GEN_VERTEX_ORDER", UINT2NUM(0x8E78));
+    rb_define_const(*pmROGL, "GL_TESS_GEN_POINT_MODE", UINT2NUM(0x8E79));
+    rb_define_const(*pmROGL, "GL_ISOLINES", UINT2NUM(0x8E7A));
+    rb_define_const(*pmROGL, "GL_FRACTIONAL_ODD", UINT2NUM(0x8E7B));
+    rb_define_const(*pmROGL, "GL_FRACTIONAL_EVEN", UINT2NUM(0x8E7C));
+    rb_define_const(*pmROGL, "GL_MAX_PATCH_VERTICES", UINT2NUM(0x8E7D));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_GEN_LEVEL", UINT2NUM(0x8E7E));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS", UINT2NUM(0x8E7F));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS", UINT2NUM(0x8E80));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS", UINT2NUM(0x8E81));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS", UINT2NUM(0x8E82));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS", UINT2NUM(0x8E83));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_PATCH_COMPONENTS", UINT2NUM(0x8E84));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS", UINT2NUM(0x8E85));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS", UINT2NUM(0x8E86));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS", UINT2NUM(0x8E89));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS", UINT2NUM(0x8E8A));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_CONTROL_INPUT_COMPONENTS", UINT2NUM(0x886C));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS", UINT2NUM(0x886D));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS", UINT2NUM(0x8E1E));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS", UINT2NUM(0x8E1F));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_CONTROL_SHADER", UINT2NUM(0x84F0));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_EVALUATION_SHADER", UINT2NUM(0x84F1));
+    rb_define_const(*pmROGL, "GL_TESS_EVALUATION_SHADER", UINT2NUM(0x8E87));
+    rb_define_const(*pmROGL, "GL_TESS_CONTROL_SHADER", UINT2NUM(0x8E88));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK", UINT2NUM(0x8E22));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED", UINT2NUM(0x8E23));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE", UINT2NUM(0x8E24));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_BINDING", UINT2NUM(0x8E25));
+    rb_define_const(*pmROGL, "GL_MAX_TRANSFORM_FEEDBACK_BUFFERS", UINT2NUM(0x8E70));
+    rb_define_const(*pmROGL, "GL_FIXED", UINT2NUM(0x140C));
+    rb_define_const(*pmROGL, "GL_IMPLEMENTATION_COLOR_READ_TYPE", UINT2NUM(0x8B9A));
+    rb_define_const(*pmROGL, "GL_IMPLEMENTATION_COLOR_READ_FORMAT", UINT2NUM(0x8B9B));
+    rb_define_const(*pmROGL, "GL_LOW_FLOAT", UINT2NUM(0x8DF0));
+    rb_define_const(*pmROGL, "GL_MEDIUM_FLOAT", UINT2NUM(0x8DF1));
+    rb_define_const(*pmROGL, "GL_HIGH_FLOAT", UINT2NUM(0x8DF2));
+    rb_define_const(*pmROGL, "GL_LOW_INT", UINT2NUM(0x8DF3));
+    rb_define_const(*pmROGL, "GL_MEDIUM_INT", UINT2NUM(0x8DF4));
+    rb_define_const(*pmROGL, "GL_HIGH_INT", UINT2NUM(0x8DF5));
+    rb_define_const(*pmROGL, "GL_SHADER_COMPILER", UINT2NUM(0x8DFA));
+    rb_define_const(*pmROGL, "GL_SHADER_BINARY_FORMATS", UINT2NUM(0x8DF8));
+    rb_define_const(*pmROGL, "GL_NUM_SHADER_BINARY_FORMATS", UINT2NUM(0x8DF9));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_UNIFORM_VECTORS", UINT2NUM(0x8DFB));
+    rb_define_const(*pmROGL, "GL_MAX_VARYING_VECTORS", UINT2NUM(0x8DFC));
+    rb_define_const(*pmROGL, "GL_MAX_FRAGMENT_UNIFORM_VECTORS", UINT2NUM(0x8DFD));
+    rb_define_const(*pmROGL, "GL_RGB565", UINT2NUM(0x8D62));
+    rb_define_const(*pmROGL, "GL_PROGRAM_BINARY_RETRIEVABLE_HINT", UINT2NUM(0x8257));
+    rb_define_const(*pmROGL, "GL_PROGRAM_BINARY_LENGTH", UINT2NUM(0x8741));
+    rb_define_const(*pmROGL, "GL_NUM_PROGRAM_BINARY_FORMATS", UINT2NUM(0x87FE));
+    rb_define_const(*pmROGL, "GL_PROGRAM_BINARY_FORMATS", UINT2NUM(0x87FF));
+    rb_define_const(*pmROGL, "GL_VERTEX_SHADER_BIT", UINT2NUM(0x00000001));
+    rb_define_const(*pmROGL, "GL_FRAGMENT_SHADER_BIT", UINT2NUM(0x00000002));
+    rb_define_const(*pmROGL, "GL_GEOMETRY_SHADER_BIT", UINT2NUM(0x00000004));
+    rb_define_const(*pmROGL, "GL_TESS_CONTROL_SHADER_BIT", UINT2NUM(0x00000008));
+    rb_define_const(*pmROGL, "GL_TESS_EVALUATION_SHADER_BIT", UINT2NUM(0x00000010));
+    rb_define_const(*pmROGL, "GL_ALL_SHADER_BITS", UINT2NUM(0xFFFFFFFF));
+    rb_define_const(*pmROGL, "GL_PROGRAM_SEPARABLE", UINT2NUM(0x8258));
+    rb_define_const(*pmROGL, "GL_ACTIVE_PROGRAM", UINT2NUM(0x8259));
+    rb_define_const(*pmROGL, "GL_PROGRAM_PIPELINE_BINDING", UINT2NUM(0x825A));
+    rb_define_const(*pmROGL, "GL_MAX_VIEWPORTS", UINT2NUM(0x825B));
+    rb_define_const(*pmROGL, "GL_VIEWPORT_SUBPIXEL_BITS", UINT2NUM(0x825C));
+    rb_define_const(*pmROGL, "GL_VIEWPORT_BOUNDS_RANGE", UINT2NUM(0x825D));
+    rb_define_const(*pmROGL, "GL_LAYER_PROVOKING_VERTEX", UINT2NUM(0x825E));
+    rb_define_const(*pmROGL, "GL_VIEWPORT_INDEX_PROVOKING_VERTEX", UINT2NUM(0x825F));
+    rb_define_const(*pmROGL, "GL_UNDEFINED_VERTEX", UINT2NUM(0x8260));
+    rb_define_const(*pmROGL, "GL_COPY_READ_BUFFER_BINDING", UINT2NUM(0x8F36));
+    rb_define_const(*pmROGL, "GL_COPY_WRITE_BUFFER_BINDING", UINT2NUM(0x8F37));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_ACTIVE", UINT2NUM(0x8E24));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_PAUSED", UINT2NUM(0x8E23));
+    rb_define_const(*pmROGL, "GL_UNPACK_COMPRESSED_BLOCK_WIDTH", UINT2NUM(0x9127));
+    rb_define_const(*pmROGL, "GL_UNPACK_COMPRESSED_BLOCK_HEIGHT", UINT2NUM(0x9128));
+    rb_define_const(*pmROGL, "GL_UNPACK_COMPRESSED_BLOCK_DEPTH", UINT2NUM(0x9129));
+    rb_define_const(*pmROGL, "GL_UNPACK_COMPRESSED_BLOCK_SIZE", UINT2NUM(0x912A));
+    rb_define_const(*pmROGL, "GL_PACK_COMPRESSED_BLOCK_WIDTH", UINT2NUM(0x912B));
+    rb_define_const(*pmROGL, "GL_PACK_COMPRESSED_BLOCK_HEIGHT", UINT2NUM(0x912C));
+    rb_define_const(*pmROGL, "GL_PACK_COMPRESSED_BLOCK_DEPTH", UINT2NUM(0x912D));
+    rb_define_const(*pmROGL, "GL_PACK_COMPRESSED_BLOCK_SIZE", UINT2NUM(0x912E));
+    rb_define_const(*pmROGL, "GL_NUM_SAMPLE_COUNTS", UINT2NUM(0x9380));
+    rb_define_const(*pmROGL, "GL_MIN_MAP_BUFFER_ALIGNMENT", UINT2NUM(0x90BC));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER", UINT2NUM(0x92C0));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER_BINDING", UINT2NUM(0x92C1));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER_START", UINT2NUM(0x92C2));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER_SIZE", UINT2NUM(0x92C3));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER_DATA_SIZE", UINT2NUM(0x92C4));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTERS", UINT2NUM(0x92C5));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER_ACTIVE_ATOMIC_COUNTER_INDICES", UINT2NUM(0x92C6));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_VERTEX_SHADER", UINT2NUM(0x92C7));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_CONTROL_SHADER", UINT2NUM(0x92C8));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TESS_EVALUATION_SHADER", UINT2NUM(0x92C9));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_GEOMETRY_SHADER", UINT2NUM(0x92CA));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_FRAGMENT_SHADER", UINT2NUM(0x92CB));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92CC));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_CONTROL_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92CD));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_EVALUATION_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92CE));
+    rb_define_const(*pmROGL, "GL_MAX_GEOMETRY_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92CF));
+    rb_define_const(*pmROGL, "GL_MAX_FRAGMENT_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92D0));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92D1));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_ATOMIC_COUNTERS", UINT2NUM(0x92D2));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_CONTROL_ATOMIC_COUNTERS", UINT2NUM(0x92D3));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_EVALUATION_ATOMIC_COUNTERS", UINT2NUM(0x92D4));
+    rb_define_const(*pmROGL, "GL_MAX_GEOMETRY_ATOMIC_COUNTERS", UINT2NUM(0x92D5));
+    rb_define_const(*pmROGL, "GL_MAX_FRAGMENT_ATOMIC_COUNTERS", UINT2NUM(0x92D6));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_ATOMIC_COUNTERS", UINT2NUM(0x92D7));
+    rb_define_const(*pmROGL, "GL_MAX_ATOMIC_COUNTER_BUFFER_SIZE", UINT2NUM(0x92D8));
+    rb_define_const(*pmROGL, "GL_MAX_ATOMIC_COUNTER_BUFFER_BINDINGS", UINT2NUM(0x92DC));
+    rb_define_const(*pmROGL, "GL_ACTIVE_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x92D9));
+    rb_define_const(*pmROGL, "GL_UNIFORM_ATOMIC_COUNTER_BUFFER_INDEX", UINT2NUM(0x92DA));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_ATOMIC_COUNTER", UINT2NUM(0x92DB));
+    rb_define_const(*pmROGL, "GL_VERTEX_ATTRIB_ARRAY_BARRIER_BIT", UINT2NUM(0x00000001));
+    rb_define_const(*pmROGL, "GL_ELEMENT_ARRAY_BARRIER_BIT", UINT2NUM(0x00000002));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BARRIER_BIT", UINT2NUM(0x00000004));
+    rb_define_const(*pmROGL, "GL_TEXTURE_FETCH_BARRIER_BIT", UINT2NUM(0x00000008));
+    rb_define_const(*pmROGL, "GL_SHADER_IMAGE_ACCESS_BARRIER_BIT", UINT2NUM(0x00000020));
+    rb_define_const(*pmROGL, "GL_COMMAND_BARRIER_BIT", UINT2NUM(0x00000040));
+    rb_define_const(*pmROGL, "GL_PIXEL_BUFFER_BARRIER_BIT", UINT2NUM(0x00000080));
+    rb_define_const(*pmROGL, "GL_TEXTURE_UPDATE_BARRIER_BIT", UINT2NUM(0x00000100));
+    rb_define_const(*pmROGL, "GL_BUFFER_UPDATE_BARRIER_BIT", UINT2NUM(0x00000200));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_BARRIER_BIT", UINT2NUM(0x00000400));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_BARRIER_BIT", UINT2NUM(0x00000800));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BARRIER_BIT", UINT2NUM(0x00001000));
+    rb_define_const(*pmROGL, "GL_ALL_BARRIER_BITS", UINT2NUM(0xFFFFFFFF));
+    rb_define_const(*pmROGL, "GL_MAX_IMAGE_UNITS", UINT2NUM(0x8F38));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_IMAGE_UNITS_AND_FRAGMENT_OUTPUTS", UINT2NUM(0x8F39));
+    rb_define_const(*pmROGL, "GL_IMAGE_BINDING_NAME", UINT2NUM(0x8F3A));
+    rb_define_const(*pmROGL, "GL_IMAGE_BINDING_LEVEL", UINT2NUM(0x8F3B));
+    rb_define_const(*pmROGL, "GL_IMAGE_BINDING_LAYERED", UINT2NUM(0x8F3C));
+    rb_define_const(*pmROGL, "GL_IMAGE_BINDING_LAYER", UINT2NUM(0x8F3D));
+    rb_define_const(*pmROGL, "GL_IMAGE_BINDING_ACCESS", UINT2NUM(0x8F3E));
+    rb_define_const(*pmROGL, "GL_IMAGE_1D", UINT2NUM(0x904C));
+    rb_define_const(*pmROGL, "GL_IMAGE_2D", UINT2NUM(0x904D));
+    rb_define_const(*pmROGL, "GL_IMAGE_3D", UINT2NUM(0x904E));
+    rb_define_const(*pmROGL, "GL_IMAGE_2D_RECT", UINT2NUM(0x904F));
+    rb_define_const(*pmROGL, "GL_IMAGE_CUBE", UINT2NUM(0x9050));
+    rb_define_const(*pmROGL, "GL_IMAGE_BUFFER", UINT2NUM(0x9051));
+    rb_define_const(*pmROGL, "GL_IMAGE_1D_ARRAY", UINT2NUM(0x9052));
+    rb_define_const(*pmROGL, "GL_IMAGE_2D_ARRAY", UINT2NUM(0x9053));
+    rb_define_const(*pmROGL, "GL_IMAGE_CUBE_MAP_ARRAY", UINT2NUM(0x9054));
+    rb_define_const(*pmROGL, "GL_IMAGE_2D_MULTISAMPLE", UINT2NUM(0x9055));
+    rb_define_const(*pmROGL, "GL_IMAGE_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x9056));
+    rb_define_const(*pmROGL, "GL_INT_IMAGE_1D", UINT2NUM(0x9057));
+    rb_define_const(*pmROGL, "GL_INT_IMAGE_2D", UINT2NUM(0x9058));
+    rb_define_const(*pmROGL, "GL_INT_IMAGE_3D", UINT2NUM(0x9059));
+    rb_define_const(*pmROGL, "GL_INT_IMAGE_2D_RECT", UINT2NUM(0x905A));
+    rb_define_const(*pmROGL, "GL_INT_IMAGE_CUBE", UINT2NUM(0x905B));
+    rb_define_const(*pmROGL, "GL_INT_IMAGE_BUFFER", UINT2NUM(0x905C));
+    rb_define_const(*pmROGL, "GL_INT_IMAGE_1D_ARRAY", UINT2NUM(0x905D));
+    rb_define_const(*pmROGL, "GL_INT_IMAGE_2D_ARRAY", UINT2NUM(0x905E));
+    rb_define_const(*pmROGL, "GL_INT_IMAGE_CUBE_MAP_ARRAY", UINT2NUM(0x905F));
+    rb_define_const(*pmROGL, "GL_INT_IMAGE_2D_MULTISAMPLE", UINT2NUM(0x9060));
+    rb_define_const(*pmROGL, "GL_INT_IMAGE_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x9061));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_IMAGE_1D", UINT2NUM(0x9062));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_IMAGE_2D", UINT2NUM(0x9063));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_IMAGE_3D", UINT2NUM(0x9064));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_IMAGE_2D_RECT", UINT2NUM(0x9065));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_IMAGE_CUBE", UINT2NUM(0x9066));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_IMAGE_BUFFER", UINT2NUM(0x9067));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_IMAGE_1D_ARRAY", UINT2NUM(0x9068));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_IMAGE_2D_ARRAY", UINT2NUM(0x9069));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY", UINT2NUM(0x906A));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE", UINT2NUM(0x906B));
+    rb_define_const(*pmROGL, "GL_UNSIGNED_INT_IMAGE_2D_MULTISAMPLE_ARRAY", UINT2NUM(0x906C));
+    rb_define_const(*pmROGL, "GL_MAX_IMAGE_SAMPLES", UINT2NUM(0x906D));
+    rb_define_const(*pmROGL, "GL_IMAGE_BINDING_FORMAT", UINT2NUM(0x906E));
+    rb_define_const(*pmROGL, "GL_IMAGE_FORMAT_COMPATIBILITY_TYPE", UINT2NUM(0x90C7));
+    rb_define_const(*pmROGL, "GL_IMAGE_FORMAT_COMPATIBILITY_BY_SIZE", UINT2NUM(0x90C8));
+    rb_define_const(*pmROGL, "GL_IMAGE_FORMAT_COMPATIBILITY_BY_CLASS", UINT2NUM(0x90C9));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_IMAGE_UNIFORMS", UINT2NUM(0x90CA));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_CONTROL_IMAGE_UNIFORMS", UINT2NUM(0x90CB));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_EVALUATION_IMAGE_UNIFORMS", UINT2NUM(0x90CC));
+    rb_define_const(*pmROGL, "GL_MAX_GEOMETRY_IMAGE_UNIFORMS", UINT2NUM(0x90CD));
+    rb_define_const(*pmROGL, "GL_MAX_FRAGMENT_IMAGE_UNIFORMS", UINT2NUM(0x90CE));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_IMAGE_UNIFORMS", UINT2NUM(0x90CF));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_RGBA_BPTC_UNORM", UINT2NUM(0x8E8C));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM", UINT2NUM(0x8E8D));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT", UINT2NUM(0x8E8E));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT", UINT2NUM(0x8E8F));
+    rb_define_const(*pmROGL, "GL_TEXTURE_IMMUTABLE_FORMAT", UINT2NUM(0x912F));
+    rb_define_const(*pmROGL, "GL_NUM_SHADING_LANGUAGE_VERSIONS", UINT2NUM(0x82E9));
+    rb_define_const(*pmROGL, "GL_VERTEX_ATTRIB_ARRAY_LONG", UINT2NUM(0x874E));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_RGB8_ETC2", UINT2NUM(0x9274));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_SRGB8_ETC2", UINT2NUM(0x9275));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2", UINT2NUM(0x9276));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2", UINT2NUM(0x9277));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_RGBA8_ETC2_EAC", UINT2NUM(0x9278));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_SRGB8_ALPHA8_ETC2_EAC", UINT2NUM(0x9279));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_R11_EAC", UINT2NUM(0x9270));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_SIGNED_R11_EAC", UINT2NUM(0x9271));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_RG11_EAC", UINT2NUM(0x9272));
+    rb_define_const(*pmROGL, "GL_COMPRESSED_SIGNED_RG11_EAC", UINT2NUM(0x9273));
+    rb_define_const(*pmROGL, "GL_PRIMITIVE_RESTART_FIXED_INDEX", UINT2NUM(0x8D69));
+    rb_define_const(*pmROGL, "GL_ANY_SAMPLES_PASSED_CONSERVATIVE", UINT2NUM(0x8D6A));
+    rb_define_const(*pmROGL, "GL_MAX_ELEMENT_INDEX", UINT2NUM(0x8D6B));
+    rb_define_const(*pmROGL, "GL_COMPUTE_SHADER", UINT2NUM(0x91B9));
+    rb_define_const(*pmROGL, "GL_MAX_COMPUTE_UNIFORM_BLOCKS", UINT2NUM(0x91BB));
+    rb_define_const(*pmROGL, "GL_MAX_COMPUTE_TEXTURE_IMAGE_UNITS", UINT2NUM(0x91BC));
+    rb_define_const(*pmROGL, "GL_MAX_COMPUTE_IMAGE_UNIFORMS", UINT2NUM(0x91BD));
+    rb_define_const(*pmROGL, "GL_MAX_COMPUTE_SHARED_MEMORY_SIZE", UINT2NUM(0x8262));
+    rb_define_const(*pmROGL, "GL_MAX_COMPUTE_UNIFORM_COMPONENTS", UINT2NUM(0x8263));
+    rb_define_const(*pmROGL, "GL_MAX_COMPUTE_ATOMIC_COUNTER_BUFFERS", UINT2NUM(0x8264));
+    rb_define_const(*pmROGL, "GL_MAX_COMPUTE_ATOMIC_COUNTERS", UINT2NUM(0x8265));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_COMPUTE_UNIFORM_COMPONENTS", UINT2NUM(0x8266));
+    rb_define_const(*pmROGL, "GL_MAX_COMPUTE_WORK_GROUP_INVOCATIONS", UINT2NUM(0x90EB));
+    rb_define_const(*pmROGL, "GL_MAX_COMPUTE_WORK_GROUP_COUNT", UINT2NUM(0x91BE));
+    rb_define_const(*pmROGL, "GL_MAX_COMPUTE_WORK_GROUP_SIZE", UINT2NUM(0x91BF));
+    rb_define_const(*pmROGL, "GL_COMPUTE_WORK_GROUP_SIZE", UINT2NUM(0x8267));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BLOCK_REFERENCED_BY_COMPUTE_SHADER", UINT2NUM(0x90EC));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_COMPUTE_SHADER", UINT2NUM(0x90ED));
+    rb_define_const(*pmROGL, "GL_DISPATCH_INDIRECT_BUFFER", UINT2NUM(0x90EE));
+    rb_define_const(*pmROGL, "GL_DISPATCH_INDIRECT_BUFFER_BINDING", UINT2NUM(0x90EF));
+    rb_define_const(*pmROGL, "GL_COMPUTE_SHADER_BIT", UINT2NUM(0x00000020));
+    rb_define_const(*pmROGL, "GL_DEBUG_OUTPUT_SYNCHRONOUS", UINT2NUM(0x8242));
+    rb_define_const(*pmROGL, "GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH", UINT2NUM(0x8243));
+    rb_define_const(*pmROGL, "GL_DEBUG_CALLBACK_FUNCTION", UINT2NUM(0x8244));
+    rb_define_const(*pmROGL, "GL_DEBUG_CALLBACK_USER_PARAM", UINT2NUM(0x8245));
+    rb_define_const(*pmROGL, "GL_DEBUG_SOURCE_API", UINT2NUM(0x8246));
+    rb_define_const(*pmROGL, "GL_DEBUG_SOURCE_WINDOW_SYSTEM", UINT2NUM(0x8247));
+    rb_define_const(*pmROGL, "GL_DEBUG_SOURCE_SHADER_COMPILER", UINT2NUM(0x8248));
+    rb_define_const(*pmROGL, "GL_DEBUG_SOURCE_THIRD_PARTY", UINT2NUM(0x8249));
+    rb_define_const(*pmROGL, "GL_DEBUG_SOURCE_APPLICATION", UINT2NUM(0x824A));
+    rb_define_const(*pmROGL, "GL_DEBUG_SOURCE_OTHER", UINT2NUM(0x824B));
+    rb_define_const(*pmROGL, "GL_DEBUG_TYPE_ERROR", UINT2NUM(0x824C));
+    rb_define_const(*pmROGL, "GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR", UINT2NUM(0x824D));
+    rb_define_const(*pmROGL, "GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR", UINT2NUM(0x824E));
+    rb_define_const(*pmROGL, "GL_DEBUG_TYPE_PORTABILITY", UINT2NUM(0x824F));
+    rb_define_const(*pmROGL, "GL_DEBUG_TYPE_PERFORMANCE", UINT2NUM(0x8250));
+    rb_define_const(*pmROGL, "GL_DEBUG_TYPE_OTHER", UINT2NUM(0x8251));
+    rb_define_const(*pmROGL, "GL_MAX_DEBUG_MESSAGE_LENGTH", UINT2NUM(0x9143));
+    rb_define_const(*pmROGL, "GL_MAX_DEBUG_LOGGED_MESSAGES", UINT2NUM(0x9144));
+    rb_define_const(*pmROGL, "GL_DEBUG_LOGGED_MESSAGES", UINT2NUM(0x9145));
+    rb_define_const(*pmROGL, "GL_DEBUG_SEVERITY_HIGH", UINT2NUM(0x9146));
+    rb_define_const(*pmROGL, "GL_DEBUG_SEVERITY_MEDIUM", UINT2NUM(0x9147));
+    rb_define_const(*pmROGL, "GL_DEBUG_SEVERITY_LOW", UINT2NUM(0x9148));
+    rb_define_const(*pmROGL, "GL_DEBUG_TYPE_MARKER", UINT2NUM(0x8268));
+    rb_define_const(*pmROGL, "GL_DEBUG_TYPE_PUSH_GROUP", UINT2NUM(0x8269));
+    rb_define_const(*pmROGL, "GL_DEBUG_TYPE_POP_GROUP", UINT2NUM(0x826A));
+    rb_define_const(*pmROGL, "GL_DEBUG_SEVERITY_NOTIFICATION", UINT2NUM(0x826B));
+    rb_define_const(*pmROGL, "GL_MAX_DEBUG_GROUP_STACK_DEPTH", UINT2NUM(0x826C));
+    rb_define_const(*pmROGL, "GL_DEBUG_GROUP_STACK_DEPTH", UINT2NUM(0x826D));
+    rb_define_const(*pmROGL, "GL_BUFFER", UINT2NUM(0x82E0));
+    rb_define_const(*pmROGL, "GL_SHADER", UINT2NUM(0x82E1));
+    rb_define_const(*pmROGL, "GL_PROGRAM", UINT2NUM(0x82E2));
+    rb_define_const(*pmROGL, "GL_QUERY", UINT2NUM(0x82E3));
+    rb_define_const(*pmROGL, "GL_PROGRAM_PIPELINE", UINT2NUM(0x82E4));
+    rb_define_const(*pmROGL, "GL_SAMPLER", UINT2NUM(0x82E6));
+    rb_define_const(*pmROGL, "GL_MAX_LABEL_LENGTH", UINT2NUM(0x82E8));
+    rb_define_const(*pmROGL, "GL_DEBUG_OUTPUT", UINT2NUM(0x92E0));
+    rb_define_const(*pmROGL, "GL_CONTEXT_FLAG_DEBUG_BIT", UINT2NUM(0x00000002));
+    rb_define_const(*pmROGL, "GL_MAX_UNIFORM_LOCATIONS", UINT2NUM(0x826E));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_DEFAULT_WIDTH", UINT2NUM(0x9310));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_DEFAULT_HEIGHT", UINT2NUM(0x9311));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_DEFAULT_LAYERS", UINT2NUM(0x9312));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_DEFAULT_SAMPLES", UINT2NUM(0x9313));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_DEFAULT_FIXED_SAMPLE_LOCATIONS", UINT2NUM(0x9314));
+    rb_define_const(*pmROGL, "GL_MAX_FRAMEBUFFER_WIDTH", UINT2NUM(0x9315));
+    rb_define_const(*pmROGL, "GL_MAX_FRAMEBUFFER_HEIGHT", UINT2NUM(0x9316));
+    rb_define_const(*pmROGL, "GL_MAX_FRAMEBUFFER_LAYERS", UINT2NUM(0x9317));
+    rb_define_const(*pmROGL, "GL_MAX_FRAMEBUFFER_SAMPLES", UINT2NUM(0x9318));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_SUPPORTED", UINT2NUM(0x826F));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_PREFERRED", UINT2NUM(0x8270));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_RED_SIZE", UINT2NUM(0x8271));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_GREEN_SIZE", UINT2NUM(0x8272));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_BLUE_SIZE", UINT2NUM(0x8273));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_ALPHA_SIZE", UINT2NUM(0x8274));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_DEPTH_SIZE", UINT2NUM(0x8275));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_STENCIL_SIZE", UINT2NUM(0x8276));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_SHARED_SIZE", UINT2NUM(0x8277));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_RED_TYPE", UINT2NUM(0x8278));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_GREEN_TYPE", UINT2NUM(0x8279));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_BLUE_TYPE", UINT2NUM(0x827A));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_ALPHA_TYPE", UINT2NUM(0x827B));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_DEPTH_TYPE", UINT2NUM(0x827C));
+    rb_define_const(*pmROGL, "GL_INTERNALFORMAT_STENCIL_TYPE", UINT2NUM(0x827D));
+    rb_define_const(*pmROGL, "GL_MAX_WIDTH", UINT2NUM(0x827E));
+    rb_define_const(*pmROGL, "GL_MAX_HEIGHT", UINT2NUM(0x827F));
+    rb_define_const(*pmROGL, "GL_MAX_DEPTH", UINT2NUM(0x8280));
+    rb_define_const(*pmROGL, "GL_MAX_LAYERS", UINT2NUM(0x8281));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_DIMENSIONS", UINT2NUM(0x8282));
+    rb_define_const(*pmROGL, "GL_COLOR_COMPONENTS", UINT2NUM(0x8283));
+    rb_define_const(*pmROGL, "GL_DEPTH_COMPONENTS", UINT2NUM(0x8284));
+    rb_define_const(*pmROGL, "GL_STENCIL_COMPONENTS", UINT2NUM(0x8285));
+    rb_define_const(*pmROGL, "GL_COLOR_RENDERABLE", UINT2NUM(0x8286));
+    rb_define_const(*pmROGL, "GL_DEPTH_RENDERABLE", UINT2NUM(0x8287));
+    rb_define_const(*pmROGL, "GL_STENCIL_RENDERABLE", UINT2NUM(0x8288));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_RENDERABLE", UINT2NUM(0x8289));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_RENDERABLE_LAYERED", UINT2NUM(0x828A));
+    rb_define_const(*pmROGL, "GL_FRAMEBUFFER_BLEND", UINT2NUM(0x828B));
+    rb_define_const(*pmROGL, "GL_READ_PIXELS", UINT2NUM(0x828C));
+    rb_define_const(*pmROGL, "GL_READ_PIXELS_FORMAT", UINT2NUM(0x828D));
+    rb_define_const(*pmROGL, "GL_READ_PIXELS_TYPE", UINT2NUM(0x828E));
+    rb_define_const(*pmROGL, "GL_TEXTURE_IMAGE_FORMAT", UINT2NUM(0x828F));
+    rb_define_const(*pmROGL, "GL_TEXTURE_IMAGE_TYPE", UINT2NUM(0x8290));
+    rb_define_const(*pmROGL, "GL_GET_TEXTURE_IMAGE_FORMAT", UINT2NUM(0x8291));
+    rb_define_const(*pmROGL, "GL_GET_TEXTURE_IMAGE_TYPE", UINT2NUM(0x8292));
+    rb_define_const(*pmROGL, "GL_MIPMAP", UINT2NUM(0x8293));
+    rb_define_const(*pmROGL, "GL_MANUAL_GENERATE_MIPMAP", UINT2NUM(0x8294));
+    rb_define_const(*pmROGL, "GL_AUTO_GENERATE_MIPMAP", UINT2NUM(0x8295));
+    rb_define_const(*pmROGL, "GL_COLOR_ENCODING", UINT2NUM(0x8296));
+    rb_define_const(*pmROGL, "GL_SRGB_READ", UINT2NUM(0x8297));
+    rb_define_const(*pmROGL, "GL_SRGB_WRITE", UINT2NUM(0x8298));
+    rb_define_const(*pmROGL, "GL_FILTER", UINT2NUM(0x829A));
+    rb_define_const(*pmROGL, "GL_VERTEX_TEXTURE", UINT2NUM(0x829B));
+    rb_define_const(*pmROGL, "GL_TESS_CONTROL_TEXTURE", UINT2NUM(0x829C));
+    rb_define_const(*pmROGL, "GL_TESS_EVALUATION_TEXTURE", UINT2NUM(0x829D));
+    rb_define_const(*pmROGL, "GL_GEOMETRY_TEXTURE", UINT2NUM(0x829E));
+    rb_define_const(*pmROGL, "GL_FRAGMENT_TEXTURE", UINT2NUM(0x829F));
+    rb_define_const(*pmROGL, "GL_COMPUTE_TEXTURE", UINT2NUM(0x82A0));
+    rb_define_const(*pmROGL, "GL_TEXTURE_SHADOW", UINT2NUM(0x82A1));
+    rb_define_const(*pmROGL, "GL_TEXTURE_GATHER", UINT2NUM(0x82A2));
+    rb_define_const(*pmROGL, "GL_TEXTURE_GATHER_SHADOW", UINT2NUM(0x82A3));
+    rb_define_const(*pmROGL, "GL_SHADER_IMAGE_LOAD", UINT2NUM(0x82A4));
+    rb_define_const(*pmROGL, "GL_SHADER_IMAGE_STORE", UINT2NUM(0x82A5));
+    rb_define_const(*pmROGL, "GL_SHADER_IMAGE_ATOMIC", UINT2NUM(0x82A6));
+    rb_define_const(*pmROGL, "GL_IMAGE_TEXEL_SIZE", UINT2NUM(0x82A7));
+    rb_define_const(*pmROGL, "GL_IMAGE_COMPATIBILITY_CLASS", UINT2NUM(0x82A8));
+    rb_define_const(*pmROGL, "GL_IMAGE_PIXEL_FORMAT", UINT2NUM(0x82A9));
+    rb_define_const(*pmROGL, "GL_IMAGE_PIXEL_TYPE", UINT2NUM(0x82AA));
+    rb_define_const(*pmROGL, "GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_TEST", UINT2NUM(0x82AC));
+    rb_define_const(*pmROGL, "GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_TEST", UINT2NUM(0x82AD));
+    rb_define_const(*pmROGL, "GL_SIMULTANEOUS_TEXTURE_AND_DEPTH_WRITE", UINT2NUM(0x82AE));
+    rb_define_const(*pmROGL, "GL_SIMULTANEOUS_TEXTURE_AND_STENCIL_WRITE", UINT2NUM(0x82AF));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COMPRESSED_BLOCK_WIDTH", UINT2NUM(0x82B1));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COMPRESSED_BLOCK_HEIGHT", UINT2NUM(0x82B2));
+    rb_define_const(*pmROGL, "GL_TEXTURE_COMPRESSED_BLOCK_SIZE", UINT2NUM(0x82B3));
+    rb_define_const(*pmROGL, "GL_CLEAR_BUFFER", UINT2NUM(0x82B4));
+    rb_define_const(*pmROGL, "GL_TEXTURE_VIEW", UINT2NUM(0x82B5));
+    rb_define_const(*pmROGL, "GL_VIEW_COMPATIBILITY_CLASS", UINT2NUM(0x82B6));
+    rb_define_const(*pmROGL, "GL_FULL_SUPPORT", UINT2NUM(0x82B7));
+    rb_define_const(*pmROGL, "GL_CAVEAT_SUPPORT", UINT2NUM(0x82B8));
+    rb_define_const(*pmROGL, "GL_IMAGE_CLASS_4_X_32", UINT2NUM(0x82B9));
+    rb_define_const(*pmROGL, "GL_IMAGE_CLASS_2_X_32", UINT2NUM(0x82BA));
+    rb_define_const(*pmROGL, "GL_IMAGE_CLASS_1_X_32", UINT2NUM(0x82BB));
+    rb_define_const(*pmROGL, "GL_IMAGE_CLASS_4_X_16", UINT2NUM(0x82BC));
+    rb_define_const(*pmROGL, "GL_IMAGE_CLASS_2_X_16", UINT2NUM(0x82BD));
+    rb_define_const(*pmROGL, "GL_IMAGE_CLASS_1_X_16", UINT2NUM(0x82BE));
+    rb_define_const(*pmROGL, "GL_IMAGE_CLASS_4_X_8", UINT2NUM(0x82BF));
+    rb_define_const(*pmROGL, "GL_IMAGE_CLASS_2_X_8", UINT2NUM(0x82C0));
+    rb_define_const(*pmROGL, "GL_IMAGE_CLASS_1_X_8", UINT2NUM(0x82C1));
+    rb_define_const(*pmROGL, "GL_IMAGE_CLASS_11_11_10", UINT2NUM(0x82C2));
+    rb_define_const(*pmROGL, "GL_IMAGE_CLASS_10_10_10_2", UINT2NUM(0x82C3));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_128_BITS", UINT2NUM(0x82C4));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_96_BITS", UINT2NUM(0x82C5));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_64_BITS", UINT2NUM(0x82C6));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_48_BITS", UINT2NUM(0x82C7));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_32_BITS", UINT2NUM(0x82C8));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_24_BITS", UINT2NUM(0x82C9));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_16_BITS", UINT2NUM(0x82CA));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_8_BITS", UINT2NUM(0x82CB));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_S3TC_DXT1_RGB", UINT2NUM(0x82CC));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_S3TC_DXT1_RGBA", UINT2NUM(0x82CD));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_S3TC_DXT3_RGBA", UINT2NUM(0x82CE));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_S3TC_DXT5_RGBA", UINT2NUM(0x82CF));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_RGTC1_RED", UINT2NUM(0x82D0));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_RGTC2_RG", UINT2NUM(0x82D1));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_BPTC_UNORM", UINT2NUM(0x82D2));
+    rb_define_const(*pmROGL, "GL_VIEW_CLASS_BPTC_FLOAT", UINT2NUM(0x82D3));
+    rb_define_const(*pmROGL, "GL_UNIFORM", UINT2NUM(0x92E1));
+    rb_define_const(*pmROGL, "GL_UNIFORM_BLOCK", UINT2NUM(0x92E2));
+    rb_define_const(*pmROGL, "GL_PROGRAM_INPUT", UINT2NUM(0x92E3));
+    rb_define_const(*pmROGL, "GL_PROGRAM_OUTPUT", UINT2NUM(0x92E4));
+    rb_define_const(*pmROGL, "GL_BUFFER_VARIABLE", UINT2NUM(0x92E5));
+    rb_define_const(*pmROGL, "GL_SHADER_STORAGE_BLOCK", UINT2NUM(0x92E6));
+    rb_define_const(*pmROGL, "GL_VERTEX_SUBROUTINE", UINT2NUM(0x92E8));
+    rb_define_const(*pmROGL, "GL_TESS_CONTROL_SUBROUTINE", UINT2NUM(0x92E9));
+    rb_define_const(*pmROGL, "GL_TESS_EVALUATION_SUBROUTINE", UINT2NUM(0x92EA));
+    rb_define_const(*pmROGL, "GL_GEOMETRY_SUBROUTINE", UINT2NUM(0x92EB));
+    rb_define_const(*pmROGL, "GL_FRAGMENT_SUBROUTINE", UINT2NUM(0x92EC));
+    rb_define_const(*pmROGL, "GL_COMPUTE_SUBROUTINE", UINT2NUM(0x92ED));
+    rb_define_const(*pmROGL, "GL_VERTEX_SUBROUTINE_UNIFORM", UINT2NUM(0x92EE));
+    rb_define_const(*pmROGL, "GL_TESS_CONTROL_SUBROUTINE_UNIFORM", UINT2NUM(0x92EF));
+    rb_define_const(*pmROGL, "GL_TESS_EVALUATION_SUBROUTINE_UNIFORM", UINT2NUM(0x92F0));
+    rb_define_const(*pmROGL, "GL_GEOMETRY_SUBROUTINE_UNIFORM", UINT2NUM(0x92F1));
+    rb_define_const(*pmROGL, "GL_FRAGMENT_SUBROUTINE_UNIFORM", UINT2NUM(0x92F2));
+    rb_define_const(*pmROGL, "GL_COMPUTE_SUBROUTINE_UNIFORM", UINT2NUM(0x92F3));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_VARYING", UINT2NUM(0x92F4));
+    rb_define_const(*pmROGL, "GL_ACTIVE_RESOURCES", UINT2NUM(0x92F5));
+    rb_define_const(*pmROGL, "GL_MAX_NAME_LENGTH", UINT2NUM(0x92F6));
+    rb_define_const(*pmROGL, "GL_MAX_NUM_ACTIVE_VARIABLES", UINT2NUM(0x92F7));
+    rb_define_const(*pmROGL, "GL_MAX_NUM_COMPATIBLE_SUBROUTINES", UINT2NUM(0x92F8));
+    rb_define_const(*pmROGL, "GL_NAME_LENGTH", UINT2NUM(0x92F9));
+    rb_define_const(*pmROGL, "GL_TYPE", UINT2NUM(0x92FA));
+    rb_define_const(*pmROGL, "GL_ARRAY_SIZE", UINT2NUM(0x92FB));
+    rb_define_const(*pmROGL, "GL_OFFSET", UINT2NUM(0x92FC));
+    rb_define_const(*pmROGL, "GL_BLOCK_INDEX", UINT2NUM(0x92FD));
+    rb_define_const(*pmROGL, "GL_ARRAY_STRIDE", UINT2NUM(0x92FE));
+    rb_define_const(*pmROGL, "GL_MATRIX_STRIDE", UINT2NUM(0x92FF));
+    rb_define_const(*pmROGL, "GL_IS_ROW_MAJOR", UINT2NUM(0x9300));
+    rb_define_const(*pmROGL, "GL_ATOMIC_COUNTER_BUFFER_INDEX", UINT2NUM(0x9301));
+    rb_define_const(*pmROGL, "GL_BUFFER_BINDING", UINT2NUM(0x9302));
+    rb_define_const(*pmROGL, "GL_BUFFER_DATA_SIZE", UINT2NUM(0x9303));
+    rb_define_const(*pmROGL, "GL_NUM_ACTIVE_VARIABLES", UINT2NUM(0x9304));
+    rb_define_const(*pmROGL, "GL_ACTIVE_VARIABLES", UINT2NUM(0x9305));
+    rb_define_const(*pmROGL, "GL_REFERENCED_BY_VERTEX_SHADER", UINT2NUM(0x9306));
+    rb_define_const(*pmROGL, "GL_REFERENCED_BY_TESS_CONTROL_SHADER", UINT2NUM(0x9307));
+    rb_define_const(*pmROGL, "GL_REFERENCED_BY_TESS_EVALUATION_SHADER", UINT2NUM(0x9308));
+    rb_define_const(*pmROGL, "GL_REFERENCED_BY_GEOMETRY_SHADER", UINT2NUM(0x9309));
+    rb_define_const(*pmROGL, "GL_REFERENCED_BY_FRAGMENT_SHADER", UINT2NUM(0x930A));
+    rb_define_const(*pmROGL, "GL_REFERENCED_BY_COMPUTE_SHADER", UINT2NUM(0x930B));
+    rb_define_const(*pmROGL, "GL_TOP_LEVEL_ARRAY_SIZE", UINT2NUM(0x930C));
+    rb_define_const(*pmROGL, "GL_TOP_LEVEL_ARRAY_STRIDE", UINT2NUM(0x930D));
+    rb_define_const(*pmROGL, "GL_LOCATION", UINT2NUM(0x930E));
+    rb_define_const(*pmROGL, "GL_LOCATION_INDEX", UINT2NUM(0x930F));
+    rb_define_const(*pmROGL, "GL_IS_PER_PATCH", UINT2NUM(0x92E7));
+    rb_define_const(*pmROGL, "GL_SHADER_STORAGE_BUFFER", UINT2NUM(0x90D2));
+    rb_define_const(*pmROGL, "GL_SHADER_STORAGE_BUFFER_BINDING", UINT2NUM(0x90D3));
+    rb_define_const(*pmROGL, "GL_SHADER_STORAGE_BUFFER_START", UINT2NUM(0x90D4));
+    rb_define_const(*pmROGL, "GL_SHADER_STORAGE_BUFFER_SIZE", UINT2NUM(0x90D5));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90D6));
+    rb_define_const(*pmROGL, "GL_MAX_GEOMETRY_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90D7));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_CONTROL_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90D8));
+    rb_define_const(*pmROGL, "GL_MAX_TESS_EVALUATION_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90D9));
+    rb_define_const(*pmROGL, "GL_MAX_FRAGMENT_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90DA));
+    rb_define_const(*pmROGL, "GL_MAX_COMPUTE_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90DB));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_SHADER_STORAGE_BLOCKS", UINT2NUM(0x90DC));
+    rb_define_const(*pmROGL, "GL_MAX_SHADER_STORAGE_BUFFER_BINDINGS", UINT2NUM(0x90DD));
+    rb_define_const(*pmROGL, "GL_MAX_SHADER_STORAGE_BLOCK_SIZE", UINT2NUM(0x90DE));
+    rb_define_const(*pmROGL, "GL_SHADER_STORAGE_BUFFER_OFFSET_ALIGNMENT", UINT2NUM(0x90DF));
+    rb_define_const(*pmROGL, "GL_SHADER_STORAGE_BARRIER_BIT", UINT2NUM(0x00002000));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_SHADER_OUTPUT_RESOURCES", UINT2NUM(0x8F39));
+    rb_define_const(*pmROGL, "GL_DEPTH_STENCIL_TEXTURE_MODE", UINT2NUM(0x90EA));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BUFFER_OFFSET", UINT2NUM(0x919D));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BUFFER_SIZE", UINT2NUM(0x919E));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BUFFER_OFFSET_ALIGNMENT", UINT2NUM(0x919F));
+    rb_define_const(*pmROGL, "GL_TEXTURE_VIEW_MIN_LEVEL", UINT2NUM(0x82DB));
+    rb_define_const(*pmROGL, "GL_TEXTURE_VIEW_NUM_LEVELS", UINT2NUM(0x82DC));
+    rb_define_const(*pmROGL, "GL_TEXTURE_VIEW_MIN_LAYER", UINT2NUM(0x82DD));
+    rb_define_const(*pmROGL, "GL_TEXTURE_VIEW_NUM_LAYERS", UINT2NUM(0x82DE));
+    rb_define_const(*pmROGL, "GL_TEXTURE_IMMUTABLE_LEVELS", UINT2NUM(0x82DF));
+    rb_define_const(*pmROGL, "GL_VERTEX_ATTRIB_BINDING", UINT2NUM(0x82D4));
+    rb_define_const(*pmROGL, "GL_VERTEX_ATTRIB_RELATIVE_OFFSET", UINT2NUM(0x82D5));
+    rb_define_const(*pmROGL, "GL_VERTEX_BINDING_DIVISOR", UINT2NUM(0x82D6));
+    rb_define_const(*pmROGL, "GL_VERTEX_BINDING_OFFSET", UINT2NUM(0x82D7));
+    rb_define_const(*pmROGL, "GL_VERTEX_BINDING_STRIDE", UINT2NUM(0x82D8));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET", UINT2NUM(0x82D9));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_ATTRIB_BINDINGS", UINT2NUM(0x82DA));
+    rb_define_const(*pmROGL, "GL_VERTEX_BINDING_BUFFER", UINT2NUM(0x8F4F));
+    rb_define_const(*pmROGL, "GL_DISPLAY_LIST", UINT2NUM(0x82E7));
+    rb_define_const(*pmROGL, "GL_MAX_VERTEX_ATTRIB_STRIDE", UINT2NUM(0x82E5));
+    rb_define_const(*pmROGL, "GL_PRIMITIVE_RESTART_FOR_PATCHES_SUPPORTED", UINT2NUM(0x8221));
+    rb_define_const(*pmROGL, "GL_TEXTURE_BUFFER_BINDING", UINT2NUM(0x8C2A));
+    rb_define_const(*pmROGL, "GL_MAP_PERSISTENT_BIT", UINT2NUM(0x0040));
+    rb_define_const(*pmROGL, "GL_MAP_COHERENT_BIT", UINT2NUM(0x0080));
+    rb_define_const(*pmROGL, "GL_DYNAMIC_STORAGE_BIT", UINT2NUM(0x0100));
+    rb_define_const(*pmROGL, "GL_CLIENT_STORAGE_BIT", UINT2NUM(0x0200));
+    rb_define_const(*pmROGL, "GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT", UINT2NUM(0x00004000));
+    rb_define_const(*pmROGL, "GL_BUFFER_IMMUTABLE_STORAGE", UINT2NUM(0x821F));
+    rb_define_const(*pmROGL, "GL_BUFFER_STORAGE_FLAGS", UINT2NUM(0x8220));
+    rb_define_const(*pmROGL, "GL_CLEAR_TEXTURE", UINT2NUM(0x9365));
+    rb_define_const(*pmROGL, "GL_LOCATION_COMPONENT", UINT2NUM(0x934A));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_INDEX", UINT2NUM(0x934B));
+    rb_define_const(*pmROGL, "GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE", UINT2NUM(0x934C));
+    rb_define_const(*pmROGL, "GL_QUERY_BUFFER", UINT2NUM(0x9192));
+    rb_define_const(*pmROGL, "GL_QUERY_BUFFER_BARRIER_BIT", UINT2NUM(0x00008000));
+    rb_define_const(*pmROGL, "GL_QUERY_BUFFER_BINDING", UINT2NUM(0x9193));
+    rb_define_const(*pmROGL, "GL_QUERY_RESULT_NO_WAIT", UINT2NUM(0x9194));
+    rb_define_const(*pmROGL, "GL_MIRROR_CLAMP_TO_EDGE", UINT2NUM(0x8743));
+    rb_define_const(*pmROGL, "GL_CONTEXT_LOST", UINT2NUM(0x0507));
+    rb_define_const(*pmROGL, "GL_NEGATIVE_ONE_TO_ONE", UINT2NUM(0x935E));
+    rb_define_const(*pmROGL, "GL_ZERO_TO_ONE", UINT2NUM(0x935F));
+    rb_define_const(*pmROGL, "GL_CLIP_ORIGIN", UINT2NUM(0x935C));
+    rb_define_const(*pmROGL, "GL_CLIP_DEPTH_MODE", UINT2NUM(0x935D));
+    rb_define_const(*pmROGL, "GL_QUERY_WAIT_INVERTED", UINT2NUM(0x8E17));
+    rb_define_const(*pmROGL, "GL_QUERY_NO_WAIT_INVERTED", UINT2NUM(0x8E18));
+    rb_define_const(*pmROGL, "GL_QUERY_BY_REGION_WAIT_INVERTED", UINT2NUM(0x8E19));
+    rb_define_const(*pmROGL, "GL_QUERY_BY_REGION_NO_WAIT_INVERTED", UINT2NUM(0x8E1A));
+    rb_define_const(*pmROGL, "GL_MAX_CULL_DISTANCES", UINT2NUM(0x82F9));
+    rb_define_const(*pmROGL, "GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES", UINT2NUM(0x82FA));
+    rb_define_const(*pmROGL, "GL_TEXTURE_TARGET", UINT2NUM(0x1006));
+    rb_define_const(*pmROGL, "GL_QUERY_TARGET", UINT2NUM(0x82EA));
+    rb_define_const(*pmROGL, "GL_GUILTY_CONTEXT_RESET", UINT2NUM(0x8253));
+    rb_define_const(*pmROGL, "GL_INNOCENT_CONTEXT_RESET", UINT2NUM(0x8254));
+    rb_define_const(*pmROGL, "GL_UNKNOWN_CONTEXT_RESET", UINT2NUM(0x8255));
+    rb_define_const(*pmROGL, "GL_RESET_NOTIFICATION_STRATEGY", UINT2NUM(0x8256));
+    rb_define_const(*pmROGL, "GL_LOSE_CONTEXT_ON_RESET", UINT2NUM(0x8252));
+    rb_define_const(*pmROGL, "GL_NO_RESET_NOTIFICATION", UINT2NUM(0x8261));
+    rb_define_const(*pmROGL, "GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT", UINT2NUM(0x00000004));
+    rb_define_const(*pmROGL, "GL_CONTEXT_RELEASE_BEHAVIOR", UINT2NUM(0x82FB));
+    rb_define_const(*pmROGL, "GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH", UINT2NUM(0x82FC));
 }
 
 static void rogl_SetupFeature( int load_core )
@@ -18592,13 +18600,19 @@ static void rogl_SetupFeature( int load_core )
 }
 
 
-static VALUE rogl_method_SetupCommand( VALUE self, VALUE command_name )
+static VALUE rogl_method_SetupCommand( VALUE self, VALUE mROGL, VALUE command_name )
 {
-    const char* name = RSTRING_PTR(command_name);
-    void** rogl_pfptr = rogl_GetFunctionPointer(name);
+    const char* name = StringValueCStr(command_name);
+    int argc = 0;
+    void* rb_fptr = NULL;
+    void** rogl_pfptr = rogl_GetFunctionPointer(name, &argc, &rb_fptr);
     if (rogl_pfptr)
     {
         *rogl_pfptr = rogl_GetProcAddress(name);
+        if (*rogl_pfptr)
+        {
+            rb_define_method(mROGL, name, rb_fptr, argc);
+        }
     }
 
     return *rogl_pfptr != NULL ? Qtrue : Qfalse;
@@ -18649,14 +18663,14 @@ static VALUE rogl_method_LoadLib( VALUE self, VALUE lib_name, VALUE lib_path )
 
 void Init_opengl_c()
 {
-    mROGL = rb_define_module("OpenGL");
+    VALUE mROGL = rb_define_module("OpenGL");
 
     rb_define_singleton_method( mROGL, "load_lib", rogl_method_LoadLib, 2 );
 
     rb_define_singleton_method( mROGL, "init_system", rogl_method_InitSystem, 1 );
     rb_define_singleton_method( mROGL, "term_system", rogl_method_TermSystem, 0 );
-    rb_define_singleton_method( mROGL, "setup_command", rogl_method_SetupCommand, 1 );
+    rb_define_singleton_method( mROGL, "setup_command", rogl_method_SetupCommand, 2 );
 
-    rogl_InitRubyCommand();
-    rogl_InitRubyEnum();
+    rogl_InitRubyCommand( &mROGL );
+    rogl_InitRubyEnum( &mROGL );
 }
