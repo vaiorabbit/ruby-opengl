@@ -372,42 +372,37 @@ ROGL_CPOINTER_CONVERTER
   out.puts ""
 
   # Command Name <=> Function Pointer mapping
-  out.puts "static const struct {"
+=begin
+  out.puts "typedef struct {"
   out.puts "    const char* name;"
   out.puts "    void* rb_fptr;"
   out.puts "    void* c_fptr;"
   out.puts "    int c_argc;"
-  out.puts "} rogl_CmdToFPMap[] = {"
+  out.puts "} CommandInfo_t;"
+  out.puts "static CommandInfo_t rogl_CommandInfo[] = {"
   gl_std_cmd_map.each_pair do |api, map_entry|
     out.puts "    {\"#{api}\", &rogl_#{api}, &rogl_pfn_#{api}, #{map_entry.type_names.length}},"
   end
   out.puts "};"
   out.puts ""
 
-  out.puts "static const unsigned int rogl_CmdToFPCount = sizeof(rogl_CmdToFPMap)/sizeof(rogl_CmdToFPMap[0]); /* #{gl_std_cmd_map.length} */"
+  out.puts "static const unsigned int rogl_CmdToFPCount = sizeof(rogl_CommandInfo)/sizeof(rogl_CommandInfo[0]); /* #{gl_std_cmd_map.length} */"
   out.puts ""
 
-  out.puts "static void* rogl_GetFunctionPointer(const char* name, int* pArgCountOut, void** rb_fptr)"
+  out.puts "static CommandInfo_t* rogl_GetFunctionPointer(const char* name)"
   out.puts "{"
   out.puts "    for (unsigned int i = 0; i < rogl_CmdToFPCount; ++i)"
   out.puts "    {"
-  out.puts "        if (strncmp(rogl_CmdToFPMap[i].name, name, strlen(rogl_CmdToFPMap[i].name)) == 0)"
+  out.puts "        if (strncmp(rogl_CommandInfo[i].name, name, strlen(rogl_CommandInfo[i].name)) == 0)"
   out.puts "        {"
-  out.puts "            if (pArgCountOut)"
-  out.puts "            {"
-  out.puts "                *pArgCountOut = rogl_CmdToFPMap[i].c_argc;"
-  out.puts "            }"
-  out.puts "            if (rb_fptr)"
-  out.puts "            {"
-  out.puts "                *rb_fptr = rogl_CmdToFPMap[i].rb_fptr;"
-  out.puts "            }"
-  out.puts "            return rogl_CmdToFPMap[i].c_fptr;"
+  out.puts "            return &rogl_CommandInfo[i];"
   out.puts "        }"
   out.puts "    }"
   out.puts ""
   out.puts "    return NULL;"
   out.puts "}"
   out.puts ""
+=end
 
   # Command/Enum initializer
   # Command
@@ -441,24 +436,6 @@ ROGL_CPOINTER_CONVERTER
 
   out.puts <<-ROGL_MODULE_INITIALIZER_CODE
 
-static VALUE rogl_method_SetupCommand( VALUE self, VALUE mROGL, VALUE command_name )
-{
-    const char* name = StringValueCStr(command_name);
-    int argc = 0;
-    void* rb_fptr = NULL;
-    void** rogl_pfptr = rogl_GetFunctionPointer(name, &argc, &rb_fptr);
-    if (rogl_pfptr)
-    {
-        *rogl_pfptr = rogl_GetProcAddress(name);
-        if (*rogl_pfptr)
-        {
-            rb_define_method(mROGL, name, rb_fptr, argc);
-        }
-    }
-
-    return *rogl_pfptr != NULL ? Qtrue : Qfalse;
-}
-
 static VALUE rogl_method_InitSystem( VALUE self, VALUE lib )
 {
     int retval = rogl_InitProcAddressSystem(NIL_P(lib) ? NULL : RSTRING_PTR(lib));
@@ -471,22 +448,31 @@ static VALUE rogl_method_TermSystem( VALUE self )
     return Qnil;
 }
 
-static VALUE rogl_method_LoadLib( VALUE self, VALUE lib_name, VALUE lib_path )
+static VALUE rogl_method_LoadLib(int argc, VALUE argv[], VALUE self)
 {
     VALUE retval = Qnil;
+    VALUE lib_name, lib_path;
+    int n = rb_scan_args(argc, argv, "02", &lib_name, &lib_path);
 
-    if (NIL_P(lib_name) && NIL_P(lib_path))
+    switch (n)
+    {
+    case 0:
     {
         retval = rogl_method_InitSystem(self, Qnil);
+        break;
     }
-    else if (NIL_P(lib_path) && !NIL_P(lib_path))
-    {
-        VALUE lib_path_sl = rb_str_append(rb_str_new2("/"), lib_path);
-        retval = rogl_method_InitSystem(self, rb_str_append(lib_path_sl, lib_name));
-    }
-    else
+    case 1:
     {
         retval = rogl_method_InitSystem(self, NIL_P(lib_name) ? lib_path : lib_name);
+    }
+    break;
+
+    case 2:
+    {
+        VALUE lib_path_sl = rb_str_append(lib_path, rb_str_new2("/"));
+        retval = rogl_method_InitSystem(self, rb_str_append(lib_path_sl, lib_name));
+    }
+    break;
     }
 
     if (retval == Qfalse)
@@ -506,11 +492,10 @@ void Init_opengl_c()
 {
     VALUE mROGL = rb_define_module("OpenGL");
 
-    rb_define_singleton_method( mROGL, "load_lib", rogl_method_LoadLib, 2 );
+    rb_define_singleton_method( mROGL, "load_lib", rogl_method_LoadLib, -1 );
 
     rb_define_singleton_method( mROGL, "init_system", rogl_method_InitSystem, 1 );
     rb_define_singleton_method( mROGL, "term_system", rogl_method_TermSystem, 0 );
-    rb_define_singleton_method( mROGL, "setup_command", rogl_method_SetupCommand, 2 );
 
     rogl_InitRubyCommand( &mROGL );
     rogl_InitRubyEnum( &mROGL );

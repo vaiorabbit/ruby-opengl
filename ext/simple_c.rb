@@ -8,11 +8,8 @@ require 'opengl_c' # For C Version
 require 'glfw'
 
 #OpenGL.init_system("/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib") # For C Version
-OpenGL.load_lib(nil, nil) # For Pure Ruby Version
+OpenGL.load_lib('libGL.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries') # For Pure Ruby Version
 GLFW.load_lib('libglfw.dylib', Dir.pwd)
-
-
-#OpenGL.load_lib('', '') # For C Version
 
 include OpenGL
 include GLFW
