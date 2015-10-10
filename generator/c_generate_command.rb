@@ -288,7 +288,7 @@ static void* val2ptr(VALUE obj)
     }
     else if (RB_TYPE_P(obj, T_STRING))
     {
-        return StringValueCStr(obj);
+        return RSTRING_PTR(obj);
     }
     else
     {

@@ -3,6 +3,7 @@
 #
 # Ref.: /glfw-3.0.1/examples/simple.c
 #
+require 'fiddle'
 require 'opengl_c' # For C Version
 #require 'opengl' # For Pure Ruby Version
 require 'glfw'
@@ -27,6 +28,11 @@ if __FILE__ == $0
   window = glfwCreateWindow( 640, 480, "Simple example", nil, nil )
   glfwMakeContextCurrent( window )
   glfwSetKeyCallback( window, key_callback )
+
+  # p Fiddle::Pointer.new(glGetString(GL_EXTENSIONS)).to_s
+  # n_buf = ' ' * 4
+  # glGetIntegerv(GL_MAX_TEXTURE_LOD_BIAS, n_buf)
+  # p n_buf.unpack('L')[0]
 
   while glfwWindowShouldClose( window ) == 0
     width_ptr = ' ' * 8
