@@ -35,7 +35,7 @@ def generate_ext_command( out )
 
     proto_tag = cmd_tag.get_elements('proto').first
 
-    # Patterns of contents insice '<proto>...</proto>'
+    # Patterns of contents inside '<proto>...</proto>'
     # * void <name>glBegin</name>
     # * <ptype>GLboolean</ptype> <name>glIsEnabled</name>
     # * const <ptype>GLubyte</ptype> *<name>glGetStringi</name>
