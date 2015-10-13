@@ -2366,6 +2366,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_KHR_texture_compression_astc_ldr
 
 
+  def self.define_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
+  end # define_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
+
+  def get_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
+    [
+    ]
+  end # self.get_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
+
+
   def self.define_ext_enum_GL_NV_bindless_texture
   end # define_ext_enum_GL_NV_bindless_texture
 
@@ -4499,6 +4508,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_OVR_multiview2
+
+
+  def self.define_ext_enum_GL_OVR_multiview_multisampled_render_to_texture
+  end # define_ext_enum_GL_OVR_multiview_multisampled_render_to_texture
+
+  def get_ext_enum_GL_OVR_multiview_multisampled_render_to_texture
+    [
+    ]
+  end # self.get_ext_enum_GL_OVR_multiview_multisampled_render_to_texture
 
 
   def self.define_ext_enum_GL_QCOM_alpha_test

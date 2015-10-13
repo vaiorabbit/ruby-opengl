@@ -8909,6 +8909,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_KHR_texture_compression_astc_ldr
 
 
+  def self.define_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
+  end # self.define_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
+
+  def self.get_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
+    [
+    ]
+  end # self.get_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
+
+
   def self.define_ext_enum_GL_MESAX_texture_stack
     OpenGL.const_set('GL_TEXTURE_1D_STACK_MESAX', 0x8759) unless defined?(OpenGL::GL_TEXTURE_1D_STACK_MESAX)
     OpenGL.const_set('GL_TEXTURE_2D_STACK_MESAX', 0x875A) unless defined?(OpenGL::GL_TEXTURE_2D_STACK_MESAX)

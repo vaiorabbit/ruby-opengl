@@ -3088,6 +3088,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_KHR_texture_compression_astc_ldr
 
 
+  def self.define_ext_command_GL_KHR_texture_compression_astc_sliced_3d
+  end # self.define_ext_command_GL_KHR_texture_compression_astc_sliced_3d
+
+  def self.get_ext_command_GL_KHR_texture_compression_astc_sliced_3d
+    [
+    ]
+  end # self.get_ext_command_GL_KHR_texture_compression_astc_sliced_3d
+
+
   def self.define_ext_command_GL_NV_bindless_texture
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetTextureHandleNV] = [-Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetTextureHandleNV] = -Fiddle::TYPE_LONG_LONG
@@ -5661,6 +5670,24 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_OVR_multiview2
+
+
+  def self.define_ext_command_GL_OVR_multiview_multisampled_render_to_texture
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureMultisampleMultiviewOVR] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureMultisampleMultiviewOVR] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC_GL_OVR_multiview_multisampled_render_to_texture)
+      def glFramebufferTextureMultisampleMultiviewOVR(_target_, _attachment_, _texture_, _level_, _samples_, _baseViewIndex_, _numViews_)
+        f = OpenGL::get_command(:glFramebufferTextureMultisampleMultiviewOVR)
+        f.call(_target_, _attachment_, _texture_, _level_, _samples_, _baseViewIndex_, _numViews_)
+      end
+    SRC_GL_OVR_multiview_multisampled_render_to_texture
+  end # self.define_ext_command_GL_OVR_multiview_multisampled_render_to_texture
+
+  def self.get_ext_command_GL_OVR_multiview_multisampled_render_to_texture
+    [
+      'glFramebufferTextureMultisampleMultiviewOVR',
+    ]
+  end # self.get_ext_command_GL_OVR_multiview_multisampled_render_to_texture
 
 
   def self.define_ext_command_GL_QCOM_alpha_test

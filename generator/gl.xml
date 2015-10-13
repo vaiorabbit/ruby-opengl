@@ -13735,6 +13735,16 @@ typedef unsigned int GLhandleARB;
             <alias name="glFramebufferTextureLayer"/>
         </command>
         <command>
+            <proto>void <name>glFramebufferTextureMultisampleMultiviewOVR</name></proto>
+            <param group="FramebufferTarget"><ptype>GLenum</ptype> <name>target</name></param>
+            <param group="FramebufferAttachment"><ptype>GLenum</ptype> <name>attachment</name></param>
+            <param group="Texture"><ptype>GLuint</ptype> <name>texture</name></param>
+            <param group="CheckedInt32"><ptype>GLint</ptype> <name>level</name></param>
+            <param><ptype>GLsizei</ptype> <name>samples</name></param>
+            <param><ptype>GLint</ptype> <name>baseViewIndex</name></param>
+            <param><ptype>GLsizei</ptype> <name>numViews</name></param>
+        </command>
+        <command>
             <proto>void <name>glFramebufferTextureMultiviewOVR</name></proto>
             <param group="FramebufferTarget"><ptype>GLenum</ptype> <name>target</name></param>
             <param group="FramebufferAttachment"><ptype>GLenum</ptype> <name>attachment</name></param>
@@ -42602,6 +42612,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR"/>
             </require>
         </extension>
+        <extension name="GL_KHR_texture_compression_astc_sliced_3d" supported="gl|glcore|gles2"/>
         <extension name="GL_MESAX_texture_stack" supported="gl">
             <require>
                 <enum name="GL_TEXTURE_1D_STACK_MESAX"/>
@@ -45369,6 +45380,11 @@ typedef unsigned int GLhandleARB;
             </require>
         </extension>
         <extension name="GL_OVR_multiview2" supported="gl|gles2"/>
+        <extension name="GL_OVR_multiview_multisampled_render_to_texture" supported="gles2">
+            <require>
+                <command name="glFramebufferTextureMultisampleMultiviewOVR"/>
+            </require>
+        </extension>
         <extension name="GL_PGI_misc_hints" supported="gl">
             <require>
                 <enum name="GL_PREFER_DOUBLEBUFFER_HINT_PGI"/>

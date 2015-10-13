@@ -19259,6 +19259,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_KHR_texture_compression_astc_ldr
 
 
+  def self.define_ext_command_GL_KHR_texture_compression_astc_sliced_3d
+  end # self.define_ext_command_GL_KHR_texture_compression_astc_sliced_3d
+
+  def self.get_ext_command_GL_KHR_texture_compression_astc_sliced_3d
+    [
+    ]
+  end # self.get_ext_command_GL_KHR_texture_compression_astc_sliced_3d
+
+
   def self.define_ext_command_GL_MESAX_texture_stack
   end # self.define_ext_command_GL_MESAX_texture_stack
 
