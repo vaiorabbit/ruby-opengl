@@ -1,3 +1,7 @@
+2015-10-16  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* sample/GLFW/boing.rb, sample/util/rmath3d_plain.rb : Added.
+
 2015-10-15  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* sample/glfw31_build_dylib.sh: Now uses GLFW 3.1.2.
