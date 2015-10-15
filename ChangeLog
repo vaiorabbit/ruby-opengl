@@ -1,3 +1,7 @@
+2015-10-15  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* sample/glfw31_build_dylib.sh: Now uses GLFW 3.1.2.
+
 2015-10-14  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* lib/opengl.rb: Now tries to find C Edition.
