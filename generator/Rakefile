@@ -43,7 +43,7 @@ end
 
 file '../lib/opengl_command.rb' => './gl.xml' do |t|
   open('../lib/opengl_command.rb', 'wb') do |file|
-    generate_command(file)
+    GLCommandCodeGenerator.generate_command(file)
   end
 end
 
@@ -55,7 +55,7 @@ end
 
 file '../lib/opengl_ext_command.rb' => './gl.xml' do |t|
   open('../lib/opengl_ext_command.rb', 'wb') do |file|
-    generate_ext_command(file)
+    GLExtCommandCodeGenerator.generate_command(file)
   end
 end
 
@@ -67,7 +67,7 @@ end
 
 file '../lib/opengl_es_command.rb' => './gl.xml' do |t|
   open('../lib/opengl_es_command.rb', 'wb') do |file|
-    generate_es_command(file)
+    GLESCommandCodeGenerator.generate_command(file)
   end
 end
 
@@ -79,7 +79,7 @@ end
 
 file '../lib/opengl_es_ext_command.rb' => './gl.xml' do |t|
   open('../lib/opengl_es_ext_command.rb', 'wb') do |file|
-    generate_es_ext_command(file)
+    GLESExtCommandCodeGenerator.generate_command(file)
   end
 end
 
