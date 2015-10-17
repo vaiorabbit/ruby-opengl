@@ -438,13 +438,13 @@ if __FILE__ == $0
   $projection_matrix[10] = ($z_far + $z_near)/ ($z_near - $z_far)
   $projection_matrix[11] = -1.0
   $projection_matrix[14] = 2.0 * ($z_far * $z_near) / ($z_near - $z_far)
-  glUniformMatrix4fv(uloc_project, 1, GL_FALSE, $projection_matrix.to_a.pack('F16'));
+  glUniformMatrix4fv(uloc_project, 1, GL_FALSE, $projection_matrix.pack('F16'));
 
   # Set the camera position
   $modelview_matrix[12]  = -5.0
   $modelview_matrix[13]  = -5.0
   $modelview_matrix[14]  = -20.0
-  glUniformMatrix4fv(uloc_modelview, 1, GL_FALSE, $modelview_matrix.to_a.pack('F16'))
+  glUniformMatrix4fv(uloc_modelview, 1, GL_FALSE, $modelview_matrix.pack('F16'))
 
   # Create mesh data
   init_map()
@@ -490,5 +490,3 @@ if __FILE__ == $0
   glfwDestroyWindow( window )
   glfwTerminate()
 end
-
-
