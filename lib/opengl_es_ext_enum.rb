@@ -1875,6 +1875,21 @@ module OpenGLExt
   end # self.get_ext_enum_GL_IMG_texture_compression_pvrtc2
 
 
+  def self.define_ext_enum_GL_IMG_texture_filter_cubic
+    OpenGL.const_set('GL_CUBIC_IMG', 0x9139) unless defined?(OpenGL::GL_CUBIC_IMG)
+    OpenGL.const_set('GL_CUBIC_MIPMAP_NEAREST_IMG', 0x913A) unless defined?(OpenGL::GL_CUBIC_MIPMAP_NEAREST_IMG)
+    OpenGL.const_set('GL_CUBIC_MIPMAP_LINEAR_IMG', 0x913B) unless defined?(OpenGL::GL_CUBIC_MIPMAP_LINEAR_IMG)
+  end # define_ext_enum_GL_IMG_texture_filter_cubic
+
+  def get_ext_enum_GL_IMG_texture_filter_cubic
+    [
+      'GL_CUBIC_IMG',
+      'GL_CUBIC_MIPMAP_NEAREST_IMG',
+      'GL_CUBIC_MIPMAP_LINEAR_IMG',
+    ]
+  end # self.get_ext_enum_GL_IMG_texture_filter_cubic
+
+
   def self.define_ext_enum_GL_INTEL_framebuffer_CMAA
   end # define_ext_enum_GL_INTEL_framebuffer_CMAA
 

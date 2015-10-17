@@ -2554,6 +2554,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_IMG_texture_compression_pvrtc2
 
 
+  def self.define_ext_command_GL_IMG_texture_filter_cubic
+  end # self.define_ext_command_GL_IMG_texture_filter_cubic
+
+  def self.get_ext_command_GL_IMG_texture_filter_cubic
+    [
+    ]
+  end # self.get_ext_command_GL_IMG_texture_filter_cubic
+
+
   def self.define_ext_command_GL_INTEL_framebuffer_CMAA
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glApplyFramebufferAttachmentCMAAINTEL] = []
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glApplyFramebufferAttachmentCMAAINTEL] = Fiddle::TYPE_VOID
