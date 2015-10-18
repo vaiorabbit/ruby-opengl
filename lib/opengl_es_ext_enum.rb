@@ -9,9 +9,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_AMD_compressed_3DC_texture
     OpenGL.const_set('GL_3DC_X_AMD', 0x87F9) unless defined?(OpenGL::GL_3DC_X_AMD)
     OpenGL.const_set('GL_3DC_XY_AMD', 0x87FA) unless defined?(OpenGL::GL_3DC_XY_AMD)
-  end # define_ext_enum_GL_AMD_compressed_3DC_texture
+  end # self.define_ext_enum_GL_AMD_compressed_3DC_texture
 
-  def get_ext_enum_GL_AMD_compressed_3DC_texture
+  def self.get_ext_enum_GL_AMD_compressed_3DC_texture
     [
       'GL_3DC_X_AMD',
       'GL_3DC_XY_AMD',
@@ -23,9 +23,9 @@ module OpenGLExt
     OpenGL.const_set('GL_ATC_RGB_AMD', 0x8C92) unless defined?(OpenGL::GL_ATC_RGB_AMD)
     OpenGL.const_set('GL_ATC_RGBA_EXPLICIT_ALPHA_AMD', 0x8C93) unless defined?(OpenGL::GL_ATC_RGBA_EXPLICIT_ALPHA_AMD)
     OpenGL.const_set('GL_ATC_RGBA_INTERPOLATED_ALPHA_AMD', 0x87EE) unless defined?(OpenGL::GL_ATC_RGBA_INTERPOLATED_ALPHA_AMD)
-  end # define_ext_enum_GL_AMD_compressed_ATC_texture
+  end # self.define_ext_enum_GL_AMD_compressed_ATC_texture
 
-  def get_ext_enum_GL_AMD_compressed_ATC_texture
+  def self.get_ext_enum_GL_AMD_compressed_ATC_texture
     [
       'GL_ATC_RGB_AMD',
       'GL_ATC_RGBA_EXPLICIT_ALPHA_AMD',
@@ -42,9 +42,9 @@ module OpenGLExt
     OpenGL.const_set('GL_PERFMON_RESULT_AVAILABLE_AMD', 0x8BC4) unless defined?(OpenGL::GL_PERFMON_RESULT_AVAILABLE_AMD)
     OpenGL.const_set('GL_PERFMON_RESULT_SIZE_AMD', 0x8BC5) unless defined?(OpenGL::GL_PERFMON_RESULT_SIZE_AMD)
     OpenGL.const_set('GL_PERFMON_RESULT_AMD', 0x8BC6) unless defined?(OpenGL::GL_PERFMON_RESULT_AMD)
-  end # define_ext_enum_GL_AMD_performance_monitor
+  end # self.define_ext_enum_GL_AMD_performance_monitor
 
-  def get_ext_enum_GL_AMD_performance_monitor
+  def self.get_ext_enum_GL_AMD_performance_monitor
     [
       'GL_COUNTER_TYPE_AMD',
       'GL_COUNTER_RANGE_AMD',
@@ -59,9 +59,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_AMD_program_binary_Z400
     OpenGL.const_set('GL_Z400_BINARY_AMD', 0x8740) unless defined?(OpenGL::GL_Z400_BINARY_AMD)
-  end # define_ext_enum_GL_AMD_program_binary_Z400
+  end # self.define_ext_enum_GL_AMD_program_binary_Z400
 
-  def get_ext_enum_GL_AMD_program_binary_Z400
+  def self.get_ext_enum_GL_AMD_program_binary_Z400
     [
       'GL_Z400_BINARY_AMD',
     ]
@@ -69,9 +69,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_ANDROID_extension_pack_es31a
-  end # define_ext_enum_GL_ANDROID_extension_pack_es31a
+  end # self.define_ext_enum_GL_ANDROID_extension_pack_es31a
 
-  def get_ext_enum_GL_ANDROID_extension_pack_es31a
+  def self.get_ext_enum_GL_ANDROID_extension_pack_es31a
     [
     ]
   end # self.get_ext_enum_GL_ANDROID_extension_pack_es31a
@@ -86,9 +86,9 @@ module OpenGLExt
     OpenGL.const_set('GL_DEPTH_COMPONENT16', 0x81A5) unless defined?(OpenGL::GL_DEPTH_COMPONENT16)
     OpenGL.const_set('GL_DEPTH_COMPONENT32_OES', 0x81A7) unless defined?(OpenGL::GL_DEPTH_COMPONENT32_OES)
     OpenGL.const_set('GL_DEPTH24_STENCIL8_OES', 0x88F0) unless defined?(OpenGL::GL_DEPTH24_STENCIL8_OES)
-  end # define_ext_enum_GL_ANGLE_depth_texture
+  end # self.define_ext_enum_GL_ANGLE_depth_texture
 
-  def get_ext_enum_GL_ANGLE_depth_texture
+  def self.get_ext_enum_GL_ANGLE_depth_texture
     [
       'GL_DEPTH_COMPONENT',
       'GL_DEPTH_STENCIL_OES',
@@ -107,9 +107,9 @@ module OpenGLExt
     OpenGL.const_set('GL_DRAW_FRAMEBUFFER_ANGLE', 0x8CA9) unless defined?(OpenGL::GL_DRAW_FRAMEBUFFER_ANGLE)
     OpenGL.const_set('GL_DRAW_FRAMEBUFFER_BINDING_ANGLE', 0x8CA6) unless defined?(OpenGL::GL_DRAW_FRAMEBUFFER_BINDING_ANGLE)
     OpenGL.const_set('GL_READ_FRAMEBUFFER_BINDING_ANGLE', 0x8CAA) unless defined?(OpenGL::GL_READ_FRAMEBUFFER_BINDING_ANGLE)
-  end # define_ext_enum_GL_ANGLE_framebuffer_blit
+  end # self.define_ext_enum_GL_ANGLE_framebuffer_blit
 
-  def get_ext_enum_GL_ANGLE_framebuffer_blit
+  def self.get_ext_enum_GL_ANGLE_framebuffer_blit
     [
       'GL_READ_FRAMEBUFFER_ANGLE',
       'GL_DRAW_FRAMEBUFFER_ANGLE',
@@ -123,9 +123,9 @@ module OpenGLExt
     OpenGL.const_set('GL_RENDERBUFFER_SAMPLES_ANGLE', 0x8CAB) unless defined?(OpenGL::GL_RENDERBUFFER_SAMPLES_ANGLE)
     OpenGL.const_set('GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_ANGLE', 0x8D56) unless defined?(OpenGL::GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_ANGLE)
     OpenGL.const_set('GL_MAX_SAMPLES_ANGLE', 0x8D57) unless defined?(OpenGL::GL_MAX_SAMPLES_ANGLE)
-  end # define_ext_enum_GL_ANGLE_framebuffer_multisample
+  end # self.define_ext_enum_GL_ANGLE_framebuffer_multisample
 
-  def get_ext_enum_GL_ANGLE_framebuffer_multisample
+  def self.get_ext_enum_GL_ANGLE_framebuffer_multisample
     [
       'GL_RENDERBUFFER_SAMPLES_ANGLE',
       'GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_ANGLE',
@@ -136,9 +136,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_ANGLE_instanced_arrays
     OpenGL.const_set('GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE', 0x88FE) unless defined?(OpenGL::GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE)
-  end # define_ext_enum_GL_ANGLE_instanced_arrays
+  end # self.define_ext_enum_GL_ANGLE_instanced_arrays
 
-  def get_ext_enum_GL_ANGLE_instanced_arrays
+  def self.get_ext_enum_GL_ANGLE_instanced_arrays
     [
       'GL_VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE',
     ]
@@ -147,9 +147,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_ANGLE_pack_reverse_row_order
     OpenGL.const_set('GL_PACK_REVERSE_ROW_ORDER_ANGLE', 0x93A4) unless defined?(OpenGL::GL_PACK_REVERSE_ROW_ORDER_ANGLE)
-  end # define_ext_enum_GL_ANGLE_pack_reverse_row_order
+  end # self.define_ext_enum_GL_ANGLE_pack_reverse_row_order
 
-  def get_ext_enum_GL_ANGLE_pack_reverse_row_order
+  def self.get_ext_enum_GL_ANGLE_pack_reverse_row_order
     [
       'GL_PACK_REVERSE_ROW_ORDER_ANGLE',
     ]
@@ -158,9 +158,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_ANGLE_program_binary
     OpenGL.const_set('GL_PROGRAM_BINARY_ANGLE', 0x93A6) unless defined?(OpenGL::GL_PROGRAM_BINARY_ANGLE)
-  end # define_ext_enum_GL_ANGLE_program_binary
+  end # self.define_ext_enum_GL_ANGLE_program_binary
 
-  def get_ext_enum_GL_ANGLE_program_binary
+  def self.get_ext_enum_GL_ANGLE_program_binary
     [
       'GL_PROGRAM_BINARY_ANGLE',
     ]
@@ -169,9 +169,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_ANGLE_texture_compression_dxt3
     OpenGL.const_set('GL_COMPRESSED_RGBA_S3TC_DXT3_ANGLE', 0x83F2) unless defined?(OpenGL::GL_COMPRESSED_RGBA_S3TC_DXT3_ANGLE)
-  end # define_ext_enum_GL_ANGLE_texture_compression_dxt3
+  end # self.define_ext_enum_GL_ANGLE_texture_compression_dxt3
 
-  def get_ext_enum_GL_ANGLE_texture_compression_dxt3
+  def self.get_ext_enum_GL_ANGLE_texture_compression_dxt3
     [
       'GL_COMPRESSED_RGBA_S3TC_DXT3_ANGLE',
     ]
@@ -180,9 +180,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_ANGLE_texture_compression_dxt5
     OpenGL.const_set('GL_COMPRESSED_RGBA_S3TC_DXT5_ANGLE', 0x83F3) unless defined?(OpenGL::GL_COMPRESSED_RGBA_S3TC_DXT5_ANGLE)
-  end # define_ext_enum_GL_ANGLE_texture_compression_dxt5
+  end # self.define_ext_enum_GL_ANGLE_texture_compression_dxt5
 
-  def get_ext_enum_GL_ANGLE_texture_compression_dxt5
+  def self.get_ext_enum_GL_ANGLE_texture_compression_dxt5
     [
       'GL_COMPRESSED_RGBA_S3TC_DXT5_ANGLE',
     ]
@@ -192,9 +192,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_ANGLE_texture_usage
     OpenGL.const_set('GL_TEXTURE_USAGE_ANGLE', 0x93A2) unless defined?(OpenGL::GL_TEXTURE_USAGE_ANGLE)
     OpenGL.const_set('GL_FRAMEBUFFER_ATTACHMENT_ANGLE', 0x93A3) unless defined?(OpenGL::GL_FRAMEBUFFER_ATTACHMENT_ANGLE)
-  end # define_ext_enum_GL_ANGLE_texture_usage
+  end # self.define_ext_enum_GL_ANGLE_texture_usage
 
-  def get_ext_enum_GL_ANGLE_texture_usage
+  def self.get_ext_enum_GL_ANGLE_texture_usage
     [
       'GL_TEXTURE_USAGE_ANGLE',
       'GL_FRAMEBUFFER_ATTACHMENT_ANGLE',
@@ -204,9 +204,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_ANGLE_translated_shader_source
     OpenGL.const_set('GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE', 0x93A0) unless defined?(OpenGL::GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE)
-  end # define_ext_enum_GL_ANGLE_translated_shader_source
+  end # self.define_ext_enum_GL_ANGLE_translated_shader_source
 
-  def get_ext_enum_GL_ANGLE_translated_shader_source
+  def self.get_ext_enum_GL_ANGLE_translated_shader_source
     [
       'GL_TRANSLATED_SHADER_SOURCE_LENGTH_ANGLE',
     ]
@@ -223,9 +223,9 @@ module OpenGLExt
     OpenGL.const_set('GL_CLIP_DISTANCE5_APPLE', 0x3005) unless defined?(OpenGL::GL_CLIP_DISTANCE5_APPLE)
     OpenGL.const_set('GL_CLIP_DISTANCE6_APPLE', 0x3006) unless defined?(OpenGL::GL_CLIP_DISTANCE6_APPLE)
     OpenGL.const_set('GL_CLIP_DISTANCE7_APPLE', 0x3007) unless defined?(OpenGL::GL_CLIP_DISTANCE7_APPLE)
-  end # define_ext_enum_GL_APPLE_clip_distance
+  end # self.define_ext_enum_GL_APPLE_clip_distance
 
-  def get_ext_enum_GL_APPLE_clip_distance
+  def self.get_ext_enum_GL_APPLE_clip_distance
     [
       'GL_MAX_CLIP_DISTANCES_APPLE',
       'GL_CLIP_DISTANCE0_APPLE',
@@ -241,18 +241,18 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_APPLE_color_buffer_packed_float
-  end # define_ext_enum_GL_APPLE_color_buffer_packed_float
+  end # self.define_ext_enum_GL_APPLE_color_buffer_packed_float
 
-  def get_ext_enum_GL_APPLE_color_buffer_packed_float
+  def self.get_ext_enum_GL_APPLE_color_buffer_packed_float
     [
     ]
   end # self.get_ext_enum_GL_APPLE_color_buffer_packed_float
 
 
   def self.define_ext_enum_GL_APPLE_copy_texture_levels
-  end # define_ext_enum_GL_APPLE_copy_texture_levels
+  end # self.define_ext_enum_GL_APPLE_copy_texture_levels
 
-  def get_ext_enum_GL_APPLE_copy_texture_levels
+  def self.get_ext_enum_GL_APPLE_copy_texture_levels
     [
     ]
   end # self.get_ext_enum_GL_APPLE_copy_texture_levels
@@ -266,9 +266,9 @@ module OpenGLExt
     OpenGL.const_set('GL_DRAW_FRAMEBUFFER_APPLE', 0x8CA9) unless defined?(OpenGL::GL_DRAW_FRAMEBUFFER_APPLE)
     OpenGL.const_set('GL_DRAW_FRAMEBUFFER_BINDING_APPLE', 0x8CA6) unless defined?(OpenGL::GL_DRAW_FRAMEBUFFER_BINDING_APPLE)
     OpenGL.const_set('GL_READ_FRAMEBUFFER_BINDING_APPLE', 0x8CAA) unless defined?(OpenGL::GL_READ_FRAMEBUFFER_BINDING_APPLE)
-  end # define_ext_enum_GL_APPLE_framebuffer_multisample
+  end # self.define_ext_enum_GL_APPLE_framebuffer_multisample
 
-  def get_ext_enum_GL_APPLE_framebuffer_multisample
+  def self.get_ext_enum_GL_APPLE_framebuffer_multisample
     [
       'GL_RENDERBUFFER_SAMPLES_APPLE',
       'GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_APPLE',
@@ -286,9 +286,9 @@ module OpenGLExt
     OpenGL.const_set('GL_UNSIGNED_SHORT_8_8_APPLE', 0x85BA) unless defined?(OpenGL::GL_UNSIGNED_SHORT_8_8_APPLE)
     OpenGL.const_set('GL_UNSIGNED_SHORT_8_8_REV_APPLE', 0x85BB) unless defined?(OpenGL::GL_UNSIGNED_SHORT_8_8_REV_APPLE)
     OpenGL.const_set('GL_RGB_RAW_422_APPLE', 0x8A51) unless defined?(OpenGL::GL_RGB_RAW_422_APPLE)
-  end # define_ext_enum_GL_APPLE_rgb_422
+  end # self.define_ext_enum_GL_APPLE_rgb_422
 
-  def get_ext_enum_GL_APPLE_rgb_422
+  def self.get_ext_enum_GL_APPLE_rgb_422
     [
       'GL_RGB_422_APPLE',
       'GL_UNSIGNED_SHORT_8_8_APPLE',
@@ -315,9 +315,9 @@ module OpenGLExt
     OpenGL.const_set('GL_WAIT_FAILED_APPLE', 0x911D) unless defined?(OpenGL::GL_WAIT_FAILED_APPLE)
     OpenGL.const_set('GL_SYNC_FLUSH_COMMANDS_BIT_APPLE', 0x00000001) unless defined?(OpenGL::GL_SYNC_FLUSH_COMMANDS_BIT_APPLE)
     OpenGL.const_set('GL_TIMEOUT_IGNORED_APPLE', 0xFFFFFFFFFFFFFFFF) unless defined?(OpenGL::GL_TIMEOUT_IGNORED_APPLE)
-  end # define_ext_enum_GL_APPLE_sync
+  end # self.define_ext_enum_GL_APPLE_sync
 
-  def get_ext_enum_GL_APPLE_sync
+  def self.get_ext_enum_GL_APPLE_sync
     [
       'GL_SYNC_OBJECT_APPLE',
       'GL_MAX_SERVER_WAIT_TIMEOUT_APPLE',
@@ -342,9 +342,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_APPLE_texture_format_BGRA8888
     OpenGL.const_set('GL_BGRA_EXT', 0x80E1) unless defined?(OpenGL::GL_BGRA_EXT)
     OpenGL.const_set('GL_BGRA8_EXT', 0x93A1) unless defined?(OpenGL::GL_BGRA8_EXT)
-  end # define_ext_enum_GL_APPLE_texture_format_BGRA8888
+  end # self.define_ext_enum_GL_APPLE_texture_format_BGRA8888
 
-  def get_ext_enum_GL_APPLE_texture_format_BGRA8888
+  def self.get_ext_enum_GL_APPLE_texture_format_BGRA8888
     [
       'GL_BGRA_EXT',
       'GL_BGRA8_EXT',
@@ -354,9 +354,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_APPLE_texture_max_level
     OpenGL.const_set('GL_TEXTURE_MAX_LEVEL_APPLE', 0x813D) unless defined?(OpenGL::GL_TEXTURE_MAX_LEVEL_APPLE)
-  end # define_ext_enum_GL_APPLE_texture_max_level
+  end # self.define_ext_enum_GL_APPLE_texture_max_level
 
-  def get_ext_enum_GL_APPLE_texture_max_level
+  def self.get_ext_enum_GL_APPLE_texture_max_level
     [
       'GL_TEXTURE_MAX_LEVEL_APPLE',
     ]
@@ -368,9 +368,9 @@ module OpenGLExt
     OpenGL.const_set('GL_UNSIGNED_INT_5_9_9_9_REV_APPLE', 0x8C3E) unless defined?(OpenGL::GL_UNSIGNED_INT_5_9_9_9_REV_APPLE)
     OpenGL.const_set('GL_R11F_G11F_B10F_APPLE', 0x8C3A) unless defined?(OpenGL::GL_R11F_G11F_B10F_APPLE)
     OpenGL.const_set('GL_RGB9_E5_APPLE', 0x8C3D) unless defined?(OpenGL::GL_RGB9_E5_APPLE)
-  end # define_ext_enum_GL_APPLE_texture_packed_float
+  end # self.define_ext_enum_GL_APPLE_texture_packed_float
 
-  def get_ext_enum_GL_APPLE_texture_packed_float
+  def self.get_ext_enum_GL_APPLE_texture_packed_float
     [
       'GL_UNSIGNED_INT_10F_11F_11F_REV_APPLE',
       'GL_UNSIGNED_INT_5_9_9_9_REV_APPLE',
@@ -382,9 +382,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_ARM_mali_program_binary
     OpenGL.const_set('GL_MALI_PROGRAM_BINARY_ARM', 0x8F61) unless defined?(OpenGL::GL_MALI_PROGRAM_BINARY_ARM)
-  end # define_ext_enum_GL_ARM_mali_program_binary
+  end # self.define_ext_enum_GL_ARM_mali_program_binary
 
-  def get_ext_enum_GL_ARM_mali_program_binary
+  def self.get_ext_enum_GL_ARM_mali_program_binary
     [
       'GL_MALI_PROGRAM_BINARY_ARM',
     ]
@@ -393,9 +393,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_ARM_mali_shader_binary
     OpenGL.const_set('GL_MALI_SHADER_BINARY_ARM', 0x8F60) unless defined?(OpenGL::GL_MALI_SHADER_BINARY_ARM)
-  end # define_ext_enum_GL_ARM_mali_shader_binary
+  end # self.define_ext_enum_GL_ARM_mali_shader_binary
 
-  def get_ext_enum_GL_ARM_mali_shader_binary
+  def self.get_ext_enum_GL_ARM_mali_shader_binary
     [
       'GL_MALI_SHADER_BINARY_ARM',
     ]
@@ -403,9 +403,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_ARM_rgba8
-  end # define_ext_enum_GL_ARM_rgba8
+  end # self.define_ext_enum_GL_ARM_rgba8
 
-  def get_ext_enum_GL_ARM_rgba8
+  def self.get_ext_enum_GL_ARM_rgba8
     [
     ]
   end # self.get_ext_enum_GL_ARM_rgba8
@@ -414,9 +414,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_ARM_shader_framebuffer_fetch
     OpenGL.const_set('GL_FETCH_PER_SAMPLE_ARM', 0x8F65) unless defined?(OpenGL::GL_FETCH_PER_SAMPLE_ARM)
     OpenGL.const_set('GL_FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM', 0x8F66) unless defined?(OpenGL::GL_FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM)
-  end # define_ext_enum_GL_ARM_shader_framebuffer_fetch
+  end # self.define_ext_enum_GL_ARM_shader_framebuffer_fetch
 
-  def get_ext_enum_GL_ARM_shader_framebuffer_fetch
+  def self.get_ext_enum_GL_ARM_shader_framebuffer_fetch
     [
       'GL_FETCH_PER_SAMPLE_ARM',
       'GL_FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM',
@@ -425,9 +425,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_ARM_shader_framebuffer_fetch_depth_stencil
-  end # define_ext_enum_GL_ARM_shader_framebuffer_fetch_depth_stencil
+  end # self.define_ext_enum_GL_ARM_shader_framebuffer_fetch_depth_stencil
 
-  def get_ext_enum_GL_ARM_shader_framebuffer_fetch_depth_stencil
+  def self.get_ext_enum_GL_ARM_shader_framebuffer_fetch_depth_stencil
     [
     ]
   end # self.get_ext_enum_GL_ARM_shader_framebuffer_fetch_depth_stencil
@@ -437,9 +437,9 @@ module OpenGLExt
     OpenGL.const_set('GL_SMAPHS30_PROGRAM_BINARY_DMP', 0x9251) unless defined?(OpenGL::GL_SMAPHS30_PROGRAM_BINARY_DMP)
     OpenGL.const_set('GL_SMAPHS_PROGRAM_BINARY_DMP', 0x9252) unless defined?(OpenGL::GL_SMAPHS_PROGRAM_BINARY_DMP)
     OpenGL.const_set('GL_DMP_PROGRAM_BINARY_DMP', 0x9253) unless defined?(OpenGL::GL_DMP_PROGRAM_BINARY_DMP)
-  end # define_ext_enum_GL_DMP_program_binary
+  end # self.define_ext_enum_GL_DMP_program_binary
 
-  def get_ext_enum_GL_DMP_program_binary
+  def self.get_ext_enum_GL_DMP_program_binary
     [
       'GL_SMAPHS30_PROGRAM_BINARY_DMP',
       'GL_SMAPHS_PROGRAM_BINARY_DMP',
@@ -450,9 +450,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_DMP_shader_binary
     OpenGL.const_set('GL_SHADER_BINARY_DMP', 0x9250) unless defined?(OpenGL::GL_SHADER_BINARY_DMP)
-  end # define_ext_enum_GL_DMP_shader_binary
+  end # self.define_ext_enum_GL_DMP_shader_binary
 
-  def get_ext_enum_GL_DMP_shader_binary
+  def self.get_ext_enum_GL_DMP_shader_binary
     [
       'GL_SHADER_BINARY_DMP',
     ]
@@ -464,9 +464,9 @@ module OpenGLExt
     OpenGL.const_set('GL_TEXTURE_EXTERNAL_OES', 0x8D65) unless defined?(OpenGL::GL_TEXTURE_EXTERNAL_OES)
     OpenGL.const_set('GL_TEXTURE_BINDING_EXTERNAL_OES', 0x8D67) unless defined?(OpenGL::GL_TEXTURE_BINDING_EXTERNAL_OES)
     OpenGL.const_set('GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES', 0x8D68) unless defined?(OpenGL::GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES)
-  end # define_ext_enum_GL_EXT_YUV_target
+  end # self.define_ext_enum_GL_EXT_YUV_target
 
-  def get_ext_enum_GL_EXT_YUV_target
+  def self.get_ext_enum_GL_EXT_YUV_target
     [
       'GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT',
       'GL_TEXTURE_EXTERNAL_OES',
@@ -477,9 +477,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_EXT_base_instance
-  end # define_ext_enum_GL_EXT_base_instance
+  end # self.define_ext_enum_GL_EXT_base_instance
 
-  def get_ext_enum_GL_EXT_base_instance
+  def self.get_ext_enum_GL_EXT_base_instance
     [
     ]
   end # self.get_ext_enum_GL_EXT_base_instance
@@ -493,9 +493,9 @@ module OpenGLExt
     OpenGL.const_set('GL_SRC_ALPHA_SATURATE_EXT', 0x0308) unless defined?(OpenGL::GL_SRC_ALPHA_SATURATE_EXT)
     OpenGL.const_set('GL_LOCATION_INDEX_EXT', 0x930F) unless defined?(OpenGL::GL_LOCATION_INDEX_EXT)
     OpenGL.const_set('GL_MAX_DUAL_SOURCE_DRAW_BUFFERS_EXT', 0x88FC) unless defined?(OpenGL::GL_MAX_DUAL_SOURCE_DRAW_BUFFERS_EXT)
-  end # define_ext_enum_GL_EXT_blend_func_extended
+  end # self.define_ext_enum_GL_EXT_blend_func_extended
 
-  def get_ext_enum_GL_EXT_blend_func_extended
+  def self.get_ext_enum_GL_EXT_blend_func_extended
     [
       'GL_SRC1_COLOR_EXT',
       'GL_SRC1_ALPHA_EXT',
@@ -513,9 +513,9 @@ module OpenGLExt
     OpenGL.const_set('GL_MAX_EXT', 0x8008) unless defined?(OpenGL::GL_MAX_EXT)
     OpenGL.const_set('GL_FUNC_ADD_EXT', 0x8006) unless defined?(OpenGL::GL_FUNC_ADD_EXT)
     OpenGL.const_set('GL_BLEND_EQUATION_EXT', 0x8009) unless defined?(OpenGL::GL_BLEND_EQUATION_EXT)
-  end # define_ext_enum_GL_EXT_blend_minmax
+  end # self.define_ext_enum_GL_EXT_blend_minmax
 
-  def get_ext_enum_GL_EXT_blend_minmax
+  def self.get_ext_enum_GL_EXT_blend_minmax
     [
       'GL_MIN_EXT',
       'GL_MAX_EXT',
@@ -535,9 +535,9 @@ module OpenGLExt
     OpenGL.const_set('GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT', 0x00004000) unless defined?(OpenGL::GL_CLIENT_MAPPED_BUFFER_BARRIER_BIT_EXT)
     OpenGL.const_set('GL_BUFFER_IMMUTABLE_STORAGE_EXT', 0x821F) unless defined?(OpenGL::GL_BUFFER_IMMUTABLE_STORAGE_EXT)
     OpenGL.const_set('GL_BUFFER_STORAGE_FLAGS_EXT', 0x8220) unless defined?(OpenGL::GL_BUFFER_STORAGE_FLAGS_EXT)
-  end # define_ext_enum_GL_EXT_buffer_storage
+  end # self.define_ext_enum_GL_EXT_buffer_storage
 
-  def get_ext_enum_GL_EXT_buffer_storage
+  def self.get_ext_enum_GL_EXT_buffer_storage
     [
       'GL_MAP_READ_BIT',
       'GL_MAP_WRITE_BIT',
@@ -553,9 +553,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_EXT_color_buffer_float
-  end # define_ext_enum_GL_EXT_color_buffer_float
+  end # self.define_ext_enum_GL_EXT_color_buffer_float
 
-  def get_ext_enum_GL_EXT_color_buffer_float
+  def self.get_ext_enum_GL_EXT_color_buffer_float
     [
     ]
   end # self.get_ext_enum_GL_EXT_color_buffer_float
@@ -568,9 +568,9 @@ module OpenGLExt
     OpenGL.const_set('GL_R16F_EXT', 0x822D) unless defined?(OpenGL::GL_R16F_EXT)
     OpenGL.const_set('GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT', 0x8211) unless defined?(OpenGL::GL_FRAMEBUFFER_ATTACHMENT_COMPONENT_TYPE_EXT)
     OpenGL.const_set('GL_UNSIGNED_NORMALIZED_EXT', 0x8C17) unless defined?(OpenGL::GL_UNSIGNED_NORMALIZED_EXT)
-  end # define_ext_enum_GL_EXT_color_buffer_half_float
+  end # self.define_ext_enum_GL_EXT_color_buffer_half_float
 
-  def get_ext_enum_GL_EXT_color_buffer_half_float
+  def self.get_ext_enum_GL_EXT_color_buffer_half_float
     [
       'GL_RGBA16F_EXT',
       'GL_RGB16F_EXT',
@@ -583,9 +583,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_EXT_copy_image
-  end # define_ext_enum_GL_EXT_copy_image
+  end # self.define_ext_enum_GL_EXT_copy_image
 
-  def get_ext_enum_GL_EXT_copy_image
+  def self.get_ext_enum_GL_EXT_copy_image
     [
     ]
   end # self.get_ext_enum_GL_EXT_copy_image
@@ -600,9 +600,9 @@ module OpenGLExt
     OpenGL.const_set('GL_VERTEX_ARRAY_OBJECT_EXT', 0x9154) unless defined?(OpenGL::GL_VERTEX_ARRAY_OBJECT_EXT)
     OpenGL.const_set('GL_SAMPLER', 0x82E6) unless defined?(OpenGL::GL_SAMPLER)
     OpenGL.const_set('GL_TRANSFORM_FEEDBACK', 0x8E22) unless defined?(OpenGL::GL_TRANSFORM_FEEDBACK)
-  end # define_ext_enum_GL_EXT_debug_label
+  end # self.define_ext_enum_GL_EXT_debug_label
 
-  def get_ext_enum_GL_EXT_debug_label
+  def self.get_ext_enum_GL_EXT_debug_label
     [
       'GL_PROGRAM_PIPELINE_OBJECT_EXT',
       'GL_PROGRAM_OBJECT_EXT',
@@ -617,9 +617,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_EXT_debug_marker
-  end # define_ext_enum_GL_EXT_debug_marker
+  end # self.define_ext_enum_GL_EXT_debug_marker
 
-  def get_ext_enum_GL_EXT_debug_marker
+  def self.get_ext_enum_GL_EXT_debug_marker
     [
     ]
   end # self.get_ext_enum_GL_EXT_debug_marker
@@ -629,9 +629,9 @@ module OpenGLExt
     OpenGL.const_set('GL_COLOR_EXT', 0x1800) unless defined?(OpenGL::GL_COLOR_EXT)
     OpenGL.const_set('GL_DEPTH_EXT', 0x1801) unless defined?(OpenGL::GL_DEPTH_EXT)
     OpenGL.const_set('GL_STENCIL_EXT', 0x1802) unless defined?(OpenGL::GL_STENCIL_EXT)
-  end # define_ext_enum_GL_EXT_discard_framebuffer
+  end # self.define_ext_enum_GL_EXT_discard_framebuffer
 
-  def get_ext_enum_GL_EXT_discard_framebuffer
+  def self.get_ext_enum_GL_EXT_discard_framebuffer
     [
       'GL_COLOR_EXT',
       'GL_DEPTH_EXT',
@@ -648,9 +648,9 @@ module OpenGLExt
     OpenGL.const_set('GL_TIME_ELAPSED_EXT', 0x88BF) unless defined?(OpenGL::GL_TIME_ELAPSED_EXT)
     OpenGL.const_set('GL_TIMESTAMP_EXT', 0x8E28) unless defined?(OpenGL::GL_TIMESTAMP_EXT)
     OpenGL.const_set('GL_GPU_DISJOINT_EXT', 0x8FBB) unless defined?(OpenGL::GL_GPU_DISJOINT_EXT)
-  end # define_ext_enum_GL_EXT_disjoint_timer_query
+  end # self.define_ext_enum_GL_EXT_disjoint_timer_query
 
-  def get_ext_enum_GL_EXT_disjoint_timer_query
+  def self.get_ext_enum_GL_EXT_disjoint_timer_query
     [
       'GL_QUERY_COUNTER_BITS_EXT',
       'GL_CURRENT_QUERY_EXT',
@@ -698,9 +698,9 @@ module OpenGLExt
     OpenGL.const_set('GL_COLOR_ATTACHMENT13_EXT', 0x8CED) unless defined?(OpenGL::GL_COLOR_ATTACHMENT13_EXT)
     OpenGL.const_set('GL_COLOR_ATTACHMENT14_EXT', 0x8CEE) unless defined?(OpenGL::GL_COLOR_ATTACHMENT14_EXT)
     OpenGL.const_set('GL_COLOR_ATTACHMENT15_EXT', 0x8CEF) unless defined?(OpenGL::GL_COLOR_ATTACHMENT15_EXT)
-  end # define_ext_enum_GL_EXT_draw_buffers
+  end # self.define_ext_enum_GL_EXT_draw_buffers
 
-  def get_ext_enum_GL_EXT_draw_buffers
+  def self.get_ext_enum_GL_EXT_draw_buffers
     [
       'GL_MAX_COLOR_ATTACHMENTS_EXT',
       'GL_MAX_DRAW_BUFFERS_EXT',
@@ -769,9 +769,9 @@ module OpenGLExt
     OpenGL.const_set('GL_CONSTANT_ALPHA', 0x8003) unless defined?(OpenGL::GL_CONSTANT_ALPHA)
     OpenGL.const_set('GL_ONE_MINUS_CONSTANT_ALPHA', 0x8004) unless defined?(OpenGL::GL_ONE_MINUS_CONSTANT_ALPHA)
     OpenGL.const_set('GL_SRC_ALPHA_SATURATE', 0x0308) unless defined?(OpenGL::GL_SRC_ALPHA_SATURATE)
-  end # define_ext_enum_GL_EXT_draw_buffers_indexed
+  end # self.define_ext_enum_GL_EXT_draw_buffers_indexed
 
-  def get_ext_enum_GL_EXT_draw_buffers_indexed
+  def self.get_ext_enum_GL_EXT_draw_buffers_indexed
     [
       'GL_BLEND_EQUATION_RGB',
       'GL_BLEND_EQUATION_ALPHA',
@@ -806,36 +806,36 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_EXT_draw_elements_base_vertex
-  end # define_ext_enum_GL_EXT_draw_elements_base_vertex
+  end # self.define_ext_enum_GL_EXT_draw_elements_base_vertex
 
-  def get_ext_enum_GL_EXT_draw_elements_base_vertex
+  def self.get_ext_enum_GL_EXT_draw_elements_base_vertex
     [
     ]
   end # self.get_ext_enum_GL_EXT_draw_elements_base_vertex
 
 
   def self.define_ext_enum_GL_EXT_draw_instanced
-  end # define_ext_enum_GL_EXT_draw_instanced
+  end # self.define_ext_enum_GL_EXT_draw_instanced
 
-  def get_ext_enum_GL_EXT_draw_instanced
+  def self.get_ext_enum_GL_EXT_draw_instanced
     [
     ]
   end # self.get_ext_enum_GL_EXT_draw_instanced
 
 
   def self.define_ext_enum_GL_EXT_float_blend
-  end # define_ext_enum_GL_EXT_float_blend
+  end # self.define_ext_enum_GL_EXT_float_blend
 
-  def get_ext_enum_GL_EXT_float_blend
+  def self.get_ext_enum_GL_EXT_float_blend
     [
     ]
   end # self.get_ext_enum_GL_EXT_float_blend
 
 
   def self.define_ext_enum_GL_EXT_geometry_point_size
-  end # define_ext_enum_GL_EXT_geometry_point_size
+  end # self.define_ext_enum_GL_EXT_geometry_point_size
 
-  def get_ext_enum_GL_EXT_geometry_point_size
+  def self.get_ext_enum_GL_EXT_geometry_point_size
     [
     ]
   end # self.get_ext_enum_GL_EXT_geometry_point_size
@@ -875,9 +875,9 @@ module OpenGLExt
     OpenGL.const_set('GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT', 0x8DA8) unless defined?(OpenGL::GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_EXT)
     OpenGL.const_set('GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT', 0x8DA7) unless defined?(OpenGL::GL_FRAMEBUFFER_ATTACHMENT_LAYERED_EXT)
     OpenGL.const_set('GL_REFERENCED_BY_GEOMETRY_SHADER_EXT', 0x9309) unless defined?(OpenGL::GL_REFERENCED_BY_GEOMETRY_SHADER_EXT)
-  end # define_ext_enum_GL_EXT_geometry_shader
+  end # self.define_ext_enum_GL_EXT_geometry_shader
 
-  def get_ext_enum_GL_EXT_geometry_shader
+  def self.get_ext_enum_GL_EXT_geometry_shader
     [
       'GL_GEOMETRY_SHADER_EXT',
       'GL_GEOMETRY_SHADER_BIT_EXT',
@@ -917,9 +917,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_EXT_gpu_shader5
-  end # define_ext_enum_GL_EXT_gpu_shader5
+  end # self.define_ext_enum_GL_EXT_gpu_shader5
 
-  def get_ext_enum_GL_EXT_gpu_shader5
+  def self.get_ext_enum_GL_EXT_gpu_shader5
     [
     ]
   end # self.get_ext_enum_GL_EXT_gpu_shader5
@@ -927,9 +927,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_EXT_instanced_arrays
     OpenGL.const_set('GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT', 0x88FE) unless defined?(OpenGL::GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT)
-  end # define_ext_enum_GL_EXT_instanced_arrays
+  end # self.define_ext_enum_GL_EXT_instanced_arrays
 
-  def get_ext_enum_GL_EXT_instanced_arrays
+  def self.get_ext_enum_GL_EXT_instanced_arrays
     [
       'GL_VERTEX_ATTRIB_ARRAY_DIVISOR_EXT',
     ]
@@ -943,9 +943,9 @@ module OpenGLExt
     OpenGL.const_set('GL_MAP_INVALIDATE_BUFFER_BIT_EXT', 0x0008) unless defined?(OpenGL::GL_MAP_INVALIDATE_BUFFER_BIT_EXT)
     OpenGL.const_set('GL_MAP_FLUSH_EXPLICIT_BIT_EXT', 0x0010) unless defined?(OpenGL::GL_MAP_FLUSH_EXPLICIT_BIT_EXT)
     OpenGL.const_set('GL_MAP_UNSYNCHRONIZED_BIT_EXT', 0x0020) unless defined?(OpenGL::GL_MAP_UNSYNCHRONIZED_BIT_EXT)
-  end # define_ext_enum_GL_EXT_map_buffer_range
+  end # self.define_ext_enum_GL_EXT_map_buffer_range
 
-  def get_ext_enum_GL_EXT_map_buffer_range
+  def self.get_ext_enum_GL_EXT_map_buffer_range
     [
       'GL_MAP_READ_BIT_EXT',
       'GL_MAP_WRITE_BIT_EXT',
@@ -958,18 +958,18 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_EXT_multi_draw_arrays
-  end # define_ext_enum_GL_EXT_multi_draw_arrays
+  end # self.define_ext_enum_GL_EXT_multi_draw_arrays
 
-  def get_ext_enum_GL_EXT_multi_draw_arrays
+  def self.get_ext_enum_GL_EXT_multi_draw_arrays
     [
     ]
   end # self.get_ext_enum_GL_EXT_multi_draw_arrays
 
 
   def self.define_ext_enum_GL_EXT_multi_draw_indirect
-  end # define_ext_enum_GL_EXT_multi_draw_indirect
+  end # self.define_ext_enum_GL_EXT_multi_draw_indirect
 
-  def get_ext_enum_GL_EXT_multi_draw_indirect
+  def self.get_ext_enum_GL_EXT_multi_draw_indirect
     [
     ]
   end # self.get_ext_enum_GL_EXT_multi_draw_indirect
@@ -978,9 +978,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_EXT_multisampled_compatibility
     OpenGL.const_set('GL_MULTISAMPLE_EXT', 0x809D) unless defined?(OpenGL::GL_MULTISAMPLE_EXT)
     OpenGL.const_set('GL_SAMPLE_ALPHA_TO_ONE_EXT', 0x809F) unless defined?(OpenGL::GL_SAMPLE_ALPHA_TO_ONE_EXT)
-  end # define_ext_enum_GL_EXT_multisampled_compatibility
+  end # self.define_ext_enum_GL_EXT_multisampled_compatibility
 
-  def get_ext_enum_GL_EXT_multisampled_compatibility
+  def self.get_ext_enum_GL_EXT_multisampled_compatibility
     [
       'GL_MULTISAMPLE_EXT',
       'GL_SAMPLE_ALPHA_TO_ONE_EXT',
@@ -993,9 +993,9 @@ module OpenGLExt
     OpenGL.const_set('GL_RENDERBUFFER_SAMPLES_EXT', 0x8CAB) unless defined?(OpenGL::GL_RENDERBUFFER_SAMPLES_EXT)
     OpenGL.const_set('GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT', 0x8D56) unless defined?(OpenGL::GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT)
     OpenGL.const_set('GL_MAX_SAMPLES_EXT', 0x8D57) unless defined?(OpenGL::GL_MAX_SAMPLES_EXT)
-  end # define_ext_enum_GL_EXT_multisampled_render_to_texture
+  end # self.define_ext_enum_GL_EXT_multisampled_render_to_texture
 
-  def get_ext_enum_GL_EXT_multisampled_render_to_texture
+  def self.get_ext_enum_GL_EXT_multisampled_render_to_texture
     [
       'GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SAMPLES_EXT',
       'GL_RENDERBUFFER_SAMPLES_EXT',
@@ -1011,9 +1011,9 @@ module OpenGLExt
     OpenGL.const_set('GL_DRAW_BUFFER_EXT', 0x0C01) unless defined?(OpenGL::GL_DRAW_BUFFER_EXT)
     OpenGL.const_set('GL_READ_BUFFER_EXT', 0x0C02) unless defined?(OpenGL::GL_READ_BUFFER_EXT)
     OpenGL.const_set('GL_MAX_MULTIVIEW_BUFFERS_EXT', 0x90F2) unless defined?(OpenGL::GL_MAX_MULTIVIEW_BUFFERS_EXT)
-  end # define_ext_enum_GL_EXT_multiview_draw_buffers
+  end # self.define_ext_enum_GL_EXT_multiview_draw_buffers
 
-  def get_ext_enum_GL_EXT_multiview_draw_buffers
+  def self.get_ext_enum_GL_EXT_multiview_draw_buffers
     [
       'GL_COLOR_ATTACHMENT_EXT',
       'GL_MULTIVIEW_EXT',
@@ -1030,9 +1030,9 @@ module OpenGLExt
     OpenGL.const_set('GL_CURRENT_QUERY_EXT', 0x8865) unless defined?(OpenGL::GL_CURRENT_QUERY_EXT)
     OpenGL.const_set('GL_QUERY_RESULT_EXT', 0x8866) unless defined?(OpenGL::GL_QUERY_RESULT_EXT)
     OpenGL.const_set('GL_QUERY_RESULT_AVAILABLE_EXT', 0x8867) unless defined?(OpenGL::GL_QUERY_RESULT_AVAILABLE_EXT)
-  end # define_ext_enum_GL_EXT_occlusion_query_boolean
+  end # self.define_ext_enum_GL_EXT_occlusion_query_boolean
 
-  def get_ext_enum_GL_EXT_occlusion_query_boolean
+  def self.get_ext_enum_GL_EXT_occlusion_query_boolean
     [
       'GL_ANY_SAMPLES_PASSED_EXT',
       'GL_ANY_SAMPLES_PASSED_CONSERVATIVE_EXT',
@@ -1044,9 +1044,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_EXT_post_depth_coverage
-  end # define_ext_enum_GL_EXT_post_depth_coverage
+  end # self.define_ext_enum_GL_EXT_post_depth_coverage
 
-  def get_ext_enum_GL_EXT_post_depth_coverage
+  def self.get_ext_enum_GL_EXT_post_depth_coverage
     [
     ]
   end # self.get_ext_enum_GL_EXT_post_depth_coverage
@@ -1054,9 +1054,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_EXT_primitive_bounding_box
     OpenGL.const_set('GL_PRIMITIVE_BOUNDING_BOX_EXT', 0x92BE) unless defined?(OpenGL::GL_PRIMITIVE_BOUNDING_BOX_EXT)
-  end # define_ext_enum_GL_EXT_primitive_bounding_box
+  end # self.define_ext_enum_GL_EXT_primitive_bounding_box
 
-  def get_ext_enum_GL_EXT_primitive_bounding_box
+  def self.get_ext_enum_GL_EXT_primitive_bounding_box
     [
       'GL_PRIMITIVE_BOUNDING_BOX_EXT',
     ]
@@ -1070,9 +1070,9 @@ module OpenGLExt
     OpenGL.const_set('GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV1_EXT', 0x8A57) unless defined?(OpenGL::GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV1_EXT)
     OpenGL.const_set('GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG', 0x93F0) unless defined?(OpenGL::GL_COMPRESSED_SRGB_ALPHA_PVRTC_2BPPV2_IMG)
     OpenGL.const_set('GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG', 0x93F1) unless defined?(OpenGL::GL_COMPRESSED_SRGB_ALPHA_PVRTC_4BPPV2_IMG)
-  end # define_ext_enum_GL_EXT_pvrtc_sRGB
+  end # self.define_ext_enum_GL_EXT_pvrtc_sRGB
 
-  def get_ext_enum_GL_EXT_pvrtc_sRGB
+  def self.get_ext_enum_GL_EXT_pvrtc_sRGB
     [
       'GL_COMPRESSED_SRGB_PVRTC_2BPPV1_EXT',
       'GL_COMPRESSED_SRGB_PVRTC_4BPPV1_EXT',
@@ -1091,9 +1091,9 @@ module OpenGLExt
     OpenGL.const_set('GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT', 0x932A) unless defined?(OpenGL::GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT)
     OpenGL.const_set('GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT', 0x932B) unless defined?(OpenGL::GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT)
     OpenGL.const_set('GL_EFFECTIVE_RASTER_SAMPLES_EXT', 0x932C) unless defined?(OpenGL::GL_EFFECTIVE_RASTER_SAMPLES_EXT)
-  end # define_ext_enum_GL_EXT_raster_multisample
+  end # self.define_ext_enum_GL_EXT_raster_multisample
 
-  def get_ext_enum_GL_EXT_raster_multisample
+  def self.get_ext_enum_GL_EXT_raster_multisample
     [
       'GL_RASTER_MULTISAMPLE_EXT',
       'GL_RASTER_SAMPLES_EXT',
@@ -1109,9 +1109,9 @@ module OpenGLExt
     OpenGL.const_set('GL_BGRA_EXT', 0x80E1) unless defined?(OpenGL::GL_BGRA_EXT)
     OpenGL.const_set('GL_UNSIGNED_SHORT_4_4_4_4_REV_EXT', 0x8365) unless defined?(OpenGL::GL_UNSIGNED_SHORT_4_4_4_4_REV_EXT)
     OpenGL.const_set('GL_UNSIGNED_SHORT_1_5_5_5_REV_EXT', 0x8366) unless defined?(OpenGL::GL_UNSIGNED_SHORT_1_5_5_5_REV_EXT)
-  end # define_ext_enum_GL_EXT_read_format_bgra
+  end # self.define_ext_enum_GL_EXT_read_format_bgra
 
-  def get_ext_enum_GL_EXT_read_format_bgra
+  def self.get_ext_enum_GL_EXT_read_format_bgra
     [
       'GL_BGRA_EXT',
       'GL_UNSIGNED_SHORT_4_4_4_4_REV_EXT',
@@ -1129,9 +1129,9 @@ module OpenGLExt
     OpenGL.const_set('GL_R16_SNORM_EXT', 0x8F98) unless defined?(OpenGL::GL_R16_SNORM_EXT)
     OpenGL.const_set('GL_RG16_SNORM_EXT', 0x8F99) unless defined?(OpenGL::GL_RG16_SNORM_EXT)
     OpenGL.const_set('GL_RGBA16_SNORM_EXT', 0x8F9B) unless defined?(OpenGL::GL_RGBA16_SNORM_EXT)
-  end # define_ext_enum_GL_EXT_render_snorm
+  end # self.define_ext_enum_GL_EXT_render_snorm
 
-  def get_ext_enum_GL_EXT_render_snorm
+  def self.get_ext_enum_GL_EXT_render_snorm
     [
       'GL_BYTE',
       'GL_SHORT',
@@ -1154,9 +1154,9 @@ module OpenGLExt
     OpenGL.const_set('GL_RESET_NOTIFICATION_STRATEGY_EXT', 0x8256) unless defined?(OpenGL::GL_RESET_NOTIFICATION_STRATEGY_EXT)
     OpenGL.const_set('GL_LOSE_CONTEXT_ON_RESET_EXT', 0x8252) unless defined?(OpenGL::GL_LOSE_CONTEXT_ON_RESET_EXT)
     OpenGL.const_set('GL_NO_RESET_NOTIFICATION_EXT', 0x8261) unless defined?(OpenGL::GL_NO_RESET_NOTIFICATION_EXT)
-  end # define_ext_enum_GL_EXT_robustness
+  end # self.define_ext_enum_GL_EXT_robustness
 
-  def get_ext_enum_GL_EXT_robustness
+  def self.get_ext_enum_GL_EXT_robustness
     [
       'GL_NO_ERROR',
       'GL_GUILTY_CONTEXT_RESET_EXT',
@@ -1175,9 +1175,9 @@ module OpenGLExt
     OpenGL.const_set('GL_SRGB_ALPHA_EXT', 0x8C42) unless defined?(OpenGL::GL_SRGB_ALPHA_EXT)
     OpenGL.const_set('GL_SRGB8_ALPHA8_EXT', 0x8C43) unless defined?(OpenGL::GL_SRGB8_ALPHA8_EXT)
     OpenGL.const_set('GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT', 0x8210) unless defined?(OpenGL::GL_FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT)
-  end # define_ext_enum_GL_EXT_sRGB
+  end # self.define_ext_enum_GL_EXT_sRGB
 
-  def get_ext_enum_GL_EXT_sRGB
+  def self.get_ext_enum_GL_EXT_sRGB
     [
       'GL_SRGB_EXT',
       'GL_SRGB_ALPHA_EXT',
@@ -1189,9 +1189,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_EXT_sRGB_write_control
     OpenGL.const_set('GL_FRAMEBUFFER_SRGB_EXT', 0x8DB9) unless defined?(OpenGL::GL_FRAMEBUFFER_SRGB_EXT)
-  end # define_ext_enum_GL_EXT_sRGB_write_control
+  end # self.define_ext_enum_GL_EXT_sRGB_write_control
 
-  def get_ext_enum_GL_EXT_sRGB_write_control
+  def self.get_ext_enum_GL_EXT_sRGB_write_control
     [
       'GL_FRAMEBUFFER_SRGB_EXT',
     ]
@@ -1205,9 +1205,9 @@ module OpenGLExt
     OpenGL.const_set('GL_ALL_SHADER_BITS_EXT', 0xFFFFFFFF) unless defined?(OpenGL::GL_ALL_SHADER_BITS_EXT)
     OpenGL.const_set('GL_PROGRAM_SEPARABLE_EXT', 0x8258) unless defined?(OpenGL::GL_PROGRAM_SEPARABLE_EXT)
     OpenGL.const_set('GL_PROGRAM_PIPELINE_BINDING_EXT', 0x825A) unless defined?(OpenGL::GL_PROGRAM_PIPELINE_BINDING_EXT)
-  end # define_ext_enum_GL_EXT_separate_shader_objects
+  end # self.define_ext_enum_GL_EXT_separate_shader_objects
 
-  def get_ext_enum_GL_EXT_separate_shader_objects
+  def self.get_ext_enum_GL_EXT_separate_shader_objects
     [
       'GL_ACTIVE_PROGRAM_EXT',
       'GL_VERTEX_SHADER_BIT_EXT',
@@ -1221,9 +1221,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_EXT_shader_framebuffer_fetch
     OpenGL.const_set('GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT', 0x8A52) unless defined?(OpenGL::GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT)
-  end # define_ext_enum_GL_EXT_shader_framebuffer_fetch
+  end # self.define_ext_enum_GL_EXT_shader_framebuffer_fetch
 
-  def get_ext_enum_GL_EXT_shader_framebuffer_fetch
+  def self.get_ext_enum_GL_EXT_shader_framebuffer_fetch
     [
       'GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT',
     ]
@@ -1231,27 +1231,27 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_EXT_shader_implicit_conversions
-  end # define_ext_enum_GL_EXT_shader_implicit_conversions
+  end # self.define_ext_enum_GL_EXT_shader_implicit_conversions
 
-  def get_ext_enum_GL_EXT_shader_implicit_conversions
+  def self.get_ext_enum_GL_EXT_shader_implicit_conversions
     [
     ]
   end # self.get_ext_enum_GL_EXT_shader_implicit_conversions
 
 
   def self.define_ext_enum_GL_EXT_shader_integer_mix
-  end # define_ext_enum_GL_EXT_shader_integer_mix
+  end # self.define_ext_enum_GL_EXT_shader_integer_mix
 
-  def get_ext_enum_GL_EXT_shader_integer_mix
+  def self.get_ext_enum_GL_EXT_shader_integer_mix
     [
     ]
   end # self.get_ext_enum_GL_EXT_shader_integer_mix
 
 
   def self.define_ext_enum_GL_EXT_shader_io_blocks
-  end # define_ext_enum_GL_EXT_shader_io_blocks
+  end # self.define_ext_enum_GL_EXT_shader_io_blocks
 
-  def get_ext_enum_GL_EXT_shader_io_blocks
+  def self.get_ext_enum_GL_EXT_shader_io_blocks
     [
     ]
   end # self.get_ext_enum_GL_EXT_shader_io_blocks
@@ -1261,9 +1261,9 @@ module OpenGLExt
     OpenGL.const_set('GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT', 0x8F63) unless defined?(OpenGL::GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT)
     OpenGL.const_set('GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT', 0x8F67) unless defined?(OpenGL::GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT)
     OpenGL.const_set('GL_SHADER_PIXEL_LOCAL_STORAGE_EXT', 0x8F64) unless defined?(OpenGL::GL_SHADER_PIXEL_LOCAL_STORAGE_EXT)
-  end # define_ext_enum_GL_EXT_shader_pixel_local_storage
+  end # self.define_ext_enum_GL_EXT_shader_pixel_local_storage
 
-  def get_ext_enum_GL_EXT_shader_pixel_local_storage
+  def self.get_ext_enum_GL_EXT_shader_pixel_local_storage
     [
       'GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT',
       'GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT',
@@ -1273,9 +1273,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_EXT_shader_texture_lod
-  end # define_ext_enum_GL_EXT_shader_texture_lod
+  end # self.define_ext_enum_GL_EXT_shader_texture_lod
 
-  def get_ext_enum_GL_EXT_shader_texture_lod
+  def self.get_ext_enum_GL_EXT_shader_texture_lod
     [
     ]
   end # self.get_ext_enum_GL_EXT_shader_texture_lod
@@ -1286,9 +1286,9 @@ module OpenGLExt
     OpenGL.const_set('GL_TEXTURE_COMPARE_FUNC_EXT', 0x884D) unless defined?(OpenGL::GL_TEXTURE_COMPARE_FUNC_EXT)
     OpenGL.const_set('GL_COMPARE_REF_TO_TEXTURE_EXT', 0x884E) unless defined?(OpenGL::GL_COMPARE_REF_TO_TEXTURE_EXT)
     OpenGL.const_set('GL_SAMPLER_2D_SHADOW_EXT', 0x8B62) unless defined?(OpenGL::GL_SAMPLER_2D_SHADOW_EXT)
-  end # define_ext_enum_GL_EXT_shadow_samplers
+  end # self.define_ext_enum_GL_EXT_shadow_samplers
 
-  def get_ext_enum_GL_EXT_shadow_samplers
+  def self.get_ext_enum_GL_EXT_shadow_samplers
     [
       'GL_TEXTURE_COMPARE_MODE_EXT',
       'GL_TEXTURE_COMPARE_FUNC_EXT',
@@ -1315,9 +1315,9 @@ module OpenGLExt
     OpenGL.const_set('GL_MAX_SPARSE_3D_TEXTURE_SIZE_EXT', 0x9199) unless defined?(OpenGL::GL_MAX_SPARSE_3D_TEXTURE_SIZE_EXT)
     OpenGL.const_set('GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_EXT', 0x919A) unless defined?(OpenGL::GL_MAX_SPARSE_ARRAY_TEXTURE_LAYERS_EXT)
     OpenGL.const_set('GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_EXT', 0x91A9) unless defined?(OpenGL::GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_EXT)
-  end # define_ext_enum_GL_EXT_sparse_texture
+  end # self.define_ext_enum_GL_EXT_sparse_texture
 
-  def get_ext_enum_GL_EXT_sparse_texture
+  def self.get_ext_enum_GL_EXT_sparse_texture
     [
       'GL_TEXTURE_SPARSE_EXT',
       'GL_VIRTUAL_PAGE_SIZE_INDEX_EXT',
@@ -1340,9 +1340,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_EXT_tessellation_point_size
-  end # define_ext_enum_GL_EXT_tessellation_point_size
+  end # self.define_ext_enum_GL_EXT_tessellation_point_size
 
-  def get_ext_enum_GL_EXT_tessellation_point_size
+  def self.get_ext_enum_GL_EXT_tessellation_point_size
     [
     ]
   end # self.get_ext_enum_GL_EXT_tessellation_point_size
@@ -1396,9 +1396,9 @@ module OpenGLExt
     OpenGL.const_set('GL_TESS_EVALUATION_SHADER_EXT', 0x8E87) unless defined?(OpenGL::GL_TESS_EVALUATION_SHADER_EXT)
     OpenGL.const_set('GL_TESS_CONTROL_SHADER_BIT_EXT', 0x00000008) unless defined?(OpenGL::GL_TESS_CONTROL_SHADER_BIT_EXT)
     OpenGL.const_set('GL_TESS_EVALUATION_SHADER_BIT_EXT', 0x00000010) unless defined?(OpenGL::GL_TESS_EVALUATION_SHADER_BIT_EXT)
-  end # define_ext_enum_GL_EXT_tessellation_shader
+  end # self.define_ext_enum_GL_EXT_tessellation_shader
 
-  def get_ext_enum_GL_EXT_tessellation_shader
+  def self.get_ext_enum_GL_EXT_tessellation_shader
     [
       'GL_PATCHES_EXT',
       'GL_PATCH_VERTICES_EXT',
@@ -1454,9 +1454,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_EXT_texture_border_clamp
     OpenGL.const_set('GL_TEXTURE_BORDER_COLOR_EXT', 0x1004) unless defined?(OpenGL::GL_TEXTURE_BORDER_COLOR_EXT)
     OpenGL.const_set('GL_CLAMP_TO_BORDER_EXT', 0x812D) unless defined?(OpenGL::GL_CLAMP_TO_BORDER_EXT)
-  end # define_ext_enum_GL_EXT_texture_border_clamp
+  end # self.define_ext_enum_GL_EXT_texture_border_clamp
 
-  def get_ext_enum_GL_EXT_texture_border_clamp
+  def self.get_ext_enum_GL_EXT_texture_border_clamp
     [
       'GL_TEXTURE_BORDER_COLOR_EXT',
       'GL_CLAMP_TO_BORDER_EXT',
@@ -1479,9 +1479,9 @@ module OpenGLExt
     OpenGL.const_set('GL_UNSIGNED_INT_IMAGE_BUFFER_EXT', 0x9067) unless defined?(OpenGL::GL_UNSIGNED_INT_IMAGE_BUFFER_EXT)
     OpenGL.const_set('GL_TEXTURE_BUFFER_OFFSET_EXT', 0x919D) unless defined?(OpenGL::GL_TEXTURE_BUFFER_OFFSET_EXT)
     OpenGL.const_set('GL_TEXTURE_BUFFER_SIZE_EXT', 0x919E) unless defined?(OpenGL::GL_TEXTURE_BUFFER_SIZE_EXT)
-  end # define_ext_enum_GL_EXT_texture_buffer
+  end # self.define_ext_enum_GL_EXT_texture_buffer
 
-  def get_ext_enum_GL_EXT_texture_buffer
+  def self.get_ext_enum_GL_EXT_texture_buffer
     [
       'GL_TEXTURE_BUFFER_EXT',
       'GL_TEXTURE_BUFFER_BINDING_EXT',
@@ -1504,9 +1504,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_EXT_texture_compression_dxt1
     OpenGL.const_set('GL_COMPRESSED_RGB_S3TC_DXT1_EXT', 0x83F0) unless defined?(OpenGL::GL_COMPRESSED_RGB_S3TC_DXT1_EXT)
     OpenGL.const_set('GL_COMPRESSED_RGBA_S3TC_DXT1_EXT', 0x83F1) unless defined?(OpenGL::GL_COMPRESSED_RGBA_S3TC_DXT1_EXT)
-  end # define_ext_enum_GL_EXT_texture_compression_dxt1
+  end # self.define_ext_enum_GL_EXT_texture_compression_dxt1
 
-  def get_ext_enum_GL_EXT_texture_compression_dxt1
+  def self.get_ext_enum_GL_EXT_texture_compression_dxt1
     [
       'GL_COMPRESSED_RGB_S3TC_DXT1_EXT',
       'GL_COMPRESSED_RGBA_S3TC_DXT1_EXT',
@@ -1519,9 +1519,9 @@ module OpenGLExt
     OpenGL.const_set('GL_COMPRESSED_RGBA_S3TC_DXT1_EXT', 0x83F1) unless defined?(OpenGL::GL_COMPRESSED_RGBA_S3TC_DXT1_EXT)
     OpenGL.const_set('GL_COMPRESSED_RGBA_S3TC_DXT3_EXT', 0x83F2) unless defined?(OpenGL::GL_COMPRESSED_RGBA_S3TC_DXT3_EXT)
     OpenGL.const_set('GL_COMPRESSED_RGBA_S3TC_DXT5_EXT', 0x83F3) unless defined?(OpenGL::GL_COMPRESSED_RGBA_S3TC_DXT5_EXT)
-  end # define_ext_enum_GL_EXT_texture_compression_s3tc
+  end # self.define_ext_enum_GL_EXT_texture_compression_s3tc
 
-  def get_ext_enum_GL_EXT_texture_compression_s3tc
+  def self.get_ext_enum_GL_EXT_texture_compression_s3tc
     [
       'GL_COMPRESSED_RGB_S3TC_DXT1_EXT',
       'GL_COMPRESSED_RGBA_S3TC_DXT1_EXT',
@@ -1541,9 +1541,9 @@ module OpenGLExt
     OpenGL.const_set('GL_IMAGE_CUBE_MAP_ARRAY_EXT', 0x9054) unless defined?(OpenGL::GL_IMAGE_CUBE_MAP_ARRAY_EXT)
     OpenGL.const_set('GL_INT_IMAGE_CUBE_MAP_ARRAY_EXT', 0x905F) unless defined?(OpenGL::GL_INT_IMAGE_CUBE_MAP_ARRAY_EXT)
     OpenGL.const_set('GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_EXT', 0x906A) unless defined?(OpenGL::GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_EXT)
-  end # define_ext_enum_GL_EXT_texture_cube_map_array
+  end # self.define_ext_enum_GL_EXT_texture_cube_map_array
 
-  def get_ext_enum_GL_EXT_texture_cube_map_array
+  def self.get_ext_enum_GL_EXT_texture_cube_map_array
     [
       'GL_TEXTURE_CUBE_MAP_ARRAY_EXT',
       'GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_EXT',
@@ -1561,9 +1561,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_EXT_texture_filter_anisotropic
     OpenGL.const_set('GL_TEXTURE_MAX_ANISOTROPY_EXT', 0x84FE) unless defined?(OpenGL::GL_TEXTURE_MAX_ANISOTROPY_EXT)
     OpenGL.const_set('GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT', 0x84FF) unless defined?(OpenGL::GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT)
-  end # define_ext_enum_GL_EXT_texture_filter_anisotropic
+  end # self.define_ext_enum_GL_EXT_texture_filter_anisotropic
 
-  def get_ext_enum_GL_EXT_texture_filter_anisotropic
+  def self.get_ext_enum_GL_EXT_texture_filter_anisotropic
     [
       'GL_TEXTURE_MAX_ANISOTROPY_EXT',
       'GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT',
@@ -1578,9 +1578,9 @@ module OpenGLExt
     OpenGL.const_set('GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT', 0x932A) unless defined?(OpenGL::GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT)
     OpenGL.const_set('GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT', 0x932B) unless defined?(OpenGL::GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT)
     OpenGL.const_set('GL_EFFECTIVE_RASTER_SAMPLES_EXT', 0x932C) unless defined?(OpenGL::GL_EFFECTIVE_RASTER_SAMPLES_EXT)
-  end # define_ext_enum_GL_EXT_texture_filter_minmax
+  end # self.define_ext_enum_GL_EXT_texture_filter_minmax
 
-  def get_ext_enum_GL_EXT_texture_filter_minmax
+  def self.get_ext_enum_GL_EXT_texture_filter_minmax
     [
       'GL_RASTER_MULTISAMPLE_EXT',
       'GL_RASTER_SAMPLES_EXT',
@@ -1594,9 +1594,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_EXT_texture_format_BGRA8888
     OpenGL.const_set('GL_BGRA_EXT', 0x80E1) unless defined?(OpenGL::GL_BGRA_EXT)
-  end # define_ext_enum_GL_EXT_texture_format_BGRA8888
+  end # self.define_ext_enum_GL_EXT_texture_format_BGRA8888
 
-  def get_ext_enum_GL_EXT_texture_format_BGRA8888
+  def self.get_ext_enum_GL_EXT_texture_format_BGRA8888
     [
       'GL_BGRA_EXT',
     ]
@@ -1612,9 +1612,9 @@ module OpenGLExt
     OpenGL.const_set('GL_RG16_SNORM_EXT', 0x8F99) unless defined?(OpenGL::GL_RG16_SNORM_EXT)
     OpenGL.const_set('GL_RGB16_SNORM_EXT', 0x8F9A) unless defined?(OpenGL::GL_RGB16_SNORM_EXT)
     OpenGL.const_set('GL_RGBA16_SNORM_EXT', 0x8F9B) unless defined?(OpenGL::GL_RGBA16_SNORM_EXT)
-  end # define_ext_enum_GL_EXT_texture_norm16
+  end # self.define_ext_enum_GL_EXT_texture_norm16
 
-  def get_ext_enum_GL_EXT_texture_norm16
+  def self.get_ext_enum_GL_EXT_texture_norm16
     [
       'GL_R16_EXT',
       'GL_RG16_EXT',
@@ -1633,9 +1633,9 @@ module OpenGLExt
     OpenGL.const_set('GL_RG_EXT', 0x8227) unless defined?(OpenGL::GL_RG_EXT)
     OpenGL.const_set('GL_R8_EXT', 0x8229) unless defined?(OpenGL::GL_R8_EXT)
     OpenGL.const_set('GL_RG8_EXT', 0x822B) unless defined?(OpenGL::GL_RG8_EXT)
-  end # define_ext_enum_GL_EXT_texture_rg
+  end # self.define_ext_enum_GL_EXT_texture_rg
 
-  def get_ext_enum_GL_EXT_texture_rg
+  def self.get_ext_enum_GL_EXT_texture_rg
     [
       'GL_RED_EXT',
       'GL_RG_EXT',
@@ -1647,9 +1647,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_EXT_texture_sRGB_R8
     OpenGL.const_set('GL_SR8_EXT', 0x8FBD) unless defined?(OpenGL::GL_SR8_EXT)
-  end # define_ext_enum_GL_EXT_texture_sRGB_R8
+  end # self.define_ext_enum_GL_EXT_texture_sRGB_R8
 
-  def get_ext_enum_GL_EXT_texture_sRGB_R8
+  def self.get_ext_enum_GL_EXT_texture_sRGB_R8
     [
       'GL_SR8_EXT',
     ]
@@ -1658,9 +1658,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_EXT_texture_sRGB_RG8
     OpenGL.const_set('GL_SRG8_EXT', 0x8FBE) unless defined?(OpenGL::GL_SRG8_EXT)
-  end # define_ext_enum_GL_EXT_texture_sRGB_RG8
+  end # self.define_ext_enum_GL_EXT_texture_sRGB_RG8
 
-  def get_ext_enum_GL_EXT_texture_sRGB_RG8
+  def self.get_ext_enum_GL_EXT_texture_sRGB_RG8
     [
       'GL_SRG8_EXT',
     ]
@@ -1671,9 +1671,9 @@ module OpenGLExt
     OpenGL.const_set('GL_TEXTURE_SRGB_DECODE_EXT', 0x8A48) unless defined?(OpenGL::GL_TEXTURE_SRGB_DECODE_EXT)
     OpenGL.const_set('GL_DECODE_EXT', 0x8A49) unless defined?(OpenGL::GL_DECODE_EXT)
     OpenGL.const_set('GL_SKIP_DECODE_EXT', 0x8A4A) unless defined?(OpenGL::GL_SKIP_DECODE_EXT)
-  end # define_ext_enum_GL_EXT_texture_sRGB_decode
+  end # self.define_ext_enum_GL_EXT_texture_sRGB_decode
 
-  def get_ext_enum_GL_EXT_texture_sRGB_decode
+  def self.get_ext_enum_GL_EXT_texture_sRGB_decode
     [
       'GL_TEXTURE_SRGB_DECODE_EXT',
       'GL_DECODE_EXT',
@@ -1706,9 +1706,9 @@ module OpenGLExt
     OpenGL.const_set('GL_RG32F_EXT', 0x8230) unless defined?(OpenGL::GL_RG32F_EXT)
     OpenGL.const_set('GL_R16F_EXT', 0x822D) unless defined?(OpenGL::GL_R16F_EXT)
     OpenGL.const_set('GL_RG16F_EXT', 0x822F) unless defined?(OpenGL::GL_RG16F_EXT)
-  end # define_ext_enum_GL_EXT_texture_storage
+  end # self.define_ext_enum_GL_EXT_texture_storage
 
-  def get_ext_enum_GL_EXT_texture_storage
+  def self.get_ext_enum_GL_EXT_texture_storage
     [
       'GL_TEXTURE_IMMUTABLE_FORMAT_EXT',
       'GL_ALPHA8_EXT',
@@ -1739,9 +1739,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_EXT_texture_type_2_10_10_10_REV
     OpenGL.const_set('GL_UNSIGNED_INT_2_10_10_10_REV_EXT', 0x8368) unless defined?(OpenGL::GL_UNSIGNED_INT_2_10_10_10_REV_EXT)
-  end # define_ext_enum_GL_EXT_texture_type_2_10_10_10_REV
+  end # self.define_ext_enum_GL_EXT_texture_type_2_10_10_10_REV
 
-  def get_ext_enum_GL_EXT_texture_type_2_10_10_10_REV
+  def self.get_ext_enum_GL_EXT_texture_type_2_10_10_10_REV
     [
       'GL_UNSIGNED_INT_2_10_10_10_REV_EXT',
     ]
@@ -1754,9 +1754,9 @@ module OpenGLExt
     OpenGL.const_set('GL_TEXTURE_VIEW_MIN_LAYER_EXT', 0x82DD) unless defined?(OpenGL::GL_TEXTURE_VIEW_MIN_LAYER_EXT)
     OpenGL.const_set('GL_TEXTURE_VIEW_NUM_LAYERS_EXT', 0x82DE) unless defined?(OpenGL::GL_TEXTURE_VIEW_NUM_LAYERS_EXT)
     OpenGL.const_set('GL_TEXTURE_IMMUTABLE_LEVELS', 0x82DF) unless defined?(OpenGL::GL_TEXTURE_IMMUTABLE_LEVELS)
-  end # define_ext_enum_GL_EXT_texture_view
+  end # self.define_ext_enum_GL_EXT_texture_view
 
-  def get_ext_enum_GL_EXT_texture_view
+  def self.get_ext_enum_GL_EXT_texture_view
     [
       'GL_TEXTURE_VIEW_MIN_LEVEL_EXT',
       'GL_TEXTURE_VIEW_NUM_LEVELS_EXT',
@@ -1771,9 +1771,9 @@ module OpenGLExt
     OpenGL.const_set('GL_UNPACK_ROW_LENGTH_EXT', 0x0CF2) unless defined?(OpenGL::GL_UNPACK_ROW_LENGTH_EXT)
     OpenGL.const_set('GL_UNPACK_SKIP_ROWS_EXT', 0x0CF3) unless defined?(OpenGL::GL_UNPACK_SKIP_ROWS_EXT)
     OpenGL.const_set('GL_UNPACK_SKIP_PIXELS_EXT', 0x0CF4) unless defined?(OpenGL::GL_UNPACK_SKIP_PIXELS_EXT)
-  end # define_ext_enum_GL_EXT_unpack_subimage
+  end # self.define_ext_enum_GL_EXT_unpack_subimage
 
-  def get_ext_enum_GL_EXT_unpack_subimage
+  def self.get_ext_enum_GL_EXT_unpack_subimage
     [
       'GL_UNPACK_ROW_LENGTH_EXT',
       'GL_UNPACK_SKIP_ROWS_EXT',
@@ -1784,9 +1784,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_FJ_shader_binary_GCCSO
     OpenGL.const_set('GL_GCCSO_SHADER_BINARY_FJ', 0x9260) unless defined?(OpenGL::GL_GCCSO_SHADER_BINARY_FJ)
-  end # define_ext_enum_GL_FJ_shader_binary_GCCSO
+  end # self.define_ext_enum_GL_FJ_shader_binary_GCCSO
 
-  def get_ext_enum_GL_FJ_shader_binary_GCCSO
+  def self.get_ext_enum_GL_FJ_shader_binary_GCCSO
     [
       'GL_GCCSO_SHADER_BINARY_FJ',
     ]
@@ -1798,9 +1798,9 @@ module OpenGLExt
     OpenGL.const_set('GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_IMG', 0x9134) unless defined?(OpenGL::GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_IMG)
     OpenGL.const_set('GL_MAX_SAMPLES_IMG', 0x9135) unless defined?(OpenGL::GL_MAX_SAMPLES_IMG)
     OpenGL.const_set('GL_TEXTURE_SAMPLES_IMG', 0x9136) unless defined?(OpenGL::GL_TEXTURE_SAMPLES_IMG)
-  end # define_ext_enum_GL_IMG_multisampled_render_to_texture
+  end # self.define_ext_enum_GL_IMG_multisampled_render_to_texture
 
-  def get_ext_enum_GL_IMG_multisampled_render_to_texture
+  def self.get_ext_enum_GL_IMG_multisampled_render_to_texture
     [
       'GL_RENDERBUFFER_SAMPLES_IMG',
       'GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_IMG',
@@ -1812,9 +1812,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_IMG_program_binary
     OpenGL.const_set('GL_SGX_PROGRAM_BINARY_IMG', 0x9130) unless defined?(OpenGL::GL_SGX_PROGRAM_BINARY_IMG)
-  end # define_ext_enum_GL_IMG_program_binary
+  end # self.define_ext_enum_GL_IMG_program_binary
 
-  def get_ext_enum_GL_IMG_program_binary
+  def self.get_ext_enum_GL_IMG_program_binary
     [
       'GL_SGX_PROGRAM_BINARY_IMG',
     ]
@@ -1824,9 +1824,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_IMG_read_format
     OpenGL.const_set('GL_BGRA_IMG', 0x80E1) unless defined?(OpenGL::GL_BGRA_IMG)
     OpenGL.const_set('GL_UNSIGNED_SHORT_4_4_4_4_REV_IMG', 0x8365) unless defined?(OpenGL::GL_UNSIGNED_SHORT_4_4_4_4_REV_IMG)
-  end # define_ext_enum_GL_IMG_read_format
+  end # self.define_ext_enum_GL_IMG_read_format
 
-  def get_ext_enum_GL_IMG_read_format
+  def self.get_ext_enum_GL_IMG_read_format
     [
       'GL_BGRA_IMG',
       'GL_UNSIGNED_SHORT_4_4_4_4_REV_IMG',
@@ -1836,9 +1836,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_IMG_shader_binary
     OpenGL.const_set('GL_SGX_BINARY_IMG', 0x8C0A) unless defined?(OpenGL::GL_SGX_BINARY_IMG)
-  end # define_ext_enum_GL_IMG_shader_binary
+  end # self.define_ext_enum_GL_IMG_shader_binary
 
-  def get_ext_enum_GL_IMG_shader_binary
+  def self.get_ext_enum_GL_IMG_shader_binary
     [
       'GL_SGX_BINARY_IMG',
     ]
@@ -1850,9 +1850,9 @@ module OpenGLExt
     OpenGL.const_set('GL_COMPRESSED_RGB_PVRTC_2BPPV1_IMG', 0x8C01) unless defined?(OpenGL::GL_COMPRESSED_RGB_PVRTC_2BPPV1_IMG)
     OpenGL.const_set('GL_COMPRESSED_RGBA_PVRTC_4BPPV1_IMG', 0x8C02) unless defined?(OpenGL::GL_COMPRESSED_RGBA_PVRTC_4BPPV1_IMG)
     OpenGL.const_set('GL_COMPRESSED_RGBA_PVRTC_2BPPV1_IMG', 0x8C03) unless defined?(OpenGL::GL_COMPRESSED_RGBA_PVRTC_2BPPV1_IMG)
-  end # define_ext_enum_GL_IMG_texture_compression_pvrtc
+  end # self.define_ext_enum_GL_IMG_texture_compression_pvrtc
 
-  def get_ext_enum_GL_IMG_texture_compression_pvrtc
+  def self.get_ext_enum_GL_IMG_texture_compression_pvrtc
     [
       'GL_COMPRESSED_RGB_PVRTC_4BPPV1_IMG',
       'GL_COMPRESSED_RGB_PVRTC_2BPPV1_IMG',
@@ -1865,9 +1865,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_IMG_texture_compression_pvrtc2
     OpenGL.const_set('GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG', 0x9137) unless defined?(OpenGL::GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG)
     OpenGL.const_set('GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG', 0x9138) unless defined?(OpenGL::GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG)
-  end # define_ext_enum_GL_IMG_texture_compression_pvrtc2
+  end # self.define_ext_enum_GL_IMG_texture_compression_pvrtc2
 
-  def get_ext_enum_GL_IMG_texture_compression_pvrtc2
+  def self.get_ext_enum_GL_IMG_texture_compression_pvrtc2
     [
       'GL_COMPRESSED_RGBA_PVRTC_2BPPV2_IMG',
       'GL_COMPRESSED_RGBA_PVRTC_4BPPV2_IMG',
@@ -1879,9 +1879,9 @@ module OpenGLExt
     OpenGL.const_set('GL_CUBIC_IMG', 0x9139) unless defined?(OpenGL::GL_CUBIC_IMG)
     OpenGL.const_set('GL_CUBIC_MIPMAP_NEAREST_IMG', 0x913A) unless defined?(OpenGL::GL_CUBIC_MIPMAP_NEAREST_IMG)
     OpenGL.const_set('GL_CUBIC_MIPMAP_LINEAR_IMG', 0x913B) unless defined?(OpenGL::GL_CUBIC_MIPMAP_LINEAR_IMG)
-  end # define_ext_enum_GL_IMG_texture_filter_cubic
+  end # self.define_ext_enum_GL_IMG_texture_filter_cubic
 
-  def get_ext_enum_GL_IMG_texture_filter_cubic
+  def self.get_ext_enum_GL_IMG_texture_filter_cubic
     [
       'GL_CUBIC_IMG',
       'GL_CUBIC_MIPMAP_NEAREST_IMG',
@@ -1891,9 +1891,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_INTEL_framebuffer_CMAA
-  end # define_ext_enum_GL_INTEL_framebuffer_CMAA
+  end # self.define_ext_enum_GL_INTEL_framebuffer_CMAA
 
-  def get_ext_enum_GL_INTEL_framebuffer_CMAA
+  def self.get_ext_enum_GL_INTEL_framebuffer_CMAA
     [
     ]
   end # self.get_ext_enum_GL_INTEL_framebuffer_CMAA
@@ -1920,9 +1920,9 @@ module OpenGLExt
     OpenGL.const_set('GL_PERFQUERY_COUNTER_NAME_LENGTH_MAX_INTEL', 0x94FE) unless defined?(OpenGL::GL_PERFQUERY_COUNTER_NAME_LENGTH_MAX_INTEL)
     OpenGL.const_set('GL_PERFQUERY_COUNTER_DESC_LENGTH_MAX_INTEL', 0x94FF) unless defined?(OpenGL::GL_PERFQUERY_COUNTER_DESC_LENGTH_MAX_INTEL)
     OpenGL.const_set('GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL', 0x9500) unless defined?(OpenGL::GL_PERFQUERY_GPA_EXTENDED_COUNTERS_INTEL)
-  end # define_ext_enum_GL_INTEL_performance_query
+  end # self.define_ext_enum_GL_INTEL_performance_query
 
-  def get_ext_enum_GL_INTEL_performance_query
+  def self.get_ext_enum_GL_INTEL_performance_query
     [
       'GL_PERFQUERY_SINGLE_CONTEXT_INTEL',
       'GL_PERFQUERY_GLOBAL_CONTEXT_INTEL',
@@ -1964,9 +1964,9 @@ module OpenGLExt
     OpenGL.const_set('GL_HSL_SATURATION_KHR', 0x92AE) unless defined?(OpenGL::GL_HSL_SATURATION_KHR)
     OpenGL.const_set('GL_HSL_COLOR_KHR', 0x92AF) unless defined?(OpenGL::GL_HSL_COLOR_KHR)
     OpenGL.const_set('GL_HSL_LUMINOSITY_KHR', 0x92B0) unless defined?(OpenGL::GL_HSL_LUMINOSITY_KHR)
-  end # define_ext_enum_GL_KHR_blend_equation_advanced
+  end # self.define_ext_enum_GL_KHR_blend_equation_advanced
 
-  def get_ext_enum_GL_KHR_blend_equation_advanced
+  def self.get_ext_enum_GL_KHR_blend_equation_advanced
     [
       'GL_MULTIPLY_KHR',
       'GL_SCREEN_KHR',
@@ -1989,9 +1989,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_KHR_blend_equation_advanced_coherent
     OpenGL.const_set('GL_BLEND_ADVANCED_COHERENT_KHR', 0x9285) unless defined?(OpenGL::GL_BLEND_ADVANCED_COHERENT_KHR)
-  end # define_ext_enum_GL_KHR_blend_equation_advanced_coherent
+  end # self.define_ext_enum_GL_KHR_blend_equation_advanced_coherent
 
-  def get_ext_enum_GL_KHR_blend_equation_advanced_coherent
+  def self.get_ext_enum_GL_KHR_blend_equation_advanced_coherent
     [
       'GL_BLEND_ADVANCED_COHERENT_KHR',
     ]
@@ -2004,9 +2004,9 @@ module OpenGLExt
     OpenGL.const_set('GL_NONE', 0) unless defined?(OpenGL::GL_NONE)
     OpenGL.const_set('GL_CONTEXT_RELEASE_BEHAVIOR_KHR', 0x82FB) unless defined?(OpenGL::GL_CONTEXT_RELEASE_BEHAVIOR_KHR)
     OpenGL.const_set('GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR', 0x82FC) unless defined?(OpenGL::GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH_KHR)
-  end # define_ext_enum_GL_KHR_context_flush_control
+  end # self.define_ext_enum_GL_KHR_context_flush_control
 
-  def get_ext_enum_GL_KHR_context_flush_control
+  def self.get_ext_enum_GL_KHR_context_flush_control
     [
       'GL_CONTEXT_RELEASE_BEHAVIOR',
       'GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH',
@@ -2099,9 +2099,9 @@ module OpenGLExt
     OpenGL.const_set('GL_STACK_OVERFLOW_KHR', 0x0503) unless defined?(OpenGL::GL_STACK_OVERFLOW_KHR)
     OpenGL.const_set('GL_STACK_UNDERFLOW_KHR', 0x0504) unless defined?(OpenGL::GL_STACK_UNDERFLOW_KHR)
     OpenGL.const_set('GL_DISPLAY_LIST', 0x82E7) unless defined?(OpenGL::GL_DISPLAY_LIST)
-  end # define_ext_enum_GL_KHR_debug
+  end # self.define_ext_enum_GL_KHR_debug
 
-  def get_ext_enum_GL_KHR_debug
+  def self.get_ext_enum_GL_KHR_debug
     [
       'GL_DEBUG_OUTPUT_SYNCHRONOUS',
       'GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH',
@@ -2190,9 +2190,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_KHR_no_error
     OpenGL.const_set('GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR', 0x00000008) unless defined?(OpenGL::GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR)
-  end # define_ext_enum_GL_KHR_no_error
+  end # self.define_ext_enum_GL_KHR_no_error
 
-  def get_ext_enum_GL_KHR_no_error
+  def self.get_ext_enum_GL_KHR_no_error
     [
       'GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR',
     ]
@@ -2200,9 +2200,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_KHR_robust_buffer_access_behavior
-  end # define_ext_enum_GL_KHR_robust_buffer_access_behavior
+  end # self.define_ext_enum_GL_KHR_robust_buffer_access_behavior
 
-  def get_ext_enum_GL_KHR_robust_buffer_access_behavior
+  def self.get_ext_enum_GL_KHR_robust_buffer_access_behavior
     [
     ]
   end # self.get_ext_enum_GL_KHR_robust_buffer_access_behavior
@@ -2226,9 +2226,9 @@ module OpenGLExt
     OpenGL.const_set('GL_RESET_NOTIFICATION_STRATEGY_KHR', 0x8256) unless defined?(OpenGL::GL_RESET_NOTIFICATION_STRATEGY_KHR)
     OpenGL.const_set('GL_NO_RESET_NOTIFICATION_KHR', 0x8261) unless defined?(OpenGL::GL_NO_RESET_NOTIFICATION_KHR)
     OpenGL.const_set('GL_CONTEXT_LOST_KHR', 0x0507) unless defined?(OpenGL::GL_CONTEXT_LOST_KHR)
-  end # define_ext_enum_GL_KHR_robustness
+  end # self.define_ext_enum_GL_KHR_robustness
 
-  def get_ext_enum_GL_KHR_robustness
+  def self.get_ext_enum_GL_KHR_robustness
     [
       'GL_NO_ERROR',
       'GL_CONTEXT_ROBUST_ACCESS',
@@ -2280,9 +2280,9 @@ module OpenGLExt
     OpenGL.const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR', 0x93DB) unless defined?(OpenGL::GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR)
     OpenGL.const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR', 0x93DC) unless defined?(OpenGL::GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR)
     OpenGL.const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR', 0x93DD) unless defined?(OpenGL::GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR)
-  end # define_ext_enum_GL_KHR_texture_compression_astc_hdr
+  end # self.define_ext_enum_GL_KHR_texture_compression_astc_hdr
 
-  def get_ext_enum_GL_KHR_texture_compression_astc_hdr
+  def self.get_ext_enum_GL_KHR_texture_compression_astc_hdr
     [
       'GL_COMPRESSED_RGBA_ASTC_4x4_KHR',
       'GL_COMPRESSED_RGBA_ASTC_5x4_KHR',
@@ -2345,9 +2345,9 @@ module OpenGLExt
     OpenGL.const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR', 0x93DB) unless defined?(OpenGL::GL_COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR)
     OpenGL.const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR', 0x93DC) unless defined?(OpenGL::GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR)
     OpenGL.const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR', 0x93DD) unless defined?(OpenGL::GL_COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR)
-  end # define_ext_enum_GL_KHR_texture_compression_astc_ldr
+  end # self.define_ext_enum_GL_KHR_texture_compression_astc_ldr
 
-  def get_ext_enum_GL_KHR_texture_compression_astc_ldr
+  def self.get_ext_enum_GL_KHR_texture_compression_astc_ldr
     [
       'GL_COMPRESSED_RGBA_ASTC_4x4_KHR',
       'GL_COMPRESSED_RGBA_ASTC_5x4_KHR',
@@ -2382,18 +2382,18 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
-  end # define_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
+  end # self.define_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
 
-  def get_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
+  def self.get_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
     [
     ]
   end # self.get_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
 
 
   def self.define_ext_enum_GL_NV_bindless_texture
-  end # define_ext_enum_GL_NV_bindless_texture
+  end # self.define_ext_enum_GL_NV_bindless_texture
 
-  def get_ext_enum_GL_NV_bindless_texture
+  def self.get_ext_enum_GL_NV_bindless_texture
     [
     ]
   end # self.get_ext_enum_GL_NV_bindless_texture
@@ -2451,9 +2451,9 @@ module OpenGLExt
     OpenGL.const_set('GL_VIVIDLIGHT_NV', 0x92A6) unless defined?(OpenGL::GL_VIVIDLIGHT_NV)
     OpenGL.const_set('GL_XOR_NV', 0x1506) unless defined?(OpenGL::GL_XOR_NV)
     OpenGL.const_set('GL_ZERO', 0) unless defined?(OpenGL::GL_ZERO)
-  end # define_ext_enum_GL_NV_blend_equation_advanced
+  end # self.define_ext_enum_GL_NV_blend_equation_advanced
 
-  def get_ext_enum_GL_NV_blend_equation_advanced
+  def self.get_ext_enum_GL_NV_blend_equation_advanced
     [
       'GL_BLEND_OVERLAP_NV',
       'GL_BLEND_PREMULTIPLIED_SRC_NV',
@@ -2512,9 +2512,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_NV_blend_equation_advanced_coherent
     OpenGL.const_set('GL_BLEND_ADVANCED_COHERENT_NV', 0x9285) unless defined?(OpenGL::GL_BLEND_ADVANCED_COHERENT_NV)
-  end # define_ext_enum_GL_NV_blend_equation_advanced_coherent
+  end # self.define_ext_enum_GL_NV_blend_equation_advanced_coherent
 
-  def get_ext_enum_GL_NV_blend_equation_advanced_coherent
+  def self.get_ext_enum_GL_NV_blend_equation_advanced_coherent
     [
       'GL_BLEND_ADVANCED_COHERENT_NV',
     ]
@@ -2526,9 +2526,9 @@ module OpenGLExt
     OpenGL.const_set('GL_QUERY_NO_WAIT_NV', 0x8E14) unless defined?(OpenGL::GL_QUERY_NO_WAIT_NV)
     OpenGL.const_set('GL_QUERY_BY_REGION_WAIT_NV', 0x8E15) unless defined?(OpenGL::GL_QUERY_BY_REGION_WAIT_NV)
     OpenGL.const_set('GL_QUERY_BY_REGION_NO_WAIT_NV', 0x8E16) unless defined?(OpenGL::GL_QUERY_BY_REGION_NO_WAIT_NV)
-  end # define_ext_enum_GL_NV_conditional_render
+  end # self.define_ext_enum_GL_NV_conditional_render
 
-  def get_ext_enum_GL_NV_conditional_render
+  def self.get_ext_enum_GL_NV_conditional_render
     [
       'GL_QUERY_WAIT_NV',
       'GL_QUERY_NO_WAIT_NV',
@@ -2543,9 +2543,9 @@ module OpenGLExt
     OpenGL.const_set('GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV', 0x9347) unless defined?(OpenGL::GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV)
     OpenGL.const_set('GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV', 0x9348) unless defined?(OpenGL::GL_SUBPIXEL_PRECISION_BIAS_Y_BITS_NV)
     OpenGL.const_set('GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV', 0x9349) unless defined?(OpenGL::GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV)
-  end # define_ext_enum_GL_NV_conservative_raster
+  end # self.define_ext_enum_GL_NV_conservative_raster
 
-  def get_ext_enum_GL_NV_conservative_raster
+  def self.get_ext_enum_GL_NV_conservative_raster
     [
       'GL_CONSERVATIVE_RASTERIZATION_NV',
       'GL_SUBPIXEL_PRECISION_BIAS_X_BITS_NV',
@@ -2558,9 +2558,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_NV_copy_buffer
     OpenGL.const_set('GL_COPY_READ_BUFFER_NV', 0x8F36) unless defined?(OpenGL::GL_COPY_READ_BUFFER_NV)
     OpenGL.const_set('GL_COPY_WRITE_BUFFER_NV', 0x8F37) unless defined?(OpenGL::GL_COPY_WRITE_BUFFER_NV)
-  end # define_ext_enum_GL_NV_copy_buffer
+  end # self.define_ext_enum_GL_NV_copy_buffer
 
-  def get_ext_enum_GL_NV_copy_buffer
+  def self.get_ext_enum_GL_NV_copy_buffer
     [
       'GL_COPY_READ_BUFFER_NV',
       'GL_COPY_WRITE_BUFFER_NV',
@@ -2578,9 +2578,9 @@ module OpenGLExt
     OpenGL.const_set('GL_COVERAGE_EDGE_FRAGMENTS_NV', 0x8ED6) unless defined?(OpenGL::GL_COVERAGE_EDGE_FRAGMENTS_NV)
     OpenGL.const_set('GL_COVERAGE_AUTOMATIC_NV', 0x8ED7) unless defined?(OpenGL::GL_COVERAGE_AUTOMATIC_NV)
     OpenGL.const_set('GL_COVERAGE_BUFFER_BIT_NV', 0x00008000) unless defined?(OpenGL::GL_COVERAGE_BUFFER_BIT_NV)
-  end # define_ext_enum_GL_NV_coverage_sample
+  end # self.define_ext_enum_GL_NV_coverage_sample
 
-  def get_ext_enum_GL_NV_coverage_sample
+  def self.get_ext_enum_GL_NV_coverage_sample
     [
       'GL_COVERAGE_COMPONENT_NV',
       'GL_COVERAGE_COMPONENT4_NV',
@@ -2597,9 +2597,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_NV_depth_nonlinear
     OpenGL.const_set('GL_DEPTH_COMPONENT16_NONLINEAR_NV', 0x8E2C) unless defined?(OpenGL::GL_DEPTH_COMPONENT16_NONLINEAR_NV)
-  end # define_ext_enum_GL_NV_depth_nonlinear
+  end # self.define_ext_enum_GL_NV_depth_nonlinear
 
-  def get_ext_enum_GL_NV_depth_nonlinear
+  def self.get_ext_enum_GL_NV_depth_nonlinear
     [
       'GL_DEPTH_COMPONENT16_NONLINEAR_NV',
     ]
@@ -2640,9 +2640,9 @@ module OpenGLExt
     OpenGL.const_set('GL_COLOR_ATTACHMENT13_NV', 0x8CED) unless defined?(OpenGL::GL_COLOR_ATTACHMENT13_NV)
     OpenGL.const_set('GL_COLOR_ATTACHMENT14_NV', 0x8CEE) unless defined?(OpenGL::GL_COLOR_ATTACHMENT14_NV)
     OpenGL.const_set('GL_COLOR_ATTACHMENT15_NV', 0x8CEF) unless defined?(OpenGL::GL_COLOR_ATTACHMENT15_NV)
-  end # define_ext_enum_GL_NV_draw_buffers
+  end # self.define_ext_enum_GL_NV_draw_buffers
 
-  def get_ext_enum_GL_NV_draw_buffers
+  def self.get_ext_enum_GL_NV_draw_buffers
     [
       'GL_MAX_DRAW_BUFFERS_NV',
       'GL_DRAW_BUFFER0_NV',
@@ -2682,18 +2682,18 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_NV_draw_instanced
-  end # define_ext_enum_GL_NV_draw_instanced
+  end # self.define_ext_enum_GL_NV_draw_instanced
 
-  def get_ext_enum_GL_NV_draw_instanced
+  def self.get_ext_enum_GL_NV_draw_instanced
     [
     ]
   end # self.get_ext_enum_GL_NV_draw_instanced
 
 
   def self.define_ext_enum_GL_NV_explicit_attrib_location
-  end # define_ext_enum_GL_NV_explicit_attrib_location
+  end # self.define_ext_enum_GL_NV_explicit_attrib_location
 
-  def get_ext_enum_GL_NV_explicit_attrib_location
+  def self.get_ext_enum_GL_NV_explicit_attrib_location
     [
     ]
   end # self.get_ext_enum_GL_NV_explicit_attrib_location
@@ -2717,9 +2717,9 @@ module OpenGLExt
     OpenGL.const_set('GL_COLOR_ATTACHMENT13_NV', 0x8CED) unless defined?(OpenGL::GL_COLOR_ATTACHMENT13_NV)
     OpenGL.const_set('GL_COLOR_ATTACHMENT14_NV', 0x8CEE) unless defined?(OpenGL::GL_COLOR_ATTACHMENT14_NV)
     OpenGL.const_set('GL_COLOR_ATTACHMENT15_NV', 0x8CEF) unless defined?(OpenGL::GL_COLOR_ATTACHMENT15_NV)
-  end # define_ext_enum_GL_NV_fbo_color_attachments
+  end # self.define_ext_enum_GL_NV_fbo_color_attachments
 
-  def get_ext_enum_GL_NV_fbo_color_attachments
+  def self.get_ext_enum_GL_NV_fbo_color_attachments
     [
       'GL_MAX_COLOR_ATTACHMENTS_NV',
       'GL_COLOR_ATTACHMENT0_NV',
@@ -2746,9 +2746,9 @@ module OpenGLExt
     OpenGL.const_set('GL_ALL_COMPLETED_NV', 0x84F2) unless defined?(OpenGL::GL_ALL_COMPLETED_NV)
     OpenGL.const_set('GL_FENCE_STATUS_NV', 0x84F3) unless defined?(OpenGL::GL_FENCE_STATUS_NV)
     OpenGL.const_set('GL_FENCE_CONDITION_NV', 0x84F4) unless defined?(OpenGL::GL_FENCE_CONDITION_NV)
-  end # define_ext_enum_GL_NV_fence
+  end # self.define_ext_enum_GL_NV_fence
 
-  def get_ext_enum_GL_NV_fence
+  def self.get_ext_enum_GL_NV_fence
     [
       'GL_ALL_COMPLETED_NV',
       'GL_FENCE_STATUS_NV',
@@ -2759,9 +2759,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_NV_fill_rectangle
     OpenGL.const_set('GL_FILL_RECTANGLE_NV', 0x933C) unless defined?(OpenGL::GL_FILL_RECTANGLE_NV)
-  end # define_ext_enum_GL_NV_fill_rectangle
+  end # self.define_ext_enum_GL_NV_fill_rectangle
 
-  def get_ext_enum_GL_NV_fill_rectangle
+  def self.get_ext_enum_GL_NV_fill_rectangle
     [
       'GL_FILL_RECTANGLE_NV',
     ]
@@ -2771,9 +2771,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_NV_fragment_coverage_to_color
     OpenGL.const_set('GL_FRAGMENT_COVERAGE_TO_COLOR_NV', 0x92DD) unless defined?(OpenGL::GL_FRAGMENT_COVERAGE_TO_COLOR_NV)
     OpenGL.const_set('GL_FRAGMENT_COVERAGE_COLOR_NV', 0x92DE) unless defined?(OpenGL::GL_FRAGMENT_COVERAGE_COLOR_NV)
-  end # define_ext_enum_GL_NV_fragment_coverage_to_color
+  end # self.define_ext_enum_GL_NV_fragment_coverage_to_color
 
-  def get_ext_enum_GL_NV_fragment_coverage_to_color
+  def self.get_ext_enum_GL_NV_fragment_coverage_to_color
     [
       'GL_FRAGMENT_COVERAGE_TO_COLOR_NV',
       'GL_FRAGMENT_COVERAGE_COLOR_NV',
@@ -2782,9 +2782,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_NV_fragment_shader_interlock
-  end # define_ext_enum_GL_NV_fragment_shader_interlock
+  end # self.define_ext_enum_GL_NV_fragment_shader_interlock
 
-  def get_ext_enum_GL_NV_fragment_shader_interlock
+  def self.get_ext_enum_GL_NV_fragment_shader_interlock
     [
     ]
   end # self.get_ext_enum_GL_NV_fragment_shader_interlock
@@ -2795,9 +2795,9 @@ module OpenGLExt
     OpenGL.const_set('GL_DRAW_FRAMEBUFFER_NV', 0x8CA9) unless defined?(OpenGL::GL_DRAW_FRAMEBUFFER_NV)
     OpenGL.const_set('GL_DRAW_FRAMEBUFFER_BINDING_NV', 0x8CA6) unless defined?(OpenGL::GL_DRAW_FRAMEBUFFER_BINDING_NV)
     OpenGL.const_set('GL_READ_FRAMEBUFFER_BINDING_NV', 0x8CAA) unless defined?(OpenGL::GL_READ_FRAMEBUFFER_BINDING_NV)
-  end # define_ext_enum_GL_NV_framebuffer_blit
+  end # self.define_ext_enum_GL_NV_framebuffer_blit
 
-  def get_ext_enum_GL_NV_framebuffer_blit
+  def self.get_ext_enum_GL_NV_framebuffer_blit
     [
       'GL_READ_FRAMEBUFFER_NV',
       'GL_DRAW_FRAMEBUFFER_NV',
@@ -2822,9 +2822,9 @@ module OpenGLExt
     OpenGL.const_set('GL_MIXED_STENCIL_SAMPLES_SUPPORTED_NV', 0x9330) unless defined?(OpenGL::GL_MIXED_STENCIL_SAMPLES_SUPPORTED_NV)
     OpenGL.const_set('GL_COVERAGE_MODULATION_NV', 0x9332) unless defined?(OpenGL::GL_COVERAGE_MODULATION_NV)
     OpenGL.const_set('GL_COVERAGE_MODULATION_TABLE_SIZE_NV', 0x9333) unless defined?(OpenGL::GL_COVERAGE_MODULATION_TABLE_SIZE_NV)
-  end # define_ext_enum_GL_NV_framebuffer_mixed_samples
+  end # self.define_ext_enum_GL_NV_framebuffer_mixed_samples
 
-  def get_ext_enum_GL_NV_framebuffer_mixed_samples
+  def self.get_ext_enum_GL_NV_framebuffer_mixed_samples
     [
       'GL_RASTER_MULTISAMPLE_EXT',
       'GL_COVERAGE_MODULATION_TABLE_NV',
@@ -2848,9 +2848,9 @@ module OpenGLExt
     OpenGL.const_set('GL_RENDERBUFFER_SAMPLES_NV', 0x8CAB) unless defined?(OpenGL::GL_RENDERBUFFER_SAMPLES_NV)
     OpenGL.const_set('GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_NV', 0x8D56) unless defined?(OpenGL::GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_NV)
     OpenGL.const_set('GL_MAX_SAMPLES_NV', 0x8D57) unless defined?(OpenGL::GL_MAX_SAMPLES_NV)
-  end # define_ext_enum_GL_NV_framebuffer_multisample
+  end # self.define_ext_enum_GL_NV_framebuffer_multisample
 
-  def get_ext_enum_GL_NV_framebuffer_multisample
+  def self.get_ext_enum_GL_NV_framebuffer_multisample
     [
       'GL_RENDERBUFFER_SAMPLES_NV',
       'GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_NV',
@@ -2860,27 +2860,27 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_NV_generate_mipmap_sRGB
-  end # define_ext_enum_GL_NV_generate_mipmap_sRGB
+  end # self.define_ext_enum_GL_NV_generate_mipmap_sRGB
 
-  def get_ext_enum_GL_NV_generate_mipmap_sRGB
+  def self.get_ext_enum_GL_NV_generate_mipmap_sRGB
     [
     ]
   end # self.get_ext_enum_GL_NV_generate_mipmap_sRGB
 
 
   def self.define_ext_enum_GL_NV_geometry_shader_passthrough
-  end # define_ext_enum_GL_NV_geometry_shader_passthrough
+  end # self.define_ext_enum_GL_NV_geometry_shader_passthrough
 
-  def get_ext_enum_GL_NV_geometry_shader_passthrough
+  def self.get_ext_enum_GL_NV_geometry_shader_passthrough
     [
     ]
   end # self.get_ext_enum_GL_NV_geometry_shader_passthrough
 
 
   def self.define_ext_enum_GL_NV_image_formats
-  end # define_ext_enum_GL_NV_image_formats
+  end # self.define_ext_enum_GL_NV_image_formats
 
-  def get_ext_enum_GL_NV_image_formats
+  def self.get_ext_enum_GL_NV_image_formats
     [
     ]
   end # self.get_ext_enum_GL_NV_image_formats
@@ -2888,9 +2888,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_NV_instanced_arrays
     OpenGL.const_set('GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV', 0x88FE) unless defined?(OpenGL::GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV)
-  end # define_ext_enum_GL_NV_instanced_arrays
+  end # self.define_ext_enum_GL_NV_instanced_arrays
 
-  def get_ext_enum_GL_NV_instanced_arrays
+  def self.get_ext_enum_GL_NV_instanced_arrays
     [
       'GL_VERTEX_ATTRIB_ARRAY_DIVISOR_NV',
     ]
@@ -2905,9 +2905,9 @@ module OpenGLExt
     OpenGL.const_set('GL_SUPERSAMPLE_SCALE_X_NV', 0x9372) unless defined?(OpenGL::GL_SUPERSAMPLE_SCALE_X_NV)
     OpenGL.const_set('GL_SUPERSAMPLE_SCALE_Y_NV', 0x9373) unless defined?(OpenGL::GL_SUPERSAMPLE_SCALE_Y_NV)
     OpenGL.const_set('GL_CONFORMANT_NV', 0x9374) unless defined?(OpenGL::GL_CONFORMANT_NV)
-  end # define_ext_enum_GL_NV_internalformat_sample_query
+  end # self.define_ext_enum_GL_NV_internalformat_sample_query
 
-  def get_ext_enum_GL_NV_internalformat_sample_query
+  def self.get_ext_enum_GL_NV_internalformat_sample_query
     [
       'GL_RENDERBUFFER',
       'GL_TEXTURE_2D_MULTISAMPLE',
@@ -2927,9 +2927,9 @@ module OpenGLExt
     OpenGL.const_set('GL_FLOAT_MAT3x4_NV', 0x8B68) unless defined?(OpenGL::GL_FLOAT_MAT3x4_NV)
     OpenGL.const_set('GL_FLOAT_MAT4x2_NV', 0x8B69) unless defined?(OpenGL::GL_FLOAT_MAT4x2_NV)
     OpenGL.const_set('GL_FLOAT_MAT4x3_NV', 0x8B6A) unless defined?(OpenGL::GL_FLOAT_MAT4x3_NV)
-  end # define_ext_enum_GL_NV_non_square_matrices
+  end # self.define_ext_enum_GL_NV_non_square_matrices
 
-  def get_ext_enum_GL_NV_non_square_matrices
+  def self.get_ext_enum_GL_NV_non_square_matrices
     [
       'GL_FLOAT_MAT2x3_NV',
       'GL_FLOAT_MAT2x4_NV',
@@ -3106,9 +3106,9 @@ module OpenGLExt
     OpenGL.const_set('GL_PATH_MAX_PROJECTION_STACK_DEPTH_NV', 0x0D38) unless defined?(OpenGL::GL_PATH_MAX_PROJECTION_STACK_DEPTH_NV)
     OpenGL.const_set('GL_PATH_TRANSPOSE_PROJECTION_MATRIX_NV', 0x84E4) unless defined?(OpenGL::GL_PATH_TRANSPOSE_PROJECTION_MATRIX_NV)
     OpenGL.const_set('GL_FRAGMENT_INPUT_NV', 0x936D) unless defined?(OpenGL::GL_FRAGMENT_INPUT_NV)
-  end # define_ext_enum_GL_NV_path_rendering
+  end # self.define_ext_enum_GL_NV_path_rendering
 
-  def get_ext_enum_GL_NV_path_rendering
+  def self.get_ext_enum_GL_NV_path_rendering
     [
       'GL_PATH_FORMAT_SVG_NV',
       'GL_PATH_FORMAT_PS_NV',
@@ -3280,9 +3280,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_NV_path_rendering_shared_edge
     OpenGL.const_set('GL_SHARED_EDGE_NV', 0xC0) unless defined?(OpenGL::GL_SHARED_EDGE_NV)
-  end # define_ext_enum_GL_NV_path_rendering_shared_edge
+  end # self.define_ext_enum_GL_NV_path_rendering_shared_edge
 
-  def get_ext_enum_GL_NV_path_rendering_shared_edge
+  def self.get_ext_enum_GL_NV_path_rendering_shared_edge
     [
       'GL_SHARED_EDGE_NV',
     ]
@@ -3296,9 +3296,9 @@ module OpenGLExt
     OpenGL.const_set('GL_POINT_NV', 0x1B00) unless defined?(OpenGL::GL_POINT_NV)
     OpenGL.const_set('GL_LINE_NV', 0x1B01) unless defined?(OpenGL::GL_LINE_NV)
     OpenGL.const_set('GL_FILL_NV', 0x1B02) unless defined?(OpenGL::GL_FILL_NV)
-  end # define_ext_enum_GL_NV_polygon_mode
+  end # self.define_ext_enum_GL_NV_polygon_mode
 
-  def get_ext_enum_GL_NV_polygon_mode
+  def self.get_ext_enum_GL_NV_polygon_mode
     [
       'GL_POLYGON_MODE_NV',
       'GL_POLYGON_OFFSET_POINT_NV',
@@ -3312,9 +3312,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_NV_read_buffer
     OpenGL.const_set('GL_READ_BUFFER_NV', 0x0C02) unless defined?(OpenGL::GL_READ_BUFFER_NV)
-  end # define_ext_enum_GL_NV_read_buffer
+  end # self.define_ext_enum_GL_NV_read_buffer
 
-  def get_ext_enum_GL_NV_read_buffer
+  def self.get_ext_enum_GL_NV_read_buffer
     [
       'GL_READ_BUFFER_NV',
     ]
@@ -3322,36 +3322,36 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_NV_read_buffer_front
-  end # define_ext_enum_GL_NV_read_buffer_front
+  end # self.define_ext_enum_GL_NV_read_buffer_front
 
-  def get_ext_enum_GL_NV_read_buffer_front
+  def self.get_ext_enum_GL_NV_read_buffer_front
     [
     ]
   end # self.get_ext_enum_GL_NV_read_buffer_front
 
 
   def self.define_ext_enum_GL_NV_read_depth
-  end # define_ext_enum_GL_NV_read_depth
+  end # self.define_ext_enum_GL_NV_read_depth
 
-  def get_ext_enum_GL_NV_read_depth
+  def self.get_ext_enum_GL_NV_read_depth
     [
     ]
   end # self.get_ext_enum_GL_NV_read_depth
 
 
   def self.define_ext_enum_GL_NV_read_depth_stencil
-  end # define_ext_enum_GL_NV_read_depth_stencil
+  end # self.define_ext_enum_GL_NV_read_depth_stencil
 
-  def get_ext_enum_GL_NV_read_depth_stencil
+  def self.get_ext_enum_GL_NV_read_depth_stencil
     [
     ]
   end # self.get_ext_enum_GL_NV_read_depth_stencil
 
 
   def self.define_ext_enum_GL_NV_read_stencil
-  end # define_ext_enum_GL_NV_read_stencil
+  end # self.define_ext_enum_GL_NV_read_stencil
 
-  def get_ext_enum_GL_NV_read_stencil
+  def self.get_ext_enum_GL_NV_read_stencil
     [
     ]
   end # self.get_ext_enum_GL_NV_read_stencil
@@ -3368,9 +3368,9 @@ module OpenGLExt
     OpenGL.const_set('GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_NV', 0x8C4E) unless defined?(OpenGL::GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_NV)
     OpenGL.const_set('GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_NV', 0x8C4F) unless defined?(OpenGL::GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_NV)
     OpenGL.const_set('GL_ETC1_SRGB8_NV', 0x88EE) unless defined?(OpenGL::GL_ETC1_SRGB8_NV)
-  end # define_ext_enum_GL_NV_sRGB_formats
+  end # self.define_ext_enum_GL_NV_sRGB_formats
 
-  def get_ext_enum_GL_NV_sRGB_formats
+  def self.get_ext_enum_GL_NV_sRGB_formats
     [
       'GL_SLUMINANCE_NV',
       'GL_SLUMINANCE_ALPHA_NV',
@@ -3395,9 +3395,9 @@ module OpenGLExt
     OpenGL.const_set('GL_PROGRAMMABLE_SAMPLE_LOCATION_NV', 0x9341) unless defined?(OpenGL::GL_PROGRAMMABLE_SAMPLE_LOCATION_NV)
     OpenGL.const_set('GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV', 0x9342) unless defined?(OpenGL::GL_FRAMEBUFFER_PROGRAMMABLE_SAMPLE_LOCATIONS_NV)
     OpenGL.const_set('GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV', 0x9343) unless defined?(OpenGL::GL_FRAMEBUFFER_SAMPLE_LOCATION_PIXEL_GRID_NV)
-  end # define_ext_enum_GL_NV_sample_locations
+  end # self.define_ext_enum_GL_NV_sample_locations
 
-  def get_ext_enum_GL_NV_sample_locations
+  def self.get_ext_enum_GL_NV_sample_locations
     [
       'GL_SAMPLE_LOCATION_SUBPIXEL_BITS_NV',
       'GL_SAMPLE_LOCATION_PIXEL_GRID_WIDTH_NV',
@@ -3412,18 +3412,18 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_NV_sample_mask_override_coverage
-  end # define_ext_enum_GL_NV_sample_mask_override_coverage
+  end # self.define_ext_enum_GL_NV_sample_mask_override_coverage
 
-  def get_ext_enum_GL_NV_sample_mask_override_coverage
+  def self.get_ext_enum_GL_NV_sample_mask_override_coverage
     [
     ]
   end # self.get_ext_enum_GL_NV_sample_mask_override_coverage
 
 
   def self.define_ext_enum_GL_NV_shader_noperspective_interpolation
-  end # define_ext_enum_GL_NV_shader_noperspective_interpolation
+  end # self.define_ext_enum_GL_NV_shader_noperspective_interpolation
 
-  def get_ext_enum_GL_NV_shader_noperspective_interpolation
+  def self.get_ext_enum_GL_NV_shader_noperspective_interpolation
     [
     ]
   end # self.get_ext_enum_GL_NV_shader_noperspective_interpolation
@@ -3431,9 +3431,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_NV_shadow_samplers_array
     OpenGL.const_set('GL_SAMPLER_2D_ARRAY_SHADOW_NV', 0x8DC4) unless defined?(OpenGL::GL_SAMPLER_2D_ARRAY_SHADOW_NV)
-  end # define_ext_enum_GL_NV_shadow_samplers_array
+  end # self.define_ext_enum_GL_NV_shadow_samplers_array
 
-  def get_ext_enum_GL_NV_shadow_samplers_array
+  def self.get_ext_enum_GL_NV_shadow_samplers_array
     [
       'GL_SAMPLER_2D_ARRAY_SHADOW_NV',
     ]
@@ -3442,9 +3442,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_NV_shadow_samplers_cube
     OpenGL.const_set('GL_SAMPLER_CUBE_SHADOW_NV', 0x8DC5) unless defined?(OpenGL::GL_SAMPLER_CUBE_SHADOW_NV)
-  end # define_ext_enum_GL_NV_shadow_samplers_cube
+  end # self.define_ext_enum_GL_NV_shadow_samplers_cube
 
-  def get_ext_enum_GL_NV_shadow_samplers_cube
+  def self.get_ext_enum_GL_NV_shadow_samplers_cube
     [
       'GL_SAMPLER_CUBE_SHADOW_NV',
     ]
@@ -3454,9 +3454,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_NV_texture_border_clamp
     OpenGL.const_set('GL_TEXTURE_BORDER_COLOR_NV', 0x1004) unless defined?(OpenGL::GL_TEXTURE_BORDER_COLOR_NV)
     OpenGL.const_set('GL_CLAMP_TO_BORDER_NV', 0x812D) unless defined?(OpenGL::GL_CLAMP_TO_BORDER_NV)
-  end # define_ext_enum_GL_NV_texture_border_clamp
+  end # self.define_ext_enum_GL_NV_texture_border_clamp
 
-  def get_ext_enum_GL_NV_texture_border_clamp
+  def self.get_ext_enum_GL_NV_texture_border_clamp
     [
       'GL_TEXTURE_BORDER_COLOR_NV',
       'GL_CLAMP_TO_BORDER_NV',
@@ -3465,18 +3465,18 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_NV_texture_compression_s3tc_update
-  end # define_ext_enum_GL_NV_texture_compression_s3tc_update
+  end # self.define_ext_enum_GL_NV_texture_compression_s3tc_update
 
-  def get_ext_enum_GL_NV_texture_compression_s3tc_update
+  def self.get_ext_enum_GL_NV_texture_compression_s3tc_update
     [
     ]
   end # self.get_ext_enum_GL_NV_texture_compression_s3tc_update
 
 
   def self.define_ext_enum_GL_NV_texture_npot_2D_mipmap
-  end # define_ext_enum_GL_NV_texture_npot_2D_mipmap
+  end # self.define_ext_enum_GL_NV_texture_npot_2D_mipmap
 
-  def get_ext_enum_GL_NV_texture_npot_2D_mipmap
+  def self.get_ext_enum_GL_NV_texture_npot_2D_mipmap
     [
     ]
   end # self.get_ext_enum_GL_NV_texture_npot_2D_mipmap
@@ -3491,9 +3491,9 @@ module OpenGLExt
     OpenGL.const_set('GL_VIEWPORT', 0x0BA2) unless defined?(OpenGL::GL_VIEWPORT)
     OpenGL.const_set('GL_DEPTH_RANGE', 0x0B70) unless defined?(OpenGL::GL_DEPTH_RANGE)
     OpenGL.const_set('GL_SCISSOR_TEST', 0x0C11) unless defined?(OpenGL::GL_SCISSOR_TEST)
-  end # define_ext_enum_GL_NV_viewport_array
+  end # self.define_ext_enum_GL_NV_viewport_array
 
-  def get_ext_enum_GL_NV_viewport_array
+  def self.get_ext_enum_GL_NV_viewport_array
     [
       'GL_MAX_VIEWPORTS_NV',
       'GL_VIEWPORT_SUBPIXEL_BITS_NV',
@@ -3508,18 +3508,18 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_NV_viewport_array2
-  end # define_ext_enum_GL_NV_viewport_array2
+  end # self.define_ext_enum_GL_NV_viewport_array2
 
-  def get_ext_enum_GL_NV_viewport_array2
+  def self.get_ext_enum_GL_NV_viewport_array2
     [
     ]
   end # self.get_ext_enum_GL_NV_viewport_array2
 
 
   def self.define_ext_enum_GL_OES_EGL_image
-  end # define_ext_enum_GL_OES_EGL_image
+  end # self.define_ext_enum_GL_OES_EGL_image
 
-  def get_ext_enum_GL_OES_EGL_image
+  def self.get_ext_enum_GL_OES_EGL_image
     [
     ]
   end # self.get_ext_enum_GL_OES_EGL_image
@@ -3530,9 +3530,9 @@ module OpenGLExt
     OpenGL.const_set('GL_TEXTURE_BINDING_EXTERNAL_OES', 0x8D67) unless defined?(OpenGL::GL_TEXTURE_BINDING_EXTERNAL_OES)
     OpenGL.const_set('GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES', 0x8D68) unless defined?(OpenGL::GL_REQUIRED_TEXTURE_IMAGE_UNITS_OES)
     OpenGL.const_set('GL_SAMPLER_EXTERNAL_OES', 0x8D66) unless defined?(OpenGL::GL_SAMPLER_EXTERNAL_OES)
-  end # define_ext_enum_GL_OES_EGL_image_external
+  end # self.define_ext_enum_GL_OES_EGL_image_external
 
-  def get_ext_enum_GL_OES_EGL_image_external
+  def self.get_ext_enum_GL_OES_EGL_image_external
     [
       'GL_TEXTURE_EXTERNAL_OES',
       'GL_TEXTURE_BINDING_EXTERNAL_OES',
@@ -3543,18 +3543,18 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_OES_EGL_image_external_essl3
-  end # define_ext_enum_GL_OES_EGL_image_external_essl3
+  end # self.define_ext_enum_GL_OES_EGL_image_external_essl3
 
-  def get_ext_enum_GL_OES_EGL_image_external_essl3
+  def self.get_ext_enum_GL_OES_EGL_image_external_essl3
     [
     ]
   end # self.get_ext_enum_GL_OES_EGL_image_external_essl3
 
 
   def self.define_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
-  end # define_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
+  end # self.define_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
 
-  def get_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
+  def self.get_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
     [
     ]
   end # self.get_ext_enum_GL_OES_compressed_ETC1_RGB8_sub_texture
@@ -3562,9 +3562,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_OES_compressed_ETC1_RGB8_texture
     OpenGL.const_set('GL_ETC1_RGB8_OES', 0x8D64) unless defined?(OpenGL::GL_ETC1_RGB8_OES)
-  end # define_ext_enum_GL_OES_compressed_ETC1_RGB8_texture
+  end # self.define_ext_enum_GL_OES_compressed_ETC1_RGB8_texture
 
-  def get_ext_enum_GL_OES_compressed_ETC1_RGB8_texture
+  def self.get_ext_enum_GL_OES_compressed_ETC1_RGB8_texture
     [
       'GL_ETC1_RGB8_OES',
     ]
@@ -3582,9 +3582,9 @@ module OpenGLExt
     OpenGL.const_set('GL_PALETTE8_R5_G6_B5_OES', 0x8B97) unless defined?(OpenGL::GL_PALETTE8_R5_G6_B5_OES)
     OpenGL.const_set('GL_PALETTE8_RGBA4_OES', 0x8B98) unless defined?(OpenGL::GL_PALETTE8_RGBA4_OES)
     OpenGL.const_set('GL_PALETTE8_RGB5_A1_OES', 0x8B99) unless defined?(OpenGL::GL_PALETTE8_RGB5_A1_OES)
-  end # define_ext_enum_GL_OES_compressed_paletted_texture
+  end # self.define_ext_enum_GL_OES_compressed_paletted_texture
 
-  def get_ext_enum_GL_OES_compressed_paletted_texture
+  def self.get_ext_enum_GL_OES_compressed_paletted_texture
     [
       'GL_PALETTE4_RGB8_OES',
       'GL_PALETTE4_RGBA8_OES',
@@ -3601,9 +3601,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_OES_copy_image
-  end # define_ext_enum_GL_OES_copy_image
+  end # self.define_ext_enum_GL_OES_copy_image
 
-  def get_ext_enum_GL_OES_copy_image
+  def self.get_ext_enum_GL_OES_copy_image
     [
     ]
   end # self.get_ext_enum_GL_OES_copy_image
@@ -3611,9 +3611,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_OES_depth24
     OpenGL.const_set('GL_DEPTH_COMPONENT24_OES', 0x81A6) unless defined?(OpenGL::GL_DEPTH_COMPONENT24_OES)
-  end # define_ext_enum_GL_OES_depth24
+  end # self.define_ext_enum_GL_OES_depth24
 
-  def get_ext_enum_GL_OES_depth24
+  def self.get_ext_enum_GL_OES_depth24
     [
       'GL_DEPTH_COMPONENT24_OES',
     ]
@@ -3622,9 +3622,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_OES_depth32
     OpenGL.const_set('GL_DEPTH_COMPONENT32_OES', 0x81A7) unless defined?(OpenGL::GL_DEPTH_COMPONENT32_OES)
-  end # define_ext_enum_GL_OES_depth32
+  end # self.define_ext_enum_GL_OES_depth32
 
-  def get_ext_enum_GL_OES_depth32
+  def self.get_ext_enum_GL_OES_depth32
     [
       'GL_DEPTH_COMPONENT32_OES',
     ]
@@ -3635,9 +3635,9 @@ module OpenGLExt
     OpenGL.const_set('GL_DEPTH_COMPONENT', 0x1902) unless defined?(OpenGL::GL_DEPTH_COMPONENT)
     OpenGL.const_set('GL_UNSIGNED_SHORT', 0x1403) unless defined?(OpenGL::GL_UNSIGNED_SHORT)
     OpenGL.const_set('GL_UNSIGNED_INT', 0x1405) unless defined?(OpenGL::GL_UNSIGNED_INT)
-  end # define_ext_enum_GL_OES_depth_texture
+  end # self.define_ext_enum_GL_OES_depth_texture
 
-  def get_ext_enum_GL_OES_depth_texture
+  def self.get_ext_enum_GL_OES_depth_texture
     [
       'GL_DEPTH_COMPONENT',
       'GL_UNSIGNED_SHORT',
@@ -3675,9 +3675,9 @@ module OpenGLExt
     OpenGL.const_set('GL_CONSTANT_ALPHA', 0x8003) unless defined?(OpenGL::GL_CONSTANT_ALPHA)
     OpenGL.const_set('GL_ONE_MINUS_CONSTANT_ALPHA', 0x8004) unless defined?(OpenGL::GL_ONE_MINUS_CONSTANT_ALPHA)
     OpenGL.const_set('GL_SRC_ALPHA_SATURATE', 0x0308) unless defined?(OpenGL::GL_SRC_ALPHA_SATURATE)
-  end # define_ext_enum_GL_OES_draw_buffers_indexed
+  end # self.define_ext_enum_GL_OES_draw_buffers_indexed
 
-  def get_ext_enum_GL_OES_draw_buffers_indexed
+  def self.get_ext_enum_GL_OES_draw_buffers_indexed
     [
       'GL_BLEND_EQUATION_RGB',
       'GL_BLEND_EQUATION_ALPHA',
@@ -3712,9 +3712,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_OES_draw_elements_base_vertex
-  end # define_ext_enum_GL_OES_draw_elements_base_vertex
+  end # self.define_ext_enum_GL_OES_draw_elements_base_vertex
 
-  def get_ext_enum_GL_OES_draw_elements_base_vertex
+  def self.get_ext_enum_GL_OES_draw_elements_base_vertex
     [
     ]
   end # self.get_ext_enum_GL_OES_draw_elements_base_vertex
@@ -3722,9 +3722,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_OES_element_index_uint
     OpenGL.const_set('GL_UNSIGNED_INT', 0x1405) unless defined?(OpenGL::GL_UNSIGNED_INT)
-  end # define_ext_enum_GL_OES_element_index_uint
+  end # self.define_ext_enum_GL_OES_element_index_uint
 
-  def get_ext_enum_GL_OES_element_index_uint
+  def self.get_ext_enum_GL_OES_element_index_uint
     [
       'GL_UNSIGNED_INT',
     ]
@@ -3732,27 +3732,27 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_OES_fbo_render_mipmap
-  end # define_ext_enum_GL_OES_fbo_render_mipmap
+  end # self.define_ext_enum_GL_OES_fbo_render_mipmap
 
-  def get_ext_enum_GL_OES_fbo_render_mipmap
+  def self.get_ext_enum_GL_OES_fbo_render_mipmap
     [
     ]
   end # self.get_ext_enum_GL_OES_fbo_render_mipmap
 
 
   def self.define_ext_enum_GL_OES_fragment_precision_high
-  end # define_ext_enum_GL_OES_fragment_precision_high
+  end # self.define_ext_enum_GL_OES_fragment_precision_high
 
-  def get_ext_enum_GL_OES_fragment_precision_high
+  def self.get_ext_enum_GL_OES_fragment_precision_high
     [
     ]
   end # self.get_ext_enum_GL_OES_fragment_precision_high
 
 
   def self.define_ext_enum_GL_OES_geometry_point_size
-  end # define_ext_enum_GL_OES_geometry_point_size
+  end # self.define_ext_enum_GL_OES_geometry_point_size
 
-  def get_ext_enum_GL_OES_geometry_point_size
+  def self.get_ext_enum_GL_OES_geometry_point_size
     [
     ]
   end # self.get_ext_enum_GL_OES_geometry_point_size
@@ -3792,9 +3792,9 @@ module OpenGLExt
     OpenGL.const_set('GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_OES', 0x8DA8) unless defined?(OpenGL::GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS_OES)
     OpenGL.const_set('GL_FRAMEBUFFER_ATTACHMENT_LAYERED_OES', 0x8DA7) unless defined?(OpenGL::GL_FRAMEBUFFER_ATTACHMENT_LAYERED_OES)
     OpenGL.const_set('GL_REFERENCED_BY_GEOMETRY_SHADER_OES', 0x9309) unless defined?(OpenGL::GL_REFERENCED_BY_GEOMETRY_SHADER_OES)
-  end # define_ext_enum_GL_OES_geometry_shader
+  end # self.define_ext_enum_GL_OES_geometry_shader
 
-  def get_ext_enum_GL_OES_geometry_shader
+  def self.get_ext_enum_GL_OES_geometry_shader
     [
       'GL_GEOMETRY_SHADER_OES',
       'GL_GEOMETRY_SHADER_BIT_OES',
@@ -3837,9 +3837,9 @@ module OpenGLExt
     OpenGL.const_set('GL_PROGRAM_BINARY_LENGTH_OES', 0x8741) unless defined?(OpenGL::GL_PROGRAM_BINARY_LENGTH_OES)
     OpenGL.const_set('GL_NUM_PROGRAM_BINARY_FORMATS_OES', 0x87FE) unless defined?(OpenGL::GL_NUM_PROGRAM_BINARY_FORMATS_OES)
     OpenGL.const_set('GL_PROGRAM_BINARY_FORMATS_OES', 0x87FF) unless defined?(OpenGL::GL_PROGRAM_BINARY_FORMATS_OES)
-  end # define_ext_enum_GL_OES_get_program_binary
+  end # self.define_ext_enum_GL_OES_get_program_binary
 
-  def get_ext_enum_GL_OES_get_program_binary
+  def self.get_ext_enum_GL_OES_get_program_binary
     [
       'GL_PROGRAM_BINARY_LENGTH_OES',
       'GL_NUM_PROGRAM_BINARY_FORMATS_OES',
@@ -3849,9 +3849,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_OES_gpu_shader5
-  end # define_ext_enum_GL_OES_gpu_shader5
+  end # self.define_ext_enum_GL_OES_gpu_shader5
 
-  def get_ext_enum_GL_OES_gpu_shader5
+  def self.get_ext_enum_GL_OES_gpu_shader5
     [
     ]
   end # self.get_ext_enum_GL_OES_gpu_shader5
@@ -3862,9 +3862,9 @@ module OpenGLExt
     OpenGL.const_set('GL_BUFFER_ACCESS_OES', 0x88BB) unless defined?(OpenGL::GL_BUFFER_ACCESS_OES)
     OpenGL.const_set('GL_BUFFER_MAPPED_OES', 0x88BC) unless defined?(OpenGL::GL_BUFFER_MAPPED_OES)
     OpenGL.const_set('GL_BUFFER_MAP_POINTER_OES', 0x88BD) unless defined?(OpenGL::GL_BUFFER_MAP_POINTER_OES)
-  end # define_ext_enum_GL_OES_mapbuffer
+  end # self.define_ext_enum_GL_OES_mapbuffer
 
-  def get_ext_enum_GL_OES_mapbuffer
+  def self.get_ext_enum_GL_OES_mapbuffer
     [
       'GL_WRITE_ONLY_OES',
       'GL_BUFFER_ACCESS_OES',
@@ -3878,9 +3878,9 @@ module OpenGLExt
     OpenGL.const_set('GL_DEPTH_STENCIL_OES', 0x84F9) unless defined?(OpenGL::GL_DEPTH_STENCIL_OES)
     OpenGL.const_set('GL_UNSIGNED_INT_24_8_OES', 0x84FA) unless defined?(OpenGL::GL_UNSIGNED_INT_24_8_OES)
     OpenGL.const_set('GL_DEPTH24_STENCIL8_OES', 0x88F0) unless defined?(OpenGL::GL_DEPTH24_STENCIL8_OES)
-  end # define_ext_enum_GL_OES_packed_depth_stencil
+  end # self.define_ext_enum_GL_OES_packed_depth_stencil
 
-  def get_ext_enum_GL_OES_packed_depth_stencil
+  def self.get_ext_enum_GL_OES_packed_depth_stencil
     [
       'GL_DEPTH_STENCIL_OES',
       'GL_UNSIGNED_INT_24_8_OES',
@@ -3891,9 +3891,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_OES_primitive_bounding_box
     OpenGL.const_set('GL_PRIMITIVE_BOUNDING_BOX_OES', 0x92BE) unless defined?(OpenGL::GL_PRIMITIVE_BOUNDING_BOX_OES)
-  end # define_ext_enum_GL_OES_primitive_bounding_box
+  end # self.define_ext_enum_GL_OES_primitive_bounding_box
 
-  def get_ext_enum_GL_OES_primitive_bounding_box
+  def self.get_ext_enum_GL_OES_primitive_bounding_box
     [
       'GL_PRIMITIVE_BOUNDING_BOX_OES',
     ]
@@ -3916,9 +3916,9 @@ module OpenGLExt
     OpenGL.const_set('GL_RGBA8_OES', 0x8058) unless defined?(OpenGL::GL_RGBA8_OES)
     OpenGL.const_set('GL_RGB10_EXT', 0x8052) unless defined?(OpenGL::GL_RGB10_EXT)
     OpenGL.const_set('GL_RGB10_A2_EXT', 0x8059) unless defined?(OpenGL::GL_RGB10_A2_EXT)
-  end # define_ext_enum_GL_OES_required_internalformat
+  end # self.define_ext_enum_GL_OES_required_internalformat
 
-  def get_ext_enum_GL_OES_required_internalformat
+  def self.get_ext_enum_GL_OES_required_internalformat
     [
       'GL_ALPHA8_OES',
       'GL_DEPTH_COMPONENT16_OES',
@@ -3942,9 +3942,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_OES_rgb8_rgba8
     OpenGL.const_set('GL_RGB8_OES', 0x8051) unless defined?(OpenGL::GL_RGB8_OES)
     OpenGL.const_set('GL_RGBA8_OES', 0x8058) unless defined?(OpenGL::GL_RGBA8_OES)
-  end # define_ext_enum_GL_OES_rgb8_rgba8
+  end # self.define_ext_enum_GL_OES_rgb8_rgba8
 
-  def get_ext_enum_GL_OES_rgb8_rgba8
+  def self.get_ext_enum_GL_OES_rgb8_rgba8
     [
       'GL_RGB8_OES',
       'GL_RGBA8_OES',
@@ -3955,9 +3955,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_OES_sample_shading
     OpenGL.const_set('GL_SAMPLE_SHADING_OES', 0x8C36) unless defined?(OpenGL::GL_SAMPLE_SHADING_OES)
     OpenGL.const_set('GL_MIN_SAMPLE_SHADING_VALUE_OES', 0x8C37) unless defined?(OpenGL::GL_MIN_SAMPLE_SHADING_VALUE_OES)
-  end # define_ext_enum_GL_OES_sample_shading
+  end # self.define_ext_enum_GL_OES_sample_shading
 
-  def get_ext_enum_GL_OES_sample_shading
+  def self.get_ext_enum_GL_OES_sample_shading
     [
       'GL_SAMPLE_SHADING_OES',
       'GL_MIN_SAMPLE_SHADING_VALUE_OES',
@@ -3966,27 +3966,27 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_OES_sample_variables
-  end # define_ext_enum_GL_OES_sample_variables
+  end # self.define_ext_enum_GL_OES_sample_variables
 
-  def get_ext_enum_GL_OES_sample_variables
+  def self.get_ext_enum_GL_OES_sample_variables
     [
     ]
   end # self.get_ext_enum_GL_OES_sample_variables
 
 
   def self.define_ext_enum_GL_OES_shader_image_atomic
-  end # define_ext_enum_GL_OES_shader_image_atomic
+  end # self.define_ext_enum_GL_OES_shader_image_atomic
 
-  def get_ext_enum_GL_OES_shader_image_atomic
+  def self.get_ext_enum_GL_OES_shader_image_atomic
     [
     ]
   end # self.get_ext_enum_GL_OES_shader_image_atomic
 
 
   def self.define_ext_enum_GL_OES_shader_io_blocks
-  end # define_ext_enum_GL_OES_shader_io_blocks
+  end # self.define_ext_enum_GL_OES_shader_io_blocks
 
-  def get_ext_enum_GL_OES_shader_io_blocks
+  def self.get_ext_enum_GL_OES_shader_io_blocks
     [
     ]
   end # self.get_ext_enum_GL_OES_shader_io_blocks
@@ -3996,9 +3996,9 @@ module OpenGLExt
     OpenGL.const_set('GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES', 0x8E5B) unless defined?(OpenGL::GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES)
     OpenGL.const_set('GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_OES', 0x8E5C) unless defined?(OpenGL::GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_OES)
     OpenGL.const_set('GL_FRAGMENT_INTERPOLATION_OFFSET_BITS_OES', 0x8E5D) unless defined?(OpenGL::GL_FRAGMENT_INTERPOLATION_OFFSET_BITS_OES)
-  end # define_ext_enum_GL_OES_shader_multisample_interpolation
+  end # self.define_ext_enum_GL_OES_shader_multisample_interpolation
 
-  def get_ext_enum_GL_OES_shader_multisample_interpolation
+  def self.get_ext_enum_GL_OES_shader_multisample_interpolation
     [
       'GL_MIN_FRAGMENT_INTERPOLATION_OFFSET_OES',
       'GL_MAX_FRAGMENT_INTERPOLATION_OFFSET_OES',
@@ -4009,9 +4009,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_OES_standard_derivatives
     OpenGL.const_set('GL_FRAGMENT_SHADER_DERIVATIVE_HINT_OES', 0x8B8B) unless defined?(OpenGL::GL_FRAGMENT_SHADER_DERIVATIVE_HINT_OES)
-  end # define_ext_enum_GL_OES_standard_derivatives
+  end # self.define_ext_enum_GL_OES_standard_derivatives
 
-  def get_ext_enum_GL_OES_standard_derivatives
+  def self.get_ext_enum_GL_OES_standard_derivatives
     [
       'GL_FRAGMENT_SHADER_DERIVATIVE_HINT_OES',
     ]
@@ -4020,9 +4020,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_OES_stencil1
     OpenGL.const_set('GL_STENCIL_INDEX1_OES', 0x8D46) unless defined?(OpenGL::GL_STENCIL_INDEX1_OES)
-  end # define_ext_enum_GL_OES_stencil1
+  end # self.define_ext_enum_GL_OES_stencil1
 
-  def get_ext_enum_GL_OES_stencil1
+  def self.get_ext_enum_GL_OES_stencil1
     [
       'GL_STENCIL_INDEX1_OES',
     ]
@@ -4031,9 +4031,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_OES_stencil4
     OpenGL.const_set('GL_STENCIL_INDEX4_OES', 0x8D47) unless defined?(OpenGL::GL_STENCIL_INDEX4_OES)
-  end # define_ext_enum_GL_OES_stencil4
+  end # self.define_ext_enum_GL_OES_stencil4
 
-  def get_ext_enum_GL_OES_stencil4
+  def self.get_ext_enum_GL_OES_stencil4
     [
       'GL_STENCIL_INDEX4_OES',
     ]
@@ -4042,9 +4042,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_OES_surfaceless_context
     OpenGL.const_set('GL_FRAMEBUFFER_UNDEFINED_OES', 0x8219) unless defined?(OpenGL::GL_FRAMEBUFFER_UNDEFINED_OES)
-  end # define_ext_enum_GL_OES_surfaceless_context
+  end # self.define_ext_enum_GL_OES_surfaceless_context
 
-  def get_ext_enum_GL_OES_surfaceless_context
+  def self.get_ext_enum_GL_OES_surfaceless_context
     [
       'GL_FRAMEBUFFER_UNDEFINED_OES',
     ]
@@ -4052,9 +4052,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_OES_tessellation_point_size
-  end # define_ext_enum_GL_OES_tessellation_point_size
+  end # self.define_ext_enum_GL_OES_tessellation_point_size
 
-  def get_ext_enum_GL_OES_tessellation_point_size
+  def self.get_ext_enum_GL_OES_tessellation_point_size
     [
     ]
   end # self.get_ext_enum_GL_OES_tessellation_point_size
@@ -4108,9 +4108,9 @@ module OpenGLExt
     OpenGL.const_set('GL_TESS_EVALUATION_SHADER_OES', 0x8E87) unless defined?(OpenGL::GL_TESS_EVALUATION_SHADER_OES)
     OpenGL.const_set('GL_TESS_CONTROL_SHADER_BIT_OES', 0x00000008) unless defined?(OpenGL::GL_TESS_CONTROL_SHADER_BIT_OES)
     OpenGL.const_set('GL_TESS_EVALUATION_SHADER_BIT_OES', 0x00000010) unless defined?(OpenGL::GL_TESS_EVALUATION_SHADER_BIT_OES)
-  end # define_ext_enum_GL_OES_tessellation_shader
+  end # self.define_ext_enum_GL_OES_tessellation_shader
 
-  def get_ext_enum_GL_OES_tessellation_shader
+  def self.get_ext_enum_GL_OES_tessellation_shader
     [
       'GL_PATCHES_OES',
       'GL_PATCH_VERTICES_OES',
@@ -4170,9 +4170,9 @@ module OpenGLExt
     OpenGL.const_set('GL_MAX_3D_TEXTURE_SIZE_OES', 0x8073) unless defined?(OpenGL::GL_MAX_3D_TEXTURE_SIZE_OES)
     OpenGL.const_set('GL_SAMPLER_3D_OES', 0x8B5F) unless defined?(OpenGL::GL_SAMPLER_3D_OES)
     OpenGL.const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_OES', 0x8CD4) unless defined?(OpenGL::GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET_OES)
-  end # define_ext_enum_GL_OES_texture_3D
+  end # self.define_ext_enum_GL_OES_texture_3D
 
-  def get_ext_enum_GL_OES_texture_3D
+  def self.get_ext_enum_GL_OES_texture_3D
     [
       'GL_TEXTURE_WRAP_R_OES',
       'GL_TEXTURE_3D_OES',
@@ -4187,9 +4187,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_OES_texture_border_clamp
     OpenGL.const_set('GL_TEXTURE_BORDER_COLOR_OES', 0x1004) unless defined?(OpenGL::GL_TEXTURE_BORDER_COLOR_OES)
     OpenGL.const_set('GL_CLAMP_TO_BORDER_OES', 0x812D) unless defined?(OpenGL::GL_CLAMP_TO_BORDER_OES)
-  end # define_ext_enum_GL_OES_texture_border_clamp
+  end # self.define_ext_enum_GL_OES_texture_border_clamp
 
-  def get_ext_enum_GL_OES_texture_border_clamp
+  def self.get_ext_enum_GL_OES_texture_border_clamp
     [
       'GL_TEXTURE_BORDER_COLOR_OES',
       'GL_CLAMP_TO_BORDER_OES',
@@ -4212,9 +4212,9 @@ module OpenGLExt
     OpenGL.const_set('GL_UNSIGNED_INT_IMAGE_BUFFER_OES', 0x9067) unless defined?(OpenGL::GL_UNSIGNED_INT_IMAGE_BUFFER_OES)
     OpenGL.const_set('GL_TEXTURE_BUFFER_OFFSET_OES', 0x919D) unless defined?(OpenGL::GL_TEXTURE_BUFFER_OFFSET_OES)
     OpenGL.const_set('GL_TEXTURE_BUFFER_SIZE_OES', 0x919E) unless defined?(OpenGL::GL_TEXTURE_BUFFER_SIZE_OES)
-  end # define_ext_enum_GL_OES_texture_buffer
+  end # self.define_ext_enum_GL_OES_texture_buffer
 
-  def get_ext_enum_GL_OES_texture_buffer
+  def self.get_ext_enum_GL_OES_texture_buffer
     [
       'GL_TEXTURE_BUFFER_OES',
       'GL_TEXTURE_BUFFER_BINDING_OES',
@@ -4283,9 +4283,9 @@ module OpenGLExt
     OpenGL.const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5x5_OES', 0x93E7) unless defined?(OpenGL::GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x5x5_OES)
     OpenGL.const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x5_OES', 0x93E8) unless defined?(OpenGL::GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x5_OES)
     OpenGL.const_set('GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x6_OES', 0x93E9) unless defined?(OpenGL::GL_COMPRESSED_SRGB8_ALPHA8_ASTC_6x6x6_OES)
-  end # define_ext_enum_GL_OES_texture_compression_astc
+  end # self.define_ext_enum_GL_OES_texture_compression_astc
 
-  def get_ext_enum_GL_OES_texture_compression_astc
+  def self.get_ext_enum_GL_OES_texture_compression_astc
     [
       'GL_COMPRESSED_RGBA_ASTC_4x4_KHR',
       'GL_COMPRESSED_RGBA_ASTC_5x4_KHR',
@@ -4349,9 +4349,9 @@ module OpenGLExt
     OpenGL.const_set('GL_IMAGE_CUBE_MAP_ARRAY_OES', 0x9054) unless defined?(OpenGL::GL_IMAGE_CUBE_MAP_ARRAY_OES)
     OpenGL.const_set('GL_INT_IMAGE_CUBE_MAP_ARRAY_OES', 0x905F) unless defined?(OpenGL::GL_INT_IMAGE_CUBE_MAP_ARRAY_OES)
     OpenGL.const_set('GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_OES', 0x906A) unless defined?(OpenGL::GL_UNSIGNED_INT_IMAGE_CUBE_MAP_ARRAY_OES)
-  end # define_ext_enum_GL_OES_texture_cube_map_array
+  end # self.define_ext_enum_GL_OES_texture_cube_map_array
 
-  def get_ext_enum_GL_OES_texture_cube_map_array
+  def self.get_ext_enum_GL_OES_texture_cube_map_array
     [
       'GL_TEXTURE_CUBE_MAP_ARRAY_OES',
       'GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_OES',
@@ -4368,9 +4368,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_OES_texture_float
     OpenGL.const_set('GL_FLOAT', 0x1406) unless defined?(OpenGL::GL_FLOAT)
-  end # define_ext_enum_GL_OES_texture_float
+  end # self.define_ext_enum_GL_OES_texture_float
 
-  def get_ext_enum_GL_OES_texture_float
+  def self.get_ext_enum_GL_OES_texture_float
     [
       'GL_FLOAT',
     ]
@@ -4378,9 +4378,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_OES_texture_float_linear
-  end # define_ext_enum_GL_OES_texture_float_linear
+  end # self.define_ext_enum_GL_OES_texture_float_linear
 
-  def get_ext_enum_GL_OES_texture_float_linear
+  def self.get_ext_enum_GL_OES_texture_float_linear
     [
     ]
   end # self.get_ext_enum_GL_OES_texture_float_linear
@@ -4388,9 +4388,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_OES_texture_half_float
     OpenGL.const_set('GL_HALF_FLOAT_OES', 0x8D61) unless defined?(OpenGL::GL_HALF_FLOAT_OES)
-  end # define_ext_enum_GL_OES_texture_half_float
+  end # self.define_ext_enum_GL_OES_texture_half_float
 
-  def get_ext_enum_GL_OES_texture_half_float
+  def self.get_ext_enum_GL_OES_texture_half_float
     [
       'GL_HALF_FLOAT_OES',
     ]
@@ -4398,18 +4398,18 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_OES_texture_half_float_linear
-  end # define_ext_enum_GL_OES_texture_half_float_linear
+  end # self.define_ext_enum_GL_OES_texture_half_float_linear
 
-  def get_ext_enum_GL_OES_texture_half_float_linear
+  def self.get_ext_enum_GL_OES_texture_half_float_linear
     [
     ]
   end # self.get_ext_enum_GL_OES_texture_half_float_linear
 
 
   def self.define_ext_enum_GL_OES_texture_npot
-  end # define_ext_enum_GL_OES_texture_npot
+  end # self.define_ext_enum_GL_OES_texture_npot
 
-  def get_ext_enum_GL_OES_texture_npot
+  def self.get_ext_enum_GL_OES_texture_npot
     [
     ]
   end # self.get_ext_enum_GL_OES_texture_npot
@@ -4418,9 +4418,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_OES_texture_stencil8
     OpenGL.const_set('GL_STENCIL_INDEX_OES', 0x1901) unless defined?(OpenGL::GL_STENCIL_INDEX_OES)
     OpenGL.const_set('GL_STENCIL_INDEX8_OES', 0x8D48) unless defined?(OpenGL::GL_STENCIL_INDEX8_OES)
-  end # define_ext_enum_GL_OES_texture_stencil8
+  end # self.define_ext_enum_GL_OES_texture_stencil8
 
-  def get_ext_enum_GL_OES_texture_stencil8
+  def self.get_ext_enum_GL_OES_texture_stencil8
     [
       'GL_STENCIL_INDEX_OES',
       'GL_STENCIL_INDEX8_OES',
@@ -4434,9 +4434,9 @@ module OpenGLExt
     OpenGL.const_set('GL_SAMPLER_2D_MULTISAMPLE_ARRAY_OES', 0x910B) unless defined?(OpenGL::GL_SAMPLER_2D_MULTISAMPLE_ARRAY_OES)
     OpenGL.const_set('GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES', 0x910C) unless defined?(OpenGL::GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES)
     OpenGL.const_set('GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES', 0x910D) unless defined?(OpenGL::GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY_OES)
-  end # define_ext_enum_GL_OES_texture_storage_multisample_2d_array
+  end # self.define_ext_enum_GL_OES_texture_storage_multisample_2d_array
 
-  def get_ext_enum_GL_OES_texture_storage_multisample_2d_array
+  def self.get_ext_enum_GL_OES_texture_storage_multisample_2d_array
     [
       'GL_TEXTURE_2D_MULTISAMPLE_ARRAY_OES',
       'GL_TEXTURE_BINDING_2D_MULTISAMPLE_ARRAY_OES',
@@ -4453,9 +4453,9 @@ module OpenGLExt
     OpenGL.const_set('GL_TEXTURE_VIEW_MIN_LAYER_OES', 0x82DD) unless defined?(OpenGL::GL_TEXTURE_VIEW_MIN_LAYER_OES)
     OpenGL.const_set('GL_TEXTURE_VIEW_NUM_LAYERS_OES', 0x82DE) unless defined?(OpenGL::GL_TEXTURE_VIEW_NUM_LAYERS_OES)
     OpenGL.const_set('GL_TEXTURE_IMMUTABLE_LEVELS', 0x82DF) unless defined?(OpenGL::GL_TEXTURE_IMMUTABLE_LEVELS)
-  end # define_ext_enum_GL_OES_texture_view
+  end # self.define_ext_enum_GL_OES_texture_view
 
-  def get_ext_enum_GL_OES_texture_view
+  def self.get_ext_enum_GL_OES_texture_view
     [
       'GL_TEXTURE_VIEW_MIN_LEVEL_OES',
       'GL_TEXTURE_VIEW_NUM_LEVELS_OES',
@@ -4468,9 +4468,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_OES_vertex_array_object
     OpenGL.const_set('GL_VERTEX_ARRAY_BINDING_OES', 0x85B5) unless defined?(OpenGL::GL_VERTEX_ARRAY_BINDING_OES)
-  end # define_ext_enum_GL_OES_vertex_array_object
+  end # self.define_ext_enum_GL_OES_vertex_array_object
 
-  def get_ext_enum_GL_OES_vertex_array_object
+  def self.get_ext_enum_GL_OES_vertex_array_object
     [
       'GL_VERTEX_ARRAY_BINDING_OES',
     ]
@@ -4479,9 +4479,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_OES_vertex_half_float
     OpenGL.const_set('GL_HALF_FLOAT_OES', 0x8D61) unless defined?(OpenGL::GL_HALF_FLOAT_OES)
-  end # define_ext_enum_GL_OES_vertex_half_float
+  end # self.define_ext_enum_GL_OES_vertex_half_float
 
-  def get_ext_enum_GL_OES_vertex_half_float
+  def self.get_ext_enum_GL_OES_vertex_half_float
     [
       'GL_HALF_FLOAT_OES',
     ]
@@ -4491,9 +4491,9 @@ module OpenGLExt
   def self.define_ext_enum_GL_OES_vertex_type_10_10_10_2
     OpenGL.const_set('GL_UNSIGNED_INT_10_10_10_2_OES', 0x8DF6) unless defined?(OpenGL::GL_UNSIGNED_INT_10_10_10_2_OES)
     OpenGL.const_set('GL_INT_10_10_10_2_OES', 0x8DF7) unless defined?(OpenGL::GL_INT_10_10_10_2_OES)
-  end # define_ext_enum_GL_OES_vertex_type_10_10_10_2
+  end # self.define_ext_enum_GL_OES_vertex_type_10_10_10_2
 
-  def get_ext_enum_GL_OES_vertex_type_10_10_10_2
+  def self.get_ext_enum_GL_OES_vertex_type_10_10_10_2
     [
       'GL_UNSIGNED_INT_10_10_10_2_OES',
       'GL_INT_10_10_10_2_OES',
@@ -4505,9 +4505,9 @@ module OpenGLExt
     OpenGL.const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR', 0x9630) unless defined?(OpenGL::GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR)
     OpenGL.const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR', 0x9632) unless defined?(OpenGL::GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR)
     OpenGL.const_set('GL_MAX_VIEWS_OVR', 0x9631) unless defined?(OpenGL::GL_MAX_VIEWS_OVR)
-  end # define_ext_enum_GL_OVR_multiview
+  end # self.define_ext_enum_GL_OVR_multiview
 
-  def get_ext_enum_GL_OVR_multiview
+  def self.get_ext_enum_GL_OVR_multiview
     [
       'GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR',
       'GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR',
@@ -4517,18 +4517,18 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_OVR_multiview2
-  end # define_ext_enum_GL_OVR_multiview2
+  end # self.define_ext_enum_GL_OVR_multiview2
 
-  def get_ext_enum_GL_OVR_multiview2
+  def self.get_ext_enum_GL_OVR_multiview2
     [
     ]
   end # self.get_ext_enum_GL_OVR_multiview2
 
 
   def self.define_ext_enum_GL_OVR_multiview_multisampled_render_to_texture
-  end # define_ext_enum_GL_OVR_multiview_multisampled_render_to_texture
+  end # self.define_ext_enum_GL_OVR_multiview_multisampled_render_to_texture
 
-  def get_ext_enum_GL_OVR_multiview_multisampled_render_to_texture
+  def self.get_ext_enum_GL_OVR_multiview_multisampled_render_to_texture
     [
     ]
   end # self.get_ext_enum_GL_OVR_multiview_multisampled_render_to_texture
@@ -4538,9 +4538,9 @@ module OpenGLExt
     OpenGL.const_set('GL_ALPHA_TEST_QCOM', 0x0BC0) unless defined?(OpenGL::GL_ALPHA_TEST_QCOM)
     OpenGL.const_set('GL_ALPHA_TEST_FUNC_QCOM', 0x0BC1) unless defined?(OpenGL::GL_ALPHA_TEST_FUNC_QCOM)
     OpenGL.const_set('GL_ALPHA_TEST_REF_QCOM', 0x0BC2) unless defined?(OpenGL::GL_ALPHA_TEST_REF_QCOM)
-  end # define_ext_enum_GL_QCOM_alpha_test
+  end # self.define_ext_enum_GL_QCOM_alpha_test
 
-  def get_ext_enum_GL_QCOM_alpha_test
+  def self.get_ext_enum_GL_QCOM_alpha_test
     [
       'GL_ALPHA_TEST_QCOM',
       'GL_ALPHA_TEST_FUNC_QCOM',
@@ -4554,9 +4554,9 @@ module OpenGLExt
     OpenGL.const_set('GL_CPU_OPTIMIZED_QCOM', 0x8FB1) unless defined?(OpenGL::GL_CPU_OPTIMIZED_QCOM)
     OpenGL.const_set('GL_GPU_OPTIMIZED_QCOM', 0x8FB2) unless defined?(OpenGL::GL_GPU_OPTIMIZED_QCOM)
     OpenGL.const_set('GL_RENDER_DIRECT_TO_FRAMEBUFFER_QCOM', 0x8FB3) unless defined?(OpenGL::GL_RENDER_DIRECT_TO_FRAMEBUFFER_QCOM)
-  end # define_ext_enum_GL_QCOM_binning_control
+  end # self.define_ext_enum_GL_QCOM_binning_control
 
-  def get_ext_enum_GL_QCOM_binning_control
+  def self.get_ext_enum_GL_QCOM_binning_control
     [
       'GL_BINNING_CONTROL_HINT_QCOM',
       'GL_CPU_OPTIMIZED_QCOM',
@@ -4567,9 +4567,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_QCOM_driver_control
-  end # define_ext_enum_GL_QCOM_driver_control
+  end # self.define_ext_enum_GL_QCOM_driver_control
 
-  def get_ext_enum_GL_QCOM_driver_control
+  def self.get_ext_enum_GL_QCOM_driver_control
     [
     ]
   end # self.get_ext_enum_GL_QCOM_driver_control
@@ -4587,9 +4587,9 @@ module OpenGLExt
     OpenGL.const_set('GL_TEXTURE_TARGET_QCOM', 0x8BDA) unless defined?(OpenGL::GL_TEXTURE_TARGET_QCOM)
     OpenGL.const_set('GL_TEXTURE_OBJECT_VALID_QCOM', 0x8BDB) unless defined?(OpenGL::GL_TEXTURE_OBJECT_VALID_QCOM)
     OpenGL.const_set('GL_STATE_RESTORE', 0x8BDC) unless defined?(OpenGL::GL_STATE_RESTORE)
-  end # define_ext_enum_GL_QCOM_extended_get
+  end # self.define_ext_enum_GL_QCOM_extended_get
 
-  def get_ext_enum_GL_QCOM_extended_get
+  def self.get_ext_enum_GL_QCOM_extended_get
     [
       'GL_TEXTURE_WIDTH_QCOM',
       'GL_TEXTURE_HEIGHT_QCOM',
@@ -4607,9 +4607,9 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_QCOM_extended_get2
-  end # define_ext_enum_GL_QCOM_extended_get2
+  end # self.define_ext_enum_GL_QCOM_extended_get2
 
-  def get_ext_enum_GL_QCOM_extended_get2
+  def self.get_ext_enum_GL_QCOM_extended_get2
     [
     ]
   end # self.get_ext_enum_GL_QCOM_extended_get2
@@ -4617,9 +4617,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_QCOM_perfmon_global_mode
     OpenGL.const_set('GL_PERFMON_GLOBAL_MODE_QCOM', 0x8FA0) unless defined?(OpenGL::GL_PERFMON_GLOBAL_MODE_QCOM)
-  end # define_ext_enum_GL_QCOM_perfmon_global_mode
+  end # self.define_ext_enum_GL_QCOM_perfmon_global_mode
 
-  def get_ext_enum_GL_QCOM_perfmon_global_mode
+  def self.get_ext_enum_GL_QCOM_perfmon_global_mode
     [
       'GL_PERFMON_GLOBAL_MODE_QCOM',
     ]
@@ -4659,9 +4659,9 @@ module OpenGLExt
     OpenGL.const_set('GL_MULTISAMPLE_BUFFER_BIT5_QCOM', 0x20000000) unless defined?(OpenGL::GL_MULTISAMPLE_BUFFER_BIT5_QCOM)
     OpenGL.const_set('GL_MULTISAMPLE_BUFFER_BIT6_QCOM', 0x40000000) unless defined?(OpenGL::GL_MULTISAMPLE_BUFFER_BIT6_QCOM)
     OpenGL.const_set('GL_MULTISAMPLE_BUFFER_BIT7_QCOM', 0x80000000) unless defined?(OpenGL::GL_MULTISAMPLE_BUFFER_BIT7_QCOM)
-  end # define_ext_enum_GL_QCOM_tiled_rendering
+  end # self.define_ext_enum_GL_QCOM_tiled_rendering
 
-  def get_ext_enum_GL_QCOM_tiled_rendering
+  def self.get_ext_enum_GL_QCOM_tiled_rendering
     [
       'GL_COLOR_BUFFER_BIT0_QCOM',
       'GL_COLOR_BUFFER_BIT1_QCOM',
@@ -4701,9 +4701,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_QCOM_writeonly_rendering
     OpenGL.const_set('GL_WRITEONLY_RENDERING_QCOM', 0x8823) unless defined?(OpenGL::GL_WRITEONLY_RENDERING_QCOM)
-  end # define_ext_enum_GL_QCOM_writeonly_rendering
+  end # self.define_ext_enum_GL_QCOM_writeonly_rendering
 
-  def get_ext_enum_GL_QCOM_writeonly_rendering
+  def self.get_ext_enum_GL_QCOM_writeonly_rendering
     [
       'GL_WRITEONLY_RENDERING_QCOM',
     ]
@@ -4712,9 +4712,9 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_VIV_shader_binary
     OpenGL.const_set('GL_SHADER_BINARY_VIV', 0x8FC4) unless defined?(OpenGL::GL_SHADER_BINARY_VIV)
-  end # define_ext_enum_GL_VIV_shader_binary
+  end # self.define_ext_enum_GL_VIV_shader_binary
 
-  def get_ext_enum_GL_VIV_shader_binary
+  def self.get_ext_enum_GL_VIV_shader_binary
     [
       'GL_SHADER_BINARY_VIV',
     ]

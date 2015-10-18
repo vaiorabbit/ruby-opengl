@@ -1,6 +1,8 @@
 begin
+  # puts "Loading C Edition."
   require 'opengl_c'
 rescue LoadError
+  # puts "Loading Ruby Edition."
   require_relative 'opengl_platform'
   require_relative 'opengl_common'
   require_relative 'opengl_enum'

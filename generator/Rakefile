@@ -37,7 +37,7 @@ task 'es_ext_command' => '../lib/opengl_es_ext_command.rb'
 
 file '../lib/opengl_enum.rb' => './gl.xml' do |t|
   open('../lib/opengl_enum.rb', 'wb') do |file|
-    generate_enum(file)
+    GLEnumCodeGenerator.generate_enum(file)
   end
 end
 
@@ -49,7 +49,7 @@ end
 
 file '../lib/opengl_ext_enum.rb' => './gl.xml' do |t|
   open('../lib/opengl_ext_enum.rb', 'wb') do |file|
-    generate_ext_enum(file)
+    GLExtEnumCodeGenerator.generate_enum(file)
   end
 end
 
@@ -61,7 +61,7 @@ end
 
 file '../lib/opengl_es_enum.rb' => './gl.xml' do |t|
   open('../lib/opengl_es_enum.rb', 'wb') do |file|
-    generate_es_enum(file)
+    GLESEnumCodeGenerator.generate_enum(file)
   end
 end
 
@@ -73,7 +73,7 @@ end
 
 file '../lib/opengl_es_ext_enum.rb' => './gl.xml' do |t|
   open('../lib/opengl_es_ext_enum.rb', 'wb') do |file|
-    generate_es_ext_enum(file)
+    GLESExtEnumCodeGenerator.generate_enum(file)
   end
 end
 
