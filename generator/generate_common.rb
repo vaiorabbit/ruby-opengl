@@ -73,13 +73,17 @@ module GLCodeGeneratorCommon
     return features
   end
 
-  def self.build_commands_map(doc, extract_api: "gl")
+  def self.collect_commands(doc, check_alias: true)
     # Collect all command
     gl_all_cmd_map = {}
     REXML::XPath.each(doc,'registry/commands/command') do |cmd_tag|
-      # check alias
-      alias_tag = cmd_tag.get_elements('alias')
-      next if alias_tag.length != 0 # skips glActiveTextureARB (alias of glActiveTexture), etc.
+      # Check alias
+      # For extension parsing, aliases should be collected.
+      # ex.) glBlendFuncIndexedAMD (alias of glBlendFunci), etc.
+      if check_alias
+        alias_tag = cmd_tag.get_elements('alias')
+        next if alias_tag.length != 0 # skips glActiveTextureARB (alias of glActiveTexture), etc.
+      end
 
       map_entry = GLCommandMapEntry.new
 
@@ -133,6 +137,13 @@ module GLCodeGeneratorCommon
       gl_all_cmd_map[map_entry.api_name] = map_entry
     end
 
+    return gl_all_cmd_map
+  end
+
+  def self.build_commands_map(doc, extract_api: "gl")
+    # Collect all command
+    gl_all_cmd_map = collect_commands(doc, check_alias: true)
+
     # Extract standard command
     gl_cmd_map = {}
     REXML::XPath.each(doc, 'registry/feature') do |feature_tag|
@@ -148,7 +159,6 @@ module GLCodeGeneratorCommon
 
     return gl_cmd_map
   end
-
 
   def self.generate_method(out, gl_cmd_map)
     gl_cmd_map.each_pair do |api, map_entry|
@@ -189,67 +199,9 @@ module GLCodeGeneratorCommon
 
   def self.build_ext_commands_map(doc, extract_api: "gl")
     # Collect all command
-    gl_all_cmd_map = {}
-    REXML::XPath.each(doc,'registry/commands/command') do |cmd_tag|
+    gl_all_cmd_map = collect_commands(doc, check_alias: false)
 
-      # For extension parsing, aliases should be collected.
-      # ex.) glBlendFuncIndexedAMD (alias of glBlendFunci), etc.
-      # alias_tag = cmd_tag.get_elements('alias')
-      # next if alias_tag.length != 0 # skips glActiveTextureARB (alias of glActiveTexture), etc.
-
-      map_entry = GLCommandMapEntry.new
-
-      proto_tag = cmd_tag.get_elements('proto').first
-
-      # Patterns of contents inside '<proto>...</proto>'
-      # * void <name>glBegin</name>
-      # * <ptype>GLboolean</ptype> <name>glIsEnabled</name>
-      # * const <ptype>GLubyte</ptype> *<name>glGetStringi</name>
-
-      map_entry.api_name = proto_tag.get_elements('name').first.text
-      proto_ptype = proto_tag.get_elements('ptype').first
-      proto_residue = proto_tag.texts.join(" ")
-      if proto_residue =~ /const/
-        proto_residue.slice!("const")
-        proto_residue.strip!
-      end
-      map_entry.ret_name = if proto_ptype != nil
-                             proto_ptype.text.strip
-                           else
-                             proto_tag.text.strip
-                           end
-      map_entry.ret_name << ' *' if proto_residue =~ /\*/
-
-      # Patterns of contents inside '<param>...</param>':
-      # * <ptype>GLenum</ptype> <name>mode</name> (glBegin)
-      # * <ptype>GLuint</ptype> <name>baseAndCount</name>[2] (glPathGlyphIndexRangeNV)
-      # * <ptype>GLfloat</ptype> *<name>data</name> (glGetFloatv) : param_tag.texts == [" *"]
-      # * const <ptype>GLfloat</ptype> *<name>params</name> (glMaterialfv) : param_tag.texts == ["const ", " *"]
-      # * const void *<name>data</name> (glBufferData) : param_tag.texts == ["const void *"]
-      map_entry.type_names = []
-      map_entry.var_names = []
-      REXML::XPath.each(cmd_tag, 'param') do |param_tag|
-        var_name = param_tag.get_elements('name').first.text.strip
-        param_ptype = param_tag.get_elements('ptype').first
-        param_residue = param_tag.texts.join(" ")
-        if param_residue =~ /const/
-          param_residue.slice!("const")
-          param_residue.strip!
-        end
-        type_name = if param_ptype != nil
-                      param_ptype.text.strip
-                    else
-                      param_tag.text.strip
-                    end
-        type_name << ' *' if param_residue =~ /\*/ || param_residue =~/\[.+\]/
-        map_entry.type_names << type_name
-        map_entry.var_names << var_name
-      end
-
-      gl_all_cmd_map[map_entry.api_name] = map_entry
-    end
-
-    # Extract standard command
+    # Extract extension command
     gl_ext_name_to_commands_map = {}
     REXML::XPath.each(doc, 'registry/extensions/extension') do |extension_tag|
       if extension_tag.attribute('supported').value.split('|').include?( extract_api ) # ignoring "gles1", "glcore", etc.
