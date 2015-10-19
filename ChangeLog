@@ -1,5 +1,6 @@
 2015-10-19  vaiorabbit  <http://twitter.com/vaiorabbit>
 
+	* lib/opengl_ext.rb: Now tries to find C Edition.
 	* generator: Refactoring
 
 2015-10-18  vaiorabbit  <http://twitter.com/vaiorabbit>

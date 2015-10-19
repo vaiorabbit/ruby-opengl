@@ -290,7 +290,7 @@ module GLCodeGeneratorCommon
           is_array = t.include?( "[" )
           is_ptr = t.end_with?( '*' )
           if !is_ptr && !is_array && resolved_gl_type == nil
-            $stderr.puts "[ERROR] ruby-opengl generator script 'generate_ext_command.rb' : Unknown type '#{t}' detected. Exiting..."
+            $stderr.puts "[ERROR] ruby-opengl generator script : Unknown type '#{t}' detected. Exiting..."
             exit
           end
           arg_names << ((is_ptr || is_array) ? 'Fiddle::TYPE_VOIDP' : resolved_gl_type)
@@ -309,12 +309,12 @@ module GLCodeGeneratorCommon
         # ex.) glDrawRangeElements(mode, start, end, count, type, indices) <- 'end' is Ruby's reserved keyword.
         vars = map_entry.var_names.collect{|v| '_'+v+'_'}.join(", ")
 
-        out.puts "    OpenGL.module_eval(<<-SRC_#{ext_name})"
+        out.puts "    OpenGL.module_eval(<<-SRC)"
         out.puts "      def #{api}(#{vars})"
         out.puts "        f = OpenGL::get_command(:#{api})"
         out.puts "        f.call(#{vars})"
         out.puts "      end"
-        out.puts "    SRC_#{ext_name}"
+        out.puts "    SRC"
         out.puts "" if (command_index + 1) != commands_count
         command_index += 1
       end
