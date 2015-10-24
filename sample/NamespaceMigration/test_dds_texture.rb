@@ -29,7 +29,7 @@ $texture = nil
 # Press ESC to exit.
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
   if key == GLFW::KEY_ESCAPE && action == GLFW::PRESS
-    glfw.SetWindowShouldClose(window_handle, 1)
+    $glfw.SetWindowShouldClose(window_handle, 1)
   end
 end
 

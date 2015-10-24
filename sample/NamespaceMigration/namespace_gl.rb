@@ -48,7 +48,7 @@ class GL
         # Because constants can't start with a digit or underscore.
         unless cs[3] =~ /\d/
           # Convert by omitting the 'GL_' prefix like OpenGL::GL_TEXTRUE_2D into GL::TEXTURE_2D.
-          GL.const_set(cs[3..-1], OpenGL.const_get(cs)) # TEXTURE_2D => GL_TEXTURE_2D
+          GL.const_set(cs[3..-1], OpenGL.const_get(cs)) unless defined?(cs[3..-1]) # TEXTURE_2D => GL_TEXTURE_2D
         end
       end
     end
