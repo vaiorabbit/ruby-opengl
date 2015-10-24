@@ -6707,11 +6707,11 @@ module OpenGL
     f.call(_framebuffer_, _buffer_, _drawbuffer_, _value_)
   end
 
-  GL_FUNCTIONS_ARGS_MAP[:glClearNamedFramebufferfi] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT]
+  GL_FUNCTIONS_ARGS_MAP[:glClearNamedFramebufferfi] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT]
   GL_FUNCTIONS_RETVAL_MAP[:glClearNamedFramebufferfi] = Fiddle::TYPE_VOID
-  def glClearNamedFramebufferfi(_framebuffer_, _buffer_, _depth_, _stencil_)
+  def glClearNamedFramebufferfi(_framebuffer_, _buffer_, _drawbuffer_, _depth_, _stencil_)
     f = OpenGL::get_command(:glClearNamedFramebufferfi)
-    f.call(_framebuffer_, _buffer_, _depth_, _stencil_)
+    f.call(_framebuffer_, _buffer_, _drawbuffer_, _depth_, _stencil_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glBlitNamedFramebuffer] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]

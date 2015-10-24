@@ -2403,12 +2403,12 @@ module OpenGLExt
       end
     SRC
 
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glClearNamedFramebufferfi] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glClearNamedFramebufferfi] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glClearNamedFramebufferfi] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glClearNamedFramebufferfi(_framebuffer_, _buffer_, _depth_, _stencil_)
+      def glClearNamedFramebufferfi(_framebuffer_, _buffer_, _drawbuffer_, _depth_, _stencil_)
         f = OpenGL::get_command(:glClearNamedFramebufferfi)
-        f.call(_framebuffer_, _buffer_, _depth_, _stencil_)
+        f.call(_framebuffer_, _buffer_, _drawbuffer_, _depth_, _stencil_)
       end
     SRC
 
