@@ -80,7 +80,7 @@ if __FILE__ == $0
   end
 
   # for OpenGL 4.3
-  glDebugMessageCallback( $debug_log_callback, nil )
+  glDebugMessageCallback( $debug_log_callback.to_i, nil )
   glEnable( GL_DEBUG_OUTPUT_SYNCHRONOUS )
 
   # for OpenGL 3
