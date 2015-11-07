@@ -28,4 +28,20 @@ module OpenGL
     f.call(_lpszProc_)
   end
 
+  WGL_FUNCTIONS_ARGS_MAP[:wglGetCurrentContext] = []
+  WGL_FUNCTIONS_RETVAL_MAP[:wglGetCurrentContext] = Fiddle::TYPE_VOIDP
+
+  def wglGetCurrentContext()
+    f = OpenGL::get_wgl_command(:wglGetCurrentContext)
+    f.call()
+  end
+
+  WGL_FUNCTIONS_ARGS_MAP[:wglGetCurrentDC] = []
+  WGL_FUNCTIONS_RETVAL_MAP[:wglGetCurrentDC] = Fiddle::TYPE_VOIDP
+
+  def wglGetCurrentDC()
+    f = OpenGL::get_wgl_command(:wglGetCurrentDC)
+    f.call()
+  end
+
 end
