@@ -10,4 +10,10 @@ rescue LoadError
   if OpenGL.get_platform == :OPENGL_PLATFORM_WINDOWS
     require_relative 'opengl_windows'
   end
+  if OpenGL.get_platform == :OPENGL_PLATFORM_MACOSX
+    require_relative 'opengl_macosx'
+  end
+  if OpenGL.get_platform == :OPENGL_PLATFORM_LINUX
+    require_relative 'opengl_linux'
+  end
 end

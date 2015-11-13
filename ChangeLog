@@ -1,3 +1,7 @@
+2015-11-07  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* lib/opengl_macosx.rb, lib/opengl_linux.rb: Added.
+
 2015-11-03  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* sample/DebugOutput/debug_output.rb: Fidex '$debug_log_callback' to '$debug_log_callback.to_i' (now runnable both C edition and pure-Ruby edition).
