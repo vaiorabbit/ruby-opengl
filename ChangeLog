@@ -1,3 +1,7 @@
+2015-11-14  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* lib/opengl_linux.rb (glXGetCurrentDisplay): Fixed wrong signature.
+
 2015-11-07  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* lib/opengl_macosx.rb, lib/opengl_linux.rb: Added.

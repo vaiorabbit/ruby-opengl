@@ -28,7 +28,7 @@ module OpenGL
     f.call()
   end
 
-  GLX_FUNCTIONS_ARGS_MAP[:glXGetCurrentDisplay] = []
+  GLX_FUNCTIONS_ARGS_MAP[:glXGetCurrentDisplay] = [Fiddle::TYPE_VOIDP]
   GLX_FUNCTIONS_RETVAL_MAP[:glXGetCurrentDisplay] = Fiddle::TYPE_VOIDP
 
   def glXGetCurrentDisplay(_glx_ctxobj_)
