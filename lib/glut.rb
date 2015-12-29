@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# A FreeGLUT wrapper
 require 'fiddle/import'
 require_relative 'opengl_platform'
 
@@ -218,7 +219,7 @@ module GLUT
   GLUT_GAME_MODE_DISPLAY_CHANGED = 0x0006
 
   # typedefs
-  @@glut_cb_signature = {
+  @@glut_cb_function_signature = {
     :GLUTMenuFunc            => "void GLUTMenuFunc(int)",
 
     :GLUTTimerFunc           => "void GLUTTimerFunc(int)",
@@ -251,12 +252,111 @@ module GLUT
     :GLUTTabletButtonFunc    => "void GLUTTabletButtonFunc(int, int, int, int)",
   }
 
+  # Creates a callback as an instance of Fiddle::Function
   def self.create_callback( sym, proc=nil, &blk )
     if block_given?
-      return bind( @@glut_cb_signature[sym], nil, &blk )
+      return bind( @@glut_cb_function_signature[sym], nil, &blk )
     else
-      return bind( @@glut_cb_signature[sym], nil, &proc )
+      return bind( @@glut_cb_function_signature[sym], nil, &proc )
     end
+  end
+
+  GLUTMenuFunc_cb_args              = [Fiddle::TYPE_INT]
+  GLUTMenuFunc_cb_retval            = Fiddle::TYPE_VOID
+  GLUTTimerFunc_cb_args             = [Fiddle::TYPE_INT]
+  GLUTTimerFunc_cb_retval           = Fiddle::TYPE_VOID
+  GLUTIdleFunc_cb_args              = []
+  GLUTIdleFunc_cb_retval            = Fiddle::TYPE_VOID
+  GLUTKeyboardFunc_cb_args          = [-Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTKeyboardFunc_cb_retval        = Fiddle::TYPE_VOID
+  GLUTSpecialFunc_cb_args           = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTSpecialFunc_cb_retval         = Fiddle::TYPE_VOID
+  GLUTReshapeFunc_cb_args           = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTReshapeFunc_cb_retval         = Fiddle::TYPE_VOID
+  GLUTVisibilityFunc_cb_args        = [Fiddle::TYPE_INT]
+  GLUTVisibilityFunc_cb_retval      = Fiddle::TYPE_VOID
+  GLUTDisplayFunc_cb_args           = []
+  GLUTDisplayFunc_cb_retval         = Fiddle::TYPE_VOID
+  GLUTMouseFunc_cb_args             = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTMouseFunc_cb_retval           = Fiddle::TYPE_VOID
+  GLUTMotionFunc_cb_args            = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTMotionFunc_cb_retval          = Fiddle::TYPE_VOID
+  GLUTPassiveMotionFunc_cb_args     = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTPassiveMotionFunc_cb_retval   = Fiddle::TYPE_VOID
+  GLUTEntryFunc_cb_args             = [Fiddle::TYPE_INT]
+  GLUTEntryFunc_cb_retval           = Fiddle::TYPE_VOID
+  GLUTKeyboardUpFunc_cb_args        = [-Fiddle::TYPE_CHAR, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTKeyboardUpFunc_cb_retval      = Fiddle::TYPE_VOID
+  GLUTSpecialUpFunc_cb_args         = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTSpecialUpFunc_cb_retval       = Fiddle::TYPE_VOID
+  GLUTJoystickFunc_cb_args          = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTJoystickFunc_cb_retval        = Fiddle::TYPE_VOID
+  GLUTMenuStateFunc_cb_args         = [Fiddle::TYPE_INT]
+  GLUTMenuStateFunc_cb_retval       = Fiddle::TYPE_VOID
+  GLUTMenuStatusFunc_cb_args        = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTMenuStatusFunc_cb_retval      = Fiddle::TYPE_VOID
+  GLUTOverlayDisplayFunc_cb_args    = []
+  GLUTOverlayDisplayFunc_cb_retval  = Fiddle::TYPE_VOID
+  GLUTWindowStatusFunc_cb_args      = [Fiddle::TYPE_INT]
+  GLUTWindowStatusFunc_cb_retval    = Fiddle::TYPE_VOID
+  GLUTSpaceballMotionFunc_cb_args   = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTSpaceballMotionFunc_cb_retval = Fiddle::TYPE_VOID
+  GLUTSpaceballRotateFunc_cb_args   = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTSpaceballRotateFunc_cb_retval = Fiddle::TYPE_VOID
+  GLUTSpaceballButtonFunc_cb_args   = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTSpaceballButtonFunc_cb_retval = Fiddle::TYPE_VOID
+  GLUTButtonBoxFunc_cb_args         = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTButtonBoxFunc_cb_retval       = Fiddle::TYPE_VOID
+  GLUTDialsFunc_cb_args             = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTDialsFunc_cb_retval           = Fiddle::TYPE_VOID
+  GLUTTabletMotionFunc_cb_args      = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTTabletMotionFunc_cb_retval    = Fiddle::TYPE_VOID
+  GLUTTabletButtonFunc_cb_args      = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLUTTabletButtonFunc_cb_retval    = Fiddle::TYPE_VOID
+
+  @@glut_cb_closure_signature = {
+    :GLUTMenuFunc            => [GLUTMenuFunc_cb_retval, GLUTMenuFunc_cb_args],
+    :GLUTTimerFunc           => [GLUTTimerFunc_cb_retval, GLUTTimerFunc_cb_args],
+    :GLUTIdleFunc            => [GLUTIdleFunc_cb_retval, GLUTIdleFunc_cb_args],
+    :GLUTKeyboardFunc        => [GLUTKeyboardFunc_cb_retval, GLUTKeyboardFunc_cb_args],
+    :GLUTSpecialFunc         => [GLUTSpecialFunc_cb_retval, GLUTSpecialFunc_cb_args],
+    :GLUTReshapeFunc         => [GLUTReshapeFunc_cb_retval, GLUTReshapeFunc_cb_args],
+    :GLUTVisibilityFunc      => [GLUTVisibilityFunc_cb_retval, GLUTVisibilityFunc_cb_args],
+    :GLUTDisplayFunc         => [GLUTDisplayFunc_cb_retval, GLUTDisplayFunc_cb_args],
+    :GLUTMouseFunc           => [GLUTMouseFunc_cb_retval, GLUTMouseFunc_cb_args],
+    :GLUTMotionFunc          => [GLUTMotionFunc_cb_retval, GLUTMotionFunc_cb_args],
+    :GLUTPassiveMotionFunc   => [GLUTPassiveMotionFunc_cb_retval, GLUTPassiveMotionFunc_cb_args],
+    :GLUTEntryFunc           => [GLUTEntryFunc_cb_retval, GLUTEntryFunc_cb_args],
+    :GLUTKeyboardUpFunc      => [GLUTKeyboardUpFunc_cb_retval, GLUTKeyboardUpFunc_cb_args],
+    :GLUTSpecialUpFunc       => [GLUTSpecialUpFunc_cb_retval, GLUTSpecialUpFunc_cb_args],
+    :GLUTJoystickFunc        => [GLUTJoystickFunc_cb_retval, GLUTJoystickFunc_cb_args],
+    :GLUTMenuStateFunc       => [GLUTMenuStateFunc_cb_retval, GLUTMenuStateFunc_cb_args],
+    :GLUTMenuStatusFunc      => [GLUTMenuStatusFunc_cb_retval, GLUTMenuStatusFunc_cb_args],
+    :GLUTOverlayDisplayFunc  => [GLUTOverlayDisplayFunc_cb_retval, GLUTOverlayDisplayFunc_cb_args],
+    :GLUTWindowStatusFunc    => [GLUTWindowStatusFunc_cb_retval, GLUTWindowStatusFunc_cb_args],
+    :GLUTSpaceballMotionFunc => [GLUTSpaceballMotionFunc_cb_retval, GLUTSpaceballMotionFunc_cb_args],
+    :GLUTSpaceballRotateFunc => [GLUTSpaceballRotateFunc_cb_retval, GLUTSpaceballRotateFunc_cb_args],
+    :GLUTSpaceballButtonFunc => [GLUTSpaceballButtonFunc_cb_retval, GLUTSpaceballButtonFunc_cb_args],
+    :GLUTButtonBoxFunc       => [GLUTButtonBoxFunc_cb_retval, GLUTButtonBoxFunc_cb_args],
+    :GLUTDialsFunc           => [GLUTDialsFunc_cb_retval, GLUTDialsFunc_cb_args],
+    :GLUTTabletMotionFunc    => [GLUTTabletMotionFunc_cb_retval, GLUTTabletMotionFunc_cb_args],
+    :GLUTTabletButtonFunc    => [GLUTTabletButtonFunc_cb_retval, GLUTTabletButtonFunc_cb_args],
+  }
+
+  # Creates a callback as an instance of Fiddle::Closure::BlockCaller
+  def self.create_callback_closure( sym, proc=nil, &blk )
+    cb_retval = @@glut_cb_closure_signature[sym][0]
+    cb_args   = @@glut_cb_closure_signature[sym][1]
+    if block_given?
+      return Fiddle::Closure::BlockCaller.new( cb_retval, cb_args, Fiddle::Function::DEFAULT, &blk )
+    else
+      return Fiddle::Closure::BlockCaller.new( cb_retval, cb_args, Fiddle::Function::DEFAULT, &proc )
+    end
+  end
+
+  # NOTE : Use 'create_callback_function' for backward compatibility.
+  def self.create_callback( sym, proc=nil, &blk )
+    return self.create_callback_closure( sym, proc, &blk )
   end
 
   @@glut_import_done = false
