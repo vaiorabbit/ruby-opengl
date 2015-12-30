@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# A GLFW wrapper (for version 3.0)
 require 'fiddle/import'
 
 module GLFW
@@ -267,8 +268,101 @@ module GLFW
   GLFW_DISCONNECTED  = 0x00040002
 
   # typedefs
+  @@glfw_cb_function_signature = {
+    :GLFWerrorfun           => "void GLFWerrorfun(int,const char*)",
+    :GLFWwindowposfun       => "void GLFWwindowposfun(void*,int,int)",
+    :GLFWwindowsizefun      => "void GLFWwindowsizefun(void*,int,int)",
+    :GLFWwindowclosefun     => "void GLFWwindowclosefun(void*)",
+    :GLFWwindowrefreshfun   => "void GLFWwindowrefreshfun(void*)",
+    :GLFWwindowfocusfun     => "void GLFWwindowfocusfun(void*,int)",
+    :GLFWwindowiconifyfun   => "void GLFWwindowiconifyfun(void*,int)",
+    :GLFWframebuffersizefun => "void GLFWframebuffersizefun(void*,int,int)",
+    :GLFWmousebuttonfun     => "void GLFWmousebuttonfun(void*,int,int,int)",
+    :GLFWcursorposfun       => "void GLFWcursorposfun(void*,double,double)",
+    :GLFWcursorenterfun     => "void GLFWcursorenterfun(void*,int)",
+    :GLFWscrollfun          => "void GLFWscrollfun(void*,double,double)",
+    :GLFWkeyfun             => "void GLFWkeyfun(void*,int,int,int,int)",
+    :GLFWcharfun            => "void GLFWcharfun(void*,unsigned int)",
+    :GLFWmonitorfun         => "void GLFWmonitorfun(void*,int)",
+  }
+
+  # Creates a callback as an instance of Fiddle::Function
+  def self.create_callback_function( sym, proc=nil, &blk )
+    if block_given?
+      return bind( @@glfw_cb_function_signature[sym], nil, &blk )
+    else
+      return bind( @@glfw_cb_function_signature[sym], nil, &proc )
+    end
+  end
+
+  GLFWerrorfun_cb_args             = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+  GLFWerrorfun_cb_retval           = Fiddle::TYPE_VOID
+  GLFWwindowposfun_cb_args         = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLFWwindowposfun_cb_retval       = Fiddle::TYPE_VOID
+  GLFWwindowsizefun_cb_args        = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLFWwindowsizefun_cb_retval      = Fiddle::TYPE_VOID
+  GLFWwindowclosefun_cb_args       = [Fiddle::TYPE_VOIDP]
+  GLFWwindowclosefun_cb_retval     = Fiddle::TYPE_VOID
+  GLFWwindowrefreshfun_cb_args     = [Fiddle::TYPE_VOIDP]
+  GLFWwindowrefreshfun_cb_retval   = Fiddle::TYPE_VOID
+  GLFWwindowfocusfun_cb_args       = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+  GLFWwindowfocusfun_cb_retval     = Fiddle::TYPE_VOID
+  GLFWwindowiconifyfun_cb_args     = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+  GLFWwindowiconifyfun_cb_retval   = Fiddle::TYPE_VOID
+  GLFWframebuffersizefun_cb_args   = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLFWframebuffersizefun_cb_retval = Fiddle::TYPE_VOID
+  GLFWmousebuttonfun_cb_args       = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLFWmousebuttonfun_cb_retval     = Fiddle::TYPE_VOID
+  GLFWcursorposfun_cb_args         = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+  GLFWcursorposfun_cb_retval       = Fiddle::TYPE_VOID
+  GLFWcursorenterfun_cb_args       = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+  GLFWcursorenterfun_cb_retval     = Fiddle::TYPE_VOID
+  GLFWscrollfun_cb_args            = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+  GLFWscrollfun_cb_retval          = Fiddle::TYPE_VOID
+  GLFWkeyfun_cb_args               = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLFWkeyfun_cb_retval             = Fiddle::TYPE_VOID
+  GLFWcharfun_cb_args              = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
+  GLFWcharfun_cb_retval            = Fiddle::TYPE_VOID
+  GLFWmonitorfun_cb_args           = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
+  GLFWmonitorfun_cb_retval         = Fiddle::TYPE_VOID
+
+  @@glfw_cb_closure_signature = {
+    :GLFWerrorfun           => [GLFWerrorfun_cb_retval, GLFWerrorfun_cb_args],
+    :GLFWwindowposfun       => [GLFWwindowposfun_cb_retval, GLFWwindowposfun_cb_args],
+    :GLFWwindowsizefun      => [GLFWwindowsizefun_cb_retval, GLFWwindowsizefun_cb_args],
+    :GLFWwindowclosefun     => [GLFWwindowclosefun_cb_retval, GLFWwindowclosefun_cb_args],
+    :GLFWwindowrefreshfun   => [GLFWwindowrefreshfun_cb_retval, GLFWwindowrefreshfun_cb_args],
+    :GLFWwindowfocusfun     => [GLFWwindowfocusfun_cb_retval, GLFWwindowfocusfun_cb_args],
+    :GLFWwindowiconifyfun   => [GLFWwindowiconifyfun_cb_retval, GLFWwindowiconifyfun_cb_args],
+    :GLFWframebuffersizefun => [GLFWframebuffersizefun_cb_retval, GLFWframebuffersizefun_cb_args],
+    :GLFWmousebuttonfun     => [GLFWmousebuttonfun_cb_retval, GLFWmousebuttonfun_cb_args],
+    :GLFWcursorposfun       => [GLFWcursorposfun_cb_retval, GLFWcursorposfun_cb_args],
+    :GLFWcursorenterfun     => [GLFWcursorenterfun_cb_retval, GLFWcursorenterfun_cb_args],
+    :GLFWscrollfun          => [GLFWscrollfun_cb_retval, GLFWscrollfun_cb_args],
+    :GLFWkeyfun             => [GLFWkeyfun_cb_retval, GLFWkeyfun_cb_args],
+    :GLFWcharfun            => [GLFWcharfun_cb_retval, GLFWcharfun_cb_args],
+    :GLFWmonitorfun         => [GLFWmonitorfun_cb_retval, GLFWmonitorfun_cb_args],
+  }
+
+  # Creates a callback as an instance of Fiddle::Closure::BlockCaller
+  def self.create_callback_closure( sym, proc=nil, &blk )
+    cb_retval = @@glfw_cb_closure_signature[sym][0]
+    cb_args   = @@glfw_cb_closure_signature[sym][1]
+    if block_given?
+      return Fiddle::Closure::BlockCaller.new( cb_retval, cb_args, Fiddle::Function::DEFAULT, &blk )
+    else
+      return Fiddle::Closure::BlockCaller.new( cb_retval, cb_args, Fiddle::Function::DEFAULT, &proc )
+    end
+  end
+
+  # NOTE : Use 'create_callback_function' for backward compatibility.
+  def self.create_callback( sym, proc=nil, &blk )
+    return self.create_callback_closure( sym, proc, &blk )
+  end
+
+
+  # typedefs
   @@glfw_cb_signature = {
-    :GLFWglproc => "void GLFWglproc()",
     :GLFWerrorfun => "void GLFWerrorfun(int,const char*)",
     :GLFWwindowposfun => "void GLFWwindowposfun(void*,int,int)",
     :GLFWwindowsizefun => "void GLFWwindowsizefun(void*,int,int)",

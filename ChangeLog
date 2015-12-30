@@ -1,3 +1,13 @@
+2015-12-29  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* lib/glfw.rb, lib/glfw30.rb, lib/glut.rb: 'create_callback' now creates
+	callback functions as an instance of Fiddle::Closure::BlockCaller. Old
+	methods are still available (renamed to create_callback_function').
+
+2015-11-14  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* lib/opengl_linux.rb (glXGetCurrentDisplay): Fixed wrong signature.
+
 2015-11-07  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* lib/opengl_macosx.rb, lib/opengl_linux.rb: Added.
