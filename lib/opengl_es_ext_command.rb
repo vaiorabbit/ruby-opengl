@@ -1420,6 +1420,24 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_occlusion_query_boolean
 
 
+  def self.define_ext_command_GL_EXT_polygon_offset_clamp
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glPolygonOffsetClampEXT] = [Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glPolygonOffsetClampEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glPolygonOffsetClampEXT(_factor_, _units_, _clamp_)
+        f = OpenGL::get_command(:glPolygonOffsetClampEXT)
+        f.call(_factor_, _units_, _clamp_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_polygon_offset_clamp
+
+  def self.get_ext_command_GL_EXT_polygon_offset_clamp
+    [
+      'glPolygonOffsetClampEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_polygon_offset_clamp
+
+
   def self.define_ext_command_GL_EXT_post_depth_coverage
   end # self.define_ext_command_GL_EXT_post_depth_coverage
 
@@ -2045,6 +2063,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_shader_framebuffer_fetch
 
 
+  def self.define_ext_command_GL_EXT_shader_group_vote
+  end # self.define_ext_command_GL_EXT_shader_group_vote
+
+  def self.get_ext_command_GL_EXT_shader_group_vote
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_shader_group_vote
+
+
   def self.define_ext_command_GL_EXT_shader_implicit_conversions
   end # self.define_ext_command_GL_EXT_shader_implicit_conversions
 
@@ -2079,6 +2106,44 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_EXT_shader_pixel_local_storage
+
+
+  def self.define_ext_command_GL_EXT_shader_pixel_local_storage2
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferPixelLocalStorageSizeEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferPixelLocalStorageSizeEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glFramebufferPixelLocalStorageSizeEXT(_target_, _size_)
+        f = OpenGL::get_command(:glFramebufferPixelLocalStorageSizeEXT)
+        f.call(_target_, _size_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetFramebufferPixelLocalStorageSizeEXT] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetFramebufferPixelLocalStorageSizeEXT] = Fiddle::TYPE_INT
+    OpenGL.module_eval(<<-SRC)
+      def glGetFramebufferPixelLocalStorageSizeEXT(_target_)
+        f = OpenGL::get_command(:glGetFramebufferPixelLocalStorageSizeEXT)
+        f.call(_target_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glClearPixelLocalStorageuiEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glClearPixelLocalStorageuiEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glClearPixelLocalStorageuiEXT(_offset_, _n_, _values_)
+        f = OpenGL::get_command(:glClearPixelLocalStorageuiEXT)
+        f.call(_offset_, _n_, _values_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_shader_pixel_local_storage2
+
+  def self.get_ext_command_GL_EXT_shader_pixel_local_storage2
+    [
+      'glFramebufferPixelLocalStorageSizeEXT',
+      'glGetFramebufferPixelLocalStorageSizeEXT',
+      'glClearPixelLocalStorageuiEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_shader_pixel_local_storage2
 
 
   def self.define_ext_command_GL_EXT_shader_texture_lod
@@ -2479,6 +2544,34 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_FJ_shader_binary_GCCSO
+
+
+  def self.define_ext_command_GL_IMG_framebuffer_downsample
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferTexture2DDownsampleIMG] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTexture2DDownsampleIMG] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glFramebufferTexture2DDownsampleIMG(_target_, _attachment_, _textarget_, _texture_, _level_, _xscale_, _yscale_)
+        f = OpenGL::get_command(:glFramebufferTexture2DDownsampleIMG)
+        f.call(_target_, _attachment_, _textarget_, _texture_, _level_, _xscale_, _yscale_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureLayerDownsampleIMG] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureLayerDownsampleIMG] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glFramebufferTextureLayerDownsampleIMG(_target_, _attachment_, _texture_, _level_, _layer_, _xscale_, _yscale_)
+        f = OpenGL::get_command(:glFramebufferTextureLayerDownsampleIMG)
+        f.call(_target_, _attachment_, _texture_, _level_, _layer_, _xscale_, _yscale_)
+      end
+    SRC
+  end # self.define_ext_command_GL_IMG_framebuffer_downsample
+
+  def self.get_ext_command_GL_IMG_framebuffer_downsample
+    [
+      'glFramebufferTexture2DDownsampleIMG',
+      'glFramebufferTextureLayerDownsampleIMG',
+    ]
+  end # self.get_ext_command_GL_IMG_framebuffer_downsample
 
 
   def self.define_ext_command_GL_IMG_multisampled_render_to_texture
