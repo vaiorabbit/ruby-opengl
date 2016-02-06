@@ -188,7 +188,11 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 		*   https://rubygems.org/gems/mittsu
 		*   https://github.com/jellymann/mittsu
 
-
+*   Other informative projects
+	*   argon | neon
+		*   https://github.com/npomf/argon
+		*   https://bitbucket.org/npomf/neon/src
+			*   "vaiorabbit / ruby-opengl - as the basis for the OpenGL, OpenAL, and GLFW FFI libraries."
 
 ## License ##
 
@@ -401,6 +405,12 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 	*   mittsu - A direct port of THREE.js from JavaScript/WebGL to Ruby/OpenGL
 		*   https://rubygems.org/gems/mittsu
 		*   https://github.com/jellymann/mittsu
+
+*   参考になりそうなプロジェクト
+	*   argon | neon
+		*   https://github.com/npomf/argon
+		*   https://bitbucket.org/npomf/neon/src
+			*   "vaiorabbit / ruby-opengl - as the basis for the OpenGL, OpenAL, and GLFW FFI libraries."
 
 
 ## ライセンス ##
