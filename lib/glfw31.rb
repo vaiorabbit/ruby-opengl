@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# A GLFW wrapper (for version 3.2)
+# A GLFW wrapper (for version 3.1)
 require 'fiddle/import'
 
 module GLFW
@@ -36,11 +36,8 @@ module GLFW
 
   # defines
   GLFW_VERSION_MAJOR     = 3
-  GLFW_VERSION_MINOR     = 2
+  GLFW_VERSION_MINOR     = 1
   GLFW_VERSION_REVISION  = 0
-
-  GLFW_TRUE  = 1
-  GLFW_FALSE = 0
 
   GLFW_RELEASE  = 0
   GLFW_PRESS    = 1
@@ -216,7 +213,6 @@ module GLFW
   GLFW_VERSION_UNAVAILABLE  = 0x00010007
   GLFW_PLATFORM_ERROR       = 0x00010008
   GLFW_FORMAT_UNAVAILABLE   = 0x00010009
-  GLFW_NO_WINDOW_CONTEXT    = 0x0001000A
 
   GLFW_FOCUSED       = 0x00020001
   GLFW_ICONIFIED     = 0x00020002
@@ -225,7 +221,6 @@ module GLFW
   GLFW_DECORATED     = 0x00020005
   GLFW_AUTO_ICONIFY  = 0x00020006
   GLFW_FLOATING      = 0x00020007
-  GLFW_MAXIMIZED     = 0x00020008
 
   GLFW_RED_BITS          = 0x00021001
   GLFW_GREEN_BITS        = 0x00021002
@@ -253,9 +248,7 @@ module GLFW
   GLFW_OPENGL_DEBUG_CONTEXT      = 0x00022007
   GLFW_OPENGL_PROFILE            = 0x00022008
   GLFW_CONTEXT_RELEASE_BEHAVIOR  = 0x00022009
-  GLFW_CONTEXT_NO_ERROR          = 0x0002200A
 
-  GLFW_NO_API         = 0
   GLFW_OPENGL_API     = 0x00030001
   GLFW_OPENGL_ES_API  = 0x00030002
 
@@ -438,8 +431,6 @@ module GLFW
   end
 
   def self.import_symbols
-    typealias 'GLFWuint64', 'unsigned long long'
-
     # function
     extern 'int glfwInit()'
     extern 'void glfwTerminate()'
@@ -464,23 +455,17 @@ module GLFW
     extern 'int glfwWindowShouldClose(void*)'
     extern 'void glfwSetWindowShouldClose(void* window, int)'
     extern 'void glfwSetWindowTitle(void*, const char*)'
-    extern 'void glfwSetWindowIcon(void*, int, void*)' rescue $stderr.puts "[Warning] Failed to import glfwSetWindowIcon (Available since GLFW 3.2)."
     extern 'void glfwGetWindowPos(void*, int*, int*)'
     extern 'void glfwSetWindowPos(void*, int, int)'
     extern 'void glfwGetWindowSize(void*, int*, int*)'
-    extern 'void glfwSetWindowSizeLimits(void*, int, int, int, int)' rescue $stderr.puts "[Warning] Failed to import glfwSetWindowSizeLimits (Available since GLFW 3.2)."
-    extern 'void glfwSetWindowAspectRatio(void*, int, int)' rescue $stderr.puts "[Warning] Failed to import glfwSetWindowAspectRatio (Available since GLFW 3.2)."
     extern 'void glfwSetWindowSize(void*, int, int)'
     extern 'void glfwGetFramebufferSize(void*, int*, int*)'
     extern 'void glfwGetWindowFrameSize(void*, int*, int*, int*, int*)'
     extern 'void glfwIconifyWindow(void*)'
     extern 'void glfwRestoreWindow(void*)'
-    extern 'void glfwMaximizeWindow(void*)' rescue $stderr.puts "[Warning] Failed to import glfwMaximizeWindow (Available since GLFW 3.2)."
     extern 'void glfwShowWindow(void*)'
     extern 'void glfwHideWindow(void*)'
-    extern 'void glfwFocusWindow(void*)' rescue $stderr.puts "[Warning] Failed to import glfwFocusWindow (Available since GLFW 3.2)."
     extern 'void* glfwGetWindowMonitor(void*)'
-    extern 'void glfwSetWindowMonitor(void*, void*, int, int, int, int, int)' rescue $stderr.puts "[Warning] Failed to import glfwSetWindowMonitor (Available since GLFW 3.2)."
     extern 'int glfwGetWindowAttrib(void*, int)'
     extern 'void glfwSetWindowUserPointer(void*, void*)'
     extern 'void* glfwGetWindowUserPointer(void*)'
@@ -493,11 +478,9 @@ module GLFW
     extern 'void* glfwSetFramebufferSizeCallback(void*, void*)'
     extern 'void glfwPollEvents()'
     extern 'void glfwWaitEvents()'
-    extern 'void glfwWaitEventsTimeout(double)' rescue $stderr.puts "[Warning] Failed to import glfwWaitEventsTimeout (Available since GLFW 3.2)."
     extern 'void glfwPostEmptyEvent()'
     extern 'int glfwGetInputMode(void*, int)'
     extern 'void glfwSetInputMode(void*, int, int)'
-    extern 'const char* glfwGetKeyName(int, int)' rescue $stderr.puts "[Warning] Failed to import glfwGetKeyName (Available since GLFW 3.2)."
     extern 'int glfwGetKey(void*, int)'
     extern 'int glfwGetMouseButton(void*, int)'
     extern 'void glfwGetCursorPos(void*, double*, double*)'
@@ -522,21 +505,12 @@ module GLFW
     extern 'const char* glfwGetClipboardString(void*)'
     extern 'double glfwGetTime()'
     extern 'void glfwSetTime(double)'
-    extern 'GLFWuint64 glfwGetTimerValue()' rescue $stderr.puts "[Warning] Failed to import glfwGetTimerValue (Available since GLFW 3.2)."
-    extern 'GLFWuint64 glfwGetTimerFrequency()' rescue $stderr.puts "[Warning] Failed to import glfwGetTimerFrequency (Available since GLFW 3.2)."
     extern 'void glfwMakeContextCurrent(void*)'
     extern 'void* glfwGetCurrentContext()'
     extern 'void glfwSwapBuffers(void*)'
     extern 'void glfwSwapInterval(int)'
     extern 'int glfwExtensionSupported(const char*)'
     extern 'void* glfwGetProcAddress(const char*)'
-    # Vulkan >>>
-    extern 'int glfwVulkanSupported()' rescue $stderr.puts "[Warning] Failed to import glfwVulkanSupported (Available since GLFW 3.2)."
-    extern 'const char** glfwGetRequiredInstanceExtensions(unsigned int*)' rescue $stderr.puts "[Warning] Failed to import glfwGetRequiredInstanceExtensions (Available since GLFW 3.2)."
-  # extern 'GLFWvkproc glfwGetInstanceProcAddress(void*, const char*)'
-  # extern 'int glfwGetPhysicalDevicePresentationSupport(void*, void*, unsigned int);'
-  # extern 'VkResult glfwCreateWindowSurface(void*, void*, const void*, void*)'
-    # Vulkan <<<
 
     @@glfw_import_done = true
   end
