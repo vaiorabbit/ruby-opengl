@@ -187,6 +187,9 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 	*   mittsu - A direct port of THREE.js from JavaScript/WebGL to Ruby/OpenGL
 		*   https://rubygems.org/gems/mittsu
 		*   https://github.com/jellymann/mittsu
+	*   opencl-bindings - A Ruby binding for OpenCL 1.2
+		*   https://rubygems.org/gems/opencl-bindings
+		*   https://github.com/vaiorabbit/ruby-opencl
 
 *   Other informative projects
 	*   argon | neon
@@ -405,6 +408,9 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 	*   mittsu - A direct port of THREE.js from JavaScript/WebGL to Ruby/OpenGL
 		*   https://rubygems.org/gems/mittsu
 		*   https://github.com/jellymann/mittsu
+	*   opencl-bindings - A Ruby binding for OpenCL 1.2
+		*   https://rubygems.org/gems/opencl-bindings
+		*   https://github.com/vaiorabbit/ruby-opencl
 
 *   参考になりそうなプロジェクト
 	*   argon | neon
