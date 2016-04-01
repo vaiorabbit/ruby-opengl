@@ -310,6 +310,7 @@ module GLFW
     :GLFWcharmodsfun        => "void GLFWcharmodsfun(void*,unsigned int,int)",
     :GLFWdropfun            => "void GLFWdropfun(void*,int,const char**)",
     :GLFWmonitorfun         => "void GLFWmonitorfun(void*,int)",
+    :GLFWjoystickfun        => "void GGLFWjoystickfun(int,int)",
   }
 
   # Creates a callback as an instance of Fiddle::Function
@@ -355,6 +356,8 @@ module GLFW
   GLFWdropfun_cb_retval            = Fiddle::TYPE_VOID
   GLFWmonitorfun_cb_args           = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
   GLFWmonitorfun_cb_retval         = Fiddle::TYPE_VOID
+  GLFWjoystickfun_cb_args          = [Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GLFWjoystickfun_cb_retval        = Fiddle::TYPE_VOID
 
   @@glfw_cb_closure_signature = {
     :GLFWerrorfun           => [GLFWerrorfun_cb_retval, GLFWerrorfun_cb_args],
@@ -374,6 +377,7 @@ module GLFW
     :GLFWcharmodsfun        => [GLFWcharmodsfun_cb_retval, GLFWcharmodsfun_cb_args],
     :GLFWdropfun            => [GLFWdropfun_cb_retval, GLFWdropfun_cb_args],
     :GLFWmonitorfun         => [GLFWmonitorfun_cb_retval, GLFWmonitorfun_cb_args],
+    :GLFWjoystickfun        => [GLFWjoystickfun_cb_retval, GLFWjoystickfun_cb_args],
   }
 
   # Creates a callback as an instance of Fiddle::Closure::BlockCaller
@@ -518,6 +522,7 @@ module GLFW
     extern 'const float* glfwGetJoystickAxes(int, int*)'
     extern 'const unsigned char* glfwGetJoystickButtons(int, int*)'
     extern 'const char* glfwGetJoystickName(int)'
+    extern 'void* glfwSetJoystickCallback(void*)' rescue $stderr.puts "[Warning] Failed to import glfwSetJoystickCallback (Available since GLFW 3.2)."
     extern 'void glfwSetClipboardString(void*, const char*)'
     extern 'const char* glfwGetClipboardString(void*)'
     extern 'double glfwGetTime()'
