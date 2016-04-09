@@ -1,3 +1,29 @@
+2016-04-08  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* glfw.rb: Just an alias of glfw.rb.
+	* glfw32.rb: GLFW binding for version 3.2 (renamed from previous glfw.rb).
+
+2016-04-01  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* glfw.rb: Added GLFW 3.2 features.
+
+2016-03-22  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* glfw.rb: Added GLFW 3.2 features.
+	* glfw31.rb: Previous version of 'glfw.rb' is available as 'glfw31.rb'.
+
+2016-02-06  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* README.md: Added projects using this gem.
+
+2016-01-09  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* Updated using latest gl.xml.
+
+2016-01-03  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* LICENSE.txt: Updated copyright year.
+
 2015-12-29  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* lib/glfw.rb, lib/glfw30.rb, lib/glut.rb: 'create_callback' now creates

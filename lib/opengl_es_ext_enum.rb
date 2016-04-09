@@ -1043,6 +1043,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_occlusion_query_boolean
 
 
+  def self.define_ext_enum_GL_EXT_polygon_offset_clamp
+    OpenGL.const_set('GL_POLYGON_OFFSET_CLAMP_EXT', 0x8E1B) unless defined?(OpenGL::GL_POLYGON_OFFSET_CLAMP_EXT)
+  end # self.define_ext_enum_GL_EXT_polygon_offset_clamp
+
+  def self.get_ext_enum_GL_EXT_polygon_offset_clamp
+    [
+      'GL_POLYGON_OFFSET_CLAMP_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_polygon_offset_clamp
+
+
   def self.define_ext_enum_GL_EXT_post_depth_coverage
   end # self.define_ext_enum_GL_EXT_post_depth_coverage
 
@@ -1230,6 +1241,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_shader_framebuffer_fetch
 
 
+  def self.define_ext_enum_GL_EXT_shader_group_vote
+  end # self.define_ext_enum_GL_EXT_shader_group_vote
+
+  def self.get_ext_enum_GL_EXT_shader_group_vote
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_shader_group_vote
+
+
   def self.define_ext_enum_GL_EXT_shader_implicit_conversions
   end # self.define_ext_enum_GL_EXT_shader_implicit_conversions
 
@@ -1270,6 +1290,21 @@ module OpenGLExt
       'GL_SHADER_PIXEL_LOCAL_STORAGE_EXT',
     ]
   end # self.get_ext_enum_GL_EXT_shader_pixel_local_storage
+
+
+  def self.define_ext_enum_GL_EXT_shader_pixel_local_storage2
+    OpenGL.const_set('GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_FAST_SIZE_EXT', 0x9650) unless defined?(OpenGL::GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_FAST_SIZE_EXT)
+    OpenGL.const_set('GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_SIZE_EXT', 0x9651) unless defined?(OpenGL::GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_SIZE_EXT)
+    OpenGL.const_set('GL_FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT', 0x9652) unless defined?(OpenGL::GL_FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT)
+  end # self.define_ext_enum_GL_EXT_shader_pixel_local_storage2
+
+  def self.get_ext_enum_GL_EXT_shader_pixel_local_storage2
+    [
+      'GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_FAST_SIZE_EXT',
+      'GL_MAX_SHADER_COMBINED_LOCAL_STORAGE_SIZE_EXT',
+      'GL_FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_shader_pixel_local_storage2
 
 
   def self.define_ext_enum_GL_EXT_shader_texture_lod
@@ -1791,6 +1826,23 @@ module OpenGLExt
       'GL_GCCSO_SHADER_BINARY_FJ',
     ]
   end # self.get_ext_enum_GL_FJ_shader_binary_GCCSO
+
+
+  def self.define_ext_enum_GL_IMG_framebuffer_downsample
+    OpenGL.const_set('GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_AND_DOWNSAMPLE_IMG', 0x913C) unless defined?(OpenGL::GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_AND_DOWNSAMPLE_IMG)
+    OpenGL.const_set('GL_NUM_DOWNSAMPLE_SCALES_IMG', 0x913D) unless defined?(OpenGL::GL_NUM_DOWNSAMPLE_SCALES_IMG)
+    OpenGL.const_set('GL_DOWNSAMPLE_SCALES_IMG', 0x913E) unless defined?(OpenGL::GL_DOWNSAMPLE_SCALES_IMG)
+    OpenGL.const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG', 0x913F) unless defined?(OpenGL::GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG)
+  end # self.define_ext_enum_GL_IMG_framebuffer_downsample
+
+  def self.get_ext_enum_GL_IMG_framebuffer_downsample
+    [
+      'GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_AND_DOWNSAMPLE_IMG',
+      'GL_NUM_DOWNSAMPLE_SCALES_IMG',
+      'GL_DOWNSAMPLE_SCALES_IMG',
+      'GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_SCALE_IMG',
+    ]
+  end # self.get_ext_enum_GL_IMG_framebuffer_downsample
 
 
   def self.define_ext_enum_GL_IMG_multisampled_render_to_texture
