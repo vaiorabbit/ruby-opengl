@@ -19,9 +19,9 @@ if __FILE__ == $0
   window = nil
   [4, 3].each do |major_ver|
     glfwDefaultWindowHints()
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE)
+#    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE)
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, major_ver)
+#    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, major_ver)
     glfwWindowHint(GLFW_DECORATED, 0)
     window = glfwCreateWindow( 1, 1, "Report OpenGL Environment", nil, nil )
     break unless window.null?

@@ -1,3 +1,7 @@
+2016-04-09  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* README.md: Tested on Windows 10 and NVIDIA GeForce GTX 960.
+
 2016-04-08  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* glfw.rb: Just an alias of glfw.rb.

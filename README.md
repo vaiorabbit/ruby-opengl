@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2016-04-08
+*   Last modified : 2016-04-09
 
 
 ## Features ##
@@ -104,6 +104,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 ## Tested Environment ##
 
 *   Ruby
+    *   ruby 2.3.0p0 (2015-12-25 revision 53290) [x64-mingw32]
     *   ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin15]
     *   ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin14]
     *   ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]
@@ -115,6 +116,20 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
     *   ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin12.0]
     *   ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin13.0.0]
     *   ruby 2.0.0p247 (2013-06-27) [i386-mingw32]
+
+*   Windows 10 Home, 64-bit (Version 1511, OS Build 10586.164)
+    *   NVIDIA GeForce GTX 960
+        *   OpenGL 4.5
+
+                > ruby report_env.rb
+                Version: 4.5.0 NVIDIA 364.72
+
+*   Windows 7 Home Premium, 64-bit (Service Pack 1)
+    *   NVIDIA GeForce GTX 560
+        *   OpenGL 4.3
+
+                > ruby report_env.rb
+                4.3.0
 
 *   Windows 7 Home Premium, 64-bit (Service Pack 1)
     *   NVIDIA GeForce GTX 560
@@ -324,6 +339,7 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 ## テストした環境 ##
 
 *   Ruby
+    *   ruby 2.3.0p0 (2015-12-25 revision 53290) [x64-mingw32]
     *   ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin15]
     *   ruby 2.2.3p173 (2015-08-18 revision 51636) [x86_64-darwin14]
     *   ruby 2.2.2p95 (2015-04-13 revision 50295) [x86_64-linux]
@@ -335,6 +351,13 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
     *   ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin12.0]
     *   ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin13.0.0]
     *   ruby 2.0.0p247 (2013-06-27) [i386-mingw32]
+
+*   Windows 10 Home, 64-bit (Version 1511, OS Build 10586.164)
+    *   NVIDIA GeForce GTX 960
+        *   OpenGL 4.5
+
+                > ruby report_env.rb
+                Version: 4.5.0 NVIDIA 364.72
 
 *   Windows 7 Home Premium, 64-bit (Service Pack 1)
     *   NVIDIA GeForce GTX 560
