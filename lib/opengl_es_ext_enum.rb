@@ -552,6 +552,37 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_buffer_storage
 
 
+  def self.define_ext_enum_GL_EXT_clip_cull_distance
+    OpenGL.const_set('GL_MAX_CLIP_DISTANCES_EXT', 0x0D32) unless defined?(OpenGL::GL_MAX_CLIP_DISTANCES_EXT)
+    OpenGL.const_set('GL_MAX_CULL_DISTANCES_EXT', 0x82F9) unless defined?(OpenGL::GL_MAX_CULL_DISTANCES_EXT)
+    OpenGL.const_set('GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES_EXT', 0x82FA) unless defined?(OpenGL::GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES_EXT)
+    OpenGL.const_set('GL_CLIP_DISTANCE0_EXT', 0x3000) unless defined?(OpenGL::GL_CLIP_DISTANCE0_EXT)
+    OpenGL.const_set('GL_CLIP_DISTANCE1_EXT', 0x3001) unless defined?(OpenGL::GL_CLIP_DISTANCE1_EXT)
+    OpenGL.const_set('GL_CLIP_DISTANCE2_EXT', 0x3002) unless defined?(OpenGL::GL_CLIP_DISTANCE2_EXT)
+    OpenGL.const_set('GL_CLIP_DISTANCE3_EXT', 0x3003) unless defined?(OpenGL::GL_CLIP_DISTANCE3_EXT)
+    OpenGL.const_set('GL_CLIP_DISTANCE4_EXT', 0x3004) unless defined?(OpenGL::GL_CLIP_DISTANCE4_EXT)
+    OpenGL.const_set('GL_CLIP_DISTANCE5_EXT', 0x3005) unless defined?(OpenGL::GL_CLIP_DISTANCE5_EXT)
+    OpenGL.const_set('GL_CLIP_DISTANCE6_EXT', 0x3006) unless defined?(OpenGL::GL_CLIP_DISTANCE6_EXT)
+    OpenGL.const_set('GL_CLIP_DISTANCE7_EXT', 0x3007) unless defined?(OpenGL::GL_CLIP_DISTANCE7_EXT)
+  end # self.define_ext_enum_GL_EXT_clip_cull_distance
+
+  def self.get_ext_enum_GL_EXT_clip_cull_distance
+    [
+      'GL_MAX_CLIP_DISTANCES_EXT',
+      'GL_MAX_CULL_DISTANCES_EXT',
+      'GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES_EXT',
+      'GL_CLIP_DISTANCE0_EXT',
+      'GL_CLIP_DISTANCE1_EXT',
+      'GL_CLIP_DISTANCE2_EXT',
+      'GL_CLIP_DISTANCE3_EXT',
+      'GL_CLIP_DISTANCE4_EXT',
+      'GL_CLIP_DISTANCE5_EXT',
+      'GL_CLIP_DISTANCE6_EXT',
+      'GL_CLIP_DISTANCE7_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_clip_cull_distance
+
+
   def self.define_ext_enum_GL_EXT_color_buffer_float
   end # self.define_ext_enum_GL_EXT_color_buffer_float
 

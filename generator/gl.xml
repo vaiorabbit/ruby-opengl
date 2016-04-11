@@ -2732,6 +2732,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x0D32" name="GL_MAX_CLIP_PLANES"/>
         <enum value="0x0D32" name="GL_MAX_CLIP_PLANES_IMG"/>
         <enum value="0x0D32" name="GL_MAX_CLIP_DISTANCES" alias="GL_MAX_CLIP_PLANES"/>
+        <enum value="0x0D32" name="GL_MAX_CLIP_DISTANCES_EXT" alias="GL_MAX_CLIP_PLANES"/>
         <enum value="0x0D32" name="GL_MAX_CLIP_DISTANCES_APPLE"/>
         <enum value="0x0D33" name="GL_MAX_TEXTURE_SIZE"/>
         <enum value="0x0D34" name="GL_MAX_PIXEL_MAP_TABLE"/>
@@ -2999,30 +3000,38 @@ typedef unsigned int GLhandleARB;
         <enum value="0x3000" name="GL_CLIP_PLANE0"/>
         <enum value="0x3000" name="GL_CLIP_PLANE0_IMG"/>
         <enum value="0x3000" name="GL_CLIP_DISTANCE0" alias="GL_CLIP_PLANE0"/>
+        <enum value="0x3000" name="GL_CLIP_DISTANCE0_EXT" alias="GL_CLIP_PLANE0"/>
         <enum value="0x3000" name="GL_CLIP_DISTANCE0_APPLE"/>
         <enum value="0x3001" name="GL_CLIP_PLANE1"/>
         <enum value="0x3001" name="GL_CLIP_PLANE1_IMG"/>
         <enum value="0x3001" name="GL_CLIP_DISTANCE1" alias="GL_CLIP_PLANE1"/>
+        <enum value="0x3001" name="GL_CLIP_DISTANCE1_EXT" alias="GL_CLIP_PLANE1"/>
         <enum value="0x3001" name="GL_CLIP_DISTANCE1_APPLE"/>
         <enum value="0x3002" name="GL_CLIP_PLANE2"/>
         <enum value="0x3002" name="GL_CLIP_PLANE2_IMG"/>
         <enum value="0x3002" name="GL_CLIP_DISTANCE2" alias="GL_CLIP_PLANE2"/>
+        <enum value="0x3002" name="GL_CLIP_DISTANCE2_EXT" alias="GL_CLIP_PLANE2"/>
         <enum value="0x3002" name="GL_CLIP_DISTANCE2_APPLE"/>
         <enum value="0x3003" name="GL_CLIP_PLANE3"/>
         <enum value="0x3003" name="GL_CLIP_PLANE3_IMG"/>
         <enum value="0x3003" name="GL_CLIP_DISTANCE3" alias="GL_CLIP_PLANE3"/>
+        <enum value="0x3003" name="GL_CLIP_DISTANCE3_EXT" alias="GL_CLIP_PLANE3"/>
         <enum value="0x3003" name="GL_CLIP_DISTANCE3_APPLE"/>
         <enum value="0x3004" name="GL_CLIP_PLANE4"/>
         <enum value="0x3004" name="GL_CLIP_PLANE4_IMG"/>
         <enum value="0x3004" name="GL_CLIP_DISTANCE4" alias="GL_CLIP_PLANE4"/>
+        <enum value="0x3004" name="GL_CLIP_DISTANCE4_EXT" alias="GL_CLIP_PLANE4"/>
         <enum value="0x3004" name="GL_CLIP_DISTANCE4_APPLE"/>
         <enum value="0x3005" name="GL_CLIP_PLANE5"/>
         <enum value="0x3005" name="GL_CLIP_PLANE5_IMG"/>
         <enum value="0x3005" name="GL_CLIP_DISTANCE5" alias="GL_CLIP_PLANE5"/>
+        <enum value="0x3005" name="GL_CLIP_DISTANCE5_EXT" alias="GL_CLIP_PLANE5"/>
         <enum value="0x3005" name="GL_CLIP_DISTANCE5_APPLE"/>
         <enum value="0x3006" name="GL_CLIP_DISTANCE6"/>
+        <enum value="0x3006" name="GL_CLIP_DISTANCE6_EXT" alias="GL_CLIP_DISTANCE6"/>
         <enum value="0x3006" name="GL_CLIP_DISTANCE6_APPLE"/>
         <enum value="0x3007" name="GL_CLIP_DISTANCE7"/>
+        <enum value="0x3007" name="GL_CLIP_DISTANCE7_EXT" alias="GL_CLIP_DISTANCE7"/>
         <enum value="0x3007" name="GL_CLIP_DISTANCE7_APPLE"/>
             <unused start="0x3008" end="0x3FFF" comment="Unused for ClipPlaneName"/>
         <enum value="0x4000" name="GL_LIGHT0"/>
@@ -4154,7 +4163,9 @@ typedef unsigned int GLhandleARB;
         <enum value="0x82F7" name="GL_CLIPPING_OUTPUT_PRIMITIVES_ARB"/>
         <enum value="0x82F8" name="GL_SPARSE_BUFFER_PAGE_SIZE_ARB"/>
         <enum value="0x82F9" name="GL_MAX_CULL_DISTANCES"/>
+        <enum value="0x82F9" name="GL_MAX_CULL_DISTANCES_EXT" alias="GL_MAX_CULL_DISTANCES"/>
         <enum value="0x82FA" name="GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES"/>
+        <enum value="0x82FA" name="GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES_EXT" alias="GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES"/>
         <enum value="0x82FB" name="GL_CONTEXT_RELEASE_BEHAVIOR"/>
         <enum value="0x82FB" name="GL_CONTEXT_RELEASE_BEHAVIOR_KHR"/>
         <enum value="0x82FC" name="GL_CONTEXT_RELEASE_BEHAVIOR_FLUSH"/>
@@ -39830,6 +39841,21 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_BUFFER_STORAGE_FLAGS_EXT"/>
                 <command name="glBufferStorageEXT"/>
                 <!-- <command name="glNamedBufferStorageEXT"/> -->
+            </require>
+        </extension>
+        <extension name="GL_EXT_clip_cull_distance" supported="gles2">
+            <require>
+                <enum name="GL_MAX_CLIP_DISTANCES_EXT"/>
+                <enum name="GL_MAX_CULL_DISTANCES_EXT"/>
+                <enum name="GL_MAX_COMBINED_CLIP_AND_CULL_DISTANCES_EXT"/>
+                <enum name="GL_CLIP_DISTANCE0_EXT"/>
+                <enum name="GL_CLIP_DISTANCE1_EXT"/>
+                <enum name="GL_CLIP_DISTANCE2_EXT"/>
+                <enum name="GL_CLIP_DISTANCE3_EXT"/>
+                <enum name="GL_CLIP_DISTANCE4_EXT"/>
+                <enum name="GL_CLIP_DISTANCE5_EXT"/>
+                <enum name="GL_CLIP_DISTANCE6_EXT"/>
+                <enum name="GL_CLIP_DISTANCE7_EXT"/>
             </require>
         </extension>
         <extension name="GL_EXT_clip_volume_hint" supported="gl">

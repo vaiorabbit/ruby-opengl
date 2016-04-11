@@ -680,6 +680,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_buffer_storage
 
 
+  def self.define_ext_command_GL_EXT_clip_cull_distance
+  end # self.define_ext_command_GL_EXT_clip_cull_distance
+
+  def self.get_ext_command_GL_EXT_clip_cull_distance
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_clip_cull_distance
+
+
   def self.define_ext_command_GL_EXT_color_buffer_float
   end # self.define_ext_command_GL_EXT_color_buffer_float
 
