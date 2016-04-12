@@ -1,6 +1,8 @@
 2016-04-12  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.
+	* lib/glfw.rb: Now usable for GLFW 3.0, 3.1 and 3.2.
+	* lib/glfw30.rb, lib/glfw31.rb, lib/glfw32.rb: Removed.
 
 2016-04-11  vaiorabbit  <http://twitter.com/vaiorabbit>
 
