@@ -330,6 +330,7 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_CONTEXT_FLAG_DEBUG_BIT_KHR"/>
             <enum name="GL_CONTEXT_FLAG_FORWARD_COMPATIBLE_BIT"/>
             <enum name="GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB"/>
+            <enum name="GL_CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT"/>
         </group>
 
         <group name="ContextProfileMask">
@@ -2061,6 +2062,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x00000004" name="GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT"/>
         <enum value="0x00000004" name="GL_CONTEXT_FLAG_ROBUST_ACCESS_BIT_ARB"/>
         <enum value="0x00000008" name="GL_CONTEXT_FLAG_NO_ERROR_BIT_KHR"/>
+        <enum value="0x00000010" name="GL_CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT"/>
     </enums>
 
     <enums namespace="GL" group="ContextProfileMask" type="bitmask">
@@ -6433,7 +6435,9 @@ typedef unsigned int GLhandleARB;
         <enum value="0x8BDC" name="GL_STATE_RESTORE"/>
             <unused start="0x8BDD" end="0x8BE6" vendor="QCOM"/>
         <enum value="0x8BE7" name="GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT"/>
-            <unused start="0x8BE8" end="0x8BFF" vendor="QCOM"/>
+            <unused start="0x8BE8" end="0x8BEF" vendor="QCOM"/>
+        <enum value="0x8BFA" name="GL_TEXTURE_PROTECTED_EXT"/>
+            <unused start="0x8BFB" end="0x8BFF" vendor="QCOM"/>
     </enums>
 
     <enums namespace="GL" start="0x8C00" end="0x8C0F" vendor="IMG">
@@ -41023,6 +41027,12 @@ typedef unsigned int GLhandleARB;
             <require>
                 <enum name="GL_PRIMITIVE_BOUNDING_BOX_EXT"/>
                 <command name="glPrimitiveBoundingBoxEXT"/>
+            </require>
+        </extension>
+        <extension name="GL_EXT_protected_textures" supported="gles2">
+            <require>
+                <enum name="GL_CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT"/>
+                <enum name="GL_TEXTURE_PROTECTED_EXT"/>
             </require>
         </extension>
         <extension name="GL_EXT_provoking_vertex" supported="gl">

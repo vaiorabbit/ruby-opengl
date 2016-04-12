@@ -5,17 +5,17 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2016-04-11
+*   Last modified : 2016-04-12
 
 
 ## Features ##
 
 *   Uses Fiddle (One of the Ruby standard libraries that wraps libffi)
-	*   Unlike opengl ( https://rubygems.org/gems/opengl ), you don't need to build C extension library
+    *   Unlike opengl ( https://rubygems.org/gems/opengl ), you don't need to build C extension library
 
 *   Uses Khronos XML API registry
-	*   The command/enum wrapper codes are generated via 'gl.xml'
-	*   Supports OpenGL - 4.5, OpenGL ES - 3.1 and all OpenGL extensions.
+    *   The command/enum wrapper codes are generated via 'gl.xml'
+    *   Supports OpenGL - 4.5, OpenGL ES - 3.1 and all OpenGL extensions.
 
 
 ## How to install ##
@@ -84,9 +84,9 @@ https://github.com/vaiorabbit/ruby-opengl
 ## Prerequisites ##
 
 *   Fiddle
-	*   A libffi wrapper
-	*   Standard library since Ruby 2.0.0
-	*   I recommend you to use Ruby 2.1.2 and later, which fixed Fiddle's memory leak issue (https://bugs.ruby-lang.org/issues/9599).
+    *   A libffi wrapper
+    *   Standard library since Ruby 2.0.0
+    *   I recommend you to use Ruby 2.1.2 and later, which fixed Fiddle's memory leak issue (https://bugs.ruby-lang.org/issues/9599).
 
 ### For sample ###
 
@@ -167,50 +167,50 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
                 Version: 3.0 Mesa 10.6.3
 
 *   You can use any lib/path names by passing as arguments like:
-	*   OpenGL.load_lib( 'libGL.so', '/usr/lib' )
-	*   GLFW.load_lib( 'libglfw.so', '/usr/lib' )
-	*   GLU.load_lib( 'libGLU.so', '/usr/lib' )
-	*   GLUT.load_lib( 'libglut.so', '/usr/lib' )
+    *   OpenGL.load_lib( 'libGL.so', '/usr/lib' )
+    *   GLFW.load_lib( 'libglfw.so', '/usr/lib' )
+    *   GLU.load_lib( 'libGLU.so', '/usr/lib' )
+    *   GLUT.load_lib( 'libglut.so', '/usr/lib' )
 
 ## Note ##
 
 *   No Ruby-Style handy interfaces are available (like one in the ruby-opengl2 ( http://ruby-opengl.rubyforge.org/ ))
-	*   Example:
-		*   (Original C API)
+    *   Example:
+        *   (Original C API)
 
-				GLuint tex_names_buf[2];
-				glGenTextures( 2, tex_names_buf );
-				GLuint tex_name = tex_names_buf[0];
+                GLuint tex_names_buf[2];
+                glGenTextures( 2, tex_names_buf );
+                GLuint tex_name = tex_names_buf[0];
 
-		*   (This library)
+        *   (This library)
 
-				tex_names_buf = ' ' * 8 # String instance that is enough to catch texture names (integer).
-				glGenTextures( 2, tex_names_buf )
-				tex_name = tex_names_buf.unpack('L2')[0]
+                tex_names_buf = ' ' * 8 # String instance that is enough to catch texture names (integer).
+                glGenTextures( 2, tex_names_buf )
+                tex_name = tex_names_buf.unpack('L2')[0]
 
-		*   (ruby-opengl2)
+        *   (ruby-opengl2)
 
-				tex_name = glGenTextures( 2 )[0]
+                tex_name = glGenTextures( 2 )[0]
 
 *   Projects using opengl-bindings
-	*   ruby-gnome2
-		*   https://github.com/ruby-gnome2/ruby-gnome2
-		*   https://github.com/ruby-gnome2/ruby-gnome2/tree/master/gtk3/sample/misc
-			*   gtkglarea1.rb, gtkglarea2.rb
-	*   dxsdl2r
-		*   https://github.com/mirichi/dxsdl2r
-	*   mittsu - A direct port of THREE.js from JavaScript/WebGL to Ruby/OpenGL
-		*   https://rubygems.org/gems/mittsu
-		*   https://github.com/jellymann/mittsu
-	*   opencl-bindings - A Ruby binding for OpenCL 1.2
-		*   https://rubygems.org/gems/opencl-bindings
-		*   https://github.com/vaiorabbit/ruby-opencl
+    *   ruby-gnome2
+        *   https://github.com/ruby-gnome2/ruby-gnome2
+        *   https://github.com/ruby-gnome2/ruby-gnome2/tree/master/gtk3/sample/misc
+            *   gtkglarea1.rb, gtkglarea2.rb
+    *   dxsdl2r
+        *   https://github.com/mirichi/dxsdl2r
+    *   mittsu - A direct port of THREE.js from JavaScript/WebGL to Ruby/OpenGL
+        *   https://rubygems.org/gems/mittsu
+        *   https://github.com/jellymann/mittsu
+    *   opencl-bindings - A Ruby binding for OpenCL 1.2
+        *   https://rubygems.org/gems/opencl-bindings
+        *   https://github.com/vaiorabbit/ruby-opencl
 
 *   Other informative projects
-	*   argon | neon
-		*   https://github.com/npomf/argon
-		*   https://bitbucket.org/npomf/neon/src
-			*   "vaiorabbit / ruby-opengl - as the basis for the OpenGL, OpenAL, and GLFW FFI libraries."
+    *   argon | neon
+        *   https://github.com/npomf/argon
+        *   https://bitbucket.org/npomf/neon/src
+            *   "vaiorabbit / ruby-opengl - as the basis for the OpenGL, OpenAL, and GLFW FFI libraries."
 
 ## License ##
 
@@ -319,9 +319,9 @@ https://github.com/vaiorabbit/ruby-opengl
 ## 必要なもの ##
 
 *   Fiddle
-	*   libffi のラッパーです
-	*   Ruby 2.0.0 以降で標準ライブラリになりました
-	*   Fiddle のメモリリーク問題 (https://bugs.ruby-lang.org/issues/9599) が修正された Ruby 2.1.2 以降での利用を推奨します
+    *   libffi のラッパーです
+    *   Ruby 2.0.0 以降で標準ライブラリになりました
+    *   Fiddle のメモリリーク問題 (https://bugs.ruby-lang.org/issues/9599) が修正された Ruby 2.1.2 以降での利用を推奨します
 
 ### サンプル用 ###
 
@@ -395,51 +395,51 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
                 Version: 3.0 Mesa 10.6.3
 
 *   引数として渡すことで任意のライブラリ名/パス名を利用できます:
-	*   OpenGL.load_lib( 'libGL.so', '/usr/lib' )
-	*   GLFW.load_lib( 'libglfw.so', '/usr/lib' )
-	*   GLU.load_lib( 'libGLU.so', '/usr/lib' )
-	*   GLUT.load_lib( 'libglut.so', '/usr/lib' )
+    *   OpenGL.load_lib( 'libGL.so', '/usr/lib' )
+    *   GLFW.load_lib( 'libglfw.so', '/usr/lib' )
+    *   GLU.load_lib( 'libGLU.so', '/usr/lib' )
+    *   GLUT.load_lib( 'libglut.so', '/usr/lib' )
 
 
 ## メモ ##
 
 *   Rubyスタイルの便利なインターフェースはサポートしていません (ruby-opengl2 ( http://ruby-opengl.rubyforge.org/ ) にあったような感じのもの)
-	*   例:
-		*   (OpenGLオリジナルの C API)
+    *   例:
+        *   (OpenGLオリジナルの C API)
 
-				GLuint tex_names_buf[2];
-				glGenTextures( 2, tex_names_buf );
-				GLuint tex_name = tex_names_buf[0];
+                GLuint tex_names_buf[2];
+                glGenTextures( 2, tex_names_buf );
+                GLuint tex_name = tex_names_buf[0];
 
-		*   (このライブラリの場合)
+        *   (このライブラリの場合)
 
-				tex_names_buf = ' ' * 8 # テクスチャ名(GLuint)を受け取るのに十分なサイズ String インスタンスであればOK
-				glGenTextures( 2, tex_names_buf )
-				tex_name = tex_names_buf.unpack('L2')[0]
+                tex_names_buf = ' ' * 8 # テクスチャ名(GLuint)を受け取るのに十分なサイズ String インスタンスであればOK
+                glGenTextures( 2, tex_names_buf )
+                tex_name = tex_names_buf.unpack('L2')[0]
 
-		*   (ruby-opengl2 の場合)
+        *   (ruby-opengl2 の場合)
 
-				tex_name = glGenTextures( 2 )[0] # glGenTextures が配列を返すように修正されています
+                tex_name = glGenTextures( 2 )[0] # glGenTextures が配列を返すように修正されています
 
 *   opengl-bindings を使ったプロジェクト
-	*   ruby-gnome2
-		*   https://github.com/ruby-gnome2/ruby-gnome2
-		*   https://github.com/ruby-gnome2/ruby-gnome2/tree/master/gtk3/sample/misc
-			*   gtkglarea1.rb, gtkglarea2.rb
-	*   dxsdl2r
-		*   https://github.com/mirichi/dxsdl2r
-	*   mittsu - A direct port of THREE.js from JavaScript/WebGL to Ruby/OpenGL
-		*   https://rubygems.org/gems/mittsu
-		*   https://github.com/jellymann/mittsu
-	*   opencl-bindings - A Ruby binding for OpenCL 1.2
-		*   https://rubygems.org/gems/opencl-bindings
-		*   https://github.com/vaiorabbit/ruby-opencl
+    *   ruby-gnome2
+        *   https://github.com/ruby-gnome2/ruby-gnome2
+        *   https://github.com/ruby-gnome2/ruby-gnome2/tree/master/gtk3/sample/misc
+            *   gtkglarea1.rb, gtkglarea2.rb
+    *   dxsdl2r
+        *   https://github.com/mirichi/dxsdl2r
+    *   mittsu - A direct port of THREE.js from JavaScript/WebGL to Ruby/OpenGL
+        *   https://rubygems.org/gems/mittsu
+        *   https://github.com/jellymann/mittsu
+    *   opencl-bindings - A Ruby binding for OpenCL 1.2
+        *   https://rubygems.org/gems/opencl-bindings
+        *   https://github.com/vaiorabbit/ruby-opencl
 
 *   参考になりそうなプロジェクト
-	*   argon | neon
-		*   https://github.com/npomf/argon
-		*   https://bitbucket.org/npomf/neon/src
-			*   "vaiorabbit / ruby-opengl - as the basis for the OpenGL, OpenAL, and GLFW FFI libraries."
+    *   argon | neon
+        *   https://github.com/npomf/argon
+        *   https://bitbucket.org/npomf/neon/src
+            *   "vaiorabbit / ruby-opengl - as the basis for the OpenGL, OpenAL, and GLFW FFI libraries."
 
 
 ## ライセンス ##

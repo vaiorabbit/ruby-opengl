@@ -1105,6 +1105,19 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_primitive_bounding_box
 
 
+  def self.define_ext_enum_GL_EXT_protected_textures
+    OpenGL.const_set('GL_CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT', 0x00000010) unless defined?(OpenGL::GL_CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT)
+    OpenGL.const_set('GL_TEXTURE_PROTECTED_EXT', 0x8BFA) unless defined?(OpenGL::GL_TEXTURE_PROTECTED_EXT)
+  end # self.define_ext_enum_GL_EXT_protected_textures
+
+  def self.get_ext_enum_GL_EXT_protected_textures
+    [
+      'GL_CONTEXT_FLAG_PROTECTED_CONTENT_BIT_EXT',
+      'GL_TEXTURE_PROTECTED_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_protected_textures
+
+
   def self.define_ext_enum_GL_EXT_pvrtc_sRGB
     OpenGL.const_set('GL_COMPRESSED_SRGB_PVRTC_2BPPV1_EXT', 0x8A54) unless defined?(OpenGL::GL_COMPRESSED_SRGB_PVRTC_2BPPV1_EXT)
     OpenGL.const_set('GL_COMPRESSED_SRGB_PVRTC_4BPPV1_EXT', 0x8A55) unless defined?(OpenGL::GL_COMPRESSED_SRGB_PVRTC_4BPPV1_EXT)

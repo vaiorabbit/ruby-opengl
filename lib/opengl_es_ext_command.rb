@@ -1474,6 +1474,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_primitive_bounding_box
 
 
+  def self.define_ext_command_GL_EXT_protected_textures
+  end # self.define_ext_command_GL_EXT_protected_textures
+
+  def self.get_ext_command_GL_EXT_protected_textures
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_protected_textures
+
+
   def self.define_ext_command_GL_EXT_pvrtc_sRGB
   end # self.define_ext_command_GL_EXT_pvrtc_sRGB
 
