@@ -11509,6 +11509,39 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_viewport_array2
 
 
+  def self.define_ext_enum_GL_NV_viewport_swizzle
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV', 0x9350) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV', 0x9351) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV', 0x9352) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV', 0x9353) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV', 0x9354) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV', 0x9355) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV', 0x9356) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV', 0x9357) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_X_NV', 0x9358) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_X_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_Y_NV', 0x9359) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_Y_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_Z_NV', 0x935A) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_Z_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_W_NV', 0x935B) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_W_NV)
+  end # self.define_ext_enum_GL_NV_viewport_swizzle
+
+  def self.get_ext_enum_GL_NV_viewport_swizzle
+    [
+      'GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV',
+      'GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV',
+      'GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV',
+      'GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV',
+      'GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV',
+      'GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV',
+      'GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV',
+      'GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV',
+      'GL_VIEWPORT_SWIZZLE_X_NV',
+      'GL_VIEWPORT_SWIZZLE_Y_NV',
+      'GL_VIEWPORT_SWIZZLE_Z_NV',
+      'GL_VIEWPORT_SWIZZLE_W_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_viewport_swizzle
+
+
   def self.define_ext_enum_GL_OES_byte_coordinates
     OpenGL.const_set('GL_BYTE', 0x1400) unless defined?(OpenGL::GL_BYTE)
   end # self.define_ext_enum_GL_OES_byte_coordinates

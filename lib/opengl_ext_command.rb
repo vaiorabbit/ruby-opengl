@@ -25038,6 +25038,24 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_viewport_array2
 
 
+  def self.define_ext_command_GL_NV_viewport_swizzle
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glViewportSwizzleNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glViewportSwizzleNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glViewportSwizzleNV(_index_, _swizzlex_, _swizzley_, _swizzlez_, _swizzlew_)
+        f = OpenGL::get_command(:glViewportSwizzleNV)
+        f.call(_index_, _swizzlex_, _swizzley_, _swizzlez_, _swizzlew_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_viewport_swizzle
+
+  def self.get_ext_command_GL_NV_viewport_swizzle
+    [
+      'glViewportSwizzleNV',
+    ]
+  end # self.get_ext_command_GL_NV_viewport_swizzle
+
+
   def self.define_ext_command_GL_OES_byte_coordinates
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMultiTexCoord1bOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_CHAR]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMultiTexCoord1bOES] = Fiddle::TYPE_VOID

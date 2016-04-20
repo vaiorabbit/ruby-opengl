@@ -380,6 +380,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_APPLE_texture_packed_float
 
 
+  def self.define_ext_enum_GL_ARB_sparse_texture2
+  end # self.define_ext_enum_GL_ARB_sparse_texture2
+
+  def self.get_ext_enum_GL_ARB_sparse_texture2
+    [
+    ]
+  end # self.get_ext_enum_GL_ARB_sparse_texture2
+
+
   def self.define_ext_enum_GL_ARM_mali_program_binary
     OpenGL.const_set('GL_MALI_PROGRAM_BINARY_ARM', 0x8F61) unless defined?(OpenGL::GL_MALI_PROGRAM_BINARY_ARM)
   end # self.define_ext_enum_GL_ARM_mali_program_binary
@@ -2973,6 +2982,73 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_geometry_shader_passthrough
 
 
+  def self.define_ext_enum_GL_NV_gpu_shader5
+    OpenGL.const_set('GL_INT64_NV', 0x140E) unless defined?(OpenGL::GL_INT64_NV)
+    OpenGL.const_set('GL_UNSIGNED_INT64_NV', 0x140F) unless defined?(OpenGL::GL_UNSIGNED_INT64_NV)
+    OpenGL.const_set('GL_INT8_NV', 0x8FE0) unless defined?(OpenGL::GL_INT8_NV)
+    OpenGL.const_set('GL_INT8_VEC2_NV', 0x8FE1) unless defined?(OpenGL::GL_INT8_VEC2_NV)
+    OpenGL.const_set('GL_INT8_VEC3_NV', 0x8FE2) unless defined?(OpenGL::GL_INT8_VEC3_NV)
+    OpenGL.const_set('GL_INT8_VEC4_NV', 0x8FE3) unless defined?(OpenGL::GL_INT8_VEC4_NV)
+    OpenGL.const_set('GL_INT16_NV', 0x8FE4) unless defined?(OpenGL::GL_INT16_NV)
+    OpenGL.const_set('GL_INT16_VEC2_NV', 0x8FE5) unless defined?(OpenGL::GL_INT16_VEC2_NV)
+    OpenGL.const_set('GL_INT16_VEC3_NV', 0x8FE6) unless defined?(OpenGL::GL_INT16_VEC3_NV)
+    OpenGL.const_set('GL_INT16_VEC4_NV', 0x8FE7) unless defined?(OpenGL::GL_INT16_VEC4_NV)
+    OpenGL.const_set('GL_INT64_VEC2_NV', 0x8FE9) unless defined?(OpenGL::GL_INT64_VEC2_NV)
+    OpenGL.const_set('GL_INT64_VEC3_NV', 0x8FEA) unless defined?(OpenGL::GL_INT64_VEC3_NV)
+    OpenGL.const_set('GL_INT64_VEC4_NV', 0x8FEB) unless defined?(OpenGL::GL_INT64_VEC4_NV)
+    OpenGL.const_set('GL_UNSIGNED_INT8_NV', 0x8FEC) unless defined?(OpenGL::GL_UNSIGNED_INT8_NV)
+    OpenGL.const_set('GL_UNSIGNED_INT8_VEC2_NV', 0x8FED) unless defined?(OpenGL::GL_UNSIGNED_INT8_VEC2_NV)
+    OpenGL.const_set('GL_UNSIGNED_INT8_VEC3_NV', 0x8FEE) unless defined?(OpenGL::GL_UNSIGNED_INT8_VEC3_NV)
+    OpenGL.const_set('GL_UNSIGNED_INT8_VEC4_NV', 0x8FEF) unless defined?(OpenGL::GL_UNSIGNED_INT8_VEC4_NV)
+    OpenGL.const_set('GL_UNSIGNED_INT16_NV', 0x8FF0) unless defined?(OpenGL::GL_UNSIGNED_INT16_NV)
+    OpenGL.const_set('GL_UNSIGNED_INT16_VEC2_NV', 0x8FF1) unless defined?(OpenGL::GL_UNSIGNED_INT16_VEC2_NV)
+    OpenGL.const_set('GL_UNSIGNED_INT16_VEC3_NV', 0x8FF2) unless defined?(OpenGL::GL_UNSIGNED_INT16_VEC3_NV)
+    OpenGL.const_set('GL_UNSIGNED_INT16_VEC4_NV', 0x8FF3) unless defined?(OpenGL::GL_UNSIGNED_INT16_VEC4_NV)
+    OpenGL.const_set('GL_UNSIGNED_INT64_VEC2_NV', 0x8FF5) unless defined?(OpenGL::GL_UNSIGNED_INT64_VEC2_NV)
+    OpenGL.const_set('GL_UNSIGNED_INT64_VEC3_NV', 0x8FF6) unless defined?(OpenGL::GL_UNSIGNED_INT64_VEC3_NV)
+    OpenGL.const_set('GL_UNSIGNED_INT64_VEC4_NV', 0x8FF7) unless defined?(OpenGL::GL_UNSIGNED_INT64_VEC4_NV)
+    OpenGL.const_set('GL_FLOAT16_NV', 0x8FF8) unless defined?(OpenGL::GL_FLOAT16_NV)
+    OpenGL.const_set('GL_FLOAT16_VEC2_NV', 0x8FF9) unless defined?(OpenGL::GL_FLOAT16_VEC2_NV)
+    OpenGL.const_set('GL_FLOAT16_VEC3_NV', 0x8FFA) unless defined?(OpenGL::GL_FLOAT16_VEC3_NV)
+    OpenGL.const_set('GL_FLOAT16_VEC4_NV', 0x8FFB) unless defined?(OpenGL::GL_FLOAT16_VEC4_NV)
+    OpenGL.const_set('GL_PATCHES', 0x000E) unless defined?(OpenGL::GL_PATCHES)
+  end # self.define_ext_enum_GL_NV_gpu_shader5
+
+  def self.get_ext_enum_GL_NV_gpu_shader5
+    [
+      'GL_INT64_NV',
+      'GL_UNSIGNED_INT64_NV',
+      'GL_INT8_NV',
+      'GL_INT8_VEC2_NV',
+      'GL_INT8_VEC3_NV',
+      'GL_INT8_VEC4_NV',
+      'GL_INT16_NV',
+      'GL_INT16_VEC2_NV',
+      'GL_INT16_VEC3_NV',
+      'GL_INT16_VEC4_NV',
+      'GL_INT64_VEC2_NV',
+      'GL_INT64_VEC3_NV',
+      'GL_INT64_VEC4_NV',
+      'GL_UNSIGNED_INT8_NV',
+      'GL_UNSIGNED_INT8_VEC2_NV',
+      'GL_UNSIGNED_INT8_VEC3_NV',
+      'GL_UNSIGNED_INT8_VEC4_NV',
+      'GL_UNSIGNED_INT16_NV',
+      'GL_UNSIGNED_INT16_VEC2_NV',
+      'GL_UNSIGNED_INT16_VEC3_NV',
+      'GL_UNSIGNED_INT16_VEC4_NV',
+      'GL_UNSIGNED_INT64_VEC2_NV',
+      'GL_UNSIGNED_INT64_VEC3_NV',
+      'GL_UNSIGNED_INT64_VEC4_NV',
+      'GL_FLOAT16_NV',
+      'GL_FLOAT16_VEC2_NV',
+      'GL_FLOAT16_VEC3_NV',
+      'GL_FLOAT16_VEC4_NV',
+      'GL_PATCHES',
+    ]
+  end # self.get_ext_enum_GL_NV_gpu_shader5
+
+
   def self.define_ext_enum_GL_NV_image_formats
   end # self.define_ext_enum_GL_NV_image_formats
 
@@ -3516,6 +3592,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_sample_mask_override_coverage
 
 
+  def self.define_ext_enum_GL_NV_shader_atomic_fp16_vector
+  end # self.define_ext_enum_GL_NV_shader_atomic_fp16_vector
+
+  def self.get_ext_enum_GL_NV_shader_atomic_fp16_vector
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_shader_atomic_fp16_vector
+
+
   def self.define_ext_enum_GL_NV_shader_noperspective_interpolation
   end # self.define_ext_enum_GL_NV_shader_noperspective_interpolation
 
@@ -3610,6 +3695,39 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_NV_viewport_array2
+
+
+  def self.define_ext_enum_GL_NV_viewport_swizzle
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV', 0x9350) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV', 0x9351) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV', 0x9352) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV', 0x9353) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV', 0x9354) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV', 0x9355) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV', 0x9356) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV', 0x9357) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_X_NV', 0x9358) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_X_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_Y_NV', 0x9359) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_Y_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_Z_NV', 0x935A) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_Z_NV)
+    OpenGL.const_set('GL_VIEWPORT_SWIZZLE_W_NV', 0x935B) unless defined?(OpenGL::GL_VIEWPORT_SWIZZLE_W_NV)
+  end # self.define_ext_enum_GL_NV_viewport_swizzle
+
+  def self.get_ext_enum_GL_NV_viewport_swizzle
+    [
+      'GL_VIEWPORT_SWIZZLE_POSITIVE_X_NV',
+      'GL_VIEWPORT_SWIZZLE_NEGATIVE_X_NV',
+      'GL_VIEWPORT_SWIZZLE_POSITIVE_Y_NV',
+      'GL_VIEWPORT_SWIZZLE_NEGATIVE_Y_NV',
+      'GL_VIEWPORT_SWIZZLE_POSITIVE_Z_NV',
+      'GL_VIEWPORT_SWIZZLE_NEGATIVE_Z_NV',
+      'GL_VIEWPORT_SWIZZLE_POSITIVE_W_NV',
+      'GL_VIEWPORT_SWIZZLE_NEGATIVE_W_NV',
+      'GL_VIEWPORT_SWIZZLE_X_NV',
+      'GL_VIEWPORT_SWIZZLE_Y_NV',
+      'GL_VIEWPORT_SWIZZLE_Z_NV',
+      'GL_VIEWPORT_SWIZZLE_W_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_viewport_swizzle
 
 
   def self.define_ext_enum_GL_OES_EGL_image
