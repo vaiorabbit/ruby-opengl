@@ -374,6 +374,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_AMD_shader_trinary_minmax
 
 
+  def self.define_ext_enum_GL_AMD_shader_explicit_vertex_parameter
+  end # self.define_ext_enum_GL_AMD_shader_explicit_vertex_parameter
+
+  def self.get_ext_enum_GL_AMD_shader_explicit_vertex_parameter
+    [
+    ]
+  end # self.get_ext_enum_GL_AMD_shader_explicit_vertex_parameter
+
+
   def self.define_ext_enum_GL_AMD_sparse_texture
     OpenGL.const_set('GL_VIRTUAL_PAGE_SIZE_X_AMD', 0x9195) unless defined?(OpenGL::GL_VIRTUAL_PAGE_SIZE_X_AMD)
     OpenGL.const_set('GL_VIRTUAL_PAGE_SIZE_Y_AMD', 0x9196) unless defined?(OpenGL::GL_VIRTUAL_PAGE_SIZE_Y_AMD)
@@ -10514,6 +10523,17 @@ module OpenGLExt
       'GL_PER_STAGE_CONSTANTS_NV',
     ]
   end # self.get_ext_enum_GL_NV_register_combiners2
+
+
+  def self.define_ext_enum_GL_NV_robustness_video_memory_purge
+    OpenGL.const_set('GL_PURGED_CONTEXT_RESET_NV', 0x92BB) unless defined?(OpenGL::GL_PURGED_CONTEXT_RESET_NV)
+  end # self.define_ext_enum_GL_NV_robustness_video_memory_purge
+
+  def self.get_ext_enum_GL_NV_robustness_video_memory_purge
+    [
+      'GL_PURGED_CONTEXT_RESET_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_robustness_video_memory_purge
 
 
   def self.define_ext_enum_GL_NV_sample_locations

@@ -816,6 +816,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_AMD_shader_trinary_minmax
 
 
+  def self.define_ext_command_GL_AMD_shader_explicit_vertex_parameter
+  end # self.define_ext_command_GL_AMD_shader_explicit_vertex_parameter
+
+  def self.get_ext_command_GL_AMD_shader_explicit_vertex_parameter
+    [
+    ]
+  end # self.get_ext_command_GL_AMD_shader_explicit_vertex_parameter
+
+
   def self.define_ext_command_GL_AMD_sparse_texture
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexStorageSparseAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorageSparseAMD] = Fiddle::TYPE_VOID
@@ -22848,6 +22857,15 @@ module OpenGLExt
       'glGetCombinerStageParameterfvNV',
     ]
   end # self.get_ext_command_GL_NV_register_combiners2
+
+
+  def self.define_ext_command_GL_NV_robustness_video_memory_purge
+  end # self.define_ext_command_GL_NV_robustness_video_memory_purge
+
+  def self.get_ext_command_GL_NV_robustness_video_memory_purge
+    [
+    ]
+  end # self.get_ext_command_GL_NV_robustness_video_memory_purge
 
 
   def self.define_ext_command_GL_NV_sample_locations
