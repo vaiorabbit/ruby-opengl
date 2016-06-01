@@ -3447,6 +3447,24 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_conservative_raster
 
 
+  def self.define_ext_command_GL_NV_conservative_raster_pre_snap_triangles
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glConservativeRasterParameteriNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glConservativeRasterParameteriNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glConservativeRasterParameteriNV(_pname_, _param_)
+        f = OpenGL::get_command(:glConservativeRasterParameteriNV)
+        f.call(_pname_, _param_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_conservative_raster_pre_snap_triangles
+
+  def self.get_ext_command_GL_NV_conservative_raster_pre_snap_triangles
+    [
+      'glConservativeRasterParameteriNV',
+    ]
+  end # self.get_ext_command_GL_NV_conservative_raster_pre_snap_triangles
+
+
   def self.define_ext_command_GL_NV_copy_buffer
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glCopyBufferSubDataNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glCopyBufferSubDataNV] = Fiddle::TYPE_VOID

@@ -2660,6 +2660,21 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_conservative_raster
 
 
+  def self.define_ext_enum_GL_NV_conservative_raster_pre_snap_triangles
+    OpenGL.const_set('GL_CONSERVATIVE_RASTER_MODE_NV', 0x954D) unless defined?(OpenGL::GL_CONSERVATIVE_RASTER_MODE_NV)
+    OpenGL.const_set('GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV', 0x954E) unless defined?(OpenGL::GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV)
+    OpenGL.const_set('GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV', 0x954F) unless defined?(OpenGL::GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV)
+  end # self.define_ext_enum_GL_NV_conservative_raster_pre_snap_triangles
+
+  def self.get_ext_enum_GL_NV_conservative_raster_pre_snap_triangles
+    [
+      'GL_CONSERVATIVE_RASTER_MODE_NV',
+      'GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV',
+      'GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_conservative_raster_pre_snap_triangles
+
+
   def self.define_ext_enum_GL_NV_copy_buffer
     OpenGL.const_set('GL_COPY_READ_BUFFER_NV', 0x8F36) unless defined?(OpenGL::GL_COPY_READ_BUFFER_NV)
     OpenGL.const_set('GL_COPY_WRITE_BUFFER_NV', 0x8F37) unless defined?(OpenGL::GL_COPY_WRITE_BUFFER_NV)

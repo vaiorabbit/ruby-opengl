@@ -9178,6 +9178,21 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_blend_square
 
 
+  def self.define_ext_enum_GL_NV_clip_space_w_scaling
+    OpenGL.const_set('GL_VIEWPORT_POSITION_W_SCALE_NV', 0x937C) unless defined?(OpenGL::GL_VIEWPORT_POSITION_W_SCALE_NV)
+    OpenGL.const_set('GL_VIEWPORT_POSITION_W_SCALE_X_COEFF', 0x937D) unless defined?(OpenGL::GL_VIEWPORT_POSITION_W_SCALE_X_COEFF)
+    OpenGL.const_set('GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF', 0x937E) unless defined?(OpenGL::GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF)
+  end # self.define_ext_enum_GL_NV_clip_space_w_scaling
+
+  def self.get_ext_enum_GL_NV_clip_space_w_scaling
+    [
+      'GL_VIEWPORT_POSITION_W_SCALE_NV',
+      'GL_VIEWPORT_POSITION_W_SCALE_X_COEFF',
+      'GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF',
+    ]
+  end # self.get_ext_enum_GL_NV_clip_space_w_scaling
+
+
   def self.define_ext_enum_GL_NV_command_list
     OpenGL.const_set('GL_TERMINATE_SEQUENCE_COMMAND_NV', 0x0000) unless defined?(OpenGL::GL_TERMINATE_SEQUENCE_COMMAND_NV)
     OpenGL.const_set('GL_NOP_COMMAND_NV', 0x0001) unless defined?(OpenGL::GL_NOP_COMMAND_NV)
@@ -9285,6 +9300,21 @@ module OpenGLExt
       'GL_CONSERVATIVE_RASTER_DILATE_GRANULARITY_NV',
     ]
   end # self.get_ext_enum_GL_NV_conservative_raster_dilate
+
+
+  def self.define_ext_enum_GL_NV_conservative_raster_pre_snap_triangles
+    OpenGL.const_set('GL_CONSERVATIVE_RASTER_MODE_NV', 0x954D) unless defined?(OpenGL::GL_CONSERVATIVE_RASTER_MODE_NV)
+    OpenGL.const_set('GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV', 0x954E) unless defined?(OpenGL::GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV)
+    OpenGL.const_set('GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV', 0x954F) unless defined?(OpenGL::GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV)
+  end # self.define_ext_enum_GL_NV_conservative_raster_pre_snap_triangles
+
+  def self.get_ext_enum_GL_NV_conservative_raster_pre_snap_triangles
+    [
+      'GL_CONSERVATIVE_RASTER_MODE_NV',
+      'GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV',
+      'GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_conservative_raster_pre_snap_triangles
 
 
   def self.define_ext_enum_GL_NV_copy_depth_to_color
@@ -10588,6 +10618,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_shader_atomic_float
 
 
+  def self.define_ext_enum_GL_NV_shader_atomic_float64
+  end # self.define_ext_enum_GL_NV_shader_atomic_float64
+
+  def self.get_ext_enum_GL_NV_shader_atomic_float64
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_shader_atomic_float64
+
+
   def self.define_ext_enum_GL_NV_shader_atomic_fp16_vector
   end # self.define_ext_enum_GL_NV_shader_atomic_fp16_vector
 
@@ -10667,6 +10706,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_NV_shader_thread_shuffle
+
+
+  def self.define_ext_enum_GL_NV_stereo_view_rendering
+  end # self.define_ext_enum_GL_NV_stereo_view_rendering
+
+  def self.get_ext_enum_GL_NV_stereo_view_rendering
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_stereo_view_rendering
 
 
   def self.define_ext_enum_GL_NV_tessellation_program5

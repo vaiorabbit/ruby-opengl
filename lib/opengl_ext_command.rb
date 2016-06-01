@@ -19847,6 +19847,24 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_blend_square
 
 
+  def self.define_ext_command_GL_NV_clip_space_w_scaling
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glViewportPositionWScaleNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glViewportPositionWScaleNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glViewportPositionWScaleNV(_index_, _xcoeff_, _ycoeff_)
+        f = OpenGL::get_command(:glViewportPositionWScaleNV)
+        f.call(_index_, _xcoeff_, _ycoeff_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_clip_space_w_scaling
+
+  def self.get_ext_command_GL_NV_clip_space_w_scaling
+    [
+      'glViewportPositionWScaleNV',
+    ]
+  end # self.get_ext_command_GL_NV_clip_space_w_scaling
+
+
   def self.define_ext_command_GL_NV_command_list
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glCreateStatesNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glCreateStatesNV] = Fiddle::TYPE_VOID
@@ -20096,6 +20114,24 @@ module OpenGLExt
       'glConservativeRasterParameterfNV',
     ]
   end # self.get_ext_command_GL_NV_conservative_raster_dilate
+
+
+  def self.define_ext_command_GL_NV_conservative_raster_pre_snap_triangles
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glConservativeRasterParameteriNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glConservativeRasterParameteriNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glConservativeRasterParameteriNV(_pname_, _param_)
+        f = OpenGL::get_command(:glConservativeRasterParameteriNV)
+        f.call(_pname_, _param_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_conservative_raster_pre_snap_triangles
+
+  def self.get_ext_command_GL_NV_conservative_raster_pre_snap_triangles
+    [
+      'glConservativeRasterParameteriNV',
+    ]
+  end # self.get_ext_command_GL_NV_conservative_raster_pre_snap_triangles
 
 
   def self.define_ext_command_GL_NV_copy_depth_to_color
@@ -22933,6 +22969,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_shader_atomic_float
 
 
+  def self.define_ext_command_GL_NV_shader_atomic_float64
+  end # self.define_ext_command_GL_NV_shader_atomic_float64
+
+  def self.get_ext_command_GL_NV_shader_atomic_float64
+    [
+    ]
+  end # self.get_ext_command_GL_NV_shader_atomic_float64
+
+
   def self.define_ext_command_GL_NV_shader_atomic_fp16_vector
   end # self.define_ext_command_GL_NV_shader_atomic_fp16_vector
 
@@ -23133,6 +23178,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_NV_shader_thread_shuffle
+
+
+  def self.define_ext_command_GL_NV_stereo_view_rendering
+  end # self.define_ext_command_GL_NV_stereo_view_rendering
+
+  def self.get_ext_command_GL_NV_stereo_view_rendering
+    [
+    ]
+  end # self.get_ext_command_GL_NV_stereo_view_rendering
 
 
   def self.define_ext_command_GL_NV_tessellation_program5
