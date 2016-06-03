@@ -27,26 +27,26 @@ For more samples, visit https://github.com/vaiorabbit/ruby-opengl/tree/master/sa
 
 -------------------------------------------------------------------------------
 
-## GLFW¤Î¥»¥Ã¥È¥¢¥Ã¥× (http://www.glfw.org) ##
+## GLFWã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ— (http://www.glfw.org) ##
 
 *   Windows
-	*   glfw3.dll ¤ò¤³¤³¤ËÇÛÃÖ¤·¤Æ¤¯¤À¤µ¤¤¡£
-	*   ¥³¥ó¥Ñ¥¤¥ëºÑ¤ß¥Ğ¥¤¥Ê¥ê¤Ï¤³¤Á¤é:
+	*   glfw3.dll ã‚’ã“ã“ã«é…ç½®ã—ã¦ãã ã•ã„ã€‚
+	*   ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«æ¸ˆã¿ãƒã‚¤ãƒŠãƒªã¯ã“ã¡ã‚‰:
 		*   http://www.glfw.org/download.html
 
 *   Mac OS X
-	*   ./glfwXX_build_dylib.sh ¤ò¼Â¹Ô¤¹¤ë¤È ./libglfw.dylib ¤¬¤Ç¤­¤¢¤¬¤ê¤Ş¤¹¡£
+	*   ./glfwXX_build_dylib.sh ã‚’å®Ÿè¡Œã™ã‚‹ã¨ ./libglfw.dylib ãŒã§ãã‚ãŒã‚Šã¾ã™ã€‚
 
-## GLUT¤Î¥»¥Ã¥È¥¢¥Ã¥× ##
+## GLUTã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ— ##
 
 *   Windows
-	*   freeglut ¤ò»È¤Ã¤Æ¤¯¤À¤µ¤¤ (http://freeglut.sourceforge.net).
-	*   freeglut.dll ¤ò¤³¤³¤ËÇÛÃÖ¤·¤Æ¤¯¤À¤µ¤¤¡£
-	*   ¥³¥ó¥Ñ¥¤¥ëºÑ¤ß¥Ğ¥¤¥Ê¥ê¤Ï¤³¤Á¤é:
+	*   freeglut ã‚’ä½¿ã£ã¦ãã ã•ã„ (http://freeglut.sourceforge.net).
+	*   freeglut.dll ã‚’ã“ã“ã«é…ç½®ã—ã¦ãã ã•ã„ã€‚
+	*   ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«æ¸ˆã¿ãƒã‚¤ãƒŠãƒªã¯ã“ã¡ã‚‰:
 		*   http://www.transmissionzero.co.uk/software/freeglut-devel/
 
 *   Mac OS X
-	*   glut.rb ¤Ï¥Ç¥Õ¥©¥ë¥È¤Ç /System/Library/Frameworks/GLUT.framework ¤ò»È¤¤¤Ş¤¹¡£
-	*   ¤â¤·¤³¤ì¤È¤ÏÊÌ¤ÎGLUT¤ò»È¤¤¤¿¤¤¾ì¹ç¤Ï 'GLUT.load_dll' ¤Î°ú¿ô¤Ç»ØÄê¤·¤Æ¤¯¤À¤µ¤¤¡£
-		*   util/setup_dll.rb ¤¬»ÈÍÑÎã¤È¤Ê¤Ã¤Æ¤¤¤Ş¤¹¡£
+	*   glut.rb ã¯ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ /System/Library/Frameworks/GLUT.framework ã‚’ä½¿ã„ã¾ã™ã€‚
+	*   ã‚‚ã—ã“ã‚Œã¨ã¯åˆ¥ã®GLUTã‚’ä½¿ã„ãŸã„å ´åˆã¯ 'GLUT.load_dll' ã®å¼•æ•°ã§æŒ‡å®šã—ã¦ãã ã•ã„ã€‚
+		*   util/setup_dll.rb ãŒä½¿ç”¨ä¾‹ã¨ãªã£ã¦ã„ã¾ã™ã€‚
 			*   https://github.com/vaiorabbit/ruby-opengl/blob/master/sample/util/setup_dll.rb

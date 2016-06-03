@@ -1,3 +1,8 @@
+2016-06-03  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* opengl-bindings.gemspec: Fixed invalid license value (zlib/libpng -> Zlib). See http://spdx.org/licenses .
+	* sample/glfw32_build_dylib.sh: GLFW 3.2 build script for Mac OS X.
+
 2016-06-01  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.
