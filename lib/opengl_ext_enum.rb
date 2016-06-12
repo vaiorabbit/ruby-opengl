@@ -8128,6 +8128,27 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_vertex_weighting
 
 
+  def self.define_ext_enum_GL_EXT_window_rectangles
+    OpenGL.const_set('GL_INCLUSIVE_EXT', 0x8F10) unless defined?(OpenGL::GL_INCLUSIVE_EXT)
+    OpenGL.const_set('GL_EXCLUSIVE_EXT', 0x8F11) unless defined?(OpenGL::GL_EXCLUSIVE_EXT)
+    OpenGL.const_set('GL_WINDOW_RECTANGLE_EXT', 0x8F12) unless defined?(OpenGL::GL_WINDOW_RECTANGLE_EXT)
+    OpenGL.const_set('GL_WINDOW_RECTANGLE_MODE_EXT', 0x8F13) unless defined?(OpenGL::GL_WINDOW_RECTANGLE_MODE_EXT)
+    OpenGL.const_set('GL_MAX_WINDOW_RECTANGLES_EXT', 0x8F14) unless defined?(OpenGL::GL_MAX_WINDOW_RECTANGLES_EXT)
+    OpenGL.const_set('GL_NUM_WINDOW_RECTANGLES_EXT', 0x8F15) unless defined?(OpenGL::GL_NUM_WINDOW_RECTANGLES_EXT)
+  end # self.define_ext_enum_GL_EXT_window_rectangles
+
+  def self.get_ext_enum_GL_EXT_window_rectangles
+    [
+      'GL_INCLUSIVE_EXT',
+      'GL_EXCLUSIVE_EXT',
+      'GL_WINDOW_RECTANGLE_EXT',
+      'GL_WINDOW_RECTANGLE_MODE_EXT',
+      'GL_MAX_WINDOW_RECTANGLES_EXT',
+      'GL_NUM_WINDOW_RECTANGLES_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_window_rectangles
+
+
   def self.define_ext_enum_GL_EXT_x11_sync_object
     OpenGL.const_set('GL_SYNC_X11_FENCE_EXT', 0x90E1) unless defined?(OpenGL::GL_SYNC_X11_FENCE_EXT)
   end # self.define_ext_enum_GL_EXT_x11_sync_object
@@ -9180,15 +9201,15 @@ module OpenGLExt
 
   def self.define_ext_enum_GL_NV_clip_space_w_scaling
     OpenGL.const_set('GL_VIEWPORT_POSITION_W_SCALE_NV', 0x937C) unless defined?(OpenGL::GL_VIEWPORT_POSITION_W_SCALE_NV)
-    OpenGL.const_set('GL_VIEWPORT_POSITION_W_SCALE_X_COEFF', 0x937D) unless defined?(OpenGL::GL_VIEWPORT_POSITION_W_SCALE_X_COEFF)
-    OpenGL.const_set('GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF', 0x937E) unless defined?(OpenGL::GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF)
+    OpenGL.const_set('GL_VIEWPORT_POSITION_W_SCALE_X_COEFF_NV', 0x937D) unless defined?(OpenGL::GL_VIEWPORT_POSITION_W_SCALE_X_COEFF_NV)
+    OpenGL.const_set('GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV', 0x937E) unless defined?(OpenGL::GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV)
   end # self.define_ext_enum_GL_NV_clip_space_w_scaling
 
   def self.get_ext_enum_GL_NV_clip_space_w_scaling
     [
       'GL_VIEWPORT_POSITION_W_SCALE_NV',
-      'GL_VIEWPORT_POSITION_W_SCALE_X_COEFF',
-      'GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF',
+      'GL_VIEWPORT_POSITION_W_SCALE_X_COEFF_NV',
+      'GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV',
     ]
   end # self.get_ext_enum_GL_NV_clip_space_w_scaling
 

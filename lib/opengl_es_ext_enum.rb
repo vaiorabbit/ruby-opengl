@@ -1870,6 +1870,27 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_unpack_subimage
 
 
+  def self.define_ext_enum_GL_EXT_window_rectangles
+    OpenGL.const_set('GL_INCLUSIVE_EXT', 0x8F10) unless defined?(OpenGL::GL_INCLUSIVE_EXT)
+    OpenGL.const_set('GL_EXCLUSIVE_EXT', 0x8F11) unless defined?(OpenGL::GL_EXCLUSIVE_EXT)
+    OpenGL.const_set('GL_WINDOW_RECTANGLE_EXT', 0x8F12) unless defined?(OpenGL::GL_WINDOW_RECTANGLE_EXT)
+    OpenGL.const_set('GL_WINDOW_RECTANGLE_MODE_EXT', 0x8F13) unless defined?(OpenGL::GL_WINDOW_RECTANGLE_MODE_EXT)
+    OpenGL.const_set('GL_MAX_WINDOW_RECTANGLES_EXT', 0x8F14) unless defined?(OpenGL::GL_MAX_WINDOW_RECTANGLES_EXT)
+    OpenGL.const_set('GL_NUM_WINDOW_RECTANGLES_EXT', 0x8F15) unless defined?(OpenGL::GL_NUM_WINDOW_RECTANGLES_EXT)
+  end # self.define_ext_enum_GL_EXT_window_rectangles
+
+  def self.get_ext_enum_GL_EXT_window_rectangles
+    [
+      'GL_INCLUSIVE_EXT',
+      'GL_EXCLUSIVE_EXT',
+      'GL_WINDOW_RECTANGLE_EXT',
+      'GL_WINDOW_RECTANGLE_MODE_EXT',
+      'GL_MAX_WINDOW_RECTANGLES_EXT',
+      'GL_NUM_WINDOW_RECTANGLES_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_window_rectangles
+
+
   def self.define_ext_enum_GL_FJ_shader_binary_GCCSO
     OpenGL.const_set('GL_GCCSO_SHADER_BINARY_FJ', 0x9260) unless defined?(OpenGL::GL_GCCSO_SHADER_BINARY_FJ)
   end # self.define_ext_enum_GL_FJ_shader_binary_GCCSO

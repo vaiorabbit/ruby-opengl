@@ -2564,6 +2564,24 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_unpack_subimage
 
 
+  def self.define_ext_command_GL_EXT_window_rectangles
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glWindowRectanglesEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glWindowRectanglesEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glWindowRectanglesEXT(_mode_, _count_, _box_)
+        f = OpenGL::get_command(:glWindowRectanglesEXT)
+        f.call(_mode_, _count_, _box_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_window_rectangles
+
+  def self.get_ext_command_GL_EXT_window_rectangles
+    [
+      'glWindowRectanglesEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_window_rectangles
+
+
   def self.define_ext_command_GL_FJ_shader_binary_GCCSO
   end # self.define_ext_command_GL_FJ_shader_binary_GCCSO
 
