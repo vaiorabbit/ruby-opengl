@@ -18657,6 +18657,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_INGR_interlace_read
 
 
+  def self.define_ext_command_GL_INTEL_conservative_rasterization
+  end # self.define_ext_command_GL_INTEL_conservative_rasterization
+
+  def self.get_ext_command_GL_INTEL_conservative_rasterization
+    [
+    ]
+  end # self.get_ext_command_GL_INTEL_conservative_rasterization
+
+
   def self.define_ext_command_GL_INTEL_fragment_shader_ordering
   end # self.define_ext_command_GL_INTEL_fragment_shader_ordering
 

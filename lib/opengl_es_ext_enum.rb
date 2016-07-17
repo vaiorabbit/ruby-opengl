@@ -1330,6 +1330,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_shader_io_blocks
 
 
+  def self.define_ext_enum_GL_EXT_shader_non_constant_global_initializers
+  end # self.define_ext_enum_GL_EXT_shader_non_constant_global_initializers
+
+  def self.get_ext_enum_GL_EXT_shader_non_constant_global_initializers
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_shader_non_constant_global_initializers
+
+
   def self.define_ext_enum_GL_EXT_shader_pixel_local_storage
     OpenGL.const_set('GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT', 0x8F63) unless defined?(OpenGL::GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_FAST_SIZE_EXT)
     OpenGL.const_set('GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT', 0x8F67) unless defined?(OpenGL::GL_MAX_SHADER_PIXEL_LOCAL_STORAGE_SIZE_EXT)
@@ -2014,6 +2023,17 @@ module OpenGLExt
       'GL_CUBIC_MIPMAP_LINEAR_IMG',
     ]
   end # self.get_ext_enum_GL_IMG_texture_filter_cubic
+
+
+  def self.define_ext_enum_GL_INTEL_conservative_rasterization
+    OpenGL.const_set('GL_CONSERVATIVE_RASTERIZATION_INTEL', 0x83FE) unless defined?(OpenGL::GL_CONSERVATIVE_RASTERIZATION_INTEL)
+  end # self.define_ext_enum_GL_INTEL_conservative_rasterization
+
+  def self.get_ext_enum_GL_INTEL_conservative_rasterization
+    [
+      'GL_CONSERVATIVE_RASTERIZATION_INTEL',
+    ]
+  end # self.get_ext_enum_GL_INTEL_conservative_rasterization
 
 
   def self.define_ext_enum_GL_INTEL_framebuffer_CMAA

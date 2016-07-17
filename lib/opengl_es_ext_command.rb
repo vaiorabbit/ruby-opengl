@@ -2126,6 +2126,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_shader_io_blocks
 
 
+  def self.define_ext_command_GL_EXT_shader_non_constant_global_initializers
+  end # self.define_ext_command_GL_EXT_shader_non_constant_global_initializers
+
+  def self.get_ext_command_GL_EXT_shader_non_constant_global_initializers
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_shader_non_constant_global_initializers
+
+
   def self.define_ext_command_GL_EXT_shader_pixel_local_storage
   end # self.define_ext_command_GL_EXT_shader_pixel_local_storage
 
@@ -2699,6 +2708,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_IMG_texture_filter_cubic
+
+
+  def self.define_ext_command_GL_INTEL_conservative_rasterization
+  end # self.define_ext_command_GL_INTEL_conservative_rasterization
+
+  def self.get_ext_command_GL_INTEL_conservative_rasterization
+    [
+    ]
+  end # self.get_ext_command_GL_INTEL_conservative_rasterization
 
 
   def self.define_ext_command_GL_INTEL_framebuffer_CMAA

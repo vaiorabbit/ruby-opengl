@@ -8403,6 +8403,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_INGR_interlace_read
 
 
+  def self.define_ext_enum_GL_INTEL_conservative_rasterization
+    OpenGL.const_set('GL_CONSERVATIVE_RASTERIZATION_INTEL', 0x83FE) unless defined?(OpenGL::GL_CONSERVATIVE_RASTERIZATION_INTEL)
+  end # self.define_ext_enum_GL_INTEL_conservative_rasterization
+
+  def self.get_ext_enum_GL_INTEL_conservative_rasterization
+    [
+      'GL_CONSERVATIVE_RASTERIZATION_INTEL',
+    ]
+  end # self.get_ext_enum_GL_INTEL_conservative_rasterization
+
+
   def self.define_ext_enum_GL_INTEL_fragment_shader_ordering
   end # self.define_ext_enum_GL_INTEL_fragment_shader_ordering
 
