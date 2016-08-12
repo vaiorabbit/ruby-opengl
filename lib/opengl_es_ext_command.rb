@@ -6193,6 +6193,134 @@ module OpenGLExt
   end # self.get_ext_command_GL_OES_vertex_type_10_10_10_2
 
 
+  def self.define_ext_command_GL_OES_viewport_array
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glViewportArrayvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glViewportArrayvOES] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glViewportArrayvOES(_first_, _count_, _v_)
+        f = OpenGL::get_command(:glViewportArrayvOES)
+        f.call(_first_, _count_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glViewportIndexedfOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glViewportIndexedfOES] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glViewportIndexedfOES(_index_, _x_, _y_, _w_, _h_)
+        f = OpenGL::get_command(:glViewportIndexedfOES)
+        f.call(_index_, _x_, _y_, _w_, _h_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glViewportIndexedfvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glViewportIndexedfvOES] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glViewportIndexedfvOES(_index_, _v_)
+        f = OpenGL::get_command(:glViewportIndexedfvOES)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glScissorArrayvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glScissorArrayvOES] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glScissorArrayvOES(_first_, _count_, _v_)
+        f = OpenGL::get_command(:glScissorArrayvOES)
+        f.call(_first_, _count_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glScissorIndexedOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glScissorIndexedOES] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glScissorIndexedOES(_index_, _left_, _bottom_, _width_, _height_)
+        f = OpenGL::get_command(:glScissorIndexedOES)
+        f.call(_index_, _left_, _bottom_, _width_, _height_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glScissorIndexedvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glScissorIndexedvOES] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glScissorIndexedvOES(_index_, _v_)
+        f = OpenGL::get_command(:glScissorIndexedvOES)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDepthRangeArrayfvOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDepthRangeArrayfvOES] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDepthRangeArrayfvOES(_first_, _count_, _v_)
+        f = OpenGL::get_command(:glDepthRangeArrayfvOES)
+        f.call(_first_, _count_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDepthRangeIndexedfOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDepthRangeIndexedfOES] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDepthRangeIndexedfOES(_index_, _n_, _f_)
+        f = OpenGL::get_command(:glDepthRangeIndexedfOES)
+        f.call(_index_, _n_, _f_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetFloati_vOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetFloati_vOES] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetFloati_vOES(_target_, _index_, _data_)
+        f = OpenGL::get_command(:glGetFloati_vOES)
+        f.call(_target_, _index_, _data_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glEnableiOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glEnableiOES] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glEnableiOES(_target_, _index_)
+        f = OpenGL::get_command(:glEnableiOES)
+        f.call(_target_, _index_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDisableiOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDisableiOES] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDisableiOES(_target_, _index_)
+        f = OpenGL::get_command(:glDisableiOES)
+        f.call(_target_, _index_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glIsEnablediOES] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glIsEnablediOES] = -Fiddle::TYPE_CHAR
+    OpenGL.module_eval(<<-SRC)
+      def glIsEnablediOES(_target_, _index_)
+        f = OpenGL::get_command(:glIsEnablediOES)
+        f.call(_target_, _index_)
+      end
+    SRC
+  end # self.define_ext_command_GL_OES_viewport_array
+
+  def self.get_ext_command_GL_OES_viewport_array
+    [
+      'glViewportArrayvOES',
+      'glViewportIndexedfOES',
+      'glViewportIndexedfvOES',
+      'glScissorArrayvOES',
+      'glScissorIndexedOES',
+      'glScissorIndexedvOES',
+      'glDepthRangeArrayfvOES',
+      'glDepthRangeIndexedfOES',
+      'glGetFloati_vOES',
+      'glEnableiOES',
+      'glDisableiOES',
+      'glIsEnablediOES',
+    ]
+  end # self.get_ext_command_GL_OES_viewport_array
+
+
   def self.define_ext_command_GL_OVR_multiview
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferTextureMultiviewOVR] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferTextureMultiviewOVR] = Fiddle::TYPE_VOID

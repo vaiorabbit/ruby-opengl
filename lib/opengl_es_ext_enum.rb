@@ -4771,6 +4771,31 @@ module OpenGLExt
   end # self.get_ext_enum_GL_OES_vertex_type_10_10_10_2
 
 
+  def self.define_ext_enum_GL_OES_viewport_array
+    OpenGL.const_set('GL_SCISSOR_BOX', 0x0C10) unless defined?(OpenGL::GL_SCISSOR_BOX)
+    OpenGL.const_set('GL_VIEWPORT', 0x0BA2) unless defined?(OpenGL::GL_VIEWPORT)
+    OpenGL.const_set('GL_DEPTH_RANGE', 0x0B70) unless defined?(OpenGL::GL_DEPTH_RANGE)
+    OpenGL.const_set('GL_SCISSOR_TEST', 0x0C11) unless defined?(OpenGL::GL_SCISSOR_TEST)
+    OpenGL.const_set('GL_MAX_VIEWPORTS_OES', 0x825B) unless defined?(OpenGL::GL_MAX_VIEWPORTS_OES)
+    OpenGL.const_set('GL_VIEWPORT_SUBPIXEL_BITS_OES', 0x825C) unless defined?(OpenGL::GL_VIEWPORT_SUBPIXEL_BITS_OES)
+    OpenGL.const_set('GL_VIEWPORT_BOUNDS_RANGE_OES', 0x825D) unless defined?(OpenGL::GL_VIEWPORT_BOUNDS_RANGE_OES)
+    OpenGL.const_set('GL_VIEWPORT_INDEX_PROVOKING_VERTEX_OES', 0x825F) unless defined?(OpenGL::GL_VIEWPORT_INDEX_PROVOKING_VERTEX_OES)
+  end # self.define_ext_enum_GL_OES_viewport_array
+
+  def self.get_ext_enum_GL_OES_viewport_array
+    [
+      'GL_SCISSOR_BOX',
+      'GL_VIEWPORT',
+      'GL_DEPTH_RANGE',
+      'GL_SCISSOR_TEST',
+      'GL_MAX_VIEWPORTS_OES',
+      'GL_VIEWPORT_SUBPIXEL_BITS_OES',
+      'GL_VIEWPORT_BOUNDS_RANGE_OES',
+      'GL_VIEWPORT_INDEX_PROVOKING_VERTEX_OES',
+    ]
+  end # self.get_ext_enum_GL_OES_viewport_array
+
+
   def self.define_ext_enum_GL_OVR_multiview
     OpenGL.const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR', 0x9630) unless defined?(OpenGL::GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_NUM_VIEWS_OVR)
     OpenGL.const_set('GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR', 0x9632) unless defined?(OpenGL::GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_BASE_VIEW_INDEX_OVR)
