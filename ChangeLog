@@ -1,3 +1,7 @@
+2016-08-27  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* sample/glfw32_build_dylib.sh: GLFW 3.2.1 build script for Mac OS X.
+
 2016-08-07  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.

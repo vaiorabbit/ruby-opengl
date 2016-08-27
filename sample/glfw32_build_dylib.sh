@@ -3,9 +3,9 @@
 #
 # Ref.: https://github.com/malkia/ufo/blob/master/build/OSX/glfw.sh
 #
-wget https://github.com/glfw/glfw/releases/download/3.2/glfw-3.2.zip
-tar xvjf glfw-3.2.zip
-cd glfw-3.2/
+wget https://github.com/glfw/glfw/releases/download/3.2.1/glfw-3.2.1.zip
+tar xvjf glfw-3.2.1.zip
+cd glfw-3.2.1/
 mkdir build
 cd build
 export MACOSX_DEPLOYMENT_TARGET=10.11
@@ -15,8 +15,8 @@ make
 # 'ls -l src/libglfw*' should be:
 #
 #     $ ls -l src/libglfw*
-#     -rwxr-xr-x  1 foo staff 238124 2016-06-03 20:49 libglfw.3.2.dylib
-#     lrwxr-xr-x  1 foo staff     17 2016-06-03 20:49 libglfw.3.dylib -> libglfw.3.2.dylib
-#     lrwxr-xr-x  1 foo staff     15 2016-06-03 20:49 libglfw.dylib -> libglfw.3.dylib
+#     -rwxr-xr-x  1 foo  staff  238148  8 27 23:13 src/libglfw.3.2.dylib
+#     lrwxr-xr-x  1 foo  staff      17  8 27 23:13 src/libglfw.3.dylib -> libglfw.3.2.dylib
+#     lrwxr-xr-x  1 foo  staff      15  8 27 23:13 src/libglfw.dylib -> libglfw.3.dylib
 
 cp -R src/libglfw* ../..
