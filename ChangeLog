@@ -1,3 +1,7 @@
+2016-09-18  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* sample/report_env.rb: Now shows GL_VENDOR, GL_RENDERER and GL_SHADING_LANGUAGE_VERSION.
+
 2016-08-27  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* sample/glfw32_build_dylib.sh: GLFW 3.2.1 build script for Mac OS X.

@@ -19,5 +19,5 @@ Ruby bindings for OpenGL - 4.5, OpenGL ES - 3.2 and all extensions using Fiddle 
 
   gem.files = Dir.glob("lib/*.rb") +
               ["README.md", "LICENSE.txt", "ChangeLog"] +
-              ["sample/simple.rb", "sample/simple_glut.rb", "sample/report_env.rb", "sample/report_env_es.rb", "sample/glfw31_build_dylib.sh", "sample/glfw32_build_dylib.sh", "sample/README.md"]
+              ["sample/simple.rb", "sample/simple_glut.rb", "sample/report_env.rb", "sample/glfw31_build_dylib.sh", "sample/glfw32_build_dylib.sh", "sample/README.md"]
 end
