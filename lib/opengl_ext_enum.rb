@@ -135,6 +135,41 @@ module OpenGLExt
   end # self.get_ext_enum_GL_AMD_gcn_shader
 
 
+  def self.define_ext_enum_GL_AMD_gpu_shader_half_float
+    OpenGL.const_set('GL_FLOAT16_NV', 0x8FF8) unless defined?(OpenGL::GL_FLOAT16_NV)
+    OpenGL.const_set('GL_FLOAT16_VEC2_NV', 0x8FF9) unless defined?(OpenGL::GL_FLOAT16_VEC2_NV)
+    OpenGL.const_set('GL_FLOAT16_VEC3_NV', 0x8FFA) unless defined?(OpenGL::GL_FLOAT16_VEC3_NV)
+    OpenGL.const_set('GL_FLOAT16_VEC4_NV', 0x8FFB) unless defined?(OpenGL::GL_FLOAT16_VEC4_NV)
+    OpenGL.const_set('GL_FLOAT16_MAT2_AMD', 0x91C5) unless defined?(OpenGL::GL_FLOAT16_MAT2_AMD)
+    OpenGL.const_set('GL_FLOAT16_MAT3_AMD', 0x91C6) unless defined?(OpenGL::GL_FLOAT16_MAT3_AMD)
+    OpenGL.const_set('GL_FLOAT16_MAT4_AMD', 0x91C7) unless defined?(OpenGL::GL_FLOAT16_MAT4_AMD)
+    OpenGL.const_set('GL_FLOAT16_MAT2x3_AMD', 0x91C8) unless defined?(OpenGL::GL_FLOAT16_MAT2x3_AMD)
+    OpenGL.const_set('GL_FLOAT16_MAT2x4_AMD', 0x91C9) unless defined?(OpenGL::GL_FLOAT16_MAT2x4_AMD)
+    OpenGL.const_set('GL_FLOAT16_MAT3x2_AMD', 0x91CA) unless defined?(OpenGL::GL_FLOAT16_MAT3x2_AMD)
+    OpenGL.const_set('GL_FLOAT16_MAT3x4_AMD', 0x91CB) unless defined?(OpenGL::GL_FLOAT16_MAT3x4_AMD)
+    OpenGL.const_set('GL_FLOAT16_MAT4x2_AMD', 0x91CC) unless defined?(OpenGL::GL_FLOAT16_MAT4x2_AMD)
+    OpenGL.const_set('GL_FLOAT16_MAT4x3_AMD', 0x91CD) unless defined?(OpenGL::GL_FLOAT16_MAT4x3_AMD)
+  end # self.define_ext_enum_GL_AMD_gpu_shader_half_float
+
+  def self.get_ext_enum_GL_AMD_gpu_shader_half_float
+    [
+      'GL_FLOAT16_NV',
+      'GL_FLOAT16_VEC2_NV',
+      'GL_FLOAT16_VEC3_NV',
+      'GL_FLOAT16_VEC4_NV',
+      'GL_FLOAT16_MAT2_AMD',
+      'GL_FLOAT16_MAT3_AMD',
+      'GL_FLOAT16_MAT4_AMD',
+      'GL_FLOAT16_MAT2x3_AMD',
+      'GL_FLOAT16_MAT2x4_AMD',
+      'GL_FLOAT16_MAT3x2_AMD',
+      'GL_FLOAT16_MAT3x4_AMD',
+      'GL_FLOAT16_MAT4x2_AMD',
+      'GL_FLOAT16_MAT4x3_AMD',
+    ]
+  end # self.get_ext_enum_GL_AMD_gpu_shader_half_float
+
+
   def self.define_ext_enum_GL_AMD_gpu_shader_int64
     OpenGL.const_set('GL_INT64_NV', 0x140E) unless defined?(OpenGL::GL_INT64_NV)
     OpenGL.const_set('GL_UNSIGNED_INT64_NV', 0x140F) unless defined?(OpenGL::GL_UNSIGNED_INT64_NV)
@@ -354,6 +389,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_AMD_shader_atomic_counter_ops
+
+
+  def self.define_ext_enum_GL_AMD_shader_ballot
+  end # self.define_ext_enum_GL_AMD_shader_ballot
+
+  def self.get_ext_enum_GL_AMD_shader_ballot
+    [
+    ]
+  end # self.get_ext_enum_GL_AMD_shader_ballot
 
 
   def self.define_ext_enum_GL_AMD_shader_stencil_export

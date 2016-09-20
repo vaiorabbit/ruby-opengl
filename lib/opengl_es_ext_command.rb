@@ -689,6 +689,34 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_buffer_storage
 
 
+  def self.define_ext_command_GL_EXT_clear_texture
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glClearTexImageEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glClearTexImageEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glClearTexImageEXT(_texture_, _level_, _format_, _type_, _data_)
+        f = OpenGL::get_command(:glClearTexImageEXT)
+        f.call(_texture_, _level_, _format_, _type_, _data_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glClearTexSubImageEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glClearTexSubImageEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glClearTexSubImageEXT(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _data_)
+        f = OpenGL::get_command(:glClearTexSubImageEXT)
+        f.call(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _data_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_clear_texture
+
+  def self.get_ext_command_GL_EXT_clear_texture
+    [
+      'glClearTexImageEXT',
+      'glClearTexSubImageEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_clear_texture
+
+
   def self.define_ext_command_GL_EXT_clip_cull_distance
   end # self.define_ext_command_GL_EXT_clip_cull_distance
 
@@ -714,6 +742,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_EXT_color_buffer_half_float
+
+
+  def self.define_ext_command_GL_EXT_conservative_depth
+  end # self.define_ext_command_GL_EXT_conservative_depth
+
+  def self.get_ext_command_GL_EXT_conservative_depth
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_conservative_depth
 
 
   def self.define_ext_command_GL_EXT_copy_image
@@ -2598,6 +2635,74 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_FJ_shader_binary_GCCSO
+
+
+  def self.define_ext_command_GL_IMG_bindless_texture
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetTextureHandleIMG] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetTextureHandleIMG] = -Fiddle::TYPE_LONG_LONG
+    OpenGL.module_eval(<<-SRC)
+      def glGetTextureHandleIMG(_texture_)
+        f = OpenGL::get_command(:glGetTextureHandleIMG)
+        f.call(_texture_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetTextureSamplerHandleIMG] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetTextureSamplerHandleIMG] = -Fiddle::TYPE_LONG_LONG
+    OpenGL.module_eval(<<-SRC)
+      def glGetTextureSamplerHandleIMG(_texture_, _sampler_)
+        f = OpenGL::get_command(:glGetTextureSamplerHandleIMG)
+        f.call(_texture_, _sampler_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glUniformHandleui64IMG] = [Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glUniformHandleui64IMG] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glUniformHandleui64IMG(_location_, _value_)
+        f = OpenGL::get_command(:glUniformHandleui64IMG)
+        f.call(_location_, _value_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glUniformHandleui64vIMG] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glUniformHandleui64vIMG] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glUniformHandleui64vIMG(_location_, _count_, _value_)
+        f = OpenGL::get_command(:glUniformHandleui64vIMG)
+        f.call(_location_, _count_, _value_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glProgramUniformHandleui64IMG] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformHandleui64IMG] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glProgramUniformHandleui64IMG(_program_, _location_, _value_)
+        f = OpenGL::get_command(:glProgramUniformHandleui64IMG)
+        f.call(_program_, _location_, _value_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glProgramUniformHandleui64vIMG] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glProgramUniformHandleui64vIMG] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glProgramUniformHandleui64vIMG(_program_, _location_, _count_, _values_)
+        f = OpenGL::get_command(:glProgramUniformHandleui64vIMG)
+        f.call(_program_, _location_, _count_, _values_)
+      end
+    SRC
+  end # self.define_ext_command_GL_IMG_bindless_texture
+
+  def self.get_ext_command_GL_IMG_bindless_texture
+    [
+      'glGetTextureHandleIMG',
+      'glGetTextureSamplerHandleIMG',
+      'glUniformHandleui64IMG',
+      'glUniformHandleui64vIMG',
+      'glProgramUniformHandleui64IMG',
+      'glProgramUniformHandleui64vIMG',
+    ]
+  end # self.get_ext_command_GL_IMG_bindless_texture
 
 
   def self.define_ext_command_GL_IMG_framebuffer_downsample

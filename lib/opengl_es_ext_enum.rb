@@ -561,6 +561,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_buffer_storage
 
 
+  def self.define_ext_enum_GL_EXT_clear_texture
+  end # self.define_ext_enum_GL_EXT_clear_texture
+
+  def self.get_ext_enum_GL_EXT_clear_texture
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_clear_texture
+
+
   def self.define_ext_enum_GL_EXT_clip_cull_distance
     OpenGL.const_set('GL_MAX_CLIP_DISTANCES_EXT', 0x0D32) unless defined?(OpenGL::GL_MAX_CLIP_DISTANCES_EXT)
     OpenGL.const_set('GL_MAX_CULL_DISTANCES_EXT', 0x82F9) unless defined?(OpenGL::GL_MAX_CULL_DISTANCES_EXT)
@@ -620,6 +629,15 @@ module OpenGLExt
       'GL_UNSIGNED_NORMALIZED_EXT',
     ]
   end # self.get_ext_enum_GL_EXT_color_buffer_half_float
+
+
+  def self.define_ext_enum_GL_EXT_conservative_depth
+  end # self.define_ext_enum_GL_EXT_conservative_depth
+
+  def self.get_ext_enum_GL_EXT_conservative_depth
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_conservative_depth
 
 
   def self.define_ext_enum_GL_EXT_copy_image
@@ -1909,6 +1927,15 @@ module OpenGLExt
       'GL_GCCSO_SHADER_BINARY_FJ',
     ]
   end # self.get_ext_enum_GL_FJ_shader_binary_GCCSO
+
+
+  def self.define_ext_enum_GL_IMG_bindless_texture
+  end # self.define_ext_enum_GL_IMG_bindless_texture
+
+  def self.get_ext_enum_GL_IMG_bindless_texture
+    [
+    ]
+  end # self.get_ext_enum_GL_IMG_bindless_texture
 
 
   def self.define_ext_enum_GL_IMG_framebuffer_downsample

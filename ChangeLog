@@ -1,3 +1,7 @@
+2016-09-20  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* Updated using latest gl.xml.
+
 2016-09-18  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* sample/report_env.rb: Now shows GL_VENDOR, GL_RENDERER and GL_SHADING_LANGUAGE_VERSION.

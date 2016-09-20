@@ -176,6 +176,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_AMD_gcn_shader
 
 
+  def self.define_ext_command_GL_AMD_gpu_shader_half_float
+  end # self.define_ext_command_GL_AMD_gpu_shader_half_float
+
+  def self.get_ext_command_GL_AMD_gpu_shader_half_float
+    [
+    ]
+  end # self.get_ext_command_GL_AMD_gpu_shader_half_float
+
+
   def self.define_ext_command_GL_AMD_gpu_shader_int64
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glUniform1i64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glUniform1i64NV] = Fiddle::TYPE_VOID
@@ -796,6 +805,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_AMD_shader_atomic_counter_ops
+
+
+  def self.define_ext_command_GL_AMD_shader_ballot
+  end # self.define_ext_command_GL_AMD_shader_ballot
+
+  def self.get_ext_command_GL_AMD_shader_ballot
+    [
+    ]
+  end # self.get_ext_command_GL_AMD_shader_ballot
 
 
   def self.define_ext_command_GL_AMD_shader_stencil_export
