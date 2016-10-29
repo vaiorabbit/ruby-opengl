@@ -1155,6 +1155,34 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_draw_instanced
 
 
+  def self.define_ext_command_GL_EXT_draw_transform_feedback
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDrawTransformFeedbackEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDrawTransformFeedbackEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDrawTransformFeedbackEXT(_mode_, _id_)
+        f = OpenGL::get_command(:glDrawTransformFeedbackEXT)
+        f.call(_mode_, _id_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDrawTransformFeedbackInstancedEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDrawTransformFeedbackInstancedEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDrawTransformFeedbackInstancedEXT(_mode_, _id_, _instancecount_)
+        f = OpenGL::get_command(:glDrawTransformFeedbackInstancedEXT)
+        f.call(_mode_, _id_, _instancecount_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_draw_transform_feedback
+
+  def self.get_ext_command_GL_EXT_draw_transform_feedback
+    [
+      'glDrawTransformFeedbackEXT',
+      'glDrawTransformFeedbackInstancedEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_draw_transform_feedback
+
+
   def self.define_ext_command_GL_EXT_float_blend
   end # self.define_ext_command_GL_EXT_float_blend
 

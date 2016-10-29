@@ -881,6 +881,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_draw_instanced
 
 
+  def self.define_ext_enum_GL_EXT_draw_transform_feedback
+  end # self.define_ext_enum_GL_EXT_draw_transform_feedback
+
+  def self.get_ext_enum_GL_EXT_draw_transform_feedback
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_draw_transform_feedback
+
+
   def self.define_ext_enum_GL_EXT_float_blend
   end # self.define_ext_enum_GL_EXT_float_blend
 
