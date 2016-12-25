@@ -1,3 +1,8 @@
+2016-12-25  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* Tested on ruby 2.4.0p0.
+	* sample/util/setup_dll.rb: Add path for Ubuntu Linux.
+
 2016-10-29  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.

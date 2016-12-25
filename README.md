@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2016-10-29
+*   Last modified : 2016-12-25
 
 
 ## Features ##
@@ -104,6 +104,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 ## Tested Environment ##
 
 *   Ruby
+    *   ruby 2.4.0p0 (2016-12-24 revision 57164) [x86_64-darwin16]
     *   ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-darwin15]
     *   ruby 2.3.0p0 (2015-12-25 revision 53290) [x64-mingw32]
     *   ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin15]
@@ -340,6 +341,7 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 ## テストした環境 ##
 
 *   Ruby
+    *   ruby 2.4.0p0 (2016-12-24 revision 57164) [x86_64-darwin16]
     *   ruby 2.3.1p112 (2016-04-26 revision 54768) [x86_64-darwin15]
     *   ruby 2.3.0p0 (2015-12-25 revision 53290) [x64-mingw32]
     *   ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin15]
