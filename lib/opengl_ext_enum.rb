@@ -126,6 +126,23 @@ module OpenGLExt
   end # self.get_ext_enum_GL_AMD_draw_buffers_blend
 
 
+  def self.define_ext_enum_GL_AMD_framebuffer_sample_positions
+    OpenGL.const_set('GL_SUBSAMPLE_DISTANCE_AMD', 0x883F) unless defined?(OpenGL::GL_SUBSAMPLE_DISTANCE_AMD)
+    OpenGL.const_set('GL_PIXELS_PER_SAMPLE_PATTERN_X_AMD', 0x91AE) unless defined?(OpenGL::GL_PIXELS_PER_SAMPLE_PATTERN_X_AMD)
+    OpenGL.const_set('GL_PIXELS_PER_SAMPLE_PATTERN_Y_AMD', 0x91AF) unless defined?(OpenGL::GL_PIXELS_PER_SAMPLE_PATTERN_Y_AMD)
+    OpenGL.const_set('GL_ALL_PIXELS_AMD', 0xFFFFFFFF) unless defined?(OpenGL::GL_ALL_PIXELS_AMD)
+  end # self.define_ext_enum_GL_AMD_framebuffer_sample_positions
+
+  def self.get_ext_enum_GL_AMD_framebuffer_sample_positions
+    [
+      'GL_SUBSAMPLE_DISTANCE_AMD',
+      'GL_PIXELS_PER_SAMPLE_PATTERN_X_AMD',
+      'GL_PIXELS_PER_SAMPLE_PATTERN_Y_AMD',
+      'GL_ALL_PIXELS_AMD',
+    ]
+  end # self.get_ext_enum_GL_AMD_framebuffer_sample_positions
+
+
   def self.define_ext_enum_GL_AMD_gcn_shader
   end # self.define_ext_enum_GL_AMD_gcn_shader
 

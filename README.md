@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2016-12-25
+*   Last modified : 2017-01-28
 
 
 ## Features ##
@@ -13,7 +13,7 @@
 *   Uses Fiddle (One of the Ruby standard libraries that wraps libffi)
     *   Unlike opengl ( https://rubygems.org/gems/opengl ), you don't need to build C extension library
 
-*   Uses Khronos XML API registry
+*   Uses Khronos XML API registry ( https://github.com/KhronosGroup/OpenGL-Registry )
     *   The command/enum wrapper codes are generated via 'gl.xml'
     *   Supports OpenGL - 4.5, OpenGL ES - 3.1 and all OpenGL extensions.
 
@@ -218,7 +218,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 
 The zlib/libpng License ( http://opensource.org/licenses/Zlib ).
 
-    Copyright (c) 2013-2016 vaiorabbit <http://twitter.com/vaiorabbit>
+    Copyright (c) 2013-2017 vaiorabbit <http://twitter.com/vaiorabbit>
 
     This software is provided 'as-is', without any express or implied
     warranty. In no event will the authors be held liable for any damages
@@ -251,7 +251,7 @@ See sample/OrangeBook/3Dlabs-License.txt .
 ## 特徴 ##
 
 *   標準ライブラリ Fiddle を使っています ⇒ opengl ( https://rubygems.org/gems/opengl ) のように拡張ライブラリをビルドする必要がありません
-*   関数とenumのラッパーコードは Khronos の XML API registry (gl.xml) から自動生成しています
+*   関数とenumのラッパーコードは Khronos の XML API registry  ( https://github.com/KhronosGroup/OpenGL-Registry ) の gl.xml から自動生成しています
 
 
 ## インストール ##

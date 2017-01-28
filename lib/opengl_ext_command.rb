@@ -167,6 +167,54 @@ module OpenGLExt
   end # self.get_ext_command_GL_AMD_draw_buffers_blend
 
 
+  def self.define_ext_command_GL_AMD_framebuffer_sample_positions
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferSamplePositionsfvAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferSamplePositionsfvAMD] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glFramebufferSamplePositionsfvAMD(_target_, _numsamples_, _pixelindex_, _values_)
+        f = OpenGL::get_command(:glFramebufferSamplePositionsfvAMD)
+        f.call(_target_, _numsamples_, _pixelindex_, _values_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferSamplePositionsfvAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glNamedFramebufferSamplePositionsfvAMD] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glNamedFramebufferSamplePositionsfvAMD(_framebuffer_, _numsamples_, _pixelindex_, _values_)
+        f = OpenGL::get_command(:glNamedFramebufferSamplePositionsfvAMD)
+        f.call(_framebuffer_, _numsamples_, _pixelindex_, _values_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetFramebufferParameterfvAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetFramebufferParameterfvAMD] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetFramebufferParameterfvAMD(_target_, _pname_, _numsamples_, _pixelindex_, _size_, _values_)
+        f = OpenGL::get_command(:glGetFramebufferParameterfvAMD)
+        f.call(_target_, _pname_, _numsamples_, _pixelindex_, _size_, _values_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetNamedFramebufferParameterfvAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetNamedFramebufferParameterfvAMD] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetNamedFramebufferParameterfvAMD(_framebuffer_, _pname_, _numsamples_, _pixelindex_, _size_, _values_)
+        f = OpenGL::get_command(:glGetNamedFramebufferParameterfvAMD)
+        f.call(_framebuffer_, _pname_, _numsamples_, _pixelindex_, _size_, _values_)
+      end
+    SRC
+  end # self.define_ext_command_GL_AMD_framebuffer_sample_positions
+
+  def self.get_ext_command_GL_AMD_framebuffer_sample_positions
+    [
+      'glFramebufferSamplePositionsfvAMD',
+      'glNamedFramebufferSamplePositionsfvAMD',
+      'glGetFramebufferParameterfvAMD',
+      'glGetNamedFramebufferParameterfvAMD',
+    ]
+  end # self.get_ext_command_GL_AMD_framebuffer_sample_positions
+
+
   def self.define_ext_command_GL_AMD_gcn_shader
   end # self.define_ext_command_GL_AMD_gcn_shader
 
