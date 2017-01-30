@@ -6381,6 +6381,15 @@ module OpenGLExt
       end
     SRC
 
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glProgramParameteri] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glProgramParameteri] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glProgramParameteri(_program_, _pname_, _value_)
+        f = OpenGL::get_command(:glProgramParameteri)
+        f.call(_program_, _pname_, _value_)
+      end
+    SRC
+
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glProgramUniform1i] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glProgramUniform1i] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
@@ -6860,6 +6869,7 @@ module OpenGLExt
       'glGenProgramPipelines',
       'glIsProgramPipeline',
       'glGetProgramPipelineiv',
+      'glProgramParameteri',
       'glProgramUniform1i',
       'glProgramUniform1iv',
       'glProgramUniform1f',
