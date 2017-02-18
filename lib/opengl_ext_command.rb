@@ -28648,4 +28648,22 @@ module OpenGLExt
   end # self.get_ext_command_GL_WIN_specular_fog
 
 
+  def self.define_ext_command_GL_NV_alpha_to_coverage_dither_control
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glAlphaToCoverageDitherControlNV] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glAlphaToCoverageDitherControlNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glAlphaToCoverageDitherControlNV(_mode_)
+        f = OpenGL::get_command(:glAlphaToCoverageDitherControlNV)
+        f.call(_mode_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_alpha_to_coverage_dither_control
+
+  def self.get_ext_command_GL_NV_alpha_to_coverage_dither_control
+    [
+      'glAlphaToCoverageDitherControlNV',
+    ]
+  end # self.get_ext_command_GL_NV_alpha_to_coverage_dither_control
+
+
 end

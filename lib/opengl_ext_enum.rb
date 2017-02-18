@@ -13107,4 +13107,21 @@ module OpenGLExt
   end # self.get_ext_enum_GL_WIN_specular_fog
 
 
+  def self.define_ext_enum_GL_NV_alpha_to_coverage_dither_control
+    OpenGL.const_set('GL_ALPHA_TO_COVERAGE_DITHER_DEFAULT_NV', 0x934D) unless defined?(OpenGL::GL_ALPHA_TO_COVERAGE_DITHER_DEFAULT_NV)
+    OpenGL.const_set('GL_ALPHA_TO_COVERAGE_DITHER_ENABLE_NV', 0x934E) unless defined?(OpenGL::GL_ALPHA_TO_COVERAGE_DITHER_ENABLE_NV)
+    OpenGL.const_set('GL_ALPHA_TO_COVERAGE_DITHER_DISABLE_NV', 0x934F) unless defined?(OpenGL::GL_ALPHA_TO_COVERAGE_DITHER_DISABLE_NV)
+    OpenGL.const_set('GL_ALPHA_TO_COVERAGE_DITHER_MODE_NV', 0x92BF) unless defined?(OpenGL::GL_ALPHA_TO_COVERAGE_DITHER_MODE_NV)
+  end # self.define_ext_enum_GL_NV_alpha_to_coverage_dither_control
+
+  def self.get_ext_enum_GL_NV_alpha_to_coverage_dither_control
+    [
+      'GL_ALPHA_TO_COVERAGE_DITHER_DEFAULT_NV',
+      'GL_ALPHA_TO_COVERAGE_DITHER_ENABLE_NV',
+      'GL_ALPHA_TO_COVERAGE_DITHER_DISABLE_NV',
+      'GL_ALPHA_TO_COVERAGE_DITHER_MODE_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_alpha_to_coverage_dither_control
+
+
 end
