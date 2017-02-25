@@ -1,1 +1,1 @@
-curl -o gl.xml https://cvs.khronos.org/svn/repos/ogl/trunk/doc/registry/public/api/gl.xml
+curl -o gl.xml https://raw.githubusercontent.com/KhronosGroup/OpenGL-Registry/master/xml/gl.xml

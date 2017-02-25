@@ -142,6 +142,7 @@ typedef unsigned int GLhandleARB;
         <type>typedef void (<apientry/> *<name>GLDEBUGPROCAMD</name>)(GLuint id,GLenum category,GLenum severity,GLsizei length,const GLchar *message,void *userParam);</type>
         <type>typedef unsigned short <name>GLhalfNV</name>;</type>
         <type requires="GLintptr">typedef GLintptr <name>GLvdpauSurfaceNV</name>;</type>
+        <type>typedef void (<apientry/> *<name>VULKANPROCNV</name>)(void);</type>
     </types>
 
     <!-- SECTION: GL parameter class type definitions. -->
@@ -2285,10 +2286,16 @@ typedef unsigned int GLhandleARB;
         <enum value="0x80000000" name="GL_MULTISAMPLE_BUFFER_BIT7_QCOM"/>
     </enums>
 
+    <enums namespace="GL" group="FoveationConfigBitQCOM" type="bitmask">
+        <enum value="0x00000001" name="GL_FOVEATION_ENABLE_BIT_QCOM"/>
+        <enum value="0x00000002" name="GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM"/>
+    </enums>
+
     <enums namespace="GL" group="FfdMaskSGIX" type="bitmask">
         <enum value="0x00000001" name="GL_TEXTURE_DEFORMATION_BIT_SGIX"/>
         <enum value="0x00000002" name="GL_GEOMETRY_DEFORMATION_BIT_SGIX"/>
     </enums>
+
 
     <!-- Non-bitmask enums with their own namespace. Generally small numbers
          used for indexed access. -->
@@ -13669,6 +13676,24 @@ typedef unsigned int GLhandleARB;
             <param group="Framebuffer"><ptype>GLuint</ptype> <name>framebuffer</name></param>
             <param><ptype>GLsizei</ptype> <name>n</name></param>
             <param group="DrawBufferMode" len="n">const <ptype>GLenum</ptype> *<name>bufs</name></param>
+        </command>
+        <command>
+            <proto>void <name>glFramebufferFoveationConfigQCOM</name></proto>
+            <param group="Framebuffer"><ptype>GLuint</ptype> <name>framebuffer</name></param>
+            <param><ptype>GLuint</ptype> <name>numLayers</name></param>
+            <param><ptype>GLuint</ptype> <name>focalPointsPerLayer</name></param>
+            <param><ptype>GLuint</ptype> <name>requestedFeatures</name></param>
+            <param len="1"><ptype>GLuint</ptype> *<name>providedFeatures</name></param>
+        </command>
+        <command>
+            <proto>void <name>glFramebufferFoveationParametersQCOM</name></proto>
+            <param group="Framebuffer"><ptype>GLuint</ptype> <name>framebuffer</name></param>
+            <param><ptype>GLuint</ptype> <name>layer</name></param>
+            <param group="CheckedFloat32"><ptype>GLfloat</ptype> <name>focalX</name></param>
+            <param group="CheckedFloat32"><ptype>GLfloat</ptype> <name>focalY</name></param>
+            <param group="CheckedFloat32"><ptype>GLfloat</ptype> <name>gainX</name></param>
+            <param group="CheckedFloat32"><ptype>GLfloat</ptype> <name>gainY</name></param>
+            <param group="CheckedFloat32"><ptype>GLfloat</ptype> <name>foveaArea</name></param>
         </command>
         <command>
             <proto>void <name>glFramebufferParameteri</name></proto>
@@ -30121,6 +30146,36 @@ typedef unsigned int GLhandleARB;
             <param group="VertexShaderWriteMaskEXT"><ptype>GLenum</ptype> <name>outZ</name></param>
             <param group="VertexShaderWriteMaskEXT"><ptype>GLenum</ptype> <name>outW</name></param>
         </command>
+        <command>
+            <proto>void <name>glDrawVkImageNV</name></proto>
+            <param><ptype>GLuint64</ptype> <name>vkImage</name></param>
+            <param><ptype>GLuint</ptype> <name>sampler</name></param>
+            <param><ptype>GLfloat</ptype> <name>x0</name></param>
+            <param><ptype>GLfloat</ptype> <name>y0</name></param>
+            <param><ptype>GLfloat</ptype> <name>x1</name></param>
+            <param><ptype>GLfloat</ptype> <name>y1</name></param>
+            <param><ptype>GLfloat</ptype> <name>z</name></param>
+            <param><ptype>GLfloat</ptype> <name>s0</name></param>
+            <param><ptype>GLfloat</ptype> <name>t0</name></param>
+            <param><ptype>GLfloat</ptype> <name>s1</name></param>
+            <param><ptype>GLfloat</ptype> <name>t1</name></param>
+        </command>
+        <command>
+            <proto>VULKANPROCNV <name>glGetVkProcAddrNV</name></proto>
+            <param len="COMPSIZE(name)">const <ptype>GLchar</ptype> *<name>name</name></param>
+        </command>
+        <command>
+            <proto>void <name>glWaitVkSemaphoreNV</name></proto>
+            <param><ptype>GLuint64</ptype> <name>vkSemaphore</name></param>
+        </command>
+        <command>
+            <proto>void <name>glSignalVkSemaphoreNV</name></proto>
+            <param><ptype>GLuint64</ptype> <name>vkSemaphore</name></param>
+        </command>
+        <command>
+            <proto>void <name>glSignalVkFenceNV</name></proto>
+            <param><ptype>GLuint64</ptype> <name>vkFence</name></param>
+        </command>
 
     </commands>
 
@@ -40708,7 +40763,7 @@ typedef unsigned int GLhandleARB;
                 <command name="glDepthBoundsEXT"/>
             </require>
         </extension>
-        <extension name="GL_EXT_direct_state_access" supported="gl" comment="DSA extension doesn't identify which interfaces are core profile and keeps getting expanded. This is in sync with revision 34, 2010/09/07">
+        <extension name="GL_EXT_direct_state_access" supported="gl|glcore" comment="DSA extension doesn't identify which interfaces are core profile and keeps getting expanded. This is in sync with revision 34, 2010/09/07">
             <require>
                 <enum name="GL_PROGRAM_MATRIX_EXT"/>
                 <enum name="GL_TRANSPOSE_PROGRAM_MATRIX_EXT"/>
@@ -47119,6 +47174,23 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_ALPHA_TO_COVERAGE_DITHER_DISABLE_NV"/>
                 <enum name="GL_ALPHA_TO_COVERAGE_DITHER_MODE_NV"/>
                 <command name="glAlphaToCoverageDitherControlNV"/>
+            </require>
+        </extension>
+        <extension name="GL_QCOM_framebuffer_foveated" supported="gles2">
+            <require>
+                <enum name="GL_FOVEATION_ENABLE_BIT_QCOM"/>
+                <enum name="GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM"/>
+                <command name="glFramebufferFoveationConfigQCOM"/>
+                <command name="glFramebufferFoveationParametersQCOM"/>
+            </require>
+        </extension>
+        <extension name="GL_NV_draw_vulkan_image" supported="gl|glcore|gles2">
+            <require>
+                <command name="glDrawVkImageNV"/>
+                <command name="glGetVkProcAddrNV"/>
+                <command name="glWaitVkSemaphoreNV"/>
+                <command name="glSignalVkSemaphoreNV"/>
+                <command name="glSignalVkFenceNV"/>
             </require>
         </extension>
     </extensions>

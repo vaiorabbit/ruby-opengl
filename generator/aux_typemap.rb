@@ -35,12 +35,13 @@ module OpenGL
     'GLsync' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
     'struct _cl_context' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
     'struct _cl_event' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
-    'GLDEBUGPROC' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
-    'GLDEBUGPROCARB' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
-    'GLDEBUGPROCKHR' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
-    'GLDEBUGPROCAMD' => 'Fiddle::TYPE_VOIDP', # <- *** [CHECK] Cannot resolved to any Fiddle type. You might need tweaking for this. ***
+    'GLDEBUGPROC' => 'Fiddle::TYPE_VOIDP',
+    'GLDEBUGPROCARB' => 'Fiddle::TYPE_VOIDP',
+    'GLDEBUGPROCKHR' => 'Fiddle::TYPE_VOIDP',
+    'GLDEBUGPROCAMD' => 'Fiddle::TYPE_VOIDP',
     'GLhalfNV' => '-Fiddle::TYPE_SHORT',
     'GLvdpauSurfaceNV' => 'Fiddle::TYPE_PTRDIFF_T',
+    'VULKANPROCNV' => 'Fiddle::TYPE_VOIDP',
 
     'char' => 'Fiddle::TYPE_CHAR',
     'signed char' => 'Fiddle::TYPE_CHAR',

@@ -28666,4 +28666,62 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_alpha_to_coverage_dither_control
 
 
+  def self.define_ext_command_GL_NV_draw_vulkan_image
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDrawVkImageNV] = [-Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDrawVkImageNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDrawVkImageNV(_vkImage_, _sampler_, _x0_, _y0_, _x1_, _y1_, _z_, _s0_, _t0_, _s1_, _t1_)
+        f = OpenGL::get_command(:glDrawVkImageNV)
+        f.call(_vkImage_, _sampler_, _x0_, _y0_, _x1_, _y1_, _z_, _s0_, _t0_, _s1_, _t1_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetVkProcAddrNV] = [Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetVkProcAddrNV] = 
+    OpenGL.module_eval(<<-SRC)
+      def glGetVkProcAddrNV(_name_)
+        f = OpenGL::get_command(:glGetVkProcAddrNV)
+        f.call(_name_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glWaitVkSemaphoreNV] = [-Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glWaitVkSemaphoreNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glWaitVkSemaphoreNV(_vkSemaphore_)
+        f = OpenGL::get_command(:glWaitVkSemaphoreNV)
+        f.call(_vkSemaphore_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSignalVkSemaphoreNV] = [-Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSignalVkSemaphoreNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glSignalVkSemaphoreNV(_vkSemaphore_)
+        f = OpenGL::get_command(:glSignalVkSemaphoreNV)
+        f.call(_vkSemaphore_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSignalVkFenceNV] = [-Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSignalVkFenceNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glSignalVkFenceNV(_vkFence_)
+        f = OpenGL::get_command(:glSignalVkFenceNV)
+        f.call(_vkFence_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_draw_vulkan_image
+
+  def self.get_ext_command_GL_NV_draw_vulkan_image
+    [
+      'glDrawVkImageNV',
+      'glGetVkProcAddrNV',
+      'glWaitVkSemaphoreNV',
+      'glSignalVkSemaphoreNV',
+      'glSignalVkFenceNV',
+    ]
+  end # self.get_ext_command_GL_NV_draw_vulkan_image
+
+
 end

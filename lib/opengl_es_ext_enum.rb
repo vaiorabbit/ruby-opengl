@@ -5054,4 +5054,26 @@ module OpenGLExt
   end # self.get_ext_enum_GL_VIV_shader_binary
 
 
+  def self.define_ext_enum_GL_QCOM_framebuffer_foveated
+    OpenGL.const_set('GL_FOVEATION_ENABLE_BIT_QCOM', 0x00000001) unless defined?(OpenGL::GL_FOVEATION_ENABLE_BIT_QCOM)
+    OpenGL.const_set('GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM', 0x00000002) unless defined?(OpenGL::GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM)
+  end # self.define_ext_enum_GL_QCOM_framebuffer_foveated
+
+  def self.get_ext_enum_GL_QCOM_framebuffer_foveated
+    [
+      'GL_FOVEATION_ENABLE_BIT_QCOM',
+      'GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM',
+    ]
+  end # self.get_ext_enum_GL_QCOM_framebuffer_foveated
+
+
+  def self.define_ext_enum_GL_NV_draw_vulkan_image
+  end # self.define_ext_enum_GL_NV_draw_vulkan_image
+
+  def self.get_ext_enum_GL_NV_draw_vulkan_image
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_draw_vulkan_image
+
+
 end

@@ -73,9 +73,11 @@ GLToFiddleTypeMap = {
   'GLDEBUGPROC' => 'Fiddle::TYPE_VOIDP', # == void ( *GLDEBUGPROC)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam);
   'GLDEBUGPROCARB' => 'Fiddle::TYPE_VOIDP', # == void ( *GLDEBUGPROCARB)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam);
   'GLDEBUGPROCKHR' => 'Fiddle::TYPE_VOIDP', # == void ( *GLDEBUGPROCKHR)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam);
+
   'GLDEBUGPROCAMD' => 'Fiddle::TYPE_VOIDP', # == void ( *GLDEBUGPROCAMD)(GLuint id,GLenum category,GLenum severity,GLsizei length,const GLchar *message,void *userParam);
   'GLhalfNV' => '-Fiddle::TYPE_SHORT',
   'GLvdpauSurfaceNV' => 'Fiddle::TYPE_PTRDIFF_T', # == GLintptr
+  'VULKANPROCNV' => 'Fiddle::TYPE_VOIDP', # == typedef VULKANPROCNV (APIENTRYP PFNGLGETVKPROCADDRNVPROC) (const GLchar *name);
 }
 
 GLTypeMapEntry = Struct.new( :def_name, :ctype_name )
@@ -91,7 +93,7 @@ REXML::XPath.each(doc, 'registry/types/type') do |type_tag|
   # Skip ES1/2 types
   api_attr = type_tag.attribute('api')
   if api_attr != nil
-    next if api_attr.value == 'gles1' || api_attr.value == 'gles2'
+    next if api_attr.value == 'gles1' || api_attr.value == 'gles2' || api_attr.value == 'glsc2'
   end
 
   # Analyze the content of <type>...</type>
@@ -99,9 +101,15 @@ REXML::XPath.each(doc, 'registry/types/type') do |type_tag|
   name_tag = type_tag.get_elements('name').first
 
   if name_tag != nil
-    # ex.) <type>typedef float <name>GLfloat</name>;</type>
-    def_name = name_tag.text.strip # ex.) def_name <- GLfloat
-    ctype_name = content.chomp(def_name + ';').sub('typedef ','').strip # ex.) ctype_name <- float
+    if type_tag.elements['apientry'] != nil
+      # ex.) <type>typedef void (<apientry/> *<name>VULKANPROCNV</name>)(void);</type>
+      def_name = name_tag.text.strip # ex.) def_name <- VULKANPROCNV
+      ctype_name = 'void *'
+    else
+      # ex.) <type>typedef float <name>GLfloat</name>;</type>
+      def_name = name_tag.text.strip # ex.) def_name <- GLfloat
+      ctype_name = content.chomp(def_name + ';').sub('typedef ','').strip # ex.) ctype_name <- float
+    end
   else
     # The actual type of 'GLhandleARB' should be changed depending on your platform (#ifdef __APPLE__, ...)
     def_name = name_attr.value

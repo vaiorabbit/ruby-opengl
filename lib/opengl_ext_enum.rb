@@ -13124,4 +13124,13 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_alpha_to_coverage_dither_control
 
 
+  def self.define_ext_enum_GL_NV_draw_vulkan_image
+  end # self.define_ext_enum_GL_NV_draw_vulkan_image
+
+  def self.get_ext_enum_GL_NV_draw_vulkan_image
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_draw_vulkan_image
+
+
 end

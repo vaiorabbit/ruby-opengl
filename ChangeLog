@@ -1,3 +1,9 @@
+2017-02-25  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* Updated using latest gl.xml.
+	* generator/aux_generate_typemap.rb, aux_typemap.rb (VULKANPROCNV): Added VULKANPROCNV support.
+	* generator/get_gl_xml.rb: Fixed URL to fetch 'gl.xml'.
+
 2017-02-18  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.
