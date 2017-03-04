@@ -1625,6 +1625,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_texture_buffer
 
 
+  def self.define_ext_enum_GL_EXT_texture_compression_astc_decode_mode
+    OpenGL.const_set('GL_TEXTURE_ASTC_DECODE_PRECISION_EXT', 0x8F69) unless defined?(OpenGL::GL_TEXTURE_ASTC_DECODE_PRECISION_EXT)
+  end # self.define_ext_enum_GL_EXT_texture_compression_astc_decode_mode
+
+  def self.get_ext_enum_GL_EXT_texture_compression_astc_decode_mode
+    [
+      'GL_TEXTURE_ASTC_DECODE_PRECISION_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_compression_astc_decode_mode
+
+
   def self.define_ext_enum_GL_EXT_texture_compression_dxt1
     OpenGL.const_set('GL_COMPRESSED_RGB_S3TC_DXT1_EXT', 0x83F0) unless defined?(OpenGL::GL_COMPRESSED_RGB_S3TC_DXT1_EXT)
     OpenGL.const_set('GL_COMPRESSED_RGBA_S3TC_DXT1_EXT', 0x83F1) unless defined?(OpenGL::GL_COMPRESSED_RGBA_S3TC_DXT1_EXT)
@@ -2572,6 +2583,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
 
 
+  def self.define_ext_enum_GL_NVX_blend_equation_advanced_multi_draw_buffers
+  end # self.define_ext_enum_GL_NVX_blend_equation_advanced_multi_draw_buffers
+
+  def self.get_ext_enum_GL_NVX_blend_equation_advanced_multi_draw_buffers
+    [
+    ]
+  end # self.get_ext_enum_GL_NVX_blend_equation_advanced_multi_draw_buffers
+
+
   def self.define_ext_enum_GL_NV_bindless_texture
   end # self.define_ext_enum_GL_NV_bindless_texture
 
@@ -2885,6 +2905,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_NV_draw_instanced
+
+
+  def self.define_ext_enum_GL_NV_draw_vulkan_image
+  end # self.define_ext_enum_GL_NV_draw_vulkan_image
+
+  def self.get_ext_enum_GL_NV_draw_vulkan_image
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_draw_vulkan_image
 
 
   def self.define_ext_enum_GL_NV_explicit_attrib_location
@@ -4948,6 +4977,19 @@ module OpenGLExt
   end # self.get_ext_enum_GL_QCOM_extended_get2
 
 
+  def self.define_ext_enum_GL_QCOM_framebuffer_foveated
+    OpenGL.const_set('GL_FOVEATION_ENABLE_BIT_QCOM', 0x00000001) unless defined?(OpenGL::GL_FOVEATION_ENABLE_BIT_QCOM)
+    OpenGL.const_set('GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM', 0x00000002) unless defined?(OpenGL::GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM)
+  end # self.define_ext_enum_GL_QCOM_framebuffer_foveated
+
+  def self.get_ext_enum_GL_QCOM_framebuffer_foveated
+    [
+      'GL_FOVEATION_ENABLE_BIT_QCOM',
+      'GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM',
+    ]
+  end # self.get_ext_enum_GL_QCOM_framebuffer_foveated
+
+
   def self.define_ext_enum_GL_QCOM_perfmon_global_mode
     OpenGL.const_set('GL_PERFMON_GLOBAL_MODE_QCOM', 0x8FA0) unless defined?(OpenGL::GL_PERFMON_GLOBAL_MODE_QCOM)
   end # self.define_ext_enum_GL_QCOM_perfmon_global_mode
@@ -5052,28 +5094,6 @@ module OpenGLExt
       'GL_SHADER_BINARY_VIV',
     ]
   end # self.get_ext_enum_GL_VIV_shader_binary
-
-
-  def self.define_ext_enum_GL_QCOM_framebuffer_foveated
-    OpenGL.const_set('GL_FOVEATION_ENABLE_BIT_QCOM', 0x00000001) unless defined?(OpenGL::GL_FOVEATION_ENABLE_BIT_QCOM)
-    OpenGL.const_set('GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM', 0x00000002) unless defined?(OpenGL::GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM)
-  end # self.define_ext_enum_GL_QCOM_framebuffer_foveated
-
-  def self.get_ext_enum_GL_QCOM_framebuffer_foveated
-    [
-      'GL_FOVEATION_ENABLE_BIT_QCOM',
-      'GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM',
-    ]
-  end # self.get_ext_enum_GL_QCOM_framebuffer_foveated
-
-
-  def self.define_ext_enum_GL_NV_draw_vulkan_image
-  end # self.define_ext_enum_GL_NV_draw_vulkan_image
-
-  def self.get_ext_enum_GL_NV_draw_vulkan_image
-    [
-    ]
-  end # self.get_ext_enum_GL_NV_draw_vulkan_image
 
 
 end

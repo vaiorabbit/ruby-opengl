@@ -3722,6 +3722,19 @@ module OpenGLExt
   end # self.get_ext_enum_GL_ARB_sparse_texture_clamp
 
 
+  def self.define_ext_enum_GL_ARB_gl_spirv
+    OpenGL.const_set('GL_SHADER_BINARY_FORMAT_SPIR_V_ARB', 0x9551) unless defined?(OpenGL::GL_SHADER_BINARY_FORMAT_SPIR_V_ARB)
+    OpenGL.const_set('GL_SPIR_V_BINARY_ARB', 0x9552) unless defined?(OpenGL::GL_SPIR_V_BINARY_ARB)
+  end # self.define_ext_enum_GL_ARB_gl_spirv
+
+  def self.get_ext_enum_GL_ARB_gl_spirv
+    [
+      'GL_SHADER_BINARY_FORMAT_SPIR_V_ARB',
+      'GL_SPIR_V_BINARY_ARB',
+    ]
+  end # self.get_ext_enum_GL_ARB_gl_spirv
+
+
   def self.define_ext_enum_GL_ARB_stencil_texturing
     OpenGL.const_set('GL_DEPTH_STENCIL_TEXTURE_MODE', 0x90EA) unless defined?(OpenGL::GL_DEPTH_STENCIL_TEXTURE_MODE)
   end # self.define_ext_enum_GL_ARB_stencil_texturing
@@ -9061,6 +9074,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_MESA_resize_buffers
 
 
+  def self.define_ext_enum_GL_MESA_shader_integer_functions
+  end # self.define_ext_enum_GL_MESA_shader_integer_functions
+
+  def self.get_ext_enum_GL_MESA_shader_integer_functions
+    [
+    ]
+  end # self.get_ext_enum_GL_MESA_shader_integer_functions
+
+
   def self.define_ext_enum_GL_MESA_window_pos
   end # self.define_ext_enum_GL_MESA_window_pos
 
@@ -9083,6 +9105,15 @@ module OpenGLExt
       'GL_YCBCR_MESA',
     ]
   end # self.get_ext_enum_GL_MESA_ycbcr_texture
+
+
+  def self.define_ext_enum_GL_NVX_blend_equation_advanced_multi_draw_buffers
+  end # self.define_ext_enum_GL_NVX_blend_equation_advanced_multi_draw_buffers
+
+  def self.get_ext_enum_GL_NVX_blend_equation_advanced_multi_draw_buffers
+    [
+    ]
+  end # self.get_ext_enum_GL_NVX_blend_equation_advanced_multi_draw_buffers
 
 
   def self.define_ext_enum_GL_NVX_conditional_render
@@ -9111,6 +9142,36 @@ module OpenGLExt
       'GL_GPU_MEMORY_INFO_EVICTED_MEMORY_NVX',
     ]
   end # self.get_ext_enum_GL_NVX_gpu_memory_info
+
+
+  def self.define_ext_enum_GL_NVX_linked_gpu_multicast
+    OpenGL.const_set('GL_LGPU_SEPARATE_STORAGE_BIT_NVX', 0x0800) unless defined?(OpenGL::GL_LGPU_SEPARATE_STORAGE_BIT_NVX)
+    OpenGL.const_set('GL_MAX_LGPU_GPUS_NVX', 0x92BA) unless defined?(OpenGL::GL_MAX_LGPU_GPUS_NVX)
+  end # self.define_ext_enum_GL_NVX_linked_gpu_multicast
+
+  def self.get_ext_enum_GL_NVX_linked_gpu_multicast
+    [
+      'GL_LGPU_SEPARATE_STORAGE_BIT_NVX',
+      'GL_MAX_LGPU_GPUS_NVX',
+    ]
+  end # self.get_ext_enum_GL_NVX_linked_gpu_multicast
+
+
+  def self.define_ext_enum_GL_NV_alpha_to_coverage_dither_control
+    OpenGL.const_set('GL_ALPHA_TO_COVERAGE_DITHER_DEFAULT_NV', 0x934D) unless defined?(OpenGL::GL_ALPHA_TO_COVERAGE_DITHER_DEFAULT_NV)
+    OpenGL.const_set('GL_ALPHA_TO_COVERAGE_DITHER_ENABLE_NV', 0x934E) unless defined?(OpenGL::GL_ALPHA_TO_COVERAGE_DITHER_ENABLE_NV)
+    OpenGL.const_set('GL_ALPHA_TO_COVERAGE_DITHER_DISABLE_NV', 0x934F) unless defined?(OpenGL::GL_ALPHA_TO_COVERAGE_DITHER_DISABLE_NV)
+    OpenGL.const_set('GL_ALPHA_TO_COVERAGE_DITHER_MODE_NV', 0x92BF) unless defined?(OpenGL::GL_ALPHA_TO_COVERAGE_DITHER_MODE_NV)
+  end # self.define_ext_enum_GL_NV_alpha_to_coverage_dither_control
+
+  def self.get_ext_enum_GL_NV_alpha_to_coverage_dither_control
+    [
+      'GL_ALPHA_TO_COVERAGE_DITHER_DEFAULT_NV',
+      'GL_ALPHA_TO_COVERAGE_DITHER_ENABLE_NV',
+      'GL_ALPHA_TO_COVERAGE_DITHER_DISABLE_NV',
+      'GL_ALPHA_TO_COVERAGE_DITHER_MODE_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_alpha_to_coverage_dither_control
 
 
   def self.define_ext_enum_GL_NV_bindless_multi_draw_indirect
@@ -9480,6 +9541,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_NV_draw_texture
+
+
+  def self.define_ext_enum_GL_NV_draw_vulkan_image
+  end # self.define_ext_enum_GL_NV_draw_vulkan_image
+
+  def self.get_ext_enum_GL_NV_draw_vulkan_image
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_draw_vulkan_image
 
 
   def self.define_ext_enum_GL_NV_evaluators
@@ -10014,6 +10084,25 @@ module OpenGLExt
       'GL_MAX_SPOT_EXPONENT_NV',
     ]
   end # self.get_ext_enum_GL_NV_light_max_exponent
+
+
+  def self.define_ext_enum_GL_NV_gpu_multicast
+    OpenGL.const_set('GL_PER_GPU_STORAGE_BIT_NV', 0x0800) unless defined?(OpenGL::GL_PER_GPU_STORAGE_BIT_NV)
+    OpenGL.const_set('GL_MULTICAST_GPUS_NV', 0x92BA) unless defined?(OpenGL::GL_MULTICAST_GPUS_NV)
+    OpenGL.const_set('GL_RENDER_GPU_MASK_NV', 0x9558) unless defined?(OpenGL::GL_RENDER_GPU_MASK_NV)
+    OpenGL.const_set('GL_PER_GPU_STORAGE_NV', 0x9548) unless defined?(OpenGL::GL_PER_GPU_STORAGE_NV)
+    OpenGL.const_set('GL_MULTICAST_PROGRAMMABLE_SAMPLE_LOCATION_NV', 0x9549) unless defined?(OpenGL::GL_MULTICAST_PROGRAMMABLE_SAMPLE_LOCATION_NV)
+  end # self.define_ext_enum_GL_NV_gpu_multicast
+
+  def self.get_ext_enum_GL_NV_gpu_multicast
+    [
+      'GL_PER_GPU_STORAGE_BIT_NV',
+      'GL_MULTICAST_GPUS_NV',
+      'GL_RENDER_GPU_MASK_NV',
+      'GL_PER_GPU_STORAGE_NV',
+      'GL_MULTICAST_PROGRAMMABLE_SAMPLE_LOCATION_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_gpu_multicast
 
 
   def self.define_ext_enum_GL_NV_multisample_coverage
@@ -13105,32 +13194,6 @@ module OpenGLExt
       'GL_FOG_SPECULAR_TEXTURE_WIN',
     ]
   end # self.get_ext_enum_GL_WIN_specular_fog
-
-
-  def self.define_ext_enum_GL_NV_alpha_to_coverage_dither_control
-    OpenGL.const_set('GL_ALPHA_TO_COVERAGE_DITHER_DEFAULT_NV', 0x934D) unless defined?(OpenGL::GL_ALPHA_TO_COVERAGE_DITHER_DEFAULT_NV)
-    OpenGL.const_set('GL_ALPHA_TO_COVERAGE_DITHER_ENABLE_NV', 0x934E) unless defined?(OpenGL::GL_ALPHA_TO_COVERAGE_DITHER_ENABLE_NV)
-    OpenGL.const_set('GL_ALPHA_TO_COVERAGE_DITHER_DISABLE_NV', 0x934F) unless defined?(OpenGL::GL_ALPHA_TO_COVERAGE_DITHER_DISABLE_NV)
-    OpenGL.const_set('GL_ALPHA_TO_COVERAGE_DITHER_MODE_NV', 0x92BF) unless defined?(OpenGL::GL_ALPHA_TO_COVERAGE_DITHER_MODE_NV)
-  end # self.define_ext_enum_GL_NV_alpha_to_coverage_dither_control
-
-  def self.get_ext_enum_GL_NV_alpha_to_coverage_dither_control
-    [
-      'GL_ALPHA_TO_COVERAGE_DITHER_DEFAULT_NV',
-      'GL_ALPHA_TO_COVERAGE_DITHER_ENABLE_NV',
-      'GL_ALPHA_TO_COVERAGE_DITHER_DISABLE_NV',
-      'GL_ALPHA_TO_COVERAGE_DITHER_MODE_NV',
-    ]
-  end # self.get_ext_enum_GL_NV_alpha_to_coverage_dither_control
-
-
-  def self.define_ext_enum_GL_NV_draw_vulkan_image
-  end # self.define_ext_enum_GL_NV_draw_vulkan_image
-
-  def self.get_ext_enum_GL_NV_draw_vulkan_image
-    [
-    ]
-  end # self.get_ext_enum_GL_NV_draw_vulkan_image
 
 
 end

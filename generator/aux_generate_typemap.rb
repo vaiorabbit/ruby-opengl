@@ -77,7 +77,7 @@ GLToFiddleTypeMap = {
   'GLDEBUGPROCAMD' => 'Fiddle::TYPE_VOIDP', # == void ( *GLDEBUGPROCAMD)(GLuint id,GLenum category,GLenum severity,GLsizei length,const GLchar *message,void *userParam);
   'GLhalfNV' => '-Fiddle::TYPE_SHORT',
   'GLvdpauSurfaceNV' => 'Fiddle::TYPE_PTRDIFF_T', # == GLintptr
-  'VULKANPROCNV' => 'Fiddle::TYPE_VOIDP', # == typedef VULKANPROCNV (APIENTRYP PFNGLGETVKPROCADDRNVPROC) (const GLchar *name);
+  'GLVULKANPROCNV' => 'Fiddle::TYPE_VOIDP', # == typedef GLVULKANPROCNV (APIENTRYP PFNGLGETVKPROCADDRNVPROC) (const GLchar *name);
 }
 
 GLTypeMapEntry = Struct.new( :def_name, :ctype_name )
@@ -102,8 +102,8 @@ REXML::XPath.each(doc, 'registry/types/type') do |type_tag|
 
   if name_tag != nil
     if type_tag.elements['apientry'] != nil
-      # ex.) <type>typedef void (<apientry/> *<name>VULKANPROCNV</name>)(void);</type>
-      def_name = name_tag.text.strip # ex.) def_name <- VULKANPROCNV
+      # ex.) <type>typedef void (<apientry/> *<name>GLVULKANPROCNV</name>)(void);</type>
+      def_name = name_tag.text.strip # ex.) def_name <- GLVULKANPROCNV
       ctype_name = 'void *'
     else
       # ex.) <type>typedef float <name>GLfloat</name>;</type>

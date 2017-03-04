@@ -41,7 +41,7 @@ module OpenGL
     'GLDEBUGPROCAMD' => 'Fiddle::TYPE_VOIDP',
     'GLhalfNV' => '-Fiddle::TYPE_SHORT',
     'GLvdpauSurfaceNV' => 'Fiddle::TYPE_PTRDIFF_T',
-    'VULKANPROCNV' => 'Fiddle::TYPE_VOIDP',
+    'GLVULKANPROCNV' => 'Fiddle::TYPE_VOIDP',
 
     'char' => 'Fiddle::TYPE_CHAR',
     'signed char' => 'Fiddle::TYPE_CHAR',

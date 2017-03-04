@@ -2426,6 +2426,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_texture_buffer
 
 
+  def self.define_ext_command_GL_EXT_texture_compression_astc_decode_mode
+  end # self.define_ext_command_GL_EXT_texture_compression_astc_decode_mode
+
+  def self.get_ext_command_GL_EXT_texture_compression_astc_decode_mode
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_texture_compression_astc_decode_mode
+
+
   def self.define_ext_command_GL_EXT_texture_compression_dxt1
   end # self.define_ext_command_GL_EXT_texture_compression_dxt1
 
@@ -3395,6 +3404,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_KHR_texture_compression_astc_sliced_3d
 
 
+  def self.define_ext_command_GL_NVX_blend_equation_advanced_multi_draw_buffers
+  end # self.define_ext_command_GL_NVX_blend_equation_advanced_multi_draw_buffers
+
+  def self.get_ext_command_GL_NVX_blend_equation_advanced_multi_draw_buffers
+    [
+    ]
+  end # self.get_ext_command_GL_NVX_blend_equation_advanced_multi_draw_buffers
+
+
   def self.define_ext_command_GL_NV_bindless_texture
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetTextureHandleNV] = [-Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetTextureHandleNV] = -Fiddle::TYPE_LONG_LONG
@@ -3733,6 +3751,64 @@ module OpenGLExt
       'glDrawElementsInstancedNV',
     ]
   end # self.get_ext_command_GL_NV_draw_instanced
+
+
+  def self.define_ext_command_GL_NV_draw_vulkan_image
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDrawVkImageNV] = [-Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDrawVkImageNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDrawVkImageNV(_vkImage_, _sampler_, _x0_, _y0_, _x1_, _y1_, _z_, _s0_, _t0_, _s1_, _t1_)
+        f = OpenGL::get_command(:glDrawVkImageNV)
+        f.call(_vkImage_, _sampler_, _x0_, _y0_, _x1_, _y1_, _z_, _s0_, _t0_, _s1_, _t1_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetVkProcAddrNV] = [Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetVkProcAddrNV] = Fiddle::TYPE_VOIDP
+    OpenGL.module_eval(<<-SRC)
+      def glGetVkProcAddrNV(_name_)
+        f = OpenGL::get_command(:glGetVkProcAddrNV)
+        f.call(_name_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glWaitVkSemaphoreNV] = [-Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glWaitVkSemaphoreNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glWaitVkSemaphoreNV(_vkSemaphore_)
+        f = OpenGL::get_command(:glWaitVkSemaphoreNV)
+        f.call(_vkSemaphore_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSignalVkSemaphoreNV] = [-Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSignalVkSemaphoreNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glSignalVkSemaphoreNV(_vkSemaphore_)
+        f = OpenGL::get_command(:glSignalVkSemaphoreNV)
+        f.call(_vkSemaphore_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSignalVkFenceNV] = [-Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSignalVkFenceNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glSignalVkFenceNV(_vkFence_)
+        f = OpenGL::get_command(:glSignalVkFenceNV)
+        f.call(_vkFence_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_draw_vulkan_image
+
+  def self.get_ext_command_GL_NV_draw_vulkan_image
+    [
+      'glDrawVkImageNV',
+      'glGetVkProcAddrNV',
+      'glWaitVkSemaphoreNV',
+      'glSignalVkSemaphoreNV',
+      'glSignalVkFenceNV',
+    ]
+  end # self.get_ext_command_GL_NV_draw_vulkan_image
 
 
   def self.define_ext_command_GL_NV_explicit_attrib_location
@@ -6710,6 +6786,34 @@ module OpenGLExt
   end # self.get_ext_command_GL_QCOM_extended_get2
 
 
+  def self.define_ext_command_GL_QCOM_framebuffer_foveated
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferFoveationConfigQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferFoveationConfigQCOM] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glFramebufferFoveationConfigQCOM(_framebuffer_, _numLayers_, _focalPointsPerLayer_, _requestedFeatures_, _providedFeatures_)
+        f = OpenGL::get_command(:glFramebufferFoveationConfigQCOM)
+        f.call(_framebuffer_, _numLayers_, _focalPointsPerLayer_, _requestedFeatures_, _providedFeatures_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferFoveationParametersQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferFoveationParametersQCOM] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glFramebufferFoveationParametersQCOM(_framebuffer_, _layer_, _focalX_, _focalY_, _gainX_, _gainY_, _foveaArea_)
+        f = OpenGL::get_command(:glFramebufferFoveationParametersQCOM)
+        f.call(_framebuffer_, _layer_, _focalX_, _focalY_, _gainX_, _gainY_, _foveaArea_)
+      end
+    SRC
+  end # self.define_ext_command_GL_QCOM_framebuffer_foveated
+
+  def self.get_ext_command_GL_QCOM_framebuffer_foveated
+    [
+      'glFramebufferFoveationConfigQCOM',
+      'glFramebufferFoveationParametersQCOM',
+    ]
+  end # self.get_ext_command_GL_QCOM_framebuffer_foveated
+
+
   def self.define_ext_command_GL_QCOM_perfmon_global_mode
   end # self.define_ext_command_GL_QCOM_perfmon_global_mode
 
@@ -6763,92 +6867,6 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_VIV_shader_binary
-
-
-  def self.define_ext_command_GL_QCOM_framebuffer_foveated
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferFoveationConfigQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferFoveationConfigQCOM] = Fiddle::TYPE_VOID
-    OpenGL.module_eval(<<-SRC)
-      def glFramebufferFoveationConfigQCOM(_framebuffer_, _numLayers_, _focalPointsPerLayer_, _requestedFeatures_, _providedFeatures_)
-        f = OpenGL::get_command(:glFramebufferFoveationConfigQCOM)
-        f.call(_framebuffer_, _numLayers_, _focalPointsPerLayer_, _requestedFeatures_, _providedFeatures_)
-      end
-    SRC
-
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferFoveationParametersQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferFoveationParametersQCOM] = Fiddle::TYPE_VOID
-    OpenGL.module_eval(<<-SRC)
-      def glFramebufferFoveationParametersQCOM(_framebuffer_, _layer_, _focalX_, _focalY_, _gainX_, _gainY_, _foveaArea_)
-        f = OpenGL::get_command(:glFramebufferFoveationParametersQCOM)
-        f.call(_framebuffer_, _layer_, _focalX_, _focalY_, _gainX_, _gainY_, _foveaArea_)
-      end
-    SRC
-  end # self.define_ext_command_GL_QCOM_framebuffer_foveated
-
-  def self.get_ext_command_GL_QCOM_framebuffer_foveated
-    [
-      'glFramebufferFoveationConfigQCOM',
-      'glFramebufferFoveationParametersQCOM',
-    ]
-  end # self.get_ext_command_GL_QCOM_framebuffer_foveated
-
-
-  def self.define_ext_command_GL_NV_draw_vulkan_image
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDrawVkImageNV] = [-Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDrawVkImageNV] = Fiddle::TYPE_VOID
-    OpenGL.module_eval(<<-SRC)
-      def glDrawVkImageNV(_vkImage_, _sampler_, _x0_, _y0_, _x1_, _y1_, _z_, _s0_, _t0_, _s1_, _t1_)
-        f = OpenGL::get_command(:glDrawVkImageNV)
-        f.call(_vkImage_, _sampler_, _x0_, _y0_, _x1_, _y1_, _z_, _s0_, _t0_, _s1_, _t1_)
-      end
-    SRC
-
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetVkProcAddrNV] = [Fiddle::TYPE_VOIDP]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetVkProcAddrNV] = 
-    OpenGL.module_eval(<<-SRC)
-      def glGetVkProcAddrNV(_name_)
-        f = OpenGL::get_command(:glGetVkProcAddrNV)
-        f.call(_name_)
-      end
-    SRC
-
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glWaitVkSemaphoreNV] = [-Fiddle::TYPE_LONG_LONG]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glWaitVkSemaphoreNV] = Fiddle::TYPE_VOID
-    OpenGL.module_eval(<<-SRC)
-      def glWaitVkSemaphoreNV(_vkSemaphore_)
-        f = OpenGL::get_command(:glWaitVkSemaphoreNV)
-        f.call(_vkSemaphore_)
-      end
-    SRC
-
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSignalVkSemaphoreNV] = [-Fiddle::TYPE_LONG_LONG]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSignalVkSemaphoreNV] = Fiddle::TYPE_VOID
-    OpenGL.module_eval(<<-SRC)
-      def glSignalVkSemaphoreNV(_vkSemaphore_)
-        f = OpenGL::get_command(:glSignalVkSemaphoreNV)
-        f.call(_vkSemaphore_)
-      end
-    SRC
-
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSignalVkFenceNV] = [-Fiddle::TYPE_LONG_LONG]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSignalVkFenceNV] = Fiddle::TYPE_VOID
-    OpenGL.module_eval(<<-SRC)
-      def glSignalVkFenceNV(_vkFence_)
-        f = OpenGL::get_command(:glSignalVkFenceNV)
-        f.call(_vkFence_)
-      end
-    SRC
-  end # self.define_ext_command_GL_NV_draw_vulkan_image
-
-  def self.get_ext_command_GL_NV_draw_vulkan_image
-    [
-      'glDrawVkImageNV',
-      'glGetVkProcAddrNV',
-      'glWaitVkSemaphoreNV',
-      'glSignalVkSemaphoreNV',
-      'glSignalVkFenceNV',
-    ]
-  end # self.get_ext_command_GL_NV_draw_vulkan_image
 
 
 end

@@ -7771,6 +7771,24 @@ module OpenGLExt
   end # self.get_ext_command_GL_ARB_sparse_texture_clamp
 
 
+  def self.define_ext_command_GL_ARB_gl_spirv
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSpecializeShaderARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSpecializeShaderARB] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glSpecializeShaderARB(_shader_, _pEntryPoint_, _numSpecializationConstants_, _pConstantIndex_, _pConstantValue_)
+        f = OpenGL::get_command(:glSpecializeShaderARB)
+        f.call(_shader_, _pEntryPoint_, _numSpecializationConstants_, _pConstantIndex_, _pConstantValue_)
+      end
+    SRC
+  end # self.define_ext_command_GL_ARB_gl_spirv
+
+  def self.get_ext_command_GL_ARB_gl_spirv
+    [
+      'glSpecializeShaderARB',
+    ]
+  end # self.get_ext_command_GL_ARB_gl_spirv
+
+
   def self.define_ext_command_GL_ARB_stencil_texturing
   end # self.define_ext_command_GL_ARB_stencil_texturing
 
@@ -19416,6 +19434,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_MESA_resize_buffers
 
 
+  def self.define_ext_command_GL_MESA_shader_integer_functions
+  end # self.define_ext_command_GL_MESA_shader_integer_functions
+
+  def self.get_ext_command_GL_MESA_shader_integer_functions
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_shader_integer_functions
+
+
   def self.define_ext_command_GL_MESA_window_pos
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glWindowPos2dMESA] = [Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glWindowPos2dMESA] = Fiddle::TYPE_VOID
@@ -19673,6 +19700,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_MESA_ycbcr_texture
 
 
+  def self.define_ext_command_GL_NVX_blend_equation_advanced_multi_draw_buffers
+  end # self.define_ext_command_GL_NVX_blend_equation_advanced_multi_draw_buffers
+
+  def self.get_ext_command_GL_NVX_blend_equation_advanced_multi_draw_buffers
+    [
+    ]
+  end # self.get_ext_command_GL_NVX_blend_equation_advanced_multi_draw_buffers
+
+
   def self.define_ext_command_GL_NVX_conditional_render
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glBeginConditionalRenderNVX] = [-Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glBeginConditionalRenderNVX] = Fiddle::TYPE_VOID
@@ -19708,6 +19744,62 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_NVX_gpu_memory_info
+
+
+  def self.define_ext_command_GL_NVX_linked_gpu_multicast
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glLGPUNamedBufferSubDataNVX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glLGPUNamedBufferSubDataNVX] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glLGPUNamedBufferSubDataNVX(_gpuMask_, _buffer_, _offset_, _size_, _data_)
+        f = OpenGL::get_command(:glLGPUNamedBufferSubDataNVX)
+        f.call(_gpuMask_, _buffer_, _offset_, _size_, _data_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glLGPUCopyImageSubDataNVX] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glLGPUCopyImageSubDataNVX] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glLGPUCopyImageSubDataNVX(_sourceGpu_, _destinationGpuMask_, _srcName_, _srcTarget_, _srcLevel_, _srcX_, _srxY_, _srcZ_, _dstName_, _dstTarget_, _dstLevel_, _dstX_, _dstY_, _dstZ_, _width_, _height_, _depth_)
+        f = OpenGL::get_command(:glLGPUCopyImageSubDataNVX)
+        f.call(_sourceGpu_, _destinationGpuMask_, _srcName_, _srcTarget_, _srcLevel_, _srcX_, _srxY_, _srcZ_, _dstName_, _dstTarget_, _dstLevel_, _dstX_, _dstY_, _dstZ_, _width_, _height_, _depth_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glLGPUInterlockNVX] = []
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glLGPUInterlockNVX] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glLGPUInterlockNVX()
+        f = OpenGL::get_command(:glLGPUInterlockNVX)
+        f.call()
+      end
+    SRC
+  end # self.define_ext_command_GL_NVX_linked_gpu_multicast
+
+  def self.get_ext_command_GL_NVX_linked_gpu_multicast
+    [
+      'glLGPUNamedBufferSubDataNVX',
+      'glLGPUCopyImageSubDataNVX',
+      'glLGPUInterlockNVX',
+    ]
+  end # self.get_ext_command_GL_NVX_linked_gpu_multicast
+
+
+  def self.define_ext_command_GL_NV_alpha_to_coverage_dither_control
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glAlphaToCoverageDitherControlNV] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glAlphaToCoverageDitherControlNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glAlphaToCoverageDitherControlNV(_mode_)
+        f = OpenGL::get_command(:glAlphaToCoverageDitherControlNV)
+        f.call(_mode_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_alpha_to_coverage_dither_control
+
+  def self.get_ext_command_GL_NV_alpha_to_coverage_dither_control
+    [
+      'glAlphaToCoverageDitherControlNV',
+    ]
+  end # self.get_ext_command_GL_NV_alpha_to_coverage_dither_control
 
 
   def self.define_ext_command_GL_NV_bindless_multi_draw_indirect
@@ -20336,6 +20428,64 @@ module OpenGLExt
       'glDrawTextureNV',
     ]
   end # self.get_ext_command_GL_NV_draw_texture
+
+
+  def self.define_ext_command_GL_NV_draw_vulkan_image
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDrawVkImageNV] = [-Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDrawVkImageNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDrawVkImageNV(_vkImage_, _sampler_, _x0_, _y0_, _x1_, _y1_, _z_, _s0_, _t0_, _s1_, _t1_)
+        f = OpenGL::get_command(:glDrawVkImageNV)
+        f.call(_vkImage_, _sampler_, _x0_, _y0_, _x1_, _y1_, _z_, _s0_, _t0_, _s1_, _t1_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetVkProcAddrNV] = [Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetVkProcAddrNV] = Fiddle::TYPE_VOIDP
+    OpenGL.module_eval(<<-SRC)
+      def glGetVkProcAddrNV(_name_)
+        f = OpenGL::get_command(:glGetVkProcAddrNV)
+        f.call(_name_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glWaitVkSemaphoreNV] = [-Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glWaitVkSemaphoreNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glWaitVkSemaphoreNV(_vkSemaphore_)
+        f = OpenGL::get_command(:glWaitVkSemaphoreNV)
+        f.call(_vkSemaphore_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSignalVkSemaphoreNV] = [-Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSignalVkSemaphoreNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glSignalVkSemaphoreNV(_vkSemaphore_)
+        f = OpenGL::get_command(:glSignalVkSemaphoreNV)
+        f.call(_vkSemaphore_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSignalVkFenceNV] = [-Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSignalVkFenceNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glSignalVkFenceNV(_vkFence_)
+        f = OpenGL::get_command(:glSignalVkFenceNV)
+        f.call(_vkFence_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_draw_vulkan_image
+
+  def self.get_ext_command_GL_NV_draw_vulkan_image
+    [
+      'glDrawVkImageNV',
+      'glGetVkProcAddrNV',
+      'glWaitVkSemaphoreNV',
+      'glSignalVkSemaphoreNV',
+      'glSignalVkFenceNV',
+    ]
+  end # self.get_ext_command_GL_NV_draw_vulkan_image
 
 
   def self.define_ext_command_GL_NV_evaluators
@@ -21869,6 +22019,134 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_NV_light_max_exponent
+
+
+  def self.define_ext_command_GL_NV_gpu_multicast
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glRenderGpuMaskNV] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glRenderGpuMaskNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glRenderGpuMaskNV(_mask_)
+        f = OpenGL::get_command(:glRenderGpuMaskNV)
+        f.call(_mask_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMulticastBufferSubDataNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMulticastBufferSubDataNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMulticastBufferSubDataNV(_gpuMask_, _buffer_, _offset_, _size_, _data_)
+        f = OpenGL::get_command(:glMulticastBufferSubDataNV)
+        f.call(_gpuMask_, _buffer_, _offset_, _size_, _data_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMulticastCopyBufferSubDataNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMulticastCopyBufferSubDataNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMulticastCopyBufferSubDataNV(_readGpu_, _writeGpuMask_, _readBuffer_, _writeBuffer_, _readOffset_, _writeOffset_, _size_)
+        f = OpenGL::get_command(:glMulticastCopyBufferSubDataNV)
+        f.call(_readGpu_, _writeGpuMask_, _readBuffer_, _writeBuffer_, _readOffset_, _writeOffset_, _size_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMulticastCopyImageSubDataNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMulticastCopyImageSubDataNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMulticastCopyImageSubDataNV(_srcGpu_, _dstGpuMask_, _srcName_, _srcTarget_, _srcLevel_, _srcX_, _srcY_, _srcZ_, _dstName_, _dstTarget_, _dstLevel_, _dstX_, _dstY_, _dstZ_, _srcWidth_, _srcHeight_, _srcDepth_)
+        f = OpenGL::get_command(:glMulticastCopyImageSubDataNV)
+        f.call(_srcGpu_, _dstGpuMask_, _srcName_, _srcTarget_, _srcLevel_, _srcX_, _srcY_, _srcZ_, _dstName_, _dstTarget_, _dstLevel_, _dstX_, _dstY_, _dstZ_, _srcWidth_, _srcHeight_, _srcDepth_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMulticastBlitFramebufferNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMulticastBlitFramebufferNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMulticastBlitFramebufferNV(_srcGpu_, _dstGpu_, _srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
+        f = OpenGL::get_command(:glMulticastBlitFramebufferNV)
+        f.call(_srcGpu_, _dstGpu_, _srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMulticastFramebufferSampleLocationsfvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMulticastFramebufferSampleLocationsfvNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMulticastFramebufferSampleLocationsfvNV(_gpu_, _framebuffer_, _start_, _count_, _v_)
+        f = OpenGL::get_command(:glMulticastFramebufferSampleLocationsfvNV)
+        f.call(_gpu_, _framebuffer_, _start_, _count_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMulticastBarrierNV] = []
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMulticastBarrierNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMulticastBarrierNV()
+        f = OpenGL::get_command(:glMulticastBarrierNV)
+        f.call()
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMulticastWaitSyncNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMulticastWaitSyncNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMulticastWaitSyncNV(_signalGpu_, _waitGpuMask_)
+        f = OpenGL::get_command(:glMulticastWaitSyncNV)
+        f.call(_signalGpu_, _waitGpuMask_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMulticastGetQueryObjectivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMulticastGetQueryObjectivNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMulticastGetQueryObjectivNV(_gpu_, _id_, _pname_, _params_)
+        f = OpenGL::get_command(:glMulticastGetQueryObjectivNV)
+        f.call(_gpu_, _id_, _pname_, _params_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMulticastGetQueryObjectuivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMulticastGetQueryObjectuivNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMulticastGetQueryObjectuivNV(_gpu_, _id_, _pname_, _params_)
+        f = OpenGL::get_command(:glMulticastGetQueryObjectuivNV)
+        f.call(_gpu_, _id_, _pname_, _params_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMulticastGetQueryObjecti64vNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMulticastGetQueryObjecti64vNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMulticastGetQueryObjecti64vNV(_gpu_, _id_, _pname_, _params_)
+        f = OpenGL::get_command(:glMulticastGetQueryObjecti64vNV)
+        f.call(_gpu_, _id_, _pname_, _params_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMulticastGetQueryObjectui64vNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMulticastGetQueryObjectui64vNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMulticastGetQueryObjectui64vNV(_gpu_, _id_, _pname_, _params_)
+        f = OpenGL::get_command(:glMulticastGetQueryObjectui64vNV)
+        f.call(_gpu_, _id_, _pname_, _params_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_gpu_multicast
+
+  def self.get_ext_command_GL_NV_gpu_multicast
+    [
+      'glRenderGpuMaskNV',
+      'glMulticastBufferSubDataNV',
+      'glMulticastCopyBufferSubDataNV',
+      'glMulticastCopyImageSubDataNV',
+      'glMulticastBlitFramebufferNV',
+      'glMulticastFramebufferSampleLocationsfvNV',
+      'glMulticastBarrierNV',
+      'glMulticastWaitSyncNV',
+      'glMulticastGetQueryObjectivNV',
+      'glMulticastGetQueryObjectuivNV',
+      'glMulticastGetQueryObjecti64vNV',
+      'glMulticastGetQueryObjectui64vNV',
+    ]
+  end # self.get_ext_command_GL_NV_gpu_multicast
 
 
   def self.define_ext_command_GL_NV_multisample_coverage
@@ -28646,82 +28924,6 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_WIN_specular_fog
-
-
-  def self.define_ext_command_GL_NV_alpha_to_coverage_dither_control
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glAlphaToCoverageDitherControlNV] = [-Fiddle::TYPE_INT]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glAlphaToCoverageDitherControlNV] = Fiddle::TYPE_VOID
-    OpenGL.module_eval(<<-SRC)
-      def glAlphaToCoverageDitherControlNV(_mode_)
-        f = OpenGL::get_command(:glAlphaToCoverageDitherControlNV)
-        f.call(_mode_)
-      end
-    SRC
-  end # self.define_ext_command_GL_NV_alpha_to_coverage_dither_control
-
-  def self.get_ext_command_GL_NV_alpha_to_coverage_dither_control
-    [
-      'glAlphaToCoverageDitherControlNV',
-    ]
-  end # self.get_ext_command_GL_NV_alpha_to_coverage_dither_control
-
-
-  def self.define_ext_command_GL_NV_draw_vulkan_image
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDrawVkImageNV] = [-Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDrawVkImageNV] = Fiddle::TYPE_VOID
-    OpenGL.module_eval(<<-SRC)
-      def glDrawVkImageNV(_vkImage_, _sampler_, _x0_, _y0_, _x1_, _y1_, _z_, _s0_, _t0_, _s1_, _t1_)
-        f = OpenGL::get_command(:glDrawVkImageNV)
-        f.call(_vkImage_, _sampler_, _x0_, _y0_, _x1_, _y1_, _z_, _s0_, _t0_, _s1_, _t1_)
-      end
-    SRC
-
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetVkProcAddrNV] = [Fiddle::TYPE_VOIDP]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetVkProcAddrNV] = 
-    OpenGL.module_eval(<<-SRC)
-      def glGetVkProcAddrNV(_name_)
-        f = OpenGL::get_command(:glGetVkProcAddrNV)
-        f.call(_name_)
-      end
-    SRC
-
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glWaitVkSemaphoreNV] = [-Fiddle::TYPE_LONG_LONG]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glWaitVkSemaphoreNV] = Fiddle::TYPE_VOID
-    OpenGL.module_eval(<<-SRC)
-      def glWaitVkSemaphoreNV(_vkSemaphore_)
-        f = OpenGL::get_command(:glWaitVkSemaphoreNV)
-        f.call(_vkSemaphore_)
-      end
-    SRC
-
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSignalVkSemaphoreNV] = [-Fiddle::TYPE_LONG_LONG]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSignalVkSemaphoreNV] = Fiddle::TYPE_VOID
-    OpenGL.module_eval(<<-SRC)
-      def glSignalVkSemaphoreNV(_vkSemaphore_)
-        f = OpenGL::get_command(:glSignalVkSemaphoreNV)
-        f.call(_vkSemaphore_)
-      end
-    SRC
-
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSignalVkFenceNV] = [-Fiddle::TYPE_LONG_LONG]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSignalVkFenceNV] = Fiddle::TYPE_VOID
-    OpenGL.module_eval(<<-SRC)
-      def glSignalVkFenceNV(_vkFence_)
-        f = OpenGL::get_command(:glSignalVkFenceNV)
-        f.call(_vkFence_)
-      end
-    SRC
-  end # self.define_ext_command_GL_NV_draw_vulkan_image
-
-  def self.get_ext_command_GL_NV_draw_vulkan_image
-    [
-      'glDrawVkImageNV',
-      'glGetVkProcAddrNV',
-      'glWaitVkSemaphoreNV',
-      'glSignalVkSemaphoreNV',
-      'glSignalVkFenceNV',
-    ]
-  end # self.get_ext_command_GL_NV_draw_vulkan_image
 
 
 end
