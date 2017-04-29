@@ -380,15 +380,6 @@ module OpenGLExt
   end # self.get_ext_enum_GL_APPLE_texture_packed_float
 
 
-  def self.define_ext_enum_GL_ARB_sparse_texture2
-  end # self.define_ext_enum_GL_ARB_sparse_texture2
-
-  def self.get_ext_enum_GL_ARB_sparse_texture2
-    [
-    ]
-  end # self.get_ext_enum_GL_ARB_sparse_texture2
-
-
   def self.define_ext_enum_GL_ARM_mali_program_binary
     OpenGL.const_set('GL_MALI_PROGRAM_BINARY_ARM', 0x8F61) unless defined?(OpenGL::GL_MALI_PROGRAM_BINARY_ARM)
   end # self.define_ext_enum_GL_ARM_mali_program_binary
@@ -1461,6 +1452,15 @@ module OpenGLExt
       'GL_SPARSE_TEXTURE_FULL_ARRAY_CUBE_MIPMAPS_EXT',
     ]
   end # self.get_ext_enum_GL_EXT_sparse_texture
+
+
+  def self.define_ext_enum_GL_EXT_sparse_texture2
+  end # self.define_ext_enum_GL_EXT_sparse_texture2
+
+  def self.get_ext_enum_GL_EXT_sparse_texture2
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_sparse_texture2
 
 
   def self.define_ext_enum_GL_EXT_tessellation_point_size
@@ -2581,6 +2581,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
+
+
+  def self.define_ext_enum_GL_MESA_shader_integer_functions
+  end # self.define_ext_enum_GL_MESA_shader_integer_functions
+
+  def self.get_ext_enum_GL_MESA_shader_integer_functions
+    [
+    ]
+  end # self.get_ext_enum_GL_MESA_shader_integer_functions
 
 
   def self.define_ext_enum_GL_NVX_blend_equation_advanced_multi_draw_buffers
@@ -4999,6 +5008,17 @@ module OpenGLExt
       'GL_PERFMON_GLOBAL_MODE_QCOM',
     ]
   end # self.get_ext_enum_GL_QCOM_perfmon_global_mode
+
+
+  def self.define_ext_enum_GL_QCOM_shader_framebuffer_fetch_noncoherent
+    OpenGL.const_set('GL_FRAMEBUFFER_FETCH_NONCOHERENT_QCOM', 0x96A2) unless defined?(OpenGL::GL_FRAMEBUFFER_FETCH_NONCOHERENT_QCOM)
+  end # self.define_ext_enum_GL_QCOM_shader_framebuffer_fetch_noncoherent
+
+  def self.get_ext_enum_GL_QCOM_shader_framebuffer_fetch_noncoherent
+    [
+      'GL_FRAMEBUFFER_FETCH_NONCOHERENT_QCOM',
+    ]
+  end # self.get_ext_enum_GL_QCOM_shader_framebuffer_fetch_noncoherent
 
 
   def self.define_ext_enum_GL_QCOM_tiled_rendering
