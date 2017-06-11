@@ -233,6 +233,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_AMD_gpu_shader_half_float
 
 
+  def self.define_ext_command_GL_AMD_gpu_shader_int16
+  end # self.define_ext_command_GL_AMD_gpu_shader_int16
+
+  def self.get_ext_command_GL_AMD_gpu_shader_int16
+    [
+    ]
+  end # self.get_ext_command_GL_AMD_gpu_shader_int16
+
+
   def self.define_ext_command_GL_AMD_gpu_shader_int64
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glUniform1i64NV] = [Fiddle::TYPE_INT, Fiddle::TYPE_LONG_LONG]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glUniform1i64NV] = Fiddle::TYPE_VOID
@@ -935,6 +944,15 @@ module OpenGLExt
       'glStencilOpValueAMD',
     ]
   end # self.get_ext_command_GL_AMD_stencil_operation_extended
+
+
+  def self.define_ext_command_GL_AMD_texture_gather_bias_lod
+  end # self.define_ext_command_GL_AMD_texture_gather_bias_lod
+
+  def self.get_ext_command_GL_AMD_texture_gather_bias_lod
+    [
+    ]
+  end # self.get_ext_command_GL_AMD_texture_gather_bias_lod
 
 
   def self.define_ext_command_GL_AMD_texture_texture4
@@ -16065,6 +16083,250 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_light_texture
 
 
+  def self.define_ext_command_GL_EXT_memory_object
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetUnsignedBytevEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetUnsignedBytevEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetUnsignedBytevEXT(_pname_, _data_)
+        f = OpenGL::get_command(:glGetUnsignedBytevEXT)
+        f.call(_pname_, _data_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetUnsignedBytei_vEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetUnsignedBytei_vEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetUnsignedBytei_vEXT(_target_, _index_, _data_)
+        f = OpenGL::get_command(:glGetUnsignedBytei_vEXT)
+        f.call(_target_, _index_, _data_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDeleteMemoryObjectsEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDeleteMemoryObjectsEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDeleteMemoryObjectsEXT(_n_, _memoryObjects_)
+        f = OpenGL::get_command(:glDeleteMemoryObjectsEXT)
+        f.call(_n_, _memoryObjects_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glIsMemoryObjectEXT] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glIsMemoryObjectEXT] = -Fiddle::TYPE_CHAR
+    OpenGL.module_eval(<<-SRC)
+      def glIsMemoryObjectEXT(_memoryObject_)
+        f = OpenGL::get_command(:glIsMemoryObjectEXT)
+        f.call(_memoryObject_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glCreateMemoryObjectsEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glCreateMemoryObjectsEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glCreateMemoryObjectsEXT(_n_, _memoryObjects_)
+        f = OpenGL::get_command(:glCreateMemoryObjectsEXT)
+        f.call(_n_, _memoryObjects_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMemoryObjectParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMemoryObjectParameterivEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMemoryObjectParameterivEXT(_memoryObject_, _pname_, _params_)
+        f = OpenGL::get_command(:glMemoryObjectParameterivEXT)
+        f.call(_memoryObject_, _pname_, _params_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetMemoryObjectParameterivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetMemoryObjectParameterivEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetMemoryObjectParameterivEXT(_memoryObject_, _pname_, _params_)
+        f = OpenGL::get_command(:glGetMemoryObjectParameterivEXT)
+        f.call(_memoryObject_, _pname_, _params_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexStorageMem2DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorageMem2DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexStorageMem2DEXT(_target_, _levels_, _internalFormat_, _width_, _height_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTexStorageMem2DEXT)
+        f.call(_target_, _levels_, _internalFormat_, _width_, _height_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexStorageMem2DMultisampleEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorageMem2DMultisampleEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexStorageMem2DMultisampleEXT(_target_, _samples_, _internalFormat_, _width_, _height_, _fixedSampleLocations_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTexStorageMem2DMultisampleEXT)
+        f.call(_target_, _samples_, _internalFormat_, _width_, _height_, _fixedSampleLocations_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexStorageMem3DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorageMem3DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexStorageMem3DEXT(_target_, _levels_, _internalFormat_, _width_, _height_, _depth_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTexStorageMem3DEXT)
+        f.call(_target_, _levels_, _internalFormat_, _width_, _height_, _depth_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexStorageMem3DMultisampleEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorageMem3DMultisampleEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexStorageMem3DMultisampleEXT(_target_, _samples_, _internalFormat_, _width_, _height_, _depth_, _fixedSampleLocations_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTexStorageMem3DMultisampleEXT)
+        f.call(_target_, _samples_, _internalFormat_, _width_, _height_, _depth_, _fixedSampleLocations_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glBufferStorageMemEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glBufferStorageMemEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glBufferStorageMemEXT(_target_, _size_, _memory_, _offset_)
+        f = OpenGL::get_command(:glBufferStorageMemEXT)
+        f.call(_target_, _size_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureStorageMem2DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureStorageMem2DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTextureStorageMem2DEXT(_texture_, _levels_, _internalFormat_, _width_, _height_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTextureStorageMem2DEXT)
+        f.call(_texture_, _levels_, _internalFormat_, _width_, _height_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureStorageMem2DMultisampleEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureStorageMem2DMultisampleEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTextureStorageMem2DMultisampleEXT(_texture_, _samples_, _internalFormat_, _width_, _height_, _fixedSampleLocations_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTextureStorageMem2DMultisampleEXT)
+        f.call(_texture_, _samples_, _internalFormat_, _width_, _height_, _fixedSampleLocations_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureStorageMem3DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureStorageMem3DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTextureStorageMem3DEXT(_texture_, _levels_, _internalFormat_, _width_, _height_, _depth_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTextureStorageMem3DEXT)
+        f.call(_texture_, _levels_, _internalFormat_, _width_, _height_, _depth_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureStorageMem3DMultisampleEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureStorageMem3DMultisampleEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTextureStorageMem3DMultisampleEXT(_texture_, _samples_, _internalFormat_, _width_, _height_, _depth_, _fixedSampleLocations_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTextureStorageMem3DMultisampleEXT)
+        f.call(_texture_, _samples_, _internalFormat_, _width_, _height_, _depth_, _fixedSampleLocations_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glNamedBufferStorageMemEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glNamedBufferStorageMemEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glNamedBufferStorageMemEXT(_buffer_, _size_, _memory_, _offset_)
+        f = OpenGL::get_command(:glNamedBufferStorageMemEXT)
+        f.call(_buffer_, _size_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexStorageMem1DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorageMem1DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexStorageMem1DEXT(_target_, _levels_, _internalFormat_, _width_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTexStorageMem1DEXT)
+        f.call(_target_, _levels_, _internalFormat_, _width_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureStorageMem1DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureStorageMem1DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTextureStorageMem1DEXT(_texture_, _levels_, _internalFormat_, _width_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTextureStorageMem1DEXT)
+        f.call(_texture_, _levels_, _internalFormat_, _width_, _memory_, _offset_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_memory_object
+
+  def self.get_ext_command_GL_EXT_memory_object
+    [
+      'glGetUnsignedBytevEXT',
+      'glGetUnsignedBytei_vEXT',
+      'glDeleteMemoryObjectsEXT',
+      'glIsMemoryObjectEXT',
+      'glCreateMemoryObjectsEXT',
+      'glMemoryObjectParameterivEXT',
+      'glGetMemoryObjectParameterivEXT',
+      'glTexStorageMem2DEXT',
+      'glTexStorageMem2DMultisampleEXT',
+      'glTexStorageMem3DEXT',
+      'glTexStorageMem3DMultisampleEXT',
+      'glBufferStorageMemEXT',
+      'glTextureStorageMem2DEXT',
+      'glTextureStorageMem2DMultisampleEXT',
+      'glTextureStorageMem3DEXT',
+      'glTextureStorageMem3DMultisampleEXT',
+      'glNamedBufferStorageMemEXT',
+      'glTexStorageMem1DEXT',
+      'glTextureStorageMem1DEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_memory_object
+
+
+  def self.define_ext_command_GL_EXT_memory_object_fd
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glImportMemoryFdEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glImportMemoryFdEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glImportMemoryFdEXT(_memory_, _size_, _handleType_, _fd_)
+        f = OpenGL::get_command(:glImportMemoryFdEXT)
+        f.call(_memory_, _size_, _handleType_, _fd_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_memory_object_fd
+
+  def self.get_ext_command_GL_EXT_memory_object_fd
+    [
+      'glImportMemoryFdEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_memory_object_fd
+
+
+  def self.define_ext_command_GL_EXT_memory_object_win32
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glImportMemoryWin32HandleEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glImportMemoryWin32HandleEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glImportMemoryWin32HandleEXT(_memory_, _size_, _handleType_, _handle_)
+        f = OpenGL::get_command(:glImportMemoryWin32HandleEXT)
+        f.call(_memory_, _size_, _handleType_, _handle_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glImportMemoryWin32NameEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glImportMemoryWin32NameEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glImportMemoryWin32NameEXT(_memory_, _size_, _handleType_, _name_)
+        f = OpenGL::get_command(:glImportMemoryWin32NameEXT)
+        f.call(_memory_, _size_, _handleType_, _name_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_memory_object_win32
+
+  def self.get_ext_command_GL_EXT_memory_object_win32
+    [
+      'glImportMemoryWin32HandleEXT',
+      'glImportMemoryWin32NameEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_memory_object_win32
+
+
   def self.define_ext_command_GL_EXT_misc_attribute
   end # self.define_ext_command_GL_EXT_misc_attribute
 
@@ -16407,6 +16669,150 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_EXT_rescale_normal
+
+
+  def self.define_ext_command_GL_EXT_semaphore
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetUnsignedBytevEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetUnsignedBytevEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetUnsignedBytevEXT(_pname_, _data_)
+        f = OpenGL::get_command(:glGetUnsignedBytevEXT)
+        f.call(_pname_, _data_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetUnsignedBytei_vEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetUnsignedBytei_vEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetUnsignedBytei_vEXT(_target_, _index_, _data_)
+        f = OpenGL::get_command(:glGetUnsignedBytei_vEXT)
+        f.call(_target_, _index_, _data_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGenSemaphoresEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGenSemaphoresEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGenSemaphoresEXT(_n_, _semaphores_)
+        f = OpenGL::get_command(:glGenSemaphoresEXT)
+        f.call(_n_, _semaphores_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDeleteSemaphoresEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDeleteSemaphoresEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDeleteSemaphoresEXT(_n_, _semaphores_)
+        f = OpenGL::get_command(:glDeleteSemaphoresEXT)
+        f.call(_n_, _semaphores_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glIsSemaphoreEXT] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glIsSemaphoreEXT] = -Fiddle::TYPE_CHAR
+    OpenGL.module_eval(<<-SRC)
+      def glIsSemaphoreEXT(_semaphore_)
+        f = OpenGL::get_command(:glIsSemaphoreEXT)
+        f.call(_semaphore_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSemaphoreParameterui64vEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSemaphoreParameterui64vEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glSemaphoreParameterui64vEXT(_semaphore_, _pname_, _params_)
+        f = OpenGL::get_command(:glSemaphoreParameterui64vEXT)
+        f.call(_semaphore_, _pname_, _params_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetSemaphoreParameterui64vEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetSemaphoreParameterui64vEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetSemaphoreParameterui64vEXT(_semaphore_, _pname_, _params_)
+        f = OpenGL::get_command(:glGetSemaphoreParameterui64vEXT)
+        f.call(_semaphore_, _pname_, _params_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glWaitSemaphoreEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glWaitSemaphoreEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glWaitSemaphoreEXT(_semaphore_, _numBufferBarriers_, _buffers_, _numTextureBarriers_, _textures_, _srcLayouts_)
+        f = OpenGL::get_command(:glWaitSemaphoreEXT)
+        f.call(_semaphore_, _numBufferBarriers_, _buffers_, _numTextureBarriers_, _textures_, _srcLayouts_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSignalSemaphoreEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSignalSemaphoreEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glSignalSemaphoreEXT(_semaphore_, _numBufferBarriers_, _buffers_, _numTextureBarriers_, _textures_, _dstLayouts_)
+        f = OpenGL::get_command(:glSignalSemaphoreEXT)
+        f.call(_semaphore_, _numBufferBarriers_, _buffers_, _numTextureBarriers_, _textures_, _dstLayouts_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_semaphore
+
+  def self.get_ext_command_GL_EXT_semaphore
+    [
+      'glGetUnsignedBytevEXT',
+      'glGetUnsignedBytei_vEXT',
+      'glGenSemaphoresEXT',
+      'glDeleteSemaphoresEXT',
+      'glIsSemaphoreEXT',
+      'glSemaphoreParameterui64vEXT',
+      'glGetSemaphoreParameterui64vEXT',
+      'glWaitSemaphoreEXT',
+      'glSignalSemaphoreEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_semaphore
+
+
+  def self.define_ext_command_GL_EXT_semaphore_fd
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glImportSemaphoreFdEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glImportSemaphoreFdEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glImportSemaphoreFdEXT(_semaphore_, _handleType_, _fd_)
+        f = OpenGL::get_command(:glImportSemaphoreFdEXT)
+        f.call(_semaphore_, _handleType_, _fd_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_semaphore_fd
+
+  def self.get_ext_command_GL_EXT_semaphore_fd
+    [
+      'glImportSemaphoreFdEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_semaphore_fd
+
+
+  def self.define_ext_command_GL_EXT_semaphore_win32
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glImportSemaphoreWin32HandleEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glImportSemaphoreWin32HandleEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glImportSemaphoreWin32HandleEXT(_semaphore_, _handleType_, _handle_)
+        f = OpenGL::get_command(:glImportSemaphoreWin32HandleEXT)
+        f.call(_semaphore_, _handleType_, _handle_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glImportSemaphoreWin32NameEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glImportSemaphoreWin32NameEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glImportSemaphoreWin32NameEXT(_semaphore_, _handleType_, _name_)
+        f = OpenGL::get_command(:glImportSemaphoreWin32NameEXT)
+        f.call(_semaphore_, _handleType_, _name_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_semaphore_win32
+
+  def self.get_ext_command_GL_EXT_semaphore_win32
+    [
+      'glImportSemaphoreWin32HandleEXT',
+      'glImportSemaphoreWin32NameEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_semaphore_win32
 
 
   def self.define_ext_command_GL_EXT_secondary_color
@@ -18385,6 +18791,34 @@ module OpenGLExt
       'glVertexWeightPointerEXT',
     ]
   end # self.get_ext_command_GL_EXT_vertex_weighting
+
+
+  def self.define_ext_command_GL_EXT_win32_keyed_mutex
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glAcquireKeyedMutexWin32EXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glAcquireKeyedMutexWin32EXT] = -Fiddle::TYPE_CHAR
+    OpenGL.module_eval(<<-SRC)
+      def glAcquireKeyedMutexWin32EXT(_memory_, _key_, _timeout_)
+        f = OpenGL::get_command(:glAcquireKeyedMutexWin32EXT)
+        f.call(_memory_, _key_, _timeout_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glReleaseKeyedMutexWin32EXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glReleaseKeyedMutexWin32EXT] = -Fiddle::TYPE_CHAR
+    OpenGL.module_eval(<<-SRC)
+      def glReleaseKeyedMutexWin32EXT(_memory_, _key_)
+        f = OpenGL::get_command(:glReleaseKeyedMutexWin32EXT)
+        f.call(_memory_, _key_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_win32_keyed_mutex
+
+  def self.get_ext_command_GL_EXT_win32_keyed_mutex
+    [
+      'glAcquireKeyedMutexWin32EXT',
+      'glReleaseKeyedMutexWin32EXT',
+    ]
+  end # self.get_ext_command_GL_EXT_win32_keyed_mutex
 
 
   def self.define_ext_command_GL_EXT_window_rectangles

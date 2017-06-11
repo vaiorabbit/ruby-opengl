@@ -187,6 +187,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_AMD_gpu_shader_half_float
 
 
+  def self.define_ext_enum_GL_AMD_gpu_shader_int16
+  end # self.define_ext_enum_GL_AMD_gpu_shader_int16
+
+  def self.get_ext_enum_GL_AMD_gpu_shader_int16
+    [
+    ]
+  end # self.get_ext_enum_GL_AMD_gpu_shader_int16
+
+
   def self.define_ext_enum_GL_AMD_gpu_shader_int64
     OpenGL.const_set('GL_INT64_NV', 0x140E) unless defined?(OpenGL::GL_INT64_NV)
     OpenGL.const_set('GL_UNSIGNED_INT64_NV', 0x140F) unless defined?(OpenGL::GL_UNSIGNED_INT64_NV)
@@ -486,6 +495,15 @@ module OpenGLExt
       'GL_STENCIL_BACK_OP_VALUE_AMD',
     ]
   end # self.get_ext_enum_GL_AMD_stencil_operation_extended
+
+
+  def self.define_ext_enum_GL_AMD_texture_gather_bias_lod
+  end # self.define_ext_enum_GL_AMD_texture_gather_bias_lod
+
+  def self.get_ext_enum_GL_AMD_texture_gather_bias_lod
+    [
+    ]
+  end # self.get_ext_enum_GL_AMD_texture_gather_bias_lod
 
 
   def self.define_ext_enum_GL_AMD_texture_texture4
@@ -6534,6 +6552,75 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_light_texture
 
 
+  def self.define_ext_enum_GL_EXT_memory_object
+    OpenGL.const_set('GL_TEXTURE_TILING_EXT', 0x9580) unless defined?(OpenGL::GL_TEXTURE_TILING_EXT)
+    OpenGL.const_set('GL_DEDICATED_MEMORY_OBJECT_EXT', 0x9581) unless defined?(OpenGL::GL_DEDICATED_MEMORY_OBJECT_EXT)
+    OpenGL.const_set('GL_PROTECTED_MEMORY_OBJECT_EXT', 0x959B) unless defined?(OpenGL::GL_PROTECTED_MEMORY_OBJECT_EXT)
+    OpenGL.const_set('GL_NUM_TILING_TYPES_EXT', 0x9582) unless defined?(OpenGL::GL_NUM_TILING_TYPES_EXT)
+    OpenGL.const_set('GL_TILING_TYPES_EXT', 0x9583) unless defined?(OpenGL::GL_TILING_TYPES_EXT)
+    OpenGL.const_set('GL_OPTIMAL_TILING_EXT', 0x9584) unless defined?(OpenGL::GL_OPTIMAL_TILING_EXT)
+    OpenGL.const_set('GL_LINEAR_TILING_EXT', 0x9585) unless defined?(OpenGL::GL_LINEAR_TILING_EXT)
+    OpenGL.const_set('GL_NUM_DEVICE_UUIDS_EXT', 0x9596) unless defined?(OpenGL::GL_NUM_DEVICE_UUIDS_EXT)
+    OpenGL.const_set('GL_DEVICE_UUID_EXT', 0x9597) unless defined?(OpenGL::GL_DEVICE_UUID_EXT)
+    OpenGL.const_set('GL_DRIVER_UUID_EXT', 0x9598) unless defined?(OpenGL::GL_DRIVER_UUID_EXT)
+    OpenGL.const_set('GL_UUID_SIZE_EXT', 16) unless defined?(OpenGL::GL_UUID_SIZE_EXT)
+  end # self.define_ext_enum_GL_EXT_memory_object
+
+  def self.get_ext_enum_GL_EXT_memory_object
+    [
+      'GL_TEXTURE_TILING_EXT',
+      'GL_DEDICATED_MEMORY_OBJECT_EXT',
+      'GL_PROTECTED_MEMORY_OBJECT_EXT',
+      'GL_NUM_TILING_TYPES_EXT',
+      'GL_TILING_TYPES_EXT',
+      'GL_OPTIMAL_TILING_EXT',
+      'GL_LINEAR_TILING_EXT',
+      'GL_NUM_DEVICE_UUIDS_EXT',
+      'GL_DEVICE_UUID_EXT',
+      'GL_DRIVER_UUID_EXT',
+      'GL_UUID_SIZE_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_memory_object
+
+
+  def self.define_ext_enum_GL_EXT_memory_object_fd
+    OpenGL.const_set('GL_HANDLE_TYPE_OPAQUE_FD_EXT', 0x9586) unless defined?(OpenGL::GL_HANDLE_TYPE_OPAQUE_FD_EXT)
+  end # self.define_ext_enum_GL_EXT_memory_object_fd
+
+  def self.get_ext_enum_GL_EXT_memory_object_fd
+    [
+      'GL_HANDLE_TYPE_OPAQUE_FD_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_memory_object_fd
+
+
+  def self.define_ext_enum_GL_EXT_memory_object_win32
+    OpenGL.const_set('GL_HANDLE_TYPE_OPAQUE_WIN32_EXT', 0x9587) unless defined?(OpenGL::GL_HANDLE_TYPE_OPAQUE_WIN32_EXT)
+    OpenGL.const_set('GL_HANDLE_TYPE_OPAQUE_WIN32_KMT_EXT', 0x9588) unless defined?(OpenGL::GL_HANDLE_TYPE_OPAQUE_WIN32_KMT_EXT)
+    OpenGL.const_set('GL_DEVICE_LUID_EXT', 0x9599) unless defined?(OpenGL::GL_DEVICE_LUID_EXT)
+    OpenGL.const_set('GL_DEVICE_NODE_MASK_EXT', 0x959A) unless defined?(OpenGL::GL_DEVICE_NODE_MASK_EXT)
+    OpenGL.const_set('GL_LUID_SIZE_EXT', 8) unless defined?(OpenGL::GL_LUID_SIZE_EXT)
+    OpenGL.const_set('GL_HANDLE_TYPE_D3D12_TILEPOOL_EXT', 0x9589) unless defined?(OpenGL::GL_HANDLE_TYPE_D3D12_TILEPOOL_EXT)
+    OpenGL.const_set('GL_HANDLE_TYPE_D3D12_RESOURCE_EXT', 0x958A) unless defined?(OpenGL::GL_HANDLE_TYPE_D3D12_RESOURCE_EXT)
+    OpenGL.const_set('GL_HANDLE_TYPE_D3D11_IMAGE_EXT', 0x958B) unless defined?(OpenGL::GL_HANDLE_TYPE_D3D11_IMAGE_EXT)
+    OpenGL.const_set('GL_HANDLE_TYPE_D3D11_IMAGE_KMT_EXT', 0x958C) unless defined?(OpenGL::GL_HANDLE_TYPE_D3D11_IMAGE_KMT_EXT)
+  end # self.define_ext_enum_GL_EXT_memory_object_win32
+
+  def self.get_ext_enum_GL_EXT_memory_object_win32
+    [
+      'GL_HANDLE_TYPE_OPAQUE_WIN32_EXT',
+      'GL_HANDLE_TYPE_OPAQUE_WIN32_KMT_EXT',
+      'GL_DEVICE_LUID_EXT',
+      'GL_DEVICE_NODE_MASK_EXT',
+      'GL_LUID_SIZE_EXT',
+      'GL_HANDLE_TYPE_D3D12_TILEPOOL_EXT',
+      'GL_HANDLE_TYPE_D3D12_RESOURCE_EXT',
+      'GL_HANDLE_TYPE_D3D11_IMAGE_EXT',
+      'GL_HANDLE_TYPE_D3D11_IMAGE_KMT_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_memory_object_win32
+
+
   def self.define_ext_enum_GL_EXT_misc_attribute
   end # self.define_ext_enum_GL_EXT_misc_attribute
 
@@ -6821,6 +6908,71 @@ module OpenGLExt
       'GL_RESCALE_NORMAL_EXT',
     ]
   end # self.get_ext_enum_GL_EXT_rescale_normal
+
+
+  def self.define_ext_enum_GL_EXT_semaphore
+    OpenGL.const_set('GL_NUM_DEVICE_UUIDS_EXT', 0x9596) unless defined?(OpenGL::GL_NUM_DEVICE_UUIDS_EXT)
+    OpenGL.const_set('GL_DEVICE_UUID_EXT', 0x9597) unless defined?(OpenGL::GL_DEVICE_UUID_EXT)
+    OpenGL.const_set('GL_DRIVER_UUID_EXT', 0x9598) unless defined?(OpenGL::GL_DRIVER_UUID_EXT)
+    OpenGL.const_set('GL_UUID_SIZE_EXT', 16) unless defined?(OpenGL::GL_UUID_SIZE_EXT)
+    OpenGL.const_set('GL_LAYOUT_GENERAL_EXT', 0x958D) unless defined?(OpenGL::GL_LAYOUT_GENERAL_EXT)
+    OpenGL.const_set('GL_LAYOUT_COLOR_ATTACHMENT_EXT', 0x958E) unless defined?(OpenGL::GL_LAYOUT_COLOR_ATTACHMENT_EXT)
+    OpenGL.const_set('GL_LAYOUT_DEPTH_STENCIL_ATTACHMENT_EXT', 0x958F) unless defined?(OpenGL::GL_LAYOUT_DEPTH_STENCIL_ATTACHMENT_EXT)
+    OpenGL.const_set('GL_LAYOUT_DEPTH_STENCIL_READ_ONLY_EXT', 0x9590) unless defined?(OpenGL::GL_LAYOUT_DEPTH_STENCIL_READ_ONLY_EXT)
+    OpenGL.const_set('GL_LAYOUT_SHADER_READ_ONLY_EXT', 0x9591) unless defined?(OpenGL::GL_LAYOUT_SHADER_READ_ONLY_EXT)
+    OpenGL.const_set('GL_LAYOUT_TRANSFER_SRC_EXT', 0x9592) unless defined?(OpenGL::GL_LAYOUT_TRANSFER_SRC_EXT)
+    OpenGL.const_set('GL_LAYOUT_TRANSFER_DST_EXT', 0x9593) unless defined?(OpenGL::GL_LAYOUT_TRANSFER_DST_EXT)
+  end # self.define_ext_enum_GL_EXT_semaphore
+
+  def self.get_ext_enum_GL_EXT_semaphore
+    [
+      'GL_NUM_DEVICE_UUIDS_EXT',
+      'GL_DEVICE_UUID_EXT',
+      'GL_DRIVER_UUID_EXT',
+      'GL_UUID_SIZE_EXT',
+      'GL_LAYOUT_GENERAL_EXT',
+      'GL_LAYOUT_COLOR_ATTACHMENT_EXT',
+      'GL_LAYOUT_DEPTH_STENCIL_ATTACHMENT_EXT',
+      'GL_LAYOUT_DEPTH_STENCIL_READ_ONLY_EXT',
+      'GL_LAYOUT_SHADER_READ_ONLY_EXT',
+      'GL_LAYOUT_TRANSFER_SRC_EXT',
+      'GL_LAYOUT_TRANSFER_DST_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_semaphore
+
+
+  def self.define_ext_enum_GL_EXT_semaphore_fd
+    OpenGL.const_set('GL_HANDLE_TYPE_OPAQUE_FD_EXT', 0x9586) unless defined?(OpenGL::GL_HANDLE_TYPE_OPAQUE_FD_EXT)
+  end # self.define_ext_enum_GL_EXT_semaphore_fd
+
+  def self.get_ext_enum_GL_EXT_semaphore_fd
+    [
+      'GL_HANDLE_TYPE_OPAQUE_FD_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_semaphore_fd
+
+
+  def self.define_ext_enum_GL_EXT_semaphore_win32
+    OpenGL.const_set('GL_HANDLE_TYPE_OPAQUE_WIN32_EXT', 0x9587) unless defined?(OpenGL::GL_HANDLE_TYPE_OPAQUE_WIN32_EXT)
+    OpenGL.const_set('GL_HANDLE_TYPE_OPAQUE_WIN32_KMT_EXT', 0x9588) unless defined?(OpenGL::GL_HANDLE_TYPE_OPAQUE_WIN32_KMT_EXT)
+    OpenGL.const_set('GL_DEVICE_LUID_EXT', 0x9599) unless defined?(OpenGL::GL_DEVICE_LUID_EXT)
+    OpenGL.const_set('GL_DEVICE_NODE_MASK_EXT', 0x959A) unless defined?(OpenGL::GL_DEVICE_NODE_MASK_EXT)
+    OpenGL.const_set('GL_LUID_SIZE_EXT', 8) unless defined?(OpenGL::GL_LUID_SIZE_EXT)
+    OpenGL.const_set('GL_HANDLE_TYPE_D3D12_FENCE_EXT', 0x9594) unless defined?(OpenGL::GL_HANDLE_TYPE_D3D12_FENCE_EXT)
+    OpenGL.const_set('GL_D3D12_FENCE_VALUE_EXT', 0x9595) unless defined?(OpenGL::GL_D3D12_FENCE_VALUE_EXT)
+  end # self.define_ext_enum_GL_EXT_semaphore_win32
+
+  def self.get_ext_enum_GL_EXT_semaphore_win32
+    [
+      'GL_HANDLE_TYPE_OPAQUE_WIN32_EXT',
+      'GL_HANDLE_TYPE_OPAQUE_WIN32_KMT_EXT',
+      'GL_DEVICE_LUID_EXT',
+      'GL_DEVICE_NODE_MASK_EXT',
+      'GL_LUID_SIZE_EXT',
+      'GL_HANDLE_TYPE_D3D12_FENCE_EXT',
+      'GL_D3D12_FENCE_VALUE_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_semaphore_win32
 
 
   def self.define_ext_enum_GL_EXT_secondary_color
@@ -8200,6 +8352,15 @@ module OpenGLExt
       'GL_VERTEX_WEIGHT_ARRAY_POINTER_EXT',
     ]
   end # self.get_ext_enum_GL_EXT_vertex_weighting
+
+
+  def self.define_ext_enum_GL_EXT_win32_keyed_mutex
+  end # self.define_ext_enum_GL_EXT_win32_keyed_mutex
+
+  def self.get_ext_enum_GL_EXT_win32_keyed_mutex
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_win32_keyed_mutex
 
 
   def self.define_ext_enum_GL_EXT_window_rectangles
