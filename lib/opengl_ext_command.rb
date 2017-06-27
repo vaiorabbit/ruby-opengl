@@ -15429,6 +15429,34 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_draw_range_elements
 
 
+  def self.define_ext_command_GL_EXT_external_buffer
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glBufferStorageExternalEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glBufferStorageExternalEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glBufferStorageExternalEXT(_target_, _offset_, _size_, _clientBuffer_, _flags_)
+        f = OpenGL::get_command(:glBufferStorageExternalEXT)
+        f.call(_target_, _offset_, _size_, _clientBuffer_, _flags_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glNamedBufferStorageExternalEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glNamedBufferStorageExternalEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glNamedBufferStorageExternalEXT(_buffer_, _offset_, _size_, _clientBuffer_, _flags_)
+        f = OpenGL::get_command(:glNamedBufferStorageExternalEXT)
+        f.call(_buffer_, _offset_, _size_, _clientBuffer_, _flags_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_external_buffer
+
+  def self.get_ext_command_GL_EXT_external_buffer
+    [
+      'glBufferStorageExternalEXT',
+      'glNamedBufferStorageExternalEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_external_buffer
+
+
   def self.define_ext_command_GL_EXT_fog_coord
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFogCoordfEXT] = [Fiddle::TYPE_FLOAT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFogCoordfEXT] = Fiddle::TYPE_VOID

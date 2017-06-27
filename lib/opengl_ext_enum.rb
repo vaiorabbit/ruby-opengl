@@ -6105,6 +6105,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_draw_range_elements
 
 
+  def self.define_ext_enum_GL_EXT_external_buffer
+  end # self.define_ext_enum_GL_EXT_external_buffer
+
+  def self.get_ext_enum_GL_EXT_external_buffer
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_external_buffer
+
+
   def self.define_ext_enum_GL_EXT_fog_coord
     OpenGL.const_set('GL_FOG_COORDINATE_SOURCE_EXT', 0x8450) unless defined?(OpenGL::GL_FOG_COORDINATE_SOURCE_EXT)
     OpenGL.const_set('GL_FOG_COORDINATE_EXT', 0x8451) unless defined?(OpenGL::GL_FOG_COORDINATE_EXT)

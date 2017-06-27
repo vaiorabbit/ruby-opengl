@@ -17,6 +17,7 @@ module OpenGL
     'GLclampf' => 'Fiddle::TYPE_FLOAT',
     'GLdouble' => 'Fiddle::TYPE_DOUBLE',
     'GLclampd' => 'Fiddle::TYPE_DOUBLE',
+    'GLeglClientBufferEXT' => 'Fiddle::TYPE_VOIDP',
     'GLeglImageOES' => 'Fiddle::TYPE_VOIDP',
     'GLchar' => 'Fiddle::TYPE_CHAR',
     'GLcharARB' => 'Fiddle::TYPE_CHAR',
