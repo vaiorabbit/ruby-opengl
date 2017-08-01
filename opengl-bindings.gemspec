@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.license       = "Zlib"
   gem.description   = <<-DESC
-Ruby bindings for OpenGL - 4.5, OpenGL ES - 3.2 and all extensions using Fiddle (For MRI >= 2.0.0). GLFW/GLUT/GLU bindings are also available.
+Ruby bindings for OpenGL - 4.6, OpenGL ES - 3.2 and all extensions using Fiddle (For MRI >= 2.0.0). GLFW/GLUT/GLU bindings are also available.
   DESC
 
   gem.required_ruby_version = '>= 2.0.0'

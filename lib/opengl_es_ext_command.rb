@@ -2860,6 +2860,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_texture_compression_astc_decode_mode
 
 
+  def self.define_ext_command_GL_EXT_texture_compression_bptc
+  end # self.define_ext_command_GL_EXT_texture_compression_bptc
+
+  def self.get_ext_command_GL_EXT_texture_compression_bptc
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_texture_compression_bptc
+
+
   def self.define_ext_command_GL_EXT_texture_compression_dxt1
   end # self.define_ext_command_GL_EXT_texture_compression_dxt1
 
@@ -2867,6 +2876,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_EXT_texture_compression_dxt1
+
+
+  def self.define_ext_command_GL_EXT_texture_compression_rgtc
+  end # self.define_ext_command_GL_EXT_texture_compression_rgtc
+
+  def self.get_ext_command_GL_EXT_texture_compression_rgtc
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_texture_compression_rgtc
 
 
   def self.define_ext_command_GL_EXT_texture_compression_s3tc
@@ -4048,6 +4066,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_NV_blend_equation_advanced_coherent
+
+
+  def self.define_ext_command_GL_NV_blend_minmax_factor
+  end # self.define_ext_command_GL_NV_blend_minmax_factor
+
+  def self.get_ext_command_GL_NV_blend_minmax_factor
+    [
+    ]
+  end # self.get_ext_command_GL_NV_blend_minmax_factor
 
 
   def self.define_ext_command_GL_NV_conditional_render
@@ -5615,6 +5642,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_path_rendering_shared_edge
 
 
+  def self.define_ext_command_GL_NV_pixel_buffer_object
+  end # self.define_ext_command_GL_NV_pixel_buffer_object
+
+  def self.get_ext_command_GL_NV_pixel_buffer_object
+    [
+    ]
+  end # self.get_ext_command_GL_NV_pixel_buffer_object
+
+
   def self.define_ext_command_GL_NV_polygon_mode
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glPolygonModeNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glPolygonModeNV] = Fiddle::TYPE_VOID
@@ -6195,11 +6231,11 @@ module OpenGLExt
       end
     SRC
 
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsBaseVertexOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawElementsBaseVertexOES] = Fiddle::TYPE_VOID
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsBaseVertexEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawElementsBaseVertexEXT] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glMultiDrawElementsBaseVertexOES(_mode_, _count_, _type_, _indices_, _primcount_, _basevertex_)
-        f = OpenGL::get_command(:glMultiDrawElementsBaseVertexOES)
+      def glMultiDrawElementsBaseVertexEXT(_mode_, _count_, _type_, _indices_, _primcount_, _basevertex_)
+        f = OpenGL::get_command(:glMultiDrawElementsBaseVertexEXT)
         f.call(_mode_, _count_, _type_, _indices_, _primcount_, _basevertex_)
       end
     SRC
@@ -6210,7 +6246,7 @@ module OpenGLExt
       'glDrawElementsBaseVertexOES',
       'glDrawRangeElementsBaseVertexOES',
       'glDrawElementsInstancedBaseVertexOES',
-      'glMultiDrawElementsBaseVertexOES',
+      'glMultiDrawElementsBaseVertexEXT',
     ]
   end # self.get_ext_command_GL_OES_draw_elements_base_vertex
 

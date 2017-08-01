@@ -7316,4 +7316,32 @@ module OpenGL
     f.call()
   end
 
+  GL_FUNCTIONS_ARGS_MAP[:glSpecializeShader] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+  GL_FUNCTIONS_RETVAL_MAP[:glSpecializeShader] = Fiddle::TYPE_VOID
+  def glSpecializeShader(_shader_, _pEntryPoint_, _numSpecializationConstants_, _pConstantIndex_, _pConstantValue_)
+    f = OpenGL::get_command(:glSpecializeShader)
+    f.call(_shader_, _pEntryPoint_, _numSpecializationConstants_, _pConstantIndex_, _pConstantValue_)
+  end
+
+  GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirectCount] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawArraysIndirectCount] = Fiddle::TYPE_VOID
+  def glMultiDrawArraysIndirectCount(_mode_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
+    f = OpenGL::get_command(:glMultiDrawArraysIndirectCount)
+    f.call(_mode_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
+  end
+
+  GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsIndirectCount] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+  GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawElementsIndirectCount] = Fiddle::TYPE_VOID
+  def glMultiDrawElementsIndirectCount(_mode_, _type_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
+    f = OpenGL::get_command(:glMultiDrawElementsIndirectCount)
+    f.call(_mode_, _type_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
+  end
+
+  GL_FUNCTIONS_ARGS_MAP[:glPolygonOffsetClamp] = [Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+  GL_FUNCTIONS_RETVAL_MAP[:glPolygonOffsetClamp] = Fiddle::TYPE_VOID
+  def glPolygonOffsetClamp(_factor_, _units_, _clamp_)
+    f = OpenGL::get_command(:glPolygonOffsetClamp)
+    f.call(_factor_, _units_, _clamp_)
+  end
+
 end

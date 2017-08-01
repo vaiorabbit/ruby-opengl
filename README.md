@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2017-06-27
+*   Last modified : 2017-08-01
 
 
 ## Features ##
@@ -15,7 +15,7 @@
 
 *   Uses Khronos XML API registry ( https://github.com/KhronosGroup/OpenGL-Registry )
     *   The command/enum wrapper codes are generated via 'gl.xml'
-    *   Supports OpenGL - 4.5, OpenGL ES - 3.1 and all OpenGL extensions.
+    *   Supports OpenGL - 4.6, OpenGL ES - 3.1 and all OpenGL extensions.
 
 
 ## How to install ##

@@ -2001,6 +2001,19 @@ module OpenGLExt
   end # self.get_ext_enum_GL_ARB_get_texture_sub_image
 
 
+  def self.define_ext_enum_GL_ARB_gl_spirv
+    OpenGL.const_set('GL_SHADER_BINARY_FORMAT_SPIR_V_ARB', 0x9551) unless defined?(OpenGL::GL_SHADER_BINARY_FORMAT_SPIR_V_ARB)
+    OpenGL.const_set('GL_SPIR_V_BINARY_ARB', 0x9552) unless defined?(OpenGL::GL_SPIR_V_BINARY_ARB)
+  end # self.define_ext_enum_GL_ARB_gl_spirv
+
+  def self.get_ext_enum_GL_ARB_gl_spirv
+    [
+      'GL_SHADER_BINARY_FORMAT_SPIR_V_ARB',
+      'GL_SPIR_V_BINARY_ARB',
+    ]
+  end # self.get_ext_enum_GL_ARB_gl_spirv
+
+
   def self.define_ext_enum_GL_ARB_gpu_shader5
     OpenGL.const_set('GL_GEOMETRY_SHADER_INVOCATIONS', 0x887F) unless defined?(OpenGL::GL_GEOMETRY_SHADER_INVOCATIONS)
     OpenGL.const_set('GL_MAX_GEOMETRY_SHADER_INVOCATIONS', 0x8E5A) unless defined?(OpenGL::GL_MAX_GEOMETRY_SHADER_INVOCATIONS)
@@ -2850,6 +2863,17 @@ module OpenGLExt
       'GL_COORD_REPLACE_ARB',
     ]
   end # self.get_ext_enum_GL_ARB_point_sprite
+
+
+  def self.define_ext_enum_GL_ARB_polygon_offset_clamp
+    OpenGL.const_set('GL_POLYGON_OFFSET_CLAMP', 0x8E1B) unless defined?(OpenGL::GL_POLYGON_OFFSET_CLAMP)
+  end # self.define_ext_enum_GL_ARB_polygon_offset_clamp
+
+  def self.get_ext_enum_GL_ARB_polygon_offset_clamp
+    [
+      'GL_POLYGON_OFFSET_CLAMP',
+    ]
+  end # self.get_ext_enum_GL_ARB_polygon_offset_clamp
 
 
   def self.define_ext_enum_GL_ARB_post_depth_coverage
@@ -3740,17 +3764,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_ARB_sparse_texture_clamp
 
 
-  def self.define_ext_enum_GL_ARB_gl_spirv
-    OpenGL.const_set('GL_SHADER_BINARY_FORMAT_SPIR_V_ARB', 0x9551) unless defined?(OpenGL::GL_SHADER_BINARY_FORMAT_SPIR_V_ARB)
-    OpenGL.const_set('GL_SPIR_V_BINARY_ARB', 0x9552) unless defined?(OpenGL::GL_SPIR_V_BINARY_ARB)
-  end # self.define_ext_enum_GL_ARB_gl_spirv
+  def self.define_ext_enum_GL_ARB_spirv_extensions
+    OpenGL.const_set('GL_SPIR_V_EXTENSIONS', 0x9553) unless defined?(OpenGL::GL_SPIR_V_EXTENSIONS)
+    OpenGL.const_set('GL_NUM_SPIR_V_EXTENSIONS', 0x9554) unless defined?(OpenGL::GL_NUM_SPIR_V_EXTENSIONS)
+  end # self.define_ext_enum_GL_ARB_spirv_extensions
 
-  def self.get_ext_enum_GL_ARB_gl_spirv
+  def self.get_ext_enum_GL_ARB_spirv_extensions
     [
-      'GL_SHADER_BINARY_FORMAT_SPIR_V_ARB',
-      'GL_SPIR_V_BINARY_ARB',
+      'GL_SPIR_V_EXTENSIONS',
+      'GL_NUM_SPIR_V_EXTENSIONS',
     ]
-  end # self.get_ext_enum_GL_ARB_gl_spirv
+  end # self.get_ext_enum_GL_ARB_spirv_extensions
 
 
   def self.define_ext_enum_GL_ARB_stencil_texturing
@@ -4158,6 +4182,19 @@ module OpenGLExt
       'GL_DOT3_RGBA_ARB',
     ]
   end # self.get_ext_enum_GL_ARB_texture_env_dot3
+
+
+  def self.define_ext_enum_GL_ARB_texture_filter_anisotropic
+    OpenGL.const_set('GL_TEXTURE_MAX_ANISOTROPY', 0x84FE) unless defined?(OpenGL::GL_TEXTURE_MAX_ANISOTROPY)
+    OpenGL.const_set('GL_MAX_TEXTURE_MAX_ANISOTROPY', 0x84FF) unless defined?(OpenGL::GL_MAX_TEXTURE_MAX_ANISOTROPY)
+  end # self.define_ext_enum_GL_ARB_texture_filter_anisotropic
+
+  def self.get_ext_enum_GL_ARB_texture_filter_anisotropic
+    [
+      'GL_TEXTURE_MAX_ANISOTROPY',
+      'GL_MAX_TEXTURE_MAX_ANISOTROPY',
+    ]
+  end # self.get_ext_enum_GL_ARB_texture_filter_anisotropic
 
 
   def self.define_ext_enum_GL_ARB_texture_filter_minmax
@@ -9493,6 +9530,19 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_blend_equation_advanced_coherent
 
 
+  def self.define_ext_enum_GL_NV_blend_minmax_factor
+    OpenGL.const_set('GL_FACTOR_MIN_AMD', 0x901C) unless defined?(OpenGL::GL_FACTOR_MIN_AMD)
+    OpenGL.const_set('GL_FACTOR_MAX_AMD', 0x901D) unless defined?(OpenGL::GL_FACTOR_MAX_AMD)
+  end # self.define_ext_enum_GL_NV_blend_minmax_factor
+
+  def self.get_ext_enum_GL_NV_blend_minmax_factor
+    [
+      'GL_FACTOR_MIN_AMD',
+      'GL_FACTOR_MAX_AMD',
+    ]
+  end # self.get_ext_enum_GL_NV_blend_minmax_factor
+
+
   def self.define_ext_enum_GL_NV_blend_square
   end # self.define_ext_enum_GL_NV_blend_square
 
@@ -11192,6 +11242,15 @@ module OpenGLExt
       'GL_MAX_RECTANGLE_TEXTURE_SIZE_NV',
     ]
   end # self.get_ext_enum_GL_NV_texture_rectangle
+
+
+  def self.define_ext_enum_GL_NV_texture_rectangle_compressed
+  end # self.define_ext_enum_GL_NV_texture_rectangle_compressed
+
+  def self.get_ext_enum_GL_NV_texture_rectangle_compressed
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_texture_rectangle_compressed
 
 
   def self.define_ext_enum_GL_NV_texture_shader

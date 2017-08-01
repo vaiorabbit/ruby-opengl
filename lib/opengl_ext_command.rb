@@ -3966,6 +3966,24 @@ module OpenGLExt
   end # self.get_ext_command_GL_ARB_get_texture_sub_image
 
 
+  def self.define_ext_command_GL_ARB_gl_spirv
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSpecializeShaderARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSpecializeShaderARB] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glSpecializeShaderARB(_shader_, _pEntryPoint_, _numSpecializationConstants_, _pConstantIndex_, _pConstantValue_)
+        f = OpenGL::get_command(:glSpecializeShaderARB)
+        f.call(_shader_, _pEntryPoint_, _numSpecializationConstants_, _pConstantIndex_, _pConstantValue_)
+      end
+    SRC
+  end # self.define_ext_command_GL_ARB_gl_spirv
+
+  def self.get_ext_command_GL_ARB_gl_spirv
+    [
+      'glSpecializeShaderARB',
+    ]
+  end # self.get_ext_command_GL_ARB_gl_spirv
+
+
   def self.define_ext_command_GL_ARB_gpu_shader5
   end # self.define_ext_command_GL_ARB_gpu_shader5
 
@@ -4898,7 +4916,7 @@ module OpenGLExt
 
 
   def self.define_ext_command_GL_ARB_indirect_parameters
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirectCountARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysIndirectCountARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawArraysIndirectCountARB] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
       def glMultiDrawArraysIndirectCountARB(_mode_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
@@ -4907,7 +4925,7 @@ module OpenGLExt
       end
     SRC
 
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsIndirectCountARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawElementsIndirectCountARB] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawElementsIndirectCountARB] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
       def glMultiDrawElementsIndirectCountARB(_mode_, _type_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
@@ -5772,6 +5790,24 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_ARB_point_sprite
+
+
+  def self.define_ext_command_GL_ARB_polygon_offset_clamp
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glPolygonOffsetClamp] = [Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glPolygonOffsetClamp] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glPolygonOffsetClamp(_factor_, _units_, _clamp_)
+        f = OpenGL::get_command(:glPolygonOffsetClamp)
+        f.call(_factor_, _units_, _clamp_)
+      end
+    SRC
+  end # self.define_ext_command_GL_ARB_polygon_offset_clamp
+
+  def self.get_ext_command_GL_ARB_polygon_offset_clamp
+    [
+      'glPolygonOffsetClamp',
+    ]
+  end # self.get_ext_command_GL_ARB_polygon_offset_clamp
 
 
   def self.define_ext_command_GL_ARB_post_depth_coverage
@@ -7789,22 +7825,13 @@ module OpenGLExt
   end # self.get_ext_command_GL_ARB_sparse_texture_clamp
 
 
-  def self.define_ext_command_GL_ARB_gl_spirv
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSpecializeShaderARB] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSpecializeShaderARB] = Fiddle::TYPE_VOID
-    OpenGL.module_eval(<<-SRC)
-      def glSpecializeShaderARB(_shader_, _pEntryPoint_, _numSpecializationConstants_, _pConstantIndex_, _pConstantValue_)
-        f = OpenGL::get_command(:glSpecializeShaderARB)
-        f.call(_shader_, _pEntryPoint_, _numSpecializationConstants_, _pConstantIndex_, _pConstantValue_)
-      end
-    SRC
-  end # self.define_ext_command_GL_ARB_gl_spirv
+  def self.define_ext_command_GL_ARB_spirv_extensions
+  end # self.define_ext_command_GL_ARB_spirv_extensions
 
-  def self.get_ext_command_GL_ARB_gl_spirv
+  def self.get_ext_command_GL_ARB_spirv_extensions
     [
-      'glSpecializeShaderARB',
     ]
-  end # self.get_ext_command_GL_ARB_gl_spirv
+  end # self.get_ext_command_GL_ARB_spirv_extensions
 
 
   def self.define_ext_command_GL_ARB_stencil_texturing
@@ -8142,6 +8169,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_ARB_texture_env_dot3
+
+
+  def self.define_ext_command_GL_ARB_texture_filter_anisotropic
+  end # self.define_ext_command_GL_ARB_texture_filter_anisotropic
+
+  def self.get_ext_command_GL_ARB_texture_filter_anisotropic
+    [
+    ]
+  end # self.get_ext_command_GL_ARB_texture_filter_anisotropic
 
 
   def self.define_ext_command_GL_ARB_texture_filter_minmax
@@ -20495,6 +20531,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_blend_equation_advanced_coherent
 
 
+  def self.define_ext_command_GL_NV_blend_minmax_factor
+  end # self.define_ext_command_GL_NV_blend_minmax_factor
+
+  def self.get_ext_command_GL_NV_blend_minmax_factor
+    [
+    ]
+  end # self.get_ext_command_GL_NV_blend_minmax_factor
+
+
   def self.define_ext_command_GL_NV_blend_square
   end # self.define_ext_command_GL_NV_blend_square
 
@@ -24179,6 +24224,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_NV_texture_rectangle
+
+
+  def self.define_ext_command_GL_NV_texture_rectangle_compressed
+  end # self.define_ext_command_GL_NV_texture_rectangle_compressed
+
+  def self.get_ext_command_GL_NV_texture_rectangle_compressed
+    [
+    ]
+  end # self.get_ext_command_GL_NV_texture_rectangle_compressed
 
 
   def self.define_ext_command_GL_NV_texture_shader

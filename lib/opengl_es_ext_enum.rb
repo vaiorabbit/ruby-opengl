@@ -1788,6 +1788,23 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_texture_compression_astc_decode_mode
 
 
+  def self.define_ext_enum_GL_EXT_texture_compression_bptc
+    OpenGL.const_set('GL_COMPRESSED_RGBA_BPTC_UNORM_EXT', 0x8E8C) unless defined?(OpenGL::GL_COMPRESSED_RGBA_BPTC_UNORM_EXT)
+    OpenGL.const_set('GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_EXT', 0x8E8D) unless defined?(OpenGL::GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_EXT)
+    OpenGL.const_set('GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_EXT', 0x8E8E) unless defined?(OpenGL::GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_EXT)
+    OpenGL.const_set('GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_EXT', 0x8E8F) unless defined?(OpenGL::GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_EXT)
+  end # self.define_ext_enum_GL_EXT_texture_compression_bptc
+
+  def self.get_ext_enum_GL_EXT_texture_compression_bptc
+    [
+      'GL_COMPRESSED_RGBA_BPTC_UNORM_EXT',
+      'GL_COMPRESSED_SRGB_ALPHA_BPTC_UNORM_EXT',
+      'GL_COMPRESSED_RGB_BPTC_SIGNED_FLOAT_EXT',
+      'GL_COMPRESSED_RGB_BPTC_UNSIGNED_FLOAT_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_compression_bptc
+
+
   def self.define_ext_enum_GL_EXT_texture_compression_dxt1
     OpenGL.const_set('GL_COMPRESSED_RGB_S3TC_DXT1_EXT', 0x83F0) unless defined?(OpenGL::GL_COMPRESSED_RGB_S3TC_DXT1_EXT)
     OpenGL.const_set('GL_COMPRESSED_RGBA_S3TC_DXT1_EXT', 0x83F1) unless defined?(OpenGL::GL_COMPRESSED_RGBA_S3TC_DXT1_EXT)
@@ -1799,6 +1816,23 @@ module OpenGLExt
       'GL_COMPRESSED_RGBA_S3TC_DXT1_EXT',
     ]
   end # self.get_ext_enum_GL_EXT_texture_compression_dxt1
+
+
+  def self.define_ext_enum_GL_EXT_texture_compression_rgtc
+    OpenGL.const_set('GL_COMPRESSED_RED_RGTC1_EXT', 0x8DBB) unless defined?(OpenGL::GL_COMPRESSED_RED_RGTC1_EXT)
+    OpenGL.const_set('GL_COMPRESSED_SIGNED_RED_RGTC1_EXT', 0x8DBC) unless defined?(OpenGL::GL_COMPRESSED_SIGNED_RED_RGTC1_EXT)
+    OpenGL.const_set('GL_COMPRESSED_RED_GREEN_RGTC2_EXT', 0x8DBD) unless defined?(OpenGL::GL_COMPRESSED_RED_GREEN_RGTC2_EXT)
+    OpenGL.const_set('GL_COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT', 0x8DBE) unless defined?(OpenGL::GL_COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT)
+  end # self.define_ext_enum_GL_EXT_texture_compression_rgtc
+
+  def self.get_ext_enum_GL_EXT_texture_compression_rgtc
+    [
+      'GL_COMPRESSED_RED_RGTC1_EXT',
+      'GL_COMPRESSED_SIGNED_RED_RGTC1_EXT',
+      'GL_COMPRESSED_RED_GREEN_RGTC2_EXT',
+      'GL_COMPRESSED_SIGNED_RED_GREEN_RGTC2_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_compression_rgtc
 
 
   def self.define_ext_enum_GL_EXT_texture_compression_s3tc
@@ -2893,6 +2927,19 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_blend_equation_advanced_coherent
 
 
+  def self.define_ext_enum_GL_NV_blend_minmax_factor
+    OpenGL.const_set('GL_FACTOR_MIN_AMD', 0x901C) unless defined?(OpenGL::GL_FACTOR_MIN_AMD)
+    OpenGL.const_set('GL_FACTOR_MAX_AMD', 0x901D) unless defined?(OpenGL::GL_FACTOR_MAX_AMD)
+  end # self.define_ext_enum_GL_NV_blend_minmax_factor
+
+  def self.get_ext_enum_GL_NV_blend_minmax_factor
+    [
+      'GL_FACTOR_MIN_AMD',
+      'GL_FACTOR_MAX_AMD',
+    ]
+  end # self.get_ext_enum_GL_NV_blend_minmax_factor
+
+
   def self.define_ext_enum_GL_NV_conditional_render
     OpenGL.const_set('GL_QUERY_WAIT_NV', 0x8E13) unless defined?(OpenGL::GL_QUERY_WAIT_NV)
     OpenGL.const_set('GL_QUERY_NO_WAIT_NV', 0x8E14) unless defined?(OpenGL::GL_QUERY_NO_WAIT_NV)
@@ -3750,6 +3797,23 @@ module OpenGLExt
       'GL_SHARED_EDGE_NV',
     ]
   end # self.get_ext_enum_GL_NV_path_rendering_shared_edge
+
+
+  def self.define_ext_enum_GL_NV_pixel_buffer_object
+    OpenGL.const_set('GL_PIXEL_PACK_BUFFER_NV', 0x88EB) unless defined?(OpenGL::GL_PIXEL_PACK_BUFFER_NV)
+    OpenGL.const_set('GL_PIXEL_UNPACK_BUFFER_NV', 0x88EC) unless defined?(OpenGL::GL_PIXEL_UNPACK_BUFFER_NV)
+    OpenGL.const_set('GL_PIXEL_PACK_BUFFER_BINDING_NV', 0x88ED) unless defined?(OpenGL::GL_PIXEL_PACK_BUFFER_BINDING_NV)
+    OpenGL.const_set('GL_PIXEL_UNPACK_BUFFER_BINDING_NV', 0x88EF) unless defined?(OpenGL::GL_PIXEL_UNPACK_BUFFER_BINDING_NV)
+  end # self.define_ext_enum_GL_NV_pixel_buffer_object
+
+  def self.get_ext_enum_GL_NV_pixel_buffer_object
+    [
+      'GL_PIXEL_PACK_BUFFER_NV',
+      'GL_PIXEL_UNPACK_BUFFER_NV',
+      'GL_PIXEL_PACK_BUFFER_BINDING_NV',
+      'GL_PIXEL_UNPACK_BUFFER_BINDING_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_pixel_buffer_object
 
 
   def self.define_ext_enum_GL_NV_polygon_mode
