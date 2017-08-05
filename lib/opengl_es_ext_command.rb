@@ -2896,6 +2896,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_texture_compression_s3tc
 
 
+  def self.define_ext_command_GL_EXT_texture_compression_s3tc_srgb
+  end # self.define_ext_command_GL_EXT_texture_compression_s3tc_srgb
+
+  def self.get_ext_command_GL_EXT_texture_compression_s3tc_srgb
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_texture_compression_s3tc_srgb
+
+
   def self.define_ext_command_GL_EXT_texture_cube_map_array
   end # self.define_ext_command_GL_EXT_texture_cube_map_array
 

@@ -1852,6 +1852,23 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_texture_compression_s3tc
 
 
+  def self.define_ext_enum_GL_EXT_texture_compression_s3tc_srgb
+    OpenGL.const_set('GL_COMPRESSED_SRGB_S3TC_DXT1_EXT', 0x8C4C) unless defined?(OpenGL::GL_COMPRESSED_SRGB_S3TC_DXT1_EXT)
+    OpenGL.const_set('GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT', 0x8C4D) unless defined?(OpenGL::GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT)
+    OpenGL.const_set('GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT', 0x8C4E) unless defined?(OpenGL::GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT)
+    OpenGL.const_set('GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT', 0x8C4F) unless defined?(OpenGL::GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT)
+  end # self.define_ext_enum_GL_EXT_texture_compression_s3tc_srgb
+
+  def self.get_ext_enum_GL_EXT_texture_compression_s3tc_srgb
+    [
+      'GL_COMPRESSED_SRGB_S3TC_DXT1_EXT',
+      'GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT',
+      'GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT',
+      'GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_compression_s3tc_srgb
+
+
   def self.define_ext_enum_GL_EXT_texture_cube_map_array
     OpenGL.const_set('GL_TEXTURE_CUBE_MAP_ARRAY_EXT', 0x9009) unless defined?(OpenGL::GL_TEXTURE_CUBE_MAP_ARRAY_EXT)
     OpenGL.const_set('GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_EXT', 0x900A) unless defined?(OpenGL::GL_TEXTURE_BINDING_CUBE_MAP_ARRAY_EXT)
