@@ -42,6 +42,16 @@ module GLFW
   GLFW_PRESS    = 1
   GLFW_REPEAT   = 2
 
+  GLFW_HAT_CENTERED   = 0                                  # Available since GLFW 3.3
+  GLFW_HAT_UP         = 1                                  # Available since GLFW 3.3
+  GLFW_HAT_RIGHT      = 2                                  # Available since GLFW 3.3
+  GLFW_HAT_DOWN       = 4                                  # Available since GLFW 3.3
+  GLFW_HAT_LEFT       = 8                                  # Available since GLFW 3.3
+  GLFW_HAT_RIGHT_UP   = (GLFW_HAT_RIGHT | GLFW_HAT_UP)     # Available since GLFW 3.3
+  GLFW_HAT_RIGHT_DOWN = (GLFW_HAT_RIGHT | GLFW_HAT_DOWN)   # Available since GLFW 3.3
+  GLFW_HAT_LEFT_UP    = (GLFW_HAT_LEFT  | GLFW_HAT_UP)     # Available since GLFW 3.3
+  GLFW_HAT_LEFT_DOWN  = (GLFW_HAT_LEFT  | GLFW_HAT_DOWN)   # Available since GLFW 3.3
+
   GLFW_KEY_UNKNOWN = -1
 
   GLFW_KEY_SPACE          = 32
@@ -203,6 +213,37 @@ module GLFW
   GLFW_JOYSTICK_16    = 15
   GLFW_JOYSTICK_LAST  = GLFW_JOYSTICK_16
 
+  GLFW_GAMEPAD_BUTTON_A               = 0   # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_B               = 1   # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_X               = 2   # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_Y               = 3   # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_LEFT_BUMPER     = 4   # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_RIGHT_BUMPER    = 5   # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_BACK            = 6   # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_START           = 7   # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_GUIDE           = 8   # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_LEFT_THUMB      = 9   # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_RIGHT_THUMB     = 10  # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_DPAD_UP         = 11  # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_DPAD_RIGHT      = 12  # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_DPAD_DOWN       = 13  # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_DPAD_LEFT       = 14  # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_LAST            = GLFW_GAMEPAD_BUTTON_DPAD_LEFT  # Available since GLFW 3.3
+
+  GLFW_GAMEPAD_BUTTON_CROSS       = GLFW_GAMEPAD_BUTTON_A  # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_CIRCLE      = GLFW_GAMEPAD_BUTTON_B  # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_SQUARE      = GLFW_GAMEPAD_BUTTON_X  # Available since GLFW 3.3
+  GLFW_GAMEPAD_BUTTON_TRIANGLE    = GLFW_GAMEPAD_BUTTON_Y  # Available since GLFW 3.3
+
+  GLFW_GAMEPAD_AXIS_LEFT_X        = 0  # Available since GLFW 3.3
+  GLFW_GAMEPAD_AXIS_LEFT_Y        = 1  # Available since GLFW 3.3
+  GLFW_GAMEPAD_AXIS_RIGHT_X       = 2  # Available since GLFW 3.3
+  GLFW_GAMEPAD_AXIS_RIGHT_Y       = 3  # Available since GLFW 3.3
+  GLFW_GAMEPAD_AXIS_LEFT_TRIGGER  = 4  # Available since GLFW 3.3
+  GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER = 5  # Available since GLFW 3.3
+  GLFW_GAMEPAD_AXIS_LAST          = GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER  # Available since GLFW 3.3
+
+  GLFW_NO_ERROR             = 0          # Available since GLFW 3.3
   GLFW_NOT_INITIALIZED      = 0x00010001
   GLFW_NO_CURRENT_CONTEXT   = 0x00010002
   GLFW_INVALID_ENUM         = 0x00010003
@@ -252,6 +293,10 @@ module GLFW
   GLFW_CONTEXT_NO_ERROR          = 0x0002200A
   GLFW_CONTEXT_CREATION_API      = 0x0002200B # Available since GLFW 3.2
 
+  GLFW_COCOA_RETINA_FRAMEBUFFER = 0x00023001 # Available since GLFW 3.3
+  GLFW_COCOA_FRAME_AUTOSAVE     = 0x00023002 # Available since GLFW 3.3
+  GLFW_COCOA_GRAPHICS_SWITCHING = 0x00023003 # Available since GLFW 3.3
+
   GLFW_NO_API         = 0 # Available since GLFW 3.2
   GLFW_OPENGL_API     = 0x00030001
   GLFW_OPENGL_ES_API  = 0x00030002
@@ -278,6 +323,7 @@ module GLFW
 
   GLFW_NATIVE_CONTEXT_API = 0x00036001 # Available since GLFW 3.2
   GLFW_EGL_CONTEXT_API    = 0x00036002 # Available since GLFW 3.2
+  GLFW_OSMESA_CONTEXT_API = 0x00036003 # Available since GLFW 3.3
 
   GLFW_ARROW_CURSOR      = 0x00036001
   GLFW_IBEAM_CURSOR      = 0x00036002
@@ -288,6 +334,14 @@ module GLFW
 
   GLFW_CONNECTED     = 0x00040001
   GLFW_DISCONNECTED  = 0x00040002
+
+  GLFW_JOYSTICK_HAT_BUTTONS   = 0x00050001 # Available since GLFW 3.3
+
+  GLFW_COCOA_CHDIR_RESOURCES  = 0x00051001 # Available since GLFW 3.3
+  GLFW_COCOA_MENUBAR          = 0x00051002 # Available since GLFW 3.3
+
+  GLFW_X11_WM_CLASS_NAME      = 0x00052001 # Available since GLFW 3.3
+  GLFW_X11_WM_CLASS_CLASS     = 0x00052002 # Available since GLFW 3.3
 
   GLFW_DONT_CARE = -1
 
@@ -300,6 +354,7 @@ module GLFW
     :GLFWwindowrefreshfun   => "void GLFWwindowrefreshfun(void*)",
     :GLFWwindowfocusfun     => "void GLFWwindowfocusfun(void*,int)",
     :GLFWwindowiconifyfun   => "void GLFWwindowiconifyfun(void*,int)",
+    :GLFWwindowmaximizefun  => "void GLFWwindowmaximizefun(void*,int)",
     :GLFWframebuffersizefun => "void GLFWframebuffersizefun(void*,int,int)",
     :GLFWmousebuttonfun     => "void GLFWmousebuttonfun(void*,int,int,int)",
     :GLFWcursorposfun       => "void GLFWcursorposfun(void*,double,double)",
@@ -414,6 +469,10 @@ module GLFW
                       "int height",
                       "unsigned char* pixels"])
 
+  # Available since GLFW 3.3
+  GLFWgamepadstate = struct(["unsigned char buttons[15]",
+                             "float axes[6]"])
+
   @@glfw_import_done = false
 
   # Load native library.
@@ -445,8 +504,11 @@ module GLFW
   @@lib_signature = [
     'int glfwInit()',
     'void glfwTerminate()',
+    'void glfwInitHint(int, int)',                                 # Available since GLFW 3.3
+    'void glfwInitHintString(int, const char*)',                   # Available since GLFW 3.3
     'void glfwGetVersion(int*, int*, int*)',
     'const char* glfwGetVersionString()',
+    'int glfwGetError(const char**)',                              # Available since GLFW 3.3
     'void* glfwSetErrorCallback(void*)',
     'void** glfwGetMonitors(int*)',
     'void* glfwGetPrimaryMonitor()',
@@ -481,9 +543,11 @@ module GLFW
     'void glfwShowWindow(void*)',                                       # Available since GLFW 3.0
     'void glfwHideWindow(void*)',                                       # Available since GLFW 3.0
     'void glfwFocusWindow(void*)',                                      # Available since GLFW 3.2
+    'void glfwRequestWindowAttention(void*)',                           # Available since GLFW 3.3
     'void* glfwGetWindowMonitor(void*)',                                # Available since GLFW 3.0
     'void glfwSetWindowMonitor(void*, void*, int, int, int, int, int)', # Available since GLFW 3.2
     'int glfwGetWindowAttrib(void*, int)',                              # Available since GLFW 3.0
+    'void glfwSetWindowAttrib(void*, int, int)',                        # Available since GLFW 3.3
     'void glfwSetWindowUserPointer(void*, void*)',                      # Available since GLFW 3.0
     'void* glfwGetWindowUserPointer(void*)',                            # Available since GLFW 3.0
     'void* glfwSetWindowPosCallback(void*, void*)',                     # Available since GLFW 3.0
@@ -492,6 +556,7 @@ module GLFW
     'void* glfwSetWindowRefreshCallback(void*, void*)',
     'void* glfwSetWindowFocusCallback(void*, void*)',                   # Available since GLFW 3.0
     'void* glfwSetWindowIconifyCallback(void*, void*)',                 # Available since GLFW 3.0
+    'void* glfwSetWindowMaximizeCallback(void*, void*)',                # Available since GLFW 3.3
     'void* glfwSetFramebufferSizeCallback(void*, void*)',               # Available since GLFW 3.0
     'void glfwPollEvents()',
     'void glfwWaitEvents()',
@@ -500,6 +565,7 @@ module GLFW
     'int glfwGetInputMode(void*, int)',                # Available since GLFW 3.0
     'void glfwSetInputMode(void*, int, int)',          # Available since GLFW 3.0
     'const char* glfwGetKeyName(int, int)',            # Available since GLFW 3.2
+    'int glfwGetKeyScancode(int)',                     # Available since GLFW 3.3
     'int glfwGetKey(void*, int)',
     'int glfwGetMouseButton(void*, int)',
     'void glfwGetCursorPos(void*, double*, double*)',  # Available since GLFW 3.0
@@ -516,13 +582,20 @@ module GLFW
     'void* glfwSetCursorEnterCallback(void*, void*)',  # Available since GLFW 3.0
     'void* glfwSetScrollCallback(void*, void*)',       # Available since GLFW 3.0
     'void* glfwSetDropCallback(void*, void*)',         # Available since GLFW 3.1
-    'int glfwJoystickPresent(int)',                    # Available since GLFW 3.0
-    'const float* glfwGetJoystickAxes(int, int*)',     # Available since GLFW 3.0
+
+    'int glfwJoystickPresent(int)',                        # Available since GLFW 3.0
+    'const float* glfwGetJoystickAxes(int, int*)',         # Available since GLFW 3.0
     'const unsigned char* glfwGetJoystickButtons(int, int*)',
-    'const char* glfwGetJoystickName(int)',            # Available since GLFW 3.0
-    'void* glfwSetJoystickCallback(void*)',            # Available since GLFW 3.2
-    'void glfwSetClipboardString(void*, const char*)', # Available since GLFW 3.0
-    'const char* glfwGetClipboardString(void*)',       # Available since GLFW 3.0
+    'const unsigned char* glfwGetJoystickHats(int, int*)', # Available since GLFW 3.3
+    'const char* glfwGetJoystickName(int)',                # Available since GLFW 3.0
+    'const char* glfwGetJoystickGUID(int)',                # Available since GLFW 3.3
+    'int glfwJoystickIsGamepad(int)',                      # Available since GLFW 3.3
+    'void* glfwSetJoystickCallback(void*)',                # Available since GLFW 3.2
+    'int glfwUpdateGamepadMappings(const char*)',          # Available since GLFW 3.3
+    'const char* glfwGetGamepadName(int)',                 # Available since GLFW 3.3
+    'int glfwGetGamepadState(int, void*)',                 # Available since GLFW 3.3
+    'void glfwSetClipboardString(void*, const char*)',     # Available since GLFW 3.0
+    'const char* glfwGetClipboardString(void*)',           # Available since GLFW 3.0
     'double glfwGetTime()',
     'void glfwSetTime(double)',
     'GLFWuint64 glfwGetTimerValue()',                  # Available since GLFW 3.2

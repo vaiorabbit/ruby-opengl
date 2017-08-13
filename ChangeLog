@@ -1,3 +1,7 @@
+2017-08-13  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* glfw.rb: Added GLFW 3.3 features.
+
 2017-08-05  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.
