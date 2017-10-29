@@ -873,6 +873,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_AMD_shader_ballot
 
 
+  def self.define_ext_command_GL_AMD_shader_image_load_store_lod
+  end # self.define_ext_command_GL_AMD_shader_image_load_store_lod
+
+  def self.get_ext_command_GL_AMD_shader_image_load_store_lod
+    [
+    ]
+  end # self.get_ext_command_GL_AMD_shader_image_load_store_lod
+
+
   def self.define_ext_command_GL_AMD_shader_stencil_export
   end # self.define_ext_command_GL_AMD_shader_stencil_export
 
@@ -19896,6 +19905,24 @@ module OpenGLExt
   end # self.get_ext_command_GL_KHR_texture_compression_astc_sliced_3d
 
 
+  def self.define_ext_command_GL_KHR_parallel_shader_compile
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMaxShaderCompilerThreadsKHR] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMaxShaderCompilerThreadsKHR] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMaxShaderCompilerThreadsKHR(_count_)
+        f = OpenGL::get_command(:glMaxShaderCompilerThreadsKHR)
+        f.call(_count_)
+      end
+    SRC
+  end # self.define_ext_command_GL_KHR_parallel_shader_compile
+
+  def self.get_ext_command_GL_KHR_parallel_shader_compile
+    [
+      'glMaxShaderCompilerThreadsKHR',
+    ]
+  end # self.get_ext_command_GL_KHR_parallel_shader_compile
+
+
   def self.define_ext_command_GL_MESAX_texture_stack
   end # self.define_ext_command_GL_MESAX_texture_stack
 
@@ -19939,6 +19966,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_MESA_shader_integer_functions
+
+
+  def self.define_ext_command_GL_MESA_tile_raster_order
+  end # self.define_ext_command_GL_MESA_tile_raster_order
+
+  def self.get_ext_command_GL_MESA_tile_raster_order
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_tile_raster_order
 
 
   def self.define_ext_command_GL_MESA_window_pos
@@ -23615,6 +23651,62 @@ module OpenGLExt
       'glPrimitiveRestartIndexNV',
     ]
   end # self.get_ext_command_GL_NV_primitive_restart
+
+
+  def self.define_ext_command_GL_NV_query_resource
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glQueryResourceNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glQueryResourceNV] = Fiddle::TYPE_INT
+    OpenGL.module_eval(<<-SRC)
+      def glQueryResourceNV(_queryType_, _tagId_, _bufSize_, _buffer_)
+        f = OpenGL::get_command(:glQueryResourceNV)
+        f.call(_queryType_, _tagId_, _bufSize_, _buffer_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_query_resource
+
+  def self.get_ext_command_GL_NV_query_resource
+    [
+      'glQueryResourceNV',
+    ]
+  end # self.get_ext_command_GL_NV_query_resource
+
+
+  def self.define_ext_command_GL_NV_query_resource_tag
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGenQueryResourceTagNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGenQueryResourceTagNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGenQueryResourceTagNV(_n_, _tagIds_)
+        f = OpenGL::get_command(:glGenQueryResourceTagNV)
+        f.call(_n_, _tagIds_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDeleteQueryResourceTagNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDeleteQueryResourceTagNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDeleteQueryResourceTagNV(_n_, _tagIds_)
+        f = OpenGL::get_command(:glDeleteQueryResourceTagNV)
+        f.call(_n_, _tagIds_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glQueryResourceTagNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glQueryResourceTagNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glQueryResourceTagNV(_tagId_, _tagString_)
+        f = OpenGL::get_command(:glQueryResourceTagNV)
+        f.call(_tagId_, _tagString_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_query_resource_tag
+
+  def self.get_ext_command_GL_NV_query_resource_tag
+    [
+      'glGenQueryResourceTagNV',
+      'glDeleteQueryResourceTagNV',
+      'glQueryResourceTagNV',
+    ]
+  end # self.get_ext_command_GL_NV_query_resource_tag
 
 
   def self.define_ext_command_GL_NV_register_combiners

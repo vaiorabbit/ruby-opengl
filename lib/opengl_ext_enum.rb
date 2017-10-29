@@ -426,6 +426,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_AMD_shader_ballot
 
 
+  def self.define_ext_enum_GL_AMD_shader_image_load_store_lod
+  end # self.define_ext_enum_GL_AMD_shader_image_load_store_lod
+
+  def self.get_ext_enum_GL_AMD_shader_image_load_store_lod
+    [
+    ]
+  end # self.get_ext_enum_GL_AMD_shader_image_load_store_lod
+
+
   def self.define_ext_enum_GL_AMD_shader_stencil_export
   end # self.define_ext_enum_GL_AMD_shader_stencil_export
 
@@ -2118,17 +2127,17 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_ARB_imaging
+    OpenGL.const_set('GL_BLEND_COLOR', 0x8005) unless defined?(OpenGL::GL_BLEND_COLOR)
+    OpenGL.const_set('GL_BLEND_EQUATION', 0x8009) unless defined?(OpenGL::GL_BLEND_EQUATION)
     OpenGL.const_set('GL_CONSTANT_COLOR', 0x8001) unless defined?(OpenGL::GL_CONSTANT_COLOR)
     OpenGL.const_set('GL_ONE_MINUS_CONSTANT_COLOR', 0x8002) unless defined?(OpenGL::GL_ONE_MINUS_CONSTANT_COLOR)
     OpenGL.const_set('GL_CONSTANT_ALPHA', 0x8003) unless defined?(OpenGL::GL_CONSTANT_ALPHA)
     OpenGL.const_set('GL_ONE_MINUS_CONSTANT_ALPHA', 0x8004) unless defined?(OpenGL::GL_ONE_MINUS_CONSTANT_ALPHA)
-    OpenGL.const_set('GL_BLEND_COLOR', 0x8005) unless defined?(OpenGL::GL_BLEND_COLOR)
     OpenGL.const_set('GL_FUNC_ADD', 0x8006) unless defined?(OpenGL::GL_FUNC_ADD)
+    OpenGL.const_set('GL_FUNC_REVERSE_SUBTRACT', 0x800B) unless defined?(OpenGL::GL_FUNC_REVERSE_SUBTRACT)
+    OpenGL.const_set('GL_FUNC_SUBTRACT', 0x800A) unless defined?(OpenGL::GL_FUNC_SUBTRACT)
     OpenGL.const_set('GL_MIN', 0x8007) unless defined?(OpenGL::GL_MIN)
     OpenGL.const_set('GL_MAX', 0x8008) unless defined?(OpenGL::GL_MAX)
-    OpenGL.const_set('GL_BLEND_EQUATION', 0x8009) unless defined?(OpenGL::GL_BLEND_EQUATION)
-    OpenGL.const_set('GL_FUNC_SUBTRACT', 0x800A) unless defined?(OpenGL::GL_FUNC_SUBTRACT)
-    OpenGL.const_set('GL_FUNC_REVERSE_SUBTRACT', 0x800B) unless defined?(OpenGL::GL_FUNC_REVERSE_SUBTRACT)
     OpenGL.const_set('GL_CONVOLUTION_1D', 0x8010) unless defined?(OpenGL::GL_CONVOLUTION_1D)
     OpenGL.const_set('GL_CONVOLUTION_2D', 0x8011) unless defined?(OpenGL::GL_CONVOLUTION_2D)
     OpenGL.const_set('GL_SEPARABLE_2D', 0x8012) unless defined?(OpenGL::GL_SEPARABLE_2D)
@@ -2197,17 +2206,17 @@ module OpenGLExt
 
   def self.get_ext_enum_GL_ARB_imaging
     [
+      'GL_BLEND_COLOR',
+      'GL_BLEND_EQUATION',
       'GL_CONSTANT_COLOR',
       'GL_ONE_MINUS_CONSTANT_COLOR',
       'GL_CONSTANT_ALPHA',
       'GL_ONE_MINUS_CONSTANT_ALPHA',
-      'GL_BLEND_COLOR',
       'GL_FUNC_ADD',
+      'GL_FUNC_REVERSE_SUBTRACT',
+      'GL_FUNC_SUBTRACT',
       'GL_MIN',
       'GL_MAX',
-      'GL_BLEND_EQUATION',
-      'GL_FUNC_SUBTRACT',
-      'GL_FUNC_REVERSE_SUBTRACT',
       'GL_CONVOLUTION_1D',
       'GL_CONVOLUTION_2D',
       'GL_SEPARABLE_2D',
@@ -9240,6 +9249,19 @@ module OpenGLExt
   end # self.get_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
 
 
+  def self.define_ext_enum_GL_KHR_parallel_shader_compile
+    OpenGL.const_set('GL_MAX_SHADER_COMPILER_THREADS_KHR', 0x91B0) unless defined?(OpenGL::GL_MAX_SHADER_COMPILER_THREADS_KHR)
+    OpenGL.const_set('GL_COMPLETION_STATUS_KHR', 0x91B1) unless defined?(OpenGL::GL_COMPLETION_STATUS_KHR)
+  end # self.define_ext_enum_GL_KHR_parallel_shader_compile
+
+  def self.get_ext_enum_GL_KHR_parallel_shader_compile
+    [
+      'GL_MAX_SHADER_COMPILER_THREADS_KHR',
+      'GL_COMPLETION_STATUS_KHR',
+    ]
+  end # self.get_ext_enum_GL_KHR_parallel_shader_compile
+
+
   def self.define_ext_enum_GL_MESAX_texture_stack
     OpenGL.const_set('GL_TEXTURE_1D_STACK_MESAX', 0x8759) unless defined?(OpenGL::GL_TEXTURE_1D_STACK_MESAX)
     OpenGL.const_set('GL_TEXTURE_2D_STACK_MESAX', 0x875A) unless defined?(OpenGL::GL_TEXTURE_2D_STACK_MESAX)
@@ -9288,6 +9310,21 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_MESA_shader_integer_functions
+
+
+  def self.define_ext_enum_GL_MESA_tile_raster_order
+    OpenGL.const_set('GL_TILE_RASTER_ORDER_FIXED_MESA', 0x8BB8) unless defined?(OpenGL::GL_TILE_RASTER_ORDER_FIXED_MESA)
+    OpenGL.const_set('GL_TILE_RASTER_ORDER_INCREASING_X_MESA', 0x8BB9) unless defined?(OpenGL::GL_TILE_RASTER_ORDER_INCREASING_X_MESA)
+    OpenGL.const_set('GL_TILE_RASTER_ORDER_INCREASING_Y_MESA', 0x8BBA) unless defined?(OpenGL::GL_TILE_RASTER_ORDER_INCREASING_Y_MESA)
+  end # self.define_ext_enum_GL_MESA_tile_raster_order
+
+  def self.get_ext_enum_GL_MESA_tile_raster_order
+    [
+      'GL_TILE_RASTER_ORDER_FIXED_MESA',
+      'GL_TILE_RASTER_ORDER_INCREASING_X_MESA',
+      'GL_TILE_RASTER_ORDER_INCREASING_Y_MESA',
+    ]
+  end # self.get_ext_enum_GL_MESA_tile_raster_order
 
 
   def self.define_ext_enum_GL_MESA_window_pos
@@ -10823,6 +10860,36 @@ module OpenGLExt
       'GL_PRIMITIVE_RESTART_INDEX_NV',
     ]
   end # self.get_ext_enum_GL_NV_primitive_restart
+
+
+  def self.define_ext_enum_GL_NV_query_resource
+    OpenGL.const_set('GL_QUERY_RESOURCE_TYPE_VIDMEM_ALLOC_NV', 0x9540) unless defined?(OpenGL::GL_QUERY_RESOURCE_TYPE_VIDMEM_ALLOC_NV)
+    OpenGL.const_set('GL_QUERY_RESOURCE_MEMTYPE_VIDMEM_NV', 0x9542) unless defined?(OpenGL::GL_QUERY_RESOURCE_MEMTYPE_VIDMEM_NV)
+    OpenGL.const_set('GL_QUERY_RESOURCE_SYS_RESERVED_NV', 0x9544) unless defined?(OpenGL::GL_QUERY_RESOURCE_SYS_RESERVED_NV)
+    OpenGL.const_set('GL_QUERY_RESOURCE_TEXTURE_NV', 0x9545) unless defined?(OpenGL::GL_QUERY_RESOURCE_TEXTURE_NV)
+    OpenGL.const_set('GL_QUERY_RESOURCE_RENDERBUFFER_NV', 0x9546) unless defined?(OpenGL::GL_QUERY_RESOURCE_RENDERBUFFER_NV)
+    OpenGL.const_set('GL_QUERY_RESOURCE_BUFFEROBJECT_NV', 0x9547) unless defined?(OpenGL::GL_QUERY_RESOURCE_BUFFEROBJECT_NV)
+  end # self.define_ext_enum_GL_NV_query_resource
+
+  def self.get_ext_enum_GL_NV_query_resource
+    [
+      'GL_QUERY_RESOURCE_TYPE_VIDMEM_ALLOC_NV',
+      'GL_QUERY_RESOURCE_MEMTYPE_VIDMEM_NV',
+      'GL_QUERY_RESOURCE_SYS_RESERVED_NV',
+      'GL_QUERY_RESOURCE_TEXTURE_NV',
+      'GL_QUERY_RESOURCE_RENDERBUFFER_NV',
+      'GL_QUERY_RESOURCE_BUFFEROBJECT_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_query_resource
+
+
+  def self.define_ext_enum_GL_NV_query_resource_tag
+  end # self.define_ext_enum_GL_NV_query_resource_tag
+
+  def self.get_ext_enum_GL_NV_query_resource_tag
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_query_resource_tag
 
 
   def self.define_ext_enum_GL_NV_register_combiners

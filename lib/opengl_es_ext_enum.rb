@@ -570,6 +570,27 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_clear_texture
 
 
+  def self.define_ext_enum_GL_EXT_clip_control
+    OpenGL.const_set('GL_LOWER_LEFT_EXT', 0x8CA1) unless defined?(OpenGL::GL_LOWER_LEFT_EXT)
+    OpenGL.const_set('GL_UPPER_LEFT_EXT', 0x8CA2) unless defined?(OpenGL::GL_UPPER_LEFT_EXT)
+    OpenGL.const_set('GL_NEGATIVE_ONE_TO_ONE_EXT', 0x935E) unless defined?(OpenGL::GL_NEGATIVE_ONE_TO_ONE_EXT)
+    OpenGL.const_set('GL_ZERO_TO_ONE_EXT', 0x935F) unless defined?(OpenGL::GL_ZERO_TO_ONE_EXT)
+    OpenGL.const_set('GL_CLIP_ORIGIN_EXT', 0x935C) unless defined?(OpenGL::GL_CLIP_ORIGIN_EXT)
+    OpenGL.const_set('GL_CLIP_DEPTH_MODE_EXT', 0x935D) unless defined?(OpenGL::GL_CLIP_DEPTH_MODE_EXT)
+  end # self.define_ext_enum_GL_EXT_clip_control
+
+  def self.get_ext_enum_GL_EXT_clip_control
+    [
+      'GL_LOWER_LEFT_EXT',
+      'GL_UPPER_LEFT_EXT',
+      'GL_NEGATIVE_ONE_TO_ONE_EXT',
+      'GL_ZERO_TO_ONE_EXT',
+      'GL_CLIP_ORIGIN_EXT',
+      'GL_CLIP_DEPTH_MODE_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_clip_control
+
+
   def self.define_ext_enum_GL_EXT_clip_cull_distance
     OpenGL.const_set('GL_MAX_CLIP_DISTANCES_EXT', 0x0D32) unless defined?(OpenGL::GL_MAX_CLIP_DISTANCES_EXT)
     OpenGL.const_set('GL_MAX_CULL_DISTANCES_EXT', 0x82F9) unless defined?(OpenGL::GL_MAX_CULL_DISTANCES_EXT)
@@ -1941,6 +1962,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_texture_format_BGRA8888
 
 
+  def self.define_ext_enum_GL_EXT_texture_mirror_clamp_to_edge
+    OpenGL.const_set('GL_MIRROR_CLAMP_TO_EDGE_EXT', 0x8743) unless defined?(OpenGL::GL_MIRROR_CLAMP_TO_EDGE_EXT)
+  end # self.define_ext_enum_GL_EXT_texture_mirror_clamp_to_edge
+
+  def self.get_ext_enum_GL_EXT_texture_mirror_clamp_to_edge
+    [
+      'GL_MIRROR_CLAMP_TO_EDGE_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_mirror_clamp_to_edge
+
+
   def self.define_ext_enum_GL_EXT_texture_norm16
     OpenGL.const_set('GL_R16_EXT', 0x822A) unless defined?(OpenGL::GL_R16_EXT)
     OpenGL.const_set('GL_RG16_EXT', 0x822C) unless defined?(OpenGL::GL_RG16_EXT)
@@ -2793,6 +2825,19 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_KHR_texture_compression_astc_sliced_3d
+
+
+  def self.define_ext_enum_GL_KHR_parallel_shader_compile
+    OpenGL.const_set('GL_MAX_SHADER_COMPILER_THREADS_KHR', 0x91B0) unless defined?(OpenGL::GL_MAX_SHADER_COMPILER_THREADS_KHR)
+    OpenGL.const_set('GL_COMPLETION_STATUS_KHR', 0x91B1) unless defined?(OpenGL::GL_COMPLETION_STATUS_KHR)
+  end # self.define_ext_enum_GL_KHR_parallel_shader_compile
+
+  def self.get_ext_enum_GL_KHR_parallel_shader_compile
+    [
+      'GL_MAX_SHADER_COMPILER_THREADS_KHR',
+      'GL_COMPLETION_STATUS_KHR',
+    ]
+  end # self.get_ext_enum_GL_KHR_parallel_shader_compile
 
 
   def self.define_ext_enum_GL_MESA_shader_integer_functions
@@ -5239,6 +5284,29 @@ module OpenGLExt
       'GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM',
     ]
   end # self.get_ext_enum_GL_QCOM_framebuffer_foveated
+
+
+  def self.define_ext_enum_GL_QCOM_texture_foveated
+    OpenGL.const_set('GL_FOVEATION_ENABLE_BIT_QCOM', 0x00000001) unless defined?(OpenGL::GL_FOVEATION_ENABLE_BIT_QCOM)
+    OpenGL.const_set('GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM', 0x00000002) unless defined?(OpenGL::GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM)
+    OpenGL.const_set('GL_TEXTURE_FOVEATED_FEATURE_BITS_QCOM', 0x8BFB) unless defined?(OpenGL::GL_TEXTURE_FOVEATED_FEATURE_BITS_QCOM)
+    OpenGL.const_set('GL_TEXTURE_FOVEATED_MIN_PIXEL_DENSITY_QCOM', 0x8BFC) unless defined?(OpenGL::GL_TEXTURE_FOVEATED_MIN_PIXEL_DENSITY_QCOM)
+    OpenGL.const_set('GL_TEXTURE_FOVEATED_FEATURE_QUERY_QCOM', 0x8BFD) unless defined?(OpenGL::GL_TEXTURE_FOVEATED_FEATURE_QUERY_QCOM)
+    OpenGL.const_set('GL_TEXTURE_FOVEATED_NUM_FOCAL_POINTS_QUERY_QCOM', 0x8BFE) unless defined?(OpenGL::GL_TEXTURE_FOVEATED_NUM_FOCAL_POINTS_QUERY_QCOM)
+    OpenGL.const_set('GL_FRAMEBUFFER_INCOMPLETE_FOVEATION_QCOM', 0x8BFF) unless defined?(OpenGL::GL_FRAMEBUFFER_INCOMPLETE_FOVEATION_QCOM)
+  end # self.define_ext_enum_GL_QCOM_texture_foveated
+
+  def self.get_ext_enum_GL_QCOM_texture_foveated
+    [
+      'GL_FOVEATION_ENABLE_BIT_QCOM',
+      'GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM',
+      'GL_TEXTURE_FOVEATED_FEATURE_BITS_QCOM',
+      'GL_TEXTURE_FOVEATED_MIN_PIXEL_DENSITY_QCOM',
+      'GL_TEXTURE_FOVEATED_FEATURE_QUERY_QCOM',
+      'GL_TEXTURE_FOVEATED_NUM_FOCAL_POINTS_QUERY_QCOM',
+      'GL_FRAMEBUFFER_INCOMPLETE_FOVEATION_QCOM',
+    ]
+  end # self.get_ext_enum_GL_QCOM_texture_foveated
 
 
   def self.define_ext_enum_GL_QCOM_perfmon_global_mode

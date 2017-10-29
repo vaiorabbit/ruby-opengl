@@ -717,6 +717,24 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_clear_texture
 
 
+  def self.define_ext_command_GL_EXT_clip_control
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glClipControlEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glClipControlEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glClipControlEXT(_origin_, _depth_)
+        f = OpenGL::get_command(:glClipControlEXT)
+        f.call(_origin_, _depth_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_clip_control
+
+  def self.get_ext_command_GL_EXT_clip_control
+    [
+      'glClipControlEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_clip_control
+
+
   def self.define_ext_command_GL_EXT_clip_cull_distance
   end # self.define_ext_command_GL_EXT_clip_cull_distance
 
@@ -2950,6 +2968,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_texture_format_BGRA8888
 
 
+  def self.define_ext_command_GL_EXT_texture_mirror_clamp_to_edge
+  end # self.define_ext_command_GL_EXT_texture_mirror_clamp_to_edge
+
+  def self.get_ext_command_GL_EXT_texture_mirror_clamp_to_edge
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_texture_mirror_clamp_to_edge
+
+
   def self.define_ext_command_GL_EXT_texture_norm16
   end # self.define_ext_command_GL_EXT_texture_norm16
 
@@ -3882,6 +3909,24 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_KHR_texture_compression_astc_sliced_3d
+
+
+  def self.define_ext_command_GL_KHR_parallel_shader_compile
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMaxShaderCompilerThreadsKHR] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMaxShaderCompilerThreadsKHR] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMaxShaderCompilerThreadsKHR(_count_)
+        f = OpenGL::get_command(:glMaxShaderCompilerThreadsKHR)
+        f.call(_count_)
+      end
+    SRC
+  end # self.define_ext_command_GL_KHR_parallel_shader_compile
+
+  def self.get_ext_command_GL_KHR_parallel_shader_compile
+    [
+      'glMaxShaderCompilerThreadsKHR',
+    ]
+  end # self.get_ext_command_GL_KHR_parallel_shader_compile
 
 
   def self.define_ext_command_GL_MESA_shader_integer_functions
@@ -7319,6 +7364,24 @@ module OpenGLExt
       'glFramebufferFoveationParametersQCOM',
     ]
   end # self.get_ext_command_GL_QCOM_framebuffer_foveated
+
+
+  def self.define_ext_command_GL_QCOM_texture_foveated
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureFoveationParametersQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureFoveationParametersQCOM] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTextureFoveationParametersQCOM(_texture_, _layer_, _focalPoint_, _focalX_, _focalY_, _gainX_, _gainY_, _foveaArea_)
+        f = OpenGL::get_command(:glTextureFoveationParametersQCOM)
+        f.call(_texture_, _layer_, _focalPoint_, _focalX_, _focalY_, _gainX_, _gainY_, _foveaArea_)
+      end
+    SRC
+  end # self.define_ext_command_GL_QCOM_texture_foveated
+
+  def self.get_ext_command_GL_QCOM_texture_foveated
+    [
+      'glTextureFoveationParametersQCOM',
+    ]
+  end # self.get_ext_command_GL_QCOM_texture_foveated
 
 
   def self.define_ext_command_GL_QCOM_perfmon_global_mode
