@@ -19941,6 +19941,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_MESA_pack_invert
 
 
+  def self.define_ext_command_GL_MESA_program_binary_formats
+  end # self.define_ext_command_GL_MESA_program_binary_formats
+
+  def self.get_ext_command_GL_MESA_program_binary_formats
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_program_binary_formats
+
+
   def self.define_ext_command_GL_MESA_resize_buffers
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glResizeBuffersMESA] = []
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glResizeBuffersMESA] = Fiddle::TYPE_VOID
@@ -23420,6 +23429,177 @@ module OpenGLExt
         f.call(_texCoordSet_, _pname_, _value_)
       end
     SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixFrustumEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixFrustumEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixFrustumEXT(_mode_, _left_, _right_, _bottom_, _top_, _zNear_, _zFar_)
+        f = OpenGL::get_command(:glMatrixFrustumEXT)
+        f.call(_mode_, _left_, _right_, _bottom_, _top_, _zNear_, _zFar_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixLoadIdentityEXT] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixLoadIdentityEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixLoadIdentityEXT(_mode_)
+        f = OpenGL::get_command(:glMatrixLoadIdentityEXT)
+        f.call(_mode_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixLoadTransposefEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixLoadTransposefEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixLoadTransposefEXT(_mode_, _m_)
+        f = OpenGL::get_command(:glMatrixLoadTransposefEXT)
+        f.call(_mode_, _m_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixLoadTransposedEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixLoadTransposedEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixLoadTransposedEXT(_mode_, _m_)
+        f = OpenGL::get_command(:glMatrixLoadTransposedEXT)
+        f.call(_mode_, _m_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixLoadfEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixLoadfEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixLoadfEXT(_mode_, _m_)
+        f = OpenGL::get_command(:glMatrixLoadfEXT)
+        f.call(_mode_, _m_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixLoaddEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixLoaddEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixLoaddEXT(_mode_, _m_)
+        f = OpenGL::get_command(:glMatrixLoaddEXT)
+        f.call(_mode_, _m_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixMultTransposefEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixMultTransposefEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixMultTransposefEXT(_mode_, _m_)
+        f = OpenGL::get_command(:glMatrixMultTransposefEXT)
+        f.call(_mode_, _m_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixMultTransposedEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixMultTransposedEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixMultTransposedEXT(_mode_, _m_)
+        f = OpenGL::get_command(:glMatrixMultTransposedEXT)
+        f.call(_mode_, _m_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixMultfEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixMultfEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixMultfEXT(_mode_, _m_)
+        f = OpenGL::get_command(:glMatrixMultfEXT)
+        f.call(_mode_, _m_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixMultdEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixMultdEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixMultdEXT(_mode_, _m_)
+        f = OpenGL::get_command(:glMatrixMultdEXT)
+        f.call(_mode_, _m_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixOrthoEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixOrthoEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixOrthoEXT(_mode_, _left_, _right_, _bottom_, _top_, _zNear_, _zFar_)
+        f = OpenGL::get_command(:glMatrixOrthoEXT)
+        f.call(_mode_, _left_, _right_, _bottom_, _top_, _zNear_, _zFar_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixPopEXT] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixPopEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixPopEXT(_mode_)
+        f = OpenGL::get_command(:glMatrixPopEXT)
+        f.call(_mode_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixPushEXT] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixPushEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixPushEXT(_mode_)
+        f = OpenGL::get_command(:glMatrixPushEXT)
+        f.call(_mode_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixRotatefEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixRotatefEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixRotatefEXT(_mode_, _angle_, _x_, _y_, _z_)
+        f = OpenGL::get_command(:glMatrixRotatefEXT)
+        f.call(_mode_, _angle_, _x_, _y_, _z_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixRotatedEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixRotatedEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixRotatedEXT(_mode_, _angle_, _x_, _y_, _z_)
+        f = OpenGL::get_command(:glMatrixRotatedEXT)
+        f.call(_mode_, _angle_, _x_, _y_, _z_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixScalefEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixScalefEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixScalefEXT(_mode_, _x_, _y_, _z_)
+        f = OpenGL::get_command(:glMatrixScalefEXT)
+        f.call(_mode_, _x_, _y_, _z_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixScaledEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixScaledEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixScaledEXT(_mode_, _x_, _y_, _z_)
+        f = OpenGL::get_command(:glMatrixScaledEXT)
+        f.call(_mode_, _x_, _y_, _z_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixTranslatefEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixTranslatefEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixTranslatefEXT(_mode_, _x_, _y_, _z_)
+        f = OpenGL::get_command(:glMatrixTranslatefEXT)
+        f.call(_mode_, _x_, _y_, _z_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMatrixTranslatedEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMatrixTranslatedEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMatrixTranslatedEXT(_mode_, _x_, _y_, _z_)
+        f = OpenGL::get_command(:glMatrixTranslatedEXT)
+        f.call(_mode_, _x_, _y_, _z_)
+      end
+    SRC
   end # self.define_ext_command_GL_NV_path_rendering
 
   def self.get_ext_command_GL_NV_path_rendering
@@ -23488,6 +23668,25 @@ module OpenGLExt
       'glGetPathColorGenfvNV',
       'glGetPathTexGenivNV',
       'glGetPathTexGenfvNV',
+      'glMatrixFrustumEXT',
+      'glMatrixLoadIdentityEXT',
+      'glMatrixLoadTransposefEXT',
+      'glMatrixLoadTransposedEXT',
+      'glMatrixLoadfEXT',
+      'glMatrixLoaddEXT',
+      'glMatrixMultTransposefEXT',
+      'glMatrixMultTransposedEXT',
+      'glMatrixMultfEXT',
+      'glMatrixMultdEXT',
+      'glMatrixOrthoEXT',
+      'glMatrixPopEXT',
+      'glMatrixPushEXT',
+      'glMatrixRotatefEXT',
+      'glMatrixRotatedEXT',
+      'glMatrixScalefEXT',
+      'glMatrixScaledEXT',
+      'glMatrixTranslatefEXT',
+      'glMatrixTranslatedEXT',
     ]
   end # self.get_ext_command_GL_NV_path_rendering
 

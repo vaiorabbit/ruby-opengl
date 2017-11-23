@@ -6977,6 +6977,8 @@ module OpenGLExt
     OpenGL.const_set('GL_LAYOUT_SHADER_READ_ONLY_EXT', 0x9591) unless defined?(OpenGL::GL_LAYOUT_SHADER_READ_ONLY_EXT)
     OpenGL.const_set('GL_LAYOUT_TRANSFER_SRC_EXT', 0x9592) unless defined?(OpenGL::GL_LAYOUT_TRANSFER_SRC_EXT)
     OpenGL.const_set('GL_LAYOUT_TRANSFER_DST_EXT', 0x9593) unless defined?(OpenGL::GL_LAYOUT_TRANSFER_DST_EXT)
+    OpenGL.const_set('GL_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_EXT', 0x9530) unless defined?(OpenGL::GL_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_EXT)
+    OpenGL.const_set('GL_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_EXT', 0x9531) unless defined?(OpenGL::GL_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_EXT)
   end # self.define_ext_enum_GL_EXT_semaphore
 
   def self.get_ext_enum_GL_EXT_semaphore
@@ -6992,6 +6994,8 @@ module OpenGLExt
       'GL_LAYOUT_SHADER_READ_ONLY_EXT',
       'GL_LAYOUT_TRANSFER_SRC_EXT',
       'GL_LAYOUT_TRANSFER_DST_EXT',
+      'GL_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_EXT',
+      'GL_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_EXT',
     ]
   end # self.get_ext_enum_GL_EXT_semaphore
 
@@ -9292,6 +9296,17 @@ module OpenGLExt
       'GL_PACK_INVERT_MESA',
     ]
   end # self.get_ext_enum_GL_MESA_pack_invert
+
+
+  def self.define_ext_enum_GL_MESA_program_binary_formats
+    OpenGL.const_set('GL_PROGRAM_BINARY_FORMAT_MESA', 0x875F) unless defined?(OpenGL::GL_PROGRAM_BINARY_FORMAT_MESA)
+  end # self.define_ext_enum_GL_MESA_program_binary_formats
+
+  def self.get_ext_enum_GL_MESA_program_binary_formats
+    [
+      'GL_PROGRAM_BINARY_FORMAT_MESA',
+    ]
+  end # self.get_ext_enum_GL_MESA_program_binary_formats
 
 
   def self.define_ext_enum_GL_MESA_resize_buffers

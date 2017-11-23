@@ -3296,6 +3296,8 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_LAYOUT_SHADER_READ_ONLY_EXT"/>
             <enum name="GL_LAYOUT_TRANSFER_SRC_EXT"/>
             <enum name="GL_LAYOUT_TRANSFER_DST_EXT"/>
+            <enum name="GL_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_EXT"/>
+            <enum name="GL_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_EXT"/>
         </group>
 
         <group name="PathTransformType">
@@ -3472,6 +3474,8 @@ typedef unsigned int GLhandleARB;
         <enum value="0x0400" name="GL_SPARSE_STORAGE_BIT_ARB"/>
         <enum value="0x0800" name="GL_LGPU_SEPARATE_STORAGE_BIT_NVX"/>
         <enum value="0x0800" name="GL_PER_GPU_STORAGE_BIT_NV"/>
+            <unused start="0x1000" end="0x1000" comment="Reserved for NVIDIA"/>
+        <enum value="0x2000" name="GL_EXTERNAL_STORAGE_BIT_NVX"/>
     </enums>
 
     <enums namespace="GL" group="MemoryBarrierMask" type="bitmask">
@@ -6762,7 +6766,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x875C" name="GL_PROXY_TEXTURE_2D_STACK_MESAX"/>
         <enum value="0x875D" name="GL_TEXTURE_1D_STACK_BINDING_MESAX"/>
         <enum value="0x875E" name="GL_TEXTURE_2D_STACK_BINDING_MESAX"/>
-            <unused start="0x875F" vendor="MESA"/>
+	<enum value="0x875F" name="GL_PROGRAM_BINARY_FORMAT_MESA"/>
     </enums>
 
     <enums namespace="GL" start="0x8760" end="0x883F" vendor="AMD">
@@ -9958,7 +9962,9 @@ typedef unsigned int GLhandleARB;
     </enums>
 
     <enums namespace="GL" start="0x9530" end="0x962F" vendor="NV" comment="Khronos bug 12977">
-            <unused start="0x9530" end="0x9539" vendor="NV"/>
+        <enum value="0x9530" name="GL_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_EXT"/>
+        <enum value="0x9531" name="GL_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_EXT"/>
+            <unused start="0x9532" end="0x953F" vendor="NV"/>
         <enum value="0x9540" name="GL_QUERY_RESOURCE_TYPE_VIDMEM_ALLOC_NV"/>
             <unused start="0x9541" vendor="NV"/>
         <enum value="0x9542" name="GL_QUERY_RESOURCE_MEMTYPE_VIDMEM_NV"/>
@@ -42835,7 +42841,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_TRANSFORM_FEEDBACK"/>
             </require>
         </extension>
-        <extension name="GL_EXT_debug_marker" supported="gl|glcore|gles2">
+        <extension name="GL_EXT_debug_marker" supported="gl|glcore|gles1|gles2">
             <require>
                 <command name="glInsertEventMarkerEXT"/>
                 <command name="glPushGroupMarkerEXT"/>
@@ -44010,6 +44016,8 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_LAYOUT_SHADER_READ_ONLY_EXT"/>
                 <enum name="GL_LAYOUT_TRANSFER_SRC_EXT"/>
                 <enum name="GL_LAYOUT_TRANSFER_DST_EXT"/>
+                <enum name="GL_LAYOUT_DEPTH_READ_ONLY_STENCIL_ATTACHMENT_EXT"/>
+                <enum name="GL_LAYOUT_DEPTH_ATTACHMENT_STENCIL_READ_ONLY_EXT"/>
                 <command name="glGetUnsignedBytevEXT"/>
                 <command name="glGetUnsignedBytei_vEXT"/>
                 <command name="glGenSemaphoresEXT"/>
@@ -45513,7 +45521,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_NONE"/>
             </require>
         </extension>
-        <extension name="GL_KHR_debug" supported="gl|glcore|gles2">
+        <extension name="GL_KHR_debug" supported="gl|glcore|gles1|gles2">
             <require api="gl" comment="KHR extensions *mandate* suffixes for ES, unlike for GL">
                 <enum name="GL_DEBUG_OUTPUT_SYNCHRONOUS"/>
                 <enum name="GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH"/>
@@ -45751,6 +45759,11 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_PACK_INVERT_MESA"/>
             </require>
         </extension>
+        <extension name="GL_MESA_program_binary_formats" supported="gl|gles2">
+            <require>
+                <enum name="GL_PROGRAM_BINARY_FORMAT_MESA"/>
+            </require>
+        </extension>
         <extension name="GL_MESA_resize_buffers" supported="gl">
             <require>
                 <command name="glResizeBuffersMESA"/>
@@ -45800,6 +45813,11 @@ typedef unsigned int GLhandleARB;
             </require>
         </extension>
         <extension name="GL_NVX_blend_equation_advanced_multi_draw_buffers" supported="gl|gles2"/>
+        <extension name="GL_NVX_cross_process_interop" supported="disabled">
+            <require comment="unpublished experimental extension">
+                <enum name="GL_EXTERNAL_STORAGE_BIT_NVX"/>
+            </require>
+        </extension>
         <extension name="GL_NVX_conditional_render" supported="gl">
             <require>
                 <command name="glBeginConditionalRenderNVX"/>
@@ -46880,6 +46898,25 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_PATH_MAX_PROJECTION_STACK_DEPTH_NV"/>
                 <enum name="GL_PATH_TRANSPOSE_PROJECTION_MATRIX_NV"/>
                 <enum name="GL_FRAGMENT_INPUT_NV"/>
+                <command name="glMatrixFrustumEXT"/>
+                <command name="glMatrixLoadIdentityEXT"/>
+                <command name="glMatrixLoadTransposefEXT"/>
+                <command name="glMatrixLoadTransposedEXT"/>
+                <command name="glMatrixLoadfEXT"/>
+                <command name="glMatrixLoaddEXT"/>
+                <command name="glMatrixMultTransposefEXT"/>
+                <command name="glMatrixMultTransposedEXT"/>
+                <command name="glMatrixMultfEXT"/>
+                <command name="glMatrixMultdEXT"/>
+                <command name="glMatrixOrthoEXT"/>
+                <command name="glMatrixPopEXT"/>
+                <command name="glMatrixPushEXT"/>
+                <command name="glMatrixRotatefEXT"/>
+                <command name="glMatrixRotatedEXT"/>
+                <command name="glMatrixScalefEXT"/>
+                <command name="glMatrixScaledEXT"/>
+                <command name="glMatrixTranslatefEXT"/>
+                <command name="glMatrixTranslatedEXT"/>
             </require>
         </extension>
         <extension name="GL_NV_path_rendering_shared_edge" supported="gl|glcore|gles2">
@@ -48339,7 +48376,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_DECR_WRAP_OES"/>
             </require>
         </extension>
-        <extension name="GL_OES_surfaceless_context" supported="gles2">
+        <extension name="GL_OES_surfaceless_context" supported="gles1|gles2">
             <require>
                 <enum name="GL_FRAMEBUFFER_UNDEFINED_OES"/>
             </require>
@@ -48556,7 +48593,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_MIRRORED_REPEAT_OES"/>
             </require>
         </extension>
-        <extension name="GL_OES_texture_npot" supported="gles2"/>
+        <extension name="GL_OES_texture_npot" supported="gles1|gles2"/>
         <extension name="GL_OES_texture_stencil8" supported="gles2">
             <require>
                 <enum name="GL_STENCIL_INDEX_OES"/>
