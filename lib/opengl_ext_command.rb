@@ -20863,6 +20863,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_conservative_raster_dilate
 
 
+  def self.define_ext_command_GL_NV_conservative_raster_pre_snap
+  end # self.define_ext_command_GL_NV_conservative_raster_pre_snap
+
+  def self.get_ext_command_GL_NV_conservative_raster_pre_snap
+    [
+    ]
+  end # self.get_ext_command_GL_NV_conservative_raster_pre_snap
+
+
   def self.define_ext_command_GL_NV_conservative_raster_pre_snap_triangles
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glConservativeRasterParameteriNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glConservativeRasterParameteriNV] = Fiddle::TYPE_VOID
@@ -20879,6 +20888,15 @@ module OpenGLExt
       'glConservativeRasterParameteriNV',
     ]
   end # self.get_ext_command_GL_NV_conservative_raster_pre_snap_triangles
+
+
+  def self.define_ext_command_GL_NV_conservative_raster_underestimation
+  end # self.define_ext_command_GL_NV_conservative_raster_underestimation
+
+  def self.get_ext_command_GL_NV_conservative_raster_underestimation
+    [
+    ]
+  end # self.get_ext_command_GL_NV_conservative_raster_underestimation
 
 
   def self.define_ext_command_GL_NV_copy_depth_to_color

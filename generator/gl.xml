@@ -6766,7 +6766,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x875C" name="GL_PROXY_TEXTURE_2D_STACK_MESAX"/>
         <enum value="0x875D" name="GL_TEXTURE_1D_STACK_BINDING_MESAX"/>
         <enum value="0x875E" name="GL_TEXTURE_2D_STACK_BINDING_MESAX"/>
-	<enum value="0x875F" name="GL_PROGRAM_BINARY_FORMAT_MESA"/>
+        <enum value="0x875F" name="GL_PROGRAM_BINARY_FORMAT_MESA"/>
     </enums>
 
     <enums namespace="GL" start="0x8760" end="0x883F" vendor="AMD">
@@ -9979,7 +9979,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x954D" name="GL_CONSERVATIVE_RASTER_MODE_NV"/>
         <enum value="0x954E" name="GL_CONSERVATIVE_RASTER_MODE_POST_SNAP_NV"/>
         <enum value="0x954F" name="GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_TRIANGLES_NV"/>
-            <unused start="0x9550" vendor="NV"/>
+        <enum value="0x9550" name="GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_NV"/>
         <enum value="0x9551" name="GL_SHADER_BINARY_FORMAT_SPIR_V"/>
         <enum value="0x9551" name="GL_SHADER_BINARY_FORMAT_SPIR_V_ARB" alias="GL_SHADER_BINARY_FORMAT_SPIR_V"/>
         <enum value="0x9552" name="GL_SPIR_V_BINARY"/>
@@ -13693,7 +13693,7 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glDeleteSemaphoresEXT</name></proto>
             <param><ptype>GLsizei</ptype> <name>n</name></param>
-            <param len="count">const <ptype>GLuint</ptype> *<name>semaphores</name></param>
+            <param len="n">const <ptype>GLuint</ptype> *<name>semaphores</name></param>
         </command>
         <command>
             <proto>void <name>glDeleteShader</name></proto>
@@ -15709,7 +15709,7 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glGenSemaphoresEXT</name></proto>
             <param><ptype>GLsizei</ptype> <name>n</name></param>
-            <param len="count"><ptype>GLuint</ptype> *<name>semaphores</name></param>
+            <param len="n"><ptype>GLuint</ptype> *<name>semaphores</name></param>
         </command>
         <command>
             <proto><ptype>GLuint</ptype> <name>glGenSymbolsEXT</name></proto>
@@ -17451,7 +17451,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLuint</ptype> <name>queryHandle</name></param>
             <param><ptype>GLuint</ptype> <name>flags</name></param>
             <param><ptype>GLsizei</ptype> <name>dataSize</name></param>
-            <param><ptype>GLvoid</ptype> *<name>data</name></param>
+            <param>void *<name>data</name></param>
             <param><ptype>GLuint</ptype> *<name>bytesWritten</name></param>
         </command>
         <command>
@@ -21873,7 +21873,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLuint</ptype> <name>buffer</name></param>
             <param><ptype>GLintptr</ptype> <name>offset</name></param>
             <param><ptype>GLsizeiptr</ptype> <name>size</name></param>
-            <param>const <ptype>GLvoid</ptype> *<name>data</name></param>
+            <param>const void *<name>data</name></param>
         </command>
         <command>
             <proto>void <name>glMulticastCopyBufferSubDataNV</name></proto>
@@ -24769,7 +24769,7 @@ typedef unsigned int GLhandleARB;
             <param group="OcclusionQueryEventMaskAMD"><ptype>GLuint</ptype> <name>param</name></param>
         </command>
         <command>
-            <proto>GLint <name>glQueryResourceNV</name></proto>
+            <proto><ptype>GLint</ptype> <name>glQueryResourceNV</name></proto>
             <param><ptype>GLenum</ptype> <name>queryType</name></param>
             <param><ptype>GLint</ptype> <name>tagId</name></param>
             <param><ptype>GLuint</ptype> <name>bufSize</name></param>
@@ -45949,7 +45949,7 @@ typedef unsigned int GLhandleARB;
             </require>
         </extension>
         <extension name="GL_NV_blend_square" supported="gl"/>
-        <extension name="GL_NV_clip_space_w_scaling" supported="gl|glcore">
+        <extension name="GL_NV_clip_space_w_scaling" supported="gl|glcore|gles2">
             <require>
                 <enum name="GL_VIEWPORT_POSITION_W_SCALE_NV"/>
                 <enum name="GL_VIEWPORT_POSITION_W_SCALE_X_COEFF_NV"/>
@@ -46030,6 +46030,11 @@ typedef unsigned int GLhandleARB;
                 <command name="glConservativeRasterParameterfNV"/>
             </require>
         </extension>
+        <extension name="GL_NV_conservative_raster_pre_snap" supported="gl|glcore|gles2">
+            <require>
+                <enum name="GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_NV"/>
+            </require>
+        </extension>
         <extension name="GL_NV_conservative_raster_pre_snap_triangles" supported="gl|glcore|gles2">
             <require>
                 <enum name="GL_CONSERVATIVE_RASTER_MODE_NV"/>
@@ -46039,6 +46044,7 @@ typedef unsigned int GLhandleARB;
                 <command name="glConservativeRasterParameteriNV"/>
             </require>
         </extension>
+        <extension name="GL_NV_conservative_raster_underestimation" supported="gl|glcore"/>
         <extension name="GL_NV_copy_buffer" supported="gles2">
             <require>
                 <enum name="GL_COPY_READ_BUFFER_NV"/>
@@ -47184,7 +47190,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_SAMPLER_CUBE_SHADOW_NV"/>
             </require>
         </extension>
-        <extension name="GL_NV_stereo_view_rendering" supported="gl|glcore"/>
+        <extension name="GL_NV_stereo_view_rendering" supported="gl|glcore|gles2"/>
         <extension name="GL_NV_tessellation_program5" supported="gl">
             <require>
                 <enum name="GL_MAX_PROGRAM_PATCH_ATTRIBS_NV"/>

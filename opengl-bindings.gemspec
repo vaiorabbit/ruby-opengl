@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.version       = "1.6.5"
   gem.authors       = ["vaiorabbit"]
   gem.email         = ["vaiorabbit@gmail.com"]
-  gem.summary       = %q{Bindings for OpenGL -4.5, ES - 3.2 and extensions (For MRI >= 2.0.0)}
+  gem.summary       = %q{Bindings for OpenGL -4.6, ES - 3.2 and extensions (For MRI >= 2.0.0)}
   gem.homepage      = "https://github.com/vaiorabbit/ruby-opengl"
   gem.require_paths = ["lib"]
   gem.license       = "Zlib"

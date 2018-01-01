@@ -3017,6 +3017,21 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_blend_minmax_factor
 
 
+  def self.define_ext_enum_GL_NV_clip_space_w_scaling
+    OpenGL.const_set('GL_VIEWPORT_POSITION_W_SCALE_NV', 0x937C) unless defined?(OpenGL::GL_VIEWPORT_POSITION_W_SCALE_NV)
+    OpenGL.const_set('GL_VIEWPORT_POSITION_W_SCALE_X_COEFF_NV', 0x937D) unless defined?(OpenGL::GL_VIEWPORT_POSITION_W_SCALE_X_COEFF_NV)
+    OpenGL.const_set('GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV', 0x937E) unless defined?(OpenGL::GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV)
+  end # self.define_ext_enum_GL_NV_clip_space_w_scaling
+
+  def self.get_ext_enum_GL_NV_clip_space_w_scaling
+    [
+      'GL_VIEWPORT_POSITION_W_SCALE_NV',
+      'GL_VIEWPORT_POSITION_W_SCALE_X_COEFF_NV',
+      'GL_VIEWPORT_POSITION_W_SCALE_Y_COEFF_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_clip_space_w_scaling
+
+
   def self.define_ext_enum_GL_NV_conditional_render
     OpenGL.const_set('GL_QUERY_WAIT_NV', 0x8E13) unless defined?(OpenGL::GL_QUERY_WAIT_NV)
     OpenGL.const_set('GL_QUERY_NO_WAIT_NV', 0x8E14) unless defined?(OpenGL::GL_QUERY_NO_WAIT_NV)
@@ -3049,6 +3064,17 @@ module OpenGLExt
       'GL_MAX_SUBPIXEL_PRECISION_BIAS_BITS_NV',
     ]
   end # self.get_ext_enum_GL_NV_conservative_raster
+
+
+  def self.define_ext_enum_GL_NV_conservative_raster_pre_snap
+    OpenGL.const_set('GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_NV', 0x9550) unless defined?(OpenGL::GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_NV)
+  end # self.define_ext_enum_GL_NV_conservative_raster_pre_snap
+
+  def self.get_ext_enum_GL_NV_conservative_raster_pre_snap
+    [
+      'GL_CONSERVATIVE_RASTER_MODE_PRE_SNAP_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_conservative_raster_pre_snap
 
 
   def self.define_ext_enum_GL_NV_conservative_raster_pre_snap_triangles
@@ -4062,6 +4088,15 @@ module OpenGLExt
       'GL_SAMPLER_CUBE_SHADOW_NV',
     ]
   end # self.get_ext_enum_GL_NV_shadow_samplers_cube
+
+
+  def self.define_ext_enum_GL_NV_stereo_view_rendering
+  end # self.define_ext_enum_GL_NV_stereo_view_rendering
+
+  def self.get_ext_enum_GL_NV_stereo_view_rendering
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_stereo_view_rendering
 
 
   def self.define_ext_enum_GL_NV_texture_border_clamp
