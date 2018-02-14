@@ -23,7 +23,7 @@ module OpenGL
   WGL_FUNCTIONS_ARGS_MAP[:wglGetProcAddress] = [Fiddle::TYPE_VOIDP]
   WGL_FUNCTIONS_RETVAL_MAP[:wglGetProcAddress] = Fiddle::TYPE_VOIDP
 
-  def wglGetProcAddress(_lpszProc_)
+  def self.wglGetProcAddress(_lpszProc_)
     f = OpenGL::get_wgl_command(:wglGetProcAddress)
     f.call(_lpszProc_)
   end
