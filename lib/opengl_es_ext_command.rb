@@ -2942,19 +2942,10 @@ module OpenGLExt
 
 
   def self.define_ext_command_GL_EXT_texture_filter_minmax
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glRasterSamplesEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glRasterSamplesEXT] = Fiddle::TYPE_VOID
-    OpenGL.module_eval(<<-SRC)
-      def glRasterSamplesEXT(_samples_, _fixedsamplelocations_)
-        f = OpenGL::get_command(:glRasterSamplesEXT)
-        f.call(_samples_, _fixedsamplelocations_)
-      end
-    SRC
   end # self.define_ext_command_GL_EXT_texture_filter_minmax
 
   def self.get_ext_command_GL_EXT_texture_filter_minmax
     [
-      'glRasterSamplesEXT',
     ]
   end # self.get_ext_command_GL_EXT_texture_filter_minmax
 

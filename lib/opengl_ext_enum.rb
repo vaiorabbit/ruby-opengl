@@ -426,6 +426,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_AMD_shader_ballot
 
 
+  def self.define_ext_enum_GL_AMD_shader_gpu_shader_half_float_fetch
+  end # self.define_ext_enum_GL_AMD_shader_gpu_shader_half_float_fetch
+
+  def self.get_ext_enum_GL_AMD_shader_gpu_shader_half_float_fetch
+    [
+    ]
+  end # self.get_ext_enum_GL_AMD_shader_gpu_shader_half_float_fetch
+
+
   def self.define_ext_enum_GL_AMD_shader_image_load_store_lod
   end # self.define_ext_enum_GL_AMD_shader_image_load_store_lod
 
@@ -7646,22 +7655,14 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_EXT_texture_filter_minmax
-    OpenGL.const_set('GL_RASTER_MULTISAMPLE_EXT', 0x9327) unless defined?(OpenGL::GL_RASTER_MULTISAMPLE_EXT)
-    OpenGL.const_set('GL_RASTER_SAMPLES_EXT', 0x9328) unless defined?(OpenGL::GL_RASTER_SAMPLES_EXT)
-    OpenGL.const_set('GL_MAX_RASTER_SAMPLES_EXT', 0x9329) unless defined?(OpenGL::GL_MAX_RASTER_SAMPLES_EXT)
-    OpenGL.const_set('GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT', 0x932A) unless defined?(OpenGL::GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT)
-    OpenGL.const_set('GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT', 0x932B) unless defined?(OpenGL::GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT)
-    OpenGL.const_set('GL_EFFECTIVE_RASTER_SAMPLES_EXT', 0x932C) unless defined?(OpenGL::GL_EFFECTIVE_RASTER_SAMPLES_EXT)
+    OpenGL.const_set('GL_TEXTURE_REDUCTION_MODE_EXT', 0x9366) unless defined?(OpenGL::GL_TEXTURE_REDUCTION_MODE_EXT)
+    OpenGL.const_set('GL_WEIGHTED_AVERAGE_EXT', 0x9367) unless defined?(OpenGL::GL_WEIGHTED_AVERAGE_EXT)
   end # self.define_ext_enum_GL_EXT_texture_filter_minmax
 
   def self.get_ext_enum_GL_EXT_texture_filter_minmax
     [
-      'GL_RASTER_MULTISAMPLE_EXT',
-      'GL_RASTER_SAMPLES_EXT',
-      'GL_MAX_RASTER_SAMPLES_EXT',
-      'GL_RASTER_FIXED_SAMPLE_LOCATIONS_EXT',
-      'GL_MULTISAMPLE_RASTERIZATION_ALLOWED_EXT',
-      'GL_EFFECTIVE_RASTER_SAMPLES_EXT',
+      'GL_TEXTURE_REDUCTION_MODE_EXT',
+      'GL_WEIGHTED_AVERAGE_EXT',
     ]
   end # self.get_ext_enum_GL_EXT_texture_filter_minmax
 
