@@ -5774,6 +5774,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_422_pixels
 
 
+  def self.define_ext_enum_GL_EXT_EGL_image_storage
+  end # self.define_ext_enum_GL_EXT_EGL_image_storage
+
+  def self.get_ext_enum_GL_EXT_EGL_image_storage
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_EGL_image_storage
+
+
   def self.define_ext_enum_GL_EXT_abgr
     OpenGL.const_set('GL_ABGR_EXT', 0x8000) unless defined?(OpenGL::GL_ABGR_EXT)
   end # self.define_ext_enum_GL_EXT_abgr
@@ -7100,6 +7109,28 @@ module OpenGLExt
       'GL_SEPARATE_SPECULAR_COLOR_EXT',
     ]
   end # self.get_ext_enum_GL_EXT_separate_specular_color
+
+
+  def self.define_ext_enum_GL_EXT_shader_framebuffer_fetch
+    OpenGL.const_set('GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT', 0x8A52) unless defined?(OpenGL::GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT)
+  end # self.define_ext_enum_GL_EXT_shader_framebuffer_fetch
+
+  def self.get_ext_enum_GL_EXT_shader_framebuffer_fetch
+    [
+      'GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_shader_framebuffer_fetch
+
+
+  def self.define_ext_enum_GL_EXT_shader_framebuffer_fetch_non_coherent
+    OpenGL.const_set('GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT', 0x8A52) unless defined?(OpenGL::GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT)
+  end # self.define_ext_enum_GL_EXT_shader_framebuffer_fetch_non_coherent
+
+  def self.get_ext_enum_GL_EXT_shader_framebuffer_fetch_non_coherent
+    [
+      'GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_shader_framebuffer_fetch_non_coherent
 
 
   def self.define_ext_enum_GL_EXT_shader_image_load_formatted
@@ -8742,6 +8773,17 @@ module OpenGLExt
       'GL_LAYOUT_LINEAR_CPU_CACHED_INTEL',
     ]
   end # self.get_ext_enum_GL_INTEL_map_texture
+
+
+  def self.define_ext_enum_GL_INTEL_blackhole_render
+    OpenGL.const_set('GL_BLACKHOLE_RENDER_INTEL', 0x83FC) unless defined?(OpenGL::GL_BLACKHOLE_RENDER_INTEL)
+  end # self.define_ext_enum_GL_INTEL_blackhole_render
+
+  def self.get_ext_enum_GL_INTEL_blackhole_render
+    [
+      'GL_BLACKHOLE_RENDER_INTEL',
+    ]
+  end # self.get_ext_enum_GL_INTEL_blackhole_render
 
 
   def self.define_ext_enum_GL_INTEL_parallel_arrays

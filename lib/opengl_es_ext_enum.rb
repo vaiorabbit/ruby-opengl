@@ -468,6 +468,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_EGL_image_array
 
 
+  def self.define_ext_enum_GL_EXT_EGL_image_storage
+  end # self.define_ext_enum_GL_EXT_EGL_image_storage
+
+  def self.get_ext_enum_GL_EXT_EGL_image_storage
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_EGL_image_storage
+
+
   def self.define_ext_enum_GL_EXT_YUV_target
     OpenGL.const_set('GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT', 0x8BE7) unless defined?(OpenGL::GL_SAMPLER_EXTERNAL_2D_Y2Y_EXT)
     OpenGL.const_set('GL_TEXTURE_EXTERNAL_OES', 0x8D65) unless defined?(OpenGL::GL_TEXTURE_EXTERNAL_OES)
@@ -1489,6 +1498,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_shader_framebuffer_fetch
 
 
+  def self.define_ext_enum_GL_EXT_shader_framebuffer_fetch_non_coherent
+    OpenGL.const_set('GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT', 0x8A52) unless defined?(OpenGL::GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT)
+  end # self.define_ext_enum_GL_EXT_shader_framebuffer_fetch_non_coherent
+
+  def self.get_ext_enum_GL_EXT_shader_framebuffer_fetch_non_coherent
+    [
+      'GL_FRAGMENT_SHADER_DISCARDS_SAMPLES_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_shader_framebuffer_fetch_non_coherent
+
+
   def self.define_ext_enum_GL_EXT_shader_group_vote
   end # self.define_ext_enum_GL_EXT_shader_group_vote
 
@@ -1958,6 +1978,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_texture_format_BGRA8888
 
 
+  def self.define_ext_enum_GL_EXT_texture_format_sRGB_override
+    OpenGL.const_set('GL_TEXTURE_FORMAT_SRGB_OVERRIDE_EXT', 0x8FBF) unless defined?(OpenGL::GL_TEXTURE_FORMAT_SRGB_OVERRIDE_EXT)
+  end # self.define_ext_enum_GL_EXT_texture_format_sRGB_override
+
+  def self.get_ext_enum_GL_EXT_texture_format_sRGB_override
+    [
+      'GL_TEXTURE_FORMAT_SRGB_OVERRIDE_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_format_sRGB_override
+
+
   def self.define_ext_enum_GL_EXT_texture_mirror_clamp_to_edge
     OpenGL.const_set('GL_MIRROR_CLAMP_TO_EDGE_EXT', 0x8743) unless defined?(OpenGL::GL_MIRROR_CLAMP_TO_EDGE_EXT)
   end # self.define_ext_enum_GL_EXT_texture_mirror_clamp_to_edge
@@ -2330,6 +2361,17 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_INTEL_framebuffer_CMAA
+
+
+  def self.define_ext_enum_GL_INTEL_blackhole_render
+    OpenGL.const_set('GL_BLACKHOLE_RENDER_INTEL', 0x83FC) unless defined?(OpenGL::GL_BLACKHOLE_RENDER_INTEL)
+  end # self.define_ext_enum_GL_INTEL_blackhole_render
+
+  def self.get_ext_enum_GL_INTEL_blackhole_render
+    [
+      'GL_BLACKHOLE_RENDER_INTEL',
+    ]
+  end # self.get_ext_enum_GL_INTEL_blackhole_render
 
 
   def self.define_ext_enum_GL_INTEL_performance_query

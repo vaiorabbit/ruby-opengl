@@ -12055,6 +12055,34 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_422_pixels
 
 
+  def self.define_ext_command_GL_EXT_EGL_image_storage
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glEGLImageTargetTexStorageEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glEGLImageTargetTexStorageEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glEGLImageTargetTexStorageEXT(_target_, _image_, _attrib_list_)
+        f = OpenGL::get_command(:glEGLImageTargetTexStorageEXT)
+        f.call(_target_, _image_, _attrib_list_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glEGLImageTargetTextureStorageEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glEGLImageTargetTextureStorageEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glEGLImageTargetTextureStorageEXT(_texture_, _image_, _attrib_list_)
+        f = OpenGL::get_command(:glEGLImageTargetTextureStorageEXT)
+        f.call(_texture_, _image_, _attrib_list_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_EGL_image_storage
+
+  def self.get_ext_command_GL_EXT_EGL_image_storage
+    [
+      'glEGLImageTargetTexStorageEXT',
+      'glEGLImageTargetTextureStorageEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_EGL_image_storage
+
+
   def self.define_ext_command_GL_EXT_abgr
   end # self.define_ext_command_GL_EXT_abgr
 
@@ -17562,6 +17590,33 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_separate_specular_color
 
 
+  def self.define_ext_command_GL_EXT_shader_framebuffer_fetch
+  end # self.define_ext_command_GL_EXT_shader_framebuffer_fetch
+
+  def self.get_ext_command_GL_EXT_shader_framebuffer_fetch
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_shader_framebuffer_fetch
+
+
+  def self.define_ext_command_GL_EXT_shader_framebuffer_fetch_non_coherent
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferFetchBarrierEXT] = []
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferFetchBarrierEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glFramebufferFetchBarrierEXT()
+        f = OpenGL::get_command(:glFramebufferFetchBarrierEXT)
+        f.call()
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_shader_framebuffer_fetch_non_coherent
+
+  def self.get_ext_command_GL_EXT_shader_framebuffer_fetch_non_coherent
+    [
+      'glFramebufferFetchBarrierEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_shader_framebuffer_fetch_non_coherent
+
+
   def self.define_ext_command_GL_EXT_shader_image_load_formatted
   end # self.define_ext_command_GL_EXT_shader_image_load_formatted
 
@@ -19330,6 +19385,15 @@ module OpenGLExt
       'glMapTexture2DINTEL',
     ]
   end # self.get_ext_command_GL_INTEL_map_texture
+
+
+  def self.define_ext_command_GL_INTEL_blackhole_render
+  end # self.define_ext_command_GL_INTEL_blackhole_render
+
+  def self.get_ext_command_GL_INTEL_blackhole_render
+    [
+    ]
+  end # self.get_ext_command_GL_INTEL_blackhole_render
 
 
   def self.define_ext_command_GL_INTEL_parallel_arrays

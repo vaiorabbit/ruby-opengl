@@ -332,9 +332,9 @@ module OpenGL
 
   GL_FUNCTIONS_ARGS_MAP[:glDepthRange] = [Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
   GL_FUNCTIONS_RETVAL_MAP[:glDepthRange] = Fiddle::TYPE_VOID
-  def glDepthRange(_near_, _far_)
+  def glDepthRange(_n_, _f_)
     f = OpenGL::get_command(:glDepthRange)
-    f.call(_near_, _far_)
+    f.call(_n_, _f_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glViewport] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
