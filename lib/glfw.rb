@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# A GLFW wrapper (for version 3.0, 3.1 and 3.2)
+# A GLFW wrapper (for version 3.0 - 3.3)
 require 'fiddle/import'
 
 module GLFW
@@ -177,10 +177,12 @@ module GLFW
   GLFW_KEY_MENU           = 348
   GLFW_KEY_LAST           = GLFW_KEY_MENU
 
-  GLFW_MOD_SHIFT    = 0x0001
-  GLFW_MOD_CONTROL  = 0x0002
-  GLFW_MOD_ALT      = 0x0004
-  GLFW_MOD_SUPER    = 0x0008
+  GLFW_MOD_SHIFT          = 0x0001
+  GLFW_MOD_CONTROL        = 0x0002
+  GLFW_MOD_ALT            = 0x0004
+  GLFW_MOD_SUPER          = 0x0008
+  GLFW_MOD_CAPS_LOCK      = 0x0010 # Available since GLFW 3.3
+  GLFW_MOD_NUM_LOCK       = 0x0020 # Available since GLFW 3.3
 
   GLFW_MOUSE_BUTTON_1       = 0
   GLFW_MOUSE_BUTTON_2       = 1
@@ -255,14 +257,17 @@ module GLFW
   GLFW_FORMAT_UNAVAILABLE   = 0x00010009
   GLFW_NO_WINDOW_CONTEXT    = 0x0001000A # Available since GLFW 3.2
 
-  GLFW_FOCUSED       = 0x00020001
-  GLFW_ICONIFIED     = 0x00020002
-  GLFW_RESIZABLE     = 0x00020003
-  GLFW_VISIBLE       = 0x00020004
-  GLFW_DECORATED     = 0x00020005
-  GLFW_AUTO_ICONIFY  = 0x00020006 # Available since GLFW 3.1
-  GLFW_FLOATING      = 0x00020007 # Available since GLFW 3.1
-  GLFW_MAXIMIZED     = 0x00020008 # Available since GLFW 3.2
+  GLFW_FOCUSED                 = 0x00020001
+  GLFW_ICONIFIED               = 0x00020002
+  GLFW_RESIZABLE               = 0x00020003
+  GLFW_VISIBLE                 = 0x00020004
+  GLFW_DECORATED               = 0x00020005
+  GLFW_AUTO_ICONIFY            = 0x00020006 # Available since GLFW 3.1
+  GLFW_FLOATING                = 0x00020007 # Available since GLFW 3.1
+  GLFW_MAXIMIZED               = 0x00020008 # Available since GLFW 3.2
+  GLFW_CENTER_CURSOR           = 0x00020009 # Available since GLFW 3.3
+  GLFW_TRANSPARENT_FRAMEBUFFER = 0x0002000A # Available since GLFW 3.3
+  GLFW_HOVERED                 = 0x0002000B # Available since GLFW 3.3
 
   GLFW_RED_BITS          = 0x00021001
   GLFW_GREEN_BITS        = 0x00021002
@@ -294,8 +299,11 @@ module GLFW
   GLFW_CONTEXT_CREATION_API      = 0x0002200B # Available since GLFW 3.2
 
   GLFW_COCOA_RETINA_FRAMEBUFFER = 0x00023001 # Available since GLFW 3.3
-  GLFW_COCOA_FRAME_AUTOSAVE     = 0x00023002 # Available since GLFW 3.3
+  GLFW_COCOA_FRAME_NAME         = 0x00023002 # Available since GLFW 3.3
   GLFW_COCOA_GRAPHICS_SWITCHING = 0x00023003 # Available since GLFW 3.3
+
+  GLFW_X11_CLASS_NAME         = 0x00024001 # Available since GLFW 3.3
+  GLFW_X11_INSTANCE_NAME      = 0x00024002 # Available since GLFW 3.3
 
   GLFW_NO_API         = 0 # Available since GLFW 3.2
   GLFW_OPENGL_API     = 0x00030001
@@ -312,6 +320,7 @@ module GLFW
   GLFW_CURSOR                = 0x00033001
   GLFW_STICKY_KEYS           = 0x00033002
   GLFW_STICKY_MOUSE_BUTTONS  = 0x00033003
+  GLFW_LOCK_KEY_MODS         = 0x00033004 # Available since GLFW 3.3
 
   GLFW_CURSOR_NORMAL    = 0x00034001
   GLFW_CURSOR_HIDDEN    = 0x00034002
@@ -340,32 +349,30 @@ module GLFW
   GLFW_COCOA_CHDIR_RESOURCES  = 0x00051001 # Available since GLFW 3.3
   GLFW_COCOA_MENUBAR          = 0x00051002 # Available since GLFW 3.3
 
-  GLFW_X11_WM_CLASS_NAME      = 0x00052001 # Available since GLFW 3.3
-  GLFW_X11_WM_CLASS_CLASS     = 0x00052002 # Available since GLFW 3.3
-
   GLFW_DONT_CARE = -1
 
   # typedefs
   @@glfw_cb_function_signature = {
-    :GLFWerrorfun           => "void GLFWerrorfun(int,const char*)",
-    :GLFWwindowposfun       => "void GLFWwindowposfun(void*,int,int)",
-    :GLFWwindowsizefun      => "void GLFWwindowsizefun(void*,int,int)",
-    :GLFWwindowclosefun     => "void GLFWwindowclosefun(void*)",
-    :GLFWwindowrefreshfun   => "void GLFWwindowrefreshfun(void*)",
-    :GLFWwindowfocusfun     => "void GLFWwindowfocusfun(void*,int)",
-    :GLFWwindowiconifyfun   => "void GLFWwindowiconifyfun(void*,int)",
-    :GLFWwindowmaximizefun  => "void GLFWwindowmaximizefun(void*,int)",
-    :GLFWframebuffersizefun => "void GLFWframebuffersizefun(void*,int,int)",
-    :GLFWmousebuttonfun     => "void GLFWmousebuttonfun(void*,int,int,int)",
-    :GLFWcursorposfun       => "void GLFWcursorposfun(void*,double,double)",
-    :GLFWcursorenterfun     => "void GLFWcursorenterfun(void*,int)",
-    :GLFWscrollfun          => "void GLFWscrollfun(void*,double,double)",
-    :GLFWkeyfun             => "void GLFWkeyfun(void*,int,int,int,int)",
-    :GLFWcharfun            => "void GLFWcharfun(void*,unsigned int)",
-    :GLFWcharmodsfun        => "void GLFWcharmodsfun(void*,unsigned int,int)", # Available since GLFW 3.1
-    :GLFWdropfun            => "void GLFWdropfun(void*,int,const char**)",     # Available since GLFW 3.1
-    :GLFWmonitorfun         => "void GLFWmonitorfun(void*,int)",               # Available since GLFW 3.0
-    :GLFWjoystickfun        => "void GGLFWjoystickfun(int,int)",               # Available since GLFW 3.2
+    :GLFWerrorfun              => "void GLFWerrorfun(int,const char*)",
+    :GLFWwindowposfun          => "void GLFWwindowposfun(void*,int,int)",
+    :GLFWwindowsizefun         => "void GLFWwindowsizefun(void*,int,int)",
+    :GLFWwindowclosefun        => "void GLFWwindowclosefun(void*)",
+    :GLFWwindowrefreshfun      => "void GLFWwindowrefreshfun(void*)",
+    :GLFWwindowfocusfun        => "void GLFWwindowfocusfun(void*,int)",
+    :GLFWwindowiconifyfun      => "void GLFWwindowiconifyfun(void*,int)",
+    :GLFWwindowmaximizefun     => "void GLFWwindowmaximizefun(void*,int)",
+    :GLFWframebuffersizefun    => "void GLFWframebuffersizefun(void*,int,int)",
+    :GLFWwindowcontentscalefun => "void GLFWwindowcontentscalefun(void*,float,float)",  # Available since GLFW 3.3
+    :GLFWmousebuttonfun        => "void GLFWmousebuttonfun(void*,int,int,int)",
+    :GLFWcursorposfun          => "void GLFWcursorposfun(void*,double,double)",
+    :GLFWcursorenterfun        => "void GLFWcursorenterfun(void*,int)",
+    :GLFWscrollfun             => "void GLFWscrollfun(void*,double,double)",
+    :GLFWkeyfun                => "void GLFWkeyfun(void*,int,int,int,int)",
+    :GLFWcharfun               => "void GLFWcharfun(void*,unsigned int)",
+    :GLFWcharmodsfun           => "void GLFWcharmodsfun(void*,unsigned int,int)",       # Available since GLFW 3.1 / Scheduled for removal in version 4.0.
+    :GLFWdropfun               => "void GLFWdropfun(void*,int,const char**)",           # Available since GLFW 3.1
+    :GLFWmonitorfun            => "void GLFWmonitorfun(void*,int)",                     # Available since GLFW 3.0
+    :GLFWjoystickfun           => "void GGLFWjoystickfun(int,int)",                     # Available since GLFW 3.2
   }
 
   # Creates a callback as an instance of Fiddle::Function
@@ -505,7 +512,6 @@ module GLFW
     'int glfwInit()',
     'void glfwTerminate()',
     'void glfwInitHint(int, int)',                                 # Available since GLFW 3.3
-    'void glfwInitHintString(int, const char*)',                   # Available since GLFW 3.3
     'void glfwGetVersion(int*, int*, int*)',
     'const char* glfwGetVersionString()',
     'int glfwGetError(const char**)',                              # Available since GLFW 3.3
@@ -514,7 +520,10 @@ module GLFW
     'void* glfwGetPrimaryMonitor()',
     'void glfwGetMonitorPos(void*, int*, int*)',
     'void glfwGetMonitorPhysicalSize(void*, int*, int*)',
+    'void glfwGetMonitorContentScale(void*, float*, float*)',      # Available since GLFW 3.3
     'const char* glfwGetMonitorName(void*)',
+    'const void glfwSetMonitorUserPointer(void*, void*)',          # Available since GLFW 3.3
+    'const void* glfwGetMonitorUserPointer(void**)',               # Available since GLFW 3.3
     'void* glfwSetMonitorCallback(void*)',                         # Available since GLFW 3.0
     'const void* glfwGetVideoModes(void*, int*)',
     'const void* glfwGetVideoMode(void*)',                         # Available since GLFW 3.0
@@ -523,6 +532,7 @@ module GLFW
     'void glfwSetGammaRamp(void*, const void*)',                   # Available since GLFW 3.0
     'void glfwDefaultWindowHints()',                               # Available since GLFW 3.0
     'void glfwWindowHint(int, int)',                               # Available since GLFW 3.0
+    'void glfwWindowHintString(int, const char*)',                 # Available since GLFW 3.3
     'void* glfwCreateWindow(int, int, const char*, void*, void*)', # Available since GLFW 3.0
     'void glfwDestroyWindow(void*)',                               # Available since GLFW 3.0
     'int glfwWindowShouldClose(void*)',                            # Available since GLFW 3.0
@@ -537,6 +547,9 @@ module GLFW
     'void glfwSetWindowSize(void*, int, int)',
     'void glfwGetFramebufferSize(void*, int*, int*)',              # Available since GLFW 3.0
     'void glfwGetWindowFrameSize(void*, int*, int*, int*, int*)',  # Available since GLFW 3.1
+    'void glfwGetWindowContentScale(void*, float*, float*)',       # Available since GLFW 3.3
+    'float glfwGetWindowOpacity(void*)',                           # Available since GLFW 3.3
+    'void glfwSetWindowOpacity(void*, float)',                     # Available since GLFW 3.3
     'void glfwIconifyWindow(void*)',
     'void glfwRestoreWindow(void*)',
     'void glfwMaximizeWindow(void*)',                                   # Available since GLFW 3.2
@@ -558,6 +571,7 @@ module GLFW
     'void* glfwSetWindowIconifyCallback(void*, void*)',                 # Available since GLFW 3.0
     'void* glfwSetWindowMaximizeCallback(void*, void*)',                # Available since GLFW 3.3
     'void* glfwSetFramebufferSizeCallback(void*, void*)',               # Available since GLFW 3.0
+    'void* glfwSetWindowContentScaleCallback(void*, void*)',            # Available since GLFW 3.3
     'void glfwPollEvents()',
     'void glfwWaitEvents()',
     'void glfwWaitEventsTimeout(double)',              # Available since GLFW 3.2
@@ -576,7 +590,7 @@ module GLFW
     'void glfwSetCursor(void*, void*)',                # Available since GLFW 3.1
     'void* glfwSetKeyCallback(void*, void*)',
     'void* glfwSetCharCallback(void*, void*)',
-    'void* glfwSetCharModsCallback(void*, void*)',     # Available since GLFW 3.1
+    'void* glfwSetCharModsCallback(void*, void*)',     # Available since GLFW 3.1 / Scheduled for removal in version 4.0.
     'void* glfwSetMouseButtonCallback(void*, void*)',
     'void* glfwSetCursorPosCallback(void*, void*)',    # Available since GLFW 3.0
     'void* glfwSetCursorEnterCallback(void*, void*)',  # Available since GLFW 3.0
@@ -589,6 +603,8 @@ module GLFW
     'const unsigned char* glfwGetJoystickHats(int, int*)', # Available since GLFW 3.3
     'const char* glfwGetJoystickName(int)',                # Available since GLFW 3.0
     'const char* glfwGetJoystickGUID(int)',                # Available since GLFW 3.3
+    'void glfwSetJoystickUserPointer(int, void*)',         # Available since GLFW 3.3
+    'void* glfwGetJoystickUserPointer(int)',               # Available since GLFW 3.3
     'int glfwJoystickIsGamepad(int)',                      # Available since GLFW 3.3
     'void* glfwSetJoystickCallback(void*)',                # Available since GLFW 3.2
     'int glfwUpdateGamepadMappings(const char*)',          # Available since GLFW 3.3
