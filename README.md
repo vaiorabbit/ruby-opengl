@@ -104,6 +104,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 ## Tested Environment ##
 
 *   Ruby
+    *   ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-darwin17]
     *   ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-darwin17]
     *   ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin16]
     *   ruby 2.4.0p0 (2016-12-24 revision 57164) [x86_64-darwin16]
@@ -343,6 +344,7 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 ## テストした環境 ##
 
 *   Ruby
+    *   ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-darwin17]
     *   ruby 2.5.0p0 (2017-12-25 revision 61468) [x86_64-darwin17]
     *   ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-darwin16]
     *   ruby 2.4.0p0 (2016-12-24 revision 57164) [x86_64-darwin16]
