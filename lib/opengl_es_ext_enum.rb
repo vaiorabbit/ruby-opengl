@@ -34,6 +34,27 @@ module OpenGLExt
   end # self.get_ext_enum_GL_AMD_compressed_ATC_texture
 
 
+  def self.define_ext_enum_GL_AMD_framebuffer_multisample_advanced
+    OpenGL.const_set('GL_RENDERBUFFER_STORAGE_SAMPLES_AMD', 0x91B2) unless defined?(OpenGL::GL_RENDERBUFFER_STORAGE_SAMPLES_AMD)
+    OpenGL.const_set('GL_MAX_COLOR_FRAMEBUFFER_SAMPLES_AMD', 0x91B3) unless defined?(OpenGL::GL_MAX_COLOR_FRAMEBUFFER_SAMPLES_AMD)
+    OpenGL.const_set('GL_MAX_COLOR_FRAMEBUFFER_STORAGE_SAMPLES_AMD', 0x91B4) unless defined?(OpenGL::GL_MAX_COLOR_FRAMEBUFFER_STORAGE_SAMPLES_AMD)
+    OpenGL.const_set('GL_MAX_DEPTH_STENCIL_FRAMEBUFFER_SAMPLES_AMD', 0x91B5) unless defined?(OpenGL::GL_MAX_DEPTH_STENCIL_FRAMEBUFFER_SAMPLES_AMD)
+    OpenGL.const_set('GL_NUM_SUPPORTED_MULTISAMPLE_MODES_AMD', 0x91B6) unless defined?(OpenGL::GL_NUM_SUPPORTED_MULTISAMPLE_MODES_AMD)
+    OpenGL.const_set('GL_SUPPORTED_MULTISAMPLE_MODES_AMD', 0x91B7) unless defined?(OpenGL::GL_SUPPORTED_MULTISAMPLE_MODES_AMD)
+  end # self.define_ext_enum_GL_AMD_framebuffer_multisample_advanced
+
+  def self.get_ext_enum_GL_AMD_framebuffer_multisample_advanced
+    [
+      'GL_RENDERBUFFER_STORAGE_SAMPLES_AMD',
+      'GL_MAX_COLOR_FRAMEBUFFER_SAMPLES_AMD',
+      'GL_MAX_COLOR_FRAMEBUFFER_STORAGE_SAMPLES_AMD',
+      'GL_MAX_DEPTH_STENCIL_FRAMEBUFFER_SAMPLES_AMD',
+      'GL_NUM_SUPPORTED_MULTISAMPLE_MODES_AMD',
+      'GL_SUPPORTED_MULTISAMPLE_MODES_AMD',
+    ]
+  end # self.get_ext_enum_GL_AMD_framebuffer_multisample_advanced
+
+
   def self.define_ext_enum_GL_AMD_performance_monitor
     OpenGL.const_set('GL_COUNTER_TYPE_AMD', 0x8BC0) unless defined?(OpenGL::GL_COUNTER_TYPE_AMD)
     OpenGL.const_set('GL_COUNTER_RANGE_AMD', 0x8BC1) unless defined?(OpenGL::GL_COUNTER_RANGE_AMD)
@@ -2878,6 +2899,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_KHR_parallel_shader_compile
 
 
+  def self.define_ext_enum_GL_MESA_framebuffer_flip_y
+    OpenGL.const_set('GL_FRAMEBUFFER_FLIP_Y_MESA', 0x8BBB) unless defined?(OpenGL::GL_FRAMEBUFFER_FLIP_Y_MESA)
+  end # self.define_ext_enum_GL_MESA_framebuffer_flip_y
+
+  def self.get_ext_enum_GL_MESA_framebuffer_flip_y
+    [
+      'GL_FRAMEBUFFER_FLIP_Y_MESA',
+    ]
+  end # self.get_ext_enum_GL_MESA_framebuffer_flip_y
+
+
   def self.define_ext_enum_GL_MESA_program_binary_formats
     OpenGL.const_set('GL_PROGRAM_BINARY_FORMAT_MESA', 0x875F) unless defined?(OpenGL::GL_PROGRAM_BINARY_FORMAT_MESA)
   end # self.define_ext_enum_GL_MESA_program_binary_formats
@@ -5413,6 +5445,15 @@ module OpenGLExt
       'GL_FRAMEBUFFER_FETCH_NONCOHERENT_QCOM',
     ]
   end # self.get_ext_enum_GL_QCOM_shader_framebuffer_fetch_noncoherent
+
+
+  def self.define_ext_enum_GL_QCOM_shader_framebuffer_fetch_rate
+  end # self.define_ext_enum_GL_QCOM_shader_framebuffer_fetch_rate
+
+  def self.get_ext_enum_GL_QCOM_shader_framebuffer_fetch_rate
+    [
+    ]
+  end # self.get_ext_enum_GL_QCOM_shader_framebuffer_fetch_rate
 
 
   def self.define_ext_enum_GL_QCOM_tiled_rendering

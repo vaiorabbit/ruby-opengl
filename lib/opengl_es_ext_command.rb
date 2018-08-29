@@ -26,6 +26,34 @@ module OpenGLExt
   end # self.get_ext_command_GL_AMD_compressed_ATC_texture
 
 
+  def self.define_ext_command_GL_AMD_framebuffer_multisample_advanced
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleAdvancedAMD] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorageMultisampleAdvancedAMD] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glRenderbufferStorageMultisampleAdvancedAMD(_target_, _samples_, _storageSamples_, _internalformat_, _width_, _height_)
+        f = OpenGL::get_command(:glRenderbufferStorageMultisampleAdvancedAMD)
+        f.call(_target_, _samples_, _storageSamples_, _internalformat_, _width_, _height_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glNamedRenderbufferStorageMultisampleAdvancedAMD] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glNamedRenderbufferStorageMultisampleAdvancedAMD] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glNamedRenderbufferStorageMultisampleAdvancedAMD(_renderbuffer_, _samples_, _storageSamples_, _internalformat_, _width_, _height_)
+        f = OpenGL::get_command(:glNamedRenderbufferStorageMultisampleAdvancedAMD)
+        f.call(_renderbuffer_, _samples_, _storageSamples_, _internalformat_, _width_, _height_)
+      end
+    SRC
+  end # self.define_ext_command_GL_AMD_framebuffer_multisample_advanced
+
+  def self.get_ext_command_GL_AMD_framebuffer_multisample_advanced
+    [
+      'glRenderbufferStorageMultisampleAdvancedAMD',
+      'glNamedRenderbufferStorageMultisampleAdvancedAMD',
+    ]
+  end # self.get_ext_command_GL_AMD_framebuffer_multisample_advanced
+
+
   def self.define_ext_command_GL_AMD_performance_monitor
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetPerfMonitorGroupsAMD] = [Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetPerfMonitorGroupsAMD] = Fiddle::TYPE_VOID
@@ -3984,6 +4012,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_KHR_parallel_shader_compile
 
 
+  def self.define_ext_command_GL_MESA_framebuffer_flip_y
+  end # self.define_ext_command_GL_MESA_framebuffer_flip_y
+
+  def self.get_ext_command_GL_MESA_framebuffer_flip_y
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_framebuffer_flip_y
+
+
   def self.define_ext_command_GL_MESA_program_binary_formats
   end # self.define_ext_command_GL_MESA_program_binary_formats
 
@@ -7699,6 +7736,15 @@ module OpenGLExt
       'glFramebufferFetchBarrierQCOM',
     ]
   end # self.get_ext_command_GL_QCOM_shader_framebuffer_fetch_noncoherent
+
+
+  def self.define_ext_command_GL_QCOM_shader_framebuffer_fetch_rate
+  end # self.define_ext_command_GL_QCOM_shader_framebuffer_fetch_rate
+
+  def self.get_ext_command_GL_QCOM_shader_framebuffer_fetch_rate
+    [
+    ]
+  end # self.get_ext_command_GL_QCOM_shader_framebuffer_fetch_rate
 
 
   def self.define_ext_command_GL_QCOM_tiled_rendering

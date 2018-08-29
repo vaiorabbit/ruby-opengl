@@ -126,6 +126,27 @@ module OpenGLExt
   end # self.get_ext_enum_GL_AMD_draw_buffers_blend
 
 
+  def self.define_ext_enum_GL_AMD_framebuffer_multisample_advanced
+    OpenGL.const_set('GL_RENDERBUFFER_STORAGE_SAMPLES_AMD', 0x91B2) unless defined?(OpenGL::GL_RENDERBUFFER_STORAGE_SAMPLES_AMD)
+    OpenGL.const_set('GL_MAX_COLOR_FRAMEBUFFER_SAMPLES_AMD', 0x91B3) unless defined?(OpenGL::GL_MAX_COLOR_FRAMEBUFFER_SAMPLES_AMD)
+    OpenGL.const_set('GL_MAX_COLOR_FRAMEBUFFER_STORAGE_SAMPLES_AMD', 0x91B4) unless defined?(OpenGL::GL_MAX_COLOR_FRAMEBUFFER_STORAGE_SAMPLES_AMD)
+    OpenGL.const_set('GL_MAX_DEPTH_STENCIL_FRAMEBUFFER_SAMPLES_AMD', 0x91B5) unless defined?(OpenGL::GL_MAX_DEPTH_STENCIL_FRAMEBUFFER_SAMPLES_AMD)
+    OpenGL.const_set('GL_NUM_SUPPORTED_MULTISAMPLE_MODES_AMD', 0x91B6) unless defined?(OpenGL::GL_NUM_SUPPORTED_MULTISAMPLE_MODES_AMD)
+    OpenGL.const_set('GL_SUPPORTED_MULTISAMPLE_MODES_AMD', 0x91B7) unless defined?(OpenGL::GL_SUPPORTED_MULTISAMPLE_MODES_AMD)
+  end # self.define_ext_enum_GL_AMD_framebuffer_multisample_advanced
+
+  def self.get_ext_enum_GL_AMD_framebuffer_multisample_advanced
+    [
+      'GL_RENDERBUFFER_STORAGE_SAMPLES_AMD',
+      'GL_MAX_COLOR_FRAMEBUFFER_SAMPLES_AMD',
+      'GL_MAX_COLOR_FRAMEBUFFER_STORAGE_SAMPLES_AMD',
+      'GL_MAX_DEPTH_STENCIL_FRAMEBUFFER_SAMPLES_AMD',
+      'GL_NUM_SUPPORTED_MULTISAMPLE_MODES_AMD',
+      'GL_SUPPORTED_MULTISAMPLE_MODES_AMD',
+    ]
+  end # self.get_ext_enum_GL_AMD_framebuffer_multisample_advanced
+
+
   def self.define_ext_enum_GL_AMD_framebuffer_sample_positions
     OpenGL.const_set('GL_SUBSAMPLE_DISTANCE_AMD', 0x883F) unless defined?(OpenGL::GL_SUBSAMPLE_DISTANCE_AMD)
     OpenGL.const_set('GL_PIXELS_PER_SAMPLE_PATTERN_X_AMD', 0x91AE) unless defined?(OpenGL::GL_PIXELS_PER_SAMPLE_PATTERN_X_AMD)

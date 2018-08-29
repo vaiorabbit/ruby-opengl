@@ -167,6 +167,34 @@ module OpenGLExt
   end # self.get_ext_command_GL_AMD_draw_buffers_blend
 
 
+  def self.define_ext_command_GL_AMD_framebuffer_multisample_advanced
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleAdvancedAMD] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorageMultisampleAdvancedAMD] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glRenderbufferStorageMultisampleAdvancedAMD(_target_, _samples_, _storageSamples_, _internalformat_, _width_, _height_)
+        f = OpenGL::get_command(:glRenderbufferStorageMultisampleAdvancedAMD)
+        f.call(_target_, _samples_, _storageSamples_, _internalformat_, _width_, _height_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glNamedRenderbufferStorageMultisampleAdvancedAMD] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glNamedRenderbufferStorageMultisampleAdvancedAMD] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glNamedRenderbufferStorageMultisampleAdvancedAMD(_renderbuffer_, _samples_, _storageSamples_, _internalformat_, _width_, _height_)
+        f = OpenGL::get_command(:glNamedRenderbufferStorageMultisampleAdvancedAMD)
+        f.call(_renderbuffer_, _samples_, _storageSamples_, _internalformat_, _width_, _height_)
+      end
+    SRC
+  end # self.define_ext_command_GL_AMD_framebuffer_multisample_advanced
+
+  def self.get_ext_command_GL_AMD_framebuffer_multisample_advanced
+    [
+      'glRenderbufferStorageMultisampleAdvancedAMD',
+      'glNamedRenderbufferStorageMultisampleAdvancedAMD',
+    ]
+  end # self.get_ext_command_GL_AMD_framebuffer_multisample_advanced
+
+
   def self.define_ext_command_GL_AMD_framebuffer_sample_positions
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferSamplePositionsfvAMD] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferSamplePositionsfvAMD] = Fiddle::TYPE_VOID
