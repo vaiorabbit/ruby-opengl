@@ -20891,6 +20891,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_compute_program5
 
 
+  def self.define_ext_command_GL_NV_compute_shader_derivatives
+  end # self.define_ext_command_GL_NV_compute_shader_derivatives
+
+  def self.get_ext_command_GL_NV_compute_shader_derivatives
+    [
+    ]
+  end # self.get_ext_command_GL_NV_compute_shader_derivatives
+
+
   def self.define_ext_command_GL_NV_conditional_render
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glBeginConditionalRenderNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glBeginConditionalRenderNV] = Fiddle::TYPE_VOID
@@ -21502,6 +21511,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_NV_fragment_program_option
+
+
+  def self.define_ext_command_GL_NV_fragment_shader_barycentric
+  end # self.define_ext_command_GL_NV_fragment_shader_barycentric
+
+  def self.get_ext_command_GL_NV_fragment_shader_barycentric
+    [
+    ]
+  end # self.get_ext_command_GL_NV_fragment_shader_barycentric
 
 
   def self.define_ext_command_GL_NV_fragment_shader_interlock
@@ -22809,6 +22827,122 @@ module OpenGLExt
       'glMulticastGetQueryObjectui64vNV',
     ]
   end # self.get_ext_command_GL_NV_gpu_multicast
+
+
+  def self.define_ext_command_GL_NV_memory_attachment
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetMemoryObjectDetachedResourcesuivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetMemoryObjectDetachedResourcesuivNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetMemoryObjectDetachedResourcesuivNV(_memory_, _pname_, _first_, _count_, _params_)
+        f = OpenGL::get_command(:glGetMemoryObjectDetachedResourcesuivNV)
+        f.call(_memory_, _pname_, _first_, _count_, _params_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glResetMemoryObjectParameterNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glResetMemoryObjectParameterNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glResetMemoryObjectParameterNV(_memory_, _pname_)
+        f = OpenGL::get_command(:glResetMemoryObjectParameterNV)
+        f.call(_memory_, _pname_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexAttachMemoryNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexAttachMemoryNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexAttachMemoryNV(_target_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTexAttachMemoryNV)
+        f.call(_target_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glBufferAttachMemoryNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glBufferAttachMemoryNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glBufferAttachMemoryNV(_target_, _memory_, _offset_)
+        f = OpenGL::get_command(:glBufferAttachMemoryNV)
+        f.call(_target_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureAttachMemoryNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureAttachMemoryNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTextureAttachMemoryNV(_texture_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTextureAttachMemoryNV)
+        f.call(_texture_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glNamedBufferAttachMemoryNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glNamedBufferAttachMemoryNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glNamedBufferAttachMemoryNV(_buffer_, _memory_, _offset_)
+        f = OpenGL::get_command(:glNamedBufferAttachMemoryNV)
+        f.call(_buffer_, _memory_, _offset_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_memory_attachment
+
+  def self.get_ext_command_GL_NV_memory_attachment
+    [
+      'glGetMemoryObjectDetachedResourcesuivNV',
+      'glResetMemoryObjectParameterNV',
+      'glTexAttachMemoryNV',
+      'glBufferAttachMemoryNV',
+      'glTextureAttachMemoryNV',
+      'glNamedBufferAttachMemoryNV',
+    ]
+  end # self.get_ext_command_GL_NV_memory_attachment
+
+
+  def self.define_ext_command_GL_NV_mesh_shader
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDrawMeshTasksNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDrawMeshTasksNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDrawMeshTasksNV(_first_, _count_)
+        f = OpenGL::get_command(:glDrawMeshTasksNV)
+        f.call(_first_, _count_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDrawMeshTasksIndirectNV] = [Fiddle::TYPE_PTRDIFF_T]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDrawMeshTasksIndirectNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDrawMeshTasksIndirectNV(_indirect_)
+        f = OpenGL::get_command(:glDrawMeshTasksIndirectNV)
+        f.call(_indirect_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawMeshTasksIndirectNV] = [Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawMeshTasksIndirectNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMultiDrawMeshTasksIndirectNV(_indirect_, _drawcount_, _stride_)
+        f = OpenGL::get_command(:glMultiDrawMeshTasksIndirectNV)
+        f.call(_indirect_, _drawcount_, _stride_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawMeshTasksIndirectCountNV] = [Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawMeshTasksIndirectCountNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMultiDrawMeshTasksIndirectCountNV(_indirect_, _drawcount_, _maxdrawcount_, _stride_)
+        f = OpenGL::get_command(:glMultiDrawMeshTasksIndirectCountNV)
+        f.call(_indirect_, _drawcount_, _maxdrawcount_, _stride_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_mesh_shader
+
+  def self.get_ext_command_GL_NV_mesh_shader
+    [
+      'glDrawMeshTasksNV',
+      'glDrawMeshTasksIndirectNV',
+      'glMultiDrawMeshTasksIndirectNV',
+      'glMultiDrawMeshTasksIndirectCountNV',
+    ]
+  end # self.get_ext_command_GL_NV_mesh_shader
 
 
   def self.define_ext_command_GL_NV_multisample_coverage
@@ -24184,6 +24318,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_register_combiners2
 
 
+  def self.define_ext_command_GL_NV_representative_fragment_test
+  end # self.define_ext_command_GL_NV_representative_fragment_test
+
+  def self.get_ext_command_GL_NV_representative_fragment_test
+    [
+    ]
+  end # self.get_ext_command_GL_NV_representative_fragment_test
+
+
   def self.define_ext_command_GL_NV_robustness_video_memory_purge
   end # self.define_ext_command_GL_NV_robustness_video_memory_purge
 
@@ -24238,6 +24381,34 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_NV_sample_mask_override_coverage
+
+
+  def self.define_ext_command_GL_NV_scissor_exclusive
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glScissorExclusiveNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glScissorExclusiveNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glScissorExclusiveNV(_x_, _y_, _width_, _height_)
+        f = OpenGL::get_command(:glScissorExclusiveNV)
+        f.call(_x_, _y_, _width_, _height_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glScissorExclusiveArrayvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glScissorExclusiveArrayvNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glScissorExclusiveArrayvNV(_first_, _count_, _v_)
+        f = OpenGL::get_command(:glScissorExclusiveArrayvNV)
+        f.call(_first_, _count_, _v_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_scissor_exclusive
+
+  def self.get_ext_command_GL_NV_scissor_exclusive
+    [
+      'glScissorExclusiveNV',
+      'glScissorExclusiveArrayvNV',
+    ]
+  end # self.get_ext_command_GL_NV_scissor_exclusive
 
 
   def self.define_ext_command_GL_NV_shader_atomic_counters
@@ -24451,6 +24622,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_shader_storage_buffer_object
 
 
+  def self.define_ext_command_GL_NV_shader_texture_footprint
+  end # self.define_ext_command_GL_NV_shader_texture_footprint
+
+  def self.get_ext_command_GL_NV_shader_texture_footprint
+    [
+    ]
+  end # self.get_ext_command_GL_NV_shader_texture_footprint
+
+
   def self.define_ext_command_GL_NV_shader_thread_group
   end # self.define_ext_command_GL_NV_shader_thread_group
 
@@ -24467,6 +24647,84 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_NV_shader_thread_shuffle
+
+
+  def self.define_ext_command_GL_NV_shading_rate_image
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glBindShadingRateImageNV] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glBindShadingRateImageNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glBindShadingRateImageNV(_texture_)
+        f = OpenGL::get_command(:glBindShadingRateImageNV)
+        f.call(_texture_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetShadingRateImagePaletteNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetShadingRateImagePaletteNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetShadingRateImagePaletteNV(_viewport_, _entry_, _rate_)
+        f = OpenGL::get_command(:glGetShadingRateImagePaletteNV)
+        f.call(_viewport_, _entry_, _rate_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetShadingRateSampleLocationivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetShadingRateSampleLocationivNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetShadingRateSampleLocationivNV(_rate_, _samples_, _index_, _location_)
+        f = OpenGL::get_command(:glGetShadingRateSampleLocationivNV)
+        f.call(_rate_, _samples_, _index_, _location_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateImageBarrierNV] = [-Fiddle::TYPE_CHAR]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateImageBarrierNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glShadingRateImageBarrierNV(_synchronize_)
+        f = OpenGL::get_command(:glShadingRateImageBarrierNV)
+        f.call(_synchronize_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateImagePaletteNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateImagePaletteNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glShadingRateImagePaletteNV(_viewport_, _first_, _count_, _rates_)
+        f = OpenGL::get_command(:glShadingRateImagePaletteNV)
+        f.call(_viewport_, _first_, _count_, _rates_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateSampleOrderNV] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateSampleOrderNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glShadingRateSampleOrderNV(_order_)
+        f = OpenGL::get_command(:glShadingRateSampleOrderNV)
+        f.call(_order_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateSampleOrderCustomNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateSampleOrderCustomNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glShadingRateSampleOrderCustomNV(_rate_, _samples_, _locations_)
+        f = OpenGL::get_command(:glShadingRateSampleOrderCustomNV)
+        f.call(_rate_, _samples_, _locations_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_shading_rate_image
+
+  def self.get_ext_command_GL_NV_shading_rate_image
+    [
+      'glBindShadingRateImageNV',
+      'glGetShadingRateImagePaletteNV',
+      'glGetShadingRateSampleLocationivNV',
+      'glShadingRateImageBarrierNV',
+      'glShadingRateImagePaletteNV',
+      'glShadingRateSampleOrderNV',
+      'glShadingRateSampleOrderCustomNV',
+    ]
+  end # self.get_ext_command_GL_NV_shading_rate_image
 
 
   def self.define_ext_command_GL_NV_stereo_view_rendering

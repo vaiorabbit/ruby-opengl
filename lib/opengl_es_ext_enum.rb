@@ -3599,6 +3599,35 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_internalformat_sample_query
 
 
+  def self.define_ext_enum_GL_NV_memory_attachment
+    OpenGL.const_set('GL_ATTACHED_MEMORY_OBJECT_NV', 0x95A4) unless defined?(OpenGL::GL_ATTACHED_MEMORY_OBJECT_NV)
+    OpenGL.const_set('GL_ATTACHED_MEMORY_OFFSET_NV', 0x95A5) unless defined?(OpenGL::GL_ATTACHED_MEMORY_OFFSET_NV)
+    OpenGL.const_set('GL_MEMORY_ATTACHABLE_ALIGNMENT_NV', 0x95A6) unless defined?(OpenGL::GL_MEMORY_ATTACHABLE_ALIGNMENT_NV)
+    OpenGL.const_set('GL_MEMORY_ATTACHABLE_SIZE_NV', 0x95A7) unless defined?(OpenGL::GL_MEMORY_ATTACHABLE_SIZE_NV)
+    OpenGL.const_set('GL_MEMORY_ATTACHABLE_NV', 0x95A8) unless defined?(OpenGL::GL_MEMORY_ATTACHABLE_NV)
+    OpenGL.const_set('GL_DETACHED_MEMORY_INCARNATION_NV', 0x95A9) unless defined?(OpenGL::GL_DETACHED_MEMORY_INCARNATION_NV)
+    OpenGL.const_set('GL_DETACHED_TEXTURES_NV', 0x95AA) unless defined?(OpenGL::GL_DETACHED_TEXTURES_NV)
+    OpenGL.const_set('GL_DETACHED_BUFFERS_NV', 0x95AB) unless defined?(OpenGL::GL_DETACHED_BUFFERS_NV)
+    OpenGL.const_set('GL_MAX_DETACHED_TEXTURES_NV', 0x95AC) unless defined?(OpenGL::GL_MAX_DETACHED_TEXTURES_NV)
+    OpenGL.const_set('GL_MAX_DETACHED_BUFFERS_NV', 0x95AD) unless defined?(OpenGL::GL_MAX_DETACHED_BUFFERS_NV)
+  end # self.define_ext_enum_GL_NV_memory_attachment
+
+  def self.get_ext_enum_GL_NV_memory_attachment
+    [
+      'GL_ATTACHED_MEMORY_OBJECT_NV',
+      'GL_ATTACHED_MEMORY_OFFSET_NV',
+      'GL_MEMORY_ATTACHABLE_ALIGNMENT_NV',
+      'GL_MEMORY_ATTACHABLE_SIZE_NV',
+      'GL_MEMORY_ATTACHABLE_NV',
+      'GL_DETACHED_MEMORY_INCARNATION_NV',
+      'GL_DETACHED_TEXTURES_NV',
+      'GL_DETACHED_BUFFERS_NV',
+      'GL_MAX_DETACHED_TEXTURES_NV',
+      'GL_MAX_DETACHED_BUFFERS_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_memory_attachment
+
+
   def self.define_ext_enum_GL_NV_non_square_matrices
     OpenGL.const_set('GL_FLOAT_MAT2x3_NV', 0x8B65) unless defined?(OpenGL::GL_FLOAT_MAT2x3_NV)
     OpenGL.const_set('GL_FLOAT_MAT2x4_NV', 0x8B66) unless defined?(OpenGL::GL_FLOAT_MAT2x4_NV)
@@ -5423,6 +5452,19 @@ module OpenGLExt
       'GL_FRAMEBUFFER_INCOMPLETE_FOVEATION_QCOM',
     ]
   end # self.get_ext_enum_GL_QCOM_texture_foveated
+
+
+  def self.define_ext_enum_GL_QCOM_texture_foveated_subsampled_layout
+    OpenGL.const_set('GL_FOVEATION_SUBSAMPLED_LAYOUT_METHOD_BIT_QCOM', 0x00000004) unless defined?(OpenGL::GL_FOVEATION_SUBSAMPLED_LAYOUT_METHOD_BIT_QCOM)
+    OpenGL.const_set('GL_MAX_SHADER_SUBSAMPLED_IMAGE_UNITS_QCOM', 0x8FA1) unless defined?(OpenGL::GL_MAX_SHADER_SUBSAMPLED_IMAGE_UNITS_QCOM)
+  end # self.define_ext_enum_GL_QCOM_texture_foveated_subsampled_layout
+
+  def self.get_ext_enum_GL_QCOM_texture_foveated_subsampled_layout
+    [
+      'GL_FOVEATION_SUBSAMPLED_LAYOUT_METHOD_BIT_QCOM',
+      'GL_MAX_SHADER_SUBSAMPLED_IMAGE_UNITS_QCOM',
+    ]
+  end # self.get_ext_enum_GL_QCOM_texture_foveated_subsampled_layout
 
 
   def self.define_ext_enum_GL_QCOM_perfmon_global_mode

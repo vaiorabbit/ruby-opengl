@@ -5099,6 +5099,74 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_internalformat_sample_query
 
 
+  def self.define_ext_command_GL_NV_memory_attachment
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetMemoryObjectDetachedResourcesuivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetMemoryObjectDetachedResourcesuivNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetMemoryObjectDetachedResourcesuivNV(_memory_, _pname_, _first_, _count_, _params_)
+        f = OpenGL::get_command(:glGetMemoryObjectDetachedResourcesuivNV)
+        f.call(_memory_, _pname_, _first_, _count_, _params_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glResetMemoryObjectParameterNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glResetMemoryObjectParameterNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glResetMemoryObjectParameterNV(_memory_, _pname_)
+        f = OpenGL::get_command(:glResetMemoryObjectParameterNV)
+        f.call(_memory_, _pname_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexAttachMemoryNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexAttachMemoryNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexAttachMemoryNV(_target_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTexAttachMemoryNV)
+        f.call(_target_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glBufferAttachMemoryNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glBufferAttachMemoryNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glBufferAttachMemoryNV(_target_, _memory_, _offset_)
+        f = OpenGL::get_command(:glBufferAttachMemoryNV)
+        f.call(_target_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureAttachMemoryNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureAttachMemoryNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTextureAttachMemoryNV(_texture_, _memory_, _offset_)
+        f = OpenGL::get_command(:glTextureAttachMemoryNV)
+        f.call(_texture_, _memory_, _offset_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glNamedBufferAttachMemoryNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glNamedBufferAttachMemoryNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glNamedBufferAttachMemoryNV(_buffer_, _memory_, _offset_)
+        f = OpenGL::get_command(:glNamedBufferAttachMemoryNV)
+        f.call(_buffer_, _memory_, _offset_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_memory_attachment
+
+  def self.get_ext_command_GL_NV_memory_attachment
+    [
+      'glGetMemoryObjectDetachedResourcesuivNV',
+      'glResetMemoryObjectParameterNV',
+      'glTexAttachMemoryNV',
+      'glBufferAttachMemoryNV',
+      'glTextureAttachMemoryNV',
+      'glNamedBufferAttachMemoryNV',
+    ]
+  end # self.get_ext_command_GL_NV_memory_attachment
+
+
   def self.define_ext_command_GL_NV_non_square_matrices
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix2x3fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix2x3fvNV] = Fiddle::TYPE_VOID
@@ -7709,6 +7777,15 @@ module OpenGLExt
       'glTextureFoveationParametersQCOM',
     ]
   end # self.get_ext_command_GL_QCOM_texture_foveated
+
+
+  def self.define_ext_command_GL_QCOM_texture_foveated_subsampled_layout
+  end # self.define_ext_command_GL_QCOM_texture_foveated_subsampled_layout
+
+  def self.get_ext_command_GL_QCOM_texture_foveated_subsampled_layout
+    [
+    ]
+  end # self.get_ext_command_GL_QCOM_texture_foveated_subsampled_layout
 
 
   def self.define_ext_command_GL_QCOM_perfmon_global_mode
