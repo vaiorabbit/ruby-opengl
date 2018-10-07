@@ -8,10 +8,7 @@
 *   Last modified : 2018-09-29
 
 
-<img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/simple_rb.jpg" width="200">
-<img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/nehe_lesson36_rb.jpg" width="200">
-<img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/brick_rb.jpg" width="200">
-<img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/glxs_rb.jpg" width="200">
+<img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/simple_rb.jpg" width="200"> <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/nehe_lesson36_rb.jpg" width="200"> <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/brick_rb.jpg" width="200"> <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/glxs_rb.jpg" width="200">
 
 
 ## Features ##
