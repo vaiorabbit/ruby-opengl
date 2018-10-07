@@ -8,6 +8,12 @@
 *   Last modified : 2018-09-29
 
 
+![sample/simple.rb](https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/simple_rb.jpg)
+![sample/NeHe/nehe_lesson36.rb](https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/nehe_lesson36_rb.jpg)
+![sample/OrangeBook/brick.rb](https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/brick_rb.jpg)
+![sample/GLExcess/glxs.rb](https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/glxs_rb.jpg)
+
+
 ## Features ##
 
 *   Uses Fiddle (One of the Ruby standard libraries that wraps libffi)
