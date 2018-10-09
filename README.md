@@ -213,6 +213,8 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
     *   opencl-bindings - A Ruby binding for OpenCL 1.2
         *   https://rubygems.org/gems/opencl-bindings
         *   https://github.com/vaiorabbit/ruby-opencl
+    *   perfume_dance - A BVH motion parser and playback implementation written in Ruby
+        *   https://github.com/vaiorabbit/perfume_dance
 
 *   Other informative projects
     *   argon | neon
@@ -447,6 +449,8 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
     *   opencl-bindings - A Ruby binding for OpenCL 1.2
         *   https://rubygems.org/gems/opencl-bindings
         *   https://github.com/vaiorabbit/ruby-opencl
+    *   perfume_dance - A BVH motion parser and playback implementation written in Ruby
+        *   https://github.com/vaiorabbit/perfume_dance
 
 *   参考になりそうなプロジェクト
     *   argon | neon
