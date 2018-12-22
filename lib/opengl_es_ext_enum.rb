@@ -3098,6 +3098,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_clip_space_w_scaling
 
 
+  def self.define_ext_enum_GL_NV_compute_shader_derivatives
+  end # self.define_ext_enum_GL_NV_compute_shader_derivatives
+
+  def self.get_ext_enum_GL_NV_compute_shader_derivatives
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_compute_shader_derivatives
+
+
   def self.define_ext_enum_GL_NV_conditional_render
     OpenGL.const_set('GL_QUERY_WAIT_NV', 0x8E13) unless defined?(OpenGL::GL_QUERY_WAIT_NV)
     OpenGL.const_set('GL_QUERY_NO_WAIT_NV', 0x8E14) unless defined?(OpenGL::GL_QUERY_NO_WAIT_NV)
@@ -5580,6 +5589,15 @@ module OpenGLExt
       'GL_WRITEONLY_RENDERING_QCOM',
     ]
   end # self.get_ext_enum_GL_QCOM_writeonly_rendering
+
+
+  def self.define_ext_enum_GL_QCOM_YUV_texture_gather
+  end # self.define_ext_enum_GL_QCOM_YUV_texture_gather
+
+  def self.get_ext_enum_GL_QCOM_YUV_texture_gather
+    [
+    ]
+  end # self.get_ext_enum_GL_QCOM_YUV_texture_gather
 
 
   def self.define_ext_enum_GL_VIV_shader_binary

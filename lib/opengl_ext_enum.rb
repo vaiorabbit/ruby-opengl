@@ -2466,6 +2466,25 @@ module OpenGLExt
     OpenGL.const_set('GL_VIEW_CLASS_RGTC2_RG', 0x82D1) unless defined?(OpenGL::GL_VIEW_CLASS_RGTC2_RG)
     OpenGL.const_set('GL_VIEW_CLASS_BPTC_UNORM', 0x82D2) unless defined?(OpenGL::GL_VIEW_CLASS_BPTC_UNORM)
     OpenGL.const_set('GL_VIEW_CLASS_BPTC_FLOAT', 0x82D3) unless defined?(OpenGL::GL_VIEW_CLASS_BPTC_FLOAT)
+    OpenGL.const_set('GL_VIEW_CLASS_EAC_R11', 0x9383) unless defined?(OpenGL::GL_VIEW_CLASS_EAC_R11)
+    OpenGL.const_set('GL_VIEW_CLASS_EAC_RG11', 0x9384) unless defined?(OpenGL::GL_VIEW_CLASS_EAC_RG11)
+    OpenGL.const_set('GL_VIEW_CLASS_ETC2_RGB', 0x9385) unless defined?(OpenGL::GL_VIEW_CLASS_ETC2_RGB)
+    OpenGL.const_set('GL_VIEW_CLASS_ETC2_RGBA', 0x9386) unless defined?(OpenGL::GL_VIEW_CLASS_ETC2_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ETC2_EAC_RGBA', 0x9387) unless defined?(OpenGL::GL_VIEW_CLASS_ETC2_EAC_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_4x4_RGBA', 0x9388) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_4x4_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_5x4_RGBA', 0x9389) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_5x4_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_5x5_RGBA', 0x938A) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_5x5_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_6x5_RGBA', 0x938B) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_6x5_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_6x6_RGBA', 0x938C) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_6x6_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_8x5_RGBA', 0x938D) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_8x5_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_8x6_RGBA', 0x938E) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_8x6_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_8x8_RGBA', 0x938F) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_8x8_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_10x5_RGBA', 0x9390) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_10x5_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_10x6_RGBA', 0x9391) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_10x6_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_10x8_RGBA', 0x9392) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_10x8_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_10x10_RGBA', 0x9393) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_10x10_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_12x10_RGBA', 0x9394) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_12x10_RGBA)
+    OpenGL.const_set('GL_VIEW_CLASS_ASTC_12x12_RGBA', 0x9395) unless defined?(OpenGL::GL_VIEW_CLASS_ASTC_12x12_RGBA)
   end # self.define_ext_enum_GL_ARB_internalformat_query2
 
   def self.get_ext_enum_GL_ARB_internalformat_query2
@@ -2585,6 +2604,25 @@ module OpenGLExt
       'GL_VIEW_CLASS_RGTC2_RG',
       'GL_VIEW_CLASS_BPTC_UNORM',
       'GL_VIEW_CLASS_BPTC_FLOAT',
+      'GL_VIEW_CLASS_EAC_R11',
+      'GL_VIEW_CLASS_EAC_RG11',
+      'GL_VIEW_CLASS_ETC2_RGB',
+      'GL_VIEW_CLASS_ETC2_RGBA',
+      'GL_VIEW_CLASS_ETC2_EAC_RGBA',
+      'GL_VIEW_CLASS_ASTC_4x4_RGBA',
+      'GL_VIEW_CLASS_ASTC_5x4_RGBA',
+      'GL_VIEW_CLASS_ASTC_5x5_RGBA',
+      'GL_VIEW_CLASS_ASTC_6x5_RGBA',
+      'GL_VIEW_CLASS_ASTC_6x6_RGBA',
+      'GL_VIEW_CLASS_ASTC_8x5_RGBA',
+      'GL_VIEW_CLASS_ASTC_8x6_RGBA',
+      'GL_VIEW_CLASS_ASTC_8x8_RGBA',
+      'GL_VIEW_CLASS_ASTC_10x5_RGBA',
+      'GL_VIEW_CLASS_ASTC_10x6_RGBA',
+      'GL_VIEW_CLASS_ASTC_10x8_RGBA',
+      'GL_VIEW_CLASS_ASTC_10x10_RGBA',
+      'GL_VIEW_CLASS_ASTC_12x10_RGBA',
+      'GL_VIEW_CLASS_ASTC_12x12_RGBA',
     ]
   end # self.get_ext_enum_GL_ARB_internalformat_query2
 
@@ -7925,6 +7963,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_texture_sRGB
 
 
+  def self.define_ext_enum_GL_EXT_texture_sRGB_R8
+    OpenGL.const_set('GL_SR8_EXT', 0x8FBD) unless defined?(OpenGL::GL_SR8_EXT)
+  end # self.define_ext_enum_GL_EXT_texture_sRGB_R8
+
+  def self.get_ext_enum_GL_EXT_texture_sRGB_R8
+    [
+      'GL_SR8_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_sRGB_R8
+
+
   def self.define_ext_enum_GL_EXT_texture_sRGB_decode
     OpenGL.const_set('GL_TEXTURE_SRGB_DECODE_EXT', 0x8A48) unless defined?(OpenGL::GL_TEXTURE_SRGB_DECODE_EXT)
     OpenGL.const_set('GL_DECODE_EXT', 0x8A49) unless defined?(OpenGL::GL_DECODE_EXT)
@@ -11982,6 +12031,15 @@ module OpenGLExt
       'GL_WRITE_DISCARD_NV',
     ]
   end # self.get_ext_enum_GL_NV_vdpau_interop
+
+
+  def self.define_ext_enum_GL_NV_vdpau_interop2
+  end # self.define_ext_enum_GL_NV_vdpau_interop2
+
+  def self.get_ext_enum_GL_NV_vdpau_interop2
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_vdpau_interop2
 
 
   def self.define_ext_enum_GL_NV_vertex_array_range

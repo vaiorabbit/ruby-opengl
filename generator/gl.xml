@@ -27,60 +27,22 @@ can always be found in the Khronos Registry at
     <!-- SECTION: GL type definitions. -->
     <types>
             <!-- These are dependencies GL types require to be declared legally -->
-        <type name="stddef">#include &lt;stddef.h&gt;</type>
         <type name="khrplatform">#include &lt;KHR/khrplatform.h&gt;</type>
-        <type name="inttypes">#ifndef GLEXT_64_TYPES_DEFINED
-/* This code block is duplicated in glxext.h, so must be protected */
-#define GLEXT_64_TYPES_DEFINED
-/* Define int32_t, int64_t, and uint64_t types for UST/MSC */
-/* (as used in the GL_EXT_timer_query extension). */
-#if defined(__STDC_VERSION__) &amp;&amp; __STDC_VERSION__ &gt;= 199901L
-#include &lt;inttypes.h&gt;
-#elif defined(__sun__) || defined(__digital__)
-#include &lt;inttypes.h&gt;
-#if defined(__STDC__)
-#if defined(__arch64__) || defined(_LP64)
-typedef long int int64_t;
-typedef unsigned long int uint64_t;
-#else
-typedef long long int int64_t;
-typedef unsigned long long int uint64_t;
-#endif /* __arch64__ */
-#endif /* __STDC__ */
-#elif defined( __VMS ) || defined(__sgi)
-#include &lt;inttypes.h&gt;
-#elif defined(__SCO__) || defined(__USLC__)
-#include &lt;stdint.h&gt;
-#elif defined(__UNIXOS2__) || defined(__SOL64__)
-typedef long int int32_t;
-typedef long long int int64_t;
-typedef unsigned long long int uint64_t;
-#elif defined(_WIN32) &amp;&amp; defined(__GNUC__)
-#include &lt;stdint.h&gt;
-#elif defined(_WIN32)
-typedef __int32 int32_t;
-typedef __int64 int64_t;
-typedef unsigned __int64 uint64_t;
-#else
-/* Fallback if nothing above works */
-#include &lt;inttypes.h&gt;
-#endif
-#endif</type>
             <!-- These are actual GL types -->
         <type>typedef unsigned int <name>GLenum</name>;</type>
         <type>typedef unsigned char <name>GLboolean</name>;</type>
         <type>typedef unsigned int <name>GLbitfield</name>;</type>
         <type comment="Not an actual GL type, though used in headers in the past">typedef void <name>GLvoid</name>;</type>
-        <type>typedef signed char <name>GLbyte</name>;</type>
-        <type>typedef short <name>GLshort</name>;</type>
+        <type requires="khrplatform">typedef khronos_int8_t <name>GLbyte</name>;</type>
+        <type requires="khrplatform">typedef khronos_uint8_t <name>GLubyte</name>;</type>
+        <type requires="khrplatform">typedef khronos_int16_t <name>GLshort</name>;</type>
+        <type requires="khrplatform">typedef khronos_uint16_t <name>GLushort</name>;</type>
         <type>typedef int <name>GLint</name>;</type>
-        <type>typedef int <name>GLclampx</name>;</type>
-        <type>typedef unsigned char <name>GLubyte</name>;</type>
-        <type>typedef unsigned short <name>GLushort</name>;</type>
         <type>typedef unsigned int <name>GLuint</name>;</type>
+        <type requires="khrplatform">typedef khronos_int32_t <name>GLclampx</name>;</type>
         <type>typedef int <name>GLsizei</name>;</type>
-        <type>typedef float <name>GLfloat</name>;</type>
-        <type>typedef float <name>GLclampf</name>;</type>
+        <type requires="khrplatform">typedef khronos_float_t <name>GLfloat</name>;</type>
+        <type requires="khrplatform">typedef khronos_float_t <name>GLclampf</name>;</type>
         <type>typedef double <name>GLdouble</name>;</type>
         <type>typedef double <name>GLclampd</name>;</type>
         <type>typedef void *<name>GLeglClientBufferEXT</name>;</type>
@@ -92,53 +54,24 @@ typedef void *GLhandleARB;
 #else
 typedef unsigned int GLhandleARB;
 #endif</type>
-        <type>typedef unsigned short <name>GLhalfARB</name>;</type>
-        <type>typedef unsigned short <name>GLhalf</name>;</type>
-        <type comment="Must be 32 bits">typedef GLint <name>GLfixed</name>;</type>
+        <type requires="khrplatform">typedef khronos_uint16_t <name>GLhalf</name>;</type>
+        <type requires="khrplatform">typedef khronos_uint16_t <name>GLhalfARB</name>;</type>
+        <type requires="khrplatform">typedef khronos_int32_t <name>GLfixed</name>;</type>
         <type requires="khrplatform">typedef khronos_intptr_t <name>GLintptr</name>;</type>
+        <type requires="khrplatform">typedef khronos_intptr_t <name>GLintptrARB</name>;</type>
         <type requires="khrplatform">typedef khronos_ssize_t <name>GLsizeiptr</name>;</type>
-        <type requires="inttypes">typedef int64_t <name>GLint64</name>;</type>
-        <type requires="inttypes">typedef uint64_t <name>GLuint64</name>;</type>
-        <type requires="stddef">typedef ptrdiff_t <name>GLintptrARB</name>;</type>
-        <type requires="stddef">typedef ptrdiff_t <name>GLsizeiptrARB</name>;</type>
-        <type requires="inttypes">typedef int64_t <name>GLint64EXT</name>;</type>
-        <type requires="inttypes">typedef uint64_t <name>GLuint64EXT</name>;</type>
+        <type requires="khrplatform">typedef khronos_ssize_t <name>GLsizeiptrARB</name>;</type>
+        <type requires="khrplatform">typedef khronos_int64_t <name>GLint64</name>;</type>
+        <type requires="khrplatform">typedef khronos_int64_t <name>GLint64EXT</name>;</type>
+        <type requires="khrplatform">typedef khronos_uint64_t <name>GLuint64</name>;</type>
+        <type requires="khrplatform">typedef khronos_uint64_t <name>GLuint64EXT</name>;</type>
         <type>typedef struct __GLsync *<name>GLsync</name>;</type>
         <type comment="compatible with OpenCL cl_context"><name>struct _cl_context</name>;</type>
         <type comment="compatible with OpenCL cl_event"><name>struct _cl_event</name>;</type>
         <type>typedef void (<apientry/> *<name>GLDEBUGPROC</name>)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam);</type>
         <type>typedef void (<apientry/> *<name>GLDEBUGPROCARB</name>)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam);</type>
         <type>typedef void (<apientry/> *<name>GLDEBUGPROCKHR</name>)(GLenum source,GLenum type,GLuint id,GLenum severity,GLsizei length,const GLchar *message,const void *userParam);</type>
-            <!-- GLES 1 types -->
-        <type api="gles1" requires="khrplatform">typedef khronos_int32_t <name>GLclampx</name>;</type>
-            <!-- GLES 1/2 types (tagged for GLES 1) -->
-        <type api="gles1" requires="khrplatform">typedef khronos_int8_t <name>GLbyte</name>;</type>
-        <type api="gles1" requires="khrplatform">typedef khronos_uint8_t <name>GLubyte</name>;</type>
-        <type api="gles1" requires="khrplatform">typedef khronos_float_t <name>GLfloat</name>;</type>
-        <type api="gles1" requires="khrplatform">typedef khronos_float_t <name>GLclampf</name>;</type>
-        <type api="gles1" requires="khrplatform">typedef khronos_int32_t <name>GLfixed</name>;</type>
-        <type api="gles1" requires="khrplatform">typedef khronos_int64_t <name>GLint64</name>;</type>
-        <type api="gles1" requires="khrplatform">typedef khronos_uint64_t <name>GLuint64</name>;</type>
-        <type api="gles1" requires="khrplatform">typedef khronos_intptr_t <name>GLintptr</name>;</type>
-        <type api="gles1" requires="khrplatform">typedef khronos_ssize_t <name>GLsizeiptr</name>;</type>
-            <!-- GLES 1/2 types (tagged for GLES 2 - attribute syntax is limited) -->
-        <type api="gles2" requires="khrplatform">typedef khronos_int8_t <name>GLbyte</name>;</type>
-        <type api="gles2" requires="khrplatform">typedef khronos_uint8_t <name>GLubyte</name>;</type>
-        <type api="gles2" requires="khrplatform">typedef khronos_float_t <name>GLfloat</name>;</type>
-        <type api="gles2" requires="khrplatform">typedef khronos_float_t <name>GLclampf</name>;</type>
-        <type api="gles2" requires="khrplatform">typedef khronos_int32_t <name>GLfixed</name>;</type>
-        <type api="gles2" requires="khrplatform">typedef khronos_int64_t <name>GLint64</name>;</type>
-        <type api="gles2" requires="khrplatform">typedef khronos_uint64_t <name>GLuint64</name>;</type>
-        <type api="gles2" requires="khrplatform">typedef khronos_int64_t <name>GLint64EXT</name>;</type>
-        <type api="gles2" requires="khrplatform">typedef khronos_uint64_t <name>GLuint64EXT</name>;</type>
-        <type api="gles2" requires="khrplatform">typedef khronos_intptr_t <name>GLintptr</name>;</type>
-        <type api="gles2" requires="khrplatform">typedef khronos_ssize_t <name>GLsizeiptr</name>;</type>
-            <!-- GLES 2 types (none currently) -->
-            <!-- GLSC 2 types -->
-        <type api="glsc2" requires="khrplatform">typedef khronos_uint8_t <name>GLubyte</name>;</type>
-        <type api="glsc2" requires="khrplatform">typedef khronos_float_t <name>GLfloat</name>;</type>
-        <type api="glsc2" requires="khrplatform">typedef khronos_intptr_t <name>GLintptr</name>;</type>
-        <type api="glsc2" requires="khrplatform">typedef khronos_ssize_t <name>GLsizeiptr</name>;</type>
+
             <!-- Vendor extension types -->
         <type>typedef void (<apientry/> *<name>GLDEBUGPROCAMD</name>)(GLuint id,GLenum category,GLenum severity,GLsizei length,const GLchar *message,void *userParam);</type>
         <type>typedef unsigned short <name>GLhalfNV</name>;</type>
@@ -199,15 +132,16 @@ typedef unsigned int GLhandleARB;
         <group name="BlendEquationModeEXT">
             <enum name="GL_ALPHA_MAX_SGIX"/>
             <enum name="GL_ALPHA_MIN_SGIX"/>
-            <enum name="GL_FUNC_ADD_EXT"/>
-            <enum name="GL_FUNC_REVERSE_SUBTRACT_EXT"/>
-            <enum name="GL_FUNC_SUBTRACT_EXT"/>
-            <enum name="GL_LOGIC_OP"/>
-            <enum name="GL_MAX_EXT"/>
-            <enum name="GL_MIN_EXT"/>
             <enum name="GL_FUNC_ADD"/>
+            <enum name="GL_FUNC_ADD_EXT"/>
             <enum name="GL_FUNC_REVERSE_SUBTRACT"/>
+            <enum name="GL_FUNC_REVERSE_SUBTRACT_EXT"/>
             <enum name="GL_FUNC_SUBTRACT"/>
+            <enum name="GL_FUNC_SUBTRACT_EXT"/>
+            <enum name="GL_MAX"/>
+            <enum name="GL_MAX_EXT"/>
+            <enum name="GL_MIN"/>
+            <enum name="GL_MIN_EXT"/>
         </group>
 
         <group name="Boolean">
@@ -265,6 +199,7 @@ typedef unsigned int GLhandleARB;
           <enum name="GL_TEXTURE_BUFFER" />
           <enum name="GL_TRANSFORM_FEEDBACK_BUFFER" />
           <enum name="GL_UNIFORM_BUFFER" />
+          <enum name="GL_PARAMETER_BUFFER" />
         </group>
 
         <group name="BufferUsageARB">
@@ -1748,18 +1683,30 @@ typedef unsigned int GLhandleARB;
         <group name="PixelFormat">
             <enum name="GL_ABGR_EXT"/>
             <enum name="GL_ALPHA"/>
+            <enum name="GL_BGR"/>
+            <enum name="GL_BGR_INTEGER"/>
+            <enum name="GL_BGRA"/>
+            <enum name="GL_BGRA_INTEGER"/>
             <enum name="GL_BLUE"/>
+            <enum name="GL_BLUE_INTEGER"/>
             <enum name="GL_CMYKA_EXT"/>
             <enum name="GL_CMYK_EXT"/>
             <enum name="GL_COLOR_INDEX"/>
             <enum name="GL_DEPTH_COMPONENT"/>
+            <enum name="GL_DEPTH_STENCIL"/>
             <enum name="GL_GREEN"/>
+            <enum name="GL_GREEN_INTEGER"/>
             <enum name="GL_LUMINANCE"/>
             <enum name="GL_LUMINANCE_ALPHA"/>
             <enum name="GL_RED"/>
             <enum name="GL_RED_EXT"/>
+            <enum name="GL_RED_INTEGER"/>
+            <enum name="GL_RG"/>
+            <enum name="GL_RG_INTEGER"/>
             <enum name="GL_RGB"/>
+            <enum name="GL_RGB_INTEGER"/>
             <enum name="GL_RGBA"/>
+            <enum name="GL_RGBA_INTEGER"/>
             <enum name="GL_STENCIL_INDEX"/>
             <enum name="GL_UNSIGNED_INT"/>
             <enum name="GL_UNSIGNED_SHORT"/>
@@ -2286,7 +2233,9 @@ typedef unsigned int GLhandleARB;
 
         <group name="StencilOp">
             <enum name="GL_DECR"/>
+            <enum name="GL_DECR_WRAP"/>
             <enum name="GL_INCR"/>
+            <enum name="GL_INCR_WRAP"/>
             <enum name="GL_INVERT"/>
             <enum name="GL_KEEP"/>
             <enum name="GL_REPLACE"/>
@@ -2629,6 +2578,7 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_COLOR_ATTACHMENT30"/>
             <enum name="GL_COLOR_ATTACHMENT31"/>
             <enum name="GL_DEPTH_ATTACHMENT"/>
+            <enum name="GL_DEPTH_STENCIL_ATTACHMENT"/>
             <enum name="GL_DEPTH_ATTACHMENT_EXT"/>
             <enum name="GL_DEPTH_ATTACHMENT_OES"/>
         </group>
@@ -2733,6 +2683,10 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_PRIMITIVES_GENERATED"/>
             <enum name="GL_TRANSFORM_FEEDBACK_PRIMITIVES_WRITTEN"/>
             <enum name="GL_TIME_ELAPSED"/>
+        </group>
+
+        <group name="QueryCounterTarget">
+            <enum name="GL_TIMESTAMP"/>
         </group>
 
         <group name="ConvolutionTarget">
@@ -2928,6 +2882,7 @@ typedef unsigned int GLhandleARB;
             <enum name="GL_DEBUG_SEVERITY_LOW"/>
             <enum name="GL_DEBUG_SEVERITY_MEDIUM"/>
             <enum name="GL_DEBUG_SEVERITY_HIGH"/>
+            <enum name="GL_DEBUG_SEVERITY_NOTIFICATION"/>
             <enum name="GL_DONT_CARE"/>
         </group>
 
@@ -10025,7 +9980,36 @@ typedef unsigned int GLhandleARB;
         <enum value="0x9381" name="GL_MULTISAMPLE_LINE_WIDTH_RANGE"/>
         <enum value="0x9382" name="GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY_ARB"/>
         <enum value="0x9382" name="GL_MULTISAMPLE_LINE_WIDTH_GRANULARITY"/>
-            <unused start="0x9383" end="0x939F" vendor="ARB"/>
+        <enum value="0x9383" name="GL_VIEW_CLASS_EAC_R11"/>
+        <enum value="0x9384" name="GL_VIEW_CLASS_EAC_RG11"/>
+        <enum value="0x9385" name="GL_VIEW_CLASS_ETC2_RGB"/>
+        <enum value="0x9386" name="GL_VIEW_CLASS_ETC2_RGBA"/>
+        <enum value="0x9387" name="GL_VIEW_CLASS_ETC2_EAC_RGBA"/>
+        <enum value="0x9388" name="GL_VIEW_CLASS_ASTC_4x4_RGBA"/>
+        <enum value="0x9389" name="GL_VIEW_CLASS_ASTC_5x4_RGBA"/>
+        <enum value="0x938A" name="GL_VIEW_CLASS_ASTC_5x5_RGBA"/>
+        <enum value="0x938B" name="GL_VIEW_CLASS_ASTC_6x5_RGBA"/>
+        <enum value="0x938C" name="GL_VIEW_CLASS_ASTC_6x6_RGBA"/>
+        <enum value="0x938D" name="GL_VIEW_CLASS_ASTC_8x5_RGBA"/>
+        <enum value="0x938E" name="GL_VIEW_CLASS_ASTC_8x6_RGBA"/>
+        <enum value="0x938F" name="GL_VIEW_CLASS_ASTC_8x8_RGBA"/>
+        <enum value="0x9390" name="GL_VIEW_CLASS_ASTC_10x5_RGBA"/>
+        <enum value="0x9391" name="GL_VIEW_CLASS_ASTC_10x6_RGBA"/>
+        <enum value="0x9392" name="GL_VIEW_CLASS_ASTC_10x8_RGBA"/>
+        <enum value="0x9393" name="GL_VIEW_CLASS_ASTC_10x10_RGBA"/>
+        <enum value="0x9394" name="GL_VIEW_CLASS_ASTC_12x10_RGBA"/>
+        <enum value="0x9395" name="GL_VIEW_CLASS_ASTC_12x12_RGBA"/>
+            <unused start="0x9396" end="0x939F" vendor="ARB" comment="reserved for ASTC 3D interactions with ARB_ifq2"/>
+            <!-- <enum value="0x9396" name="GL_VIEW_CLASS_ASTC_3x3x3_RGBA"/> -->
+            <!-- <enum value="0x9397" name="GL_VIEW_CLASS_ASTC_4x3x3_RGBA"/> -->
+            <!-- <enum value="0x9398" name="GL_VIEW_CLASS_ASTC_4x4x3_RGBA"/> -->
+            <!-- <enum value="0x9399" name="GL_VIEW_CLASS_ASTC_4x4x4_RGBA"/> -->
+            <!-- <enum value="0x939A" name="GL_VIEW_CLASS_ASTC_5x4x4_RGBA"/> -->
+            <!-- <enum value="0x939B" name="GL_VIEW_CLASS_ASTC_5x5x4_RGBA"/> -->
+            <!-- <enum value="0x939C" name="GL_VIEW_CLASS_ASTC_5x5x5_RGBA"/> -->
+            <!-- <enum value="0x939D" name="GL_VIEW_CLASS_ASTC_6x5x5_RGBA"/> -->
+            <!-- <enum value="0x939E" name="GL_VIEW_CLASS_ASTC_6x6x5_RGBA"/> -->
+            <!-- <enum value="0x939F" name="GL_VIEW_CLASS_ASTC_6x6x6_RGBA"/> -->
     </enums>
 
     <enums namespace="GL" start="0x93A0" end="0x93AF" vendor="ANGLE" comment="Khronos bug 8100">
@@ -25088,12 +25072,12 @@ typedef unsigned int GLhandleARB;
         <command>
             <proto>void <name>glQueryCounter</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
-            <param group="QueryTarget"><ptype>GLenum</ptype> <name>target</name></param>
+            <param group="QueryCounterTarget"><ptype>GLenum</ptype> <name>target</name></param>
         </command>
         <command>
             <proto>void <name>glQueryCounterEXT</name></proto>
             <param><ptype>GLuint</ptype> <name>id</name></param>
-            <param group="QueryTarget"><ptype>GLenum</ptype> <name>target</name></param>
+            <param group="QueryCounterTarget"><ptype>GLenum</ptype> <name>target</name></param>
             <alias name="glQueryCounter"/>
         </command>
         <command>
@@ -29579,6 +29563,14 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLenum</ptype> <name>target</name></param>
             <param><ptype>GLsizei</ptype> <name>numTextureNames</name></param>
             <param len="numTextureNames">const <ptype>GLuint</ptype> *<name>textureNames</name></param>
+        </command>
+        <command>
+            <proto group="vdpauSurfaceNV"><ptype>GLvdpauSurfaceNV</ptype> <name>glVDPAURegisterVideoSurfaceWithPictureStructureNV</name></proto>
+            <param>const void *<name>vdpSurface</name></param>
+            <param><ptype>GLenum</ptype> <name>target</name></param>
+            <param><ptype>GLsizei</ptype> <name>numTextureNames</name></param>
+            <param len="numTextureNames">const <ptype>GLuint</ptype> *<name>textureNames</name></param>
+            <param group="Boolean"><ptype>GLboolean</ptype> <name>isFrameStructure</name></param>
         </command>
         <command>
             <proto>void <name>glVDPAUSurfaceAccessNV</name></proto>
@@ -40849,6 +40841,29 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_VIEW_CLASS_RGTC2_RG"/>
                 <enum name="GL_VIEW_CLASS_BPTC_UNORM"/>
                 <enum name="GL_VIEW_CLASS_BPTC_FLOAT"/>
+            </require>
+            <require comment="Supported only if GL_ARB_ES3_compatibility is supported">
+                <enum name="GL_VIEW_CLASS_EAC_R11"/>
+                <enum name="GL_VIEW_CLASS_EAC_RG11"/>
+                <enum name="GL_VIEW_CLASS_ETC2_RGB"/>
+                <enum name="GL_VIEW_CLASS_ETC2_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ETC2_EAC_RGBA"/>
+            </require>
+            <require comment="Supported only if GL_KHR_texture_compression_astc_ldr is supported">
+                <enum name="GL_VIEW_CLASS_ASTC_4x4_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ASTC_5x4_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ASTC_5x5_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ASTC_6x5_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ASTC_6x6_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ASTC_8x5_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ASTC_8x6_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ASTC_8x8_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ASTC_10x5_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ASTC_10x6_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ASTC_10x8_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ASTC_10x10_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ASTC_12x10_RGBA"/>
+                <enum name="GL_VIEW_CLASS_ASTC_12x12_RGBA"/>
                 <command name="glGetInternalformati64v"/>
             </require>
         </extension>
@@ -45185,7 +45200,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT"/>
             </require>
         </extension>
-        <extension name="GL_EXT_texture_sRGB_R8" supported="gles2">
+        <extension name="GL_EXT_texture_sRGB_R8" supported="gles2|gl|glcore">
             <require>
                 <enum name="GL_SR8_EXT"/>
             </require>
@@ -46441,7 +46456,7 @@ typedef unsigned int GLhandleARB;
                 <enum name="GL_COMPUTE_PROGRAM_PARAMETER_BUFFER_NV"/>
             </require>
         </extension>
-        <extension name="GL_NV_compute_shader_derivatives" supported="gl|glcore"/>
+        <extension name="GL_NV_compute_shader_derivatives" supported="gl|glcore|gles2"/>
         <extension name="GL_NV_conditional_render" supported="gl|glcore|gles2">
             <require>
                 <enum name="GL_QUERY_WAIT_NV"/>
@@ -48021,6 +48036,11 @@ typedef unsigned int GLhandleARB;
                 <command name="glVDPAUUnmapSurfacesNV"/>
             </require>
         </extension>
+        <extension name="GL_NV_vdpau_interop2" supported="gl">
+            <require>
+                <command name="glVDPAURegisterVideoSurfaceWithPictureStructureNV"/>
+            </require>
+        </extension>
         <extension name="GL_NV_vertex_array_range" supported="gl">
             <require>
                 <enum name="GL_VERTEX_ARRAY_RANGE_NV"/>
@@ -49459,6 +49479,8 @@ typedef unsigned int GLhandleARB;
             <require>
                 <enum name="GL_WRITEONLY_RENDERING_QCOM"/>
             </require>
+        </extension>
+        <extension name="GL_QCOM_YUV_texture_gather" supported="gles2">
         </extension>
         <extension name="GL_REND_screen_coordinates" supported="gl">
             <require>

@@ -18126,6 +18126,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_texture_sRGB
 
 
+  def self.define_ext_command_GL_EXT_texture_sRGB_R8
+  end # self.define_ext_command_GL_EXT_texture_sRGB_R8
+
+  def self.get_ext_command_GL_EXT_texture_sRGB_R8
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_texture_sRGB_R8
+
+
   def self.define_ext_command_GL_EXT_texture_sRGB_decode
   end # self.define_ext_command_GL_EXT_texture_sRGB_decode
 
@@ -25242,6 +25251,24 @@ module OpenGLExt
       'glVDPAUUnmapSurfacesNV',
     ]
   end # self.get_ext_command_GL_NV_vdpau_interop
+
+
+  def self.define_ext_command_GL_NV_vdpau_interop2
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVDPAURegisterVideoSurfaceWithPictureStructureNV] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_CHAR]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVDPAURegisterVideoSurfaceWithPictureStructureNV] = Fiddle::TYPE_PTRDIFF_T
+    OpenGL.module_eval(<<-SRC)
+      def glVDPAURegisterVideoSurfaceWithPictureStructureNV(_vdpSurface_, _target_, _numTextureNames_, _textureNames_, _isFrameStructure_)
+        f = OpenGL::get_command(:glVDPAURegisterVideoSurfaceWithPictureStructureNV)
+        f.call(_vdpSurface_, _target_, _numTextureNames_, _textureNames_, _isFrameStructure_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_vdpau_interop2
+
+  def self.get_ext_command_GL_NV_vdpau_interop2
+    [
+      'glVDPAURegisterVideoSurfaceWithPictureStructureNV',
+    ]
+  end # self.get_ext_command_GL_NV_vdpau_interop2
 
 
   def self.define_ext_command_GL_NV_vertex_array_range

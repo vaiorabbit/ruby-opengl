@@ -4250,6 +4250,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_clip_space_w_scaling
 
 
+  def self.define_ext_command_GL_NV_compute_shader_derivatives
+  end # self.define_ext_command_GL_NV_compute_shader_derivatives
+
+  def self.get_ext_command_GL_NV_compute_shader_derivatives
+    [
+    ]
+  end # self.get_ext_command_GL_NV_compute_shader_derivatives
+
+
   def self.define_ext_command_GL_NV_conditional_render
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glBeginConditionalRenderNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glBeginConditionalRenderNV] = Fiddle::TYPE_VOID
@@ -7859,6 +7868,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_QCOM_writeonly_rendering
+
+
+  def self.define_ext_command_GL_QCOM_YUV_texture_gather
+  end # self.define_ext_command_GL_QCOM_YUV_texture_gather
+
+  def self.get_ext_command_GL_QCOM_YUV_texture_gather
+    [
+    ]
+  end # self.get_ext_command_GL_QCOM_YUV_texture_gather
 
 
   def self.define_ext_command_GL_VIV_shader_binary
