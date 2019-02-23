@@ -734,6 +734,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_debug_marker
 
 
+  def self.define_ext_enum_GL_EXT_depth_clamp
+    OpenGL.const_set('GL_DEPTH_CLAMP_EXT', 0x864F) unless defined?(OpenGL::GL_DEPTH_CLAMP_EXT)
+  end # self.define_ext_enum_GL_EXT_depth_clamp
+
+  def self.get_ext_enum_GL_EXT_depth_clamp
+    [
+      'GL_DEPTH_CLAMP_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_depth_clamp
+
+
   def self.define_ext_enum_GL_EXT_discard_framebuffer
     OpenGL.const_set('GL_COLOR_EXT', 0x1800) unless defined?(OpenGL::GL_COLOR_EXT)
     OpenGL.const_set('GL_DEPTH_EXT', 0x1801) unless defined?(OpenGL::GL_DEPTH_EXT)

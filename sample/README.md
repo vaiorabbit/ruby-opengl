@@ -3,12 +3,13 @@ For more samples, visit https://github.com/vaiorabbit/ruby-opengl/tree/master/sa
 ## Getting GLFW (http://www.glfw.org) ##
 
 *   Windows
-	*   Put glfw3.dll here.
-	*   Windows pre-compiled binaries:
+	*   Put glfw3.dll here. You can download pre-compiled binaries via:
 		*   http://www.glfw.org/download.html
+	*   If you have RubyInstaller2 with DevKit(MSYS2 gcc & make) and CMake, you can use glfw_build.bat:
+		*   > ./glfw_build.bat
 
 *   Mac OS X
-	*   run ./glfwXX_build_dylib.sh to get ./libglfw.dylib.
+	*   Run ./glfw_build.sh to get ./libglfw.dylib.
 
 ## Getting GLUT ##
 
@@ -30,12 +31,13 @@ For more samples, visit https://github.com/vaiorabbit/ruby-opengl/tree/master/sa
 ## GLFWのセットアップ (http://www.glfw.org) ##
 
 *   Windows
-	*   glfw3.dll をここに配置してください。
-	*   コンパイル済みバイナリはこちら:
+	*   glfw3.dll をここに配置してください。コンパイル済みバイナリはこちら:
 		*   http://www.glfw.org/download.html
+	*   RubyInstaller2 とその DevKit(MSYS2 gcc & make)、さらに CMake もインストールしている場合は glfw_build.bat も使えます:
+		*   > ./glfw_build.bat
 
 *   Mac OS X
-	*   ./glfwXX_build_dylib.sh を実行すると ./libglfw.dylib ができあがります。
+	*   ./glfw_build.sh を実行すると ./libglfw.dylib ができあがります。
 
 ## GLUTのセットアップ ##
 

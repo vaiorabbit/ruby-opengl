@@ -911,6 +911,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_debug_marker
 
 
+  def self.define_ext_command_GL_EXT_depth_clamp
+  end # self.define_ext_command_GL_EXT_depth_clamp
+
+  def self.get_ext_command_GL_EXT_depth_clamp
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_depth_clamp
+
+
   def self.define_ext_command_GL_EXT_discard_framebuffer
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDiscardFramebufferEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDiscardFramebufferEXT] = Fiddle::TYPE_VOID
