@@ -323,6 +323,7 @@ module GLFW
   GLFW_STICKY_KEYS           = 0x00033002
   GLFW_STICKY_MOUSE_BUTTONS  = 0x00033003
   GLFW_LOCK_KEY_MODS         = 0x00033004 # Available since GLFW 3.3
+  GLFW_RAW_MOUSE_MOTION      = 0x00033005 # Available since GLFW 3.3
 
   GLFW_CURSOR_NORMAL    = 0x00034001
   GLFW_CURSOR_HIDDEN    = 0x00034002
@@ -583,6 +584,7 @@ module GLFW
     'void glfwPostEmptyEvent()',                       # Available since GLFW 3.1
     'int glfwGetInputMode(void*, int)',                # Available since GLFW 3.0
     'void glfwSetInputMode(void*, int, int)',          # Available since GLFW 3.0
+    'int glfwRawMouseMotionSupported()',               # Available since GLFW 3.3
     'const char* glfwGetKeyName(int, int)',            # Available since GLFW 3.2
     'int glfwGetKeyScancode(int)',                     # Available since GLFW 3.3
     'int glfwGetKey(void*, int)',
