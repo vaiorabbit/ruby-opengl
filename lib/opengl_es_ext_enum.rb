@@ -4165,6 +4165,19 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_sample_mask_override_coverage
 
 
+  def self.define_ext_enum_GL_NV_scissor_exclusive
+    OpenGL.const_set('GL_SCISSOR_TEST_EXCLUSIVE_NV', 0x9555) unless defined?(OpenGL::GL_SCISSOR_TEST_EXCLUSIVE_NV)
+    OpenGL.const_set('GL_SCISSOR_BOX_EXCLUSIVE_NV', 0x9556) unless defined?(OpenGL::GL_SCISSOR_BOX_EXCLUSIVE_NV)
+  end # self.define_ext_enum_GL_NV_scissor_exclusive
+
+  def self.get_ext_enum_GL_NV_scissor_exclusive
+    [
+      'GL_SCISSOR_TEST_EXCLUSIVE_NV',
+      'GL_SCISSOR_BOX_EXCLUSIVE_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_scissor_exclusive
+
+
   def self.define_ext_enum_GL_NV_shader_atomic_fp16_vector
   end # self.define_ext_enum_GL_NV_shader_atomic_fp16_vector
 

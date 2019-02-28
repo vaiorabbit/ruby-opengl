@@ -6237,6 +6237,34 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_sample_mask_override_coverage
 
 
+  def self.define_ext_command_GL_NV_scissor_exclusive
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glScissorExclusiveNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glScissorExclusiveNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glScissorExclusiveNV(_x_, _y_, _width_, _height_)
+        f = OpenGL::get_command(:glScissorExclusiveNV)
+        f.call(_x_, _y_, _width_, _height_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glScissorExclusiveArrayvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glScissorExclusiveArrayvNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glScissorExclusiveArrayvNV(_first_, _count_, _v_)
+        f = OpenGL::get_command(:glScissorExclusiveArrayvNV)
+        f.call(_first_, _count_, _v_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_scissor_exclusive
+
+  def self.get_ext_command_GL_NV_scissor_exclusive
+    [
+      'glScissorExclusiveNV',
+      'glScissorExclusiveArrayvNV',
+    ]
+  end # self.get_ext_command_GL_NV_scissor_exclusive
+
+
   def self.define_ext_command_GL_NV_shader_atomic_fp16_vector
   end # self.define_ext_command_GL_NV_shader_atomic_fp16_vector
 
