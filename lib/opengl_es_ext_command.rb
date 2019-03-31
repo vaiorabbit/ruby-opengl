@@ -3069,6 +3069,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_texture_norm16
 
 
+  def self.define_ext_command_GL_EXT_texture_query_lod
+  end # self.define_ext_command_GL_EXT_texture_query_lod
+
+  def self.get_ext_command_GL_EXT_texture_query_lod
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_texture_query_lod
+
+
   def self.define_ext_command_GL_EXT_texture_rg
   end # self.define_ext_command_GL_EXT_texture_rg
 
@@ -5185,6 +5194,54 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_memory_attachment
 
 
+  def self.define_ext_command_GL_NV_mesh_shader
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDrawMeshTasksNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDrawMeshTasksNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDrawMeshTasksNV(_first_, _count_)
+        f = OpenGL::get_command(:glDrawMeshTasksNV)
+        f.call(_first_, _count_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDrawMeshTasksIndirectNV] = [Fiddle::TYPE_PTRDIFF_T]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDrawMeshTasksIndirectNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDrawMeshTasksIndirectNV(_indirect_)
+        f = OpenGL::get_command(:glDrawMeshTasksIndirectNV)
+        f.call(_indirect_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawMeshTasksIndirectNV] = [Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawMeshTasksIndirectNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMultiDrawMeshTasksIndirectNV(_indirect_, _drawcount_, _stride_)
+        f = OpenGL::get_command(:glMultiDrawMeshTasksIndirectNV)
+        f.call(_indirect_, _drawcount_, _stride_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawMeshTasksIndirectCountNV] = [Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawMeshTasksIndirectCountNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glMultiDrawMeshTasksIndirectCountNV(_indirect_, _drawcount_, _maxdrawcount_, _stride_)
+        f = OpenGL::get_command(:glMultiDrawMeshTasksIndirectCountNV)
+        f.call(_indirect_, _drawcount_, _maxdrawcount_, _stride_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_mesh_shader
+
+  def self.get_ext_command_GL_NV_mesh_shader
+    [
+      'glDrawMeshTasksNV',
+      'glDrawMeshTasksIndirectNV',
+      'glMultiDrawMeshTasksIndirectNV',
+      'glMultiDrawMeshTasksIndirectCountNV',
+    ]
+  end # self.get_ext_command_GL_NV_mesh_shader
+
+
   def self.define_ext_command_GL_NV_non_square_matrices
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glUniformMatrix2x3fvNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_CHAR, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glUniformMatrix2x3fvNV] = Fiddle::TYPE_VOID
@@ -6181,6 +6238,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_read_stencil
 
 
+  def self.define_ext_command_GL_NV_representative_fragment_test
+  end # self.define_ext_command_GL_NV_representative_fragment_test
+
+  def self.get_ext_command_GL_NV_representative_fragment_test
+    [
+    ]
+  end # self.get_ext_command_GL_NV_representative_fragment_test
+
+
   def self.define_ext_command_GL_NV_sRGB_formats
   end # self.define_ext_command_GL_NV_sRGB_formats
 
@@ -6281,6 +6347,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_NV_shader_noperspective_interpolation
+
+
+  def self.define_ext_command_GL_NV_shader_texture_footprint
+  end # self.define_ext_command_GL_NV_shader_texture_footprint
+
+  def self.get_ext_command_GL_NV_shader_texture_footprint
+    [
+    ]
+  end # self.get_ext_command_GL_NV_shader_texture_footprint
 
 
   def self.define_ext_command_GL_NV_shadow_samplers_array

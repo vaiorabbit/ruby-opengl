@@ -2057,6 +2057,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_texture_norm16
 
 
+  def self.define_ext_enum_GL_EXT_texture_query_lod
+  end # self.define_ext_enum_GL_EXT_texture_query_lod
+
+  def self.get_ext_enum_GL_EXT_texture_query_lod
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_query_lod
+
+
   def self.define_ext_enum_GL_EXT_texture_rg
     OpenGL.const_set('GL_RED_EXT', 0x1903) unless defined?(OpenGL::GL_RED_EXT)
     OpenGL.const_set('GL_RG_EXT', 0x8227) unless defined?(OpenGL::GL_RG_EXT)
@@ -3648,6 +3657,111 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_memory_attachment
 
 
+  def self.define_ext_enum_GL_NV_mesh_shader
+    OpenGL.const_set('GL_MESH_SHADER_NV', 0x9559) unless defined?(OpenGL::GL_MESH_SHADER_NV)
+    OpenGL.const_set('GL_TASK_SHADER_NV', 0x955A) unless defined?(OpenGL::GL_TASK_SHADER_NV)
+    OpenGL.const_set('GL_MAX_MESH_UNIFORM_BLOCKS_NV', 0x8E60) unless defined?(OpenGL::GL_MAX_MESH_UNIFORM_BLOCKS_NV)
+    OpenGL.const_set('GL_MAX_MESH_TEXTURE_IMAGE_UNITS_NV', 0x8E61) unless defined?(OpenGL::GL_MAX_MESH_TEXTURE_IMAGE_UNITS_NV)
+    OpenGL.const_set('GL_MAX_MESH_IMAGE_UNIFORMS_NV', 0x8E62) unless defined?(OpenGL::GL_MAX_MESH_IMAGE_UNIFORMS_NV)
+    OpenGL.const_set('GL_MAX_MESH_UNIFORM_COMPONENTS_NV', 0x8E63) unless defined?(OpenGL::GL_MAX_MESH_UNIFORM_COMPONENTS_NV)
+    OpenGL.const_set('GL_MAX_MESH_ATOMIC_COUNTER_BUFFERS_NV', 0x8E64) unless defined?(OpenGL::GL_MAX_MESH_ATOMIC_COUNTER_BUFFERS_NV)
+    OpenGL.const_set('GL_MAX_MESH_ATOMIC_COUNTERS_NV', 0x8E65) unless defined?(OpenGL::GL_MAX_MESH_ATOMIC_COUNTERS_NV)
+    OpenGL.const_set('GL_MAX_MESH_SHADER_STORAGE_BLOCKS_NV', 0x8E66) unless defined?(OpenGL::GL_MAX_MESH_SHADER_STORAGE_BLOCKS_NV)
+    OpenGL.const_set('GL_MAX_COMBINED_MESH_UNIFORM_COMPONENTS_NV', 0x8E67) unless defined?(OpenGL::GL_MAX_COMBINED_MESH_UNIFORM_COMPONENTS_NV)
+    OpenGL.const_set('GL_MAX_TASK_UNIFORM_BLOCKS_NV', 0x8E68) unless defined?(OpenGL::GL_MAX_TASK_UNIFORM_BLOCKS_NV)
+    OpenGL.const_set('GL_MAX_TASK_TEXTURE_IMAGE_UNITS_NV', 0x8E69) unless defined?(OpenGL::GL_MAX_TASK_TEXTURE_IMAGE_UNITS_NV)
+    OpenGL.const_set('GL_MAX_TASK_IMAGE_UNIFORMS_NV', 0x8E6A) unless defined?(OpenGL::GL_MAX_TASK_IMAGE_UNIFORMS_NV)
+    OpenGL.const_set('GL_MAX_TASK_UNIFORM_COMPONENTS_NV', 0x8E6B) unless defined?(OpenGL::GL_MAX_TASK_UNIFORM_COMPONENTS_NV)
+    OpenGL.const_set('GL_MAX_TASK_ATOMIC_COUNTER_BUFFERS_NV', 0x8E6C) unless defined?(OpenGL::GL_MAX_TASK_ATOMIC_COUNTER_BUFFERS_NV)
+    OpenGL.const_set('GL_MAX_TASK_ATOMIC_COUNTERS_NV', 0x8E6D) unless defined?(OpenGL::GL_MAX_TASK_ATOMIC_COUNTERS_NV)
+    OpenGL.const_set('GL_MAX_TASK_SHADER_STORAGE_BLOCKS_NV', 0x8E6E) unless defined?(OpenGL::GL_MAX_TASK_SHADER_STORAGE_BLOCKS_NV)
+    OpenGL.const_set('GL_MAX_COMBINED_TASK_UNIFORM_COMPONENTS_NV', 0x8E6F) unless defined?(OpenGL::GL_MAX_COMBINED_TASK_UNIFORM_COMPONENTS_NV)
+    OpenGL.const_set('GL_MAX_MESH_WORK_GROUP_INVOCATIONS_NV', 0x95A2) unless defined?(OpenGL::GL_MAX_MESH_WORK_GROUP_INVOCATIONS_NV)
+    OpenGL.const_set('GL_MAX_TASK_WORK_GROUP_INVOCATIONS_NV', 0x95A3) unless defined?(OpenGL::GL_MAX_TASK_WORK_GROUP_INVOCATIONS_NV)
+    OpenGL.const_set('GL_MAX_MESH_TOTAL_MEMORY_SIZE_NV', 0x9536) unless defined?(OpenGL::GL_MAX_MESH_TOTAL_MEMORY_SIZE_NV)
+    OpenGL.const_set('GL_MAX_TASK_TOTAL_MEMORY_SIZE_NV', 0x9537) unless defined?(OpenGL::GL_MAX_TASK_TOTAL_MEMORY_SIZE_NV)
+    OpenGL.const_set('GL_MAX_MESH_OUTPUT_VERTICES_NV', 0x9538) unless defined?(OpenGL::GL_MAX_MESH_OUTPUT_VERTICES_NV)
+    OpenGL.const_set('GL_MAX_MESH_OUTPUT_PRIMITIVES_NV', 0x9539) unless defined?(OpenGL::GL_MAX_MESH_OUTPUT_PRIMITIVES_NV)
+    OpenGL.const_set('GL_MAX_TASK_OUTPUT_COUNT_NV', 0x953A) unless defined?(OpenGL::GL_MAX_TASK_OUTPUT_COUNT_NV)
+    OpenGL.const_set('GL_MAX_DRAW_MESH_TASKS_COUNT_NV', 0x953D) unless defined?(OpenGL::GL_MAX_DRAW_MESH_TASKS_COUNT_NV)
+    OpenGL.const_set('GL_MAX_MESH_VIEWS_NV', 0x9557) unless defined?(OpenGL::GL_MAX_MESH_VIEWS_NV)
+    OpenGL.const_set('GL_MESH_OUTPUT_PER_VERTEX_GRANULARITY_NV', 0x92DF) unless defined?(OpenGL::GL_MESH_OUTPUT_PER_VERTEX_GRANULARITY_NV)
+    OpenGL.const_set('GL_MESH_OUTPUT_PER_PRIMITIVE_GRANULARITY_NV', 0x9543) unless defined?(OpenGL::GL_MESH_OUTPUT_PER_PRIMITIVE_GRANULARITY_NV)
+    OpenGL.const_set('GL_MAX_MESH_WORK_GROUP_SIZE_NV', 0x953B) unless defined?(OpenGL::GL_MAX_MESH_WORK_GROUP_SIZE_NV)
+    OpenGL.const_set('GL_MAX_TASK_WORK_GROUP_SIZE_NV', 0x953C) unless defined?(OpenGL::GL_MAX_TASK_WORK_GROUP_SIZE_NV)
+    OpenGL.const_set('GL_MESH_WORK_GROUP_SIZE_NV', 0x953E) unless defined?(OpenGL::GL_MESH_WORK_GROUP_SIZE_NV)
+    OpenGL.const_set('GL_TASK_WORK_GROUP_SIZE_NV', 0x953F) unless defined?(OpenGL::GL_TASK_WORK_GROUP_SIZE_NV)
+    OpenGL.const_set('GL_MESH_VERTICES_OUT_NV', 0x9579) unless defined?(OpenGL::GL_MESH_VERTICES_OUT_NV)
+    OpenGL.const_set('GL_MESH_PRIMITIVES_OUT_NV', 0x957A) unless defined?(OpenGL::GL_MESH_PRIMITIVES_OUT_NV)
+    OpenGL.const_set('GL_MESH_OUTPUT_TYPE_NV', 0x957B) unless defined?(OpenGL::GL_MESH_OUTPUT_TYPE_NV)
+    OpenGL.const_set('GL_UNIFORM_BLOCK_REFERENCED_BY_MESH_SHADER_NV', 0x959C) unless defined?(OpenGL::GL_UNIFORM_BLOCK_REFERENCED_BY_MESH_SHADER_NV)
+    OpenGL.const_set('GL_UNIFORM_BLOCK_REFERENCED_BY_TASK_SHADER_NV', 0x959D) unless defined?(OpenGL::GL_UNIFORM_BLOCK_REFERENCED_BY_TASK_SHADER_NV)
+    OpenGL.const_set('GL_REFERENCED_BY_MESH_SHADER_NV', 0x95A0) unless defined?(OpenGL::GL_REFERENCED_BY_MESH_SHADER_NV)
+    OpenGL.const_set('GL_REFERENCED_BY_TASK_SHADER_NV', 0x95A1) unless defined?(OpenGL::GL_REFERENCED_BY_TASK_SHADER_NV)
+    OpenGL.const_set('GL_MESH_SHADER_BIT_NV', 0x00000040) unless defined?(OpenGL::GL_MESH_SHADER_BIT_NV)
+    OpenGL.const_set('GL_TASK_SHADER_BIT_NV', 0x00000080) unless defined?(OpenGL::GL_TASK_SHADER_BIT_NV)
+    OpenGL.const_set('GL_MESH_SUBROUTINE_NV', 0x957C) unless defined?(OpenGL::GL_MESH_SUBROUTINE_NV)
+    OpenGL.const_set('GL_TASK_SUBROUTINE_NV', 0x957D) unless defined?(OpenGL::GL_TASK_SUBROUTINE_NV)
+    OpenGL.const_set('GL_MESH_SUBROUTINE_UNIFORM_NV', 0x957E) unless defined?(OpenGL::GL_MESH_SUBROUTINE_UNIFORM_NV)
+    OpenGL.const_set('GL_TASK_SUBROUTINE_UNIFORM_NV', 0x957F) unless defined?(OpenGL::GL_TASK_SUBROUTINE_UNIFORM_NV)
+    OpenGL.const_set('GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_MESH_SHADER_NV', 0x959E) unless defined?(OpenGL::GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_MESH_SHADER_NV)
+    OpenGL.const_set('GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TASK_SHADER_NV', 0x959F) unless defined?(OpenGL::GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TASK_SHADER_NV)
+  end # self.define_ext_enum_GL_NV_mesh_shader
+
+  def self.get_ext_enum_GL_NV_mesh_shader
+    [
+      'GL_MESH_SHADER_NV',
+      'GL_TASK_SHADER_NV',
+      'GL_MAX_MESH_UNIFORM_BLOCKS_NV',
+      'GL_MAX_MESH_TEXTURE_IMAGE_UNITS_NV',
+      'GL_MAX_MESH_IMAGE_UNIFORMS_NV',
+      'GL_MAX_MESH_UNIFORM_COMPONENTS_NV',
+      'GL_MAX_MESH_ATOMIC_COUNTER_BUFFERS_NV',
+      'GL_MAX_MESH_ATOMIC_COUNTERS_NV',
+      'GL_MAX_MESH_SHADER_STORAGE_BLOCKS_NV',
+      'GL_MAX_COMBINED_MESH_UNIFORM_COMPONENTS_NV',
+      'GL_MAX_TASK_UNIFORM_BLOCKS_NV',
+      'GL_MAX_TASK_TEXTURE_IMAGE_UNITS_NV',
+      'GL_MAX_TASK_IMAGE_UNIFORMS_NV',
+      'GL_MAX_TASK_UNIFORM_COMPONENTS_NV',
+      'GL_MAX_TASK_ATOMIC_COUNTER_BUFFERS_NV',
+      'GL_MAX_TASK_ATOMIC_COUNTERS_NV',
+      'GL_MAX_TASK_SHADER_STORAGE_BLOCKS_NV',
+      'GL_MAX_COMBINED_TASK_UNIFORM_COMPONENTS_NV',
+      'GL_MAX_MESH_WORK_GROUP_INVOCATIONS_NV',
+      'GL_MAX_TASK_WORK_GROUP_INVOCATIONS_NV',
+      'GL_MAX_MESH_TOTAL_MEMORY_SIZE_NV',
+      'GL_MAX_TASK_TOTAL_MEMORY_SIZE_NV',
+      'GL_MAX_MESH_OUTPUT_VERTICES_NV',
+      'GL_MAX_MESH_OUTPUT_PRIMITIVES_NV',
+      'GL_MAX_TASK_OUTPUT_COUNT_NV',
+      'GL_MAX_DRAW_MESH_TASKS_COUNT_NV',
+      'GL_MAX_MESH_VIEWS_NV',
+      'GL_MESH_OUTPUT_PER_VERTEX_GRANULARITY_NV',
+      'GL_MESH_OUTPUT_PER_PRIMITIVE_GRANULARITY_NV',
+      'GL_MAX_MESH_WORK_GROUP_SIZE_NV',
+      'GL_MAX_TASK_WORK_GROUP_SIZE_NV',
+      'GL_MESH_WORK_GROUP_SIZE_NV',
+      'GL_TASK_WORK_GROUP_SIZE_NV',
+      'GL_MESH_VERTICES_OUT_NV',
+      'GL_MESH_PRIMITIVES_OUT_NV',
+      'GL_MESH_OUTPUT_TYPE_NV',
+      'GL_UNIFORM_BLOCK_REFERENCED_BY_MESH_SHADER_NV',
+      'GL_UNIFORM_BLOCK_REFERENCED_BY_TASK_SHADER_NV',
+      'GL_REFERENCED_BY_MESH_SHADER_NV',
+      'GL_REFERENCED_BY_TASK_SHADER_NV',
+      'GL_MESH_SHADER_BIT_NV',
+      'GL_TASK_SHADER_BIT_NV',
+      'GL_MESH_SUBROUTINE_NV',
+      'GL_TASK_SUBROUTINE_NV',
+      'GL_MESH_SUBROUTINE_UNIFORM_NV',
+      'GL_TASK_SUBROUTINE_UNIFORM_NV',
+      'GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_MESH_SHADER_NV',
+      'GL_ATOMIC_COUNTER_BUFFER_REFERENCED_BY_TASK_SHADER_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_mesh_shader
+
+
   def self.define_ext_enum_GL_NV_non_square_matrices
     OpenGL.const_set('GL_FLOAT_MAT2x3_NV', 0x8B65) unless defined?(OpenGL::GL_FLOAT_MAT2x3_NV)
     OpenGL.const_set('GL_FLOAT_MAT2x4_NV', 0x8B66) unless defined?(OpenGL::GL_FLOAT_MAT2x4_NV)
@@ -4102,6 +4216,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_read_stencil
 
 
+  def self.define_ext_enum_GL_NV_representative_fragment_test
+    OpenGL.const_set('GL_REPRESENTATIVE_FRAGMENT_TEST_NV', 0x937F) unless defined?(OpenGL::GL_REPRESENTATIVE_FRAGMENT_TEST_NV)
+  end # self.define_ext_enum_GL_NV_representative_fragment_test
+
+  def self.get_ext_enum_GL_NV_representative_fragment_test
+    [
+      'GL_REPRESENTATIVE_FRAGMENT_TEST_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_representative_fragment_test
+
+
   def self.define_ext_enum_GL_NV_sRGB_formats
     OpenGL.const_set('GL_SLUMINANCE_NV', 0x8C46) unless defined?(OpenGL::GL_SLUMINANCE_NV)
     OpenGL.const_set('GL_SLUMINANCE_ALPHA_NV', 0x8C44) unless defined?(OpenGL::GL_SLUMINANCE_ALPHA_NV)
@@ -4194,6 +4319,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_NV_shader_noperspective_interpolation
+
+
+  def self.define_ext_enum_GL_NV_shader_texture_footprint
+  end # self.define_ext_enum_GL_NV_shader_texture_footprint
+
+  def self.get_ext_enum_GL_NV_shader_texture_footprint
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_shader_texture_footprint
 
 
   def self.define_ext_enum_GL_NV_shadow_samplers_array
