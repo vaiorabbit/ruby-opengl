@@ -6358,6 +6358,84 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_shader_texture_footprint
 
 
+  def self.define_ext_command_GL_NV_shading_rate_image
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glBindShadingRateImageNV] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glBindShadingRateImageNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glBindShadingRateImageNV(_texture_)
+        f = OpenGL::get_command(:glBindShadingRateImageNV)
+        f.call(_texture_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetShadingRateImagePaletteNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetShadingRateImagePaletteNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetShadingRateImagePaletteNV(_viewport_, _entry_, _rate_)
+        f = OpenGL::get_command(:glGetShadingRateImagePaletteNV)
+        f.call(_viewport_, _entry_, _rate_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetShadingRateSampleLocationivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetShadingRateSampleLocationivNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetShadingRateSampleLocationivNV(_rate_, _samples_, _index_, _location_)
+        f = OpenGL::get_command(:glGetShadingRateSampleLocationivNV)
+        f.call(_rate_, _samples_, _index_, _location_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateImageBarrierNV] = [-Fiddle::TYPE_CHAR]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateImageBarrierNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glShadingRateImageBarrierNV(_synchronize_)
+        f = OpenGL::get_command(:glShadingRateImageBarrierNV)
+        f.call(_synchronize_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateImagePaletteNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateImagePaletteNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glShadingRateImagePaletteNV(_viewport_, _first_, _count_, _rates_)
+        f = OpenGL::get_command(:glShadingRateImagePaletteNV)
+        f.call(_viewport_, _first_, _count_, _rates_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateSampleOrderNV] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateSampleOrderNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glShadingRateSampleOrderNV(_order_)
+        f = OpenGL::get_command(:glShadingRateSampleOrderNV)
+        f.call(_order_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateSampleOrderCustomNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateSampleOrderCustomNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glShadingRateSampleOrderCustomNV(_rate_, _samples_, _locations_)
+        f = OpenGL::get_command(:glShadingRateSampleOrderCustomNV)
+        f.call(_rate_, _samples_, _locations_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_shading_rate_image
+
+  def self.get_ext_command_GL_NV_shading_rate_image
+    [
+      'glBindShadingRateImageNV',
+      'glGetShadingRateImagePaletteNV',
+      'glGetShadingRateSampleLocationivNV',
+      'glShadingRateImageBarrierNV',
+      'glShadingRateImagePaletteNV',
+      'glShadingRateSampleOrderNV',
+      'glShadingRateSampleOrderCustomNV',
+    ]
+  end # self.get_ext_command_GL_NV_shading_rate_image
+
+
   def self.define_ext_command_GL_NV_shadow_samplers_array
   end # self.define_ext_command_GL_NV_shadow_samplers_array
 

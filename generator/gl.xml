@@ -25485,6 +25485,7 @@ typedef unsigned int GLhandleARB;
             <param group="InternalFormat"><ptype>GLenum</ptype> <name>internalformat</name></param>
             <param><ptype>GLsizei</ptype> <name>width</name></param>
             <param><ptype>GLsizei</ptype> <name>height</name></param>
+            <glx type="render" opcode="4331"/>
         </command>
         <command>
             <proto>void <name>glRenderbufferStorageMultisampleANGLE</name></proto>
@@ -25527,6 +25528,7 @@ typedef unsigned int GLhandleARB;
             <param group="InternalFormat"><ptype>GLenum</ptype> <name>internalformat</name></param>
             <param><ptype>GLsizei</ptype> <name>width</name></param>
             <param><ptype>GLsizei</ptype> <name>height</name></param>
+            <alias name="glRenderbufferStorageMultisample"/>
             <glx type="render" opcode="4331"/>
         </command>
         <command>
@@ -47743,7 +47745,7 @@ typedef unsigned int GLhandleARB;
             </require>
         </extension>
         <extension name="GL_NV_shader_thread_shuffle" supported="gl|glcore"/>
-        <extension name="GL_NV_shading_rate_image" supported="gl|glcore">
+        <extension name="GL_NV_shading_rate_image" supported="gl|glcore|gles2">
             <require>
                 <enum name="GL_SHADING_RATE_IMAGE_NV"/>
                 <enum name="GL_SHADING_RATE_NO_INVOCATIONS_NV"/>
