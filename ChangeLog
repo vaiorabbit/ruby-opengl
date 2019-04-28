@@ -1,6 +1,7 @@
 2019-04-28  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* glfw.rb: Added GLFW 3.3 features.
+	* Updated using latest gl.xml.
 
 2019-04-07  vaiorabbit  <http://twitter.com/vaiorabbit>
 
