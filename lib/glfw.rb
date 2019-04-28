@@ -525,6 +525,7 @@ module GLFW
     'void** glfwGetMonitors(int*)',
     'void* glfwGetPrimaryMonitor()',
     'void glfwGetMonitorPos(void*, int*, int*)',
+    'void glfwGetMonitorWorkarea(void* monitor, int*, int*, int*, int*)', # Available since GLFW 3.3
     'void glfwGetMonitorPhysicalSize(void*, int*, int*)',
     'void glfwGetMonitorContentScale(void*, float*, float*)',      # Available since GLFW 3.3
     'const char* glfwGetMonitorName(void*)',
