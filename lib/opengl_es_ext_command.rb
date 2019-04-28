@@ -4632,6 +4632,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_fragment_coverage_to_color
 
 
+  def self.define_ext_command_GL_NV_fragment_shader_barycentric
+  end # self.define_ext_command_GL_NV_fragment_shader_barycentric
+
+  def self.get_ext_command_GL_NV_fragment_shader_barycentric
+    [
+    ]
+  end # self.get_ext_command_GL_NV_fragment_shader_barycentric
+
+
   def self.define_ext_command_GL_NV_fragment_shader_interlock
   end # self.define_ext_command_GL_NV_fragment_shader_interlock
 
