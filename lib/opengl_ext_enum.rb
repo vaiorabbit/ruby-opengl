@@ -6814,6 +6814,33 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_multisample
 
 
+  def self.define_ext_enum_GL_EXT_multiview_tessellation_geometry_shader
+  end # self.define_ext_enum_GL_EXT_multiview_tessellation_geometry_shader
+
+  def self.get_ext_enum_GL_EXT_multiview_tessellation_geometry_shader
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_multiview_tessellation_geometry_shader
+
+
+  def self.define_ext_enum_GL_EXT_multiview_texture_multisample
+  end # self.define_ext_enum_GL_EXT_multiview_texture_multisample
+
+  def self.get_ext_enum_GL_EXT_multiview_texture_multisample
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_multiview_texture_multisample
+
+
+  def self.define_ext_enum_GL_EXT_multiview_timer_query
+  end # self.define_ext_enum_GL_EXT_multiview_timer_query
+
+  def self.get_ext_enum_GL_EXT_multiview_timer_query
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_multiview_timer_query
+
+
   def self.define_ext_enum_GL_EXT_packed_depth_stencil
     OpenGL.const_set('GL_DEPTH_STENCIL_EXT', 0x84F9) unless defined?(OpenGL::GL_DEPTH_STENCIL_EXT)
     OpenGL.const_set('GL_UNSIGNED_INT_24_8_EXT', 0x84FA) unless defined?(OpenGL::GL_UNSIGNED_INT_24_8_EXT)
@@ -13883,6 +13910,15 @@ module OpenGLExt
       'GL_FOG_SPECULAR_TEXTURE_WIN',
     ]
   end # self.get_ext_enum_GL_WIN_specular_fog
+
+
+  def self.define_ext_enum_GL_EXT_texture_shadow_lod
+  end # self.define_ext_enum_GL_EXT_texture_shadow_lod
+
+  def self.get_ext_enum_GL_EXT_texture_shadow_lod
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_shadow_lod
 
 
 end

@@ -16530,6 +16530,33 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_multisample
 
 
+  def self.define_ext_command_GL_EXT_multiview_tessellation_geometry_shader
+  end # self.define_ext_command_GL_EXT_multiview_tessellation_geometry_shader
+
+  def self.get_ext_command_GL_EXT_multiview_tessellation_geometry_shader
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_multiview_tessellation_geometry_shader
+
+
+  def self.define_ext_command_GL_EXT_multiview_texture_multisample
+  end # self.define_ext_command_GL_EXT_multiview_texture_multisample
+
+  def self.get_ext_command_GL_EXT_multiview_texture_multisample
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_multiview_texture_multisample
+
+
+  def self.define_ext_command_GL_EXT_multiview_timer_query
+  end # self.define_ext_command_GL_EXT_multiview_timer_query
+
+  def self.get_ext_command_GL_EXT_multiview_timer_query
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_multiview_timer_query
+
+
   def self.define_ext_command_GL_EXT_packed_depth_stencil
   end # self.define_ext_command_GL_EXT_packed_depth_stencil
 
@@ -30126,6 +30153,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_WIN_specular_fog
+
+
+  def self.define_ext_command_GL_EXT_texture_shadow_lod
+  end # self.define_ext_command_GL_EXT_texture_shadow_lod
+
+  def self.get_ext_command_GL_EXT_texture_shadow_lod
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_texture_shadow_lod
 
 
 end

@@ -1231,6 +1231,33 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_multiview_draw_buffers
 
 
+  def self.define_ext_enum_GL_EXT_multiview_tessellation_geometry_shader
+  end # self.define_ext_enum_GL_EXT_multiview_tessellation_geometry_shader
+
+  def self.get_ext_enum_GL_EXT_multiview_tessellation_geometry_shader
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_multiview_tessellation_geometry_shader
+
+
+  def self.define_ext_enum_GL_EXT_multiview_texture_multisample
+  end # self.define_ext_enum_GL_EXT_multiview_texture_multisample
+
+  def self.get_ext_enum_GL_EXT_multiview_texture_multisample
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_multiview_texture_multisample
+
+
+  def self.define_ext_enum_GL_EXT_multiview_timer_query
+  end # self.define_ext_enum_GL_EXT_multiview_timer_query
+
+  def self.get_ext_enum_GL_EXT_multiview_timer_query
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_multiview_timer_query
+
+
   def self.define_ext_enum_GL_EXT_occlusion_query_boolean
     OpenGL.const_set('GL_ANY_SAMPLES_PASSED_EXT', 0x8C2F) unless defined?(OpenGL::GL_ANY_SAMPLES_PASSED_EXT)
     OpenGL.const_set('GL_ANY_SAMPLES_PASSED_CONSERVATIVE_EXT', 0x8D6A) unless defined?(OpenGL::GL_ANY_SAMPLES_PASSED_CONSERVATIVE_EXT)
@@ -5827,6 +5854,15 @@ module OpenGLExt
       'GL_SHADER_BINARY_VIV',
     ]
   end # self.get_ext_enum_GL_VIV_shader_binary
+
+
+  def self.define_ext_enum_GL_EXT_texture_shadow_lod
+  end # self.define_ext_enum_GL_EXT_texture_shadow_lod
+
+  def self.get_ext_enum_GL_EXT_texture_shadow_lod
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_shadow_lod
 
 
 end

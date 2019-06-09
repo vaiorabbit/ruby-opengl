@@ -1780,6 +1780,33 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_multiview_draw_buffers
 
 
+  def self.define_ext_command_GL_EXT_multiview_tessellation_geometry_shader
+  end # self.define_ext_command_GL_EXT_multiview_tessellation_geometry_shader
+
+  def self.get_ext_command_GL_EXT_multiview_tessellation_geometry_shader
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_multiview_tessellation_geometry_shader
+
+
+  def self.define_ext_command_GL_EXT_multiview_texture_multisample
+  end # self.define_ext_command_GL_EXT_multiview_texture_multisample
+
+  def self.get_ext_command_GL_EXT_multiview_texture_multisample
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_multiview_texture_multisample
+
+
+  def self.define_ext_command_GL_EXT_multiview_timer_query
+  end # self.define_ext_command_GL_EXT_multiview_timer_query
+
+  def self.get_ext_command_GL_EXT_multiview_timer_query
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_multiview_timer_query
+
+
   def self.define_ext_command_GL_EXT_occlusion_query_boolean
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGenQueriesEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGenQueriesEXT] = Fiddle::TYPE_VOID
@@ -8085,6 +8112,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_VIV_shader_binary
+
+
+  def self.define_ext_command_GL_EXT_texture_shadow_lod
+  end # self.define_ext_command_GL_EXT_texture_shadow_lod
+
+  def self.get_ext_command_GL_EXT_texture_shadow_lod
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_texture_shadow_lod
 
 
 end
