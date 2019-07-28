@@ -9427,6 +9427,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_MESAX_texture_stack
 
 
+  def self.define_ext_enum_GL_MESA_framebuffer_flip_y
+    OpenGL.const_set('GL_FRAMEBUFFER_FLIP_Y_MESA', 0x8BBB) unless defined?(OpenGL::GL_FRAMEBUFFER_FLIP_Y_MESA)
+  end # self.define_ext_enum_GL_MESA_framebuffer_flip_y
+
+  def self.get_ext_enum_GL_MESA_framebuffer_flip_y
+    [
+      'GL_FRAMEBUFFER_FLIP_Y_MESA',
+    ]
+  end # self.get_ext_enum_GL_MESA_framebuffer_flip_y
+
+
   def self.define_ext_enum_GL_MESA_pack_invert
     OpenGL.const_set('GL_PACK_INVERT_MESA', 0x8758) unless defined?(OpenGL::GL_PACK_INVERT_MESA)
   end # self.define_ext_enum_GL_MESA_pack_invert

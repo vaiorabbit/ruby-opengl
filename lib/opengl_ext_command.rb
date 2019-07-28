@@ -20060,6 +20060,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_MESAX_texture_stack
 
 
+  def self.define_ext_command_GL_MESA_framebuffer_flip_y
+  end # self.define_ext_command_GL_MESA_framebuffer_flip_y
+
+  def self.get_ext_command_GL_MESA_framebuffer_flip_y
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_framebuffer_flip_y
+
+
   def self.define_ext_command_GL_MESA_pack_invert
   end # self.define_ext_command_GL_MESA_pack_invert
 
