@@ -4012,6 +4012,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_KHR_robustness
 
 
+  def self.define_ext_command_GL_KHR_shader_subgroup
+  end # self.define_ext_command_GL_KHR_shader_subgroup
+
+  def self.get_ext_command_GL_KHR_shader_subgroup
+    [
+    ]
+  end # self.get_ext_command_GL_KHR_shader_subgroup
+
+
   def self.define_ext_command_GL_KHR_texture_compression_astc_hdr
   end # self.define_ext_command_GL_KHR_texture_compression_astc_hdr
 
@@ -4058,10 +4067,29 @@ module OpenGLExt
 
 
   def self.define_ext_command_GL_MESA_framebuffer_flip_y
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferParameteriMESA] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferParameteriMESA] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glFramebufferParameteriMESA(_target_, _pname_, _param_)
+        f = OpenGL::get_command(:glFramebufferParameteriMESA)
+        f.call(_target_, _pname_, _param_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetFramebufferParameterivMESA] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetFramebufferParameterivMESA] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetFramebufferParameterivMESA(_target_, _pname_, _params_)
+        f = OpenGL::get_command(:glGetFramebufferParameterivMESA)
+        f.call(_target_, _pname_, _params_)
+      end
+    SRC
   end # self.define_ext_command_GL_MESA_framebuffer_flip_y
 
   def self.get_ext_command_GL_MESA_framebuffer_flip_y
     [
+      'glFramebufferParameteriMESA',
+      'glGetFramebufferParameterivMESA',
     ]
   end # self.get_ext_command_GL_MESA_framebuffer_flip_y
 
@@ -6383,6 +6411,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_NV_shader_noperspective_interpolation
+
+
+  def self.define_ext_command_GL_NV_shader_subgroup_partitioned
+  end # self.define_ext_command_GL_NV_shader_subgroup_partitioned
+
+  def self.get_ext_command_GL_NV_shader_subgroup_partitioned
+    [
+    ]
+  end # self.get_ext_command_GL_NV_shader_subgroup_partitioned
 
 
   def self.define_ext_command_GL_NV_shader_texture_footprint

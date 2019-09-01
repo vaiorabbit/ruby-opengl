@@ -2794,6 +2794,39 @@ module OpenGLExt
   end # self.get_ext_enum_GL_KHR_robustness
 
 
+  def self.define_ext_enum_GL_KHR_shader_subgroup
+    OpenGL.const_set('GL_SUBGROUP_SIZE_KHR', 0x9532) unless defined?(OpenGL::GL_SUBGROUP_SIZE_KHR)
+    OpenGL.const_set('GL_SUBGROUP_SUPPORTED_STAGES_KHR', 0x9533) unless defined?(OpenGL::GL_SUBGROUP_SUPPORTED_STAGES_KHR)
+    OpenGL.const_set('GL_SUBGROUP_SUPPORTED_FEATURES_KHR', 0x9534) unless defined?(OpenGL::GL_SUBGROUP_SUPPORTED_FEATURES_KHR)
+    OpenGL.const_set('GL_SUBGROUP_QUAD_ALL_STAGES_KHR', 0x9535) unless defined?(OpenGL::GL_SUBGROUP_QUAD_ALL_STAGES_KHR)
+    OpenGL.const_set('GL_SUBGROUP_FEATURE_BASIC_BIT_KHR', 0x00000001) unless defined?(OpenGL::GL_SUBGROUP_FEATURE_BASIC_BIT_KHR)
+    OpenGL.const_set('GL_SUBGROUP_FEATURE_VOTE_BIT_KHR', 0x00000002) unless defined?(OpenGL::GL_SUBGROUP_FEATURE_VOTE_BIT_KHR)
+    OpenGL.const_set('GL_SUBGROUP_FEATURE_ARITHMETIC_BIT_KHR', 0x00000004) unless defined?(OpenGL::GL_SUBGROUP_FEATURE_ARITHMETIC_BIT_KHR)
+    OpenGL.const_set('GL_SUBGROUP_FEATURE_BALLOT_BIT_KHR', 0x00000008) unless defined?(OpenGL::GL_SUBGROUP_FEATURE_BALLOT_BIT_KHR)
+    OpenGL.const_set('GL_SUBGROUP_FEATURE_SHUFFLE_BIT_KHR', 0x00000010) unless defined?(OpenGL::GL_SUBGROUP_FEATURE_SHUFFLE_BIT_KHR)
+    OpenGL.const_set('GL_SUBGROUP_FEATURE_SHUFFLE_RELATIVE_BIT_KHR', 0x00000020) unless defined?(OpenGL::GL_SUBGROUP_FEATURE_SHUFFLE_RELATIVE_BIT_KHR)
+    OpenGL.const_set('GL_SUBGROUP_FEATURE_CLUSTERED_BIT_KHR', 0x00000040) unless defined?(OpenGL::GL_SUBGROUP_FEATURE_CLUSTERED_BIT_KHR)
+    OpenGL.const_set('GL_SUBGROUP_FEATURE_QUAD_BIT_KHR', 0x00000080) unless defined?(OpenGL::GL_SUBGROUP_FEATURE_QUAD_BIT_KHR)
+  end # self.define_ext_enum_GL_KHR_shader_subgroup
+
+  def self.get_ext_enum_GL_KHR_shader_subgroup
+    [
+      'GL_SUBGROUP_SIZE_KHR',
+      'GL_SUBGROUP_SUPPORTED_STAGES_KHR',
+      'GL_SUBGROUP_SUPPORTED_FEATURES_KHR',
+      'GL_SUBGROUP_QUAD_ALL_STAGES_KHR',
+      'GL_SUBGROUP_FEATURE_BASIC_BIT_KHR',
+      'GL_SUBGROUP_FEATURE_VOTE_BIT_KHR',
+      'GL_SUBGROUP_FEATURE_ARITHMETIC_BIT_KHR',
+      'GL_SUBGROUP_FEATURE_BALLOT_BIT_KHR',
+      'GL_SUBGROUP_FEATURE_SHUFFLE_BIT_KHR',
+      'GL_SUBGROUP_FEATURE_SHUFFLE_RELATIVE_BIT_KHR',
+      'GL_SUBGROUP_FEATURE_CLUSTERED_BIT_KHR',
+      'GL_SUBGROUP_FEATURE_QUAD_BIT_KHR',
+    ]
+  end # self.get_ext_enum_GL_KHR_shader_subgroup
+
+
   def self.define_ext_enum_GL_KHR_texture_compression_astc_hdr
     OpenGL.const_set('GL_COMPRESSED_RGBA_ASTC_4x4_KHR', 0x93B0) unless defined?(OpenGL::GL_COMPRESSED_RGBA_ASTC_4x4_KHR)
     OpenGL.const_set('GL_COMPRESSED_RGBA_ASTC_5x4_KHR', 0x93B1) unless defined?(OpenGL::GL_COMPRESSED_RGBA_ASTC_5x4_KHR)
@@ -4355,6 +4388,17 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_NV_shader_noperspective_interpolation
+
+
+  def self.define_ext_enum_GL_NV_shader_subgroup_partitioned
+    OpenGL.const_set('GL_SUBGROUP_FEATURE_PARTITIONED_BIT_NV', 0x00000100) unless defined?(OpenGL::GL_SUBGROUP_FEATURE_PARTITIONED_BIT_NV)
+  end # self.define_ext_enum_GL_NV_shader_subgroup_partitioned
+
+  def self.get_ext_enum_GL_NV_shader_subgroup_partitioned
+    [
+      'GL_SUBGROUP_FEATURE_PARTITIONED_BIT_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_shader_subgroup_partitioned
 
 
   def self.define_ext_enum_GL_NV_shader_texture_footprint
