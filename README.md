@@ -219,6 +219,8 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
         *   https://github.com/vaiorabbit/ruby-opencl
     *   perfume_dance - A BVH motion parser and playback implementation written in Ruby
         *   https://github.com/vaiorabbit/perfume_dance
+    *   open.gl.rb - A port of the https://open.gl/ tutorials to Ruby
+        *   https://github.com/mechazoidal/opendotgl_rb
 
 *   Other informative projects
     *   argon | neon
@@ -458,6 +460,8 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
         *   https://github.com/vaiorabbit/ruby-opencl
     *   perfume_dance - A BVH motion parser and playback implementation written in Ruby
         *   https://github.com/vaiorabbit/perfume_dance
+    *   open.gl.rb - A port of the https://open.gl/ tutorials to Ruby
+        *   https://github.com/mechazoidal/opendotgl_rb
 
 *   参考になりそうなプロジェクト
     *   argon | neon
