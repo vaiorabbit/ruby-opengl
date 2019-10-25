@@ -12111,6 +12111,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_EGL_image_storage
 
 
+  def self.define_ext_command_GL_EXT_EGL_sync
+  end # self.define_ext_command_GL_EXT_EGL_sync
+
+  def self.get_ext_command_GL_EXT_EGL_sync
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_EGL_sync
+
+
   def self.define_ext_command_GL_EXT_abgr
   end # self.define_ext_command_GL_EXT_abgr
 
