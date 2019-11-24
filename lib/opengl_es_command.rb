@@ -1536,9 +1536,9 @@ module OpenGL
 
   GL_FUNCTIONS_ARGS_MAP[:glGetSynciv] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
   GL_FUNCTIONS_RETVAL_MAP[:glGetSynciv] = Fiddle::TYPE_VOID
-  def glGetSynciv(_sync_, _pname_, _bufSize_, _length_, _values_)
+  def glGetSynciv(_sync_, _pname_, _count_, _length_, _values_)
     f = OpenGL::get_command(:glGetSynciv)
-    f.call(_sync_, _pname_, _bufSize_, _length_, _values_)
+    f.call(_sync_, _pname_, _count_, _length_, _values_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glGetInteger64i_v] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
@@ -1725,9 +1725,9 @@ module OpenGL
 
   GL_FUNCTIONS_ARGS_MAP[:glGetInternalformativ] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
   GL_FUNCTIONS_RETVAL_MAP[:glGetInternalformativ] = Fiddle::TYPE_VOID
-  def glGetInternalformativ(_target_, _internalformat_, _pname_, _bufSize_, _params_)
+  def glGetInternalformativ(_target_, _internalformat_, _pname_, _count_, _params_)
     f = OpenGL::get_command(:glGetInternalformativ)
-    f.call(_target_, _internalformat_, _pname_, _bufSize_, _params_)
+    f.call(_target_, _internalformat_, _pname_, _count_, _params_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glDispatchCompute] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
@@ -1795,9 +1795,9 @@ module OpenGL
 
   GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
   GL_FUNCTIONS_RETVAL_MAP[:glGetProgramResourceiv] = Fiddle::TYPE_VOID
-  def glGetProgramResourceiv(_program_, _programInterface_, _index_, _propCount_, _props_, _bufSize_, _length_, _params_)
+  def glGetProgramResourceiv(_program_, _programInterface_, _index_, _propCount_, _props_, _count_, _length_, _params_)
     f = OpenGL::get_command(:glGetProgramResourceiv)
-    f.call(_program_, _programInterface_, _index_, _propCount_, _props_, _bufSize_, _length_, _params_)
+    f.call(_program_, _programInterface_, _index_, _propCount_, _props_, _count_, _length_, _params_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceLocation] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
