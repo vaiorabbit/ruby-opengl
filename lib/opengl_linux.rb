@@ -40,7 +40,7 @@ end
 
 =begin
 Ruby-OpenGL : Yet another OpenGL wrapper for Ruby (and wrapper code generator)
-Copyright (c) 2013-2019 vaiorabbit <http://twitter.com/vaiorabbit>
+Copyright (c) 2013-2020 vaiorabbit <http://twitter.com/vaiorabbit>
 
 This software is provided 'as-is', without any express or implied
 warranty. In no event will the authors be held liable for any damages

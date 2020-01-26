@@ -10874,6 +10874,24 @@ module OpenGLExt
         f.call(_target_, _index_, _data_)
       end
     SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDepthRangeArraydvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDepthRangeArraydvNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDepthRangeArraydvNV(_first_, _count_, _v_)
+        f = OpenGL::get_command(:glDepthRangeArraydvNV)
+        f.call(_first_, _count_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDepthRangeIndexeddNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDepthRangeIndexeddNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDepthRangeIndexeddNV(_index_, _n_, _f_)
+        f = OpenGL::get_command(:glDepthRangeIndexeddNV)
+        f.call(_index_, _n_, _f_)
+      end
+    SRC
   end # self.define_ext_command_GL_ARB_viewport_array
 
   def self.get_ext_command_GL_ARB_viewport_array
@@ -10888,6 +10906,8 @@ module OpenGLExt
       'glDepthRangeIndexed',
       'glGetFloati_v',
       'glGetDoublei_v',
+      'glDepthRangeArraydvNV',
+      'glDepthRangeIndexeddNV',
     ]
   end # self.get_ext_command_GL_ARB_viewport_array
 
