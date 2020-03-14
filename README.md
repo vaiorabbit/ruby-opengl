@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2020-01-26
+*   Last modified : 2020-03-14
 
 [![Gem Version](https://badge.fury.io/rb/opengl-bindings.svg)](https://badge.fury.io/rb/opengl-bindings) [![Gem](https://img.shields.io/gem/dt/opengl-bindings.svg)](opengl-bindings)
 

@@ -559,6 +559,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_ARM_shader_framebuffer_fetch_depth_stencil
 
 
+  def self.define_ext_command_GL_ARM_texture_unnormalized_coordinates
+  end # self.define_ext_command_GL_ARM_texture_unnormalized_coordinates
+
+  def self.get_ext_command_GL_ARM_texture_unnormalized_coordinates
+    [
+    ]
+  end # self.get_ext_command_GL_ARM_texture_unnormalized_coordinates
+
+
   def self.define_ext_command_GL_DMP_program_binary
   end # self.define_ext_command_GL_DMP_program_binary
 

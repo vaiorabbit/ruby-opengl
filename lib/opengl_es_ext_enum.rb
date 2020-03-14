@@ -454,6 +454,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_ARM_shader_framebuffer_fetch_depth_stencil
 
 
+  def self.define_ext_enum_GL_ARM_texture_unnormalized_coordinates
+    OpenGL.const_set('GL_TEXTURE_UNNORMALIZED_COORDINATES_ARM', 0x8F6A) unless defined?(OpenGL::GL_TEXTURE_UNNORMALIZED_COORDINATES_ARM)
+  end # self.define_ext_enum_GL_ARM_texture_unnormalized_coordinates
+
+  def self.get_ext_enum_GL_ARM_texture_unnormalized_coordinates
+    [
+      'GL_TEXTURE_UNNORMALIZED_COORDINATES_ARM',
+    ]
+  end # self.get_ext_enum_GL_ARM_texture_unnormalized_coordinates
+
+
   def self.define_ext_enum_GL_DMP_program_binary
     OpenGL.const_set('GL_SMAPHS30_PROGRAM_BINARY_DMP', 0x9251) unless defined?(OpenGL::GL_SMAPHS30_PROGRAM_BINARY_DMP)
     OpenGL.const_set('GL_SMAPHS_PROGRAM_BINARY_DMP', 0x9252) unless defined?(OpenGL::GL_SMAPHS_PROGRAM_BINARY_DMP)
