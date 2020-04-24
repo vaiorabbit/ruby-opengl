@@ -4085,6 +4085,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_KHR_parallel_shader_compile
 
 
+  def self.define_ext_command_GL_MESA_framebuffer_flip_x
+  end # self.define_ext_command_GL_MESA_framebuffer_flip_x
+
+  def self.get_ext_command_GL_MESA_framebuffer_flip_x
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_framebuffer_flip_x
+
+
   def self.define_ext_command_GL_MESA_framebuffer_flip_y
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferParameteriMESA] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferParameteriMESA] = Fiddle::TYPE_VOID
@@ -4111,6 +4120,15 @@ module OpenGLExt
       'glGetFramebufferParameterivMESA',
     ]
   end # self.get_ext_command_GL_MESA_framebuffer_flip_y
+
+
+  def self.define_ext_command_GL_MESA_framebuffer_swap_xy
+  end # self.define_ext_command_GL_MESA_framebuffer_swap_xy
+
+  def self.get_ext_command_GL_MESA_framebuffer_swap_xy
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_framebuffer_swap_xy
 
 
   def self.define_ext_command_GL_MESA_program_binary_formats
@@ -8052,6 +8070,34 @@ module OpenGLExt
   end # self.get_ext_command_GL_QCOM_framebuffer_foveated
 
 
+  def self.define_ext_command_GL_QCOM_motion_estimation
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexEstimateMotionQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexEstimateMotionQCOM] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexEstimateMotionQCOM(_ref_, _target_, _output_)
+        f = OpenGL::get_command(:glTexEstimateMotionQCOM)
+        f.call(_ref_, _target_, _output_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexEstimateMotionRegionsQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexEstimateMotionRegionsQCOM] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexEstimateMotionRegionsQCOM(_ref_, _target_, _output_, _mask_)
+        f = OpenGL::get_command(:glTexEstimateMotionRegionsQCOM)
+        f.call(_ref_, _target_, _output_, _mask_)
+      end
+    SRC
+  end # self.define_ext_command_GL_QCOM_motion_estimation
+
+  def self.get_ext_command_GL_QCOM_motion_estimation
+    [
+      'glTexEstimateMotionQCOM',
+      'glTexEstimateMotionRegionsQCOM',
+    ]
+  end # self.get_ext_command_GL_QCOM_motion_estimation
+
+
   def self.define_ext_command_GL_QCOM_texture_foveated
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureFoveationParametersQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureFoveationParametersQCOM] = Fiddle::TYPE_VOID
@@ -8113,6 +8159,24 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_QCOM_shader_framebuffer_fetch_rate
+
+
+  def self.define_ext_command_GL_QCOM_shading_rate
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateQCOM] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateQCOM] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glShadingRateQCOM(_rate_)
+        f = OpenGL::get_command(:glShadingRateQCOM)
+        f.call(_rate_)
+      end
+    SRC
+  end # self.define_ext_command_GL_QCOM_shading_rate
+
+  def self.get_ext_command_GL_QCOM_shading_rate
+    [
+      'glShadingRateQCOM',
+    ]
+  end # self.get_ext_command_GL_QCOM_shading_rate
 
 
   def self.define_ext_command_GL_QCOM_tiled_rendering
