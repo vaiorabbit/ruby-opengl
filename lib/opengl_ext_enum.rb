@@ -5842,6 +5842,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_EGL_image_storage
 
 
+  def self.define_ext_enum_GL_EXT_EGL_sync
+  end # self.define_ext_enum_GL_EXT_EGL_sync
+
+  def self.get_ext_enum_GL_EXT_EGL_sync
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_EGL_sync
+
+
   def self.define_ext_enum_GL_EXT_abgr
     OpenGL.const_set('GL_ABGR_EXT', 0x8000) unless defined?(OpenGL::GL_ABGR_EXT)
   end # self.define_ext_enum_GL_EXT_abgr

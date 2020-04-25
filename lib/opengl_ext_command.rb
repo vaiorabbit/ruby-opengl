@@ -93,9 +93,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetDebugMessageLogAMD] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetDebugMessageLogAMD] = -Fiddle::TYPE_INT
     OpenGL.module_eval(<<-SRC)
-      def glGetDebugMessageLogAMD(_count_, _bufsize_, _categories_, _severities_, _ids_, _lengths_, _message_)
+      def glGetDebugMessageLogAMD(_count_, _bufSize_, _categories_, _severities_, _ids_, _lengths_, _message_)
         f = OpenGL::get_command(:glGetDebugMessageLogAMD)
-        f.call(_count_, _bufsize_, _categories_, _severities_, _ids_, _lengths_, _message_)
+        f.call(_count_, _bufSize_, _categories_, _severities_, _ids_, _lengths_, _message_)
       end
     SRC
   end # self.define_ext_command_GL_AMD_debug_output
@@ -5011,9 +5011,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetInternalformativ] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetInternalformativ] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetInternalformativ(_target_, _internalformat_, _pname_, _bufSize_, _params_)
+      def glGetInternalformativ(_target_, _internalformat_, _pname_, _count_, _params_)
         f = OpenGL::get_command(:glGetInternalformativ)
-        f.call(_target_, _internalformat_, _pname_, _bufSize_, _params_)
+        f.call(_target_, _internalformat_, _pname_, _count_, _params_)
       end
     SRC
   end # self.define_ext_command_GL_ARB_internalformat_query
@@ -5029,9 +5029,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetInternalformati64v] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetInternalformati64v] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetInternalformati64v(_target_, _internalformat_, _pname_, _bufSize_, _params_)
+      def glGetInternalformati64v(_target_, _internalformat_, _pname_, _count_, _params_)
         f = OpenGL::get_command(:glGetInternalformati64v)
-        f.call(_target_, _internalformat_, _pname_, _bufSize_, _params_)
+        f.call(_target_, _internalformat_, _pname_, _count_, _params_)
       end
     SRC
   end # self.define_ext_command_GL_ARB_internalformat_query2
@@ -5896,9 +5896,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourceiv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetProgramResourceiv] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetProgramResourceiv(_program_, _programInterface_, _index_, _propCount_, _props_, _bufSize_, _length_, _params_)
+      def glGetProgramResourceiv(_program_, _programInterface_, _index_, _propCount_, _props_, _count_, _length_, _params_)
         f = OpenGL::get_command(:glGetProgramResourceiv)
-        f.call(_program_, _programInterface_, _index_, _propCount_, _props_, _bufSize_, _length_, _params_)
+        f.call(_program_, _programInterface_, _index_, _propCount_, _props_, _count_, _length_, _params_)
       end
     SRC
 
@@ -7600,18 +7600,18 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetActiveSubroutineUniformName] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetActiveSubroutineUniformName] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetActiveSubroutineUniformName(_program_, _shadertype_, _index_, _bufsize_, _length_, _name_)
+      def glGetActiveSubroutineUniformName(_program_, _shadertype_, _index_, _bufSize_, _length_, _name_)
         f = OpenGL::get_command(:glGetActiveSubroutineUniformName)
-        f.call(_program_, _shadertype_, _index_, _bufsize_, _length_, _name_)
+        f.call(_program_, _shadertype_, _index_, _bufSize_, _length_, _name_)
       end
     SRC
 
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetActiveSubroutineName] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetActiveSubroutineName] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetActiveSubroutineName(_program_, _shadertype_, _index_, _bufsize_, _length_, _name_)
+      def glGetActiveSubroutineName(_program_, _shadertype_, _index_, _bufSize_, _length_, _name_)
         f = OpenGL::get_command(:glGetActiveSubroutineName)
-        f.call(_program_, _shadertype_, _index_, _bufsize_, _length_, _name_)
+        f.call(_program_, _shadertype_, _index_, _bufSize_, _length_, _name_)
       end
     SRC
 
@@ -7947,9 +7947,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetSynciv] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetSynciv] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetSynciv(_sync_, _pname_, _bufSize_, _length_, _values_)
+      def glGetSynciv(_sync_, _pname_, _count_, _length_, _values_)
         f = OpenGL::get_command(:glGetSynciv)
-        f.call(_sync_, _pname_, _bufSize_, _length_, _values_)
+        f.call(_sync_, _pname_, _count_, _length_, _values_)
       end
     SRC
   end # self.define_ext_command_GL_ARB_sync
@@ -10874,6 +10874,24 @@ module OpenGLExt
         f.call(_target_, _index_, _data_)
       end
     SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDepthRangeArraydvNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDepthRangeArraydvNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDepthRangeArraydvNV(_first_, _count_, _v_)
+        f = OpenGL::get_command(:glDepthRangeArraydvNV)
+        f.call(_first_, _count_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glDepthRangeIndexeddNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_DOUBLE, Fiddle::TYPE_DOUBLE]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glDepthRangeIndexeddNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glDepthRangeIndexeddNV(_index_, _n_, _f_)
+        f = OpenGL::get_command(:glDepthRangeIndexeddNV)
+        f.call(_index_, _n_, _f_)
+      end
+    SRC
   end # self.define_ext_command_GL_ARB_viewport_array
 
   def self.get_ext_command_GL_ARB_viewport_array
@@ -10888,6 +10906,8 @@ module OpenGLExt
       'glDepthRangeIndexed',
       'glGetFloati_v',
       'glGetDoublei_v',
+      'glDepthRangeArraydvNV',
+      'glDepthRangeIndexeddNV',
     ]
   end # self.get_ext_command_GL_ARB_viewport_array
 
@@ -12109,6 +12129,15 @@ module OpenGLExt
       'glEGLImageTargetTextureStorageEXT',
     ]
   end # self.get_ext_command_GL_EXT_EGL_image_storage
+
+
+  def self.define_ext_command_GL_EXT_EGL_sync
+  end # self.define_ext_command_GL_EXT_EGL_sync
+
+  def self.get_ext_command_GL_EXT_EGL_sync
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_EGL_sync
 
 
   def self.define_ext_command_GL_EXT_abgr
@@ -21626,9 +21655,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetCoverageModulationTableNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetCoverageModulationTableNV] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetCoverageModulationTableNV(_bufsize_, _v_)
+      def glGetCoverageModulationTableNV(_bufSize_, _v_)
         f = OpenGL::get_command(:glGetCoverageModulationTableNV)
-        f.call(_bufsize_, _v_)
+        f.call(_bufSize_, _v_)
       end
     SRC
 
@@ -22751,9 +22780,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetInternalformatSampleivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetInternalformatSampleivNV] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetInternalformatSampleivNV(_target_, _internalformat_, _samples_, _pname_, _bufSize_, _params_)
+      def glGetInternalformatSampleivNV(_target_, _internalformat_, _samples_, _pname_, _count_, _params_)
         f = OpenGL::get_command(:glGetInternalformatSampleivNV)
-        f.call(_target_, _internalformat_, _samples_, _pname_, _bufSize_, _params_)
+        f.call(_target_, _internalformat_, _samples_, _pname_, _count_, _params_)
       end
     SRC
   end # self.define_ext_command_GL_NV_internalformat_sample_query
@@ -23794,9 +23823,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourcefvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetProgramResourcefvNV] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetProgramResourcefvNV(_program_, _programInterface_, _index_, _propCount_, _props_, _bufSize_, _length_, _params_)
+      def glGetProgramResourcefvNV(_program_, _programInterface_, _index_, _propCount_, _props_, _count_, _length_, _params_)
         f = OpenGL::get_command(:glGetProgramResourcefvNV)
-        f.call(_program_, _programInterface_, _index_, _propCount_, _props_, _bufSize_, _length_, _params_)
+        f.call(_program_, _programInterface_, _index_, _propCount_, _props_, _count_, _length_, _params_)
       end
     SRC
 
@@ -24289,9 +24318,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glQueryResourceNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glQueryResourceNV] = Fiddle::TYPE_INT
     OpenGL.module_eval(<<-SRC)
-      def glQueryResourceNV(_queryType_, _tagId_, _bufSize_, _buffer_)
+      def glQueryResourceNV(_queryType_, _tagId_, _count_, _buffer_)
         f = OpenGL::get_command(:glQueryResourceNV)
-        f.call(_queryType_, _tagId_, _bufSize_, _buffer_)
+        f.call(_queryType_, _tagId_, _count_, _buffer_)
       end
     SRC
   end # self.define_ext_command_GL_NV_query_resource
@@ -25392,9 +25421,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVDPAUGetSurfaceivNV] = [Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVDPAUGetSurfaceivNV] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glVDPAUGetSurfaceivNV(_surface_, _pname_, _bufSize_, _length_, _values_)
+      def glVDPAUGetSurfaceivNV(_surface_, _pname_, _count_, _length_, _values_)
         f = OpenGL::get_command(:glVDPAUGetSurfaceivNV)
-        f.call(_surface_, _pname_, _bufSize_, _length_, _values_)
+        f.call(_surface_, _pname_, _count_, _length_, _values_)
       end
     SRC
 

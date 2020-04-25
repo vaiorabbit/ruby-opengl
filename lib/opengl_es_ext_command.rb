@@ -322,9 +322,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetTranslatedShaderSourceANGLE] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetTranslatedShaderSourceANGLE] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetTranslatedShaderSourceANGLE(_shader_, _bufsize_, _length_, _source_)
+      def glGetTranslatedShaderSourceANGLE(_shader_, _bufSize_, _length_, _source_)
         f = OpenGL::get_command(:glGetTranslatedShaderSourceANGLE)
-        f.call(_shader_, _bufsize_, _length_, _source_)
+        f.call(_shader_, _bufSize_, _length_, _source_)
       end
     SRC
   end # self.define_ext_command_GL_ANGLE_translated_shader_source
@@ -467,9 +467,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetSyncivAPPLE] = [Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetSyncivAPPLE] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetSyncivAPPLE(_sync_, _pname_, _bufSize_, _length_, _values_)
+      def glGetSyncivAPPLE(_sync_, _pname_, _count_, _length_, _values_)
         f = OpenGL::get_command(:glGetSyncivAPPLE)
-        f.call(_sync_, _pname_, _bufSize_, _length_, _values_)
+        f.call(_sync_, _pname_, _count_, _length_, _values_)
       end
     SRC
   end # self.define_ext_command_GL_APPLE_sync
@@ -557,6 +557,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_ARM_shader_framebuffer_fetch_depth_stencil
+
+
+  def self.define_ext_command_GL_ARM_texture_unnormalized_coordinates
+  end # self.define_ext_command_GL_ARM_texture_unnormalized_coordinates
+
+  def self.get_ext_command_GL_ARM_texture_unnormalized_coordinates
+    [
+    ]
+  end # self.get_ext_command_GL_ARM_texture_unnormalized_coordinates
 
 
   def self.define_ext_command_GL_DMP_program_binary
@@ -1037,6 +1046,15 @@ module OpenGLExt
         f.call(_id_, _pname_, _params_)
       end
     SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetInteger64vEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetInteger64vEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetInteger64vEXT(_pname_, _data_)
+        f = OpenGL::get_command(:glGetInteger64vEXT)
+        f.call(_pname_, _data_)
+      end
+    SRC
   end # self.define_ext_command_GL_EXT_disjoint_timer_query
 
   def self.get_ext_command_GL_EXT_disjoint_timer_query
@@ -1052,6 +1070,7 @@ module OpenGLExt
       'glGetQueryObjectuivEXT',
       'glGetQueryObjecti64vEXT',
       'glGetQueryObjectui64vEXT',
+      'glGetInteger64vEXT',
     ]
   end # self.get_ext_command_GL_EXT_disjoint_timer_query
 
@@ -4066,6 +4085,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_KHR_parallel_shader_compile
 
 
+  def self.define_ext_command_GL_MESA_framebuffer_flip_x
+  end # self.define_ext_command_GL_MESA_framebuffer_flip_x
+
+  def self.get_ext_command_GL_MESA_framebuffer_flip_x
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_framebuffer_flip_x
+
+
   def self.define_ext_command_GL_MESA_framebuffer_flip_y
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferParameteriMESA] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferParameteriMESA] = Fiddle::TYPE_VOID
@@ -4092,6 +4120,15 @@ module OpenGLExt
       'glGetFramebufferParameterivMESA',
     ]
   end # self.get_ext_command_GL_MESA_framebuffer_flip_y
+
+
+  def self.define_ext_command_GL_MESA_framebuffer_swap_xy
+  end # self.define_ext_command_GL_MESA_framebuffer_swap_xy
+
+  def self.get_ext_command_GL_MESA_framebuffer_swap_xy
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_framebuffer_swap_xy
 
 
   def self.define_ext_command_GL_MESA_program_binary_formats
@@ -4745,9 +4782,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetCoverageModulationTableNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetCoverageModulationTableNV] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetCoverageModulationTableNV(_bufsize_, _v_)
+      def glGetCoverageModulationTableNV(_bufSize_, _v_)
         f = OpenGL::get_command(:glGetCoverageModulationTableNV)
-        f.call(_bufsize_, _v_)
+        f.call(_bufSize_, _v_)
       end
     SRC
 
@@ -5176,9 +5213,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetInternalformatSampleivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetInternalformatSampleivNV] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetInternalformatSampleivNV(_target_, _internalformat_, _samples_, _pname_, _bufSize_, _params_)
+      def glGetInternalformatSampleivNV(_target_, _internalformat_, _samples_, _pname_, _count_, _params_)
         f = OpenGL::get_command(:glGetInternalformatSampleivNV)
-        f.call(_target_, _internalformat_, _samples_, _pname_, _bufSize_, _params_)
+        f.call(_target_, _internalformat_, _samples_, _pname_, _count_, _params_)
       end
     SRC
   end # self.define_ext_command_GL_NV_internalformat_sample_query
@@ -5882,9 +5919,9 @@ module OpenGLExt
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetProgramResourcefvNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetProgramResourcefvNV] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def glGetProgramResourcefvNV(_program_, _programInterface_, _index_, _propCount_, _props_, _bufSize_, _length_, _params_)
+      def glGetProgramResourcefvNV(_program_, _programInterface_, _index_, _propCount_, _props_, _count_, _length_, _params_)
         f = OpenGL::get_command(:glGetProgramResourcefvNV)
-        f.call(_program_, _programInterface_, _index_, _propCount_, _props_, _bufSize_, _length_, _params_)
+        f.call(_program_, _programInterface_, _index_, _propCount_, _props_, _count_, _length_, _params_)
       end
     SRC
 
@@ -8033,6 +8070,34 @@ module OpenGLExt
   end # self.get_ext_command_GL_QCOM_framebuffer_foveated
 
 
+  def self.define_ext_command_GL_QCOM_motion_estimation
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexEstimateMotionQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexEstimateMotionQCOM] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexEstimateMotionQCOM(_ref_, _target_, _output_)
+        f = OpenGL::get_command(:glTexEstimateMotionQCOM)
+        f.call(_ref_, _target_, _output_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexEstimateMotionRegionsQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexEstimateMotionRegionsQCOM] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexEstimateMotionRegionsQCOM(_ref_, _target_, _output_, _mask_)
+        f = OpenGL::get_command(:glTexEstimateMotionRegionsQCOM)
+        f.call(_ref_, _target_, _output_, _mask_)
+      end
+    SRC
+  end # self.define_ext_command_GL_QCOM_motion_estimation
+
+  def self.get_ext_command_GL_QCOM_motion_estimation
+    [
+      'glTexEstimateMotionQCOM',
+      'glTexEstimateMotionRegionsQCOM',
+    ]
+  end # self.get_ext_command_GL_QCOM_motion_estimation
+
+
   def self.define_ext_command_GL_QCOM_texture_foveated
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureFoveationParametersQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureFoveationParametersQCOM] = Fiddle::TYPE_VOID
@@ -8094,6 +8159,24 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_QCOM_shader_framebuffer_fetch_rate
+
+
+  def self.define_ext_command_GL_QCOM_shading_rate
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateQCOM] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateQCOM] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glShadingRateQCOM(_rate_)
+        f = OpenGL::get_command(:glShadingRateQCOM)
+        f.call(_rate_)
+      end
+    SRC
+  end # self.define_ext_command_GL_QCOM_shading_rate
+
+  def self.get_ext_command_GL_QCOM_shading_rate
+    [
+      'glShadingRateQCOM',
+    ]
+  end # self.get_ext_command_GL_QCOM_shading_rate
 
 
   def self.define_ext_command_GL_QCOM_tiled_rendering

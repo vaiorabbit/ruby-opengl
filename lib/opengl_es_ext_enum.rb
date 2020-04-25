@@ -454,6 +454,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_ARM_shader_framebuffer_fetch_depth_stencil
 
 
+  def self.define_ext_enum_GL_ARM_texture_unnormalized_coordinates
+    OpenGL.const_set('GL_TEXTURE_UNNORMALIZED_COORDINATES_ARM', 0x8F6A) unless defined?(OpenGL::GL_TEXTURE_UNNORMALIZED_COORDINATES_ARM)
+  end # self.define_ext_enum_GL_ARM_texture_unnormalized_coordinates
+
+  def self.get_ext_enum_GL_ARM_texture_unnormalized_coordinates
+    [
+      'GL_TEXTURE_UNNORMALIZED_COORDINATES_ARM',
+    ]
+  end # self.get_ext_enum_GL_ARM_texture_unnormalized_coordinates
+
+
   def self.define_ext_enum_GL_DMP_program_binary
     OpenGL.const_set('GL_SMAPHS30_PROGRAM_BINARY_DMP', 0x9251) unless defined?(OpenGL::GL_SMAPHS30_PROGRAM_BINARY_DMP)
     OpenGL.const_set('GL_SMAPHS_PROGRAM_BINARY_DMP', 0x9252) unless defined?(OpenGL::GL_SMAPHS_PROGRAM_BINARY_DMP)
@@ -2979,6 +2990,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_KHR_parallel_shader_compile
 
 
+  def self.define_ext_enum_GL_MESA_framebuffer_flip_x
+    OpenGL.const_set('GL_FRAMEBUFFER_FLIP_X_MESA', 0x8BBC) unless defined?(OpenGL::GL_FRAMEBUFFER_FLIP_X_MESA)
+  end # self.define_ext_enum_GL_MESA_framebuffer_flip_x
+
+  def self.get_ext_enum_GL_MESA_framebuffer_flip_x
+    [
+      'GL_FRAMEBUFFER_FLIP_X_MESA',
+    ]
+  end # self.get_ext_enum_GL_MESA_framebuffer_flip_x
+
+
   def self.define_ext_enum_GL_MESA_framebuffer_flip_y
     OpenGL.const_set('GL_FRAMEBUFFER_FLIP_Y_MESA', 0x8BBB) unless defined?(OpenGL::GL_FRAMEBUFFER_FLIP_Y_MESA)
   end # self.define_ext_enum_GL_MESA_framebuffer_flip_y
@@ -2988,6 +3010,17 @@ module OpenGLExt
       'GL_FRAMEBUFFER_FLIP_Y_MESA',
     ]
   end # self.get_ext_enum_GL_MESA_framebuffer_flip_y
+
+
+  def self.define_ext_enum_GL_MESA_framebuffer_swap_xy
+    OpenGL.const_set('GL_FRAMEBUFFER_SWAP_XY_MESA', 0x8BBD) unless defined?(OpenGL::GL_FRAMEBUFFER_SWAP_XY_MESA)
+  end # self.define_ext_enum_GL_MESA_framebuffer_swap_xy
+
+  def self.get_ext_enum_GL_MESA_framebuffer_swap_xy
+    [
+      'GL_FRAMEBUFFER_SWAP_XY_MESA',
+    ]
+  end # self.get_ext_enum_GL_MESA_framebuffer_swap_xy
 
 
   def self.define_ext_enum_GL_MESA_program_binary_formats
@@ -5729,6 +5762,21 @@ module OpenGLExt
   end # self.get_ext_enum_GL_QCOM_framebuffer_foveated
 
 
+  def self.define_ext_enum_GL_QCOM_motion_estimation
+    OpenGL.const_set('GL_MOTION_ESTIMATION_SEARCH_BLOCK_X_QCOM', 0x8C90) unless defined?(OpenGL::GL_MOTION_ESTIMATION_SEARCH_BLOCK_X_QCOM)
+    OpenGL.const_set('GL_MOTION_ESTIMATION_SEARCH_BLOCK_Y_QCOM', 0x8C91) unless defined?(OpenGL::GL_MOTION_ESTIMATION_SEARCH_BLOCK_Y_QCOM)
+    OpenGL.const_set('GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM', 0x00000002) unless defined?(OpenGL::GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM)
+  end # self.define_ext_enum_GL_QCOM_motion_estimation
+
+  def self.get_ext_enum_GL_QCOM_motion_estimation
+    [
+      'GL_MOTION_ESTIMATION_SEARCH_BLOCK_X_QCOM',
+      'GL_MOTION_ESTIMATION_SEARCH_BLOCK_Y_QCOM',
+      'GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM',
+    ]
+  end # self.get_ext_enum_GL_QCOM_motion_estimation
+
+
   def self.define_ext_enum_GL_QCOM_texture_foveated
     OpenGL.const_set('GL_FOVEATION_ENABLE_BIT_QCOM', 0x00000001) unless defined?(OpenGL::GL_FOVEATION_ENABLE_BIT_QCOM)
     OpenGL.const_set('GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM', 0x00000002) unless defined?(OpenGL::GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM)
@@ -5794,6 +5842,31 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_QCOM_shader_framebuffer_fetch_rate
+
+
+  def self.define_ext_enum_GL_QCOM_shading_rate
+    OpenGL.const_set('GL_SHADING_RATE_QCOM', 0x96A4) unless defined?(OpenGL::GL_SHADING_RATE_QCOM)
+    OpenGL.const_set('GL_SHADING_RATE_PRESERVE_ASPECT_RATIO_QCOM', 0x96A5) unless defined?(OpenGL::GL_SHADING_RATE_PRESERVE_ASPECT_RATIO_QCOM)
+    OpenGL.const_set('GL_SHADING_RATE_1X1_PIXELS_QCOM', 0x96A6) unless defined?(OpenGL::GL_SHADING_RATE_1X1_PIXELS_QCOM)
+    OpenGL.const_set('GL_SHADING_RATE_1X2_PIXELS_QCOM', 0x96A7) unless defined?(OpenGL::GL_SHADING_RATE_1X2_PIXELS_QCOM)
+    OpenGL.const_set('GL_SHADING_RATE_2X1_PIXELS_QCOM', 0x96A8) unless defined?(OpenGL::GL_SHADING_RATE_2X1_PIXELS_QCOM)
+    OpenGL.const_set('GL_SHADING_RATE_2X2_PIXELS_QCOM', 0x96A9) unless defined?(OpenGL::GL_SHADING_RATE_2X2_PIXELS_QCOM)
+    OpenGL.const_set('GL_SHADING_RATE_4X2_PIXELS_QCOM', 0x96AC) unless defined?(OpenGL::GL_SHADING_RATE_4X2_PIXELS_QCOM)
+    OpenGL.const_set('GL_SHADING_RATE_4X4_PIXELS_QCOM', 0x96AE) unless defined?(OpenGL::GL_SHADING_RATE_4X4_PIXELS_QCOM)
+  end # self.define_ext_enum_GL_QCOM_shading_rate
+
+  def self.get_ext_enum_GL_QCOM_shading_rate
+    [
+      'GL_SHADING_RATE_QCOM',
+      'GL_SHADING_RATE_PRESERVE_ASPECT_RATIO_QCOM',
+      'GL_SHADING_RATE_1X1_PIXELS_QCOM',
+      'GL_SHADING_RATE_1X2_PIXELS_QCOM',
+      'GL_SHADING_RATE_2X1_PIXELS_QCOM',
+      'GL_SHADING_RATE_2X2_PIXELS_QCOM',
+      'GL_SHADING_RATE_4X2_PIXELS_QCOM',
+      'GL_SHADING_RATE_4X4_PIXELS_QCOM',
+    ]
+  end # self.get_ext_enum_GL_QCOM_shading_rate
 
 
   def self.define_ext_enum_GL_QCOM_tiled_rendering
