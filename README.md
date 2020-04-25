@@ -108,6 +108,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 ## Tested Environment ##
 
 *   Ruby
+    *   ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x64-mingw32]
     *   ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x86_64-darwin19]
     *   ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-darwin18]
     *   ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-darwin18]
@@ -129,6 +130,16 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
     *   ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin12.0]
     *   ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin13.0.0]
     *   ruby 2.0.0p247 (2013-06-27) [i386-mingw32]
+
+*   Windows 10 Home, 64-bit (Version 1909, OS Build 18363.778)
+    *   NVIDIA GeForce RTX 2060 SUPER
+        *   OpenGL 4.5
+
+                > ruby report_env.rb
+                Version    : 4.5.0 NVIDIA 436.30
+                Vendor     : NVIDIA Corporation
+                Renderer   : GeForce RTX 2060 SUPER/PCIe/SSE2
+                Shader     : 4.50 NVIDIA
 
 *   Windows 10 Home, 64-bit (Version 1511, OS Build 10586.164)
     *   NVIDIA GeForce GTX 960
@@ -356,6 +367,7 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 ## テストした環境 ##
 
 *   Ruby
+    *   ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x64-mingw32]
     *   ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x86_64-darwin19]
     *   ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-darwin18]
     *   ruby 2.6.1p33 (2019-01-30 revision 66950) [x86_64-darwin18]
@@ -377,6 +389,16 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
     *   ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin12.0]
     *   ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin13.0.0]
     *   ruby 2.0.0p247 (2013-06-27) [i386-mingw32]
+
+*   Windows 10 Home, 64-bit (Version 1909, OS Build 18363.778)
+    *   NVIDIA GeForce RTX 2060 SUPER
+        *   OpenGL 4.5
+
+                > ruby report_env.rb
+                Version    : 4.5.0 NVIDIA 436.30
+                Vendor     : NVIDIA Corporation
+                Renderer   : GeForce RTX 2060 SUPER/PCIe/SSE2
+                Shader     : 4.50 NVIDIA
 
 *   Windows 10 Home, 64-bit (Version 1511, OS Build 10586.164)
     *   NVIDIA GeForce GTX 960
