@@ -176,6 +176,16 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
                 $ ruby report_env.rb
                 Version: 4.1 INTEL-10.6.33
 
+*   Mac OS X 10.15.3, 64-bit
+    *   Intel Iris on Mac mini (Late 2014)
+        *   OpenGL 4.1
+
+                $ ruby report_env.rb
+                Version    : 4.1 INTEL-14.4.23
+                Vendor     : Intel Inc.
+                Renderer   : Intel Iris OpenGL Engine
+                Shader     : 4.10
+
 *   Arch Linux kernel 4.1.2-2-ARCH, Nvidia Driver, x86_64
     *   NVIDIA GeForce GTS 450
         *   OpenGL 4.5.0
@@ -427,6 +437,16 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 
                 $ ruby report_env.rb
                 Version: 4.1 INTEL-10.6.33
+
+*   Mac OS X 10.15.3, 64-bit
+    *   Intel Iris on Mac mini (Late 2014)
+        *   OpenGL 4.1
+
+                $ ruby report_env.rb
+                Version    : 4.1 INTEL-14.4.23
+                Vendor     : Intel Inc.
+                Renderer   : Intel Iris OpenGL Engine
+                Shader     : 4.10
 
 *   Arch Linux kernel 4.1.2-2-ARCH, Nvidia Driver, x86_64
     *   NVIDIA GeForce GTS 450
