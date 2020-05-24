@@ -639,6 +639,26 @@ module GLFW
     # <<< Vulkan <<<
   ]
 
+  case OpenGL.get_platform
+  when :OPENGL_PLATFORM_WINDOWS
+    @@lib_signature << 'const char* glfwGetWin32Adapter(void*)'
+    @@lib_signature << 'const char* glfwGetWin32Monitor(void*)'
+    @@lib_signature << 'void* glfwGetWin32Window(void*)'
+    @@lib_signature << 'void* glfwGetWGLContext(void*)'
+  when :OPENGL_PLATFORM_MACOSX
+    @@lib_signature << 'unsigned int glfwGetCocoaMonitor(void*)'
+    @@lib_signature << 'void* glfwGetCocoaWindow(void*)'
+    @@lib_signature << 'void* glfwGetNSGLContext(void*)'
+  when :OPENGL_PLATFORM_LINUX
+    @@lib_signature << 'void* glfwGetX11Display()'
+    @@lib_signature << 'unsinged long glfwGetX11Adapter(void*)'
+    @@lib_signature << 'unsinged long glfwGetX11Monitor(void*)'
+    @@lib_signature << 'unsinged long glfwGetX11Window(void*)'
+    @@lib_signature << 'void glfwSetX11SelectionString(const char*)'
+    @@lib_signature << 'const char* glfwGetX11SelectionString()'
+    @@lib_signature << 'unsinged long glfwGetGLXWindow(void*)'
+  end
+
   def self.import_symbols(output_error = false)
     typealias 'GLFWuint64', 'unsigned long long' # Available since GLFW 3.2
 
