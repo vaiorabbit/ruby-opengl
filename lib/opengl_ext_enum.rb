@@ -9469,6 +9469,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_MESAX_texture_stack
 
 
+  def self.define_ext_enum_GL_MESA_framebuffer_flip_x
+    OpenGL.const_set('GL_FRAMEBUFFER_FLIP_X_MESA', 0x8BBC) unless defined?(OpenGL::GL_FRAMEBUFFER_FLIP_X_MESA)
+  end # self.define_ext_enum_GL_MESA_framebuffer_flip_x
+
+  def self.get_ext_enum_GL_MESA_framebuffer_flip_x
+    [
+      'GL_FRAMEBUFFER_FLIP_X_MESA',
+    ]
+  end # self.get_ext_enum_GL_MESA_framebuffer_flip_x
+
+
   def self.define_ext_enum_GL_MESA_framebuffer_flip_y
     OpenGL.const_set('GL_FRAMEBUFFER_FLIP_Y_MESA', 0x8BBB) unless defined?(OpenGL::GL_FRAMEBUFFER_FLIP_Y_MESA)
   end # self.define_ext_enum_GL_MESA_framebuffer_flip_y
@@ -9478,6 +9489,17 @@ module OpenGLExt
       'GL_FRAMEBUFFER_FLIP_Y_MESA',
     ]
   end # self.get_ext_enum_GL_MESA_framebuffer_flip_y
+
+
+  def self.define_ext_enum_GL_MESA_framebuffer_swap_xy
+    OpenGL.const_set('GL_FRAMEBUFFER_SWAP_XY_MESA', 0x8BBD) unless defined?(OpenGL::GL_FRAMEBUFFER_SWAP_XY_MESA)
+  end # self.define_ext_enum_GL_MESA_framebuffer_swap_xy
+
+  def self.get_ext_enum_GL_MESA_framebuffer_swap_xy
+    [
+      'GL_FRAMEBUFFER_SWAP_XY_MESA',
+    ]
+  end # self.get_ext_enum_GL_MESA_framebuffer_swap_xy
 
 
   def self.define_ext_enum_GL_MESA_pack_invert

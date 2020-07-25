@@ -20098,6 +20098,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_MESAX_texture_stack
 
 
+  def self.define_ext_command_GL_MESA_framebuffer_flip_x
+  end # self.define_ext_command_GL_MESA_framebuffer_flip_x
+
+  def self.get_ext_command_GL_MESA_framebuffer_flip_x
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_framebuffer_flip_x
+
+
   def self.define_ext_command_GL_MESA_framebuffer_flip_y
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferParameteriMESA] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferParameteriMESA] = Fiddle::TYPE_VOID
@@ -20124,6 +20133,15 @@ module OpenGLExt
       'glGetFramebufferParameterivMESA',
     ]
   end # self.get_ext_command_GL_MESA_framebuffer_flip_y
+
+
+  def self.define_ext_command_GL_MESA_framebuffer_swap_xy
+  end # self.define_ext_command_GL_MESA_framebuffer_swap_xy
+
+  def self.get_ext_command_GL_MESA_framebuffer_swap_xy
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_framebuffer_swap_xy
 
 
   def self.define_ext_command_GL_MESA_pack_invert
