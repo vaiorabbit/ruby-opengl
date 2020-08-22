@@ -18227,6 +18227,44 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_texture_swizzle
 
 
+  def self.define_ext_command_GL_NV_timeline_semaphore
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glCreateSemaphoresNV] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glCreateSemaphoresNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glCreateSemaphoresNV(_n_, _semaphores_)
+        f = OpenGL::get_command(:glCreateSemaphoresNV)
+        f.call(_n_, _semaphores_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glSemaphoreParameterivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glSemaphoreParameterivNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glSemaphoreParameterivNV(_semaphore_, _pname_, _params_)
+        f = OpenGL::get_command(:glSemaphoreParameterivNV)
+        f.call(_semaphore_, _pname_, _params_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetSemaphoreParameterivNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetSemaphoreParameterivNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetSemaphoreParameterivNV(_semaphore_, _pname_, _params_)
+        f = OpenGL::get_command(:glGetSemaphoreParameterivNV)
+        f.call(_semaphore_, _pname_, _params_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_timeline_semaphore
+
+  def self.get_ext_command_GL_NV_timeline_semaphore
+    [
+      'glCreateSemaphoresNV',
+      'glSemaphoreParameterivNV',
+      'glGetSemaphoreParameterivNV',
+    ]
+  end # self.get_ext_command_GL_NV_timeline_semaphore
+
+
   def self.define_ext_command_GL_EXT_timer_query
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetQueryObjecti64vEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetQueryObjecti64vEXT] = Fiddle::TYPE_VOID
@@ -23131,6 +23169,54 @@ module OpenGLExt
       'glNamedBufferAttachMemoryNV',
     ]
   end # self.get_ext_command_GL_NV_memory_attachment
+
+
+  def self.define_ext_command_GL_NV_memory_object_sparse
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glBufferPageCommitmentMemNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_CHAR]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glBufferPageCommitmentMemNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glBufferPageCommitmentMemNV(_target_, _offset_, _size_, _memory_, _memOffset_, _commit_)
+        f = OpenGL::get_command(:glBufferPageCommitmentMemNV)
+        f.call(_target_, _offset_, _size_, _memory_, _memOffset_, _commit_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexPageCommitmentMemNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_CHAR]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexPageCommitmentMemNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexPageCommitmentMemNV(_target_, _layer_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _memory_, _offset_, _commit_)
+        f = OpenGL::get_command(:glTexPageCommitmentMemNV)
+        f.call(_target_, _layer_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _memory_, _offset_, _commit_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glNamedBufferPageCommitmentMemNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_CHAR]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glNamedBufferPageCommitmentMemNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glNamedBufferPageCommitmentMemNV(_buffer_, _offset_, _size_, _memory_, _memOffset_, _commit_)
+        f = OpenGL::get_command(:glNamedBufferPageCommitmentMemNV)
+        f.call(_buffer_, _offset_, _size_, _memory_, _memOffset_, _commit_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexturePageCommitmentMemNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_LONG_LONG, -Fiddle::TYPE_CHAR]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexturePageCommitmentMemNV] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexturePageCommitmentMemNV(_texture_, _layer_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _memory_, _offset_, _commit_)
+        f = OpenGL::get_command(:glTexturePageCommitmentMemNV)
+        f.call(_texture_, _layer_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _memory_, _offset_, _commit_)
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_memory_object_sparse
+
+  def self.get_ext_command_GL_NV_memory_object_sparse
+    [
+      'glBufferPageCommitmentMemNV',
+      'glTexPageCommitmentMemNV',
+      'glNamedBufferPageCommitmentMemNV',
+      'glTexturePageCommitmentMemNV',
+    ]
+  end # self.get_ext_command_GL_NV_memory_object_sparse
 
 
   def self.define_ext_command_GL_NV_mesh_shader

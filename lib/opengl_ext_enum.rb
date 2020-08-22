@@ -8118,6 +8118,25 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_texture_swizzle
 
 
+  def self.define_ext_enum_GL_NV_timeline_semaphore
+    OpenGL.const_set('GL_TIMELINE_SEMAPHORE_VALUE_NV', 0x9595) unless defined?(OpenGL::GL_TIMELINE_SEMAPHORE_VALUE_NV)
+    OpenGL.const_set('GL_SEMAPHORE_TYPE_NV', 0x95B3) unless defined?(OpenGL::GL_SEMAPHORE_TYPE_NV)
+    OpenGL.const_set('GL_SEMAPHORE_TYPE_BINARY_NV', 0x95B4) unless defined?(OpenGL::GL_SEMAPHORE_TYPE_BINARY_NV)
+    OpenGL.const_set('GL_SEMAPHORE_TYPE_TIMELINE_NV', 0x95B5) unless defined?(OpenGL::GL_SEMAPHORE_TYPE_TIMELINE_NV)
+    OpenGL.const_set('GL_MAX_TIMELINE_SEMAPHORE_VALUE_DIFFERENCE_NV', 0x95B6) unless defined?(OpenGL::GL_MAX_TIMELINE_SEMAPHORE_VALUE_DIFFERENCE_NV)
+  end # self.define_ext_enum_GL_NV_timeline_semaphore
+
+  def self.get_ext_enum_GL_NV_timeline_semaphore
+    [
+      'GL_TIMELINE_SEMAPHORE_VALUE_NV',
+      'GL_SEMAPHORE_TYPE_NV',
+      'GL_SEMAPHORE_TYPE_BINARY_NV',
+      'GL_SEMAPHORE_TYPE_TIMELINE_NV',
+      'GL_MAX_TIMELINE_SEMAPHORE_VALUE_DIFFERENCE_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_timeline_semaphore
+
+
   def self.define_ext_enum_GL_EXT_timer_query
     OpenGL.const_set('GL_TIME_ELAPSED_EXT', 0x88BF) unless defined?(OpenGL::GL_TIME_ELAPSED_EXT)
   end # self.define_ext_enum_GL_EXT_timer_query
@@ -10677,6 +10696,15 @@ module OpenGLExt
       'GL_MAX_DETACHED_BUFFERS_NV',
     ]
   end # self.get_ext_enum_GL_NV_memory_attachment
+
+
+  def self.define_ext_enum_GL_NV_memory_object_sparse
+  end # self.define_ext_enum_GL_NV_memory_object_sparse
+
+  def self.get_ext_enum_GL_NV_memory_object_sparse
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_memory_object_sparse
 
 
   def self.define_ext_enum_GL_NV_mesh_shader
