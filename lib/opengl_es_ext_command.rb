@@ -8211,6 +8211,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_QCOM_texture_foveated
 
 
+  def self.define_ext_command_GL_QCOM_texture_foveated2
+  end # self.define_ext_command_GL_QCOM_texture_foveated2
+
+  def self.get_ext_command_GL_QCOM_texture_foveated2
+    [
+    ]
+  end # self.get_ext_command_GL_QCOM_texture_foveated2
+
+
   def self.define_ext_command_GL_QCOM_texture_foveated_subsampled_layout
   end # self.define_ext_command_GL_QCOM_texture_foveated_subsampled_layout
 

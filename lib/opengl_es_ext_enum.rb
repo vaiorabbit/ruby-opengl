@@ -5837,6 +5837,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_QCOM_texture_foveated
 
 
+  def self.define_ext_enum_GL_QCOM_texture_foveated2
+    OpenGL.const_set('GL_TEXTURE_FOVEATED_CUTOFF_DENSITY_QCOM', 0x96A0) unless defined?(OpenGL::GL_TEXTURE_FOVEATED_CUTOFF_DENSITY_QCOM)
+  end # self.define_ext_enum_GL_QCOM_texture_foveated2
+
+  def self.get_ext_enum_GL_QCOM_texture_foveated2
+    [
+      'GL_TEXTURE_FOVEATED_CUTOFF_DENSITY_QCOM',
+    ]
+  end # self.get_ext_enum_GL_QCOM_texture_foveated2
+
+
   def self.define_ext_enum_GL_QCOM_texture_foveated_subsampled_layout
     OpenGL.const_set('GL_FOVEATION_SUBSAMPLED_LAYOUT_METHOD_BIT_QCOM', 0x00000004) unless defined?(OpenGL::GL_FOVEATION_SUBSAMPLED_LAYOUT_METHOD_BIT_QCOM)
     OpenGL.const_set('GL_MAX_SHADER_SUBSAMPLED_IMAGE_UNITS_QCOM', 0x8FA1) unless defined?(OpenGL::GL_MAX_SHADER_SUBSAMPLED_IMAGE_UNITS_QCOM)

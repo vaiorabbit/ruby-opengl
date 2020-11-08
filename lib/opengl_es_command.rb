@@ -689,9 +689,9 @@ module OpenGL
 
   GL_FUNCTIONS_ARGS_MAP[:glShaderBinary] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
   GL_FUNCTIONS_RETVAL_MAP[:glShaderBinary] = Fiddle::TYPE_VOID
-  def glShaderBinary(_count_, _shaders_, _binaryformat_, _binary_, _length_)
+  def glShaderBinary(_count_, _shaders_, _binaryFormat_, _binary_, _length_)
     f = OpenGL::get_command(:glShaderBinary)
-    f.call(_count_, _shaders_, _binaryformat_, _binary_, _length_)
+    f.call(_count_, _shaders_, _binaryFormat_, _binary_, _length_)
   end
 
   GL_FUNCTIONS_ARGS_MAP[:glShaderSource] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
