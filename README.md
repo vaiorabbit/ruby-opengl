@@ -231,6 +231,8 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
         *   https://github.com/ruby-gnome2/ruby-gnome2
         *   https://github.com/ruby-gnome2/ruby-gnome2/tree/master/gtk3/sample/misc
             *   gtkglarea1.rb, gtkglarea2.rb
+    *   FXRuby - A library for cross-platform graphical user interfaces
+        *   https://github.com/larskanis/fxruby/blob/1.6/examples/glviewer.rb
     *   dxsdl2r
         *   https://github.com/mirichi/dxsdl2r
     *   mittsu - A direct port of THREE.js from JavaScript/WebGL to Ruby/OpenGL
