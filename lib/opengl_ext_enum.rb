@@ -11312,6 +11312,19 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_primitive_restart
 
 
+  def self.define_ext_enum_GL_NV_primitive_shading_rate
+    OpenGL.const_set('GL_SHADING_RATE_IMAGE_PER_PRIMITIVE_NV', 0x95B1) unless defined?(OpenGL::GL_SHADING_RATE_IMAGE_PER_PRIMITIVE_NV)
+    OpenGL.const_set('GL_SHADING_RATE_IMAGE_PALETTE_COUNT_NV', 0x95B2) unless defined?(OpenGL::GL_SHADING_RATE_IMAGE_PALETTE_COUNT_NV)
+  end # self.define_ext_enum_GL_NV_primitive_shading_rate
+
+  def self.get_ext_enum_GL_NV_primitive_shading_rate
+    [
+      'GL_SHADING_RATE_IMAGE_PER_PRIMITIVE_NV',
+      'GL_SHADING_RATE_IMAGE_PALETTE_COUNT_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_primitive_shading_rate
+
+
   def self.define_ext_enum_GL_NV_query_resource
     OpenGL.const_set('GL_QUERY_RESOURCE_TYPE_VIDMEM_ALLOC_NV', 0x9540) unless defined?(OpenGL::GL_QUERY_RESOURCE_TYPE_VIDMEM_ALLOC_NV)
     OpenGL.const_set('GL_QUERY_RESOURCE_MEMTYPE_VIDMEM_NV', 0x9542) unless defined?(OpenGL::GL_QUERY_RESOURCE_MEMTYPE_VIDMEM_NV)

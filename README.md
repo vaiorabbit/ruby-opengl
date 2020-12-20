@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2020-11-08
+*   Last modified : 2020-12-20
 
 [![Gem Version](https://badge.fury.io/rb/opengl-bindings.svg)](https://badge.fury.io/rb/opengl-bindings) [![Gem](https://img.shields.io/gem/dt/opengl-bindings.svg)](opengl-bindings)
 
@@ -108,6 +108,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 ## Tested Environment ##
 
 *   Ruby
+    *   ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [arm64-darwin20]
     *   ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x64-mingw32]
     *   ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x86_64-darwin19]
     *   ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-darwin18]
@@ -379,6 +380,7 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 ## テストした環境 ##
 
 *   Ruby
+    *   ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [arm64-darwin20]
     *   ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x64-mingw32]
     *   ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x86_64-darwin19]
     *   ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-darwin18]
@@ -496,6 +498,8 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
         *   https://github.com/ruby-gnome2/ruby-gnome2
         *   https://github.com/ruby-gnome2/ruby-gnome2/tree/master/gtk3/sample/misc
             *   gtkglarea1.rb, gtkglarea2.rb
+    *   FXRuby - A library for cross-platform graphical user interfaces
+        *   https://github.com/larskanis/fxruby/blob/1.6/examples/glviewer.rb
     *   dxsdl2r
         *   https://github.com/mirichi/dxsdl2r
     *   mittsu - A direct port of THREE.js from JavaScript/WebGL to Ruby/OpenGL

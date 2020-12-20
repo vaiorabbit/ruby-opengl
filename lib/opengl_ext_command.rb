@@ -24418,6 +24418,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_primitive_restart
 
 
+  def self.define_ext_command_GL_NV_primitive_shading_rate
+  end # self.define_ext_command_GL_NV_primitive_shading_rate
+
+  def self.get_ext_command_GL_NV_primitive_shading_rate
+    [
+    ]
+  end # self.get_ext_command_GL_NV_primitive_shading_rate
+
+
   def self.define_ext_command_GL_NV_query_resource
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glQueryResourceNV] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glQueryResourceNV] = Fiddle::TYPE_INT

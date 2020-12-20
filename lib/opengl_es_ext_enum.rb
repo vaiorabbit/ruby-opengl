@@ -4308,6 +4308,19 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_polygon_mode
 
 
+  def self.define_ext_enum_GL_NV_primitive_shading_rate
+    OpenGL.const_set('GL_SHADING_RATE_IMAGE_PER_PRIMITIVE_NV', 0x95B1) unless defined?(OpenGL::GL_SHADING_RATE_IMAGE_PER_PRIMITIVE_NV)
+    OpenGL.const_set('GL_SHADING_RATE_IMAGE_PALETTE_COUNT_NV', 0x95B2) unless defined?(OpenGL::GL_SHADING_RATE_IMAGE_PALETTE_COUNT_NV)
+  end # self.define_ext_enum_GL_NV_primitive_shading_rate
+
+  def self.get_ext_enum_GL_NV_primitive_shading_rate
+    [
+      'GL_SHADING_RATE_IMAGE_PER_PRIMITIVE_NV',
+      'GL_SHADING_RATE_IMAGE_PALETTE_COUNT_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_primitive_shading_rate
+
+
   def self.define_ext_enum_GL_NV_read_buffer
     OpenGL.const_set('GL_READ_BUFFER_NV', 0x0C02) unless defined?(OpenGL::GL_READ_BUFFER_NV)
   end # self.define_ext_enum_GL_NV_read_buffer
