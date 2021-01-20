@@ -149,7 +149,7 @@ module GLCodeGeneratorCommon
     REXML::XPath.each(doc, 'registry/feature') do |feature_tag|
       if extract_api == feature_tag.attribute('api').value
 
-        # OpenGL Standard enums
+        # OpenGL Standard commands
         REXML::XPath.each(feature_tag, 'require/command') do |tag|
           gl_cmd_map[tag.attribute('name').value] = gl_all_cmd_map[tag.attribute('name').value]
         end

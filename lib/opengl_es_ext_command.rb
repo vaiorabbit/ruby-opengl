@@ -8202,6 +8202,24 @@ module OpenGLExt
   end # self.get_ext_command_GL_QCOM_motion_estimation
 
 
+  def self.define_ext_command_GL_QCOM_frame_extrapolation
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glExtrapolateTex2DQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glExtrapolateTex2DQCOM] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glExtrapolateTex2DQCOM(_src1_, _src2_, _output_, _scaleFactor_)
+        f = OpenGL::get_command(:glExtrapolateTex2DQCOM)
+        f.call(_src1_, _src2_, _output_, _scaleFactor_)
+      end
+    SRC
+  end # self.define_ext_command_GL_QCOM_frame_extrapolation
+
+  def self.get_ext_command_GL_QCOM_frame_extrapolation
+    [
+      'glExtrapolateTex2DQCOM',
+    ]
+  end # self.get_ext_command_GL_QCOM_frame_extrapolation
+
+
   def self.define_ext_command_GL_QCOM_texture_foveated
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureFoveationParametersQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureFoveationParametersQCOM] = Fiddle::TYPE_VOID

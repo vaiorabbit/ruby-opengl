@@ -8010,6 +8010,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_texture_sRGB_R8
 
 
+  def self.define_ext_enum_GL_EXT_texture_sRGB_RG8
+    OpenGL.const_set('GL_SRG8_EXT', 0x8FBE) unless defined?(OpenGL::GL_SRG8_EXT)
+  end # self.define_ext_enum_GL_EXT_texture_sRGB_RG8
+
+  def self.get_ext_enum_GL_EXT_texture_sRGB_RG8
+    [
+      'GL_SRG8_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_sRGB_RG8
+
+
   def self.define_ext_enum_GL_EXT_texture_sRGB_decode
     OpenGL.const_set('GL_TEXTURE_SRGB_DECODE_EXT', 0x8A48) unless defined?(OpenGL::GL_TEXTURE_SRGB_DECODE_EXT)
     OpenGL.const_set('GL_DECODE_EXT', 0x8A49) unless defined?(OpenGL::GL_DECODE_EXT)

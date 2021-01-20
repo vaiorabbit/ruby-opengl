@@ -18191,6 +18191,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_texture_sRGB_R8
 
 
+  def self.define_ext_command_GL_EXT_texture_sRGB_RG8
+  end # self.define_ext_command_GL_EXT_texture_sRGB_RG8
+
+  def self.get_ext_command_GL_EXT_texture_sRGB_RG8
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_texture_sRGB_RG8
+
+
   def self.define_ext_command_GL_EXT_texture_sRGB_decode
   end # self.define_ext_command_GL_EXT_texture_sRGB_decode
 

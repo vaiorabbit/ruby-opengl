@@ -5827,6 +5827,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_QCOM_motion_estimation
 
 
+  def self.define_ext_enum_GL_QCOM_frame_extrapolation
+  end # self.define_ext_enum_GL_QCOM_frame_extrapolation
+
+  def self.get_ext_enum_GL_QCOM_frame_extrapolation
+    [
+    ]
+  end # self.get_ext_enum_GL_QCOM_frame_extrapolation
+
+
   def self.define_ext_enum_GL_QCOM_texture_foveated
     OpenGL.const_set('GL_FOVEATION_ENABLE_BIT_QCOM', 0x00000001) unless defined?(OpenGL::GL_FOVEATION_ENABLE_BIT_QCOM)
     OpenGL.const_set('GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM', 0x00000002) unless defined?(OpenGL::GL_FOVEATION_SCALED_BIN_METHOD_BIT_QCOM)
