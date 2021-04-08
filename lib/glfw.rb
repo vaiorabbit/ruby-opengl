@@ -529,7 +529,7 @@ module GLFW
     'void glfwGetMonitorPhysicalSize(void*, int*, int*)',
     'void glfwGetMonitorContentScale(void*, float*, float*)',      # Available since GLFW 3.3
     'const char* glfwGetMonitorName(void*)',
-    'const void glfwSetMonitorUserPointer(void*, void*)',          # Available since GLFW 3.3
+    'void glfwSetMonitorUserPointer(void*, void*)',          # Available since GLFW 3.3
     'const void* glfwGetMonitorUserPointer(void**)',               # Available since GLFW 3.3
     'void* glfwSetMonitorCallback(void*)',                         # Available since GLFW 3.0
     'const void* glfwGetVideoModes(void*, int*)',
