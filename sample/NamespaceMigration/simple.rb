@@ -2,22 +2,7 @@
 # Demonstrates namespace conversion tricks.
 # You can use OpenGL bindings without 'include OpenGL', etc.
 #
-require 'opengl'
-require 'glfw'
-
-case OpenGL.get_platform
-when :OPENGL_PLATFORM_WINDOWS
-  OpenGL.load_lib('opengl32.dll', 'C:/Windows/System32')
-  GLFW.load_lib('glfw3.dll', '..')
-when :OPENGL_PLATFORM_MACOSX
-  OpenGL.load_lib('libGL.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries')
-  GLFW.load_lib('libglfw.dylib', '..')
-when :OPENGL_PLATFORM_LINUX
-  OpenGL.load_lib()
-  GLFW.load_lib()
-else
-  raise RuntimeError, "Unsupported platform."
-end
+require '../util/setup_dll'
 
 require_relative 'namespace_gl'
 require_relative 'namespace_glfw'

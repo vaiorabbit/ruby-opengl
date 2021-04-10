@@ -1,19 +1,8 @@
-require 'opengl'
-require 'opengl_ext'
-require 'glfw'
-
-case OpenGL.get_platform
-when :OPENGL_PLATFORM_WINDOWS
-  OpenGL.load_lib('opengl32.dll', 'C:/Windows/System32')
-  GLFW.load_lib('glfw3.dll', '..')
-when :OPENGL_PLATFORM_MACOSX
-  OpenGL.load_lib('libGL.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries')
-  GLFW.load_lib('libglfw.dylib', '..')
-when :OPENGL_PLATFORM_LINUX
-  OpenGL.load_lib()
-  GLFW.load_lib()
+require '../util/setup_dll'
+if opengl_bindings_gem_available?
+  require 'opengl_ext'
 else
-  raise RuntimeError, "Unsupported platform."
+  require '../../lib/opengl_ext'
 end
 
 require_relative 'namespace_gl'

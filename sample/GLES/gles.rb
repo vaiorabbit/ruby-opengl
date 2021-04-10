@@ -2,13 +2,7 @@
 require 'opengl_es'
 require 'glfw'
 
-OpenGL.load_lib()
-
-if OpenGL.get_platform == :OPENGL_PLATFORM_WINDOWS
-  GLFW.load_lib('glfw3.dll', '..')
-else
-  GLFW.load_lib()
-end
+require '../util/setup_dll'
 
 include OpenGL
 include GLFW
@@ -112,6 +106,7 @@ if __FILE__ == $0
   glfwInit()
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3)
   glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API)
+  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE)
   window = glfwCreateWindow( 320, 240, "OpenGL ES", nil, nil )
   if window.null?
     puts "Failed to create the OpenGL ES 3 context. You may need to get a GPU/driver that is compliant with OpenGL 4.3 or higher."

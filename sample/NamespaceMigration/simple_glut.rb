@@ -2,22 +2,7 @@
 # Demonstrates namespace conversion tricks.
 # You can use OpenGL bindings without 'include OpenGL', etc.
 #
-require 'opengl'
-require 'glut'
-
-case OpenGL.get_platform
-when :OPENGL_PLATFORM_WINDOWS
-  OpenGL.load_lib('opengl32.dll', 'C:/Windows/System32')
-  GLUT.load_lib()
-when :OPENGL_PLATFORM_MACOSX
-  OpenGL.load_lib('libGL.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries')
-  GLUT.load_lib()
-when :OPENGL_PLATFORM_LINUX
-  OpenGL.load_lib()
-  GLUT.load_lib()
-else
-  raise RuntimeError, "Unsupported platform."
-end
+require '../util/setup_dll'
 
 require_relative 'namespace_gl'
 require_relative 'namespace_glut'
