@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2021-03-20
+*   Last modified : 2021-04-10
 
 [![Gem Version](https://badge.fury.io/rb/opengl-bindings.svg)](https://badge.fury.io/rb/opengl-bindings) [![Gem](https://img.shields.io/gem/dt/opengl-bindings.svg)](opengl-bindings)
 
@@ -108,6 +108,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 ## Tested Environment ##
 
 *   Ruby
+    *   ruby 3.0.0p0 (2020-12-25 revision 95aff21468) [x64-mingw32]
     *   ruby 3.0.0p0 (2020-12-25 revision 95aff21468) [arm64-darwin20]
     *   ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [arm64-darwin20]
     *   ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x64-mingw32]
@@ -381,6 +382,7 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 ## テストした環境 ##
 
 *   Ruby
+    *   ruby 3.0.0p0 (2020-12-25 revision 95aff21468) [x64-mingw32]
     *   ruby 3.0.0p0 (2020-12-25 revision 95aff21468) [arm64-darwin20]
     *   ruby 2.7.2p137 (2020-10-01 revision 5445e04352) [arm64-darwin20]
     *   ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x64-mingw32]

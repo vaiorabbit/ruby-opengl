@@ -1,3 +1,7 @@
+2021-04-10  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* Fix signature for glfwSetMonitorUserPointer ( https://github.com/vaiorabbit/ruby-opengl/pull/32 )  ( Thanks: https://github.com/jellymann )
+
 2021-03-20  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* 2020 -> 2021
