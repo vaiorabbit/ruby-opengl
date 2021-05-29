@@ -16031,6 +16031,213 @@ module OpenGLExt
         f.call(_location_, _count_, _value_)
       end
     SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI1iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI1iEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI1iEXT(_index_, _x_)
+        f = OpenGL::get_command(:glVertexAttribI1iEXT)
+        f.call(_index_, _x_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI2iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI2iEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI2iEXT(_index_, _x_, _y_)
+        f = OpenGL::get_command(:glVertexAttribI2iEXT)
+        f.call(_index_, _x_, _y_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI3iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI3iEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI3iEXT(_index_, _x_, _y_, _z_)
+        f = OpenGL::get_command(:glVertexAttribI3iEXT)
+        f.call(_index_, _x_, _y_, _z_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4iEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4iEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI4iEXT(_index_, _x_, _y_, _z_, _w_)
+        f = OpenGL::get_command(:glVertexAttribI4iEXT)
+        f.call(_index_, _x_, _y_, _z_, _w_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI1uiEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI1uiEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI1uiEXT(_index_, _x_)
+        f = OpenGL::get_command(:glVertexAttribI1uiEXT)
+        f.call(_index_, _x_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI2uiEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI2uiEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI2uiEXT(_index_, _x_, _y_)
+        f = OpenGL::get_command(:glVertexAttribI2uiEXT)
+        f.call(_index_, _x_, _y_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI3uiEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI3uiEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI3uiEXT(_index_, _x_, _y_, _z_)
+        f = OpenGL::get_command(:glVertexAttribI3uiEXT)
+        f.call(_index_, _x_, _y_, _z_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4uiEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4uiEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI4uiEXT(_index_, _x_, _y_, _z_, _w_)
+        f = OpenGL::get_command(:glVertexAttribI4uiEXT)
+        f.call(_index_, _x_, _y_, _z_, _w_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI1ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI1ivEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI1ivEXT(_index_, _v_)
+        f = OpenGL::get_command(:glVertexAttribI1ivEXT)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI2ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI2ivEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI2ivEXT(_index_, _v_)
+        f = OpenGL::get_command(:glVertexAttribI2ivEXT)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI3ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI3ivEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI3ivEXT(_index_, _v_)
+        f = OpenGL::get_command(:glVertexAttribI3ivEXT)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4ivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4ivEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI4ivEXT(_index_, _v_)
+        f = OpenGL::get_command(:glVertexAttribI4ivEXT)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI1uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI1uivEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI1uivEXT(_index_, _v_)
+        f = OpenGL::get_command(:glVertexAttribI1uivEXT)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI2uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI2uivEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI2uivEXT(_index_, _v_)
+        f = OpenGL::get_command(:glVertexAttribI2uivEXT)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI3uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI3uivEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI3uivEXT(_index_, _v_)
+        f = OpenGL::get_command(:glVertexAttribI3uivEXT)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4uivEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4uivEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI4uivEXT(_index_, _v_)
+        f = OpenGL::get_command(:glVertexAttribI4uivEXT)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4bvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4bvEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI4bvEXT(_index_, _v_)
+        f = OpenGL::get_command(:glVertexAttribI4bvEXT)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4svEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4svEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI4svEXT(_index_, _v_)
+        f = OpenGL::get_command(:glVertexAttribI4svEXT)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4ubvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4ubvEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI4ubvEXT(_index_, _v_)
+        f = OpenGL::get_command(:glVertexAttribI4ubvEXT)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribI4usvEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribI4usvEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribI4usvEXT(_index_, _v_)
+        f = OpenGL::get_command(:glVertexAttribI4usvEXT)
+        f.call(_index_, _v_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttribIPointerEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttribIPointerEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glVertexAttribIPointerEXT(_index_, _size_, _type_, _stride_, _pointer_)
+        f = OpenGL::get_command(:glVertexAttribIPointerEXT)
+        f.call(_index_, _size_, _type_, _stride_, _pointer_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribIivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribIivEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetVertexAttribIivEXT(_index_, _pname_, _params_)
+        f = OpenGL::get_command(:glGetVertexAttribIivEXT)
+        f.call(_index_, _pname_, _params_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetVertexAttribIuivEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetVertexAttribIuivEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetVertexAttribIuivEXT(_index_, _pname_, _params_)
+        f = OpenGL::get_command(:glGetVertexAttribIuivEXT)
+        f.call(_index_, _pname_, _params_)
+      end
+    SRC
   end # self.define_ext_command_GL_EXT_gpu_shader4
 
   def self.get_ext_command_GL_EXT_gpu_shader4
@@ -16046,6 +16253,29 @@ module OpenGLExt
       'glUniform2uivEXT',
       'glUniform3uivEXT',
       'glUniform4uivEXT',
+      'glVertexAttribI1iEXT',
+      'glVertexAttribI2iEXT',
+      'glVertexAttribI3iEXT',
+      'glVertexAttribI4iEXT',
+      'glVertexAttribI1uiEXT',
+      'glVertexAttribI2uiEXT',
+      'glVertexAttribI3uiEXT',
+      'glVertexAttribI4uiEXT',
+      'glVertexAttribI1ivEXT',
+      'glVertexAttribI2ivEXT',
+      'glVertexAttribI3ivEXT',
+      'glVertexAttribI4ivEXT',
+      'glVertexAttribI1uivEXT',
+      'glVertexAttribI2uivEXT',
+      'glVertexAttribI3uivEXT',
+      'glVertexAttribI4uivEXT',
+      'glVertexAttribI4bvEXT',
+      'glVertexAttribI4svEXT',
+      'glVertexAttribI4ubvEXT',
+      'glVertexAttribI4usvEXT',
+      'glVertexAttribIPointerEXT',
+      'glGetVertexAttribIivEXT',
+      'glGetVertexAttribIuivEXT',
     ]
   end # self.get_ext_command_GL_EXT_gpu_shader4
 

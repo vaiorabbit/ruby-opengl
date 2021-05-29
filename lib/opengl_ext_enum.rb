@@ -6499,7 +6499,6 @@ module OpenGLExt
 
 
   def self.define_ext_enum_GL_EXT_gpu_shader4
-    OpenGL.const_set('GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT', 0x88FD) unless defined?(OpenGL::GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT)
     OpenGL.const_set('GL_SAMPLER_1D_ARRAY_EXT', 0x8DC0) unless defined?(OpenGL::GL_SAMPLER_1D_ARRAY_EXT)
     OpenGL.const_set('GL_SAMPLER_2D_ARRAY_EXT', 0x8DC1) unless defined?(OpenGL::GL_SAMPLER_2D_ARRAY_EXT)
     OpenGL.const_set('GL_SAMPLER_BUFFER_EXT', 0x8DC2) unless defined?(OpenGL::GL_SAMPLER_BUFFER_EXT)
@@ -6527,11 +6526,11 @@ module OpenGLExt
     OpenGL.const_set('GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT', 0x8DD8) unless defined?(OpenGL::GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT)
     OpenGL.const_set('GL_MIN_PROGRAM_TEXEL_OFFSET_EXT', 0x8904) unless defined?(OpenGL::GL_MIN_PROGRAM_TEXEL_OFFSET_EXT)
     OpenGL.const_set('GL_MAX_PROGRAM_TEXEL_OFFSET_EXT', 0x8905) unless defined?(OpenGL::GL_MAX_PROGRAM_TEXEL_OFFSET_EXT)
+    OpenGL.const_set('GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT', 0x88FD) unless defined?(OpenGL::GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT)
   end # self.define_ext_enum_GL_EXT_gpu_shader4
 
   def self.get_ext_enum_GL_EXT_gpu_shader4
     [
-      'GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT',
       'GL_SAMPLER_1D_ARRAY_EXT',
       'GL_SAMPLER_2D_ARRAY_EXT',
       'GL_SAMPLER_BUFFER_EXT',
@@ -6559,6 +6558,7 @@ module OpenGLExt
       'GL_UNSIGNED_INT_SAMPLER_BUFFER_EXT',
       'GL_MIN_PROGRAM_TEXEL_OFFSET_EXT',
       'GL_MAX_PROGRAM_TEXEL_OFFSET_EXT',
+      'GL_VERTEX_ATTRIB_ARRAY_INTEGER_EXT',
     ]
   end # self.get_ext_enum_GL_EXT_gpu_shader4
 

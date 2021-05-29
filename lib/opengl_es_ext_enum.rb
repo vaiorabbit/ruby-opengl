@@ -3018,6 +3018,19 @@ module OpenGLExt
   end # self.get_ext_enum_GL_KHR_parallel_shader_compile
 
 
+  def self.define_ext_enum_GL_MESA_bgra
+    OpenGL.const_set('GL_BGR_EXT', 0x80E0) unless defined?(OpenGL::GL_BGR_EXT)
+    OpenGL.const_set('GL_BGRA_EXT', 0x80E1) unless defined?(OpenGL::GL_BGRA_EXT)
+  end # self.define_ext_enum_GL_MESA_bgra
+
+  def self.get_ext_enum_GL_MESA_bgra
+    [
+      'GL_BGR_EXT',
+      'GL_BGRA_EXT',
+    ]
+  end # self.get_ext_enum_GL_MESA_bgra
+
+
   def self.define_ext_enum_GL_MESA_framebuffer_flip_x
     OpenGL.const_set('GL_FRAMEBUFFER_FLIP_X_MESA', 0x8BBC) unless defined?(OpenGL::GL_FRAMEBUFFER_FLIP_X_MESA)
   end # self.define_ext_enum_GL_MESA_framebuffer_flip_x
@@ -5834,6 +5847,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_enum_GL_QCOM_frame_extrapolation
+
+
+  def self.define_ext_enum_GL_QCOM_render_shared_exponent
+  end # self.define_ext_enum_GL_QCOM_render_shared_exponent
+
+  def self.get_ext_enum_GL_QCOM_render_shared_exponent
+    [
+    ]
+  end # self.get_ext_enum_GL_QCOM_render_shared_exponent
 
 
   def self.define_ext_enum_GL_QCOM_texture_foveated

@@ -4132,6 +4132,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_KHR_parallel_shader_compile
 
 
+  def self.define_ext_command_GL_MESA_bgra
+  end # self.define_ext_command_GL_MESA_bgra
+
+  def self.get_ext_command_GL_MESA_bgra
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_bgra
+
+
   def self.define_ext_command_GL_MESA_framebuffer_flip_x
   end # self.define_ext_command_GL_MESA_framebuffer_flip_x
 
@@ -8218,6 +8227,15 @@ module OpenGLExt
       'glExtrapolateTex2DQCOM',
     ]
   end # self.get_ext_command_GL_QCOM_frame_extrapolation
+
+
+  def self.define_ext_command_GL_QCOM_render_shared_exponent
+  end # self.define_ext_command_GL_QCOM_render_shared_exponent
+
+  def self.get_ext_command_GL_QCOM_render_shared_exponent
+    [
+    ]
+  end # self.get_ext_command_GL_QCOM_render_shared_exponent
 
 
   def self.define_ext_command_GL_QCOM_texture_foveated
