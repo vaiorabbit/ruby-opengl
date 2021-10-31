@@ -18457,6 +18457,74 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_texture_snorm
 
 
+  def self.define_ext_command_GL_EXT_texture_storage
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexStorage1DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorage1DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexStorage1DEXT(_target_, _levels_, _internalformat_, _width_)
+        f = OpenGL::get_command(:glTexStorage1DEXT)
+        f.call(_target_, _levels_, _internalformat_, _width_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexStorage2DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorage2DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexStorage2DEXT(_target_, _levels_, _internalformat_, _width_, _height_)
+        f = OpenGL::get_command(:glTexStorage2DEXT)
+        f.call(_target_, _levels_, _internalformat_, _width_, _height_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexStorage3DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorage3DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTexStorage3DEXT(_target_, _levels_, _internalformat_, _width_, _height_, _depth_)
+        f = OpenGL::get_command(:glTexStorage3DEXT)
+        f.call(_target_, _levels_, _internalformat_, _width_, _height_, _depth_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureStorage1DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureStorage1DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTextureStorage1DEXT(_texture_, _target_, _levels_, _internalformat_, _width_)
+        f = OpenGL::get_command(:glTextureStorage1DEXT)
+        f.call(_texture_, _target_, _levels_, _internalformat_, _width_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureStorage2DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureStorage2DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTextureStorage2DEXT(_texture_, _target_, _levels_, _internalformat_, _width_, _height_)
+        f = OpenGL::get_command(:glTextureStorage2DEXT)
+        f.call(_texture_, _target_, _levels_, _internalformat_, _width_, _height_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureStorage3DEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureStorage3DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glTextureStorage3DEXT(_texture_, _target_, _levels_, _internalformat_, _width_, _height_, _depth_)
+        f = OpenGL::get_command(:glTextureStorage3DEXT)
+        f.call(_texture_, _target_, _levels_, _internalformat_, _width_, _height_, _depth_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_texture_storage
+
+  def self.get_ext_command_GL_EXT_texture_storage
+    [
+      'glTexStorage1DEXT',
+      'glTexStorage2DEXT',
+      'glTexStorage3DEXT',
+      'glTextureStorage1DEXT',
+      'glTextureStorage2DEXT',
+      'glTextureStorage3DEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_texture_storage
+
+
   def self.define_ext_command_GL_EXT_texture_swizzle
   end # self.define_ext_command_GL_EXT_texture_swizzle
 

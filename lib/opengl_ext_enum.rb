@@ -8110,6 +8110,61 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_texture_snorm
 
 
+  def self.define_ext_enum_GL_EXT_texture_storage
+    OpenGL.const_set('GL_TEXTURE_IMMUTABLE_FORMAT_EXT', 0x912F) unless defined?(OpenGL::GL_TEXTURE_IMMUTABLE_FORMAT_EXT)
+    OpenGL.const_set('GL_ALPHA8_EXT', 0x803C) unless defined?(OpenGL::GL_ALPHA8_EXT)
+    OpenGL.const_set('GL_LUMINANCE8_EXT', 0x8040) unless defined?(OpenGL::GL_LUMINANCE8_EXT)
+    OpenGL.const_set('GL_LUMINANCE8_ALPHA8_EXT', 0x8045) unless defined?(OpenGL::GL_LUMINANCE8_ALPHA8_EXT)
+    OpenGL.const_set('GL_RGBA32F_EXT', 0x8814) unless defined?(OpenGL::GL_RGBA32F_EXT)
+    OpenGL.const_set('GL_RGB32F_EXT', 0x8815) unless defined?(OpenGL::GL_RGB32F_EXT)
+    OpenGL.const_set('GL_ALPHA32F_EXT', 0x8816) unless defined?(OpenGL::GL_ALPHA32F_EXT)
+    OpenGL.const_set('GL_LUMINANCE32F_EXT', 0x8818) unless defined?(OpenGL::GL_LUMINANCE32F_EXT)
+    OpenGL.const_set('GL_LUMINANCE_ALPHA32F_EXT', 0x8819) unless defined?(OpenGL::GL_LUMINANCE_ALPHA32F_EXT)
+    OpenGL.const_set('GL_RGBA16F_EXT', 0x881A) unless defined?(OpenGL::GL_RGBA16F_EXT)
+    OpenGL.const_set('GL_RGB16F_EXT', 0x881B) unless defined?(OpenGL::GL_RGB16F_EXT)
+    OpenGL.const_set('GL_ALPHA16F_EXT', 0x881C) unless defined?(OpenGL::GL_ALPHA16F_EXT)
+    OpenGL.const_set('GL_LUMINANCE16F_EXT', 0x881E) unless defined?(OpenGL::GL_LUMINANCE16F_EXT)
+    OpenGL.const_set('GL_LUMINANCE_ALPHA16F_EXT', 0x881F) unless defined?(OpenGL::GL_LUMINANCE_ALPHA16F_EXT)
+    OpenGL.const_set('GL_RGB10_A2_EXT', 0x8059) unless defined?(OpenGL::GL_RGB10_A2_EXT)
+    OpenGL.const_set('GL_RGB10_EXT', 0x8052) unless defined?(OpenGL::GL_RGB10_EXT)
+    OpenGL.const_set('GL_BGRA8_EXT', 0x93A1) unless defined?(OpenGL::GL_BGRA8_EXT)
+    OpenGL.const_set('GL_R8_EXT', 0x8229) unless defined?(OpenGL::GL_R8_EXT)
+    OpenGL.const_set('GL_RG8_EXT', 0x822B) unless defined?(OpenGL::GL_RG8_EXT)
+    OpenGL.const_set('GL_R32F_EXT', 0x822E) unless defined?(OpenGL::GL_R32F_EXT)
+    OpenGL.const_set('GL_RG32F_EXT', 0x8230) unless defined?(OpenGL::GL_RG32F_EXT)
+    OpenGL.const_set('GL_R16F_EXT', 0x822D) unless defined?(OpenGL::GL_R16F_EXT)
+    OpenGL.const_set('GL_RG16F_EXT', 0x822F) unless defined?(OpenGL::GL_RG16F_EXT)
+  end # self.define_ext_enum_GL_EXT_texture_storage
+
+  def self.get_ext_enum_GL_EXT_texture_storage
+    [
+      'GL_TEXTURE_IMMUTABLE_FORMAT_EXT',
+      'GL_ALPHA8_EXT',
+      'GL_LUMINANCE8_EXT',
+      'GL_LUMINANCE8_ALPHA8_EXT',
+      'GL_RGBA32F_EXT',
+      'GL_RGB32F_EXT',
+      'GL_ALPHA32F_EXT',
+      'GL_LUMINANCE32F_EXT',
+      'GL_LUMINANCE_ALPHA32F_EXT',
+      'GL_RGBA16F_EXT',
+      'GL_RGB16F_EXT',
+      'GL_ALPHA16F_EXT',
+      'GL_LUMINANCE16F_EXT',
+      'GL_LUMINANCE_ALPHA16F_EXT',
+      'GL_RGB10_A2_EXT',
+      'GL_RGB10_EXT',
+      'GL_BGRA8_EXT',
+      'GL_R8_EXT',
+      'GL_RG8_EXT',
+      'GL_R32F_EXT',
+      'GL_RG32F_EXT',
+      'GL_R16F_EXT',
+      'GL_RG16F_EXT',
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_storage
+
+
   def self.define_ext_enum_GL_EXT_texture_swizzle
     OpenGL.const_set('GL_TEXTURE_SWIZZLE_R_EXT', 0x8E42) unless defined?(OpenGL::GL_TEXTURE_SWIZZLE_R_EXT)
     OpenGL.const_set('GL_TEXTURE_SWIZZLE_G_EXT', 0x8E43) unless defined?(OpenGL::GL_TEXTURE_SWIZZLE_G_EXT)
