@@ -13,7 +13,7 @@ module GLESExtEnumCodeGenerator
     out.puts ""
     out.puts "module OpenGLExt"
     out.puts ""
-    GLCodeGeneratorCommon.generate_ext_enum(out, gl_ext_name_to_enums_map)
+    GLCodeGeneratorCommon.generate_ext_enums(out, gl_ext_name_to_enums_map)
     out.puts "end"
 
   end

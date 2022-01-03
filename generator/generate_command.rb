@@ -15,9 +15,14 @@ module GLCommandCodeGenerator
     out.puts ""
     out.puts "module OpenGL"
     out.puts ""
-
-    GLCodeGeneratorCommon.generate_method(out, gl_std_cmd_map)
-
+    GLCodeGeneratorCommon.generate_symbols(out, gl_std_cmd_map)
+    out.puts ""
+    GLCodeGeneratorCommon.generate_args_map(out, gl_std_cmd_map)
+    out.puts ""
+    GLCodeGeneratorCommon.generate_retval_map(out, gl_std_cmd_map)
+    out.puts ""
+    GLCodeGeneratorCommon.generate_methods(out, gl_std_cmd_map)
+    out.puts "end"
   end
 
 end

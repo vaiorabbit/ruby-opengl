@@ -1,3 +1,4 @@
+require_relative 'check_error'
 class Texture
   include OpenGL
   attr_reader :image, :width, :height, :max, :texobj_id, :name
@@ -5,7 +6,9 @@ class Texture
 
   @@type_table = [ :PPM, :TGA, :BMP ]
   @@pixel_format_table = [:RGB24, :BGR24, :RGBA32, :BGRA32]
-  @@pixel_format_map = { :BGR24 => GL_BGR, :RGB24 => GL_RGB, :RGBA32 => GL_RGBA, :BGRA32 => GL_BGRA }
+  @@pixel_format_map = {
+    :BGR24 => GL_BGR, :RGB24 => GL_RGB, :RGBA32 => GL_RGBA, :BGRA32 => GL_BGRA
+  }
   @@internal_format_map = { 
     :BGR24 => GL_RGB, :RGB24 => GL_RGB, :RGBA32 => GL_RGBA, :BGRA32 => GL_RGBA
   }
@@ -24,6 +27,15 @@ class Texture
     Texture.const_set('DDSD_MIPMAPCOUNT', 0x20000)
     Texture.const_set('DDSD_LINEARSIZE',  0x80000)
     Texture.const_set('DDSD_DEPTH',       0x800000)
+  end
+
+  def self.enable_float_support
+    @@pixel_format_table << :RGBA32F << :RGB32F
+    @@pixel_format_table << :RGBA16F << :RGB16F
+    @@internal_format_map[:RGBA32F] = GL_RGBA32F
+    @@internal_format_map[:RGB32F] = GL_RGB32F
+    @@internal_format_map[:RGBA16F] = GL_RGBA16F
+    @@internal_format_map[:RGB16F] = GL_RGB16F
   end
 
   def initialize( texture_filename = nil )
@@ -254,6 +266,7 @@ class Texture
         w = @width
         h = @height
         offset = 0
+        @mipmap_count = 1 # [2022-01-03] Suppress mipmap generation [TODO] mipmap generation caused random glCompressedTexImage2D crash on macOS
         @mipmap_count.times do |mip_level|
           break if w == 0 || h == 0
           img_size = ((w+3)/4)*((h+3)/4)*block_size

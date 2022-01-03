@@ -1,3 +1,9 @@
+2022-01-03  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* Updated using latest gl.xml
+	* Changed internal structure for efficiency. Please refer version/1.6 branch if you want to check previous implementation
+	* sample: Fixed several bugs
+
 2021-10-31  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml.

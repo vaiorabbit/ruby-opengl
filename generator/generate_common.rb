@@ -160,7 +160,16 @@ module GLCodeGeneratorCommon
     return gl_cmd_map
   end
 
-  def self.generate_method(out, gl_cmd_map)
+  def self.generate_symbols(out, gl_cmd_map)
+    out.puts "  GL_FUNCTION_SYMBOLS = ["
+    gl_cmd_map.each_key do |api|
+      out.puts "    :#{api},"
+    end
+    out.puts "  ]"
+  end
+
+  def self.generate_args_map(out, gl_cmd_map)
+    out.puts "  GL_FUNCTIONS_ARGS_MAP = {"
     gl_cmd_map.each_pair do |api, map_entry|
       # Arguments
       arg_names = []
@@ -174,13 +183,29 @@ module GLCodeGeneratorCommon
         end
         arg_names << ((is_ptr || is_array) ? 'Fiddle::TYPE_VOIDP' : resolved_gl_type)
       end
-      out.print "  GL_FUNCTIONS_ARGS_MAP[:#{api}] = ["
-      arg_names.each_with_index do |a, i| out.printf "#{a}%s", (i < arg_names.length-1 ? ", " : "") end
-      out.puts "]"
+      out.print "    :#{api} => ["
+      arg_names.each_with_index { |a, i| out.printf "#{a}%s", (i < arg_names.length-1 ? ", " : "") }
+      out.puts "],"
+    end
+    out.puts "  }"
+  end
 
+  def self.generate_retval_map(out, gl_cmd_map)
+    out.puts "  GL_FUNCTIONS_RETVAL_MAP = {"
+    gl_cmd_map.each_pair do |api, map_entry|
       # Return value
-      is_ptr = map_entry.ret_name.end_with?( '*' )
-      out.puts "  GL_FUNCTIONS_RETVAL_MAP[:#{api}] = #{is_ptr ? 'Fiddle::TYPE_VOIDP' : OpenGL::GL_TYPE_MAP[map_entry.ret_name]}"
+      is_ptr = map_entry.ret_name.end_with?('*')
+      out.puts "    :#{api} => #{is_ptr ? 'Fiddle::TYPE_VOIDP' : OpenGL::GL_TYPE_MAP[map_entry.ret_name]},"
+    end
+    out.puts "  }"
+  end
+
+  def self.generate_methods(out, gl_cmd_map)
+    gl_cmd_map.each_pair do |api, map_entry|
+
+      # # Return value
+      # is_ptr = map_entry.ret_name.end_with?( '*' )
+      # out.puts "  GL_FUNCTIONS_RETVAL_MAP[:#{api}] = #{is_ptr ? 'Fiddle::TYPE_VOIDP' : OpenGL::GL_TYPE_MAP[map_entry.ret_name]}"
 
       # API entry
 
@@ -189,12 +214,10 @@ module GLCodeGeneratorCommon
       vars = map_entry.var_names.collect{|v| '_'+v+'_'}.join(", ")
 
       out.puts "  def #{api}(#{vars})"
-      out.puts "    f = OpenGL::get_command(:#{api})"
-      out.puts "    f.call(#{vars})"
+      out.puts "    GL_FUNCTIONS_MAP[:#{api}].call(#{vars})"
       out.puts "  end"
       out.puts ""
     end
-    out.puts "end"
   end
 
   def self.build_ext_commands_map(doc, extract_api: "gl")
@@ -224,7 +247,7 @@ module GLCodeGeneratorCommon
   end
 
 
-  def self.generate_ext_method(out, gl_ext_name_to_commands_map)
+  def self.generate_ext_methods(out, gl_ext_name_to_commands_map)
     gl_ext_name_to_commands_map.each_pair do |ext_name, ext_commands|
       # def self.define_ext_command_XXXX; ... ;end
       out.puts "  def self.define_ext_command_#{ext_name}"
@@ -247,6 +270,7 @@ module GLCodeGeneratorCommon
           end
           arg_names << ((is_ptr || is_array) ? 'Fiddle::TYPE_VOIDP' : resolved_gl_type)
         end
+        out.puts  "    OpenGL::GL_FUNCTION_SYMBOLS << :#{api}"
         out.print "    OpenGL::GL_FUNCTIONS_ARGS_MAP[:#{api}] = ["
         arg_names.each_with_index do |a, i| out.printf "#{a}%s", (i < arg_names.length-1 ? ", " : "") end
         out.puts "]"
@@ -254,6 +278,9 @@ module GLCodeGeneratorCommon
         # Return value
         is_ptr = map_entry.ret_name.end_with?( '*' )
         out.puts "    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:#{api}] = #{is_ptr ? 'Fiddle::TYPE_VOIDP' : OpenGL::GL_TYPE_MAP[map_entry.ret_name]}"
+
+        # Import
+        out.puts "    OpenGL.bind_command(:#{api})"
 
         # API entry
 
@@ -263,8 +290,7 @@ module GLCodeGeneratorCommon
 
         out.puts "    OpenGL.module_eval(<<-SRC)"
         out.puts "      def #{api}(#{vars})"
-        out.puts "        f = OpenGL::get_command(:#{api})"
-        out.puts "        f.call(#{vars})"
+        out.puts "        GL_FUNCTIONS_MAP[:#{api}].call(#{vars})"
         out.puts "      end"
         out.puts "    SRC"
         out.puts "" if (command_index + 1) != commands_count
@@ -283,7 +309,6 @@ module GLCodeGeneratorCommon
       out.puts "  end # self.get_ext_command_#{ext_name}"
       out.puts "\n\n"
     end
-    out.puts "end"
   end
 
   def self.build_enums_map(doc, extract_api: "gl")
@@ -349,7 +374,7 @@ module GLCodeGeneratorCommon
 
   end
 
-  def self.generate_ext_enum(out, gl_ext_name_to_enums_map)
+  def self.generate_ext_enums(out, gl_ext_name_to_enums_map)
     gl_ext_name_to_enums_map.each_pair do |ext_name, ext_enums|
       # def self.define_ext_enum_XXXX; ... ;end
       out.print "  def self.define_ext_enum_#{ext_name}\n"

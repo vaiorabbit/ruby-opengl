@@ -16,8 +16,9 @@ module GLESExtCommandCodeGenerator
     out.puts "module OpenGLExt"
     out.puts ""
 
-    GLCodeGeneratorCommon.generate_ext_method(out, gl_ext_name_to_commands_map)
+    GLCodeGeneratorCommon.generate_ext_methods(out, gl_ext_name_to_commands_map)
 
+    out.puts "end"
   end
 
 end

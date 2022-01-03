@@ -9,13 +9,13 @@ end
 if opengl_bindings_gem_available?
   # puts("Loading from Gem system path.")
   require 'opengl'
-  require 'glfw'
   require 'glu'
+  require 'glfw'
 else
-  # puts("Loading from local path.")
-  require_relative '../../lib/opengl'
-  require_relative '../../lib/glfw'
-  require_relative '../../lib/glu'
+  # puts("Loaging from local path.")
+  require '../../lib/opengl'
+  require '../../lib/glu'
+  require '../../lib/glfw'
 end
 
 include GLFW
@@ -26,7 +26,7 @@ case OpenGL.get_platform
 when :OPENGL_PLATFORM_WINDOWS
   OpenGL.load_lib('opengl32.dll', 'C:/Windows/System32')
   GLU.load_lib('GLU32.dll', 'C:/Windows/System32')
-  GLFW.load_lib('glfw3.dll', File.expand_path('..'))
+  GLFW.load_lib('glfw3.dll', '..')
 when :OPENGL_PLATFORM_MACOSX
   OpenGL.load_lib('libGL.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries')
   GLU.load_lib('libGLU.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries')
