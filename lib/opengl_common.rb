@@ -3,7 +3,35 @@ module OpenGL
   GL_FUNCTIONS_MAP = {}
   @@gl_dll = nil
 
-  def self.load_lib(lib = nil, path = nil, output_error: false)
+  # Open dll/dylib/so for symbol import
+  # Note that OpenGL APIs are not available until you call import_symbols
+  def self.open_lib(lib_path: nil)
+    if lib_path == nil
+      case self.get_platform
+      when :OPENGL_PLATFORM_WINDOWS
+        lib_path = 'C:/Windows/System32/opengl32.dll'
+      when :OPENGL_PLATFORM_MACOSX
+        lib_path = '/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib'
+      else
+        lib_path = 'libGL.so' # not tested
+      end
+    end
+    @@gl_dll = Fiddle.dlopen(lib_path)
+  end
+
+  # Call after OpenGL context is available (e.g.: glfwMakeContextCurrent)
+  def self.import_symbols(output_error: false)
+    GL_FUNCTION_SYMBOLS.each do |sym|
+      begin
+        bind_command(sym) if GL_FUNCTIONS_MAP[sym] == nil || GL_FUNCTIONS_MAP[sym].ptr == 0
+      rescue
+        $stderr.puts("[Warning] opengl_common.rb : Failed to import #{sym}.") if output_error
+      end
+    end
+  end
+
+  # For compatibility with version 1.6 series
+  def self.load_lib(lib = nil, path = nil, output_import_error = false)
     if lib == nil && path == nil
       case self.get_platform
       when :OPENGL_PLATFORM_WINDOWS
@@ -14,13 +42,14 @@ module OpenGL
         lib = 'libGL.so'
       end
     end
-    if path
-      @@gl_dll = Fiddle.dlopen( path + '/' + lib )
-    else
-      @@gl_dll = Fiddle.dlopen( lib )
-    end
+    lib_path = if path
+                 path + '/' + lib
+               else
+                 lib
+               end
 
-    import_symbols(output_error)
+    open_lib(lib_path: lib_path)
+    import_symbols(output_error: output_import_error)
   end
 
   # [OBSOLETE]
@@ -51,17 +80,6 @@ module OpenGL
                                                       GL_FUNCTIONS_RETVAL_MAP[sym] )
       end
       raise RuntimeError if GL_FUNCTIONS_MAP[sym] == nil
-    end
-  end
-
-  # [INTERNAL]
-  def self.import_symbols(output_error)
-    GL_FUNCTION_SYMBOLS.each do |sym|
-      begin
-        bind_command(sym)
-      rescue
-        $stderr.puts("[Warning] opengl_common.rb : Failed to import #{sym}.") if output_error
-      end
     end
   end
 

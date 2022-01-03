@@ -7,7 +7,7 @@
 require 'opengl'
 require 'glfw'
 
-OpenGL.load_lib()
+OpenGL.open_lib()
 GLFW.load_lib()
 
 include OpenGL
@@ -55,6 +55,8 @@ if __FILE__ == $0
   end
 
   glfwMakeContextCurrent( window )
+
+  OpenGL.import_symbols()
 
   version_string = glGetString(GL_VERSION).to_s
   version_number = version_string.split(/\./)

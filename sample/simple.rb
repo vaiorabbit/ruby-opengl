@@ -6,7 +6,7 @@
 require 'opengl'
 require 'glfw'
 
-OpenGL.load_lib()
+OpenGL.open_lib()
 GLFW.load_lib()
 
 include OpenGL
@@ -25,6 +25,8 @@ if __FILE__ == $0
   window = glfwCreateWindow( 640, 480, "Simple example", nil, nil )
   glfwMakeContextCurrent( window )
   glfwSetKeyCallback( window, key_callback )
+
+  OpenGL.import_symbols()
 
   while glfwWindowShouldClose( window ) == 0
     width_ptr = ' ' * 8
