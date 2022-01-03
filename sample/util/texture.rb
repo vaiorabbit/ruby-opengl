@@ -1,4 +1,3 @@
-require_relative 'check_error'
 class Texture
   include OpenGL
   attr_reader :image, :width, :height, :max, :texobj_id, :name

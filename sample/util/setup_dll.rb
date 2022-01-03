@@ -26,7 +26,7 @@ case OpenGL.get_platform
 when :OPENGL_PLATFORM_WINDOWS
   OpenGL.load_lib('opengl32.dll', 'C:/Windows/System32')
   GLU.load_lib('GLU32.dll', 'C:/Windows/System32')
-  GLFW.load_lib('glfw3.dll', '..')
+  GLFW.load_lib(Dir.pwd + '/../glfw3.dll', nil)
 when :OPENGL_PLATFORM_MACOSX
   OpenGL.load_lib('libGL.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries')
   GLU.load_lib('libGLU.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries')

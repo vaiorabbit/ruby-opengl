@@ -3,11 +3,11 @@
 
 # Ruby porting by vaiorabbit@twitter.com
 
-require '../util/setup_dll'
+require_relative '../util/setup_dll'
 if opengl_bindings_gem_available?
   require 'opengl_ext'
 else
-  require '../../lib/opengl_ext'
+  require_relative '../../lib/opengl_ext'
 end
 
 $stroking = true
