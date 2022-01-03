@@ -1,6 +1,6 @@
 require 'fiddle'
 
-module OpenGL
+module GL
 
   GLX_FUNCTIONS_MAP = {}
   GLX_FUNCTIONS_ARGS_MAP = {}
@@ -24,7 +24,7 @@ module OpenGL
   GLX_FUNCTIONS_RETVAL_MAP[:glXGetCurrentContext] = Fiddle::TYPE_VOIDP
 
   def glXGetCurrentContext()
-    f = OpenGL::get_glx_command(:glXGetCurrentContext)
+    f = GL::get_glx_command(:glXGetCurrentContext)
     f.call()
   end
 
@@ -32,7 +32,7 @@ module OpenGL
   GLX_FUNCTIONS_RETVAL_MAP[:glXGetCurrentDisplay] = Fiddle::TYPE_VOIDP
 
   def glXGetCurrentDisplay(_glx_ctxobj_)
-    f = OpenGL::get_glx_command(:glXGetCurrentDisplay)
+    f = GL::get_glx_command(:glXGetCurrentDisplay)
     f.call(_glx_ctxobj_)
   end
 

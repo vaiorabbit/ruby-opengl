@@ -13,7 +13,7 @@ module GLExtCommandCodeGenerator
     out.puts ""
     out.puts "require 'fiddle'"
     out.puts ""
-    out.puts "module OpenGLExt"
+    out.puts "module GLExt"
     out.puts ""
 
     GLCodeGeneratorCommon.generate_ext_methods(out, gl_ext_name_to_commands_map)

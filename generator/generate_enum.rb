@@ -6,16 +6,14 @@ module GLEnumCodeGenerator
 
     doc = REXML::Document.new(open("./gl.xml"))
 
-    gl_std_enum_map = GLCodeGeneratorCommon.build_enums_map(doc)
+    gl_std_name_to_enums_map = GLCodeGeneratorCommon.build_enums_map(doc)
 
     # Output
     out.puts GLCodeGeneratorCommon::HeaderComment
     out.puts ""
-    out.puts "module OpenGL"
+    out.puts "module GL"
     out.puts ""
-    gl_std_enum_map.each do |enum|
-      out.print "  #{enum[0]} = #{enum[1]}\n"
-    end
+    GLCodeGeneratorCommon.generate_enums(out, gl_std_name_to_enums_map)
     out.puts ""
     out.puts "end"
 

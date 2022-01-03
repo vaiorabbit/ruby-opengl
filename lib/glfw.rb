@@ -6,34 +6,6 @@ module GLFW
 
   extend Fiddle::Importer
 
-  #
-  # Fiddle's default 'extern' stores all methods into local variable '@func_map', that makes difficult to 'include GLFW'.
-  # So I override it and replace '@func_map' into 'GLFW_FUNCTIONS_MAP'.
-  # Ref.: /lib/ruby/2.0.0/fiddle/import.rb
-  #
-  GLFW_FUNCTIONS_MAP = {}
-  def self.extern(signature, *opts)
-    symname, ctype, argtype = parse_signature(signature, @type_alias)
-    opt = parse_bind_options(opts)
-    f = import_function(symname, ctype, argtype, opt[:call_type])
-    name = symname.gsub(/@.+/,'')
-    GLFW_FUNCTIONS_MAP[name] = f
-    begin
-      /^(.+?):(\d+)/ =~ caller.first
-      file, line = $1, $2.to_i
-    rescue
-      file, line = __FILE__, __LINE__+3
-    end
-    args_str="*args"
-    module_eval(<<-EOS, file, line)
-      def #{name}(*args, &block)
-        GLFW_FUNCTIONS_MAP['#{name}'].call(*args,&block)
-      end
-    EOS
-    module_function(name)
-    f
-  end
-
   # defines
   GLFW_TRUE  = 1 # Available since GLFW 3.2
   GLFW_FALSE = 0 # Available since GLFW 3.2
@@ -489,29 +461,21 @@ module GLFW
   @@glfw_import_done = false
 
   # Load native library.
-  def self.load_lib(lib = nil, path = nil, output_error = false)
-    if lib == nil && path == nil
-      case OpenGL.get_platform
-      when :OPENGL_PLATFORM_WINDOWS
-        lib, path = 'GLFW3.dll', Dir.pwd
-      when :OPENGL_PLATFORM_MACOSX
-        lib, path = 'libglfw.dylib', Dir.pwd
-      else
-        lib = 'libglfw.so'
-      end
+  def self.load_lib(lib_path = nil, output_error = false)
+    if lib_path == nil
+      lib_path = case GL.get_platform
+                 when :OPENGL_PLATFORM_WINDOWS
+                   Dir.pwd + '/GLFW3.dll'
+                 when :OPENGL_PLATFORM_MACOSX
+                   'libglfw.dylib'
+                 else
+                   'libglfw.so' # not tested
+                 end
     end
 
-    if path
-      dlload (path + '/' + lib)
-    else
-      dlload (lib)
-    end
+    dlload(lib_path)
+
     import_symbols(output_error) unless @@glfw_import_done
-  end
-
-  def self.load_dll(lib = nil, path = nil)
-    puts "Warning GLFW.load_dll is deprecated, use GLFW.load_lib instead"
-    self.load_lib(lib, path)
   end
 
   @@lib_signature = [
@@ -639,7 +603,7 @@ module GLFW
     # <<< Vulkan <<<
   ]
 
-  case OpenGL.get_platform
+  case GL.get_platform
   when :OPENGL_PLATFORM_WINDOWS
     @@lib_signature << 'const char* glfwGetWin32Adapter(void*)'
     @@lib_signature << 'const char* glfwGetWin32Monitor(void*)'
@@ -679,6 +643,31 @@ module GLFW
     GLFW.const_set('GLFW_VERSION_MAJOR',  ver_major.unpack('L')[0])
     GLFW.const_set('GLFW_VERSION_MINOR',  ver_minor.unpack('L')[0])
     GLFW.const_set('GLFW_VERSION_REVISION', ver_rev.unpack('L')[0])
+
+    # Convert method names (e.g.: GLFW.glfwInit -> GLFW.Init)
+    self.singleton_methods(false).each do |method_name|
+      m = singleton_method(method_name)
+      if m.name.to_s.start_with? 'glfw'
+        modified_api = m.name.to_s[4..-1] # omit prefix "glfw"
+        define_singleton_method(modified_api, m) # define alias
+      end
+    end
+
+    # Convert constant names (e.g.: GLFW::GLFW_KEY_ESCAPE -> GLFW::KEY_ESCAPE)
+    self.constants.each do |constant|
+      cs = constant.to_s
+      if cs[0..4] == "GLFW_"
+        if cs[5] =~ /\d/
+          # We have to abandon name conversion like 'GL_2D, GL_3D_COLOR, GL_4_BYTES, etc.
+          # Because constants can't start with a digit or underscore.
+          # [Note] This rule has been inherited from Yoshi's very original ruby-opengl (confirmed with opengl-0.32g, 2004-07-17).
+          const_set(cs, GLFW.const_get(constant)) # GL_2D => GL_2D
+        else
+          # Convert by omitting the 'GLFW_' prefix like GLFW::GLFW_KEY_ESCAPE into GLFW::KEY_ESCAPE
+          const_set(cs[5..-1], GLFW.const_get(constant))
+        end
+      end
+    end
 
     @@glfw_import_done = true
   end

@@ -1,6 +1,6 @@
 require 'fiddle'
 
-module OpenGL
+module GL
 
   WGL_FUNCTIONS_MAP = {}
   WGL_FUNCTIONS_ARGS_MAP = {}
@@ -24,7 +24,7 @@ module OpenGL
   WGL_FUNCTIONS_RETVAL_MAP[:wglGetProcAddress] = Fiddle::TYPE_VOIDP
 
   def self.wglGetProcAddress(_lpszProc_)
-    f = OpenGL::get_wgl_command(:wglGetProcAddress)
+    f = GL::get_wgl_command(:wglGetProcAddress)
     f.call(_lpszProc_)
   end
 
@@ -32,7 +32,7 @@ module OpenGL
   WGL_FUNCTIONS_RETVAL_MAP[:wglGetCurrentContext] = Fiddle::TYPE_VOIDP
 
   def wglGetCurrentContext()
-    f = OpenGL::get_wgl_command(:wglGetCurrentContext)
+    f = GL::get_wgl_command(:wglGetCurrentContext)
     f.call()
   end
 
@@ -40,7 +40,7 @@ module OpenGL
   WGL_FUNCTIONS_RETVAL_MAP[:wglGetCurrentDC] = Fiddle::TYPE_VOIDP
 
   def wglGetCurrentDC()
-    f = OpenGL::get_wgl_command(:wglGetCurrentDC)
+    f = GL::get_wgl_command(:wglGetCurrentDC)
     f.call()
   end
 

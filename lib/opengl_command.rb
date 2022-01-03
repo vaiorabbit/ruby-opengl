@@ -6,7 +6,7 @@
 
 require 'fiddle'
 
-module OpenGL
+module GL
 
   GL_FUNCTION_SYMBOLS = [
     :glCullFace,
@@ -3161,4195 +3161,4195 @@ module OpenGL
     :glPolygonOffsetClamp => Fiddle::TYPE_VOID,
   }
 
-  def glCullFace(_mode_)
+  def self.CullFace(_mode_)
     GL_FUNCTIONS_MAP[:glCullFace].call(_mode_)
   end
 
-  def glFrontFace(_mode_)
+  def self.FrontFace(_mode_)
     GL_FUNCTIONS_MAP[:glFrontFace].call(_mode_)
   end
 
-  def glHint(_target_, _mode_)
+  def self.Hint(_target_, _mode_)
     GL_FUNCTIONS_MAP[:glHint].call(_target_, _mode_)
   end
 
-  def glLineWidth(_width_)
+  def self.LineWidth(_width_)
     GL_FUNCTIONS_MAP[:glLineWidth].call(_width_)
   end
 
-  def glPointSize(_size_)
+  def self.PointSize(_size_)
     GL_FUNCTIONS_MAP[:glPointSize].call(_size_)
   end
 
-  def glPolygonMode(_face_, _mode_)
+  def self.PolygonMode(_face_, _mode_)
     GL_FUNCTIONS_MAP[:glPolygonMode].call(_face_, _mode_)
   end
 
-  def glScissor(_x_, _y_, _width_, _height_)
+  def self.Scissor(_x_, _y_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glScissor].call(_x_, _y_, _width_, _height_)
   end
 
-  def glTexParameterf(_target_, _pname_, _param_)
+  def self.TexParameterf(_target_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glTexParameterf].call(_target_, _pname_, _param_)
   end
 
-  def glTexParameterfv(_target_, _pname_, _params_)
+  def self.TexParameterfv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glTexParameterfv].call(_target_, _pname_, _params_)
   end
 
-  def glTexParameteri(_target_, _pname_, _param_)
+  def self.TexParameteri(_target_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glTexParameteri].call(_target_, _pname_, _param_)
   end
 
-  def glTexParameteriv(_target_, _pname_, _params_)
+  def self.TexParameteriv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glTexParameteriv].call(_target_, _pname_, _params_)
   end
 
-  def glTexImage1D(_target_, _level_, _internalformat_, _width_, _border_, _format_, _type_, _pixels_)
+  def self.TexImage1D(_target_, _level_, _internalformat_, _width_, _border_, _format_, _type_, _pixels_)
     GL_FUNCTIONS_MAP[:glTexImage1D].call(_target_, _level_, _internalformat_, _width_, _border_, _format_, _type_, _pixels_)
   end
 
-  def glTexImage2D(_target_, _level_, _internalformat_, _width_, _height_, _border_, _format_, _type_, _pixels_)
+  def self.TexImage2D(_target_, _level_, _internalformat_, _width_, _height_, _border_, _format_, _type_, _pixels_)
     GL_FUNCTIONS_MAP[:glTexImage2D].call(_target_, _level_, _internalformat_, _width_, _height_, _border_, _format_, _type_, _pixels_)
   end
 
-  def glDrawBuffer(_buf_)
+  def self.DrawBuffer(_buf_)
     GL_FUNCTIONS_MAP[:glDrawBuffer].call(_buf_)
   end
 
-  def glClear(_mask_)
+  def self.Clear(_mask_)
     GL_FUNCTIONS_MAP[:glClear].call(_mask_)
   end
 
-  def glClearColor(_red_, _green_, _blue_, _alpha_)
+  def self.ClearColor(_red_, _green_, _blue_, _alpha_)
     GL_FUNCTIONS_MAP[:glClearColor].call(_red_, _green_, _blue_, _alpha_)
   end
 
-  def glClearStencil(_s_)
+  def self.ClearStencil(_s_)
     GL_FUNCTIONS_MAP[:glClearStencil].call(_s_)
   end
 
-  def glClearDepth(_depth_)
+  def self.ClearDepth(_depth_)
     GL_FUNCTIONS_MAP[:glClearDepth].call(_depth_)
   end
 
-  def glStencilMask(_mask_)
+  def self.StencilMask(_mask_)
     GL_FUNCTIONS_MAP[:glStencilMask].call(_mask_)
   end
 
-  def glColorMask(_red_, _green_, _blue_, _alpha_)
+  def self.ColorMask(_red_, _green_, _blue_, _alpha_)
     GL_FUNCTIONS_MAP[:glColorMask].call(_red_, _green_, _blue_, _alpha_)
   end
 
-  def glDepthMask(_flag_)
+  def self.DepthMask(_flag_)
     GL_FUNCTIONS_MAP[:glDepthMask].call(_flag_)
   end
 
-  def glDisable(_cap_)
+  def self.Disable(_cap_)
     GL_FUNCTIONS_MAP[:glDisable].call(_cap_)
   end
 
-  def glEnable(_cap_)
+  def self.Enable(_cap_)
     GL_FUNCTIONS_MAP[:glEnable].call(_cap_)
   end
 
-  def glFinish()
+  def self.Finish()
     GL_FUNCTIONS_MAP[:glFinish].call()
   end
 
-  def glFlush()
+  def self.Flush()
     GL_FUNCTIONS_MAP[:glFlush].call()
   end
 
-  def glBlendFunc(_sfactor_, _dfactor_)
+  def self.BlendFunc(_sfactor_, _dfactor_)
     GL_FUNCTIONS_MAP[:glBlendFunc].call(_sfactor_, _dfactor_)
   end
 
-  def glLogicOp(_opcode_)
+  def self.LogicOp(_opcode_)
     GL_FUNCTIONS_MAP[:glLogicOp].call(_opcode_)
   end
 
-  def glStencilFunc(_func_, _ref_, _mask_)
+  def self.StencilFunc(_func_, _ref_, _mask_)
     GL_FUNCTIONS_MAP[:glStencilFunc].call(_func_, _ref_, _mask_)
   end
 
-  def glStencilOp(_fail_, _zfail_, _zpass_)
+  def self.StencilOp(_fail_, _zfail_, _zpass_)
     GL_FUNCTIONS_MAP[:glStencilOp].call(_fail_, _zfail_, _zpass_)
   end
 
-  def glDepthFunc(_func_)
+  def self.DepthFunc(_func_)
     GL_FUNCTIONS_MAP[:glDepthFunc].call(_func_)
   end
 
-  def glPixelStoref(_pname_, _param_)
+  def self.PixelStoref(_pname_, _param_)
     GL_FUNCTIONS_MAP[:glPixelStoref].call(_pname_, _param_)
   end
 
-  def glPixelStorei(_pname_, _param_)
+  def self.PixelStorei(_pname_, _param_)
     GL_FUNCTIONS_MAP[:glPixelStorei].call(_pname_, _param_)
   end
 
-  def glReadBuffer(_src_)
+  def self.ReadBuffer(_src_)
     GL_FUNCTIONS_MAP[:glReadBuffer].call(_src_)
   end
 
-  def glReadPixels(_x_, _y_, _width_, _height_, _format_, _type_, _pixels_)
+  def self.ReadPixels(_x_, _y_, _width_, _height_, _format_, _type_, _pixels_)
     GL_FUNCTIONS_MAP[:glReadPixels].call(_x_, _y_, _width_, _height_, _format_, _type_, _pixels_)
   end
 
-  def glGetBooleanv(_pname_, _data_)
+  def self.GetBooleanv(_pname_, _data_)
     GL_FUNCTIONS_MAP[:glGetBooleanv].call(_pname_, _data_)
   end
 
-  def glGetDoublev(_pname_, _data_)
+  def self.GetDoublev(_pname_, _data_)
     GL_FUNCTIONS_MAP[:glGetDoublev].call(_pname_, _data_)
   end
 
-  def glGetError()
+  def self.GetError()
     GL_FUNCTIONS_MAP[:glGetError].call()
   end
 
-  def glGetFloatv(_pname_, _data_)
+  def self.GetFloatv(_pname_, _data_)
     GL_FUNCTIONS_MAP[:glGetFloatv].call(_pname_, _data_)
   end
 
-  def glGetIntegerv(_pname_, _data_)
+  def self.GetIntegerv(_pname_, _data_)
     GL_FUNCTIONS_MAP[:glGetIntegerv].call(_pname_, _data_)
   end
 
-  def glGetString(_name_)
+  def self.GetString(_name_)
     GL_FUNCTIONS_MAP[:glGetString].call(_name_)
   end
 
-  def glGetTexImage(_target_, _level_, _format_, _type_, _pixels_)
+  def self.GetTexImage(_target_, _level_, _format_, _type_, _pixels_)
     GL_FUNCTIONS_MAP[:glGetTexImage].call(_target_, _level_, _format_, _type_, _pixels_)
   end
 
-  def glGetTexParameterfv(_target_, _pname_, _params_)
+  def self.GetTexParameterfv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTexParameterfv].call(_target_, _pname_, _params_)
   end
 
-  def glGetTexParameteriv(_target_, _pname_, _params_)
+  def self.GetTexParameteriv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTexParameteriv].call(_target_, _pname_, _params_)
   end
 
-  def glGetTexLevelParameterfv(_target_, _level_, _pname_, _params_)
+  def self.GetTexLevelParameterfv(_target_, _level_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTexLevelParameterfv].call(_target_, _level_, _pname_, _params_)
   end
 
-  def glGetTexLevelParameteriv(_target_, _level_, _pname_, _params_)
+  def self.GetTexLevelParameteriv(_target_, _level_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTexLevelParameteriv].call(_target_, _level_, _pname_, _params_)
   end
 
-  def glIsEnabled(_cap_)
+  def self.IsEnabled(_cap_)
     GL_FUNCTIONS_MAP[:glIsEnabled].call(_cap_)
   end
 
-  def glDepthRange(_n_, _f_)
+  def self.DepthRange(_n_, _f_)
     GL_FUNCTIONS_MAP[:glDepthRange].call(_n_, _f_)
   end
 
-  def glViewport(_x_, _y_, _width_, _height_)
+  def self.Viewport(_x_, _y_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glViewport].call(_x_, _y_, _width_, _height_)
   end
 
-  def glNewList(_list_, _mode_)
+  def self.NewList(_list_, _mode_)
     GL_FUNCTIONS_MAP[:glNewList].call(_list_, _mode_)
   end
 
-  def glEndList()
+  def self.EndList()
     GL_FUNCTIONS_MAP[:glEndList].call()
   end
 
-  def glCallList(_list_)
+  def self.CallList(_list_)
     GL_FUNCTIONS_MAP[:glCallList].call(_list_)
   end
 
-  def glCallLists(_n_, _type_, _lists_)
+  def self.CallLists(_n_, _type_, _lists_)
     GL_FUNCTIONS_MAP[:glCallLists].call(_n_, _type_, _lists_)
   end
 
-  def glDeleteLists(_list_, _range_)
+  def self.DeleteLists(_list_, _range_)
     GL_FUNCTIONS_MAP[:glDeleteLists].call(_list_, _range_)
   end
 
-  def glGenLists(_range_)
+  def self.GenLists(_range_)
     GL_FUNCTIONS_MAP[:glGenLists].call(_range_)
   end
 
-  def glListBase(_base_)
+  def self.ListBase(_base_)
     GL_FUNCTIONS_MAP[:glListBase].call(_base_)
   end
 
-  def glBegin(_mode_)
+  def self.Begin(_mode_)
     GL_FUNCTIONS_MAP[:glBegin].call(_mode_)
   end
 
-  def glBitmap(_width_, _height_, _xorig_, _yorig_, _xmove_, _ymove_, _bitmap_)
+  def self.Bitmap(_width_, _height_, _xorig_, _yorig_, _xmove_, _ymove_, _bitmap_)
     GL_FUNCTIONS_MAP[:glBitmap].call(_width_, _height_, _xorig_, _yorig_, _xmove_, _ymove_, _bitmap_)
   end
 
-  def glColor3b(_red_, _green_, _blue_)
+  def self.Color3b(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glColor3b].call(_red_, _green_, _blue_)
   end
 
-  def glColor3bv(_v_)
+  def self.Color3bv(_v_)
     GL_FUNCTIONS_MAP[:glColor3bv].call(_v_)
   end
 
-  def glColor3d(_red_, _green_, _blue_)
+  def self.Color3d(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glColor3d].call(_red_, _green_, _blue_)
   end
 
-  def glColor3dv(_v_)
+  def self.Color3dv(_v_)
     GL_FUNCTIONS_MAP[:glColor3dv].call(_v_)
   end
 
-  def glColor3f(_red_, _green_, _blue_)
+  def self.Color3f(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glColor3f].call(_red_, _green_, _blue_)
   end
 
-  def glColor3fv(_v_)
+  def self.Color3fv(_v_)
     GL_FUNCTIONS_MAP[:glColor3fv].call(_v_)
   end
 
-  def glColor3i(_red_, _green_, _blue_)
+  def self.Color3i(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glColor3i].call(_red_, _green_, _blue_)
   end
 
-  def glColor3iv(_v_)
+  def self.Color3iv(_v_)
     GL_FUNCTIONS_MAP[:glColor3iv].call(_v_)
   end
 
-  def glColor3s(_red_, _green_, _blue_)
+  def self.Color3s(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glColor3s].call(_red_, _green_, _blue_)
   end
 
-  def glColor3sv(_v_)
+  def self.Color3sv(_v_)
     GL_FUNCTIONS_MAP[:glColor3sv].call(_v_)
   end
 
-  def glColor3ub(_red_, _green_, _blue_)
+  def self.Color3ub(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glColor3ub].call(_red_, _green_, _blue_)
   end
 
-  def glColor3ubv(_v_)
+  def self.Color3ubv(_v_)
     GL_FUNCTIONS_MAP[:glColor3ubv].call(_v_)
   end
 
-  def glColor3ui(_red_, _green_, _blue_)
+  def self.Color3ui(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glColor3ui].call(_red_, _green_, _blue_)
   end
 
-  def glColor3uiv(_v_)
+  def self.Color3uiv(_v_)
     GL_FUNCTIONS_MAP[:glColor3uiv].call(_v_)
   end
 
-  def glColor3us(_red_, _green_, _blue_)
+  def self.Color3us(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glColor3us].call(_red_, _green_, _blue_)
   end
 
-  def glColor3usv(_v_)
+  def self.Color3usv(_v_)
     GL_FUNCTIONS_MAP[:glColor3usv].call(_v_)
   end
 
-  def glColor4b(_red_, _green_, _blue_, _alpha_)
+  def self.Color4b(_red_, _green_, _blue_, _alpha_)
     GL_FUNCTIONS_MAP[:glColor4b].call(_red_, _green_, _blue_, _alpha_)
   end
 
-  def glColor4bv(_v_)
+  def self.Color4bv(_v_)
     GL_FUNCTIONS_MAP[:glColor4bv].call(_v_)
   end
 
-  def glColor4d(_red_, _green_, _blue_, _alpha_)
+  def self.Color4d(_red_, _green_, _blue_, _alpha_)
     GL_FUNCTIONS_MAP[:glColor4d].call(_red_, _green_, _blue_, _alpha_)
   end
 
-  def glColor4dv(_v_)
+  def self.Color4dv(_v_)
     GL_FUNCTIONS_MAP[:glColor4dv].call(_v_)
   end
 
-  def glColor4f(_red_, _green_, _blue_, _alpha_)
+  def self.Color4f(_red_, _green_, _blue_, _alpha_)
     GL_FUNCTIONS_MAP[:glColor4f].call(_red_, _green_, _blue_, _alpha_)
   end
 
-  def glColor4fv(_v_)
+  def self.Color4fv(_v_)
     GL_FUNCTIONS_MAP[:glColor4fv].call(_v_)
   end
 
-  def glColor4i(_red_, _green_, _blue_, _alpha_)
+  def self.Color4i(_red_, _green_, _blue_, _alpha_)
     GL_FUNCTIONS_MAP[:glColor4i].call(_red_, _green_, _blue_, _alpha_)
   end
 
-  def glColor4iv(_v_)
+  def self.Color4iv(_v_)
     GL_FUNCTIONS_MAP[:glColor4iv].call(_v_)
   end
 
-  def glColor4s(_red_, _green_, _blue_, _alpha_)
+  def self.Color4s(_red_, _green_, _blue_, _alpha_)
     GL_FUNCTIONS_MAP[:glColor4s].call(_red_, _green_, _blue_, _alpha_)
   end
 
-  def glColor4sv(_v_)
+  def self.Color4sv(_v_)
     GL_FUNCTIONS_MAP[:glColor4sv].call(_v_)
   end
 
-  def glColor4ub(_red_, _green_, _blue_, _alpha_)
+  def self.Color4ub(_red_, _green_, _blue_, _alpha_)
     GL_FUNCTIONS_MAP[:glColor4ub].call(_red_, _green_, _blue_, _alpha_)
   end
 
-  def glColor4ubv(_v_)
+  def self.Color4ubv(_v_)
     GL_FUNCTIONS_MAP[:glColor4ubv].call(_v_)
   end
 
-  def glColor4ui(_red_, _green_, _blue_, _alpha_)
+  def self.Color4ui(_red_, _green_, _blue_, _alpha_)
     GL_FUNCTIONS_MAP[:glColor4ui].call(_red_, _green_, _blue_, _alpha_)
   end
 
-  def glColor4uiv(_v_)
+  def self.Color4uiv(_v_)
     GL_FUNCTIONS_MAP[:glColor4uiv].call(_v_)
   end
 
-  def glColor4us(_red_, _green_, _blue_, _alpha_)
+  def self.Color4us(_red_, _green_, _blue_, _alpha_)
     GL_FUNCTIONS_MAP[:glColor4us].call(_red_, _green_, _blue_, _alpha_)
   end
 
-  def glColor4usv(_v_)
+  def self.Color4usv(_v_)
     GL_FUNCTIONS_MAP[:glColor4usv].call(_v_)
   end
 
-  def glEdgeFlag(_flag_)
+  def self.EdgeFlag(_flag_)
     GL_FUNCTIONS_MAP[:glEdgeFlag].call(_flag_)
   end
 
-  def glEdgeFlagv(_flag_)
+  def self.EdgeFlagv(_flag_)
     GL_FUNCTIONS_MAP[:glEdgeFlagv].call(_flag_)
   end
 
-  def glEnd()
+  def self.End()
     GL_FUNCTIONS_MAP[:glEnd].call()
   end
 
-  def glIndexd(_c_)
+  def self.Indexd(_c_)
     GL_FUNCTIONS_MAP[:glIndexd].call(_c_)
   end
 
-  def glIndexdv(_c_)
+  def self.Indexdv(_c_)
     GL_FUNCTIONS_MAP[:glIndexdv].call(_c_)
   end
 
-  def glIndexf(_c_)
+  def self.Indexf(_c_)
     GL_FUNCTIONS_MAP[:glIndexf].call(_c_)
   end
 
-  def glIndexfv(_c_)
+  def self.Indexfv(_c_)
     GL_FUNCTIONS_MAP[:glIndexfv].call(_c_)
   end
 
-  def glIndexi(_c_)
+  def self.Indexi(_c_)
     GL_FUNCTIONS_MAP[:glIndexi].call(_c_)
   end
 
-  def glIndexiv(_c_)
+  def self.Indexiv(_c_)
     GL_FUNCTIONS_MAP[:glIndexiv].call(_c_)
   end
 
-  def glIndexs(_c_)
+  def self.Indexs(_c_)
     GL_FUNCTIONS_MAP[:glIndexs].call(_c_)
   end
 
-  def glIndexsv(_c_)
+  def self.Indexsv(_c_)
     GL_FUNCTIONS_MAP[:glIndexsv].call(_c_)
   end
 
-  def glNormal3b(_nx_, _ny_, _nz_)
+  def self.Normal3b(_nx_, _ny_, _nz_)
     GL_FUNCTIONS_MAP[:glNormal3b].call(_nx_, _ny_, _nz_)
   end
 
-  def glNormal3bv(_v_)
+  def self.Normal3bv(_v_)
     GL_FUNCTIONS_MAP[:glNormal3bv].call(_v_)
   end
 
-  def glNormal3d(_nx_, _ny_, _nz_)
+  def self.Normal3d(_nx_, _ny_, _nz_)
     GL_FUNCTIONS_MAP[:glNormal3d].call(_nx_, _ny_, _nz_)
   end
 
-  def glNormal3dv(_v_)
+  def self.Normal3dv(_v_)
     GL_FUNCTIONS_MAP[:glNormal3dv].call(_v_)
   end
 
-  def glNormal3f(_nx_, _ny_, _nz_)
+  def self.Normal3f(_nx_, _ny_, _nz_)
     GL_FUNCTIONS_MAP[:glNormal3f].call(_nx_, _ny_, _nz_)
   end
 
-  def glNormal3fv(_v_)
+  def self.Normal3fv(_v_)
     GL_FUNCTIONS_MAP[:glNormal3fv].call(_v_)
   end
 
-  def glNormal3i(_nx_, _ny_, _nz_)
+  def self.Normal3i(_nx_, _ny_, _nz_)
     GL_FUNCTIONS_MAP[:glNormal3i].call(_nx_, _ny_, _nz_)
   end
 
-  def glNormal3iv(_v_)
+  def self.Normal3iv(_v_)
     GL_FUNCTIONS_MAP[:glNormal3iv].call(_v_)
   end
 
-  def glNormal3s(_nx_, _ny_, _nz_)
+  def self.Normal3s(_nx_, _ny_, _nz_)
     GL_FUNCTIONS_MAP[:glNormal3s].call(_nx_, _ny_, _nz_)
   end
 
-  def glNormal3sv(_v_)
+  def self.Normal3sv(_v_)
     GL_FUNCTIONS_MAP[:glNormal3sv].call(_v_)
   end
 
-  def glRasterPos2d(_x_, _y_)
+  def self.RasterPos2d(_x_, _y_)
     GL_FUNCTIONS_MAP[:glRasterPos2d].call(_x_, _y_)
   end
 
-  def glRasterPos2dv(_v_)
+  def self.RasterPos2dv(_v_)
     GL_FUNCTIONS_MAP[:glRasterPos2dv].call(_v_)
   end
 
-  def glRasterPos2f(_x_, _y_)
+  def self.RasterPos2f(_x_, _y_)
     GL_FUNCTIONS_MAP[:glRasterPos2f].call(_x_, _y_)
   end
 
-  def glRasterPos2fv(_v_)
+  def self.RasterPos2fv(_v_)
     GL_FUNCTIONS_MAP[:glRasterPos2fv].call(_v_)
   end
 
-  def glRasterPos2i(_x_, _y_)
+  def self.RasterPos2i(_x_, _y_)
     GL_FUNCTIONS_MAP[:glRasterPos2i].call(_x_, _y_)
   end
 
-  def glRasterPos2iv(_v_)
+  def self.RasterPos2iv(_v_)
     GL_FUNCTIONS_MAP[:glRasterPos2iv].call(_v_)
   end
 
-  def glRasterPos2s(_x_, _y_)
+  def self.RasterPos2s(_x_, _y_)
     GL_FUNCTIONS_MAP[:glRasterPos2s].call(_x_, _y_)
   end
 
-  def glRasterPos2sv(_v_)
+  def self.RasterPos2sv(_v_)
     GL_FUNCTIONS_MAP[:glRasterPos2sv].call(_v_)
   end
 
-  def glRasterPos3d(_x_, _y_, _z_)
+  def self.RasterPos3d(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glRasterPos3d].call(_x_, _y_, _z_)
   end
 
-  def glRasterPos3dv(_v_)
+  def self.RasterPos3dv(_v_)
     GL_FUNCTIONS_MAP[:glRasterPos3dv].call(_v_)
   end
 
-  def glRasterPos3f(_x_, _y_, _z_)
+  def self.RasterPos3f(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glRasterPos3f].call(_x_, _y_, _z_)
   end
 
-  def glRasterPos3fv(_v_)
+  def self.RasterPos3fv(_v_)
     GL_FUNCTIONS_MAP[:glRasterPos3fv].call(_v_)
   end
 
-  def glRasterPos3i(_x_, _y_, _z_)
+  def self.RasterPos3i(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glRasterPos3i].call(_x_, _y_, _z_)
   end
 
-  def glRasterPos3iv(_v_)
+  def self.RasterPos3iv(_v_)
     GL_FUNCTIONS_MAP[:glRasterPos3iv].call(_v_)
   end
 
-  def glRasterPos3s(_x_, _y_, _z_)
+  def self.RasterPos3s(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glRasterPos3s].call(_x_, _y_, _z_)
   end
 
-  def glRasterPos3sv(_v_)
+  def self.RasterPos3sv(_v_)
     GL_FUNCTIONS_MAP[:glRasterPos3sv].call(_v_)
   end
 
-  def glRasterPos4d(_x_, _y_, _z_, _w_)
+  def self.RasterPos4d(_x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glRasterPos4d].call(_x_, _y_, _z_, _w_)
   end
 
-  def glRasterPos4dv(_v_)
+  def self.RasterPos4dv(_v_)
     GL_FUNCTIONS_MAP[:glRasterPos4dv].call(_v_)
   end
 
-  def glRasterPos4f(_x_, _y_, _z_, _w_)
+  def self.RasterPos4f(_x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glRasterPos4f].call(_x_, _y_, _z_, _w_)
   end
 
-  def glRasterPos4fv(_v_)
+  def self.RasterPos4fv(_v_)
     GL_FUNCTIONS_MAP[:glRasterPos4fv].call(_v_)
   end
 
-  def glRasterPos4i(_x_, _y_, _z_, _w_)
+  def self.RasterPos4i(_x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glRasterPos4i].call(_x_, _y_, _z_, _w_)
   end
 
-  def glRasterPos4iv(_v_)
+  def self.RasterPos4iv(_v_)
     GL_FUNCTIONS_MAP[:glRasterPos4iv].call(_v_)
   end
 
-  def glRasterPos4s(_x_, _y_, _z_, _w_)
+  def self.RasterPos4s(_x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glRasterPos4s].call(_x_, _y_, _z_, _w_)
   end
 
-  def glRasterPos4sv(_v_)
+  def self.RasterPos4sv(_v_)
     GL_FUNCTIONS_MAP[:glRasterPos4sv].call(_v_)
   end
 
-  def glRectd(_x1_, _y1_, _x2_, _y2_)
+  def self.Rectd(_x1_, _y1_, _x2_, _y2_)
     GL_FUNCTIONS_MAP[:glRectd].call(_x1_, _y1_, _x2_, _y2_)
   end
 
-  def glRectdv(_v1_, _v2_)
+  def self.Rectdv(_v1_, _v2_)
     GL_FUNCTIONS_MAP[:glRectdv].call(_v1_, _v2_)
   end
 
-  def glRectf(_x1_, _y1_, _x2_, _y2_)
+  def self.Rectf(_x1_, _y1_, _x2_, _y2_)
     GL_FUNCTIONS_MAP[:glRectf].call(_x1_, _y1_, _x2_, _y2_)
   end
 
-  def glRectfv(_v1_, _v2_)
+  def self.Rectfv(_v1_, _v2_)
     GL_FUNCTIONS_MAP[:glRectfv].call(_v1_, _v2_)
   end
 
-  def glRecti(_x1_, _y1_, _x2_, _y2_)
+  def self.Recti(_x1_, _y1_, _x2_, _y2_)
     GL_FUNCTIONS_MAP[:glRecti].call(_x1_, _y1_, _x2_, _y2_)
   end
 
-  def glRectiv(_v1_, _v2_)
+  def self.Rectiv(_v1_, _v2_)
     GL_FUNCTIONS_MAP[:glRectiv].call(_v1_, _v2_)
   end
 
-  def glRects(_x1_, _y1_, _x2_, _y2_)
+  def self.Rects(_x1_, _y1_, _x2_, _y2_)
     GL_FUNCTIONS_MAP[:glRects].call(_x1_, _y1_, _x2_, _y2_)
   end
 
-  def glRectsv(_v1_, _v2_)
+  def self.Rectsv(_v1_, _v2_)
     GL_FUNCTIONS_MAP[:glRectsv].call(_v1_, _v2_)
   end
 
-  def glTexCoord1d(_s_)
+  def self.TexCoord1d(_s_)
     GL_FUNCTIONS_MAP[:glTexCoord1d].call(_s_)
   end
 
-  def glTexCoord1dv(_v_)
+  def self.TexCoord1dv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord1dv].call(_v_)
   end
 
-  def glTexCoord1f(_s_)
+  def self.TexCoord1f(_s_)
     GL_FUNCTIONS_MAP[:glTexCoord1f].call(_s_)
   end
 
-  def glTexCoord1fv(_v_)
+  def self.TexCoord1fv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord1fv].call(_v_)
   end
 
-  def glTexCoord1i(_s_)
+  def self.TexCoord1i(_s_)
     GL_FUNCTIONS_MAP[:glTexCoord1i].call(_s_)
   end
 
-  def glTexCoord1iv(_v_)
+  def self.TexCoord1iv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord1iv].call(_v_)
   end
 
-  def glTexCoord1s(_s_)
+  def self.TexCoord1s(_s_)
     GL_FUNCTIONS_MAP[:glTexCoord1s].call(_s_)
   end
 
-  def glTexCoord1sv(_v_)
+  def self.TexCoord1sv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord1sv].call(_v_)
   end
 
-  def glTexCoord2d(_s_, _t_)
+  def self.TexCoord2d(_s_, _t_)
     GL_FUNCTIONS_MAP[:glTexCoord2d].call(_s_, _t_)
   end
 
-  def glTexCoord2dv(_v_)
+  def self.TexCoord2dv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord2dv].call(_v_)
   end
 
-  def glTexCoord2f(_s_, _t_)
+  def self.TexCoord2f(_s_, _t_)
     GL_FUNCTIONS_MAP[:glTexCoord2f].call(_s_, _t_)
   end
 
-  def glTexCoord2fv(_v_)
+  def self.TexCoord2fv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord2fv].call(_v_)
   end
 
-  def glTexCoord2i(_s_, _t_)
+  def self.TexCoord2i(_s_, _t_)
     GL_FUNCTIONS_MAP[:glTexCoord2i].call(_s_, _t_)
   end
 
-  def glTexCoord2iv(_v_)
+  def self.TexCoord2iv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord2iv].call(_v_)
   end
 
-  def glTexCoord2s(_s_, _t_)
+  def self.TexCoord2s(_s_, _t_)
     GL_FUNCTIONS_MAP[:glTexCoord2s].call(_s_, _t_)
   end
 
-  def glTexCoord2sv(_v_)
+  def self.TexCoord2sv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord2sv].call(_v_)
   end
 
-  def glTexCoord3d(_s_, _t_, _r_)
+  def self.TexCoord3d(_s_, _t_, _r_)
     GL_FUNCTIONS_MAP[:glTexCoord3d].call(_s_, _t_, _r_)
   end
 
-  def glTexCoord3dv(_v_)
+  def self.TexCoord3dv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord3dv].call(_v_)
   end
 
-  def glTexCoord3f(_s_, _t_, _r_)
+  def self.TexCoord3f(_s_, _t_, _r_)
     GL_FUNCTIONS_MAP[:glTexCoord3f].call(_s_, _t_, _r_)
   end
 
-  def glTexCoord3fv(_v_)
+  def self.TexCoord3fv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord3fv].call(_v_)
   end
 
-  def glTexCoord3i(_s_, _t_, _r_)
+  def self.TexCoord3i(_s_, _t_, _r_)
     GL_FUNCTIONS_MAP[:glTexCoord3i].call(_s_, _t_, _r_)
   end
 
-  def glTexCoord3iv(_v_)
+  def self.TexCoord3iv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord3iv].call(_v_)
   end
 
-  def glTexCoord3s(_s_, _t_, _r_)
+  def self.TexCoord3s(_s_, _t_, _r_)
     GL_FUNCTIONS_MAP[:glTexCoord3s].call(_s_, _t_, _r_)
   end
 
-  def glTexCoord3sv(_v_)
+  def self.TexCoord3sv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord3sv].call(_v_)
   end
 
-  def glTexCoord4d(_s_, _t_, _r_, _q_)
+  def self.TexCoord4d(_s_, _t_, _r_, _q_)
     GL_FUNCTIONS_MAP[:glTexCoord4d].call(_s_, _t_, _r_, _q_)
   end
 
-  def glTexCoord4dv(_v_)
+  def self.TexCoord4dv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord4dv].call(_v_)
   end
 
-  def glTexCoord4f(_s_, _t_, _r_, _q_)
+  def self.TexCoord4f(_s_, _t_, _r_, _q_)
     GL_FUNCTIONS_MAP[:glTexCoord4f].call(_s_, _t_, _r_, _q_)
   end
 
-  def glTexCoord4fv(_v_)
+  def self.TexCoord4fv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord4fv].call(_v_)
   end
 
-  def glTexCoord4i(_s_, _t_, _r_, _q_)
+  def self.TexCoord4i(_s_, _t_, _r_, _q_)
     GL_FUNCTIONS_MAP[:glTexCoord4i].call(_s_, _t_, _r_, _q_)
   end
 
-  def glTexCoord4iv(_v_)
+  def self.TexCoord4iv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord4iv].call(_v_)
   end
 
-  def glTexCoord4s(_s_, _t_, _r_, _q_)
+  def self.TexCoord4s(_s_, _t_, _r_, _q_)
     GL_FUNCTIONS_MAP[:glTexCoord4s].call(_s_, _t_, _r_, _q_)
   end
 
-  def glTexCoord4sv(_v_)
+  def self.TexCoord4sv(_v_)
     GL_FUNCTIONS_MAP[:glTexCoord4sv].call(_v_)
   end
 
-  def glVertex2d(_x_, _y_)
+  def self.Vertex2d(_x_, _y_)
     GL_FUNCTIONS_MAP[:glVertex2d].call(_x_, _y_)
   end
 
-  def glVertex2dv(_v_)
+  def self.Vertex2dv(_v_)
     GL_FUNCTIONS_MAP[:glVertex2dv].call(_v_)
   end
 
-  def glVertex2f(_x_, _y_)
+  def self.Vertex2f(_x_, _y_)
     GL_FUNCTIONS_MAP[:glVertex2f].call(_x_, _y_)
   end
 
-  def glVertex2fv(_v_)
+  def self.Vertex2fv(_v_)
     GL_FUNCTIONS_MAP[:glVertex2fv].call(_v_)
   end
 
-  def glVertex2i(_x_, _y_)
+  def self.Vertex2i(_x_, _y_)
     GL_FUNCTIONS_MAP[:glVertex2i].call(_x_, _y_)
   end
 
-  def glVertex2iv(_v_)
+  def self.Vertex2iv(_v_)
     GL_FUNCTIONS_MAP[:glVertex2iv].call(_v_)
   end
 
-  def glVertex2s(_x_, _y_)
+  def self.Vertex2s(_x_, _y_)
     GL_FUNCTIONS_MAP[:glVertex2s].call(_x_, _y_)
   end
 
-  def glVertex2sv(_v_)
+  def self.Vertex2sv(_v_)
     GL_FUNCTIONS_MAP[:glVertex2sv].call(_v_)
   end
 
-  def glVertex3d(_x_, _y_, _z_)
+  def self.Vertex3d(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glVertex3d].call(_x_, _y_, _z_)
   end
 
-  def glVertex3dv(_v_)
+  def self.Vertex3dv(_v_)
     GL_FUNCTIONS_MAP[:glVertex3dv].call(_v_)
   end
 
-  def glVertex3f(_x_, _y_, _z_)
+  def self.Vertex3f(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glVertex3f].call(_x_, _y_, _z_)
   end
 
-  def glVertex3fv(_v_)
+  def self.Vertex3fv(_v_)
     GL_FUNCTIONS_MAP[:glVertex3fv].call(_v_)
   end
 
-  def glVertex3i(_x_, _y_, _z_)
+  def self.Vertex3i(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glVertex3i].call(_x_, _y_, _z_)
   end
 
-  def glVertex3iv(_v_)
+  def self.Vertex3iv(_v_)
     GL_FUNCTIONS_MAP[:glVertex3iv].call(_v_)
   end
 
-  def glVertex3s(_x_, _y_, _z_)
+  def self.Vertex3s(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glVertex3s].call(_x_, _y_, _z_)
   end
 
-  def glVertex3sv(_v_)
+  def self.Vertex3sv(_v_)
     GL_FUNCTIONS_MAP[:glVertex3sv].call(_v_)
   end
 
-  def glVertex4d(_x_, _y_, _z_, _w_)
+  def self.Vertex4d(_x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glVertex4d].call(_x_, _y_, _z_, _w_)
   end
 
-  def glVertex4dv(_v_)
+  def self.Vertex4dv(_v_)
     GL_FUNCTIONS_MAP[:glVertex4dv].call(_v_)
   end
 
-  def glVertex4f(_x_, _y_, _z_, _w_)
+  def self.Vertex4f(_x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glVertex4f].call(_x_, _y_, _z_, _w_)
   end
 
-  def glVertex4fv(_v_)
+  def self.Vertex4fv(_v_)
     GL_FUNCTIONS_MAP[:glVertex4fv].call(_v_)
   end
 
-  def glVertex4i(_x_, _y_, _z_, _w_)
+  def self.Vertex4i(_x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glVertex4i].call(_x_, _y_, _z_, _w_)
   end
 
-  def glVertex4iv(_v_)
+  def self.Vertex4iv(_v_)
     GL_FUNCTIONS_MAP[:glVertex4iv].call(_v_)
   end
 
-  def glVertex4s(_x_, _y_, _z_, _w_)
+  def self.Vertex4s(_x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glVertex4s].call(_x_, _y_, _z_, _w_)
   end
 
-  def glVertex4sv(_v_)
+  def self.Vertex4sv(_v_)
     GL_FUNCTIONS_MAP[:glVertex4sv].call(_v_)
   end
 
-  def glClipPlane(_plane_, _equation_)
+  def self.ClipPlane(_plane_, _equation_)
     GL_FUNCTIONS_MAP[:glClipPlane].call(_plane_, _equation_)
   end
 
-  def glColorMaterial(_face_, _mode_)
+  def self.ColorMaterial(_face_, _mode_)
     GL_FUNCTIONS_MAP[:glColorMaterial].call(_face_, _mode_)
   end
 
-  def glFogf(_pname_, _param_)
+  def self.Fogf(_pname_, _param_)
     GL_FUNCTIONS_MAP[:glFogf].call(_pname_, _param_)
   end
 
-  def glFogfv(_pname_, _params_)
+  def self.Fogfv(_pname_, _params_)
     GL_FUNCTIONS_MAP[:glFogfv].call(_pname_, _params_)
   end
 
-  def glFogi(_pname_, _param_)
+  def self.Fogi(_pname_, _param_)
     GL_FUNCTIONS_MAP[:glFogi].call(_pname_, _param_)
   end
 
-  def glFogiv(_pname_, _params_)
+  def self.Fogiv(_pname_, _params_)
     GL_FUNCTIONS_MAP[:glFogiv].call(_pname_, _params_)
   end
 
-  def glLightf(_light_, _pname_, _param_)
+  def self.Lightf(_light_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glLightf].call(_light_, _pname_, _param_)
   end
 
-  def glLightfv(_light_, _pname_, _params_)
+  def self.Lightfv(_light_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glLightfv].call(_light_, _pname_, _params_)
   end
 
-  def glLighti(_light_, _pname_, _param_)
+  def self.Lighti(_light_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glLighti].call(_light_, _pname_, _param_)
   end
 
-  def glLightiv(_light_, _pname_, _params_)
+  def self.Lightiv(_light_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glLightiv].call(_light_, _pname_, _params_)
   end
 
-  def glLightModelf(_pname_, _param_)
+  def self.LightModelf(_pname_, _param_)
     GL_FUNCTIONS_MAP[:glLightModelf].call(_pname_, _param_)
   end
 
-  def glLightModelfv(_pname_, _params_)
+  def self.LightModelfv(_pname_, _params_)
     GL_FUNCTIONS_MAP[:glLightModelfv].call(_pname_, _params_)
   end
 
-  def glLightModeli(_pname_, _param_)
+  def self.LightModeli(_pname_, _param_)
     GL_FUNCTIONS_MAP[:glLightModeli].call(_pname_, _param_)
   end
 
-  def glLightModeliv(_pname_, _params_)
+  def self.LightModeliv(_pname_, _params_)
     GL_FUNCTIONS_MAP[:glLightModeliv].call(_pname_, _params_)
   end
 
-  def glLineStipple(_factor_, _pattern_)
+  def self.LineStipple(_factor_, _pattern_)
     GL_FUNCTIONS_MAP[:glLineStipple].call(_factor_, _pattern_)
   end
 
-  def glMaterialf(_face_, _pname_, _param_)
+  def self.Materialf(_face_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glMaterialf].call(_face_, _pname_, _param_)
   end
 
-  def glMaterialfv(_face_, _pname_, _params_)
+  def self.Materialfv(_face_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glMaterialfv].call(_face_, _pname_, _params_)
   end
 
-  def glMateriali(_face_, _pname_, _param_)
+  def self.Materiali(_face_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glMateriali].call(_face_, _pname_, _param_)
   end
 
-  def glMaterialiv(_face_, _pname_, _params_)
+  def self.Materialiv(_face_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glMaterialiv].call(_face_, _pname_, _params_)
   end
 
-  def glPolygonStipple(_mask_)
+  def self.PolygonStipple(_mask_)
     GL_FUNCTIONS_MAP[:glPolygonStipple].call(_mask_)
   end
 
-  def glShadeModel(_mode_)
+  def self.ShadeModel(_mode_)
     GL_FUNCTIONS_MAP[:glShadeModel].call(_mode_)
   end
 
-  def glTexEnvf(_target_, _pname_, _param_)
+  def self.TexEnvf(_target_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glTexEnvf].call(_target_, _pname_, _param_)
   end
 
-  def glTexEnvfv(_target_, _pname_, _params_)
+  def self.TexEnvfv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glTexEnvfv].call(_target_, _pname_, _params_)
   end
 
-  def glTexEnvi(_target_, _pname_, _param_)
+  def self.TexEnvi(_target_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glTexEnvi].call(_target_, _pname_, _param_)
   end
 
-  def glTexEnviv(_target_, _pname_, _params_)
+  def self.TexEnviv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glTexEnviv].call(_target_, _pname_, _params_)
   end
 
-  def glTexGend(_coord_, _pname_, _param_)
+  def self.TexGend(_coord_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glTexGend].call(_coord_, _pname_, _param_)
   end
 
-  def glTexGendv(_coord_, _pname_, _params_)
+  def self.TexGendv(_coord_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glTexGendv].call(_coord_, _pname_, _params_)
   end
 
-  def glTexGenf(_coord_, _pname_, _param_)
+  def self.TexGenf(_coord_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glTexGenf].call(_coord_, _pname_, _param_)
   end
 
-  def glTexGenfv(_coord_, _pname_, _params_)
+  def self.TexGenfv(_coord_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glTexGenfv].call(_coord_, _pname_, _params_)
   end
 
-  def glTexGeni(_coord_, _pname_, _param_)
+  def self.TexGeni(_coord_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glTexGeni].call(_coord_, _pname_, _param_)
   end
 
-  def glTexGeniv(_coord_, _pname_, _params_)
+  def self.TexGeniv(_coord_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glTexGeniv].call(_coord_, _pname_, _params_)
   end
 
-  def glFeedbackBuffer(_size_, _type_, _buffer_)
+  def self.FeedbackBuffer(_size_, _type_, _buffer_)
     GL_FUNCTIONS_MAP[:glFeedbackBuffer].call(_size_, _type_, _buffer_)
   end
 
-  def glSelectBuffer(_size_, _buffer_)
+  def self.SelectBuffer(_size_, _buffer_)
     GL_FUNCTIONS_MAP[:glSelectBuffer].call(_size_, _buffer_)
   end
 
-  def glRenderMode(_mode_)
+  def self.RenderMode(_mode_)
     GL_FUNCTIONS_MAP[:glRenderMode].call(_mode_)
   end
 
-  def glInitNames()
+  def self.InitNames()
     GL_FUNCTIONS_MAP[:glInitNames].call()
   end
 
-  def glLoadName(_name_)
+  def self.LoadName(_name_)
     GL_FUNCTIONS_MAP[:glLoadName].call(_name_)
   end
 
-  def glPassThrough(_token_)
+  def self.PassThrough(_token_)
     GL_FUNCTIONS_MAP[:glPassThrough].call(_token_)
   end
 
-  def glPopName()
+  def self.PopName()
     GL_FUNCTIONS_MAP[:glPopName].call()
   end
 
-  def glPushName(_name_)
+  def self.PushName(_name_)
     GL_FUNCTIONS_MAP[:glPushName].call(_name_)
   end
 
-  def glClearAccum(_red_, _green_, _blue_, _alpha_)
+  def self.ClearAccum(_red_, _green_, _blue_, _alpha_)
     GL_FUNCTIONS_MAP[:glClearAccum].call(_red_, _green_, _blue_, _alpha_)
   end
 
-  def glClearIndex(_c_)
+  def self.ClearIndex(_c_)
     GL_FUNCTIONS_MAP[:glClearIndex].call(_c_)
   end
 
-  def glIndexMask(_mask_)
+  def self.IndexMask(_mask_)
     GL_FUNCTIONS_MAP[:glIndexMask].call(_mask_)
   end
 
-  def glAccum(_op_, _value_)
+  def self.Accum(_op_, _value_)
     GL_FUNCTIONS_MAP[:glAccum].call(_op_, _value_)
   end
 
-  def glPopAttrib()
+  def self.PopAttrib()
     GL_FUNCTIONS_MAP[:glPopAttrib].call()
   end
 
-  def glPushAttrib(_mask_)
+  def self.PushAttrib(_mask_)
     GL_FUNCTIONS_MAP[:glPushAttrib].call(_mask_)
   end
 
-  def glMap1d(_target_, _u1_, _u2_, _stride_, _order_, _points_)
+  def self.Map1d(_target_, _u1_, _u2_, _stride_, _order_, _points_)
     GL_FUNCTIONS_MAP[:glMap1d].call(_target_, _u1_, _u2_, _stride_, _order_, _points_)
   end
 
-  def glMap1f(_target_, _u1_, _u2_, _stride_, _order_, _points_)
+  def self.Map1f(_target_, _u1_, _u2_, _stride_, _order_, _points_)
     GL_FUNCTIONS_MAP[:glMap1f].call(_target_, _u1_, _u2_, _stride_, _order_, _points_)
   end
 
-  def glMap2d(_target_, _u1_, _u2_, _ustride_, _uorder_, _v1_, _v2_, _vstride_, _vorder_, _points_)
+  def self.Map2d(_target_, _u1_, _u2_, _ustride_, _uorder_, _v1_, _v2_, _vstride_, _vorder_, _points_)
     GL_FUNCTIONS_MAP[:glMap2d].call(_target_, _u1_, _u2_, _ustride_, _uorder_, _v1_, _v2_, _vstride_, _vorder_, _points_)
   end
 
-  def glMap2f(_target_, _u1_, _u2_, _ustride_, _uorder_, _v1_, _v2_, _vstride_, _vorder_, _points_)
+  def self.Map2f(_target_, _u1_, _u2_, _ustride_, _uorder_, _v1_, _v2_, _vstride_, _vorder_, _points_)
     GL_FUNCTIONS_MAP[:glMap2f].call(_target_, _u1_, _u2_, _ustride_, _uorder_, _v1_, _v2_, _vstride_, _vorder_, _points_)
   end
 
-  def glMapGrid1d(_un_, _u1_, _u2_)
+  def self.MapGrid1d(_un_, _u1_, _u2_)
     GL_FUNCTIONS_MAP[:glMapGrid1d].call(_un_, _u1_, _u2_)
   end
 
-  def glMapGrid1f(_un_, _u1_, _u2_)
+  def self.MapGrid1f(_un_, _u1_, _u2_)
     GL_FUNCTIONS_MAP[:glMapGrid1f].call(_un_, _u1_, _u2_)
   end
 
-  def glMapGrid2d(_un_, _u1_, _u2_, _vn_, _v1_, _v2_)
+  def self.MapGrid2d(_un_, _u1_, _u2_, _vn_, _v1_, _v2_)
     GL_FUNCTIONS_MAP[:glMapGrid2d].call(_un_, _u1_, _u2_, _vn_, _v1_, _v2_)
   end
 
-  def glMapGrid2f(_un_, _u1_, _u2_, _vn_, _v1_, _v2_)
+  def self.MapGrid2f(_un_, _u1_, _u2_, _vn_, _v1_, _v2_)
     GL_FUNCTIONS_MAP[:glMapGrid2f].call(_un_, _u1_, _u2_, _vn_, _v1_, _v2_)
   end
 
-  def glEvalCoord1d(_u_)
+  def self.EvalCoord1d(_u_)
     GL_FUNCTIONS_MAP[:glEvalCoord1d].call(_u_)
   end
 
-  def glEvalCoord1dv(_u_)
+  def self.EvalCoord1dv(_u_)
     GL_FUNCTIONS_MAP[:glEvalCoord1dv].call(_u_)
   end
 
-  def glEvalCoord1f(_u_)
+  def self.EvalCoord1f(_u_)
     GL_FUNCTIONS_MAP[:glEvalCoord1f].call(_u_)
   end
 
-  def glEvalCoord1fv(_u_)
+  def self.EvalCoord1fv(_u_)
     GL_FUNCTIONS_MAP[:glEvalCoord1fv].call(_u_)
   end
 
-  def glEvalCoord2d(_u_, _v_)
+  def self.EvalCoord2d(_u_, _v_)
     GL_FUNCTIONS_MAP[:glEvalCoord2d].call(_u_, _v_)
   end
 
-  def glEvalCoord2dv(_u_)
+  def self.EvalCoord2dv(_u_)
     GL_FUNCTIONS_MAP[:glEvalCoord2dv].call(_u_)
   end
 
-  def glEvalCoord2f(_u_, _v_)
+  def self.EvalCoord2f(_u_, _v_)
     GL_FUNCTIONS_MAP[:glEvalCoord2f].call(_u_, _v_)
   end
 
-  def glEvalCoord2fv(_u_)
+  def self.EvalCoord2fv(_u_)
     GL_FUNCTIONS_MAP[:glEvalCoord2fv].call(_u_)
   end
 
-  def glEvalMesh1(_mode_, _i1_, _i2_)
+  def self.EvalMesh1(_mode_, _i1_, _i2_)
     GL_FUNCTIONS_MAP[:glEvalMesh1].call(_mode_, _i1_, _i2_)
   end
 
-  def glEvalPoint1(_i_)
+  def self.EvalPoint1(_i_)
     GL_FUNCTIONS_MAP[:glEvalPoint1].call(_i_)
   end
 
-  def glEvalMesh2(_mode_, _i1_, _i2_, _j1_, _j2_)
+  def self.EvalMesh2(_mode_, _i1_, _i2_, _j1_, _j2_)
     GL_FUNCTIONS_MAP[:glEvalMesh2].call(_mode_, _i1_, _i2_, _j1_, _j2_)
   end
 
-  def glEvalPoint2(_i_, _j_)
+  def self.EvalPoint2(_i_, _j_)
     GL_FUNCTIONS_MAP[:glEvalPoint2].call(_i_, _j_)
   end
 
-  def glAlphaFunc(_func_, _ref_)
+  def self.AlphaFunc(_func_, _ref_)
     GL_FUNCTIONS_MAP[:glAlphaFunc].call(_func_, _ref_)
   end
 
-  def glPixelZoom(_xfactor_, _yfactor_)
+  def self.PixelZoom(_xfactor_, _yfactor_)
     GL_FUNCTIONS_MAP[:glPixelZoom].call(_xfactor_, _yfactor_)
   end
 
-  def glPixelTransferf(_pname_, _param_)
+  def self.PixelTransferf(_pname_, _param_)
     GL_FUNCTIONS_MAP[:glPixelTransferf].call(_pname_, _param_)
   end
 
-  def glPixelTransferi(_pname_, _param_)
+  def self.PixelTransferi(_pname_, _param_)
     GL_FUNCTIONS_MAP[:glPixelTransferi].call(_pname_, _param_)
   end
 
-  def glPixelMapfv(_map_, _mapsize_, _values_)
+  def self.PixelMapfv(_map_, _mapsize_, _values_)
     GL_FUNCTIONS_MAP[:glPixelMapfv].call(_map_, _mapsize_, _values_)
   end
 
-  def glPixelMapuiv(_map_, _mapsize_, _values_)
+  def self.PixelMapuiv(_map_, _mapsize_, _values_)
     GL_FUNCTIONS_MAP[:glPixelMapuiv].call(_map_, _mapsize_, _values_)
   end
 
-  def glPixelMapusv(_map_, _mapsize_, _values_)
+  def self.PixelMapusv(_map_, _mapsize_, _values_)
     GL_FUNCTIONS_MAP[:glPixelMapusv].call(_map_, _mapsize_, _values_)
   end
 
-  def glCopyPixels(_x_, _y_, _width_, _height_, _type_)
+  def self.CopyPixels(_x_, _y_, _width_, _height_, _type_)
     GL_FUNCTIONS_MAP[:glCopyPixels].call(_x_, _y_, _width_, _height_, _type_)
   end
 
-  def glDrawPixels(_width_, _height_, _format_, _type_, _pixels_)
+  def self.DrawPixels(_width_, _height_, _format_, _type_, _pixels_)
     GL_FUNCTIONS_MAP[:glDrawPixels].call(_width_, _height_, _format_, _type_, _pixels_)
   end
 
-  def glGetClipPlane(_plane_, _equation_)
+  def self.GetClipPlane(_plane_, _equation_)
     GL_FUNCTIONS_MAP[:glGetClipPlane].call(_plane_, _equation_)
   end
 
-  def glGetLightfv(_light_, _pname_, _params_)
+  def self.GetLightfv(_light_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetLightfv].call(_light_, _pname_, _params_)
   end
 
-  def glGetLightiv(_light_, _pname_, _params_)
+  def self.GetLightiv(_light_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetLightiv].call(_light_, _pname_, _params_)
   end
 
-  def glGetMapdv(_target_, _query_, _v_)
+  def self.GetMapdv(_target_, _query_, _v_)
     GL_FUNCTIONS_MAP[:glGetMapdv].call(_target_, _query_, _v_)
   end
 
-  def glGetMapfv(_target_, _query_, _v_)
+  def self.GetMapfv(_target_, _query_, _v_)
     GL_FUNCTIONS_MAP[:glGetMapfv].call(_target_, _query_, _v_)
   end
 
-  def glGetMapiv(_target_, _query_, _v_)
+  def self.GetMapiv(_target_, _query_, _v_)
     GL_FUNCTIONS_MAP[:glGetMapiv].call(_target_, _query_, _v_)
   end
 
-  def glGetMaterialfv(_face_, _pname_, _params_)
+  def self.GetMaterialfv(_face_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetMaterialfv].call(_face_, _pname_, _params_)
   end
 
-  def glGetMaterialiv(_face_, _pname_, _params_)
+  def self.GetMaterialiv(_face_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetMaterialiv].call(_face_, _pname_, _params_)
   end
 
-  def glGetPixelMapfv(_map_, _values_)
+  def self.GetPixelMapfv(_map_, _values_)
     GL_FUNCTIONS_MAP[:glGetPixelMapfv].call(_map_, _values_)
   end
 
-  def glGetPixelMapuiv(_map_, _values_)
+  def self.GetPixelMapuiv(_map_, _values_)
     GL_FUNCTIONS_MAP[:glGetPixelMapuiv].call(_map_, _values_)
   end
 
-  def glGetPixelMapusv(_map_, _values_)
+  def self.GetPixelMapusv(_map_, _values_)
     GL_FUNCTIONS_MAP[:glGetPixelMapusv].call(_map_, _values_)
   end
 
-  def glGetPolygonStipple(_mask_)
+  def self.GetPolygonStipple(_mask_)
     GL_FUNCTIONS_MAP[:glGetPolygonStipple].call(_mask_)
   end
 
-  def glGetTexEnvfv(_target_, _pname_, _params_)
+  def self.GetTexEnvfv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTexEnvfv].call(_target_, _pname_, _params_)
   end
 
-  def glGetTexEnviv(_target_, _pname_, _params_)
+  def self.GetTexEnviv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTexEnviv].call(_target_, _pname_, _params_)
   end
 
-  def glGetTexGendv(_coord_, _pname_, _params_)
+  def self.GetTexGendv(_coord_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTexGendv].call(_coord_, _pname_, _params_)
   end
 
-  def glGetTexGenfv(_coord_, _pname_, _params_)
+  def self.GetTexGenfv(_coord_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTexGenfv].call(_coord_, _pname_, _params_)
   end
 
-  def glGetTexGeniv(_coord_, _pname_, _params_)
+  def self.GetTexGeniv(_coord_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTexGeniv].call(_coord_, _pname_, _params_)
   end
 
-  def glIsList(_list_)
+  def self.IsList(_list_)
     GL_FUNCTIONS_MAP[:glIsList].call(_list_)
   end
 
-  def glFrustum(_left_, _right_, _bottom_, _top_, _zNear_, _zFar_)
+  def self.Frustum(_left_, _right_, _bottom_, _top_, _zNear_, _zFar_)
     GL_FUNCTIONS_MAP[:glFrustum].call(_left_, _right_, _bottom_, _top_, _zNear_, _zFar_)
   end
 
-  def glLoadIdentity()
+  def self.LoadIdentity()
     GL_FUNCTIONS_MAP[:glLoadIdentity].call()
   end
 
-  def glLoadMatrixf(_m_)
+  def self.LoadMatrixf(_m_)
     GL_FUNCTIONS_MAP[:glLoadMatrixf].call(_m_)
   end
 
-  def glLoadMatrixd(_m_)
+  def self.LoadMatrixd(_m_)
     GL_FUNCTIONS_MAP[:glLoadMatrixd].call(_m_)
   end
 
-  def glMatrixMode(_mode_)
+  def self.MatrixMode(_mode_)
     GL_FUNCTIONS_MAP[:glMatrixMode].call(_mode_)
   end
 
-  def glMultMatrixf(_m_)
+  def self.MultMatrixf(_m_)
     GL_FUNCTIONS_MAP[:glMultMatrixf].call(_m_)
   end
 
-  def glMultMatrixd(_m_)
+  def self.MultMatrixd(_m_)
     GL_FUNCTIONS_MAP[:glMultMatrixd].call(_m_)
   end
 
-  def glOrtho(_left_, _right_, _bottom_, _top_, _zNear_, _zFar_)
+  def self.Ortho(_left_, _right_, _bottom_, _top_, _zNear_, _zFar_)
     GL_FUNCTIONS_MAP[:glOrtho].call(_left_, _right_, _bottom_, _top_, _zNear_, _zFar_)
   end
 
-  def glPopMatrix()
+  def self.PopMatrix()
     GL_FUNCTIONS_MAP[:glPopMatrix].call()
   end
 
-  def glPushMatrix()
+  def self.PushMatrix()
     GL_FUNCTIONS_MAP[:glPushMatrix].call()
   end
 
-  def glRotated(_angle_, _x_, _y_, _z_)
+  def self.Rotated(_angle_, _x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glRotated].call(_angle_, _x_, _y_, _z_)
   end
 
-  def glRotatef(_angle_, _x_, _y_, _z_)
+  def self.Rotatef(_angle_, _x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glRotatef].call(_angle_, _x_, _y_, _z_)
   end
 
-  def glScaled(_x_, _y_, _z_)
+  def self.Scaled(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glScaled].call(_x_, _y_, _z_)
   end
 
-  def glScalef(_x_, _y_, _z_)
+  def self.Scalef(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glScalef].call(_x_, _y_, _z_)
   end
 
-  def glTranslated(_x_, _y_, _z_)
+  def self.Translated(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glTranslated].call(_x_, _y_, _z_)
   end
 
-  def glTranslatef(_x_, _y_, _z_)
+  def self.Translatef(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glTranslatef].call(_x_, _y_, _z_)
   end
 
-  def glDrawArrays(_mode_, _first_, _count_)
+  def self.DrawArrays(_mode_, _first_, _count_)
     GL_FUNCTIONS_MAP[:glDrawArrays].call(_mode_, _first_, _count_)
   end
 
-  def glDrawElements(_mode_, _count_, _type_, _indices_)
+  def self.DrawElements(_mode_, _count_, _type_, _indices_)
     GL_FUNCTIONS_MAP[:glDrawElements].call(_mode_, _count_, _type_, _indices_)
   end
 
-  def glGetPointerv(_pname_, _params_)
+  def self.GetPointerv(_pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetPointerv].call(_pname_, _params_)
   end
 
-  def glPolygonOffset(_factor_, _units_)
+  def self.PolygonOffset(_factor_, _units_)
     GL_FUNCTIONS_MAP[:glPolygonOffset].call(_factor_, _units_)
   end
 
-  def glCopyTexImage1D(_target_, _level_, _internalformat_, _x_, _y_, _width_, _border_)
+  def self.CopyTexImage1D(_target_, _level_, _internalformat_, _x_, _y_, _width_, _border_)
     GL_FUNCTIONS_MAP[:glCopyTexImage1D].call(_target_, _level_, _internalformat_, _x_, _y_, _width_, _border_)
   end
 
-  def glCopyTexImage2D(_target_, _level_, _internalformat_, _x_, _y_, _width_, _height_, _border_)
+  def self.CopyTexImage2D(_target_, _level_, _internalformat_, _x_, _y_, _width_, _height_, _border_)
     GL_FUNCTIONS_MAP[:glCopyTexImage2D].call(_target_, _level_, _internalformat_, _x_, _y_, _width_, _height_, _border_)
   end
 
-  def glCopyTexSubImage1D(_target_, _level_, _xoffset_, _x_, _y_, _width_)
+  def self.CopyTexSubImage1D(_target_, _level_, _xoffset_, _x_, _y_, _width_)
     GL_FUNCTIONS_MAP[:glCopyTexSubImage1D].call(_target_, _level_, _xoffset_, _x_, _y_, _width_)
   end
 
-  def glCopyTexSubImage2D(_target_, _level_, _xoffset_, _yoffset_, _x_, _y_, _width_, _height_)
+  def self.CopyTexSubImage2D(_target_, _level_, _xoffset_, _yoffset_, _x_, _y_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glCopyTexSubImage2D].call(_target_, _level_, _xoffset_, _yoffset_, _x_, _y_, _width_, _height_)
   end
 
-  def glTexSubImage1D(_target_, _level_, _xoffset_, _width_, _format_, _type_, _pixels_)
+  def self.TexSubImage1D(_target_, _level_, _xoffset_, _width_, _format_, _type_, _pixels_)
     GL_FUNCTIONS_MAP[:glTexSubImage1D].call(_target_, _level_, _xoffset_, _width_, _format_, _type_, _pixels_)
   end
 
-  def glTexSubImage2D(_target_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _type_, _pixels_)
+  def self.TexSubImage2D(_target_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _type_, _pixels_)
     GL_FUNCTIONS_MAP[:glTexSubImage2D].call(_target_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _type_, _pixels_)
   end
 
-  def glBindTexture(_target_, _texture_)
+  def self.BindTexture(_target_, _texture_)
     GL_FUNCTIONS_MAP[:glBindTexture].call(_target_, _texture_)
   end
 
-  def glDeleteTextures(_n_, _textures_)
+  def self.DeleteTextures(_n_, _textures_)
     GL_FUNCTIONS_MAP[:glDeleteTextures].call(_n_, _textures_)
   end
 
-  def glGenTextures(_n_, _textures_)
+  def self.GenTextures(_n_, _textures_)
     GL_FUNCTIONS_MAP[:glGenTextures].call(_n_, _textures_)
   end
 
-  def glIsTexture(_texture_)
+  def self.IsTexture(_texture_)
     GL_FUNCTIONS_MAP[:glIsTexture].call(_texture_)
   end
 
-  def glArrayElement(_i_)
+  def self.ArrayElement(_i_)
     GL_FUNCTIONS_MAP[:glArrayElement].call(_i_)
   end
 
-  def glColorPointer(_size_, _type_, _stride_, _pointer_)
+  def self.ColorPointer(_size_, _type_, _stride_, _pointer_)
     GL_FUNCTIONS_MAP[:glColorPointer].call(_size_, _type_, _stride_, _pointer_)
   end
 
-  def glDisableClientState(_array_)
+  def self.DisableClientState(_array_)
     GL_FUNCTIONS_MAP[:glDisableClientState].call(_array_)
   end
 
-  def glEdgeFlagPointer(_stride_, _pointer_)
+  def self.EdgeFlagPointer(_stride_, _pointer_)
     GL_FUNCTIONS_MAP[:glEdgeFlagPointer].call(_stride_, _pointer_)
   end
 
-  def glEnableClientState(_array_)
+  def self.EnableClientState(_array_)
     GL_FUNCTIONS_MAP[:glEnableClientState].call(_array_)
   end
 
-  def glIndexPointer(_type_, _stride_, _pointer_)
+  def self.IndexPointer(_type_, _stride_, _pointer_)
     GL_FUNCTIONS_MAP[:glIndexPointer].call(_type_, _stride_, _pointer_)
   end
 
-  def glInterleavedArrays(_format_, _stride_, _pointer_)
+  def self.InterleavedArrays(_format_, _stride_, _pointer_)
     GL_FUNCTIONS_MAP[:glInterleavedArrays].call(_format_, _stride_, _pointer_)
   end
 
-  def glNormalPointer(_type_, _stride_, _pointer_)
+  def self.NormalPointer(_type_, _stride_, _pointer_)
     GL_FUNCTIONS_MAP[:glNormalPointer].call(_type_, _stride_, _pointer_)
   end
 
-  def glTexCoordPointer(_size_, _type_, _stride_, _pointer_)
+  def self.TexCoordPointer(_size_, _type_, _stride_, _pointer_)
     GL_FUNCTIONS_MAP[:glTexCoordPointer].call(_size_, _type_, _stride_, _pointer_)
   end
 
-  def glVertexPointer(_size_, _type_, _stride_, _pointer_)
+  def self.VertexPointer(_size_, _type_, _stride_, _pointer_)
     GL_FUNCTIONS_MAP[:glVertexPointer].call(_size_, _type_, _stride_, _pointer_)
   end
 
-  def glAreTexturesResident(_n_, _textures_, _residences_)
+  def self.AreTexturesResident(_n_, _textures_, _residences_)
     GL_FUNCTIONS_MAP[:glAreTexturesResident].call(_n_, _textures_, _residences_)
   end
 
-  def glPrioritizeTextures(_n_, _textures_, _priorities_)
+  def self.PrioritizeTextures(_n_, _textures_, _priorities_)
     GL_FUNCTIONS_MAP[:glPrioritizeTextures].call(_n_, _textures_, _priorities_)
   end
 
-  def glIndexub(_c_)
+  def self.Indexub(_c_)
     GL_FUNCTIONS_MAP[:glIndexub].call(_c_)
   end
 
-  def glIndexubv(_c_)
+  def self.Indexubv(_c_)
     GL_FUNCTIONS_MAP[:glIndexubv].call(_c_)
   end
 
-  def glPopClientAttrib()
+  def self.PopClientAttrib()
     GL_FUNCTIONS_MAP[:glPopClientAttrib].call()
   end
 
-  def glPushClientAttrib(_mask_)
+  def self.PushClientAttrib(_mask_)
     GL_FUNCTIONS_MAP[:glPushClientAttrib].call(_mask_)
   end
 
-  def glDrawRangeElements(_mode_, _start_, _end_, _count_, _type_, _indices_)
+  def self.DrawRangeElements(_mode_, _start_, _end_, _count_, _type_, _indices_)
     GL_FUNCTIONS_MAP[:glDrawRangeElements].call(_mode_, _start_, _end_, _count_, _type_, _indices_)
   end
 
-  def glTexImage3D(_target_, _level_, _internalformat_, _width_, _height_, _depth_, _border_, _format_, _type_, _pixels_)
+  def self.TexImage3D(_target_, _level_, _internalformat_, _width_, _height_, _depth_, _border_, _format_, _type_, _pixels_)
     GL_FUNCTIONS_MAP[:glTexImage3D].call(_target_, _level_, _internalformat_, _width_, _height_, _depth_, _border_, _format_, _type_, _pixels_)
   end
 
-  def glTexSubImage3D(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _pixels_)
+  def self.TexSubImage3D(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _pixels_)
     GL_FUNCTIONS_MAP[:glTexSubImage3D].call(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _pixels_)
   end
 
-  def glCopyTexSubImage3D(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _x_, _y_, _width_, _height_)
+  def self.CopyTexSubImage3D(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _x_, _y_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glCopyTexSubImage3D].call(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _x_, _y_, _width_, _height_)
   end
 
-  def glActiveTexture(_texture_)
+  def self.ActiveTexture(_texture_)
     GL_FUNCTIONS_MAP[:glActiveTexture].call(_texture_)
   end
 
-  def glSampleCoverage(_value_, _invert_)
+  def self.SampleCoverage(_value_, _invert_)
     GL_FUNCTIONS_MAP[:glSampleCoverage].call(_value_, _invert_)
   end
 
-  def glCompressedTexImage3D(_target_, _level_, _internalformat_, _width_, _height_, _depth_, _border_, _imageSize_, _data_)
+  def self.CompressedTexImage3D(_target_, _level_, _internalformat_, _width_, _height_, _depth_, _border_, _imageSize_, _data_)
     GL_FUNCTIONS_MAP[:glCompressedTexImage3D].call(_target_, _level_, _internalformat_, _width_, _height_, _depth_, _border_, _imageSize_, _data_)
   end
 
-  def glCompressedTexImage2D(_target_, _level_, _internalformat_, _width_, _height_, _border_, _imageSize_, _data_)
+  def self.CompressedTexImage2D(_target_, _level_, _internalformat_, _width_, _height_, _border_, _imageSize_, _data_)
     GL_FUNCTIONS_MAP[:glCompressedTexImage2D].call(_target_, _level_, _internalformat_, _width_, _height_, _border_, _imageSize_, _data_)
   end
 
-  def glCompressedTexImage1D(_target_, _level_, _internalformat_, _width_, _border_, _imageSize_, _data_)
+  def self.CompressedTexImage1D(_target_, _level_, _internalformat_, _width_, _border_, _imageSize_, _data_)
     GL_FUNCTIONS_MAP[:glCompressedTexImage1D].call(_target_, _level_, _internalformat_, _width_, _border_, _imageSize_, _data_)
   end
 
-  def glCompressedTexSubImage3D(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _imageSize_, _data_)
+  def self.CompressedTexSubImage3D(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _imageSize_, _data_)
     GL_FUNCTIONS_MAP[:glCompressedTexSubImage3D].call(_target_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _imageSize_, _data_)
   end
 
-  def glCompressedTexSubImage2D(_target_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _imageSize_, _data_)
+  def self.CompressedTexSubImage2D(_target_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _imageSize_, _data_)
     GL_FUNCTIONS_MAP[:glCompressedTexSubImage2D].call(_target_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _imageSize_, _data_)
   end
 
-  def glCompressedTexSubImage1D(_target_, _level_, _xoffset_, _width_, _format_, _imageSize_, _data_)
+  def self.CompressedTexSubImage1D(_target_, _level_, _xoffset_, _width_, _format_, _imageSize_, _data_)
     GL_FUNCTIONS_MAP[:glCompressedTexSubImage1D].call(_target_, _level_, _xoffset_, _width_, _format_, _imageSize_, _data_)
   end
 
-  def glGetCompressedTexImage(_target_, _level_, _img_)
+  def self.GetCompressedTexImage(_target_, _level_, _img_)
     GL_FUNCTIONS_MAP[:glGetCompressedTexImage].call(_target_, _level_, _img_)
   end
 
-  def glClientActiveTexture(_texture_)
+  def self.ClientActiveTexture(_texture_)
     GL_FUNCTIONS_MAP[:glClientActiveTexture].call(_texture_)
   end
 
-  def glMultiTexCoord1d(_target_, _s_)
+  def self.MultiTexCoord1d(_target_, _s_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord1d].call(_target_, _s_)
   end
 
-  def glMultiTexCoord1dv(_target_, _v_)
+  def self.MultiTexCoord1dv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord1dv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord1f(_target_, _s_)
+  def self.MultiTexCoord1f(_target_, _s_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord1f].call(_target_, _s_)
   end
 
-  def glMultiTexCoord1fv(_target_, _v_)
+  def self.MultiTexCoord1fv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord1fv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord1i(_target_, _s_)
+  def self.MultiTexCoord1i(_target_, _s_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord1i].call(_target_, _s_)
   end
 
-  def glMultiTexCoord1iv(_target_, _v_)
+  def self.MultiTexCoord1iv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord1iv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord1s(_target_, _s_)
+  def self.MultiTexCoord1s(_target_, _s_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord1s].call(_target_, _s_)
   end
 
-  def glMultiTexCoord1sv(_target_, _v_)
+  def self.MultiTexCoord1sv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord1sv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord2d(_target_, _s_, _t_)
+  def self.MultiTexCoord2d(_target_, _s_, _t_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord2d].call(_target_, _s_, _t_)
   end
 
-  def glMultiTexCoord2dv(_target_, _v_)
+  def self.MultiTexCoord2dv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord2dv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord2f(_target_, _s_, _t_)
+  def self.MultiTexCoord2f(_target_, _s_, _t_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord2f].call(_target_, _s_, _t_)
   end
 
-  def glMultiTexCoord2fv(_target_, _v_)
+  def self.MultiTexCoord2fv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord2fv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord2i(_target_, _s_, _t_)
+  def self.MultiTexCoord2i(_target_, _s_, _t_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord2i].call(_target_, _s_, _t_)
   end
 
-  def glMultiTexCoord2iv(_target_, _v_)
+  def self.MultiTexCoord2iv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord2iv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord2s(_target_, _s_, _t_)
+  def self.MultiTexCoord2s(_target_, _s_, _t_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord2s].call(_target_, _s_, _t_)
   end
 
-  def glMultiTexCoord2sv(_target_, _v_)
+  def self.MultiTexCoord2sv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord2sv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord3d(_target_, _s_, _t_, _r_)
+  def self.MultiTexCoord3d(_target_, _s_, _t_, _r_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord3d].call(_target_, _s_, _t_, _r_)
   end
 
-  def glMultiTexCoord3dv(_target_, _v_)
+  def self.MultiTexCoord3dv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord3dv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord3f(_target_, _s_, _t_, _r_)
+  def self.MultiTexCoord3f(_target_, _s_, _t_, _r_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord3f].call(_target_, _s_, _t_, _r_)
   end
 
-  def glMultiTexCoord3fv(_target_, _v_)
+  def self.MultiTexCoord3fv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord3fv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord3i(_target_, _s_, _t_, _r_)
+  def self.MultiTexCoord3i(_target_, _s_, _t_, _r_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord3i].call(_target_, _s_, _t_, _r_)
   end
 
-  def glMultiTexCoord3iv(_target_, _v_)
+  def self.MultiTexCoord3iv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord3iv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord3s(_target_, _s_, _t_, _r_)
+  def self.MultiTexCoord3s(_target_, _s_, _t_, _r_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord3s].call(_target_, _s_, _t_, _r_)
   end
 
-  def glMultiTexCoord3sv(_target_, _v_)
+  def self.MultiTexCoord3sv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord3sv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord4d(_target_, _s_, _t_, _r_, _q_)
+  def self.MultiTexCoord4d(_target_, _s_, _t_, _r_, _q_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord4d].call(_target_, _s_, _t_, _r_, _q_)
   end
 
-  def glMultiTexCoord4dv(_target_, _v_)
+  def self.MultiTexCoord4dv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord4dv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord4f(_target_, _s_, _t_, _r_, _q_)
+  def self.MultiTexCoord4f(_target_, _s_, _t_, _r_, _q_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord4f].call(_target_, _s_, _t_, _r_, _q_)
   end
 
-  def glMultiTexCoord4fv(_target_, _v_)
+  def self.MultiTexCoord4fv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord4fv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord4i(_target_, _s_, _t_, _r_, _q_)
+  def self.MultiTexCoord4i(_target_, _s_, _t_, _r_, _q_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord4i].call(_target_, _s_, _t_, _r_, _q_)
   end
 
-  def glMultiTexCoord4iv(_target_, _v_)
+  def self.MultiTexCoord4iv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord4iv].call(_target_, _v_)
   end
 
-  def glMultiTexCoord4s(_target_, _s_, _t_, _r_, _q_)
+  def self.MultiTexCoord4s(_target_, _s_, _t_, _r_, _q_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord4s].call(_target_, _s_, _t_, _r_, _q_)
   end
 
-  def glMultiTexCoord4sv(_target_, _v_)
+  def self.MultiTexCoord4sv(_target_, _v_)
     GL_FUNCTIONS_MAP[:glMultiTexCoord4sv].call(_target_, _v_)
   end
 
-  def glLoadTransposeMatrixf(_m_)
+  def self.LoadTransposeMatrixf(_m_)
     GL_FUNCTIONS_MAP[:glLoadTransposeMatrixf].call(_m_)
   end
 
-  def glLoadTransposeMatrixd(_m_)
+  def self.LoadTransposeMatrixd(_m_)
     GL_FUNCTIONS_MAP[:glLoadTransposeMatrixd].call(_m_)
   end
 
-  def glMultTransposeMatrixf(_m_)
+  def self.MultTransposeMatrixf(_m_)
     GL_FUNCTIONS_MAP[:glMultTransposeMatrixf].call(_m_)
   end
 
-  def glMultTransposeMatrixd(_m_)
+  def self.MultTransposeMatrixd(_m_)
     GL_FUNCTIONS_MAP[:glMultTransposeMatrixd].call(_m_)
   end
 
-  def glBlendFuncSeparate(_sfactorRGB_, _dfactorRGB_, _sfactorAlpha_, _dfactorAlpha_)
+  def self.BlendFuncSeparate(_sfactorRGB_, _dfactorRGB_, _sfactorAlpha_, _dfactorAlpha_)
     GL_FUNCTIONS_MAP[:glBlendFuncSeparate].call(_sfactorRGB_, _dfactorRGB_, _sfactorAlpha_, _dfactorAlpha_)
   end
 
-  def glMultiDrawArrays(_mode_, _first_, _count_, _drawcount_)
+  def self.MultiDrawArrays(_mode_, _first_, _count_, _drawcount_)
     GL_FUNCTIONS_MAP[:glMultiDrawArrays].call(_mode_, _first_, _count_, _drawcount_)
   end
 
-  def glMultiDrawElements(_mode_, _count_, _type_, _indices_, _drawcount_)
+  def self.MultiDrawElements(_mode_, _count_, _type_, _indices_, _drawcount_)
     GL_FUNCTIONS_MAP[:glMultiDrawElements].call(_mode_, _count_, _type_, _indices_, _drawcount_)
   end
 
-  def glPointParameterf(_pname_, _param_)
+  def self.PointParameterf(_pname_, _param_)
     GL_FUNCTIONS_MAP[:glPointParameterf].call(_pname_, _param_)
   end
 
-  def glPointParameterfv(_pname_, _params_)
+  def self.PointParameterfv(_pname_, _params_)
     GL_FUNCTIONS_MAP[:glPointParameterfv].call(_pname_, _params_)
   end
 
-  def glPointParameteri(_pname_, _param_)
+  def self.PointParameteri(_pname_, _param_)
     GL_FUNCTIONS_MAP[:glPointParameteri].call(_pname_, _param_)
   end
 
-  def glPointParameteriv(_pname_, _params_)
+  def self.PointParameteriv(_pname_, _params_)
     GL_FUNCTIONS_MAP[:glPointParameteriv].call(_pname_, _params_)
   end
 
-  def glFogCoordf(_coord_)
+  def self.FogCoordf(_coord_)
     GL_FUNCTIONS_MAP[:glFogCoordf].call(_coord_)
   end
 
-  def glFogCoordfv(_coord_)
+  def self.FogCoordfv(_coord_)
     GL_FUNCTIONS_MAP[:glFogCoordfv].call(_coord_)
   end
 
-  def glFogCoordd(_coord_)
+  def self.FogCoordd(_coord_)
     GL_FUNCTIONS_MAP[:glFogCoordd].call(_coord_)
   end
 
-  def glFogCoorddv(_coord_)
+  def self.FogCoorddv(_coord_)
     GL_FUNCTIONS_MAP[:glFogCoorddv].call(_coord_)
   end
 
-  def glFogCoordPointer(_type_, _stride_, _pointer_)
+  def self.FogCoordPointer(_type_, _stride_, _pointer_)
     GL_FUNCTIONS_MAP[:glFogCoordPointer].call(_type_, _stride_, _pointer_)
   end
 
-  def glSecondaryColor3b(_red_, _green_, _blue_)
+  def self.SecondaryColor3b(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3b].call(_red_, _green_, _blue_)
   end
 
-  def glSecondaryColor3bv(_v_)
+  def self.SecondaryColor3bv(_v_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3bv].call(_v_)
   end
 
-  def glSecondaryColor3d(_red_, _green_, _blue_)
+  def self.SecondaryColor3d(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3d].call(_red_, _green_, _blue_)
   end
 
-  def glSecondaryColor3dv(_v_)
+  def self.SecondaryColor3dv(_v_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3dv].call(_v_)
   end
 
-  def glSecondaryColor3f(_red_, _green_, _blue_)
+  def self.SecondaryColor3f(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3f].call(_red_, _green_, _blue_)
   end
 
-  def glSecondaryColor3fv(_v_)
+  def self.SecondaryColor3fv(_v_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3fv].call(_v_)
   end
 
-  def glSecondaryColor3i(_red_, _green_, _blue_)
+  def self.SecondaryColor3i(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3i].call(_red_, _green_, _blue_)
   end
 
-  def glSecondaryColor3iv(_v_)
+  def self.SecondaryColor3iv(_v_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3iv].call(_v_)
   end
 
-  def glSecondaryColor3s(_red_, _green_, _blue_)
+  def self.SecondaryColor3s(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3s].call(_red_, _green_, _blue_)
   end
 
-  def glSecondaryColor3sv(_v_)
+  def self.SecondaryColor3sv(_v_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3sv].call(_v_)
   end
 
-  def glSecondaryColor3ub(_red_, _green_, _blue_)
+  def self.SecondaryColor3ub(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3ub].call(_red_, _green_, _blue_)
   end
 
-  def glSecondaryColor3ubv(_v_)
+  def self.SecondaryColor3ubv(_v_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3ubv].call(_v_)
   end
 
-  def glSecondaryColor3ui(_red_, _green_, _blue_)
+  def self.SecondaryColor3ui(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3ui].call(_red_, _green_, _blue_)
   end
 
-  def glSecondaryColor3uiv(_v_)
+  def self.SecondaryColor3uiv(_v_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3uiv].call(_v_)
   end
 
-  def glSecondaryColor3us(_red_, _green_, _blue_)
+  def self.SecondaryColor3us(_red_, _green_, _blue_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3us].call(_red_, _green_, _blue_)
   end
 
-  def glSecondaryColor3usv(_v_)
+  def self.SecondaryColor3usv(_v_)
     GL_FUNCTIONS_MAP[:glSecondaryColor3usv].call(_v_)
   end
 
-  def glSecondaryColorPointer(_size_, _type_, _stride_, _pointer_)
+  def self.SecondaryColorPointer(_size_, _type_, _stride_, _pointer_)
     GL_FUNCTIONS_MAP[:glSecondaryColorPointer].call(_size_, _type_, _stride_, _pointer_)
   end
 
-  def glWindowPos2d(_x_, _y_)
+  def self.WindowPos2d(_x_, _y_)
     GL_FUNCTIONS_MAP[:glWindowPos2d].call(_x_, _y_)
   end
 
-  def glWindowPos2dv(_v_)
+  def self.WindowPos2dv(_v_)
     GL_FUNCTIONS_MAP[:glWindowPos2dv].call(_v_)
   end
 
-  def glWindowPos2f(_x_, _y_)
+  def self.WindowPos2f(_x_, _y_)
     GL_FUNCTIONS_MAP[:glWindowPos2f].call(_x_, _y_)
   end
 
-  def glWindowPos2fv(_v_)
+  def self.WindowPos2fv(_v_)
     GL_FUNCTIONS_MAP[:glWindowPos2fv].call(_v_)
   end
 
-  def glWindowPos2i(_x_, _y_)
+  def self.WindowPos2i(_x_, _y_)
     GL_FUNCTIONS_MAP[:glWindowPos2i].call(_x_, _y_)
   end
 
-  def glWindowPos2iv(_v_)
+  def self.WindowPos2iv(_v_)
     GL_FUNCTIONS_MAP[:glWindowPos2iv].call(_v_)
   end
 
-  def glWindowPos2s(_x_, _y_)
+  def self.WindowPos2s(_x_, _y_)
     GL_FUNCTIONS_MAP[:glWindowPos2s].call(_x_, _y_)
   end
 
-  def glWindowPos2sv(_v_)
+  def self.WindowPos2sv(_v_)
     GL_FUNCTIONS_MAP[:glWindowPos2sv].call(_v_)
   end
 
-  def glWindowPos3d(_x_, _y_, _z_)
+  def self.WindowPos3d(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glWindowPos3d].call(_x_, _y_, _z_)
   end
 
-  def glWindowPos3dv(_v_)
+  def self.WindowPos3dv(_v_)
     GL_FUNCTIONS_MAP[:glWindowPos3dv].call(_v_)
   end
 
-  def glWindowPos3f(_x_, _y_, _z_)
+  def self.WindowPos3f(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glWindowPos3f].call(_x_, _y_, _z_)
   end
 
-  def glWindowPos3fv(_v_)
+  def self.WindowPos3fv(_v_)
     GL_FUNCTIONS_MAP[:glWindowPos3fv].call(_v_)
   end
 
-  def glWindowPos3i(_x_, _y_, _z_)
+  def self.WindowPos3i(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glWindowPos3i].call(_x_, _y_, _z_)
   end
 
-  def glWindowPos3iv(_v_)
+  def self.WindowPos3iv(_v_)
     GL_FUNCTIONS_MAP[:glWindowPos3iv].call(_v_)
   end
 
-  def glWindowPos3s(_x_, _y_, _z_)
+  def self.WindowPos3s(_x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glWindowPos3s].call(_x_, _y_, _z_)
   end
 
-  def glWindowPos3sv(_v_)
+  def self.WindowPos3sv(_v_)
     GL_FUNCTIONS_MAP[:glWindowPos3sv].call(_v_)
   end
 
-  def glBlendColor(_red_, _green_, _blue_, _alpha_)
+  def self.BlendColor(_red_, _green_, _blue_, _alpha_)
     GL_FUNCTIONS_MAP[:glBlendColor].call(_red_, _green_, _blue_, _alpha_)
   end
 
-  def glBlendEquation(_mode_)
+  def self.BlendEquation(_mode_)
     GL_FUNCTIONS_MAP[:glBlendEquation].call(_mode_)
   end
 
-  def glGenQueries(_n_, _ids_)
+  def self.GenQueries(_n_, _ids_)
     GL_FUNCTIONS_MAP[:glGenQueries].call(_n_, _ids_)
   end
 
-  def glDeleteQueries(_n_, _ids_)
+  def self.DeleteQueries(_n_, _ids_)
     GL_FUNCTIONS_MAP[:glDeleteQueries].call(_n_, _ids_)
   end
 
-  def glIsQuery(_id_)
+  def self.IsQuery(_id_)
     GL_FUNCTIONS_MAP[:glIsQuery].call(_id_)
   end
 
-  def glBeginQuery(_target_, _id_)
+  def self.BeginQuery(_target_, _id_)
     GL_FUNCTIONS_MAP[:glBeginQuery].call(_target_, _id_)
   end
 
-  def glEndQuery(_target_)
+  def self.EndQuery(_target_)
     GL_FUNCTIONS_MAP[:glEndQuery].call(_target_)
   end
 
-  def glGetQueryiv(_target_, _pname_, _params_)
+  def self.GetQueryiv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetQueryiv].call(_target_, _pname_, _params_)
   end
 
-  def glGetQueryObjectiv(_id_, _pname_, _params_)
+  def self.GetQueryObjectiv(_id_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetQueryObjectiv].call(_id_, _pname_, _params_)
   end
 
-  def glGetQueryObjectuiv(_id_, _pname_, _params_)
+  def self.GetQueryObjectuiv(_id_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetQueryObjectuiv].call(_id_, _pname_, _params_)
   end
 
-  def glBindBuffer(_target_, _buffer_)
+  def self.BindBuffer(_target_, _buffer_)
     GL_FUNCTIONS_MAP[:glBindBuffer].call(_target_, _buffer_)
   end
 
-  def glDeleteBuffers(_n_, _buffers_)
+  def self.DeleteBuffers(_n_, _buffers_)
     GL_FUNCTIONS_MAP[:glDeleteBuffers].call(_n_, _buffers_)
   end
 
-  def glGenBuffers(_n_, _buffers_)
+  def self.GenBuffers(_n_, _buffers_)
     GL_FUNCTIONS_MAP[:glGenBuffers].call(_n_, _buffers_)
   end
 
-  def glIsBuffer(_buffer_)
+  def self.IsBuffer(_buffer_)
     GL_FUNCTIONS_MAP[:glIsBuffer].call(_buffer_)
   end
 
-  def glBufferData(_target_, _size_, _data_, _usage_)
+  def self.BufferData(_target_, _size_, _data_, _usage_)
     GL_FUNCTIONS_MAP[:glBufferData].call(_target_, _size_, _data_, _usage_)
   end
 
-  def glBufferSubData(_target_, _offset_, _size_, _data_)
+  def self.BufferSubData(_target_, _offset_, _size_, _data_)
     GL_FUNCTIONS_MAP[:glBufferSubData].call(_target_, _offset_, _size_, _data_)
   end
 
-  def glGetBufferSubData(_target_, _offset_, _size_, _data_)
+  def self.GetBufferSubData(_target_, _offset_, _size_, _data_)
     GL_FUNCTIONS_MAP[:glGetBufferSubData].call(_target_, _offset_, _size_, _data_)
   end
 
-  def glMapBuffer(_target_, _access_)
+  def self.MapBuffer(_target_, _access_)
     GL_FUNCTIONS_MAP[:glMapBuffer].call(_target_, _access_)
   end
 
-  def glUnmapBuffer(_target_)
+  def self.UnmapBuffer(_target_)
     GL_FUNCTIONS_MAP[:glUnmapBuffer].call(_target_)
   end
 
-  def glGetBufferParameteriv(_target_, _pname_, _params_)
+  def self.GetBufferParameteriv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetBufferParameteriv].call(_target_, _pname_, _params_)
   end
 
-  def glGetBufferPointerv(_target_, _pname_, _params_)
+  def self.GetBufferPointerv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetBufferPointerv].call(_target_, _pname_, _params_)
   end
 
-  def glBlendEquationSeparate(_modeRGB_, _modeAlpha_)
+  def self.BlendEquationSeparate(_modeRGB_, _modeAlpha_)
     GL_FUNCTIONS_MAP[:glBlendEquationSeparate].call(_modeRGB_, _modeAlpha_)
   end
 
-  def glDrawBuffers(_n_, _bufs_)
+  def self.DrawBuffers(_n_, _bufs_)
     GL_FUNCTIONS_MAP[:glDrawBuffers].call(_n_, _bufs_)
   end
 
-  def glStencilOpSeparate(_face_, _sfail_, _dpfail_, _dppass_)
+  def self.StencilOpSeparate(_face_, _sfail_, _dpfail_, _dppass_)
     GL_FUNCTIONS_MAP[:glStencilOpSeparate].call(_face_, _sfail_, _dpfail_, _dppass_)
   end
 
-  def glStencilFuncSeparate(_face_, _func_, _ref_, _mask_)
+  def self.StencilFuncSeparate(_face_, _func_, _ref_, _mask_)
     GL_FUNCTIONS_MAP[:glStencilFuncSeparate].call(_face_, _func_, _ref_, _mask_)
   end
 
-  def glStencilMaskSeparate(_face_, _mask_)
+  def self.StencilMaskSeparate(_face_, _mask_)
     GL_FUNCTIONS_MAP[:glStencilMaskSeparate].call(_face_, _mask_)
   end
 
-  def glAttachShader(_program_, _shader_)
+  def self.AttachShader(_program_, _shader_)
     GL_FUNCTIONS_MAP[:glAttachShader].call(_program_, _shader_)
   end
 
-  def glBindAttribLocation(_program_, _index_, _name_)
+  def self.BindAttribLocation(_program_, _index_, _name_)
     GL_FUNCTIONS_MAP[:glBindAttribLocation].call(_program_, _index_, _name_)
   end
 
-  def glCompileShader(_shader_)
+  def self.CompileShader(_shader_)
     GL_FUNCTIONS_MAP[:glCompileShader].call(_shader_)
   end
 
-  def glCreateProgram()
+  def self.CreateProgram()
     GL_FUNCTIONS_MAP[:glCreateProgram].call()
   end
 
-  def glCreateShader(_type_)
+  def self.CreateShader(_type_)
     GL_FUNCTIONS_MAP[:glCreateShader].call(_type_)
   end
 
-  def glDeleteProgram(_program_)
+  def self.DeleteProgram(_program_)
     GL_FUNCTIONS_MAP[:glDeleteProgram].call(_program_)
   end
 
-  def glDeleteShader(_shader_)
+  def self.DeleteShader(_shader_)
     GL_FUNCTIONS_MAP[:glDeleteShader].call(_shader_)
   end
 
-  def glDetachShader(_program_, _shader_)
+  def self.DetachShader(_program_, _shader_)
     GL_FUNCTIONS_MAP[:glDetachShader].call(_program_, _shader_)
   end
 
-  def glDisableVertexAttribArray(_index_)
+  def self.DisableVertexAttribArray(_index_)
     GL_FUNCTIONS_MAP[:glDisableVertexAttribArray].call(_index_)
   end
 
-  def glEnableVertexAttribArray(_index_)
+  def self.EnableVertexAttribArray(_index_)
     GL_FUNCTIONS_MAP[:glEnableVertexAttribArray].call(_index_)
   end
 
-  def glGetActiveAttrib(_program_, _index_, _bufSize_, _length_, _size_, _type_, _name_)
+  def self.GetActiveAttrib(_program_, _index_, _bufSize_, _length_, _size_, _type_, _name_)
     GL_FUNCTIONS_MAP[:glGetActiveAttrib].call(_program_, _index_, _bufSize_, _length_, _size_, _type_, _name_)
   end
 
-  def glGetActiveUniform(_program_, _index_, _bufSize_, _length_, _size_, _type_, _name_)
+  def self.GetActiveUniform(_program_, _index_, _bufSize_, _length_, _size_, _type_, _name_)
     GL_FUNCTIONS_MAP[:glGetActiveUniform].call(_program_, _index_, _bufSize_, _length_, _size_, _type_, _name_)
   end
 
-  def glGetAttachedShaders(_program_, _maxCount_, _count_, _shaders_)
+  def self.GetAttachedShaders(_program_, _maxCount_, _count_, _shaders_)
     GL_FUNCTIONS_MAP[:glGetAttachedShaders].call(_program_, _maxCount_, _count_, _shaders_)
   end
 
-  def glGetAttribLocation(_program_, _name_)
+  def self.GetAttribLocation(_program_, _name_)
     GL_FUNCTIONS_MAP[:glGetAttribLocation].call(_program_, _name_)
   end
 
-  def glGetProgramiv(_program_, _pname_, _params_)
+  def self.GetProgramiv(_program_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetProgramiv].call(_program_, _pname_, _params_)
   end
 
-  def glGetProgramInfoLog(_program_, _bufSize_, _length_, _infoLog_)
+  def self.GetProgramInfoLog(_program_, _bufSize_, _length_, _infoLog_)
     GL_FUNCTIONS_MAP[:glGetProgramInfoLog].call(_program_, _bufSize_, _length_, _infoLog_)
   end
 
-  def glGetShaderiv(_shader_, _pname_, _params_)
+  def self.GetShaderiv(_shader_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetShaderiv].call(_shader_, _pname_, _params_)
   end
 
-  def glGetShaderInfoLog(_shader_, _bufSize_, _length_, _infoLog_)
+  def self.GetShaderInfoLog(_shader_, _bufSize_, _length_, _infoLog_)
     GL_FUNCTIONS_MAP[:glGetShaderInfoLog].call(_shader_, _bufSize_, _length_, _infoLog_)
   end
 
-  def glGetShaderSource(_shader_, _bufSize_, _length_, _source_)
+  def self.GetShaderSource(_shader_, _bufSize_, _length_, _source_)
     GL_FUNCTIONS_MAP[:glGetShaderSource].call(_shader_, _bufSize_, _length_, _source_)
   end
 
-  def glGetUniformLocation(_program_, _name_)
+  def self.GetUniformLocation(_program_, _name_)
     GL_FUNCTIONS_MAP[:glGetUniformLocation].call(_program_, _name_)
   end
 
-  def glGetUniformfv(_program_, _location_, _params_)
+  def self.GetUniformfv(_program_, _location_, _params_)
     GL_FUNCTIONS_MAP[:glGetUniformfv].call(_program_, _location_, _params_)
   end
 
-  def glGetUniformiv(_program_, _location_, _params_)
+  def self.GetUniformiv(_program_, _location_, _params_)
     GL_FUNCTIONS_MAP[:glGetUniformiv].call(_program_, _location_, _params_)
   end
 
-  def glGetVertexAttribdv(_index_, _pname_, _params_)
+  def self.GetVertexAttribdv(_index_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetVertexAttribdv].call(_index_, _pname_, _params_)
   end
 
-  def glGetVertexAttribfv(_index_, _pname_, _params_)
+  def self.GetVertexAttribfv(_index_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetVertexAttribfv].call(_index_, _pname_, _params_)
   end
 
-  def glGetVertexAttribiv(_index_, _pname_, _params_)
+  def self.GetVertexAttribiv(_index_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetVertexAttribiv].call(_index_, _pname_, _params_)
   end
 
-  def glGetVertexAttribPointerv(_index_, _pname_, _pointer_)
+  def self.GetVertexAttribPointerv(_index_, _pname_, _pointer_)
     GL_FUNCTIONS_MAP[:glGetVertexAttribPointerv].call(_index_, _pname_, _pointer_)
   end
 
-  def glIsProgram(_program_)
+  def self.IsProgram(_program_)
     GL_FUNCTIONS_MAP[:glIsProgram].call(_program_)
   end
 
-  def glIsShader(_shader_)
+  def self.IsShader(_shader_)
     GL_FUNCTIONS_MAP[:glIsShader].call(_shader_)
   end
 
-  def glLinkProgram(_program_)
+  def self.LinkProgram(_program_)
     GL_FUNCTIONS_MAP[:glLinkProgram].call(_program_)
   end
 
-  def glShaderSource(_shader_, _count_, _string_, _length_)
+  def self.ShaderSource(_shader_, _count_, _string_, _length_)
     GL_FUNCTIONS_MAP[:glShaderSource].call(_shader_, _count_, _string_, _length_)
   end
 
-  def glUseProgram(_program_)
+  def self.UseProgram(_program_)
     GL_FUNCTIONS_MAP[:glUseProgram].call(_program_)
   end
 
-  def glUniform1f(_location_, _v0_)
+  def self.Uniform1f(_location_, _v0_)
     GL_FUNCTIONS_MAP[:glUniform1f].call(_location_, _v0_)
   end
 
-  def glUniform2f(_location_, _v0_, _v1_)
+  def self.Uniform2f(_location_, _v0_, _v1_)
     GL_FUNCTIONS_MAP[:glUniform2f].call(_location_, _v0_, _v1_)
   end
 
-  def glUniform3f(_location_, _v0_, _v1_, _v2_)
+  def self.Uniform3f(_location_, _v0_, _v1_, _v2_)
     GL_FUNCTIONS_MAP[:glUniform3f].call(_location_, _v0_, _v1_, _v2_)
   end
 
-  def glUniform4f(_location_, _v0_, _v1_, _v2_, _v3_)
+  def self.Uniform4f(_location_, _v0_, _v1_, _v2_, _v3_)
     GL_FUNCTIONS_MAP[:glUniform4f].call(_location_, _v0_, _v1_, _v2_, _v3_)
   end
 
-  def glUniform1i(_location_, _v0_)
+  def self.Uniform1i(_location_, _v0_)
     GL_FUNCTIONS_MAP[:glUniform1i].call(_location_, _v0_)
   end
 
-  def glUniform2i(_location_, _v0_, _v1_)
+  def self.Uniform2i(_location_, _v0_, _v1_)
     GL_FUNCTIONS_MAP[:glUniform2i].call(_location_, _v0_, _v1_)
   end
 
-  def glUniform3i(_location_, _v0_, _v1_, _v2_)
+  def self.Uniform3i(_location_, _v0_, _v1_, _v2_)
     GL_FUNCTIONS_MAP[:glUniform3i].call(_location_, _v0_, _v1_, _v2_)
   end
 
-  def glUniform4i(_location_, _v0_, _v1_, _v2_, _v3_)
+  def self.Uniform4i(_location_, _v0_, _v1_, _v2_, _v3_)
     GL_FUNCTIONS_MAP[:glUniform4i].call(_location_, _v0_, _v1_, _v2_, _v3_)
   end
 
-  def glUniform1fv(_location_, _count_, _value_)
+  def self.Uniform1fv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform1fv].call(_location_, _count_, _value_)
   end
 
-  def glUniform2fv(_location_, _count_, _value_)
+  def self.Uniform2fv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform2fv].call(_location_, _count_, _value_)
   end
 
-  def glUniform3fv(_location_, _count_, _value_)
+  def self.Uniform3fv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform3fv].call(_location_, _count_, _value_)
   end
 
-  def glUniform4fv(_location_, _count_, _value_)
+  def self.Uniform4fv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform4fv].call(_location_, _count_, _value_)
   end
 
-  def glUniform1iv(_location_, _count_, _value_)
+  def self.Uniform1iv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform1iv].call(_location_, _count_, _value_)
   end
 
-  def glUniform2iv(_location_, _count_, _value_)
+  def self.Uniform2iv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform2iv].call(_location_, _count_, _value_)
   end
 
-  def glUniform3iv(_location_, _count_, _value_)
+  def self.Uniform3iv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform3iv].call(_location_, _count_, _value_)
   end
 
-  def glUniform4iv(_location_, _count_, _value_)
+  def self.Uniform4iv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform4iv].call(_location_, _count_, _value_)
   end
 
-  def glUniformMatrix2fv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix2fv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix2fv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix3fv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix3fv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix3fv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix4fv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix4fv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix4fv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glValidateProgram(_program_)
+  def self.ValidateProgram(_program_)
     GL_FUNCTIONS_MAP[:glValidateProgram].call(_program_)
   end
 
-  def glVertexAttrib1d(_index_, _x_)
+  def self.VertexAttrib1d(_index_, _x_)
     GL_FUNCTIONS_MAP[:glVertexAttrib1d].call(_index_, _x_)
   end
 
-  def glVertexAttrib1dv(_index_, _v_)
+  def self.VertexAttrib1dv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib1dv].call(_index_, _v_)
   end
 
-  def glVertexAttrib1f(_index_, _x_)
+  def self.VertexAttrib1f(_index_, _x_)
     GL_FUNCTIONS_MAP[:glVertexAttrib1f].call(_index_, _x_)
   end
 
-  def glVertexAttrib1fv(_index_, _v_)
+  def self.VertexAttrib1fv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib1fv].call(_index_, _v_)
   end
 
-  def glVertexAttrib1s(_index_, _x_)
+  def self.VertexAttrib1s(_index_, _x_)
     GL_FUNCTIONS_MAP[:glVertexAttrib1s].call(_index_, _x_)
   end
 
-  def glVertexAttrib1sv(_index_, _v_)
+  def self.VertexAttrib1sv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib1sv].call(_index_, _v_)
   end
 
-  def glVertexAttrib2d(_index_, _x_, _y_)
+  def self.VertexAttrib2d(_index_, _x_, _y_)
     GL_FUNCTIONS_MAP[:glVertexAttrib2d].call(_index_, _x_, _y_)
   end
 
-  def glVertexAttrib2dv(_index_, _v_)
+  def self.VertexAttrib2dv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib2dv].call(_index_, _v_)
   end
 
-  def glVertexAttrib2f(_index_, _x_, _y_)
+  def self.VertexAttrib2f(_index_, _x_, _y_)
     GL_FUNCTIONS_MAP[:glVertexAttrib2f].call(_index_, _x_, _y_)
   end
 
-  def glVertexAttrib2fv(_index_, _v_)
+  def self.VertexAttrib2fv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib2fv].call(_index_, _v_)
   end
 
-  def glVertexAttrib2s(_index_, _x_, _y_)
+  def self.VertexAttrib2s(_index_, _x_, _y_)
     GL_FUNCTIONS_MAP[:glVertexAttrib2s].call(_index_, _x_, _y_)
   end
 
-  def glVertexAttrib2sv(_index_, _v_)
+  def self.VertexAttrib2sv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib2sv].call(_index_, _v_)
   end
 
-  def glVertexAttrib3d(_index_, _x_, _y_, _z_)
+  def self.VertexAttrib3d(_index_, _x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glVertexAttrib3d].call(_index_, _x_, _y_, _z_)
   end
 
-  def glVertexAttrib3dv(_index_, _v_)
+  def self.VertexAttrib3dv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib3dv].call(_index_, _v_)
   end
 
-  def glVertexAttrib3f(_index_, _x_, _y_, _z_)
+  def self.VertexAttrib3f(_index_, _x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glVertexAttrib3f].call(_index_, _x_, _y_, _z_)
   end
 
-  def glVertexAttrib3fv(_index_, _v_)
+  def self.VertexAttrib3fv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib3fv].call(_index_, _v_)
   end
 
-  def glVertexAttrib3s(_index_, _x_, _y_, _z_)
+  def self.VertexAttrib3s(_index_, _x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glVertexAttrib3s].call(_index_, _x_, _y_, _z_)
   end
 
-  def glVertexAttrib3sv(_index_, _v_)
+  def self.VertexAttrib3sv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib3sv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4Nbv(_index_, _v_)
+  def self.VertexAttrib4Nbv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4Nbv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4Niv(_index_, _v_)
+  def self.VertexAttrib4Niv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4Niv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4Nsv(_index_, _v_)
+  def self.VertexAttrib4Nsv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4Nsv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4Nub(_index_, _x_, _y_, _z_, _w_)
+  def self.VertexAttrib4Nub(_index_, _x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4Nub].call(_index_, _x_, _y_, _z_, _w_)
   end
 
-  def glVertexAttrib4Nubv(_index_, _v_)
+  def self.VertexAttrib4Nubv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4Nubv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4Nuiv(_index_, _v_)
+  def self.VertexAttrib4Nuiv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4Nuiv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4Nusv(_index_, _v_)
+  def self.VertexAttrib4Nusv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4Nusv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4bv(_index_, _v_)
+  def self.VertexAttrib4bv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4bv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4d(_index_, _x_, _y_, _z_, _w_)
+  def self.VertexAttrib4d(_index_, _x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4d].call(_index_, _x_, _y_, _z_, _w_)
   end
 
-  def glVertexAttrib4dv(_index_, _v_)
+  def self.VertexAttrib4dv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4dv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4f(_index_, _x_, _y_, _z_, _w_)
+  def self.VertexAttrib4f(_index_, _x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4f].call(_index_, _x_, _y_, _z_, _w_)
   end
 
-  def glVertexAttrib4fv(_index_, _v_)
+  def self.VertexAttrib4fv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4fv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4iv(_index_, _v_)
+  def self.VertexAttrib4iv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4iv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4s(_index_, _x_, _y_, _z_, _w_)
+  def self.VertexAttrib4s(_index_, _x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4s].call(_index_, _x_, _y_, _z_, _w_)
   end
 
-  def glVertexAttrib4sv(_index_, _v_)
+  def self.VertexAttrib4sv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4sv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4ubv(_index_, _v_)
+  def self.VertexAttrib4ubv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4ubv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4uiv(_index_, _v_)
+  def self.VertexAttrib4uiv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4uiv].call(_index_, _v_)
   end
 
-  def glVertexAttrib4usv(_index_, _v_)
+  def self.VertexAttrib4usv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttrib4usv].call(_index_, _v_)
   end
 
-  def glVertexAttribPointer(_index_, _size_, _type_, _normalized_, _stride_, _pointer_)
+  def self.VertexAttribPointer(_index_, _size_, _type_, _normalized_, _stride_, _pointer_)
     GL_FUNCTIONS_MAP[:glVertexAttribPointer].call(_index_, _size_, _type_, _normalized_, _stride_, _pointer_)
   end
 
-  def glUniformMatrix2x3fv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix2x3fv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix2x3fv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix3x2fv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix3x2fv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix3x2fv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix2x4fv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix2x4fv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix2x4fv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix4x2fv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix4x2fv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix4x2fv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix3x4fv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix3x4fv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix3x4fv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix4x3fv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix4x3fv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix4x3fv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glColorMaski(_index_, _r_, _g_, _b_, _a_)
+  def self.ColorMaski(_index_, _r_, _g_, _b_, _a_)
     GL_FUNCTIONS_MAP[:glColorMaski].call(_index_, _r_, _g_, _b_, _a_)
   end
 
-  def glGetBooleani_v(_target_, _index_, _data_)
+  def self.GetBooleani_v(_target_, _index_, _data_)
     GL_FUNCTIONS_MAP[:glGetBooleani_v].call(_target_, _index_, _data_)
   end
 
-  def glGetIntegeri_v(_target_, _index_, _data_)
+  def self.GetIntegeri_v(_target_, _index_, _data_)
     GL_FUNCTIONS_MAP[:glGetIntegeri_v].call(_target_, _index_, _data_)
   end
 
-  def glEnablei(_target_, _index_)
+  def self.Enablei(_target_, _index_)
     GL_FUNCTIONS_MAP[:glEnablei].call(_target_, _index_)
   end
 
-  def glDisablei(_target_, _index_)
+  def self.Disablei(_target_, _index_)
     GL_FUNCTIONS_MAP[:glDisablei].call(_target_, _index_)
   end
 
-  def glIsEnabledi(_target_, _index_)
+  def self.IsEnabledi(_target_, _index_)
     GL_FUNCTIONS_MAP[:glIsEnabledi].call(_target_, _index_)
   end
 
-  def glBeginTransformFeedback(_primitiveMode_)
+  def self.BeginTransformFeedback(_primitiveMode_)
     GL_FUNCTIONS_MAP[:glBeginTransformFeedback].call(_primitiveMode_)
   end
 
-  def glEndTransformFeedback()
+  def self.EndTransformFeedback()
     GL_FUNCTIONS_MAP[:glEndTransformFeedback].call()
   end
 
-  def glBindBufferRange(_target_, _index_, _buffer_, _offset_, _size_)
+  def self.BindBufferRange(_target_, _index_, _buffer_, _offset_, _size_)
     GL_FUNCTIONS_MAP[:glBindBufferRange].call(_target_, _index_, _buffer_, _offset_, _size_)
   end
 
-  def glBindBufferBase(_target_, _index_, _buffer_)
+  def self.BindBufferBase(_target_, _index_, _buffer_)
     GL_FUNCTIONS_MAP[:glBindBufferBase].call(_target_, _index_, _buffer_)
   end
 
-  def glTransformFeedbackVaryings(_program_, _count_, _varyings_, _bufferMode_)
+  def self.TransformFeedbackVaryings(_program_, _count_, _varyings_, _bufferMode_)
     GL_FUNCTIONS_MAP[:glTransformFeedbackVaryings].call(_program_, _count_, _varyings_, _bufferMode_)
   end
 
-  def glGetTransformFeedbackVarying(_program_, _index_, _bufSize_, _length_, _size_, _type_, _name_)
+  def self.GetTransformFeedbackVarying(_program_, _index_, _bufSize_, _length_, _size_, _type_, _name_)
     GL_FUNCTIONS_MAP[:glGetTransformFeedbackVarying].call(_program_, _index_, _bufSize_, _length_, _size_, _type_, _name_)
   end
 
-  def glClampColor(_target_, _clamp_)
+  def self.ClampColor(_target_, _clamp_)
     GL_FUNCTIONS_MAP[:glClampColor].call(_target_, _clamp_)
   end
 
-  def glBeginConditionalRender(_id_, _mode_)
+  def self.BeginConditionalRender(_id_, _mode_)
     GL_FUNCTIONS_MAP[:glBeginConditionalRender].call(_id_, _mode_)
   end
 
-  def glEndConditionalRender()
+  def self.EndConditionalRender()
     GL_FUNCTIONS_MAP[:glEndConditionalRender].call()
   end
 
-  def glVertexAttribIPointer(_index_, _size_, _type_, _stride_, _pointer_)
+  def self.VertexAttribIPointer(_index_, _size_, _type_, _stride_, _pointer_)
     GL_FUNCTIONS_MAP[:glVertexAttribIPointer].call(_index_, _size_, _type_, _stride_, _pointer_)
   end
 
-  def glGetVertexAttribIiv(_index_, _pname_, _params_)
+  def self.GetVertexAttribIiv(_index_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetVertexAttribIiv].call(_index_, _pname_, _params_)
   end
 
-  def glGetVertexAttribIuiv(_index_, _pname_, _params_)
+  def self.GetVertexAttribIuiv(_index_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetVertexAttribIuiv].call(_index_, _pname_, _params_)
   end
 
-  def glVertexAttribI1i(_index_, _x_)
+  def self.VertexAttribI1i(_index_, _x_)
     GL_FUNCTIONS_MAP[:glVertexAttribI1i].call(_index_, _x_)
   end
 
-  def glVertexAttribI2i(_index_, _x_, _y_)
+  def self.VertexAttribI2i(_index_, _x_, _y_)
     GL_FUNCTIONS_MAP[:glVertexAttribI2i].call(_index_, _x_, _y_)
   end
 
-  def glVertexAttribI3i(_index_, _x_, _y_, _z_)
+  def self.VertexAttribI3i(_index_, _x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glVertexAttribI3i].call(_index_, _x_, _y_, _z_)
   end
 
-  def glVertexAttribI4i(_index_, _x_, _y_, _z_, _w_)
+  def self.VertexAttribI4i(_index_, _x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glVertexAttribI4i].call(_index_, _x_, _y_, _z_, _w_)
   end
 
-  def glVertexAttribI1ui(_index_, _x_)
+  def self.VertexAttribI1ui(_index_, _x_)
     GL_FUNCTIONS_MAP[:glVertexAttribI1ui].call(_index_, _x_)
   end
 
-  def glVertexAttribI2ui(_index_, _x_, _y_)
+  def self.VertexAttribI2ui(_index_, _x_, _y_)
     GL_FUNCTIONS_MAP[:glVertexAttribI2ui].call(_index_, _x_, _y_)
   end
 
-  def glVertexAttribI3ui(_index_, _x_, _y_, _z_)
+  def self.VertexAttribI3ui(_index_, _x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glVertexAttribI3ui].call(_index_, _x_, _y_, _z_)
   end
 
-  def glVertexAttribI4ui(_index_, _x_, _y_, _z_, _w_)
+  def self.VertexAttribI4ui(_index_, _x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glVertexAttribI4ui].call(_index_, _x_, _y_, _z_, _w_)
   end
 
-  def glVertexAttribI1iv(_index_, _v_)
+  def self.VertexAttribI1iv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribI1iv].call(_index_, _v_)
   end
 
-  def glVertexAttribI2iv(_index_, _v_)
+  def self.VertexAttribI2iv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribI2iv].call(_index_, _v_)
   end
 
-  def glVertexAttribI3iv(_index_, _v_)
+  def self.VertexAttribI3iv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribI3iv].call(_index_, _v_)
   end
 
-  def glVertexAttribI4iv(_index_, _v_)
+  def self.VertexAttribI4iv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribI4iv].call(_index_, _v_)
   end
 
-  def glVertexAttribI1uiv(_index_, _v_)
+  def self.VertexAttribI1uiv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribI1uiv].call(_index_, _v_)
   end
 
-  def glVertexAttribI2uiv(_index_, _v_)
+  def self.VertexAttribI2uiv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribI2uiv].call(_index_, _v_)
   end
 
-  def glVertexAttribI3uiv(_index_, _v_)
+  def self.VertexAttribI3uiv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribI3uiv].call(_index_, _v_)
   end
 
-  def glVertexAttribI4uiv(_index_, _v_)
+  def self.VertexAttribI4uiv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribI4uiv].call(_index_, _v_)
   end
 
-  def glVertexAttribI4bv(_index_, _v_)
+  def self.VertexAttribI4bv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribI4bv].call(_index_, _v_)
   end
 
-  def glVertexAttribI4sv(_index_, _v_)
+  def self.VertexAttribI4sv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribI4sv].call(_index_, _v_)
   end
 
-  def glVertexAttribI4ubv(_index_, _v_)
+  def self.VertexAttribI4ubv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribI4ubv].call(_index_, _v_)
   end
 
-  def glVertexAttribI4usv(_index_, _v_)
+  def self.VertexAttribI4usv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribI4usv].call(_index_, _v_)
   end
 
-  def glGetUniformuiv(_program_, _location_, _params_)
+  def self.GetUniformuiv(_program_, _location_, _params_)
     GL_FUNCTIONS_MAP[:glGetUniformuiv].call(_program_, _location_, _params_)
   end
 
-  def glBindFragDataLocation(_program_, _color_, _name_)
+  def self.BindFragDataLocation(_program_, _color_, _name_)
     GL_FUNCTIONS_MAP[:glBindFragDataLocation].call(_program_, _color_, _name_)
   end
 
-  def glGetFragDataLocation(_program_, _name_)
+  def self.GetFragDataLocation(_program_, _name_)
     GL_FUNCTIONS_MAP[:glGetFragDataLocation].call(_program_, _name_)
   end
 
-  def glUniform1ui(_location_, _v0_)
+  def self.Uniform1ui(_location_, _v0_)
     GL_FUNCTIONS_MAP[:glUniform1ui].call(_location_, _v0_)
   end
 
-  def glUniform2ui(_location_, _v0_, _v1_)
+  def self.Uniform2ui(_location_, _v0_, _v1_)
     GL_FUNCTIONS_MAP[:glUniform2ui].call(_location_, _v0_, _v1_)
   end
 
-  def glUniform3ui(_location_, _v0_, _v1_, _v2_)
+  def self.Uniform3ui(_location_, _v0_, _v1_, _v2_)
     GL_FUNCTIONS_MAP[:glUniform3ui].call(_location_, _v0_, _v1_, _v2_)
   end
 
-  def glUniform4ui(_location_, _v0_, _v1_, _v2_, _v3_)
+  def self.Uniform4ui(_location_, _v0_, _v1_, _v2_, _v3_)
     GL_FUNCTIONS_MAP[:glUniform4ui].call(_location_, _v0_, _v1_, _v2_, _v3_)
   end
 
-  def glUniform1uiv(_location_, _count_, _value_)
+  def self.Uniform1uiv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform1uiv].call(_location_, _count_, _value_)
   end
 
-  def glUniform2uiv(_location_, _count_, _value_)
+  def self.Uniform2uiv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform2uiv].call(_location_, _count_, _value_)
   end
 
-  def glUniform3uiv(_location_, _count_, _value_)
+  def self.Uniform3uiv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform3uiv].call(_location_, _count_, _value_)
   end
 
-  def glUniform4uiv(_location_, _count_, _value_)
+  def self.Uniform4uiv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform4uiv].call(_location_, _count_, _value_)
   end
 
-  def glTexParameterIiv(_target_, _pname_, _params_)
+  def self.TexParameterIiv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glTexParameterIiv].call(_target_, _pname_, _params_)
   end
 
-  def glTexParameterIuiv(_target_, _pname_, _params_)
+  def self.TexParameterIuiv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glTexParameterIuiv].call(_target_, _pname_, _params_)
   end
 
-  def glGetTexParameterIiv(_target_, _pname_, _params_)
+  def self.GetTexParameterIiv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTexParameterIiv].call(_target_, _pname_, _params_)
   end
 
-  def glGetTexParameterIuiv(_target_, _pname_, _params_)
+  def self.GetTexParameterIuiv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTexParameterIuiv].call(_target_, _pname_, _params_)
   end
 
-  def glClearBufferiv(_buffer_, _drawbuffer_, _value_)
+  def self.ClearBufferiv(_buffer_, _drawbuffer_, _value_)
     GL_FUNCTIONS_MAP[:glClearBufferiv].call(_buffer_, _drawbuffer_, _value_)
   end
 
-  def glClearBufferuiv(_buffer_, _drawbuffer_, _value_)
+  def self.ClearBufferuiv(_buffer_, _drawbuffer_, _value_)
     GL_FUNCTIONS_MAP[:glClearBufferuiv].call(_buffer_, _drawbuffer_, _value_)
   end
 
-  def glClearBufferfv(_buffer_, _drawbuffer_, _value_)
+  def self.ClearBufferfv(_buffer_, _drawbuffer_, _value_)
     GL_FUNCTIONS_MAP[:glClearBufferfv].call(_buffer_, _drawbuffer_, _value_)
   end
 
-  def glClearBufferfi(_buffer_, _drawbuffer_, _depth_, _stencil_)
+  def self.ClearBufferfi(_buffer_, _drawbuffer_, _depth_, _stencil_)
     GL_FUNCTIONS_MAP[:glClearBufferfi].call(_buffer_, _drawbuffer_, _depth_, _stencil_)
   end
 
-  def glGetStringi(_name_, _index_)
+  def self.GetStringi(_name_, _index_)
     GL_FUNCTIONS_MAP[:glGetStringi].call(_name_, _index_)
   end
 
-  def glIsRenderbuffer(_renderbuffer_)
+  def self.IsRenderbuffer(_renderbuffer_)
     GL_FUNCTIONS_MAP[:glIsRenderbuffer].call(_renderbuffer_)
   end
 
-  def glBindRenderbuffer(_target_, _renderbuffer_)
+  def self.BindRenderbuffer(_target_, _renderbuffer_)
     GL_FUNCTIONS_MAP[:glBindRenderbuffer].call(_target_, _renderbuffer_)
   end
 
-  def glDeleteRenderbuffers(_n_, _renderbuffers_)
+  def self.DeleteRenderbuffers(_n_, _renderbuffers_)
     GL_FUNCTIONS_MAP[:glDeleteRenderbuffers].call(_n_, _renderbuffers_)
   end
 
-  def glGenRenderbuffers(_n_, _renderbuffers_)
+  def self.GenRenderbuffers(_n_, _renderbuffers_)
     GL_FUNCTIONS_MAP[:glGenRenderbuffers].call(_n_, _renderbuffers_)
   end
 
-  def glRenderbufferStorage(_target_, _internalformat_, _width_, _height_)
+  def self.RenderbufferStorage(_target_, _internalformat_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glRenderbufferStorage].call(_target_, _internalformat_, _width_, _height_)
   end
 
-  def glGetRenderbufferParameteriv(_target_, _pname_, _params_)
+  def self.GetRenderbufferParameteriv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetRenderbufferParameteriv].call(_target_, _pname_, _params_)
   end
 
-  def glIsFramebuffer(_framebuffer_)
+  def self.IsFramebuffer(_framebuffer_)
     GL_FUNCTIONS_MAP[:glIsFramebuffer].call(_framebuffer_)
   end
 
-  def glBindFramebuffer(_target_, _framebuffer_)
+  def self.BindFramebuffer(_target_, _framebuffer_)
     GL_FUNCTIONS_MAP[:glBindFramebuffer].call(_target_, _framebuffer_)
   end
 
-  def glDeleteFramebuffers(_n_, _framebuffers_)
+  def self.DeleteFramebuffers(_n_, _framebuffers_)
     GL_FUNCTIONS_MAP[:glDeleteFramebuffers].call(_n_, _framebuffers_)
   end
 
-  def glGenFramebuffers(_n_, _framebuffers_)
+  def self.GenFramebuffers(_n_, _framebuffers_)
     GL_FUNCTIONS_MAP[:glGenFramebuffers].call(_n_, _framebuffers_)
   end
 
-  def glCheckFramebufferStatus(_target_)
+  def self.CheckFramebufferStatus(_target_)
     GL_FUNCTIONS_MAP[:glCheckFramebufferStatus].call(_target_)
   end
 
-  def glFramebufferTexture1D(_target_, _attachment_, _textarget_, _texture_, _level_)
+  def self.FramebufferTexture1D(_target_, _attachment_, _textarget_, _texture_, _level_)
     GL_FUNCTIONS_MAP[:glFramebufferTexture1D].call(_target_, _attachment_, _textarget_, _texture_, _level_)
   end
 
-  def glFramebufferTexture2D(_target_, _attachment_, _textarget_, _texture_, _level_)
+  def self.FramebufferTexture2D(_target_, _attachment_, _textarget_, _texture_, _level_)
     GL_FUNCTIONS_MAP[:glFramebufferTexture2D].call(_target_, _attachment_, _textarget_, _texture_, _level_)
   end
 
-  def glFramebufferTexture3D(_target_, _attachment_, _textarget_, _texture_, _level_, _zoffset_)
+  def self.FramebufferTexture3D(_target_, _attachment_, _textarget_, _texture_, _level_, _zoffset_)
     GL_FUNCTIONS_MAP[:glFramebufferTexture3D].call(_target_, _attachment_, _textarget_, _texture_, _level_, _zoffset_)
   end
 
-  def glFramebufferRenderbuffer(_target_, _attachment_, _renderbuffertarget_, _renderbuffer_)
+  def self.FramebufferRenderbuffer(_target_, _attachment_, _renderbuffertarget_, _renderbuffer_)
     GL_FUNCTIONS_MAP[:glFramebufferRenderbuffer].call(_target_, _attachment_, _renderbuffertarget_, _renderbuffer_)
   end
 
-  def glGetFramebufferAttachmentParameteriv(_target_, _attachment_, _pname_, _params_)
+  def self.GetFramebufferAttachmentParameteriv(_target_, _attachment_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetFramebufferAttachmentParameteriv].call(_target_, _attachment_, _pname_, _params_)
   end
 
-  def glGenerateMipmap(_target_)
+  def self.GenerateMipmap(_target_)
     GL_FUNCTIONS_MAP[:glGenerateMipmap].call(_target_)
   end
 
-  def glBlitFramebuffer(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
+  def self.BlitFramebuffer(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
     GL_FUNCTIONS_MAP[:glBlitFramebuffer].call(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
   end
 
-  def glRenderbufferStorageMultisample(_target_, _samples_, _internalformat_, _width_, _height_)
+  def self.RenderbufferStorageMultisample(_target_, _samples_, _internalformat_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glRenderbufferStorageMultisample].call(_target_, _samples_, _internalformat_, _width_, _height_)
   end
 
-  def glFramebufferTextureLayer(_target_, _attachment_, _texture_, _level_, _layer_)
+  def self.FramebufferTextureLayer(_target_, _attachment_, _texture_, _level_, _layer_)
     GL_FUNCTIONS_MAP[:glFramebufferTextureLayer].call(_target_, _attachment_, _texture_, _level_, _layer_)
   end
 
-  def glMapBufferRange(_target_, _offset_, _length_, _access_)
+  def self.MapBufferRange(_target_, _offset_, _length_, _access_)
     GL_FUNCTIONS_MAP[:glMapBufferRange].call(_target_, _offset_, _length_, _access_)
   end
 
-  def glFlushMappedBufferRange(_target_, _offset_, _length_)
+  def self.FlushMappedBufferRange(_target_, _offset_, _length_)
     GL_FUNCTIONS_MAP[:glFlushMappedBufferRange].call(_target_, _offset_, _length_)
   end
 
-  def glBindVertexArray(_array_)
+  def self.BindVertexArray(_array_)
     GL_FUNCTIONS_MAP[:glBindVertexArray].call(_array_)
   end
 
-  def glDeleteVertexArrays(_n_, _arrays_)
+  def self.DeleteVertexArrays(_n_, _arrays_)
     GL_FUNCTIONS_MAP[:glDeleteVertexArrays].call(_n_, _arrays_)
   end
 
-  def glGenVertexArrays(_n_, _arrays_)
+  def self.GenVertexArrays(_n_, _arrays_)
     GL_FUNCTIONS_MAP[:glGenVertexArrays].call(_n_, _arrays_)
   end
 
-  def glIsVertexArray(_array_)
+  def self.IsVertexArray(_array_)
     GL_FUNCTIONS_MAP[:glIsVertexArray].call(_array_)
   end
 
-  def glDrawArraysInstanced(_mode_, _first_, _count_, _instancecount_)
+  def self.DrawArraysInstanced(_mode_, _first_, _count_, _instancecount_)
     GL_FUNCTIONS_MAP[:glDrawArraysInstanced].call(_mode_, _first_, _count_, _instancecount_)
   end
 
-  def glDrawElementsInstanced(_mode_, _count_, _type_, _indices_, _instancecount_)
+  def self.DrawElementsInstanced(_mode_, _count_, _type_, _indices_, _instancecount_)
     GL_FUNCTIONS_MAP[:glDrawElementsInstanced].call(_mode_, _count_, _type_, _indices_, _instancecount_)
   end
 
-  def glTexBuffer(_target_, _internalformat_, _buffer_)
+  def self.TexBuffer(_target_, _internalformat_, _buffer_)
     GL_FUNCTIONS_MAP[:glTexBuffer].call(_target_, _internalformat_, _buffer_)
   end
 
-  def glPrimitiveRestartIndex(_index_)
+  def self.PrimitiveRestartIndex(_index_)
     GL_FUNCTIONS_MAP[:glPrimitiveRestartIndex].call(_index_)
   end
 
-  def glCopyBufferSubData(_readTarget_, _writeTarget_, _readOffset_, _writeOffset_, _size_)
+  def self.CopyBufferSubData(_readTarget_, _writeTarget_, _readOffset_, _writeOffset_, _size_)
     GL_FUNCTIONS_MAP[:glCopyBufferSubData].call(_readTarget_, _writeTarget_, _readOffset_, _writeOffset_, _size_)
   end
 
-  def glGetUniformIndices(_program_, _uniformCount_, _uniformNames_, _uniformIndices_)
+  def self.GetUniformIndices(_program_, _uniformCount_, _uniformNames_, _uniformIndices_)
     GL_FUNCTIONS_MAP[:glGetUniformIndices].call(_program_, _uniformCount_, _uniformNames_, _uniformIndices_)
   end
 
-  def glGetActiveUniformsiv(_program_, _uniformCount_, _uniformIndices_, _pname_, _params_)
+  def self.GetActiveUniformsiv(_program_, _uniformCount_, _uniformIndices_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetActiveUniformsiv].call(_program_, _uniformCount_, _uniformIndices_, _pname_, _params_)
   end
 
-  def glGetActiveUniformName(_program_, _uniformIndex_, _bufSize_, _length_, _uniformName_)
+  def self.GetActiveUniformName(_program_, _uniformIndex_, _bufSize_, _length_, _uniformName_)
     GL_FUNCTIONS_MAP[:glGetActiveUniformName].call(_program_, _uniformIndex_, _bufSize_, _length_, _uniformName_)
   end
 
-  def glGetUniformBlockIndex(_program_, _uniformBlockName_)
+  def self.GetUniformBlockIndex(_program_, _uniformBlockName_)
     GL_FUNCTIONS_MAP[:glGetUniformBlockIndex].call(_program_, _uniformBlockName_)
   end
 
-  def glGetActiveUniformBlockiv(_program_, _uniformBlockIndex_, _pname_, _params_)
+  def self.GetActiveUniformBlockiv(_program_, _uniformBlockIndex_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetActiveUniformBlockiv].call(_program_, _uniformBlockIndex_, _pname_, _params_)
   end
 
-  def glGetActiveUniformBlockName(_program_, _uniformBlockIndex_, _bufSize_, _length_, _uniformBlockName_)
+  def self.GetActiveUniformBlockName(_program_, _uniformBlockIndex_, _bufSize_, _length_, _uniformBlockName_)
     GL_FUNCTIONS_MAP[:glGetActiveUniformBlockName].call(_program_, _uniformBlockIndex_, _bufSize_, _length_, _uniformBlockName_)
   end
 
-  def glUniformBlockBinding(_program_, _uniformBlockIndex_, _uniformBlockBinding_)
+  def self.UniformBlockBinding(_program_, _uniformBlockIndex_, _uniformBlockBinding_)
     GL_FUNCTIONS_MAP[:glUniformBlockBinding].call(_program_, _uniformBlockIndex_, _uniformBlockBinding_)
   end
 
-  def glDrawElementsBaseVertex(_mode_, _count_, _type_, _indices_, _basevertex_)
+  def self.DrawElementsBaseVertex(_mode_, _count_, _type_, _indices_, _basevertex_)
     GL_FUNCTIONS_MAP[:glDrawElementsBaseVertex].call(_mode_, _count_, _type_, _indices_, _basevertex_)
   end
 
-  def glDrawRangeElementsBaseVertex(_mode_, _start_, _end_, _count_, _type_, _indices_, _basevertex_)
+  def self.DrawRangeElementsBaseVertex(_mode_, _start_, _end_, _count_, _type_, _indices_, _basevertex_)
     GL_FUNCTIONS_MAP[:glDrawRangeElementsBaseVertex].call(_mode_, _start_, _end_, _count_, _type_, _indices_, _basevertex_)
   end
 
-  def glDrawElementsInstancedBaseVertex(_mode_, _count_, _type_, _indices_, _instancecount_, _basevertex_)
+  def self.DrawElementsInstancedBaseVertex(_mode_, _count_, _type_, _indices_, _instancecount_, _basevertex_)
     GL_FUNCTIONS_MAP[:glDrawElementsInstancedBaseVertex].call(_mode_, _count_, _type_, _indices_, _instancecount_, _basevertex_)
   end
 
-  def glMultiDrawElementsBaseVertex(_mode_, _count_, _type_, _indices_, _drawcount_, _basevertex_)
+  def self.MultiDrawElementsBaseVertex(_mode_, _count_, _type_, _indices_, _drawcount_, _basevertex_)
     GL_FUNCTIONS_MAP[:glMultiDrawElementsBaseVertex].call(_mode_, _count_, _type_, _indices_, _drawcount_, _basevertex_)
   end
 
-  def glProvokingVertex(_mode_)
+  def self.ProvokingVertex(_mode_)
     GL_FUNCTIONS_MAP[:glProvokingVertex].call(_mode_)
   end
 
-  def glFenceSync(_condition_, _flags_)
+  def self.FenceSync(_condition_, _flags_)
     GL_FUNCTIONS_MAP[:glFenceSync].call(_condition_, _flags_)
   end
 
-  def glIsSync(_sync_)
+  def self.IsSync(_sync_)
     GL_FUNCTIONS_MAP[:glIsSync].call(_sync_)
   end
 
-  def glDeleteSync(_sync_)
+  def self.DeleteSync(_sync_)
     GL_FUNCTIONS_MAP[:glDeleteSync].call(_sync_)
   end
 
-  def glClientWaitSync(_sync_, _flags_, _timeout_)
+  def self.ClientWaitSync(_sync_, _flags_, _timeout_)
     GL_FUNCTIONS_MAP[:glClientWaitSync].call(_sync_, _flags_, _timeout_)
   end
 
-  def glWaitSync(_sync_, _flags_, _timeout_)
+  def self.WaitSync(_sync_, _flags_, _timeout_)
     GL_FUNCTIONS_MAP[:glWaitSync].call(_sync_, _flags_, _timeout_)
   end
 
-  def glGetInteger64v(_pname_, _data_)
+  def self.GetInteger64v(_pname_, _data_)
     GL_FUNCTIONS_MAP[:glGetInteger64v].call(_pname_, _data_)
   end
 
-  def glGetSynciv(_sync_, _pname_, _count_, _length_, _values_)
+  def self.GetSynciv(_sync_, _pname_, _count_, _length_, _values_)
     GL_FUNCTIONS_MAP[:glGetSynciv].call(_sync_, _pname_, _count_, _length_, _values_)
   end
 
-  def glGetInteger64i_v(_target_, _index_, _data_)
+  def self.GetInteger64i_v(_target_, _index_, _data_)
     GL_FUNCTIONS_MAP[:glGetInteger64i_v].call(_target_, _index_, _data_)
   end
 
-  def glGetBufferParameteri64v(_target_, _pname_, _params_)
+  def self.GetBufferParameteri64v(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetBufferParameteri64v].call(_target_, _pname_, _params_)
   end
 
-  def glFramebufferTexture(_target_, _attachment_, _texture_, _level_)
+  def self.FramebufferTexture(_target_, _attachment_, _texture_, _level_)
     GL_FUNCTIONS_MAP[:glFramebufferTexture].call(_target_, _attachment_, _texture_, _level_)
   end
 
-  def glTexImage2DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
+  def self.TexImage2DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
     GL_FUNCTIONS_MAP[:glTexImage2DMultisample].call(_target_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
   end
 
-  def glTexImage3DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
+  def self.TexImage3DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
     GL_FUNCTIONS_MAP[:glTexImage3DMultisample].call(_target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
   end
 
-  def glGetMultisamplefv(_pname_, _index_, _val_)
+  def self.GetMultisamplefv(_pname_, _index_, _val_)
     GL_FUNCTIONS_MAP[:glGetMultisamplefv].call(_pname_, _index_, _val_)
   end
 
-  def glSampleMaski(_maskNumber_, _mask_)
+  def self.SampleMaski(_maskNumber_, _mask_)
     GL_FUNCTIONS_MAP[:glSampleMaski].call(_maskNumber_, _mask_)
   end
 
-  def glBindFragDataLocationIndexed(_program_, _colorNumber_, _index_, _name_)
+  def self.BindFragDataLocationIndexed(_program_, _colorNumber_, _index_, _name_)
     GL_FUNCTIONS_MAP[:glBindFragDataLocationIndexed].call(_program_, _colorNumber_, _index_, _name_)
   end
 
-  def glGetFragDataIndex(_program_, _name_)
+  def self.GetFragDataIndex(_program_, _name_)
     GL_FUNCTIONS_MAP[:glGetFragDataIndex].call(_program_, _name_)
   end
 
-  def glGenSamplers(_count_, _samplers_)
+  def self.GenSamplers(_count_, _samplers_)
     GL_FUNCTIONS_MAP[:glGenSamplers].call(_count_, _samplers_)
   end
 
-  def glDeleteSamplers(_count_, _samplers_)
+  def self.DeleteSamplers(_count_, _samplers_)
     GL_FUNCTIONS_MAP[:glDeleteSamplers].call(_count_, _samplers_)
   end
 
-  def glIsSampler(_sampler_)
+  def self.IsSampler(_sampler_)
     GL_FUNCTIONS_MAP[:glIsSampler].call(_sampler_)
   end
 
-  def glBindSampler(_unit_, _sampler_)
+  def self.BindSampler(_unit_, _sampler_)
     GL_FUNCTIONS_MAP[:glBindSampler].call(_unit_, _sampler_)
   end
 
-  def glSamplerParameteri(_sampler_, _pname_, _param_)
+  def self.SamplerParameteri(_sampler_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glSamplerParameteri].call(_sampler_, _pname_, _param_)
   end
 
-  def glSamplerParameteriv(_sampler_, _pname_, _param_)
+  def self.SamplerParameteriv(_sampler_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glSamplerParameteriv].call(_sampler_, _pname_, _param_)
   end
 
-  def glSamplerParameterf(_sampler_, _pname_, _param_)
+  def self.SamplerParameterf(_sampler_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glSamplerParameterf].call(_sampler_, _pname_, _param_)
   end
 
-  def glSamplerParameterfv(_sampler_, _pname_, _param_)
+  def self.SamplerParameterfv(_sampler_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glSamplerParameterfv].call(_sampler_, _pname_, _param_)
   end
 
-  def glSamplerParameterIiv(_sampler_, _pname_, _param_)
+  def self.SamplerParameterIiv(_sampler_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glSamplerParameterIiv].call(_sampler_, _pname_, _param_)
   end
 
-  def glSamplerParameterIuiv(_sampler_, _pname_, _param_)
+  def self.SamplerParameterIuiv(_sampler_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glSamplerParameterIuiv].call(_sampler_, _pname_, _param_)
   end
 
-  def glGetSamplerParameteriv(_sampler_, _pname_, _params_)
+  def self.GetSamplerParameteriv(_sampler_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetSamplerParameteriv].call(_sampler_, _pname_, _params_)
   end
 
-  def glGetSamplerParameterIiv(_sampler_, _pname_, _params_)
+  def self.GetSamplerParameterIiv(_sampler_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetSamplerParameterIiv].call(_sampler_, _pname_, _params_)
   end
 
-  def glGetSamplerParameterfv(_sampler_, _pname_, _params_)
+  def self.GetSamplerParameterfv(_sampler_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetSamplerParameterfv].call(_sampler_, _pname_, _params_)
   end
 
-  def glGetSamplerParameterIuiv(_sampler_, _pname_, _params_)
+  def self.GetSamplerParameterIuiv(_sampler_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetSamplerParameterIuiv].call(_sampler_, _pname_, _params_)
   end
 
-  def glQueryCounter(_id_, _target_)
+  def self.QueryCounter(_id_, _target_)
     GL_FUNCTIONS_MAP[:glQueryCounter].call(_id_, _target_)
   end
 
-  def glGetQueryObjecti64v(_id_, _pname_, _params_)
+  def self.GetQueryObjecti64v(_id_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetQueryObjecti64v].call(_id_, _pname_, _params_)
   end
 
-  def glGetQueryObjectui64v(_id_, _pname_, _params_)
+  def self.GetQueryObjectui64v(_id_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetQueryObjectui64v].call(_id_, _pname_, _params_)
   end
 
-  def glVertexAttribDivisor(_index_, _divisor_)
+  def self.VertexAttribDivisor(_index_, _divisor_)
     GL_FUNCTIONS_MAP[:glVertexAttribDivisor].call(_index_, _divisor_)
   end
 
-  def glVertexAttribP1ui(_index_, _type_, _normalized_, _value_)
+  def self.VertexAttribP1ui(_index_, _type_, _normalized_, _value_)
     GL_FUNCTIONS_MAP[:glVertexAttribP1ui].call(_index_, _type_, _normalized_, _value_)
   end
 
-  def glVertexAttribP1uiv(_index_, _type_, _normalized_, _value_)
+  def self.VertexAttribP1uiv(_index_, _type_, _normalized_, _value_)
     GL_FUNCTIONS_MAP[:glVertexAttribP1uiv].call(_index_, _type_, _normalized_, _value_)
   end
 
-  def glVertexAttribP2ui(_index_, _type_, _normalized_, _value_)
+  def self.VertexAttribP2ui(_index_, _type_, _normalized_, _value_)
     GL_FUNCTIONS_MAP[:glVertexAttribP2ui].call(_index_, _type_, _normalized_, _value_)
   end
 
-  def glVertexAttribP2uiv(_index_, _type_, _normalized_, _value_)
+  def self.VertexAttribP2uiv(_index_, _type_, _normalized_, _value_)
     GL_FUNCTIONS_MAP[:glVertexAttribP2uiv].call(_index_, _type_, _normalized_, _value_)
   end
 
-  def glVertexAttribP3ui(_index_, _type_, _normalized_, _value_)
+  def self.VertexAttribP3ui(_index_, _type_, _normalized_, _value_)
     GL_FUNCTIONS_MAP[:glVertexAttribP3ui].call(_index_, _type_, _normalized_, _value_)
   end
 
-  def glVertexAttribP3uiv(_index_, _type_, _normalized_, _value_)
+  def self.VertexAttribP3uiv(_index_, _type_, _normalized_, _value_)
     GL_FUNCTIONS_MAP[:glVertexAttribP3uiv].call(_index_, _type_, _normalized_, _value_)
   end
 
-  def glVertexAttribP4ui(_index_, _type_, _normalized_, _value_)
+  def self.VertexAttribP4ui(_index_, _type_, _normalized_, _value_)
     GL_FUNCTIONS_MAP[:glVertexAttribP4ui].call(_index_, _type_, _normalized_, _value_)
   end
 
-  def glVertexAttribP4uiv(_index_, _type_, _normalized_, _value_)
+  def self.VertexAttribP4uiv(_index_, _type_, _normalized_, _value_)
     GL_FUNCTIONS_MAP[:glVertexAttribP4uiv].call(_index_, _type_, _normalized_, _value_)
   end
 
-  def glVertexP2ui(_type_, _value_)
+  def self.VertexP2ui(_type_, _value_)
     GL_FUNCTIONS_MAP[:glVertexP2ui].call(_type_, _value_)
   end
 
-  def glVertexP2uiv(_type_, _value_)
+  def self.VertexP2uiv(_type_, _value_)
     GL_FUNCTIONS_MAP[:glVertexP2uiv].call(_type_, _value_)
   end
 
-  def glVertexP3ui(_type_, _value_)
+  def self.VertexP3ui(_type_, _value_)
     GL_FUNCTIONS_MAP[:glVertexP3ui].call(_type_, _value_)
   end
 
-  def glVertexP3uiv(_type_, _value_)
+  def self.VertexP3uiv(_type_, _value_)
     GL_FUNCTIONS_MAP[:glVertexP3uiv].call(_type_, _value_)
   end
 
-  def glVertexP4ui(_type_, _value_)
+  def self.VertexP4ui(_type_, _value_)
     GL_FUNCTIONS_MAP[:glVertexP4ui].call(_type_, _value_)
   end
 
-  def glVertexP4uiv(_type_, _value_)
+  def self.VertexP4uiv(_type_, _value_)
     GL_FUNCTIONS_MAP[:glVertexP4uiv].call(_type_, _value_)
   end
 
-  def glTexCoordP1ui(_type_, _coords_)
+  def self.TexCoordP1ui(_type_, _coords_)
     GL_FUNCTIONS_MAP[:glTexCoordP1ui].call(_type_, _coords_)
   end
 
-  def glTexCoordP1uiv(_type_, _coords_)
+  def self.TexCoordP1uiv(_type_, _coords_)
     GL_FUNCTIONS_MAP[:glTexCoordP1uiv].call(_type_, _coords_)
   end
 
-  def glTexCoordP2ui(_type_, _coords_)
+  def self.TexCoordP2ui(_type_, _coords_)
     GL_FUNCTIONS_MAP[:glTexCoordP2ui].call(_type_, _coords_)
   end
 
-  def glTexCoordP2uiv(_type_, _coords_)
+  def self.TexCoordP2uiv(_type_, _coords_)
     GL_FUNCTIONS_MAP[:glTexCoordP2uiv].call(_type_, _coords_)
   end
 
-  def glTexCoordP3ui(_type_, _coords_)
+  def self.TexCoordP3ui(_type_, _coords_)
     GL_FUNCTIONS_MAP[:glTexCoordP3ui].call(_type_, _coords_)
   end
 
-  def glTexCoordP3uiv(_type_, _coords_)
+  def self.TexCoordP3uiv(_type_, _coords_)
     GL_FUNCTIONS_MAP[:glTexCoordP3uiv].call(_type_, _coords_)
   end
 
-  def glTexCoordP4ui(_type_, _coords_)
+  def self.TexCoordP4ui(_type_, _coords_)
     GL_FUNCTIONS_MAP[:glTexCoordP4ui].call(_type_, _coords_)
   end
 
-  def glTexCoordP4uiv(_type_, _coords_)
+  def self.TexCoordP4uiv(_type_, _coords_)
     GL_FUNCTIONS_MAP[:glTexCoordP4uiv].call(_type_, _coords_)
   end
 
-  def glMultiTexCoordP1ui(_texture_, _type_, _coords_)
+  def self.MultiTexCoordP1ui(_texture_, _type_, _coords_)
     GL_FUNCTIONS_MAP[:glMultiTexCoordP1ui].call(_texture_, _type_, _coords_)
   end
 
-  def glMultiTexCoordP1uiv(_texture_, _type_, _coords_)
+  def self.MultiTexCoordP1uiv(_texture_, _type_, _coords_)
     GL_FUNCTIONS_MAP[:glMultiTexCoordP1uiv].call(_texture_, _type_, _coords_)
   end
 
-  def glMultiTexCoordP2ui(_texture_, _type_, _coords_)
+  def self.MultiTexCoordP2ui(_texture_, _type_, _coords_)
     GL_FUNCTIONS_MAP[:glMultiTexCoordP2ui].call(_texture_, _type_, _coords_)
   end
 
-  def glMultiTexCoordP2uiv(_texture_, _type_, _coords_)
+  def self.MultiTexCoordP2uiv(_texture_, _type_, _coords_)
     GL_FUNCTIONS_MAP[:glMultiTexCoordP2uiv].call(_texture_, _type_, _coords_)
   end
 
-  def glMultiTexCoordP3ui(_texture_, _type_, _coords_)
+  def self.MultiTexCoordP3ui(_texture_, _type_, _coords_)
     GL_FUNCTIONS_MAP[:glMultiTexCoordP3ui].call(_texture_, _type_, _coords_)
   end
 
-  def glMultiTexCoordP3uiv(_texture_, _type_, _coords_)
+  def self.MultiTexCoordP3uiv(_texture_, _type_, _coords_)
     GL_FUNCTIONS_MAP[:glMultiTexCoordP3uiv].call(_texture_, _type_, _coords_)
   end
 
-  def glMultiTexCoordP4ui(_texture_, _type_, _coords_)
+  def self.MultiTexCoordP4ui(_texture_, _type_, _coords_)
     GL_FUNCTIONS_MAP[:glMultiTexCoordP4ui].call(_texture_, _type_, _coords_)
   end
 
-  def glMultiTexCoordP4uiv(_texture_, _type_, _coords_)
+  def self.MultiTexCoordP4uiv(_texture_, _type_, _coords_)
     GL_FUNCTIONS_MAP[:glMultiTexCoordP4uiv].call(_texture_, _type_, _coords_)
   end
 
-  def glNormalP3ui(_type_, _coords_)
+  def self.NormalP3ui(_type_, _coords_)
     GL_FUNCTIONS_MAP[:glNormalP3ui].call(_type_, _coords_)
   end
 
-  def glNormalP3uiv(_type_, _coords_)
+  def self.NormalP3uiv(_type_, _coords_)
     GL_FUNCTIONS_MAP[:glNormalP3uiv].call(_type_, _coords_)
   end
 
-  def glColorP3ui(_type_, _color_)
+  def self.ColorP3ui(_type_, _color_)
     GL_FUNCTIONS_MAP[:glColorP3ui].call(_type_, _color_)
   end
 
-  def glColorP3uiv(_type_, _color_)
+  def self.ColorP3uiv(_type_, _color_)
     GL_FUNCTIONS_MAP[:glColorP3uiv].call(_type_, _color_)
   end
 
-  def glColorP4ui(_type_, _color_)
+  def self.ColorP4ui(_type_, _color_)
     GL_FUNCTIONS_MAP[:glColorP4ui].call(_type_, _color_)
   end
 
-  def glColorP4uiv(_type_, _color_)
+  def self.ColorP4uiv(_type_, _color_)
     GL_FUNCTIONS_MAP[:glColorP4uiv].call(_type_, _color_)
   end
 
-  def glSecondaryColorP3ui(_type_, _color_)
+  def self.SecondaryColorP3ui(_type_, _color_)
     GL_FUNCTIONS_MAP[:glSecondaryColorP3ui].call(_type_, _color_)
   end
 
-  def glSecondaryColorP3uiv(_type_, _color_)
+  def self.SecondaryColorP3uiv(_type_, _color_)
     GL_FUNCTIONS_MAP[:glSecondaryColorP3uiv].call(_type_, _color_)
   end
 
-  def glMinSampleShading(_value_)
+  def self.MinSampleShading(_value_)
     GL_FUNCTIONS_MAP[:glMinSampleShading].call(_value_)
   end
 
-  def glBlendEquationi(_buf_, _mode_)
+  def self.BlendEquationi(_buf_, _mode_)
     GL_FUNCTIONS_MAP[:glBlendEquationi].call(_buf_, _mode_)
   end
 
-  def glBlendEquationSeparatei(_buf_, _modeRGB_, _modeAlpha_)
+  def self.BlendEquationSeparatei(_buf_, _modeRGB_, _modeAlpha_)
     GL_FUNCTIONS_MAP[:glBlendEquationSeparatei].call(_buf_, _modeRGB_, _modeAlpha_)
   end
 
-  def glBlendFunci(_buf_, _src_, _dst_)
+  def self.BlendFunci(_buf_, _src_, _dst_)
     GL_FUNCTIONS_MAP[:glBlendFunci].call(_buf_, _src_, _dst_)
   end
 
-  def glBlendFuncSeparatei(_buf_, _srcRGB_, _dstRGB_, _srcAlpha_, _dstAlpha_)
+  def self.BlendFuncSeparatei(_buf_, _srcRGB_, _dstRGB_, _srcAlpha_, _dstAlpha_)
     GL_FUNCTIONS_MAP[:glBlendFuncSeparatei].call(_buf_, _srcRGB_, _dstRGB_, _srcAlpha_, _dstAlpha_)
   end
 
-  def glDrawArraysIndirect(_mode_, _indirect_)
+  def self.DrawArraysIndirect(_mode_, _indirect_)
     GL_FUNCTIONS_MAP[:glDrawArraysIndirect].call(_mode_, _indirect_)
   end
 
-  def glDrawElementsIndirect(_mode_, _type_, _indirect_)
+  def self.DrawElementsIndirect(_mode_, _type_, _indirect_)
     GL_FUNCTIONS_MAP[:glDrawElementsIndirect].call(_mode_, _type_, _indirect_)
   end
 
-  def glUniform1d(_location_, _x_)
+  def self.Uniform1d(_location_, _x_)
     GL_FUNCTIONS_MAP[:glUniform1d].call(_location_, _x_)
   end
 
-  def glUniform2d(_location_, _x_, _y_)
+  def self.Uniform2d(_location_, _x_, _y_)
     GL_FUNCTIONS_MAP[:glUniform2d].call(_location_, _x_, _y_)
   end
 
-  def glUniform3d(_location_, _x_, _y_, _z_)
+  def self.Uniform3d(_location_, _x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glUniform3d].call(_location_, _x_, _y_, _z_)
   end
 
-  def glUniform4d(_location_, _x_, _y_, _z_, _w_)
+  def self.Uniform4d(_location_, _x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glUniform4d].call(_location_, _x_, _y_, _z_, _w_)
   end
 
-  def glUniform1dv(_location_, _count_, _value_)
+  def self.Uniform1dv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform1dv].call(_location_, _count_, _value_)
   end
 
-  def glUniform2dv(_location_, _count_, _value_)
+  def self.Uniform2dv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform2dv].call(_location_, _count_, _value_)
   end
 
-  def glUniform3dv(_location_, _count_, _value_)
+  def self.Uniform3dv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform3dv].call(_location_, _count_, _value_)
   end
 
-  def glUniform4dv(_location_, _count_, _value_)
+  def self.Uniform4dv(_location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glUniform4dv].call(_location_, _count_, _value_)
   end
 
-  def glUniformMatrix2dv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix2dv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix2dv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix3dv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix3dv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix3dv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix4dv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix4dv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix4dv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix2x3dv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix2x3dv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix2x3dv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix2x4dv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix2x4dv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix2x4dv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix3x2dv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix3x2dv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix3x2dv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix3x4dv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix3x4dv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix3x4dv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix4x2dv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix4x2dv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix4x2dv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glUniformMatrix4x3dv(_location_, _count_, _transpose_, _value_)
+  def self.UniformMatrix4x3dv(_location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glUniformMatrix4x3dv].call(_location_, _count_, _transpose_, _value_)
   end
 
-  def glGetUniformdv(_program_, _location_, _params_)
+  def self.GetUniformdv(_program_, _location_, _params_)
     GL_FUNCTIONS_MAP[:glGetUniformdv].call(_program_, _location_, _params_)
   end
 
-  def glGetSubroutineUniformLocation(_program_, _shadertype_, _name_)
+  def self.GetSubroutineUniformLocation(_program_, _shadertype_, _name_)
     GL_FUNCTIONS_MAP[:glGetSubroutineUniformLocation].call(_program_, _shadertype_, _name_)
   end
 
-  def glGetSubroutineIndex(_program_, _shadertype_, _name_)
+  def self.GetSubroutineIndex(_program_, _shadertype_, _name_)
     GL_FUNCTIONS_MAP[:glGetSubroutineIndex].call(_program_, _shadertype_, _name_)
   end
 
-  def glGetActiveSubroutineUniformiv(_program_, _shadertype_, _index_, _pname_, _values_)
+  def self.GetActiveSubroutineUniformiv(_program_, _shadertype_, _index_, _pname_, _values_)
     GL_FUNCTIONS_MAP[:glGetActiveSubroutineUniformiv].call(_program_, _shadertype_, _index_, _pname_, _values_)
   end
 
-  def glGetActiveSubroutineUniformName(_program_, _shadertype_, _index_, _bufSize_, _length_, _name_)
+  def self.GetActiveSubroutineUniformName(_program_, _shadertype_, _index_, _bufSize_, _length_, _name_)
     GL_FUNCTIONS_MAP[:glGetActiveSubroutineUniformName].call(_program_, _shadertype_, _index_, _bufSize_, _length_, _name_)
   end
 
-  def glGetActiveSubroutineName(_program_, _shadertype_, _index_, _bufSize_, _length_, _name_)
+  def self.GetActiveSubroutineName(_program_, _shadertype_, _index_, _bufSize_, _length_, _name_)
     GL_FUNCTIONS_MAP[:glGetActiveSubroutineName].call(_program_, _shadertype_, _index_, _bufSize_, _length_, _name_)
   end
 
-  def glUniformSubroutinesuiv(_shadertype_, _count_, _indices_)
+  def self.UniformSubroutinesuiv(_shadertype_, _count_, _indices_)
     GL_FUNCTIONS_MAP[:glUniformSubroutinesuiv].call(_shadertype_, _count_, _indices_)
   end
 
-  def glGetUniformSubroutineuiv(_shadertype_, _location_, _params_)
+  def self.GetUniformSubroutineuiv(_shadertype_, _location_, _params_)
     GL_FUNCTIONS_MAP[:glGetUniformSubroutineuiv].call(_shadertype_, _location_, _params_)
   end
 
-  def glGetProgramStageiv(_program_, _shadertype_, _pname_, _values_)
+  def self.GetProgramStageiv(_program_, _shadertype_, _pname_, _values_)
     GL_FUNCTIONS_MAP[:glGetProgramStageiv].call(_program_, _shadertype_, _pname_, _values_)
   end
 
-  def glPatchParameteri(_pname_, _value_)
+  def self.PatchParameteri(_pname_, _value_)
     GL_FUNCTIONS_MAP[:glPatchParameteri].call(_pname_, _value_)
   end
 
-  def glPatchParameterfv(_pname_, _values_)
+  def self.PatchParameterfv(_pname_, _values_)
     GL_FUNCTIONS_MAP[:glPatchParameterfv].call(_pname_, _values_)
   end
 
-  def glBindTransformFeedback(_target_, _id_)
+  def self.BindTransformFeedback(_target_, _id_)
     GL_FUNCTIONS_MAP[:glBindTransformFeedback].call(_target_, _id_)
   end
 
-  def glDeleteTransformFeedbacks(_n_, _ids_)
+  def self.DeleteTransformFeedbacks(_n_, _ids_)
     GL_FUNCTIONS_MAP[:glDeleteTransformFeedbacks].call(_n_, _ids_)
   end
 
-  def glGenTransformFeedbacks(_n_, _ids_)
+  def self.GenTransformFeedbacks(_n_, _ids_)
     GL_FUNCTIONS_MAP[:glGenTransformFeedbacks].call(_n_, _ids_)
   end
 
-  def glIsTransformFeedback(_id_)
+  def self.IsTransformFeedback(_id_)
     GL_FUNCTIONS_MAP[:glIsTransformFeedback].call(_id_)
   end
 
-  def glPauseTransformFeedback()
+  def self.PauseTransformFeedback()
     GL_FUNCTIONS_MAP[:glPauseTransformFeedback].call()
   end
 
-  def glResumeTransformFeedback()
+  def self.ResumeTransformFeedback()
     GL_FUNCTIONS_MAP[:glResumeTransformFeedback].call()
   end
 
-  def glDrawTransformFeedback(_mode_, _id_)
+  def self.DrawTransformFeedback(_mode_, _id_)
     GL_FUNCTIONS_MAP[:glDrawTransformFeedback].call(_mode_, _id_)
   end
 
-  def glDrawTransformFeedbackStream(_mode_, _id_, _stream_)
+  def self.DrawTransformFeedbackStream(_mode_, _id_, _stream_)
     GL_FUNCTIONS_MAP[:glDrawTransformFeedbackStream].call(_mode_, _id_, _stream_)
   end
 
-  def glBeginQueryIndexed(_target_, _index_, _id_)
+  def self.BeginQueryIndexed(_target_, _index_, _id_)
     GL_FUNCTIONS_MAP[:glBeginQueryIndexed].call(_target_, _index_, _id_)
   end
 
-  def glEndQueryIndexed(_target_, _index_)
+  def self.EndQueryIndexed(_target_, _index_)
     GL_FUNCTIONS_MAP[:glEndQueryIndexed].call(_target_, _index_)
   end
 
-  def glGetQueryIndexediv(_target_, _index_, _pname_, _params_)
+  def self.GetQueryIndexediv(_target_, _index_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetQueryIndexediv].call(_target_, _index_, _pname_, _params_)
   end
 
-  def glReleaseShaderCompiler()
+  def self.ReleaseShaderCompiler()
     GL_FUNCTIONS_MAP[:glReleaseShaderCompiler].call()
   end
 
-  def glShaderBinary(_count_, _shaders_, _binaryFormat_, _binary_, _length_)
+  def self.ShaderBinary(_count_, _shaders_, _binaryFormat_, _binary_, _length_)
     GL_FUNCTIONS_MAP[:glShaderBinary].call(_count_, _shaders_, _binaryFormat_, _binary_, _length_)
   end
 
-  def glGetShaderPrecisionFormat(_shadertype_, _precisiontype_, _range_, _precision_)
+  def self.GetShaderPrecisionFormat(_shadertype_, _precisiontype_, _range_, _precision_)
     GL_FUNCTIONS_MAP[:glGetShaderPrecisionFormat].call(_shadertype_, _precisiontype_, _range_, _precision_)
   end
 
-  def glDepthRangef(_n_, _f_)
+  def self.DepthRangef(_n_, _f_)
     GL_FUNCTIONS_MAP[:glDepthRangef].call(_n_, _f_)
   end
 
-  def glClearDepthf(_d_)
+  def self.ClearDepthf(_d_)
     GL_FUNCTIONS_MAP[:glClearDepthf].call(_d_)
   end
 
-  def glGetProgramBinary(_program_, _bufSize_, _length_, _binaryFormat_, _binary_)
+  def self.GetProgramBinary(_program_, _bufSize_, _length_, _binaryFormat_, _binary_)
     GL_FUNCTIONS_MAP[:glGetProgramBinary].call(_program_, _bufSize_, _length_, _binaryFormat_, _binary_)
   end
 
-  def glProgramBinary(_program_, _binaryFormat_, _binary_, _length_)
+  def self.ProgramBinary(_program_, _binaryFormat_, _binary_, _length_)
     GL_FUNCTIONS_MAP[:glProgramBinary].call(_program_, _binaryFormat_, _binary_, _length_)
   end
 
-  def glProgramParameteri(_program_, _pname_, _value_)
+  def self.ProgramParameteri(_program_, _pname_, _value_)
     GL_FUNCTIONS_MAP[:glProgramParameteri].call(_program_, _pname_, _value_)
   end
 
-  def glUseProgramStages(_pipeline_, _stages_, _program_)
+  def self.UseProgramStages(_pipeline_, _stages_, _program_)
     GL_FUNCTIONS_MAP[:glUseProgramStages].call(_pipeline_, _stages_, _program_)
   end
 
-  def glActiveShaderProgram(_pipeline_, _program_)
+  def self.ActiveShaderProgram(_pipeline_, _program_)
     GL_FUNCTIONS_MAP[:glActiveShaderProgram].call(_pipeline_, _program_)
   end
 
-  def glCreateShaderProgramv(_type_, _count_, _strings_)
+  def self.CreateShaderProgramv(_type_, _count_, _strings_)
     GL_FUNCTIONS_MAP[:glCreateShaderProgramv].call(_type_, _count_, _strings_)
   end
 
-  def glBindProgramPipeline(_pipeline_)
+  def self.BindProgramPipeline(_pipeline_)
     GL_FUNCTIONS_MAP[:glBindProgramPipeline].call(_pipeline_)
   end
 
-  def glDeleteProgramPipelines(_n_, _pipelines_)
+  def self.DeleteProgramPipelines(_n_, _pipelines_)
     GL_FUNCTIONS_MAP[:glDeleteProgramPipelines].call(_n_, _pipelines_)
   end
 
-  def glGenProgramPipelines(_n_, _pipelines_)
+  def self.GenProgramPipelines(_n_, _pipelines_)
     GL_FUNCTIONS_MAP[:glGenProgramPipelines].call(_n_, _pipelines_)
   end
 
-  def glIsProgramPipeline(_pipeline_)
+  def self.IsProgramPipeline(_pipeline_)
     GL_FUNCTIONS_MAP[:glIsProgramPipeline].call(_pipeline_)
   end
 
-  def glGetProgramPipelineiv(_pipeline_, _pname_, _params_)
+  def self.GetProgramPipelineiv(_pipeline_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetProgramPipelineiv].call(_pipeline_, _pname_, _params_)
   end
 
-  def glProgramUniform1i(_program_, _location_, _v0_)
+  def self.ProgramUniform1i(_program_, _location_, _v0_)
     GL_FUNCTIONS_MAP[:glProgramUniform1i].call(_program_, _location_, _v0_)
   end
 
-  def glProgramUniform1iv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform1iv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform1iv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform1f(_program_, _location_, _v0_)
+  def self.ProgramUniform1f(_program_, _location_, _v0_)
     GL_FUNCTIONS_MAP[:glProgramUniform1f].call(_program_, _location_, _v0_)
   end
 
-  def glProgramUniform1fv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform1fv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform1fv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform1d(_program_, _location_, _v0_)
+  def self.ProgramUniform1d(_program_, _location_, _v0_)
     GL_FUNCTIONS_MAP[:glProgramUniform1d].call(_program_, _location_, _v0_)
   end
 
-  def glProgramUniform1dv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform1dv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform1dv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform1ui(_program_, _location_, _v0_)
+  def self.ProgramUniform1ui(_program_, _location_, _v0_)
     GL_FUNCTIONS_MAP[:glProgramUniform1ui].call(_program_, _location_, _v0_)
   end
 
-  def glProgramUniform1uiv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform1uiv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform1uiv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform2i(_program_, _location_, _v0_, _v1_)
+  def self.ProgramUniform2i(_program_, _location_, _v0_, _v1_)
     GL_FUNCTIONS_MAP[:glProgramUniform2i].call(_program_, _location_, _v0_, _v1_)
   end
 
-  def glProgramUniform2iv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform2iv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform2iv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform2f(_program_, _location_, _v0_, _v1_)
+  def self.ProgramUniform2f(_program_, _location_, _v0_, _v1_)
     GL_FUNCTIONS_MAP[:glProgramUniform2f].call(_program_, _location_, _v0_, _v1_)
   end
 
-  def glProgramUniform2fv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform2fv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform2fv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform2d(_program_, _location_, _v0_, _v1_)
+  def self.ProgramUniform2d(_program_, _location_, _v0_, _v1_)
     GL_FUNCTIONS_MAP[:glProgramUniform2d].call(_program_, _location_, _v0_, _v1_)
   end
 
-  def glProgramUniform2dv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform2dv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform2dv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform2ui(_program_, _location_, _v0_, _v1_)
+  def self.ProgramUniform2ui(_program_, _location_, _v0_, _v1_)
     GL_FUNCTIONS_MAP[:glProgramUniform2ui].call(_program_, _location_, _v0_, _v1_)
   end
 
-  def glProgramUniform2uiv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform2uiv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform2uiv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform3i(_program_, _location_, _v0_, _v1_, _v2_)
+  def self.ProgramUniform3i(_program_, _location_, _v0_, _v1_, _v2_)
     GL_FUNCTIONS_MAP[:glProgramUniform3i].call(_program_, _location_, _v0_, _v1_, _v2_)
   end
 
-  def glProgramUniform3iv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform3iv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform3iv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform3f(_program_, _location_, _v0_, _v1_, _v2_)
+  def self.ProgramUniform3f(_program_, _location_, _v0_, _v1_, _v2_)
     GL_FUNCTIONS_MAP[:glProgramUniform3f].call(_program_, _location_, _v0_, _v1_, _v2_)
   end
 
-  def glProgramUniform3fv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform3fv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform3fv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform3d(_program_, _location_, _v0_, _v1_, _v2_)
+  def self.ProgramUniform3d(_program_, _location_, _v0_, _v1_, _v2_)
     GL_FUNCTIONS_MAP[:glProgramUniform3d].call(_program_, _location_, _v0_, _v1_, _v2_)
   end
 
-  def glProgramUniform3dv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform3dv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform3dv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform3ui(_program_, _location_, _v0_, _v1_, _v2_)
+  def self.ProgramUniform3ui(_program_, _location_, _v0_, _v1_, _v2_)
     GL_FUNCTIONS_MAP[:glProgramUniform3ui].call(_program_, _location_, _v0_, _v1_, _v2_)
   end
 
-  def glProgramUniform3uiv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform3uiv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform3uiv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform4i(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
+  def self.ProgramUniform4i(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
     GL_FUNCTIONS_MAP[:glProgramUniform4i].call(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
   end
 
-  def glProgramUniform4iv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform4iv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform4iv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform4f(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
+  def self.ProgramUniform4f(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
     GL_FUNCTIONS_MAP[:glProgramUniform4f].call(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
   end
 
-  def glProgramUniform4fv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform4fv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform4fv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform4d(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
+  def self.ProgramUniform4d(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
     GL_FUNCTIONS_MAP[:glProgramUniform4d].call(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
   end
 
-  def glProgramUniform4dv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform4dv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform4dv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniform4ui(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
+  def self.ProgramUniform4ui(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
     GL_FUNCTIONS_MAP[:glProgramUniform4ui].call(_program_, _location_, _v0_, _v1_, _v2_, _v3_)
   end
 
-  def glProgramUniform4uiv(_program_, _location_, _count_, _value_)
+  def self.ProgramUniform4uiv(_program_, _location_, _count_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniform4uiv].call(_program_, _location_, _count_, _value_)
   end
 
-  def glProgramUniformMatrix2fv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix2fv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix2fv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix3fv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix3fv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix3fv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix4fv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix4fv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix4fv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix2dv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix2dv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix2dv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix3dv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix3dv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix3dv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix4dv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix4dv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix4dv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix2x3fv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix2x3fv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix2x3fv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix3x2fv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix3x2fv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix3x2fv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix2x4fv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix2x4fv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix2x4fv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix4x2fv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix4x2fv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix4x2fv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix3x4fv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix3x4fv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix3x4fv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix4x3fv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix4x3fv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix4x3fv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix2x3dv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix2x3dv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix2x3dv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix3x2dv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix3x2dv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix3x2dv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix2x4dv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix2x4dv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix2x4dv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix4x2dv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix4x2dv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix4x2dv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix3x4dv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix3x4dv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix3x4dv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glProgramUniformMatrix4x3dv(_program_, _location_, _count_, _transpose_, _value_)
+  def self.ProgramUniformMatrix4x3dv(_program_, _location_, _count_, _transpose_, _value_)
     GL_FUNCTIONS_MAP[:glProgramUniformMatrix4x3dv].call(_program_, _location_, _count_, _transpose_, _value_)
   end
 
-  def glValidateProgramPipeline(_pipeline_)
+  def self.ValidateProgramPipeline(_pipeline_)
     GL_FUNCTIONS_MAP[:glValidateProgramPipeline].call(_pipeline_)
   end
 
-  def glGetProgramPipelineInfoLog(_pipeline_, _bufSize_, _length_, _infoLog_)
+  def self.GetProgramPipelineInfoLog(_pipeline_, _bufSize_, _length_, _infoLog_)
     GL_FUNCTIONS_MAP[:glGetProgramPipelineInfoLog].call(_pipeline_, _bufSize_, _length_, _infoLog_)
   end
 
-  def glVertexAttribL1d(_index_, _x_)
+  def self.VertexAttribL1d(_index_, _x_)
     GL_FUNCTIONS_MAP[:glVertexAttribL1d].call(_index_, _x_)
   end
 
-  def glVertexAttribL2d(_index_, _x_, _y_)
+  def self.VertexAttribL2d(_index_, _x_, _y_)
     GL_FUNCTIONS_MAP[:glVertexAttribL2d].call(_index_, _x_, _y_)
   end
 
-  def glVertexAttribL3d(_index_, _x_, _y_, _z_)
+  def self.VertexAttribL3d(_index_, _x_, _y_, _z_)
     GL_FUNCTIONS_MAP[:glVertexAttribL3d].call(_index_, _x_, _y_, _z_)
   end
 
-  def glVertexAttribL4d(_index_, _x_, _y_, _z_, _w_)
+  def self.VertexAttribL4d(_index_, _x_, _y_, _z_, _w_)
     GL_FUNCTIONS_MAP[:glVertexAttribL4d].call(_index_, _x_, _y_, _z_, _w_)
   end
 
-  def glVertexAttribL1dv(_index_, _v_)
+  def self.VertexAttribL1dv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribL1dv].call(_index_, _v_)
   end
 
-  def glVertexAttribL2dv(_index_, _v_)
+  def self.VertexAttribL2dv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribL2dv].call(_index_, _v_)
   end
 
-  def glVertexAttribL3dv(_index_, _v_)
+  def self.VertexAttribL3dv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribL3dv].call(_index_, _v_)
   end
 
-  def glVertexAttribL4dv(_index_, _v_)
+  def self.VertexAttribL4dv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glVertexAttribL4dv].call(_index_, _v_)
   end
 
-  def glVertexAttribLPointer(_index_, _size_, _type_, _stride_, _pointer_)
+  def self.VertexAttribLPointer(_index_, _size_, _type_, _stride_, _pointer_)
     GL_FUNCTIONS_MAP[:glVertexAttribLPointer].call(_index_, _size_, _type_, _stride_, _pointer_)
   end
 
-  def glGetVertexAttribLdv(_index_, _pname_, _params_)
+  def self.GetVertexAttribLdv(_index_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetVertexAttribLdv].call(_index_, _pname_, _params_)
   end
 
-  def glViewportArrayv(_first_, _count_, _v_)
+  def self.ViewportArrayv(_first_, _count_, _v_)
     GL_FUNCTIONS_MAP[:glViewportArrayv].call(_first_, _count_, _v_)
   end
 
-  def glViewportIndexedf(_index_, _x_, _y_, _w_, _h_)
+  def self.ViewportIndexedf(_index_, _x_, _y_, _w_, _h_)
     GL_FUNCTIONS_MAP[:glViewportIndexedf].call(_index_, _x_, _y_, _w_, _h_)
   end
 
-  def glViewportIndexedfv(_index_, _v_)
+  def self.ViewportIndexedfv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glViewportIndexedfv].call(_index_, _v_)
   end
 
-  def glScissorArrayv(_first_, _count_, _v_)
+  def self.ScissorArrayv(_first_, _count_, _v_)
     GL_FUNCTIONS_MAP[:glScissorArrayv].call(_first_, _count_, _v_)
   end
 
-  def glScissorIndexed(_index_, _left_, _bottom_, _width_, _height_)
+  def self.ScissorIndexed(_index_, _left_, _bottom_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glScissorIndexed].call(_index_, _left_, _bottom_, _width_, _height_)
   end
 
-  def glScissorIndexedv(_index_, _v_)
+  def self.ScissorIndexedv(_index_, _v_)
     GL_FUNCTIONS_MAP[:glScissorIndexedv].call(_index_, _v_)
   end
 
-  def glDepthRangeArrayv(_first_, _count_, _v_)
+  def self.DepthRangeArrayv(_first_, _count_, _v_)
     GL_FUNCTIONS_MAP[:glDepthRangeArrayv].call(_first_, _count_, _v_)
   end
 
-  def glDepthRangeIndexed(_index_, _n_, _f_)
+  def self.DepthRangeIndexed(_index_, _n_, _f_)
     GL_FUNCTIONS_MAP[:glDepthRangeIndexed].call(_index_, _n_, _f_)
   end
 
-  def glGetFloati_v(_target_, _index_, _data_)
+  def self.GetFloati_v(_target_, _index_, _data_)
     GL_FUNCTIONS_MAP[:glGetFloati_v].call(_target_, _index_, _data_)
   end
 
-  def glGetDoublei_v(_target_, _index_, _data_)
+  def self.GetDoublei_v(_target_, _index_, _data_)
     GL_FUNCTIONS_MAP[:glGetDoublei_v].call(_target_, _index_, _data_)
   end
 
-  def glDrawArraysInstancedBaseInstance(_mode_, _first_, _count_, _instancecount_, _baseinstance_)
+  def self.DrawArraysInstancedBaseInstance(_mode_, _first_, _count_, _instancecount_, _baseinstance_)
     GL_FUNCTIONS_MAP[:glDrawArraysInstancedBaseInstance].call(_mode_, _first_, _count_, _instancecount_, _baseinstance_)
   end
 
-  def glDrawElementsInstancedBaseInstance(_mode_, _count_, _type_, _indices_, _instancecount_, _baseinstance_)
+  def self.DrawElementsInstancedBaseInstance(_mode_, _count_, _type_, _indices_, _instancecount_, _baseinstance_)
     GL_FUNCTIONS_MAP[:glDrawElementsInstancedBaseInstance].call(_mode_, _count_, _type_, _indices_, _instancecount_, _baseinstance_)
   end
 
-  def glDrawElementsInstancedBaseVertexBaseInstance(_mode_, _count_, _type_, _indices_, _instancecount_, _basevertex_, _baseinstance_)
+  def self.DrawElementsInstancedBaseVertexBaseInstance(_mode_, _count_, _type_, _indices_, _instancecount_, _basevertex_, _baseinstance_)
     GL_FUNCTIONS_MAP[:glDrawElementsInstancedBaseVertexBaseInstance].call(_mode_, _count_, _type_, _indices_, _instancecount_, _basevertex_, _baseinstance_)
   end
 
-  def glGetInternalformativ(_target_, _internalformat_, _pname_, _count_, _params_)
+  def self.GetInternalformativ(_target_, _internalformat_, _pname_, _count_, _params_)
     GL_FUNCTIONS_MAP[:glGetInternalformativ].call(_target_, _internalformat_, _pname_, _count_, _params_)
   end
 
-  def glGetActiveAtomicCounterBufferiv(_program_, _bufferIndex_, _pname_, _params_)
+  def self.GetActiveAtomicCounterBufferiv(_program_, _bufferIndex_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetActiveAtomicCounterBufferiv].call(_program_, _bufferIndex_, _pname_, _params_)
   end
 
-  def glBindImageTexture(_unit_, _texture_, _level_, _layered_, _layer_, _access_, _format_)
+  def self.BindImageTexture(_unit_, _texture_, _level_, _layered_, _layer_, _access_, _format_)
     GL_FUNCTIONS_MAP[:glBindImageTexture].call(_unit_, _texture_, _level_, _layered_, _layer_, _access_, _format_)
   end
 
-  def glMemoryBarrier(_barriers_)
+  def self.MemoryBarrier(_barriers_)
     GL_FUNCTIONS_MAP[:glMemoryBarrier].call(_barriers_)
   end
 
-  def glTexStorage1D(_target_, _levels_, _internalformat_, _width_)
+  def self.TexStorage1D(_target_, _levels_, _internalformat_, _width_)
     GL_FUNCTIONS_MAP[:glTexStorage1D].call(_target_, _levels_, _internalformat_, _width_)
   end
 
-  def glTexStorage2D(_target_, _levels_, _internalformat_, _width_, _height_)
+  def self.TexStorage2D(_target_, _levels_, _internalformat_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glTexStorage2D].call(_target_, _levels_, _internalformat_, _width_, _height_)
   end
 
-  def glTexStorage3D(_target_, _levels_, _internalformat_, _width_, _height_, _depth_)
+  def self.TexStorage3D(_target_, _levels_, _internalformat_, _width_, _height_, _depth_)
     GL_FUNCTIONS_MAP[:glTexStorage3D].call(_target_, _levels_, _internalformat_, _width_, _height_, _depth_)
   end
 
-  def glDrawTransformFeedbackInstanced(_mode_, _id_, _instancecount_)
+  def self.DrawTransformFeedbackInstanced(_mode_, _id_, _instancecount_)
     GL_FUNCTIONS_MAP[:glDrawTransformFeedbackInstanced].call(_mode_, _id_, _instancecount_)
   end
 
-  def glDrawTransformFeedbackStreamInstanced(_mode_, _id_, _stream_, _instancecount_)
+  def self.DrawTransformFeedbackStreamInstanced(_mode_, _id_, _stream_, _instancecount_)
     GL_FUNCTIONS_MAP[:glDrawTransformFeedbackStreamInstanced].call(_mode_, _id_, _stream_, _instancecount_)
   end
 
-  def glClearBufferData(_target_, _internalformat_, _format_, _type_, _data_)
+  def self.ClearBufferData(_target_, _internalformat_, _format_, _type_, _data_)
     GL_FUNCTIONS_MAP[:glClearBufferData].call(_target_, _internalformat_, _format_, _type_, _data_)
   end
 
-  def glClearBufferSubData(_target_, _internalformat_, _offset_, _size_, _format_, _type_, _data_)
+  def self.ClearBufferSubData(_target_, _internalformat_, _offset_, _size_, _format_, _type_, _data_)
     GL_FUNCTIONS_MAP[:glClearBufferSubData].call(_target_, _internalformat_, _offset_, _size_, _format_, _type_, _data_)
   end
 
-  def glDispatchCompute(_num_groups_x_, _num_groups_y_, _num_groups_z_)
+  def self.DispatchCompute(_num_groups_x_, _num_groups_y_, _num_groups_z_)
     GL_FUNCTIONS_MAP[:glDispatchCompute].call(_num_groups_x_, _num_groups_y_, _num_groups_z_)
   end
 
-  def glDispatchComputeIndirect(_indirect_)
+  def self.DispatchComputeIndirect(_indirect_)
     GL_FUNCTIONS_MAP[:glDispatchComputeIndirect].call(_indirect_)
   end
 
-  def glCopyImageSubData(_srcName_, _srcTarget_, _srcLevel_, _srcX_, _srcY_, _srcZ_, _dstName_, _dstTarget_, _dstLevel_, _dstX_, _dstY_, _dstZ_, _srcWidth_, _srcHeight_, _srcDepth_)
+  def self.CopyImageSubData(_srcName_, _srcTarget_, _srcLevel_, _srcX_, _srcY_, _srcZ_, _dstName_, _dstTarget_, _dstLevel_, _dstX_, _dstY_, _dstZ_, _srcWidth_, _srcHeight_, _srcDepth_)
     GL_FUNCTIONS_MAP[:glCopyImageSubData].call(_srcName_, _srcTarget_, _srcLevel_, _srcX_, _srcY_, _srcZ_, _dstName_, _dstTarget_, _dstLevel_, _dstX_, _dstY_, _dstZ_, _srcWidth_, _srcHeight_, _srcDepth_)
   end
 
-  def glFramebufferParameteri(_target_, _pname_, _param_)
+  def self.FramebufferParameteri(_target_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glFramebufferParameteri].call(_target_, _pname_, _param_)
   end
 
-  def glGetFramebufferParameteriv(_target_, _pname_, _params_)
+  def self.GetFramebufferParameteriv(_target_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetFramebufferParameteriv].call(_target_, _pname_, _params_)
   end
 
-  def glGetInternalformati64v(_target_, _internalformat_, _pname_, _count_, _params_)
+  def self.GetInternalformati64v(_target_, _internalformat_, _pname_, _count_, _params_)
     GL_FUNCTIONS_MAP[:glGetInternalformati64v].call(_target_, _internalformat_, _pname_, _count_, _params_)
   end
 
-  def glInvalidateTexSubImage(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_)
+  def self.InvalidateTexSubImage(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_)
     GL_FUNCTIONS_MAP[:glInvalidateTexSubImage].call(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_)
   end
 
-  def glInvalidateTexImage(_texture_, _level_)
+  def self.InvalidateTexImage(_texture_, _level_)
     GL_FUNCTIONS_MAP[:glInvalidateTexImage].call(_texture_, _level_)
   end
 
-  def glInvalidateBufferSubData(_buffer_, _offset_, _length_)
+  def self.InvalidateBufferSubData(_buffer_, _offset_, _length_)
     GL_FUNCTIONS_MAP[:glInvalidateBufferSubData].call(_buffer_, _offset_, _length_)
   end
 
-  def glInvalidateBufferData(_buffer_)
+  def self.InvalidateBufferData(_buffer_)
     GL_FUNCTIONS_MAP[:glInvalidateBufferData].call(_buffer_)
   end
 
-  def glInvalidateFramebuffer(_target_, _numAttachments_, _attachments_)
+  def self.InvalidateFramebuffer(_target_, _numAttachments_, _attachments_)
     GL_FUNCTIONS_MAP[:glInvalidateFramebuffer].call(_target_, _numAttachments_, _attachments_)
   end
 
-  def glInvalidateSubFramebuffer(_target_, _numAttachments_, _attachments_, _x_, _y_, _width_, _height_)
+  def self.InvalidateSubFramebuffer(_target_, _numAttachments_, _attachments_, _x_, _y_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glInvalidateSubFramebuffer].call(_target_, _numAttachments_, _attachments_, _x_, _y_, _width_, _height_)
   end
 
-  def glMultiDrawArraysIndirect(_mode_, _indirect_, _drawcount_, _stride_)
+  def self.MultiDrawArraysIndirect(_mode_, _indirect_, _drawcount_, _stride_)
     GL_FUNCTIONS_MAP[:glMultiDrawArraysIndirect].call(_mode_, _indirect_, _drawcount_, _stride_)
   end
 
-  def glMultiDrawElementsIndirect(_mode_, _type_, _indirect_, _drawcount_, _stride_)
+  def self.MultiDrawElementsIndirect(_mode_, _type_, _indirect_, _drawcount_, _stride_)
     GL_FUNCTIONS_MAP[:glMultiDrawElementsIndirect].call(_mode_, _type_, _indirect_, _drawcount_, _stride_)
   end
 
-  def glGetProgramInterfaceiv(_program_, _programInterface_, _pname_, _params_)
+  def self.GetProgramInterfaceiv(_program_, _programInterface_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetProgramInterfaceiv].call(_program_, _programInterface_, _pname_, _params_)
   end
 
-  def glGetProgramResourceIndex(_program_, _programInterface_, _name_)
+  def self.GetProgramResourceIndex(_program_, _programInterface_, _name_)
     GL_FUNCTIONS_MAP[:glGetProgramResourceIndex].call(_program_, _programInterface_, _name_)
   end
 
-  def glGetProgramResourceName(_program_, _programInterface_, _index_, _bufSize_, _length_, _name_)
+  def self.GetProgramResourceName(_program_, _programInterface_, _index_, _bufSize_, _length_, _name_)
     GL_FUNCTIONS_MAP[:glGetProgramResourceName].call(_program_, _programInterface_, _index_, _bufSize_, _length_, _name_)
   end
 
-  def glGetProgramResourceiv(_program_, _programInterface_, _index_, _propCount_, _props_, _count_, _length_, _params_)
+  def self.GetProgramResourceiv(_program_, _programInterface_, _index_, _propCount_, _props_, _count_, _length_, _params_)
     GL_FUNCTIONS_MAP[:glGetProgramResourceiv].call(_program_, _programInterface_, _index_, _propCount_, _props_, _count_, _length_, _params_)
   end
 
-  def glGetProgramResourceLocation(_program_, _programInterface_, _name_)
+  def self.GetProgramResourceLocation(_program_, _programInterface_, _name_)
     GL_FUNCTIONS_MAP[:glGetProgramResourceLocation].call(_program_, _programInterface_, _name_)
   end
 
-  def glGetProgramResourceLocationIndex(_program_, _programInterface_, _name_)
+  def self.GetProgramResourceLocationIndex(_program_, _programInterface_, _name_)
     GL_FUNCTIONS_MAP[:glGetProgramResourceLocationIndex].call(_program_, _programInterface_, _name_)
   end
 
-  def glShaderStorageBlockBinding(_program_, _storageBlockIndex_, _storageBlockBinding_)
+  def self.ShaderStorageBlockBinding(_program_, _storageBlockIndex_, _storageBlockBinding_)
     GL_FUNCTIONS_MAP[:glShaderStorageBlockBinding].call(_program_, _storageBlockIndex_, _storageBlockBinding_)
   end
 
-  def glTexBufferRange(_target_, _internalformat_, _buffer_, _offset_, _size_)
+  def self.TexBufferRange(_target_, _internalformat_, _buffer_, _offset_, _size_)
     GL_FUNCTIONS_MAP[:glTexBufferRange].call(_target_, _internalformat_, _buffer_, _offset_, _size_)
   end
 
-  def glTexStorage2DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
+  def self.TexStorage2DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
     GL_FUNCTIONS_MAP[:glTexStorage2DMultisample].call(_target_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
   end
 
-  def glTexStorage3DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
+  def self.TexStorage3DMultisample(_target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
     GL_FUNCTIONS_MAP[:glTexStorage3DMultisample].call(_target_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
   end
 
-  def glTextureView(_texture_, _target_, _origtexture_, _internalformat_, _minlevel_, _numlevels_, _minlayer_, _numlayers_)
+  def self.TextureView(_texture_, _target_, _origtexture_, _internalformat_, _minlevel_, _numlevels_, _minlayer_, _numlayers_)
     GL_FUNCTIONS_MAP[:glTextureView].call(_texture_, _target_, _origtexture_, _internalformat_, _minlevel_, _numlevels_, _minlayer_, _numlayers_)
   end
 
-  def glBindVertexBuffer(_bindingindex_, _buffer_, _offset_, _stride_)
+  def self.BindVertexBuffer(_bindingindex_, _buffer_, _offset_, _stride_)
     GL_FUNCTIONS_MAP[:glBindVertexBuffer].call(_bindingindex_, _buffer_, _offset_, _stride_)
   end
 
-  def glVertexAttribFormat(_attribindex_, _size_, _type_, _normalized_, _relativeoffset_)
+  def self.VertexAttribFormat(_attribindex_, _size_, _type_, _normalized_, _relativeoffset_)
     GL_FUNCTIONS_MAP[:glVertexAttribFormat].call(_attribindex_, _size_, _type_, _normalized_, _relativeoffset_)
   end
 
-  def glVertexAttribIFormat(_attribindex_, _size_, _type_, _relativeoffset_)
+  def self.VertexAttribIFormat(_attribindex_, _size_, _type_, _relativeoffset_)
     GL_FUNCTIONS_MAP[:glVertexAttribIFormat].call(_attribindex_, _size_, _type_, _relativeoffset_)
   end
 
-  def glVertexAttribLFormat(_attribindex_, _size_, _type_, _relativeoffset_)
+  def self.VertexAttribLFormat(_attribindex_, _size_, _type_, _relativeoffset_)
     GL_FUNCTIONS_MAP[:glVertexAttribLFormat].call(_attribindex_, _size_, _type_, _relativeoffset_)
   end
 
-  def glVertexAttribBinding(_attribindex_, _bindingindex_)
+  def self.VertexAttribBinding(_attribindex_, _bindingindex_)
     GL_FUNCTIONS_MAP[:glVertexAttribBinding].call(_attribindex_, _bindingindex_)
   end
 
-  def glVertexBindingDivisor(_bindingindex_, _divisor_)
+  def self.VertexBindingDivisor(_bindingindex_, _divisor_)
     GL_FUNCTIONS_MAP[:glVertexBindingDivisor].call(_bindingindex_, _divisor_)
   end
 
-  def glDebugMessageControl(_source_, _type_, _severity_, _count_, _ids_, _enabled_)
+  def self.DebugMessageControl(_source_, _type_, _severity_, _count_, _ids_, _enabled_)
     GL_FUNCTIONS_MAP[:glDebugMessageControl].call(_source_, _type_, _severity_, _count_, _ids_, _enabled_)
   end
 
-  def glDebugMessageInsert(_source_, _type_, _id_, _severity_, _length_, _buf_)
+  def self.DebugMessageInsert(_source_, _type_, _id_, _severity_, _length_, _buf_)
     GL_FUNCTIONS_MAP[:glDebugMessageInsert].call(_source_, _type_, _id_, _severity_, _length_, _buf_)
   end
 
-  def glDebugMessageCallback(_callback_, _userParam_)
+  def self.DebugMessageCallback(_callback_, _userParam_)
     GL_FUNCTIONS_MAP[:glDebugMessageCallback].call(_callback_, _userParam_)
   end
 
-  def glGetDebugMessageLog(_count_, _bufSize_, _sources_, _types_, _ids_, _severities_, _lengths_, _messageLog_)
+  def self.GetDebugMessageLog(_count_, _bufSize_, _sources_, _types_, _ids_, _severities_, _lengths_, _messageLog_)
     GL_FUNCTIONS_MAP[:glGetDebugMessageLog].call(_count_, _bufSize_, _sources_, _types_, _ids_, _severities_, _lengths_, _messageLog_)
   end
 
-  def glPushDebugGroup(_source_, _id_, _length_, _message_)
+  def self.PushDebugGroup(_source_, _id_, _length_, _message_)
     GL_FUNCTIONS_MAP[:glPushDebugGroup].call(_source_, _id_, _length_, _message_)
   end
 
-  def glPopDebugGroup()
+  def self.PopDebugGroup()
     GL_FUNCTIONS_MAP[:glPopDebugGroup].call()
   end
 
-  def glObjectLabel(_identifier_, _name_, _length_, _label_)
+  def self.ObjectLabel(_identifier_, _name_, _length_, _label_)
     GL_FUNCTIONS_MAP[:glObjectLabel].call(_identifier_, _name_, _length_, _label_)
   end
 
-  def glGetObjectLabel(_identifier_, _name_, _bufSize_, _length_, _label_)
+  def self.GetObjectLabel(_identifier_, _name_, _bufSize_, _length_, _label_)
     GL_FUNCTIONS_MAP[:glGetObjectLabel].call(_identifier_, _name_, _bufSize_, _length_, _label_)
   end
 
-  def glObjectPtrLabel(_ptr_, _length_, _label_)
+  def self.ObjectPtrLabel(_ptr_, _length_, _label_)
     GL_FUNCTIONS_MAP[:glObjectPtrLabel].call(_ptr_, _length_, _label_)
   end
 
-  def glGetObjectPtrLabel(_ptr_, _bufSize_, _length_, _label_)
+  def self.GetObjectPtrLabel(_ptr_, _bufSize_, _length_, _label_)
     GL_FUNCTIONS_MAP[:glGetObjectPtrLabel].call(_ptr_, _bufSize_, _length_, _label_)
   end
 
-  def glBufferStorage(_target_, _size_, _data_, _flags_)
+  def self.BufferStorage(_target_, _size_, _data_, _flags_)
     GL_FUNCTIONS_MAP[:glBufferStorage].call(_target_, _size_, _data_, _flags_)
   end
 
-  def glClearTexImage(_texture_, _level_, _format_, _type_, _data_)
+  def self.ClearTexImage(_texture_, _level_, _format_, _type_, _data_)
     GL_FUNCTIONS_MAP[:glClearTexImage].call(_texture_, _level_, _format_, _type_, _data_)
   end
 
-  def glClearTexSubImage(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _data_)
+  def self.ClearTexSubImage(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _data_)
     GL_FUNCTIONS_MAP[:glClearTexSubImage].call(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _data_)
   end
 
-  def glBindBuffersBase(_target_, _first_, _count_, _buffers_)
+  def self.BindBuffersBase(_target_, _first_, _count_, _buffers_)
     GL_FUNCTIONS_MAP[:glBindBuffersBase].call(_target_, _first_, _count_, _buffers_)
   end
 
-  def glBindBuffersRange(_target_, _first_, _count_, _buffers_, _offsets_, _sizes_)
+  def self.BindBuffersRange(_target_, _first_, _count_, _buffers_, _offsets_, _sizes_)
     GL_FUNCTIONS_MAP[:glBindBuffersRange].call(_target_, _first_, _count_, _buffers_, _offsets_, _sizes_)
   end
 
-  def glBindTextures(_first_, _count_, _textures_)
+  def self.BindTextures(_first_, _count_, _textures_)
     GL_FUNCTIONS_MAP[:glBindTextures].call(_first_, _count_, _textures_)
   end
 
-  def glBindSamplers(_first_, _count_, _samplers_)
+  def self.BindSamplers(_first_, _count_, _samplers_)
     GL_FUNCTIONS_MAP[:glBindSamplers].call(_first_, _count_, _samplers_)
   end
 
-  def glBindImageTextures(_first_, _count_, _textures_)
+  def self.BindImageTextures(_first_, _count_, _textures_)
     GL_FUNCTIONS_MAP[:glBindImageTextures].call(_first_, _count_, _textures_)
   end
 
-  def glBindVertexBuffers(_first_, _count_, _buffers_, _offsets_, _strides_)
+  def self.BindVertexBuffers(_first_, _count_, _buffers_, _offsets_, _strides_)
     GL_FUNCTIONS_MAP[:glBindVertexBuffers].call(_first_, _count_, _buffers_, _offsets_, _strides_)
   end
 
-  def glClipControl(_origin_, _depth_)
+  def self.ClipControl(_origin_, _depth_)
     GL_FUNCTIONS_MAP[:glClipControl].call(_origin_, _depth_)
   end
 
-  def glCreateTransformFeedbacks(_n_, _ids_)
+  def self.CreateTransformFeedbacks(_n_, _ids_)
     GL_FUNCTIONS_MAP[:glCreateTransformFeedbacks].call(_n_, _ids_)
   end
 
-  def glTransformFeedbackBufferBase(_xfb_, _index_, _buffer_)
+  def self.TransformFeedbackBufferBase(_xfb_, _index_, _buffer_)
     GL_FUNCTIONS_MAP[:glTransformFeedbackBufferBase].call(_xfb_, _index_, _buffer_)
   end
 
-  def glTransformFeedbackBufferRange(_xfb_, _index_, _buffer_, _offset_, _size_)
+  def self.TransformFeedbackBufferRange(_xfb_, _index_, _buffer_, _offset_, _size_)
     GL_FUNCTIONS_MAP[:glTransformFeedbackBufferRange].call(_xfb_, _index_, _buffer_, _offset_, _size_)
   end
 
-  def glGetTransformFeedbackiv(_xfb_, _pname_, _param_)
+  def self.GetTransformFeedbackiv(_xfb_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glGetTransformFeedbackiv].call(_xfb_, _pname_, _param_)
   end
 
-  def glGetTransformFeedbacki_v(_xfb_, _pname_, _index_, _param_)
+  def self.GetTransformFeedbacki_v(_xfb_, _pname_, _index_, _param_)
     GL_FUNCTIONS_MAP[:glGetTransformFeedbacki_v].call(_xfb_, _pname_, _index_, _param_)
   end
 
-  def glGetTransformFeedbacki64_v(_xfb_, _pname_, _index_, _param_)
+  def self.GetTransformFeedbacki64_v(_xfb_, _pname_, _index_, _param_)
     GL_FUNCTIONS_MAP[:glGetTransformFeedbacki64_v].call(_xfb_, _pname_, _index_, _param_)
   end
 
-  def glCreateBuffers(_n_, _buffers_)
+  def self.CreateBuffers(_n_, _buffers_)
     GL_FUNCTIONS_MAP[:glCreateBuffers].call(_n_, _buffers_)
   end
 
-  def glNamedBufferStorage(_buffer_, _size_, _data_, _flags_)
+  def self.NamedBufferStorage(_buffer_, _size_, _data_, _flags_)
     GL_FUNCTIONS_MAP[:glNamedBufferStorage].call(_buffer_, _size_, _data_, _flags_)
   end
 
-  def glNamedBufferData(_buffer_, _size_, _data_, _usage_)
+  def self.NamedBufferData(_buffer_, _size_, _data_, _usage_)
     GL_FUNCTIONS_MAP[:glNamedBufferData].call(_buffer_, _size_, _data_, _usage_)
   end
 
-  def glNamedBufferSubData(_buffer_, _offset_, _size_, _data_)
+  def self.NamedBufferSubData(_buffer_, _offset_, _size_, _data_)
     GL_FUNCTIONS_MAP[:glNamedBufferSubData].call(_buffer_, _offset_, _size_, _data_)
   end
 
-  def glCopyNamedBufferSubData(_readBuffer_, _writeBuffer_, _readOffset_, _writeOffset_, _size_)
+  def self.CopyNamedBufferSubData(_readBuffer_, _writeBuffer_, _readOffset_, _writeOffset_, _size_)
     GL_FUNCTIONS_MAP[:glCopyNamedBufferSubData].call(_readBuffer_, _writeBuffer_, _readOffset_, _writeOffset_, _size_)
   end
 
-  def glClearNamedBufferData(_buffer_, _internalformat_, _format_, _type_, _data_)
+  def self.ClearNamedBufferData(_buffer_, _internalformat_, _format_, _type_, _data_)
     GL_FUNCTIONS_MAP[:glClearNamedBufferData].call(_buffer_, _internalformat_, _format_, _type_, _data_)
   end
 
-  def glClearNamedBufferSubData(_buffer_, _internalformat_, _offset_, _size_, _format_, _type_, _data_)
+  def self.ClearNamedBufferSubData(_buffer_, _internalformat_, _offset_, _size_, _format_, _type_, _data_)
     GL_FUNCTIONS_MAP[:glClearNamedBufferSubData].call(_buffer_, _internalformat_, _offset_, _size_, _format_, _type_, _data_)
   end
 
-  def glMapNamedBuffer(_buffer_, _access_)
+  def self.MapNamedBuffer(_buffer_, _access_)
     GL_FUNCTIONS_MAP[:glMapNamedBuffer].call(_buffer_, _access_)
   end
 
-  def glMapNamedBufferRange(_buffer_, _offset_, _length_, _access_)
+  def self.MapNamedBufferRange(_buffer_, _offset_, _length_, _access_)
     GL_FUNCTIONS_MAP[:glMapNamedBufferRange].call(_buffer_, _offset_, _length_, _access_)
   end
 
-  def glUnmapNamedBuffer(_buffer_)
+  def self.UnmapNamedBuffer(_buffer_)
     GL_FUNCTIONS_MAP[:glUnmapNamedBuffer].call(_buffer_)
   end
 
-  def glFlushMappedNamedBufferRange(_buffer_, _offset_, _length_)
+  def self.FlushMappedNamedBufferRange(_buffer_, _offset_, _length_)
     GL_FUNCTIONS_MAP[:glFlushMappedNamedBufferRange].call(_buffer_, _offset_, _length_)
   end
 
-  def glGetNamedBufferParameteriv(_buffer_, _pname_, _params_)
+  def self.GetNamedBufferParameteriv(_buffer_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetNamedBufferParameteriv].call(_buffer_, _pname_, _params_)
   end
 
-  def glGetNamedBufferParameteri64v(_buffer_, _pname_, _params_)
+  def self.GetNamedBufferParameteri64v(_buffer_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetNamedBufferParameteri64v].call(_buffer_, _pname_, _params_)
   end
 
-  def glGetNamedBufferPointerv(_buffer_, _pname_, _params_)
+  def self.GetNamedBufferPointerv(_buffer_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetNamedBufferPointerv].call(_buffer_, _pname_, _params_)
   end
 
-  def glGetNamedBufferSubData(_buffer_, _offset_, _size_, _data_)
+  def self.GetNamedBufferSubData(_buffer_, _offset_, _size_, _data_)
     GL_FUNCTIONS_MAP[:glGetNamedBufferSubData].call(_buffer_, _offset_, _size_, _data_)
   end
 
-  def glCreateFramebuffers(_n_, _framebuffers_)
+  def self.CreateFramebuffers(_n_, _framebuffers_)
     GL_FUNCTIONS_MAP[:glCreateFramebuffers].call(_n_, _framebuffers_)
   end
 
-  def glNamedFramebufferRenderbuffer(_framebuffer_, _attachment_, _renderbuffertarget_, _renderbuffer_)
+  def self.NamedFramebufferRenderbuffer(_framebuffer_, _attachment_, _renderbuffertarget_, _renderbuffer_)
     GL_FUNCTIONS_MAP[:glNamedFramebufferRenderbuffer].call(_framebuffer_, _attachment_, _renderbuffertarget_, _renderbuffer_)
   end
 
-  def glNamedFramebufferParameteri(_framebuffer_, _pname_, _param_)
+  def self.NamedFramebufferParameteri(_framebuffer_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glNamedFramebufferParameteri].call(_framebuffer_, _pname_, _param_)
   end
 
-  def glNamedFramebufferTexture(_framebuffer_, _attachment_, _texture_, _level_)
+  def self.NamedFramebufferTexture(_framebuffer_, _attachment_, _texture_, _level_)
     GL_FUNCTIONS_MAP[:glNamedFramebufferTexture].call(_framebuffer_, _attachment_, _texture_, _level_)
   end
 
-  def glNamedFramebufferTextureLayer(_framebuffer_, _attachment_, _texture_, _level_, _layer_)
+  def self.NamedFramebufferTextureLayer(_framebuffer_, _attachment_, _texture_, _level_, _layer_)
     GL_FUNCTIONS_MAP[:glNamedFramebufferTextureLayer].call(_framebuffer_, _attachment_, _texture_, _level_, _layer_)
   end
 
-  def glNamedFramebufferDrawBuffer(_framebuffer_, _buf_)
+  def self.NamedFramebufferDrawBuffer(_framebuffer_, _buf_)
     GL_FUNCTIONS_MAP[:glNamedFramebufferDrawBuffer].call(_framebuffer_, _buf_)
   end
 
-  def glNamedFramebufferDrawBuffers(_framebuffer_, _n_, _bufs_)
+  def self.NamedFramebufferDrawBuffers(_framebuffer_, _n_, _bufs_)
     GL_FUNCTIONS_MAP[:glNamedFramebufferDrawBuffers].call(_framebuffer_, _n_, _bufs_)
   end
 
-  def glNamedFramebufferReadBuffer(_framebuffer_, _src_)
+  def self.NamedFramebufferReadBuffer(_framebuffer_, _src_)
     GL_FUNCTIONS_MAP[:glNamedFramebufferReadBuffer].call(_framebuffer_, _src_)
   end
 
-  def glInvalidateNamedFramebufferData(_framebuffer_, _numAttachments_, _attachments_)
+  def self.InvalidateNamedFramebufferData(_framebuffer_, _numAttachments_, _attachments_)
     GL_FUNCTIONS_MAP[:glInvalidateNamedFramebufferData].call(_framebuffer_, _numAttachments_, _attachments_)
   end
 
-  def glInvalidateNamedFramebufferSubData(_framebuffer_, _numAttachments_, _attachments_, _x_, _y_, _width_, _height_)
+  def self.InvalidateNamedFramebufferSubData(_framebuffer_, _numAttachments_, _attachments_, _x_, _y_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glInvalidateNamedFramebufferSubData].call(_framebuffer_, _numAttachments_, _attachments_, _x_, _y_, _width_, _height_)
   end
 
-  def glClearNamedFramebufferiv(_framebuffer_, _buffer_, _drawbuffer_, _value_)
+  def self.ClearNamedFramebufferiv(_framebuffer_, _buffer_, _drawbuffer_, _value_)
     GL_FUNCTIONS_MAP[:glClearNamedFramebufferiv].call(_framebuffer_, _buffer_, _drawbuffer_, _value_)
   end
 
-  def glClearNamedFramebufferuiv(_framebuffer_, _buffer_, _drawbuffer_, _value_)
+  def self.ClearNamedFramebufferuiv(_framebuffer_, _buffer_, _drawbuffer_, _value_)
     GL_FUNCTIONS_MAP[:glClearNamedFramebufferuiv].call(_framebuffer_, _buffer_, _drawbuffer_, _value_)
   end
 
-  def glClearNamedFramebufferfv(_framebuffer_, _buffer_, _drawbuffer_, _value_)
+  def self.ClearNamedFramebufferfv(_framebuffer_, _buffer_, _drawbuffer_, _value_)
     GL_FUNCTIONS_MAP[:glClearNamedFramebufferfv].call(_framebuffer_, _buffer_, _drawbuffer_, _value_)
   end
 
-  def glClearNamedFramebufferfi(_framebuffer_, _buffer_, _drawbuffer_, _depth_, _stencil_)
+  def self.ClearNamedFramebufferfi(_framebuffer_, _buffer_, _drawbuffer_, _depth_, _stencil_)
     GL_FUNCTIONS_MAP[:glClearNamedFramebufferfi].call(_framebuffer_, _buffer_, _drawbuffer_, _depth_, _stencil_)
   end
 
-  def glBlitNamedFramebuffer(_readFramebuffer_, _drawFramebuffer_, _srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
+  def self.BlitNamedFramebuffer(_readFramebuffer_, _drawFramebuffer_, _srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
     GL_FUNCTIONS_MAP[:glBlitNamedFramebuffer].call(_readFramebuffer_, _drawFramebuffer_, _srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
   end
 
-  def glCheckNamedFramebufferStatus(_framebuffer_, _target_)
+  def self.CheckNamedFramebufferStatus(_framebuffer_, _target_)
     GL_FUNCTIONS_MAP[:glCheckNamedFramebufferStatus].call(_framebuffer_, _target_)
   end
 
-  def glGetNamedFramebufferParameteriv(_framebuffer_, _pname_, _param_)
+  def self.GetNamedFramebufferParameteriv(_framebuffer_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glGetNamedFramebufferParameteriv].call(_framebuffer_, _pname_, _param_)
   end
 
-  def glGetNamedFramebufferAttachmentParameteriv(_framebuffer_, _attachment_, _pname_, _params_)
+  def self.GetNamedFramebufferAttachmentParameteriv(_framebuffer_, _attachment_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetNamedFramebufferAttachmentParameteriv].call(_framebuffer_, _attachment_, _pname_, _params_)
   end
 
-  def glCreateRenderbuffers(_n_, _renderbuffers_)
+  def self.CreateRenderbuffers(_n_, _renderbuffers_)
     GL_FUNCTIONS_MAP[:glCreateRenderbuffers].call(_n_, _renderbuffers_)
   end
 
-  def glNamedRenderbufferStorage(_renderbuffer_, _internalformat_, _width_, _height_)
+  def self.NamedRenderbufferStorage(_renderbuffer_, _internalformat_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glNamedRenderbufferStorage].call(_renderbuffer_, _internalformat_, _width_, _height_)
   end
 
-  def glNamedRenderbufferStorageMultisample(_renderbuffer_, _samples_, _internalformat_, _width_, _height_)
+  def self.NamedRenderbufferStorageMultisample(_renderbuffer_, _samples_, _internalformat_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glNamedRenderbufferStorageMultisample].call(_renderbuffer_, _samples_, _internalformat_, _width_, _height_)
   end
 
-  def glGetNamedRenderbufferParameteriv(_renderbuffer_, _pname_, _params_)
+  def self.GetNamedRenderbufferParameteriv(_renderbuffer_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetNamedRenderbufferParameteriv].call(_renderbuffer_, _pname_, _params_)
   end
 
-  def glCreateTextures(_target_, _n_, _textures_)
+  def self.CreateTextures(_target_, _n_, _textures_)
     GL_FUNCTIONS_MAP[:glCreateTextures].call(_target_, _n_, _textures_)
   end
 
-  def glTextureBuffer(_texture_, _internalformat_, _buffer_)
+  def self.TextureBuffer(_texture_, _internalformat_, _buffer_)
     GL_FUNCTIONS_MAP[:glTextureBuffer].call(_texture_, _internalformat_, _buffer_)
   end
 
-  def glTextureBufferRange(_texture_, _internalformat_, _buffer_, _offset_, _size_)
+  def self.TextureBufferRange(_texture_, _internalformat_, _buffer_, _offset_, _size_)
     GL_FUNCTIONS_MAP[:glTextureBufferRange].call(_texture_, _internalformat_, _buffer_, _offset_, _size_)
   end
 
-  def glTextureStorage1D(_texture_, _levels_, _internalformat_, _width_)
+  def self.TextureStorage1D(_texture_, _levels_, _internalformat_, _width_)
     GL_FUNCTIONS_MAP[:glTextureStorage1D].call(_texture_, _levels_, _internalformat_, _width_)
   end
 
-  def glTextureStorage2D(_texture_, _levels_, _internalformat_, _width_, _height_)
+  def self.TextureStorage2D(_texture_, _levels_, _internalformat_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glTextureStorage2D].call(_texture_, _levels_, _internalformat_, _width_, _height_)
   end
 
-  def glTextureStorage3D(_texture_, _levels_, _internalformat_, _width_, _height_, _depth_)
+  def self.TextureStorage3D(_texture_, _levels_, _internalformat_, _width_, _height_, _depth_)
     GL_FUNCTIONS_MAP[:glTextureStorage3D].call(_texture_, _levels_, _internalformat_, _width_, _height_, _depth_)
   end
 
-  def glTextureStorage2DMultisample(_texture_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
+  def self.TextureStorage2DMultisample(_texture_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
     GL_FUNCTIONS_MAP[:glTextureStorage2DMultisample].call(_texture_, _samples_, _internalformat_, _width_, _height_, _fixedsamplelocations_)
   end
 
-  def glTextureStorage3DMultisample(_texture_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
+  def self.TextureStorage3DMultisample(_texture_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
     GL_FUNCTIONS_MAP[:glTextureStorage3DMultisample].call(_texture_, _samples_, _internalformat_, _width_, _height_, _depth_, _fixedsamplelocations_)
   end
 
-  def glTextureSubImage1D(_texture_, _level_, _xoffset_, _width_, _format_, _type_, _pixels_)
+  def self.TextureSubImage1D(_texture_, _level_, _xoffset_, _width_, _format_, _type_, _pixels_)
     GL_FUNCTIONS_MAP[:glTextureSubImage1D].call(_texture_, _level_, _xoffset_, _width_, _format_, _type_, _pixels_)
   end
 
-  def glTextureSubImage2D(_texture_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _type_, _pixels_)
+  def self.TextureSubImage2D(_texture_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _type_, _pixels_)
     GL_FUNCTIONS_MAP[:glTextureSubImage2D].call(_texture_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _type_, _pixels_)
   end
 
-  def glTextureSubImage3D(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _pixels_)
+  def self.TextureSubImage3D(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _pixels_)
     GL_FUNCTIONS_MAP[:glTextureSubImage3D].call(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _pixels_)
   end
 
-  def glCompressedTextureSubImage1D(_texture_, _level_, _xoffset_, _width_, _format_, _imageSize_, _data_)
+  def self.CompressedTextureSubImage1D(_texture_, _level_, _xoffset_, _width_, _format_, _imageSize_, _data_)
     GL_FUNCTIONS_MAP[:glCompressedTextureSubImage1D].call(_texture_, _level_, _xoffset_, _width_, _format_, _imageSize_, _data_)
   end
 
-  def glCompressedTextureSubImage2D(_texture_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _imageSize_, _data_)
+  def self.CompressedTextureSubImage2D(_texture_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _imageSize_, _data_)
     GL_FUNCTIONS_MAP[:glCompressedTextureSubImage2D].call(_texture_, _level_, _xoffset_, _yoffset_, _width_, _height_, _format_, _imageSize_, _data_)
   end
 
-  def glCompressedTextureSubImage3D(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _imageSize_, _data_)
+  def self.CompressedTextureSubImage3D(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _imageSize_, _data_)
     GL_FUNCTIONS_MAP[:glCompressedTextureSubImage3D].call(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _imageSize_, _data_)
   end
 
-  def glCopyTextureSubImage1D(_texture_, _level_, _xoffset_, _x_, _y_, _width_)
+  def self.CopyTextureSubImage1D(_texture_, _level_, _xoffset_, _x_, _y_, _width_)
     GL_FUNCTIONS_MAP[:glCopyTextureSubImage1D].call(_texture_, _level_, _xoffset_, _x_, _y_, _width_)
   end
 
-  def glCopyTextureSubImage2D(_texture_, _level_, _xoffset_, _yoffset_, _x_, _y_, _width_, _height_)
+  def self.CopyTextureSubImage2D(_texture_, _level_, _xoffset_, _yoffset_, _x_, _y_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glCopyTextureSubImage2D].call(_texture_, _level_, _xoffset_, _yoffset_, _x_, _y_, _width_, _height_)
   end
 
-  def glCopyTextureSubImage3D(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _x_, _y_, _width_, _height_)
+  def self.CopyTextureSubImage3D(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _x_, _y_, _width_, _height_)
     GL_FUNCTIONS_MAP[:glCopyTextureSubImage3D].call(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _x_, _y_, _width_, _height_)
   end
 
-  def glTextureParameterf(_texture_, _pname_, _param_)
+  def self.TextureParameterf(_texture_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glTextureParameterf].call(_texture_, _pname_, _param_)
   end
 
-  def glTextureParameterfv(_texture_, _pname_, _param_)
+  def self.TextureParameterfv(_texture_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glTextureParameterfv].call(_texture_, _pname_, _param_)
   end
 
-  def glTextureParameteri(_texture_, _pname_, _param_)
+  def self.TextureParameteri(_texture_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glTextureParameteri].call(_texture_, _pname_, _param_)
   end
 
-  def glTextureParameterIiv(_texture_, _pname_, _params_)
+  def self.TextureParameterIiv(_texture_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glTextureParameterIiv].call(_texture_, _pname_, _params_)
   end
 
-  def glTextureParameterIuiv(_texture_, _pname_, _params_)
+  def self.TextureParameterIuiv(_texture_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glTextureParameterIuiv].call(_texture_, _pname_, _params_)
   end
 
-  def glTextureParameteriv(_texture_, _pname_, _param_)
+  def self.TextureParameteriv(_texture_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glTextureParameteriv].call(_texture_, _pname_, _param_)
   end
 
-  def glGenerateTextureMipmap(_texture_)
+  def self.GenerateTextureMipmap(_texture_)
     GL_FUNCTIONS_MAP[:glGenerateTextureMipmap].call(_texture_)
   end
 
-  def glBindTextureUnit(_unit_, _texture_)
+  def self.BindTextureUnit(_unit_, _texture_)
     GL_FUNCTIONS_MAP[:glBindTextureUnit].call(_unit_, _texture_)
   end
 
-  def glGetTextureImage(_texture_, _level_, _format_, _type_, _bufSize_, _pixels_)
+  def self.GetTextureImage(_texture_, _level_, _format_, _type_, _bufSize_, _pixels_)
     GL_FUNCTIONS_MAP[:glGetTextureImage].call(_texture_, _level_, _format_, _type_, _bufSize_, _pixels_)
   end
 
-  def glGetCompressedTextureImage(_texture_, _level_, _bufSize_, _pixels_)
+  def self.GetCompressedTextureImage(_texture_, _level_, _bufSize_, _pixels_)
     GL_FUNCTIONS_MAP[:glGetCompressedTextureImage].call(_texture_, _level_, _bufSize_, _pixels_)
   end
 
-  def glGetTextureLevelParameterfv(_texture_, _level_, _pname_, _params_)
+  def self.GetTextureLevelParameterfv(_texture_, _level_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTextureLevelParameterfv].call(_texture_, _level_, _pname_, _params_)
   end
 
-  def glGetTextureLevelParameteriv(_texture_, _level_, _pname_, _params_)
+  def self.GetTextureLevelParameteriv(_texture_, _level_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTextureLevelParameteriv].call(_texture_, _level_, _pname_, _params_)
   end
 
-  def glGetTextureParameterfv(_texture_, _pname_, _params_)
+  def self.GetTextureParameterfv(_texture_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTextureParameterfv].call(_texture_, _pname_, _params_)
   end
 
-  def glGetTextureParameterIiv(_texture_, _pname_, _params_)
+  def self.GetTextureParameterIiv(_texture_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTextureParameterIiv].call(_texture_, _pname_, _params_)
   end
 
-  def glGetTextureParameterIuiv(_texture_, _pname_, _params_)
+  def self.GetTextureParameterIuiv(_texture_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTextureParameterIuiv].call(_texture_, _pname_, _params_)
   end
 
-  def glGetTextureParameteriv(_texture_, _pname_, _params_)
+  def self.GetTextureParameteriv(_texture_, _pname_, _params_)
     GL_FUNCTIONS_MAP[:glGetTextureParameteriv].call(_texture_, _pname_, _params_)
   end
 
-  def glCreateVertexArrays(_n_, _arrays_)
+  def self.CreateVertexArrays(_n_, _arrays_)
     GL_FUNCTIONS_MAP[:glCreateVertexArrays].call(_n_, _arrays_)
   end
 
-  def glDisableVertexArrayAttrib(_vaobj_, _index_)
+  def self.DisableVertexArrayAttrib(_vaobj_, _index_)
     GL_FUNCTIONS_MAP[:glDisableVertexArrayAttrib].call(_vaobj_, _index_)
   end
 
-  def glEnableVertexArrayAttrib(_vaobj_, _index_)
+  def self.EnableVertexArrayAttrib(_vaobj_, _index_)
     GL_FUNCTIONS_MAP[:glEnableVertexArrayAttrib].call(_vaobj_, _index_)
   end
 
-  def glVertexArrayElementBuffer(_vaobj_, _buffer_)
+  def self.VertexArrayElementBuffer(_vaobj_, _buffer_)
     GL_FUNCTIONS_MAP[:glVertexArrayElementBuffer].call(_vaobj_, _buffer_)
   end
 
-  def glVertexArrayVertexBuffer(_vaobj_, _bindingindex_, _buffer_, _offset_, _stride_)
+  def self.VertexArrayVertexBuffer(_vaobj_, _bindingindex_, _buffer_, _offset_, _stride_)
     GL_FUNCTIONS_MAP[:glVertexArrayVertexBuffer].call(_vaobj_, _bindingindex_, _buffer_, _offset_, _stride_)
   end
 
-  def glVertexArrayVertexBuffers(_vaobj_, _first_, _count_, _buffers_, _offsets_, _strides_)
+  def self.VertexArrayVertexBuffers(_vaobj_, _first_, _count_, _buffers_, _offsets_, _strides_)
     GL_FUNCTIONS_MAP[:glVertexArrayVertexBuffers].call(_vaobj_, _first_, _count_, _buffers_, _offsets_, _strides_)
   end
 
-  def glVertexArrayAttribBinding(_vaobj_, _attribindex_, _bindingindex_)
+  def self.VertexArrayAttribBinding(_vaobj_, _attribindex_, _bindingindex_)
     GL_FUNCTIONS_MAP[:glVertexArrayAttribBinding].call(_vaobj_, _attribindex_, _bindingindex_)
   end
 
-  def glVertexArrayAttribFormat(_vaobj_, _attribindex_, _size_, _type_, _normalized_, _relativeoffset_)
+  def self.VertexArrayAttribFormat(_vaobj_, _attribindex_, _size_, _type_, _normalized_, _relativeoffset_)
     GL_FUNCTIONS_MAP[:glVertexArrayAttribFormat].call(_vaobj_, _attribindex_, _size_, _type_, _normalized_, _relativeoffset_)
   end
 
-  def glVertexArrayAttribIFormat(_vaobj_, _attribindex_, _size_, _type_, _relativeoffset_)
+  def self.VertexArrayAttribIFormat(_vaobj_, _attribindex_, _size_, _type_, _relativeoffset_)
     GL_FUNCTIONS_MAP[:glVertexArrayAttribIFormat].call(_vaobj_, _attribindex_, _size_, _type_, _relativeoffset_)
   end
 
-  def glVertexArrayAttribLFormat(_vaobj_, _attribindex_, _size_, _type_, _relativeoffset_)
+  def self.VertexArrayAttribLFormat(_vaobj_, _attribindex_, _size_, _type_, _relativeoffset_)
     GL_FUNCTIONS_MAP[:glVertexArrayAttribLFormat].call(_vaobj_, _attribindex_, _size_, _type_, _relativeoffset_)
   end
 
-  def glVertexArrayBindingDivisor(_vaobj_, _bindingindex_, _divisor_)
+  def self.VertexArrayBindingDivisor(_vaobj_, _bindingindex_, _divisor_)
     GL_FUNCTIONS_MAP[:glVertexArrayBindingDivisor].call(_vaobj_, _bindingindex_, _divisor_)
   end
 
-  def glGetVertexArrayiv(_vaobj_, _pname_, _param_)
+  def self.GetVertexArrayiv(_vaobj_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glGetVertexArrayiv].call(_vaobj_, _pname_, _param_)
   end
 
-  def glGetVertexArrayIndexediv(_vaobj_, _index_, _pname_, _param_)
+  def self.GetVertexArrayIndexediv(_vaobj_, _index_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glGetVertexArrayIndexediv].call(_vaobj_, _index_, _pname_, _param_)
   end
 
-  def glGetVertexArrayIndexed64iv(_vaobj_, _index_, _pname_, _param_)
+  def self.GetVertexArrayIndexed64iv(_vaobj_, _index_, _pname_, _param_)
     GL_FUNCTIONS_MAP[:glGetVertexArrayIndexed64iv].call(_vaobj_, _index_, _pname_, _param_)
   end
 
-  def glCreateSamplers(_n_, _samplers_)
+  def self.CreateSamplers(_n_, _samplers_)
     GL_FUNCTIONS_MAP[:glCreateSamplers].call(_n_, _samplers_)
   end
 
-  def glCreateProgramPipelines(_n_, _pipelines_)
+  def self.CreateProgramPipelines(_n_, _pipelines_)
     GL_FUNCTIONS_MAP[:glCreateProgramPipelines].call(_n_, _pipelines_)
   end
 
-  def glCreateQueries(_target_, _n_, _ids_)
+  def self.CreateQueries(_target_, _n_, _ids_)
     GL_FUNCTIONS_MAP[:glCreateQueries].call(_target_, _n_, _ids_)
   end
 
-  def glGetQueryBufferObjecti64v(_id_, _buffer_, _pname_, _offset_)
+  def self.GetQueryBufferObjecti64v(_id_, _buffer_, _pname_, _offset_)
     GL_FUNCTIONS_MAP[:glGetQueryBufferObjecti64v].call(_id_, _buffer_, _pname_, _offset_)
   end
 
-  def glGetQueryBufferObjectiv(_id_, _buffer_, _pname_, _offset_)
+  def self.GetQueryBufferObjectiv(_id_, _buffer_, _pname_, _offset_)
     GL_FUNCTIONS_MAP[:glGetQueryBufferObjectiv].call(_id_, _buffer_, _pname_, _offset_)
   end
 
-  def glGetQueryBufferObjectui64v(_id_, _buffer_, _pname_, _offset_)
+  def self.GetQueryBufferObjectui64v(_id_, _buffer_, _pname_, _offset_)
     GL_FUNCTIONS_MAP[:glGetQueryBufferObjectui64v].call(_id_, _buffer_, _pname_, _offset_)
   end
 
-  def glGetQueryBufferObjectuiv(_id_, _buffer_, _pname_, _offset_)
+  def self.GetQueryBufferObjectuiv(_id_, _buffer_, _pname_, _offset_)
     GL_FUNCTIONS_MAP[:glGetQueryBufferObjectuiv].call(_id_, _buffer_, _pname_, _offset_)
   end
 
-  def glMemoryBarrierByRegion(_barriers_)
+  def self.MemoryBarrierByRegion(_barriers_)
     GL_FUNCTIONS_MAP[:glMemoryBarrierByRegion].call(_barriers_)
   end
 
-  def glGetTextureSubImage(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _bufSize_, _pixels_)
+  def self.GetTextureSubImage(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _bufSize_, _pixels_)
     GL_FUNCTIONS_MAP[:glGetTextureSubImage].call(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _format_, _type_, _bufSize_, _pixels_)
   end
 
-  def glGetCompressedTextureSubImage(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _bufSize_, _pixels_)
+  def self.GetCompressedTextureSubImage(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _bufSize_, _pixels_)
     GL_FUNCTIONS_MAP[:glGetCompressedTextureSubImage].call(_texture_, _level_, _xoffset_, _yoffset_, _zoffset_, _width_, _height_, _depth_, _bufSize_, _pixels_)
   end
 
-  def glGetGraphicsResetStatus()
+  def self.GetGraphicsResetStatus()
     GL_FUNCTIONS_MAP[:glGetGraphicsResetStatus].call()
   end
 
-  def glGetnCompressedTexImage(_target_, _lod_, _bufSize_, _pixels_)
+  def self.GetnCompressedTexImage(_target_, _lod_, _bufSize_, _pixels_)
     GL_FUNCTIONS_MAP[:glGetnCompressedTexImage].call(_target_, _lod_, _bufSize_, _pixels_)
   end
 
-  def glGetnTexImage(_target_, _level_, _format_, _type_, _bufSize_, _pixels_)
+  def self.GetnTexImage(_target_, _level_, _format_, _type_, _bufSize_, _pixels_)
     GL_FUNCTIONS_MAP[:glGetnTexImage].call(_target_, _level_, _format_, _type_, _bufSize_, _pixels_)
   end
 
-  def glGetnUniformdv(_program_, _location_, _bufSize_, _params_)
+  def self.GetnUniformdv(_program_, _location_, _bufSize_, _params_)
     GL_FUNCTIONS_MAP[:glGetnUniformdv].call(_program_, _location_, _bufSize_, _params_)
   end
 
-  def glGetnUniformfv(_program_, _location_, _bufSize_, _params_)
+  def self.GetnUniformfv(_program_, _location_, _bufSize_, _params_)
     GL_FUNCTIONS_MAP[:glGetnUniformfv].call(_program_, _location_, _bufSize_, _params_)
   end
 
-  def glGetnUniformiv(_program_, _location_, _bufSize_, _params_)
+  def self.GetnUniformiv(_program_, _location_, _bufSize_, _params_)
     GL_FUNCTIONS_MAP[:glGetnUniformiv].call(_program_, _location_, _bufSize_, _params_)
   end
 
-  def glGetnUniformuiv(_program_, _location_, _bufSize_, _params_)
+  def self.GetnUniformuiv(_program_, _location_, _bufSize_, _params_)
     GL_FUNCTIONS_MAP[:glGetnUniformuiv].call(_program_, _location_, _bufSize_, _params_)
   end
 
-  def glReadnPixels(_x_, _y_, _width_, _height_, _format_, _type_, _bufSize_, _data_)
+  def self.ReadnPixels(_x_, _y_, _width_, _height_, _format_, _type_, _bufSize_, _data_)
     GL_FUNCTIONS_MAP[:glReadnPixels].call(_x_, _y_, _width_, _height_, _format_, _type_, _bufSize_, _data_)
   end
 
-  def glGetnMapdv(_target_, _query_, _bufSize_, _v_)
+  def self.GetnMapdv(_target_, _query_, _bufSize_, _v_)
     GL_FUNCTIONS_MAP[:glGetnMapdv].call(_target_, _query_, _bufSize_, _v_)
   end
 
-  def glGetnMapfv(_target_, _query_, _bufSize_, _v_)
+  def self.GetnMapfv(_target_, _query_, _bufSize_, _v_)
     GL_FUNCTIONS_MAP[:glGetnMapfv].call(_target_, _query_, _bufSize_, _v_)
   end
 
-  def glGetnMapiv(_target_, _query_, _bufSize_, _v_)
+  def self.GetnMapiv(_target_, _query_, _bufSize_, _v_)
     GL_FUNCTIONS_MAP[:glGetnMapiv].call(_target_, _query_, _bufSize_, _v_)
   end
 
-  def glGetnPixelMapfv(_map_, _bufSize_, _values_)
+  def self.GetnPixelMapfv(_map_, _bufSize_, _values_)
     GL_FUNCTIONS_MAP[:glGetnPixelMapfv].call(_map_, _bufSize_, _values_)
   end
 
-  def glGetnPixelMapuiv(_map_, _bufSize_, _values_)
+  def self.GetnPixelMapuiv(_map_, _bufSize_, _values_)
     GL_FUNCTIONS_MAP[:glGetnPixelMapuiv].call(_map_, _bufSize_, _values_)
   end
 
-  def glGetnPixelMapusv(_map_, _bufSize_, _values_)
+  def self.GetnPixelMapusv(_map_, _bufSize_, _values_)
     GL_FUNCTIONS_MAP[:glGetnPixelMapusv].call(_map_, _bufSize_, _values_)
   end
 
-  def glGetnPolygonStipple(_bufSize_, _pattern_)
+  def self.GetnPolygonStipple(_bufSize_, _pattern_)
     GL_FUNCTIONS_MAP[:glGetnPolygonStipple].call(_bufSize_, _pattern_)
   end
 
-  def glGetnColorTable(_target_, _format_, _type_, _bufSize_, _table_)
+  def self.GetnColorTable(_target_, _format_, _type_, _bufSize_, _table_)
     GL_FUNCTIONS_MAP[:glGetnColorTable].call(_target_, _format_, _type_, _bufSize_, _table_)
   end
 
-  def glGetnConvolutionFilter(_target_, _format_, _type_, _bufSize_, _image_)
+  def self.GetnConvolutionFilter(_target_, _format_, _type_, _bufSize_, _image_)
     GL_FUNCTIONS_MAP[:glGetnConvolutionFilter].call(_target_, _format_, _type_, _bufSize_, _image_)
   end
 
-  def glGetnSeparableFilter(_target_, _format_, _type_, _rowBufSize_, _row_, _columnBufSize_, _column_, _span_)
+  def self.GetnSeparableFilter(_target_, _format_, _type_, _rowBufSize_, _row_, _columnBufSize_, _column_, _span_)
     GL_FUNCTIONS_MAP[:glGetnSeparableFilter].call(_target_, _format_, _type_, _rowBufSize_, _row_, _columnBufSize_, _column_, _span_)
   end
 
-  def glGetnHistogram(_target_, _reset_, _format_, _type_, _bufSize_, _values_)
+  def self.GetnHistogram(_target_, _reset_, _format_, _type_, _bufSize_, _values_)
     GL_FUNCTIONS_MAP[:glGetnHistogram].call(_target_, _reset_, _format_, _type_, _bufSize_, _values_)
   end
 
-  def glGetnMinmax(_target_, _reset_, _format_, _type_, _bufSize_, _values_)
+  def self.GetnMinmax(_target_, _reset_, _format_, _type_, _bufSize_, _values_)
     GL_FUNCTIONS_MAP[:glGetnMinmax].call(_target_, _reset_, _format_, _type_, _bufSize_, _values_)
   end
 
-  def glTextureBarrier()
+  def self.TextureBarrier()
     GL_FUNCTIONS_MAP[:glTextureBarrier].call()
   end
 
-  def glSpecializeShader(_shader_, _pEntryPoint_, _numSpecializationConstants_, _pConstantIndex_, _pConstantValue_)
+  def self.SpecializeShader(_shader_, _pEntryPoint_, _numSpecializationConstants_, _pConstantIndex_, _pConstantValue_)
     GL_FUNCTIONS_MAP[:glSpecializeShader].call(_shader_, _pEntryPoint_, _numSpecializationConstants_, _pConstantIndex_, _pConstantValue_)
   end
 
-  def glMultiDrawArraysIndirectCount(_mode_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
+  def self.MultiDrawArraysIndirectCount(_mode_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
     GL_FUNCTIONS_MAP[:glMultiDrawArraysIndirectCount].call(_mode_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
   end
 
-  def glMultiDrawElementsIndirectCount(_mode_, _type_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
+  def self.MultiDrawElementsIndirectCount(_mode_, _type_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
     GL_FUNCTIONS_MAP[:glMultiDrawElementsIndirectCount].call(_mode_, _type_, _indirect_, _drawcount_, _maxdrawcount_, _stride_)
   end
 
-  def glPolygonOffsetClamp(_factor_, _units_, _clamp_)
+  def self.PolygonOffsetClamp(_factor_, _units_, _clamp_)
     GL_FUNCTIONS_MAP[:glPolygonOffsetClamp].call(_factor_, _units_, _clamp_)
   end
 

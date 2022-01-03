@@ -126,7 +126,7 @@ end
 
 if __FILE__ == $0
   puts "# [NOTICE] Automatically generated file"
-  puts "module OpenGL"
+  puts "module GL"
   puts "  GL_TYPE_MAP = {"
 
   # Resolve OpenGL types to corresponding Fiddle type ('Fiddle::TYPE_XX')

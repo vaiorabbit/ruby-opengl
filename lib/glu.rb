@@ -6,34 +6,6 @@ module GLU
 
   extend Fiddle::Importer
 
-  #
-  # Fiddle's default 'extern' stores all methods into local variable '@func_map', that makes difficult to 'include GLFW'.
-  # So I override it and replace '@func_map' into 'GLFW_FUNCTIONS_MAP'.
-  # Ref.: /lib/ruby/2.0.0/fiddle/import.rb
-  #
-  GLU_FUNCTIONS_MAP = {}
-  def self.extern(signature, *opts)
-    symname, ctype, argtype = parse_signature(signature, @type_alias)
-    opt = parse_bind_options(opts)
-    f = import_function(symname, ctype, argtype, opt[:call_type])
-    name = symname.gsub(/@.+/,'')
-    GLU_FUNCTIONS_MAP[name] = f
-    begin
-      /^(.+?):(\d+)/ =~ caller.first
-      file, line = $1, $2.to_i
-    rescue
-      file, line = __FILE__, __LINE__+3
-    end
-    args_str="*args"
-    module_eval(<<-EOS, file, line)
-      def #{name}(*args, &block)
-        GLU_FUNCTIONS_MAP['#{name}'].call(*args,&block)
-      end
-    EOS
-    module_function(name)
-    f
-  end
-
   # defines
 
   # Extensions
@@ -250,91 +222,120 @@ module GLU
   @@glu_import_done = false
 
   # Load native library.
-  def self.load_lib(lib = nil, path = nil)
-    if lib == nil && path == nil
-      case OpenGL.get_platform
-      when :OPENGL_PLATFORM_WINDOWS
-        lib, path = 'GLU32.dll', 'C:/Windows/System32'
-      when :OPENGL_PLATFORM_MACOSX
-        lib, path = 'libGLU.dylib', '/System/Library/Frameworks/OpenGL.framework/Libraries'
-      else
-        lib = 'libGLU.so'
+  def self.load_lib(lib_path = nil, output_error = false)
+    if lib_path == nil
+      lib_path = case GL.get_platform
+                 when :OPENGL_PLATFORM_WINDOWS
+                   lib_path = 'C:/Windows/System32/GLU32.dll'
+                 when :OPENGL_PLATFORM_MACOSX
+                   lib_path = '/System/Library/Frameworks/OpenGL.framework/Libraries/libGLU.dylib'
+                 else
+                   lib = 'libGLU.so' # not tested
+                 end
+    end
+
+    dlload (lib_path)
+
+    import_symbols(output_error) unless @@glu_import_done
+  end
+
+  @@lib_signature = [
+    'void gluBeginCurve (void*)',
+    'void gluBeginPolygon (void*)',
+    'void gluBeginSurface (void*)',
+    'void gluBeginTrim (void*)',
+    'int gluBuild1DMipmapLevels (unsigned int, int, int, unsigned int, unsigned int, int, int, int, void*)', # Unavailable on Windows
+    'int gluBuild1DMipmaps (unsigned int, int, int, unsigned int, unsigned int,  void*)',
+    'int gluBuild2DMipmapLevels (unsigned int, int, int, int, unsigned int, unsigned int, int, int, int,  void*)', # Unavailable on Windows
+    'int gluBuild2DMipmaps (unsigned int, int, int, int, unsigned int, unsigned int,  void*)',
+    'int gluBuild3DMipmapLevels (unsigned int, int, int, int, int, unsigned int, unsigned int, int, int, int,  void*)', # Unavailable on Windows
+    'int gluBuild3DMipmaps (unsigned int, int, int, int, int, unsigned int, unsigned int,  void*)', # Unavailable on Windows
+    'unsigned char gluCheckExtension ( unsigned char*,  unsigned char*)', # Unavailable on Windows
+    'void gluCylinder (void*, double, double, double, int, int)',
+    'void gluDeleteNurbsRenderer (void*)',
+    'void gluDeleteQuadric (void*)',
+    'void gluDeleteTess (void*)',
+    'void gluDisk (void*, double, double, int, int)',
+    'void gluEndCurve (void*)',
+    'void gluEndPolygon (void*)',
+    'void gluEndSurface (void*)',
+    'void gluEndTrim (void*)',
+    'unsigned char* gluErrorString (unsigned int)',
+    'void gluGetNurbsProperty (void*, unsigned int, float*)',
+    'unsigned char* gluGetString (unsigned int)',
+    'void gluGetTessProperty (void*, unsigned int, double*)',
+    'void gluLoadSamplingMatrices (void*,  float *,  float *,  int *)',
+    'void gluLookAt (double, double, double , double, double , double, double , double, double)',
+    'void* gluNewNurbsRenderer ()',
+    'void* gluNewQuadric ()',
+    'void* gluNewTess ()',
+    'void gluNextContour (void*, unsigned int)',
+    'void gluNurbsCallback (void*, unsigned int, void*)',
+    'void gluNurbsCallbackData (void*, void*)', # Unavailable on Windows
+    'void gluNurbsCallbackDataEXT (void*, void*)', # Unavailable on Windows
+    'void gluNurbsCurve (void*, int, float *, int, float* , int, unsigned int)',
+    'void gluNurbsProperty (void*, unsigned int, float)',
+    'void gluNurbsSurface (void*, int, float*, int, float*, int, int, float*, int, int, unsigned int)',
+    'void gluOrtho2D (double, double, double, double)',
+    'void gluPartialDisk (void*, double, double, int, int, double, double)',
+    'void gluPerspective (double, double, double, double)',
+    'void gluPickMatrix (double, double, double, double, int *)',
+    'int gluProject (double, double, double,  double *,  double *, int *, double*, double*, double*)',
+    'void gluPwlCurve (void*, int, float*, int, unsigned int)',
+    'void gluQuadricCallback (void*, unsigned int, void*)',
+    'void gluQuadricDrawStyle (void*, unsigned int)',
+    'void gluQuadricNormals (void*, unsigned int)',
+    'void gluQuadricOrientation (void*, unsigned int)',
+    'void gluQuadricTexture (void*, unsigned char)',
+    'int gluScaleImage (unsigned int, int, int, unsigned int,  void*, int, int, unsigned int, void*)',
+    'void gluSphere (void*, double, int, int)',
+    'void gluTessBeginContour (void*)',
+    'void gluTessBeginPolygon (void*, void*)',
+    'void gluTessCallback (void*, unsigned int, void*)',
+    'void gluTessEndContour (void*)',
+    'void gluTessEndPolygon (void*)',
+    'void gluTessNormal (void*, double, double, double)',
+    'void gluTessProperty (void*, unsigned int, double)',
+    'void gluTessVertex (void*, double *, void*)',
+    'int gluUnProject (double, double, double,  double *,  double *,  int *, double*, double*, double*)',
+    'int gluUnProject4 (double, double, double, double,  double *,  double *,  int *, double, double, double*, double*, double*, double*)', # Unavailable on Windows
+  ]
+
+  def self.import_symbols(output_error = false)
+
+    # function
+    @@lib_signature.each do |sig|
+      begin
+        extern sig
+      rescue
+        $stderr.puts("[Warning] Failed to import #{sig}.") if output_error
       end
     end
-    if path
-      dlload (path + '/' + lib)
-    else
-      dlload (lib)
+
+    # Convert method names (e.g.: GLU.gluBeginCurve -> GLU.BeginCurve)
+    self.singleton_methods(false).each do |method_name|
+      m = singleton_method(method_name)
+      if m.name.to_s.start_with? 'glu'
+        modified_api = m.name.to_s[3..-1] # omit prefix "glu"
+        define_singleton_method(modified_api, m) # define alias
+      end
     end
-    import_symbols() unless @@glu_import_done
-  end
 
-  def self.load_dll(lib = nil, path = nil)
-     puts "Warning GLU.load_dll is deprecated, use GLU.load_lib instead"
-    self.load_lib(lib, path)
-  end
-
-  def self.import_symbols
-    # function
-    extern 'void gluBeginCurve (void*)'
-    extern 'void gluBeginPolygon (void*)'
-    extern 'void gluBeginSurface (void*)'
-    extern 'void gluBeginTrim (void*)'
-    # extern 'int gluBuild1DMipmapLevels (unsigned int, int, int, unsigned int, unsigned int, int, int, int, void*)' # Unavailable on Windows
-    extern 'int gluBuild1DMipmaps (unsigned int, int, int, unsigned int, unsigned int,  void*)'
-    # extern 'int gluBuild2DMipmapLevels (unsigned int, int, int, int, unsigned int, unsigned int, int, int, int,  void*)' # Unavailable on Windows
-    extern 'int gluBuild2DMipmaps (unsigned int, int, int, int, unsigned int, unsigned int,  void*)'
-    # extern 'int gluBuild3DMipmapLevels (unsigned int, int, int, int, int, unsigned int, unsigned int, int, int, int,  void*)' # Unavailable on Windows
-    # extern 'int gluBuild3DMipmaps (unsigned int, int, int, int, int, unsigned int, unsigned int,  void*)' # Unavailable on Windows
-    # extern 'unsigned char gluCheckExtension ( unsigned char*,  unsigned char*)' # Unavailable on Windows
-    extern 'void gluCylinder (void*, double, double, double, int, int)'
-    extern 'void gluDeleteNurbsRenderer (void*)'
-    extern 'void gluDeleteQuadric (void*)'
-    extern 'void gluDeleteTess (void*)'
-    extern 'void gluDisk (void*, double, double, int, int)'
-    extern 'void gluEndCurve (void*)'
-    extern 'void gluEndPolygon (void*)'
-    extern 'void gluEndSurface (void*)'
-    extern 'void gluEndTrim (void*)'
-    extern 'unsigned char* gluErrorString (unsigned int)'
-    extern 'void gluGetNurbsProperty (void*, unsigned int, float*)'
-    extern 'unsigned char* gluGetString (unsigned int)'
-    extern 'void gluGetTessProperty (void*, unsigned int, double*)'
-    extern 'void gluLoadSamplingMatrices (void*,  float *,  float *,  int *)'
-    extern 'void gluLookAt (double, double, double , double, double , double, double , double, double)'
-    extern 'void* gluNewNurbsRenderer ()'
-    extern 'void* gluNewQuadric ()'
-    extern 'void* gluNewTess ()'
-    extern 'void gluNextContour (void*, unsigned int)'
-    extern 'void gluNurbsCallback (void*, unsigned int, void*)'
-    # extern 'void gluNurbsCallbackData (void*, void*)' # Unavailable on Windows
-    # extern 'void gluNurbsCallbackDataEXT (void*, void*)' # Unavailable on Windows
-    extern 'void gluNurbsCurve (void*, int, float *, int, float* , int, unsigned int)'
-    extern 'void gluNurbsProperty (void*, unsigned int, float)'
-    extern 'void gluNurbsSurface (void*, int, float*, int, float*, int, int, float*, int, int, unsigned int)'
-    extern 'void gluOrtho2D (double, double, double, double)'
-    extern 'void gluPartialDisk (void*, double, double, int, int, double, double)'
-    extern 'void gluPerspective (double, double, double, double)'
-    extern 'void gluPickMatrix (double, double, double, double, int *)'
-    extern 'int gluProject (double, double, double,  double *,  double *, int *, double*, double*, double*)'
-    extern 'void gluPwlCurve (void*, int, float*, int, unsigned int)'
-    extern 'void gluQuadricCallback (void*, unsigned int, void*)'
-    extern 'void gluQuadricDrawStyle (void*, unsigned int)'
-    extern 'void gluQuadricNormals (void*, unsigned int)'
-    extern 'void gluQuadricOrientation (void*, unsigned int)'
-    extern 'void gluQuadricTexture (void*, unsigned char)'
-    extern 'int gluScaleImage (unsigned int, int, int, unsigned int,  void*, int, int, unsigned int, void*)'
-    extern 'void gluSphere (void*, double, int, int)'
-    extern 'void gluTessBeginContour (void*)'
-    extern 'void gluTessBeginPolygon (void*, void*)'
-    extern 'void gluTessCallback (void*, unsigned int, void*)'
-    extern 'void gluTessEndContour (void*)'
-    extern 'void gluTessEndPolygon (void*)'
-    extern 'void gluTessNormal (void*, double, double, double)'
-    extern 'void gluTessProperty (void*, unsigned int, double)'
-    extern 'void gluTessVertex (void*, double *, void*)'
-    extern 'int gluUnProject (double, double, double,  double *,  double *,  int *, double*, double*, double*)'
-    # extern 'int gluUnProject4 (double, double, double, double,  double *,  double *,  int *, double, double, double*, double*, double*, double*)' # Unavailable on Windows
+    # Convert constant names (e.g.: GLU::GLU_TRUE -> GLU::TRUE)
+    self.constants.each do |constant|
+      cs = constant.to_s
+      if cs[0..3] == "GLU_"
+        if cs[4] =~ /\d/
+          # We have to abandon name conversion like 'GL_2D, GL_3D_COLOR, GL_4_BYTES, etc.
+          # Because constants can't start with a digit or underscore.
+          # [Note] This rule has been inherited from Yoshi's very original ruby-opengl (confirmed with opengl-0.32g, 2004-07-17).
+          const_set(cs, GLU.const_get(constant)) # GL_2D => GL_2D
+        else
+          # Convert by omitting the 'GLU_' prefix
+          const_set(cs[4..-1], GLU.const_get(constant))
+        end
+      end
+    end
 
     @@glu_import_done = true
   end

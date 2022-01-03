@@ -1,6 +1,6 @@
 require 'rbconfig'
 
-module OpenGL
+module GL
   @@opengl_platform = case RbConfig::CONFIG['host_os']
                       when /mswin|msys|mingw|cygwin/
                         :OPENGL_PLATFORM_WINDOWS

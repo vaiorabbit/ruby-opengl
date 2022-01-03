@@ -11,11 +11,9 @@ module GLESEnumCodeGenerator
     # Output
     out.puts GLCodeGeneratorCommon::HeaderComment
     out.puts ""
-    out.puts "module OpenGL"
+    out.puts "module GL"
     out.puts ""
-    gl_es_enum_map.each do |enum|
-      out.print "  #{enum[0]} = #{enum[1]}\n"
-    end
+    GLCodeGeneratorCommon.generate_enums(out, gl_es_enum_map)
     out.puts ""
     out.puts "end"
 

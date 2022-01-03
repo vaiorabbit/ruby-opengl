@@ -7,14 +7,10 @@
 require 'opengl'
 require 'glfw'
 
-OpenGL.open_lib()
-GLFW.load_lib()
-
-include OpenGL
-include GLFW
-
 if __FILE__ == $0
-  glfwInit()
+
+  GLFW.load_lib()
+  GLFW.Init()
 
   window = nil
 
@@ -27,43 +23,43 @@ if __FILE__ == $0
   versions.each do |version|
     ver_major = version[0]
     ver_minor = version[1]
-    glfwDefaultWindowHints()
-    if OpenGL.get_platform == :OPENGL_PLATFORM_MACOSX
-      glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE)
+    GLFW.DefaultWindowHints()
+    if GL.get_platform == :OPENGL_PLATFORM_MACOSX
+      GLFW.WindowHint(GLFW::OPENGL_FORWARD_COMPAT, GLFW::TRUE)
     end
     if ver_major >= 4 || (ver_major >= 3 && ver_minor >= 2)
-      glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE)
+      GLFW.WindowHint(GLFW::OPENGL_PROFILE, GLFW::OPENGL_CORE_PROFILE)
     else
-      glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_ANY_PROFILE)
+      GLFW.WindowHint(GLFW::OPENGL_PROFILE, GLFW::OPENGL_ANY_PROFILE)
     end
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, ver_major)
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, ver_minor)
-    glfwWindowHint(GLFW_DECORATED, 0)
-    window = glfwCreateWindow( 1, 1, "Report OpenGL Environment", nil, nil )
+    GLFW.WindowHint(GLFW::CONTEXT_VERSION_MAJOR, ver_major)
+    GLFW.WindowHint(GLFW::CONTEXT_VERSION_MINOR, ver_minor)
+    GLFW.WindowHint(GLFW::DECORATED, 0)
+    window = GLFW.CreateWindow( 1, 1, "Report OpenGL Environment", nil, nil )
     break unless window.null?
   end
 
   if window.null?
-    glfwDefaultWindowHints()
-    glfwWindowHint(GLFW_DECORATED, 0)
-    window = glfwCreateWindow( 1, 1, "Report OpenGL Environment", nil, nil )
+    GLFW.DefaultWindowHints()
+    GLFW.WindowHint(GLFW::DECORATED, 0)
+    window = GLFW.CreateWindow( 1, 1, "Report OpenGL Environment", nil, nil )
     if window.null?
       puts "Failed to create the OpenGL context."
-      glfwTerminate()
+      GLFW.Terminate()
       exit
     end
   end
 
-  glfwMakeContextCurrent( window )
+  GLFW.MakeContextCurrent( window )
 
-  OpenGL.import_symbols()
+  GL.load_lib()
 
-  version_string = glGetString(GL_VERSION).to_s
+  version_string = GL::GetString(GL::VERSION).to_s
   version_number = version_string.split(/\./)
 
-  vendor_string   = glGetString(GL_VENDOR).to_s
-  renderer_string = glGetString(GL_RENDERER).to_s
-  slangver_string = glGetString(GL_SHADING_LANGUAGE_VERSION).to_s
+  vendor_string   = GL::GetString(GL::VENDOR).to_s
+  renderer_string = GL::GetString(GL::RENDERER).to_s
+  slangver_string = GL::GetString(GL::SHADING_LANGUAGE_VERSION).to_s
 
   puts "Version    : #{version_string}"
   puts "Vendor     : #{vendor_string}"
@@ -74,15 +70,15 @@ if __FILE__ == $0
     # glGetString(GL_EXTENSIONS) was deprecated in OpenGL 3.0
     # Ref.: http://sourceforge.net/p/glew/bugs/120/
     extensions_count_buf = '    '
-    glGetIntegerv( GL_NUM_EXTENSIONS, extensions_count_buf )
+    GL::GetIntegerv( GL::NUM_EXTENSIONS, extensions_count_buf )
     extensions_count = extensions_count_buf.unpack('L')[0]
     extensions_count.times do |i|
-      puts glGetStringi( GL_EXTENSIONS, i ).to_s
+      puts GL::GetStringi( GL::EXTENSIONS, i ).to_s
     end
   else
-    puts glGetString(GL_EXTENSIONS).to_s.split(/ /)
+    puts GL::GetString(GL::EXTENSIONS).to_s.split(/ /)
   end
 
-  glfwDestroyWindow( window )
-  glfwTerminate()
+  GLFW.DestroyWindow( window )
+  GLFW.Terminate()
 end

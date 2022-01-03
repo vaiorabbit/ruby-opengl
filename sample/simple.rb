@@ -6,59 +6,54 @@
 require 'opengl'
 require 'glfw'
 
-OpenGL.open_lib()
-GLFW.load_lib()
-
-include OpenGL
-include GLFW
-
 # Press ESC to exit.
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
-  if key == GLFW_KEY_ESCAPE && action == GLFW_PRESS
-    glfwSetWindowShouldClose(window_handle, 1)
+  if key == GLFW::KEY_ESCAPE && action == GLFW::PRESS
+    GLFW.SetWindowShouldClose(window_handle, 1)
   end
 end
 
 if __FILE__ == $0
-  glfwInit()
+  GLFW.load_lib()
+  GLFW.Init()
 
-  window = glfwCreateWindow( 640, 480, "Simple example", nil, nil )
-  glfwMakeContextCurrent( window )
-  glfwSetKeyCallback( window, key_callback )
+  window = GLFW.CreateWindow( 640, 480, "Simple example", nil, nil )
+  GLFW.MakeContextCurrent( window )
+  GLFW.SetKeyCallback( window, key_callback )
 
-  OpenGL.import_symbols()
+  GL.load_lib()
 
-  while glfwWindowShouldClose( window ) == 0
+  while GLFW.WindowShouldClose( window ) == 0
     width_ptr = ' ' * 8
     height_ptr = ' ' * 8
-    glfwGetFramebufferSize(window, width_ptr, height_ptr)
+    GLFW.GetFramebufferSize(window, width_ptr, height_ptr)
     width = width_ptr.unpack('L')[0]
     height = height_ptr.unpack('L')[0]
     ratio = width.to_f / height.to_f
 
-    glViewport(0, 0, width, height)
-    glClear(GL_COLOR_BUFFER_BIT)
-    glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    glOrtho(-ratio, ratio, -1.0, 1.0, 1.0, -1.0)
-    glMatrixMode(GL_MODELVIEW)
+    GL.Viewport(0, 0, width, height)
+    GL.Clear(GL::GL_COLOR_BUFFER_BIT)
+    GL.MatrixMode(GL::GL_PROJECTION)
+    GL.LoadIdentity()
+    GL.Ortho(-ratio, ratio, -1.0, 1.0, 1.0, -1.0)
+    GL.MatrixMode(GL::GL_MODELVIEW)
 
-    glLoadIdentity()
-    glRotatef(glfwGetTime() * 50.0, 0.0, 0.0, 1.0)
+    GL.LoadIdentity()
+    GL.Rotatef(GLFW.GetTime() * 50.0, 0.0, 0.0, 1.0)
 
-    glBegin(GL_TRIANGLES)
-    glColor3f(1.0, 0.0, 0.0)
-    glVertex3f(-0.6, -0.4, 0.0)
-    glColor3f(0.0, 1.0, 0.0)
-    glVertex3f(0.6, -0.4, 0.0)
-    glColor3f(0.0, 0.0, 1.0)
-    glVertex3f(0.0, 0.6, 0.0)
-    glEnd()
+    GL.Begin(GL::GL_TRIANGLES)
+    GL.Color3f(1.0, 0.0, 0.0)
+    GL.Vertex3f(-0.6, -0.4, 0.0)
+    GL.Color3f(0.0, 1.0, 0.0)
+    GL.Vertex3f(0.6, -0.4, 0.0)
+    GL.Color3f(0.0, 0.0, 1.0)
+    GL.Vertex3f(0.0, 0.6, 0.0)
+    GL.End()
 
-    glfwSwapBuffers( window )
-    glfwPollEvents()
+    GLFW.SwapBuffers( window )
+    GLFW.PollEvents()
   end
 
-  glfwDestroyWindow( window )
-  glfwTerminate()
+  GLFW.DestroyWindow( window )
+  GLFW.Terminate()
 end

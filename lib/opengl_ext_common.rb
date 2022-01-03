@@ -1,13 +1,13 @@
-module OpenGL
+module GL
 
   def self.check_extension( ext_name )
-    glGetString = OpenGL.get_command(:glGetString) # [INTERNAL] Shortcut to get pointer without proper user setup.
+    glGetString = GL.get_command(:glGetString) # [INTERNAL] Shortcut to get pointer without proper user setup.
     version_number = glGetString.call(GL_VERSION).to_s.split(/\./)
     if version_number[0].to_i >= 3
       # glGetString(GL_EXTENSIONS) was deprecated in OpenGL 3.0
       # Ref.: http://sourceforge.net/p/glew/bugs/120/
-      glGetIntegerv = OpenGL.get_command(:glGetIntegerv)
-      glGetStringi = OpenGL.get_command(:glGetStringi)
+      glGetIntegerv = GL.get_command(:glGetIntegerv)
+      glGetStringi = GL.get_command(:glGetStringi)
       extensions_count_buf = '    '
       glGetIntegerv.call( GL_NUM_EXTENSIONS, extensions_count_buf )
       extensions_count = extensions_count_buf.unpack('L')[0]
@@ -26,8 +26,8 @@ module OpenGL
     if skip_check || self.check_extension( ext_name )
       define_ext_enum = "define_ext_enum_#{ext_name}".to_sym
       define_ext_command = "define_ext_command_#{ext_name}".to_sym
-      OpenGLExt.send( define_ext_enum )
-      OpenGLExt.send( define_ext_command )
+      GLExt.send( define_ext_enum )
+      GLExt.send( define_ext_command )
     end
   end
 
@@ -41,12 +41,12 @@ module OpenGL
 
   def self.get_extension_enum_symbols( ext_name )
     get_ext_enum = "get_ext_enum_#{ext_name}".to_sym
-    OpenGLExt.send( get_ext_enum )
+    GLExt.send( get_ext_enum )
   end
 
   def self.get_extension_command_symbols( ext_name )
     get_ext_command = "get_ext_command_#{ext_name}".to_sym
-    OpenGLExt.send( get_ext_command )
+    GLExt.send( get_ext_command )
   end
 
 end

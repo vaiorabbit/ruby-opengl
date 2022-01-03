@@ -3,8 +3,8 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
-  gem.name          = "opengl-bindings"
-  gem.version       = "2.0.0"
+  gem.name          = "opengl-bindings-v1"
+  gem.version       = "1.6.12"
   gem.authors       = ["vaiorabbit"]
   gem.email         = ["vaiorabbit@gmail.com"]
   gem.summary       = %q{Bindings for OpenGL -4.6, ES - 3.2 and extensions (For MRI >= 2.0.0)}

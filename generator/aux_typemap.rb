@@ -1,5 +1,5 @@
 # [NOTICE] Automatically generated file
-module OpenGL
+module GL
   GL_TYPE_MAP = {
     'GLenum' => '-Fiddle::TYPE_INT',
     'GLboolean' => '-Fiddle::TYPE_CHAR',

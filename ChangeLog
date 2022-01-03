@@ -1,3 +1,11 @@
+2022-01-04  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* [Breaking Change] Changed naming conventions (glViewport -> GL.Viewport, GL_TRUE -> GL::TRUE)
+	* [Breaking Change] All 'load_lib' methods are now changed to receive full path to dynamic library and boolean to switch outpur error report while importing symbols
+	* opengl-bindings.gemspec: Bumped version
+	* opengl-bindings-v1.gemspec: Added. Will be used for release of version 1.6 series
+	* Note that still all samples other than 'simple.rb' and 'report_env.rb' won't work.
+
 2022-01-03  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated using latest gl.xml

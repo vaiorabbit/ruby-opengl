@@ -7,34 +7,6 @@ module GLUT
 
   extend Fiddle::Importer
 
-  #
-  # Fiddle's default 'extern' stores all methods into local variable '@func_map', that makes difficult to 'include GLUT'.
-  # So I override it and replace '@func_map' into 'GLUT_FUNCTIONS_MAP'.
-  # Ref.: /lib/ruby/2.0.0/fiddle/import.rb
-  #
-  GLUT_FUNCTIONS_MAP = {}
-  def self.extern(signature, *opts)
-    symname, ctype, argtype = parse_signature(signature, @type_alias)
-    opt = parse_bind_options(opts)
-    f = import_function(symname, ctype, argtype, opt[:call_type])
-    name = symname.gsub(/@.+/,'')
-    GLUT_FUNCTIONS_MAP[name] = f
-    begin
-      /^(.+?):(\d+)/ =~ caller.first
-      file, line = $1, $2.to_i
-    rescue
-      file, line = __FILE__, __LINE__+3
-    end
-    args_str="*args"
-    module_eval(<<-EOS, file, line)
-      def #{name}(*args, &block)
-        GLUT_FUNCTIONS_MAP['#{name}'].call(*args,&block)
-      end
-    EOS
-    module_function(name)
-    f
-  end
-
   # defines
 
   GLUT_API_VERSION    = 4
@@ -362,33 +334,163 @@ module GLUT
   @@glut_import_done = false
 
   # Load native library.
-  def self.load_lib(lib = nil, path = nil)
-    if lib == nil && path == nil
-      case OpenGL.get_platform
-      when :OPENGL_PLATFORM_WINDOWS
-        lib, path = 'freeglut.dll', Dir.pwd
-      when :OPENGL_PLATFORM_MACOSX
-        lib, path = 'GLUT', '/System/Library/Frameworks/GLUT.framework'
-      else
-        lib, path = 'libglut.so'
-      end
+  def self.load_lib(lib_path = nil, output_error = false)
+    if lib_path == nil
+      lib_path = case GL.get_platform
+                 when :OPENGL_PLATFORM_WINDOWS
+                   lib_path = Dir.pwd + '/freeglut.dll'
+                 when :OPENGL_PLATFORM_MACOSX
+                   lib_path = '/System/Library/Frameworks/GLUT.framework/GLUT'
+                 else
+                   lib_path = 'libglut.so' # not tested
+                 end
     end
-    if path
-      dlload (path + '/' + lib)
-    else
-      dlload (lib)
-    end
-    import_symbols() unless @@glut_import_done
+
+    dlload (lib_path)
+
+    import_symbols(output_error) unless @@glut_import_done
   end
 
-  def self.load_dll(lib = nil, path = nil)
-    puts "Warning GLUT.load_dll is deprecated, use GLUT.load_lib instead"
-    self.load_lib(lib, path)
-  end
+  @@lib_signature = [
+    'void glutInit(int*, char**)',
+    'void glutInitWindowPosition(int, int)',
+    'void glutInitWindowSize(int, int)',
+    'void glutInitDisplayMode(unsigned int)',
+    'void glutInitDisplayString(const char*)',
 
-  def self.import_symbols
+    'void glutMainLoop()',
+
+    'int glutCreateWindow(const char *)',
+    'int glutCreateSubWindow(int, int, int, int, int)',
+    'void glutDestroyWindow(int)',
+    'void glutSetWindow(int)',
+    'int glutGetWindow()',
+    'void glutSetWindowTitle(const char *)',
+    'void glutSetIconTitle(const char *)',
+    'void glutReshapeWindow(int, int)',
+    'void glutPositionWindow(int, int)',
+    'void glutShowWindow()',
+    'void glutHideWindow()',
+    'void glutIconifyWindow()',
+    'void glutPushWindow()',
+    'void glutPopWindow()',
+    'void glutFullScreen()',
+
+    'void glutPostWindowRedisplay(int)',
+    'void glutPostRedisplay()',
+    'void glutSwapBuffers()',
+
+    'void glutWarpPointer(int, int)',
+    'void glutSetCursor(int)',
+
+    'void glutEstablishOverlay()',
+    'void glutRemoveOverlay()',
+    'void glutUseLayer(unsigned int)',
+    'void glutPostOverlayRedisplay()',
+    'void glutPostWindowOverlayRedisplay(int)',
+    'void glutShowOverlay()',
+    'void glutHideOverlay()',
+
+    'int glutCreateMenu(void *)',
+    'void glutDestroyMenu(int)',
+    'int glutGetMenu()',
+    'void glutSetMenu(int)',
+    'void glutAddMenuEntry(const char *, int)',
+    'void glutAddSubMenu(const char *, int)',
+    'void glutChangeToMenuEntry(int, const char *, int)',
+    'void glutChangeToSubMenu(int, const char *, int)',
+    'void glutRemoveMenuItem(int)',
+    'void glutAttachMenu(int)',
+    'void glutDetachMenu(int)',
+
+    'void glutTimerFunc(unsigned int, void *, int)',
+    'void glutIdleFunc(void *)',
+
+    'void glutKeyboardFunc(void *)',
+    'void glutSpecialFunc(void *)',
+    'void glutReshapeFunc(void *)',
+    'void glutVisibilityFunc(void *)',
+    'void glutDisplayFunc(void *)',
+    'void glutMouseFunc(void *)',
+    'void glutMotionFunc(void *)',
+    'void glutPassiveMotionFunc(void *)',
+    'void glutEntryFunc(void *)',
+
+    'void glutKeyboardUpFunc(void *)',
+    'void glutSpecialUpFunc(void *)',
+    'void glutJoystickFunc(void *, int)',
+    'void glutMenuStateFunc(void *)',
+    'void glutMenuStatusFunc(void *)',
+    'void glutOverlayDisplayFunc(void *)',
+    'void glutWindowStatusFunc(void *)',
+
+    'void glutSpaceballMotionFunc(void *)',
+    'void glutSpaceballRotateFunc(void *)',
+    'void glutSpaceballButtonFunc(void *)',
+    'void glutButtonBoxFunc(void *)',
+    'void glutDialsFunc(void *)',
+    'void glutTabletMotionFunc(void *)',
+    'void glutTabletButtonFunc(void *)',
+
+    'int glutGet(unsigned int)',
+    'int glutDeviceGet(unsigned int)',
+    'int glutGetModifiers()',
+    'int glutLayerGet(unsigned int)',
+
+    'void glutBitmapCharacter(void *, int)',
+    'int glutBitmapWidth(void *, int)',
+    'void glutStrokeCharacter(void *, int)',
+    'int glutStrokeWidth(void *, int)',
+    'int glutBitmapLength(void *, const unsigned char*)',
+    'int glutStrokeLength(void *, const unsigned char*)',
+
+    'void glutWireCube(double)',
+    'void glutSolidCube(double)',
+    'void glutWireSphere(double, int, int)',
+    'void glutSolidSphere(double, int, int)',
+    'void glutWireCone(double, double, int, int)',
+    'void glutSolidCone(double, double, int, int)',
+
+    'void glutWireTorus(double, double, int, int)',
+    'void glutSolidTorus(double, double, int, int)',
+    'void glutWireDodecahedron()',
+    'void glutSolidDodecahedron()',
+    'void glutWireOctahedron()',
+    'void glutSolidOctahedron()',
+    'void glutWireTetrahedron()',
+    'void glutSolidTetrahedron()',
+    'void glutWireIcosahedron()',
+    'void glutSolidIcosahedron()',
+
+    'void glutWireTeapot(double)',
+    'void glutSolidTeapot(double)',
+
+    'void glutGameModeString(const char*)',
+    'int glutEnterGameMode()',
+    'void glutLeaveGameMode()',
+    'int glutGameModeGet(unsigned int)',
+
+    'int glutVideoResizeGet(unsigned int)',
+    'void glutSetupVideoResizing()',
+    'void glutStopVideoResizing()',
+    'void glutVideoResize(int, int, int, int)',
+    'void glutVideoPan(int, int, int, int)',
+
+    'void glutSetColor(int, float, float, float)',
+    'float glutGetColor(int, int)',
+    'void glutCopyColormap(int)',
+
+    'void glutIgnoreKeyRepeat(int)',
+    'void glutSetKeyRepeat(int)',
+    'void glutForceJoystickFunc()',
+
+    'int glutExtensionSupported(const char *)',
+    'void glutReportErrors()',
+  ]
+
+  def self.import_symbols(output_error = false)
     # defines
-    if OpenGL.get_platform == :OPENGL_PLATFORM_WINDOWS
+    if GL.get_platform == :OPENGL_PLATFORM_WINDOWS
       const_set('GLUT_STROKE_ROMAN', Fiddle::Pointer.new(0x0000) )
       const_set('GLUT_STROKE_MONO_ROMAN', Fiddle::Pointer.new(0x0001) )
       const_set('GLUT_BITMAP_9_BY_15', Fiddle::Pointer.new(0x0002) )
@@ -411,140 +513,38 @@ module GLUT
     end
 
     # function
-    extern 'void glutInit(int*, char**)'
-    extern 'void glutInitWindowPosition(int, int)'
-    extern 'void glutInitWindowSize(int, int)'
-    extern 'void glutInitDisplayMode(unsigned int)'
-    extern 'void glutInitDisplayString(const char*)'
+    @@lib_signature.each do |sig|
+      begin
+        extern sig
+      rescue
+        $stderr.puts("[Warning] Failed to import #{sig}.") if output_error
+      end
+    end
 
-    extern 'void glutMainLoop()'
+    # Convert method names (e.g.: GLUT.glutInit -> GLUT.Init)
+    self.singleton_methods(false).each do |method_name|
+      m = singleton_method(method_name)
+      if m.name.to_s.start_with? 'glut'
+        modified_api = m.name.to_s[4..-1] # omit prefix "glut"
+        define_singleton_method(modified_api, m) # define alias
+      end
+    end
 
-    extern 'int glutCreateWindow(const char *)'
-    extern 'int glutCreateSubWindow(int, int, int, int, int)'
-    extern 'void glutDestroyWindow(int)'
-    extern 'void glutSetWindow(int)'
-    extern 'int glutGetWindow()'
-    extern 'void glutSetWindowTitle(const char *)'
-    extern 'void glutSetIconTitle(const char *)'
-    extern 'void glutReshapeWindow(int, int)'
-    extern 'void glutPositionWindow(int, int)'
-    extern 'void glutShowWindow()'
-    extern 'void glutHideWindow()'
-    extern 'void glutIconifyWindow()'
-    extern 'void glutPushWindow()'
-    extern 'void glutPopWindow()'
-    extern 'void glutFullScreen()'
-
-    extern 'void glutPostWindowRedisplay(int)'
-    extern 'void glutPostRedisplay()'
-    extern 'void glutSwapBuffers()'
-
-    extern 'void glutWarpPointer(int, int)'
-    extern 'void glutSetCursor(int)'
-
-    extern 'void glutEstablishOverlay()'
-    extern 'void glutRemoveOverlay()'
-    extern 'void glutUseLayer(unsigned int)'
-    extern 'void glutPostOverlayRedisplay()'
-    extern 'void glutPostWindowOverlayRedisplay(int)'
-    extern 'void glutShowOverlay()'
-    extern 'void glutHideOverlay()'
-
-    extern 'int glutCreateMenu(void *)'
-    extern 'void glutDestroyMenu(int)'
-    extern 'int glutGetMenu()'
-    extern 'void glutSetMenu(int)'
-    extern 'void glutAddMenuEntry(const char *, int)'
-    extern 'void glutAddSubMenu(const char *, int)'
-    extern 'void glutChangeToMenuEntry(int, const char *, int)'
-    extern 'void glutChangeToSubMenu(int, const char *, int)'
-    extern 'void glutRemoveMenuItem(int)'
-    extern 'void glutAttachMenu(int)'
-    extern 'void glutDetachMenu(int)'
-
-    extern 'void glutTimerFunc(unsigned int, void *, int)'
-    extern 'void glutIdleFunc(void *)'
-
-    extern 'void glutKeyboardFunc(void *)'
-    extern 'void glutSpecialFunc(void *)'
-    extern 'void glutReshapeFunc(void *)'
-    extern 'void glutVisibilityFunc(void *)'
-    extern 'void glutDisplayFunc(void *)'
-    extern 'void glutMouseFunc(void *)'
-    extern 'void glutMotionFunc(void *)'
-    extern 'void glutPassiveMotionFunc(void *)'
-    extern 'void glutEntryFunc(void *)'
-
-    extern 'void glutKeyboardUpFunc(void *)'
-    extern 'void glutSpecialUpFunc(void *)'
-    extern 'void glutJoystickFunc(void *, int)'
-    extern 'void glutMenuStateFunc(void *)'
-    extern 'void glutMenuStatusFunc(void *)'
-    extern 'void glutOverlayDisplayFunc(void *)'
-    extern 'void glutWindowStatusFunc(void *)'
-
-    extern 'void glutSpaceballMotionFunc(void *)'
-    extern 'void glutSpaceballRotateFunc(void *)'
-    extern 'void glutSpaceballButtonFunc(void *)'
-    extern 'void glutButtonBoxFunc(void *)'
-    extern 'void glutDialsFunc(void *)'
-    extern 'void glutTabletMotionFunc(void *)'
-    extern 'void glutTabletButtonFunc(void *)'
-
-    extern 'int glutGet(unsigned int)'
-    extern 'int glutDeviceGet(unsigned int)'
-    extern 'int glutGetModifiers()'
-    extern 'int glutLayerGet(unsigned int)'
-
-    extern 'void glutBitmapCharacter(void *, int)'
-    extern 'int glutBitmapWidth(void *, int)'
-    extern 'void glutStrokeCharacter(void *, int)'
-    extern 'int glutStrokeWidth(void *, int)'
-    extern 'int glutBitmapLength(void *, const unsigned char*)'
-    extern 'int glutStrokeLength(void *, const unsigned char*)'
-
-    extern 'void glutWireCube(double)'
-    extern 'void glutSolidCube(double)'
-    extern 'void glutWireSphere(double, int, int)'
-    extern 'void glutSolidSphere(double, int, int)'
-    extern 'void glutWireCone(double, double, int, int)'
-    extern 'void glutSolidCone(double, double, int, int)'
-
-    extern 'void glutWireTorus(double, double, int, int)'
-    extern 'void glutSolidTorus(double, double, int, int)'
-    extern 'void glutWireDodecahedron()'
-    extern 'void glutSolidDodecahedron()'
-    extern 'void glutWireOctahedron()'
-    extern 'void glutSolidOctahedron()'
-    extern 'void glutWireTetrahedron()'
-    extern 'void glutSolidTetrahedron()'
-    extern 'void glutWireIcosahedron()'
-    extern 'void glutSolidIcosahedron()'
-
-    extern 'void glutWireTeapot(double)'
-    extern 'void glutSolidTeapot(double)'
-
-    extern 'void glutGameModeString(const char*)'
-    extern 'int glutEnterGameMode()'
-    extern 'void glutLeaveGameMode()'
-    extern 'int glutGameModeGet(unsigned int)'
-
-    extern 'int glutVideoResizeGet(unsigned int)'
-    extern 'void glutSetupVideoResizing()'
-    extern 'void glutStopVideoResizing()'
-    extern 'void glutVideoResize(int, int, int, int)'
-    extern 'void glutVideoPan(int, int, int, int)'
-
-    extern 'void glutSetColor(int, float, float, float)'
-    extern 'float glutGetColor(int, int)'
-    extern 'void glutCopyColormap(int)'
-
-    extern 'void glutIgnoreKeyRepeat(int)'
-    extern 'void glutSetKeyRepeat(int)'
-    extern 'void glutForceJoystickFunc()'
-
-    extern 'int glutExtensionSupported(const char *)'
-    extern 'void glutReportErrors()'
+    # Convert constant names (e.g.: GLUT::GLUT_KEY_F1 -> GLUT::KEY_F1)
+    self.constants.each do |constant|
+      cs = constant.to_s
+      if cs[0..4] == "GLUT_"
+        if cs[5] =~ /\d/
+          # We have to abandon name conversion like 'GL_2D, GL_3D_COLOR, GL_4_BYTES, etc.
+          # Because constants can't start with a digit or underscore.
+          # [Note] This rule has been inherited from Yoshi's very original ruby-opengl (confirmed with opengl-0.32g, 2004-07-17).
+          const_set(cs, GLUT.const_get(constant)) # GL_2D => GL_2D
+        else
+          # Convert by omitting the 'GLUT_' prefix
+          const_set(cs[5..-1], GLUT.const_get(constant))
+        end
+      end
+    end
 
     @@glut_import_done = true
   end

@@ -1,6 +1,6 @@
 require 'fiddle'
 
-module OpenGL
+module GL
 
   CGL_FUNCTIONS_MAP = {}
   CGL_FUNCTIONS_ARGS_MAP = {}
@@ -29,7 +29,7 @@ module OpenGL
   CGL_FUNCTIONS_RETVAL_MAP[:CGLGetCurrentContext] = Fiddle::TYPE_VOIDP
 
   def CGLGetCurrentContext()
-    f = OpenGL::get_cgl_command(:CGLGetCurrentContext)
+    f = GL::get_cgl_command(:CGLGetCurrentContext)
     f.call()
   end
 
@@ -37,7 +37,7 @@ module OpenGL
   CGL_FUNCTIONS_RETVAL_MAP[:CGLGetShareGroup] = Fiddle::TYPE_VOIDP
 
   def CGLGetShareGroup(_cgl_ctxobj_)
-    f = OpenGL::get_cgl_command(:CGLGetShareGroup)
+    f = GL::get_cgl_command(:CGLGetShareGroup)
     f.call(_cgl_ctxobj_)
   end
 

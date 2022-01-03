@@ -13,7 +13,7 @@ module GLESCommandCodeGenerator
     out.puts ""
     out.puts "require 'fiddle'"
     out.puts ""
-    out.puts "module OpenGL"
+    out.puts "module GL"
     out.puts ""
     GLCodeGeneratorCommon.generate_symbols(out, gl_es_cmd_map)
     out.puts ""

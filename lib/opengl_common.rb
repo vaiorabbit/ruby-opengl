@@ -1,4 +1,4 @@
-module OpenGL
+module GL
 
   GL_FUNCTIONS_MAP = {}
   @@gl_dll = nil

@@ -174,7 +174,7 @@ module GLCodeGeneratorCommon
       # Arguments
       arg_names = []
       map_entry.type_names.each do |t|
-        resolved_gl_type = OpenGL::GL_TYPE_MAP[t]
+        resolved_gl_type = GL::GL_TYPE_MAP[t]
         is_array = t.include?( "[" )
         is_ptr = t.end_with?( '*' )
         if !is_ptr && !is_array && resolved_gl_type == nil
@@ -195,25 +195,21 @@ module GLCodeGeneratorCommon
     gl_cmd_map.each_pair do |api, map_entry|
       # Return value
       is_ptr = map_entry.ret_name.end_with?('*')
-      out.puts "    :#{api} => #{is_ptr ? 'Fiddle::TYPE_VOIDP' : OpenGL::GL_TYPE_MAP[map_entry.ret_name]},"
+      out.puts "    :#{api} => #{is_ptr ? 'Fiddle::TYPE_VOIDP' : GL::GL_TYPE_MAP[map_entry.ret_name]},"
     end
     out.puts "  }"
   end
 
   def self.generate_methods(out, gl_cmd_map)
     gl_cmd_map.each_pair do |api, map_entry|
-
-      # # Return value
-      # is_ptr = map_entry.ret_name.end_with?( '*' )
-      # out.puts "  GL_FUNCTIONS_RETVAL_MAP[:#{api}] = #{is_ptr ? 'Fiddle::TYPE_VOIDP' : OpenGL::GL_TYPE_MAP[map_entry.ret_name]}"
-
-      # API entry
+      # Convert by omitting the 'gl' prefix
+      modified_api = api[2..-1]
 
       # Adds prefix/suffix '_' to avoid conflict with Ruby's keyword
       # ex.) glDrawRangeElements(mode, start, end, count, type, indices) <- 'end' is Ruby's reserved keyword.
       vars = map_entry.var_names.collect{|v| '_'+v+'_'}.join(", ")
 
-      out.puts "  def #{api}(#{vars})"
+      out.puts "  def self.#{modified_api}(#{vars})"
       out.puts "    GL_FUNCTIONS_MAP[:#{api}].call(#{vars})"
       out.puts "  end"
       out.puts ""
@@ -258,10 +254,14 @@ module GLCodeGeneratorCommon
 
         next if map_entry == nil
 
+        # Convert by omitting the 'gl' prefix
+        modified_api = api[2..-1]
+        pp [api, modified_api]
+
         # Arguments
         arg_names = []
         map_entry.type_names.each do |t|
-          resolved_gl_type = OpenGL::GL_TYPE_MAP[t]
+          resolved_gl_type = GL::GL_TYPE_MAP[t]
           is_array = t.include?( "[" )
           is_ptr = t.end_with?( '*' )
           if !is_ptr && !is_array && resolved_gl_type == nil
@@ -270,17 +270,17 @@ module GLCodeGeneratorCommon
           end
           arg_names << ((is_ptr || is_array) ? 'Fiddle::TYPE_VOIDP' : resolved_gl_type)
         end
-        out.puts  "    OpenGL::GL_FUNCTION_SYMBOLS << :#{api}"
-        out.print "    OpenGL::GL_FUNCTIONS_ARGS_MAP[:#{api}] = ["
+        out.puts  "    GL::GL_FUNCTION_SYMBOLS << :#{modified_api}"
+        out.print "    GL::GL_FUNCTIONS_ARGS_MAP[:#{modified_api}] = ["
         arg_names.each_with_index do |a, i| out.printf "#{a}%s", (i < arg_names.length-1 ? ", " : "") end
         out.puts "]"
 
         # Return value
         is_ptr = map_entry.ret_name.end_with?( '*' )
-        out.puts "    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:#{api}] = #{is_ptr ? 'Fiddle::TYPE_VOIDP' : OpenGL::GL_TYPE_MAP[map_entry.ret_name]}"
+        out.puts "    GL::GL_FUNCTIONS_RETVAL_MAP[:#{modified_api}] = #{is_ptr ? 'Fiddle::TYPE_VOIDP' : GL::GL_TYPE_MAP[map_entry.ret_name]}"
 
         # Import
-        out.puts "    OpenGL.bind_command(:#{api})"
+        out.puts "    GL.bind_command(:#{modified_api})"
 
         # API entry
 
@@ -288,9 +288,9 @@ module GLCodeGeneratorCommon
         # ex.) glDrawRangeElements(mode, start, end, count, type, indices) <- 'end' is Ruby's reserved keyword.
         vars = map_entry.var_names.collect{|v| '_'+v+'_'}.join(", ")
 
-        out.puts "    OpenGL.module_eval(<<-SRC)"
-        out.puts "      def #{api}(#{vars})"
-        out.puts "        GL_FUNCTIONS_MAP[:#{api}].call(#{vars})"
+        out.puts "    GL.module_eval(<<-SRC)"
+        out.puts "      def self.#{modified_api}(#{vars})"
+        out.puts "        GL_FUNCTIONS_MAP[:#{modified_api}].call(#{vars})"
         out.puts "      end"
         out.puts "    SRC"
         out.puts "" if (command_index + 1) != commands_count
@@ -303,7 +303,9 @@ module GLCodeGeneratorCommon
       out.puts "  def self.get_ext_command_#{ext_name}"
       out.puts "    ["
       ext_commands.each_pair do |api, map_entry|
-        out.puts "      '#{api}',"
+        # Convert by omitting the 'gl' prefix
+        modified_api = api[2..-1]
+        out.puts "      '#{modified_api}',"
       end
       out.puts "    ]"
       out.puts "  end # self.get_ext_command_#{ext_name}"
@@ -337,6 +339,25 @@ module GLCodeGeneratorCommon
 
     return gl_enum_map
 
+  end
+
+  def self.generate_enums(out, gl_std_name_to_enums_map)
+    gl_std_name_to_enums_map.each do |enum|
+      # Convert by omitting the 'GL_' prefix
+      original = enum[0]
+      constant = if original[3] =~ /\d/
+                   # Because constants can't start with a digit or underscore,
+                   # We have to abandon name conversion like 'GL_2D, GL_3D_COLOR, GL_4_BYTES, etc.
+                   # [Note] This rule has been inherited from Yoshi's very original ruby-opengl (confirmed with opengl-0.32g, 2004-07-17).
+                   original
+                 else
+                   # Convert by omitting the 'GL_' prefix like GL::GL_TEXTRUE_2D into GL::TEXTURE_2D.
+                   original[3..-1]
+                 end
+      out.print "  #{constant} = #{enum[1]}"
+      out.print " # [NOTE] Renaming was not performed due to grammatical restrictions" if constant.start_with? 'GL_'
+      out.puts ""
+    end
   end
 
   def self.build_ext_enums_map(doc, extract_api: "gl")
@@ -376,17 +397,38 @@ module GLCodeGeneratorCommon
 
   def self.generate_ext_enums(out, gl_ext_name_to_enums_map)
     gl_ext_name_to_enums_map.each_pair do |ext_name, ext_enums|
+
+      # Convert by omitting the 'GL_' prefix
+      modified_enums = {}
+      ext_enums.each do |enums|
+        original = enums[0]
+        constant = if original[3] =~ /\d/
+                     # Because constants can't start with a digit or underscore,
+                     # We have to abandon name conversion like 'GL_2D, GL_3D_COLOR, GL_4_BYTES, etc.
+                     # [Note] This rule has been inherited from Yoshi's very original ruby-opengl (confirmed with opengl-0.32g, 2004-07-17).
+                     original
+                   else
+                     # Convert by omitting the 'GL_' prefix like GL::GL_TEXTRUE_2D into GL::TEXTURE_2D.
+                     original[3..-1]
+                   end
+        modified_enums[constant] = enums[1]
+      end
+
       # def self.define_ext_enum_XXXX; ... ;end
       out.print "  def self.define_ext_enum_#{ext_name}\n"
-      ext_enums.each do |enums|
-        out.puts "    OpenGL.const_set('#{enums[0]}', #{enums[1]}) unless defined?(OpenGL::#{enums[0]})"
+      modified_enums.each do |enums|
+        out.print "    GL.const_set('#{enums[0]}', #{enums[1]}) unless defined?(GL::#{enums[0]})"
+        out.print " # [NOTE] Renaming was not performed due to grammatical restrictions" if enums[0].start_with? 'GL_'
+        out.puts ""
       end
       out.print "  end # self.define_ext_enum_#{ext_name}\n\n"
       # def self.get_ext_enum_XXXX; ... ;end
       out.print "  def self.get_ext_enum_#{ext_name}\n"
       out.puts  "    ["
-      ext_enums.each do |enums|
-        out.puts "      '#{enums[0]}',"
+      modified_enums.each do |enums|
+        out.print "      '#{enums[0]}',"
+        out.print " # [NOTE] Renaming was not performed due to grammatical restrictions" if enums[0].start_with? 'GL_'
+        out.puts ""
       end
       out.puts  "    ]"
       out.print "  end # self.get_ext_enum_#{ext_name}\n\n\n"

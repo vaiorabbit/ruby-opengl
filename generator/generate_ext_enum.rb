@@ -11,7 +11,7 @@ module GLExtEnumCodeGenerator
     # Output
     out.puts GLCodeGeneratorCommon::HeaderComment
     out.puts ""
-    out.puts "module OpenGLExt"
+    out.puts "module GLExt"
     out.puts ""
     GLCodeGeneratorCommon.generate_ext_enums(out, gl_ext_name_to_enums_map)
     out.puts "end"
