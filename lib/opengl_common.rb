@@ -4,7 +4,7 @@ module OpenGL
   @@gl_dll = nil
 
   # Open dll/dylib/so for symbol import
-  # Note that OpenGL APIs are not available until you call import_symbols
+  # - Note that OpenGL APIs won't be available until you call import_symbols
   def self.open_lib(lib_path: nil)
     if lib_path == nil
       case self.get_platform
@@ -19,7 +19,8 @@ module OpenGL
     @@gl_dll = Fiddle.dlopen(lib_path)
   end
 
-  # Call after OpenGL context is available (e.g.: glfwMakeContextCurrent)
+  # Import OpenGL APIs
+  # - Call this after OpenGL context becomes vailable (e.g.: glfwMakeContextCurrent)
   def self.import_symbols(output_error: false)
     GL_FUNCTION_SYMBOLS.each do |sym|
       begin

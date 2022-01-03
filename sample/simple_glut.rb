@@ -6,7 +6,7 @@
 require 'opengl'
 require 'glut'
 
-OpenGL.load_lib()
+OpenGL.open_lib()
 GLUT.load_lib()
 
 include OpenGL
@@ -63,6 +63,8 @@ if __FILE__ == $0
   glutReshapeFunc(GLUT.create_callback(:GLUTReshapeFunc, method(:reshape).to_proc))
   glutKeyboardFunc(GLUT.create_callback(:GLUTKeyboardFunc, method(:keyboard).to_proc))
   glutTimerFunc(0, GLUT.create_callback(:GLUTTimerFunc, method(:timer).to_proc), 0)
+
+  OpenGL.import_symbols()
 
   glClearColor( 0.0, 0.0, 0.0, 1 )
 
