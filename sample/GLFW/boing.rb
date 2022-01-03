@@ -30,12 +30,11 @@ Original Copyright Notice:
  * a hidden computer or VCR.
  *****************************************************************************/
 =end
-require '../util/setup_dll'
-require '../util/rmath3d_plain'
 
-include RMath3D
-include OpenGL
-include GLFW
+require 'opengl'
+require 'glfw'
+require_relative '../util/setup_dll'
+require_relative '../util/rmath3d_plain'
 
 RADIUS           = 70.0
 STEP_LONGITUDE   = 22.5                    # 22.5 makes 8 bands like original Boing
@@ -101,13 +100,13 @@ end
 
 def init()
   # Clear background.
-  glClearColor( 0.55, 0.55, 0.55, 0.0 )
-  glShadeModel( GL_FLAT )
+  GL.ClearColor( 0.55, 0.55, 0.55, 0.0 )
+  GL.ShadeModel( GL::FLAT )
 end
 
 def display()
-  glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT )
-  glPushMatrix()
+  GL.Clear( GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT )
+  GL.PushMatrix()
 
   $drawBallHow = DRAW_BALL_SHADOW
   DrawBoingBall()
@@ -117,33 +116,33 @@ def display()
   $drawBallHow = DRAW_BALL
   DrawBoingBall()
 
-  glPopMatrix()
-  glFlush()
+  GL.PopMatrix()
+  GL.Flush()
 end
 
-$projection = RMtx4.new
-$view = RMtx4.new
+$projection = RMath3D::RMtx4.new
+$view = RMath3D::RMtx4.new
 reshape = GLFW::create_callback(:GLFWframebuffersizefun) do |window, w, h|
-  glViewport( 0, 0, w, h )
+  GL.Viewport( 0, 0, w, h )
 
-  glMatrixMode( GL_PROJECTION )
+  GL.MatrixMode( GL::PROJECTION )
   $projection.perspectiveFovRH(2.0 * Math.atan2( RADIUS, 200.0 ), w / h, 1.0, VIEW_SCENE_DIST)
-  glLoadMatrixf( $projection.to_a.pack('F16') )
+  GL.LoadMatrixf( $projection.to_a.pack('F16') )
 
-  glMatrixMode( GL_MODELVIEW )
+  GL.MatrixMode( GL::MODELVIEW )
 
-  eye = RVec3.new(0.0, 0.0, VIEW_SCENE_DIST)
-  center = RVec3.new(0.0, 0.0, 0.0)
-  up = RVec3.new(0.0, -1.0, 0.0)
+  eye = RMath3D::RVec3.new(0.0, 0.0, VIEW_SCENE_DIST)
+  center = RMath3D::RVec3.new(0.0, 0.0, 0.0)
+  up = RMath3D::RVec3.new(0.0, -1.0, 0.0)
   $view.lookAtRH(eye, center, up)
 
-  glLoadMatrixf($view.to_a.pack('F16'))
+  GL.LoadMatrixf($view.to_a.pack('F16'))
 end
 
 # Press ESC to exit.
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
-  if key == GLFW_KEY_ESCAPE && action == GLFW_PRESS
-    glfwSetWindowShouldClose(window_handle, 1)
+  if key == GLFW::KEY_ESCAPE && action == GLFW::PRESS
+    GLFW.SetWindowShouldClose(window_handle, 1)
   end
 end
 
@@ -153,8 +152,8 @@ def set_ball_pos ( x, y )
 end
 
 mouse_button_callback = GLFW::create_callback(:GLFWmousebuttonfun) do |window, button, action, mods|
-  return if button != GLFW_MOUSE_BUTTON_LEFT
-  if action == GLFW_PRESS
+  return if button != GLFW::MOUSE_BUTTON_LEFT
+  if action == GLFW::PRESS
     $override_pos = true
     set_ball_pos($cursor_x, $cursor_y)
   else
@@ -184,11 +183,11 @@ def DrawBoingBall()
   dt_total = 0.0
   dt2 = 0.0
 
-  glPushMatrix()
-  glMatrixMode( GL_MODELVIEW )
+  GL.PushMatrix()
+  GL.MatrixMode( GL::MODELVIEW )
 
   # Another relative Z translation to separate objects.
-  glTranslatef( 0.0, 0.0, DIST_BALL )
+  GL.Translatef( 0.0, 0.0, DIST_BALL )
 
   # Update ball position and rotation (iterate if necessary) 
   dt_total = $dt
@@ -200,25 +199,25 @@ def DrawBoingBall()
   end
 
   # Set ball position
-  glTranslatef( $ball_x, $ball_y, 0.0 )
+  GL.Translatef( $ball_x, $ball_y, 0.0 )
 
   # Offset the shadow.
   if $drawBallHow == DRAW_BALL_SHADOW
-    glTranslatef( SHADOW_OFFSET_X,
+    GL.Translatef( SHADOW_OFFSET_X,
                   SHADOW_OFFSET_Y,
                   SHADOW_OFFSET_Z )
   end
 
   # Tilt the ball.
-  glRotatef( -20.0, 0.0, 0.0, 1.0 )
+  GL.Rotatef( -20.0, 0.0, 0.0, 1.0 )
 
   # Continually rotate ball around Y axis.
-  glRotatef( $deg_rot_y, 0.0, 1.0, 0.0 )
+  GL.Rotatef( $deg_rot_y, 0.0, 1.0, 0.0 )
 
   # Set OpenGL state for Boing ball.
-  glCullFace( GL_FRONT )
-  glEnable( GL_CULL_FACE )
-  glEnable( GL_NORMALIZE )
+  GL.CullFace( GL::FRONT )
+  GL.Enable( GL::CULL_FACE )
+  GL.Enable( GL::NORMALIZE )
 
   # Build a faceted latitude slice of the Boing ball,
   # stepping same-sized vertical bands of the sphere.
@@ -229,7 +228,7 @@ def DrawBoingBall()
     lon_deg += STEP_LONGITUDE
   end
 
-  glPopMatrix()
+  GL.PopMatrix()
 
 end
 
@@ -290,11 +289,11 @@ end
 =end
 $colorToggle = false
 def DrawBoingBallBand( long_lo, long_hi )
-   vert_ne = RVec3.new
-   vert_nw = RVec3.new
-   vert_sw = RVec3.new
-   vert_se = RVec3.new
-   vert_norm = RVec3.new
+   vert_ne = RMath3D::RVec3.new
+   vert_nw = RMath3D::RVec3.new
+   vert_sw = RMath3D::RVec3.new
+   vert_se = RMath3D::RVec3.new
+   vert_norm = RMath3D::RVec3.new
 
    # Iterate thru the points of a latitude circle.
    # A latitude circle is a 2D set of X,Z points.
@@ -302,15 +301,15 @@ def DrawBoingBallBand( long_lo, long_hi )
    while lat_deg <= (360 - STEP_LATITUDE)
      # Color this polygon with red or white.
      if $colorToggle
-       glColor3f( 0.8, 0.1, 0.1 )
+       GL.Color3f( 0.8, 0.1, 0.1 )
      else
-       glColor3f( 0.95, 0.95, 0.95 )
+       GL.Color3f( 0.95, 0.95, 0.95 )
      end
      $colorToggle = !$colorToggle
 
      # Change color if drawing shadow.
      if $drawBallHow == DRAW_BALL_SHADOW
-       glColor3f( 0.35, 0.35, 0.35 )
+       GL.Color3f( 0.35, 0.35, 0.35 )
      end
      # Assign each Y.
      vert_ne.y = vert_nw.y = cos_deg(long_hi) * RADIUS
@@ -330,17 +329,17 @@ def DrawBoingBallBand( long_lo, long_hi )
      vert_sw.z = sin_deg( lat_deg + STEP_LATITUDE ) * (RADIUS * sin_deg( long_lo                  ))
 
      # Draw the facet.
-     glBegin( GL_POLYGON )
+     GL.Begin( GL::POLYGON )
 
-     vert_norm = RVec3.cross((vert_nw - vert_ne), (vert_sw - vert_ne))
-     glNormal3f( vert_norm.x, vert_norm.y, vert_norm.z )
+     vert_norm = RMath3D::RVec3.cross((vert_nw - vert_ne), (vert_sw - vert_ne))
+     GL.Normal3f( vert_norm.x, vert_norm.y, vert_norm.z )
 
-     glVertex3f( vert_ne.x, vert_ne.y, vert_ne.z )
-     glVertex3f( vert_nw.x, vert_nw.y, vert_nw.z )
-     glVertex3f( vert_sw.x, vert_sw.y, vert_sw.z )
-     glVertex3f( vert_se.x, vert_se.y, vert_se.z )
+     GL.Vertex3f( vert_ne.x, vert_ne.y, vert_ne.z )
+     GL.Vertex3f( vert_nw.x, vert_nw.y, vert_nw.z )
+     GL.Vertex3f( vert_sw.x, vert_sw.y, vert_sw.z )
+     GL.Vertex3f( vert_se.x, vert_se.y, vert_se.z )
 
-     glEnd()
+     GL.End()
 
      lat_deg += STEP_LATITUDE
    end
@@ -370,11 +369,11 @@ def DrawGrid()
   yt = 0.0
   yb = 0.0
 
-  glPushMatrix()
-  glDisable( GL_CULL_FACE )
+  GL.PushMatrix()
+  GL.Disable( GL::CULL_FACE )
 
   # Another relative Z translation to separate objects.
-  glTranslatef( 0.0, 0.0, DIST_BALL )
+  GL.Translatef( 0.0, 0.0, DIST_BALL )
 
   # Draw vertical lines (as skinny 3D rectangles).
   (0..colTotal).each do |col|
@@ -385,16 +384,16 @@ def DrawGrid()
     yt =  GRID_SIZE / 2
     yb = -GRID_SIZE / 2 - widthLine
 
-    glBegin( GL_POLYGON )
+    GL.Begin( GL::POLYGON )
 
-    glColor3f( 0.6, 0.1, 0.6 )        #  purple
+    GL.Color3f( 0.6, 0.1, 0.6 )        #  purple
 
-    glVertex3f( xr, yt, z_offset )       #  NE
-    glVertex3f( xl, yt, z_offset )       #  NW
-    glVertex3f( xl, yb, z_offset )       #  SW
-    glVertex3f( xr, yb, z_offset )       #  SE
+    GL.Vertex3f( xr, yt, z_offset )       #  NE
+    GL.Vertex3f( xl, yt, z_offset )       #  NW
+    GL.Vertex3f( xl, yb, z_offset )       #  SW
+    GL.Vertex3f( xr, yb, z_offset )       #  SE
 
-    glEnd()
+    GL.End()
   end
 
   # Draw horizontal lines (as skinny 3D rectangles).
@@ -406,51 +405,54 @@ def DrawGrid()
     xl = -GRID_SIZE / 2
     xr =  GRID_SIZE / 2 + widthLine
 
-    glBegin( GL_POLYGON )
+    GL.Begin( GL::POLYGON )
 
-    glColor3f( 0.6, 0.1, 0.6 )        #  purple
+    GL.Color3f( 0.6, 0.1, 0.6 )        #  purple
 
-    glVertex3f( xr, yt, z_offset )       #  NE
-    glVertex3f( xl, yt, z_offset )       #  NW
-    glVertex3f( xl, yb, z_offset )       #  SW
-    glVertex3f( xr, yb, z_offset )       #  SE
+    GL.Vertex3f( xr, yt, z_offset )       #  NE
+    GL.Vertex3f( xl, yt, z_offset )       #  NW
+    GL.Vertex3f( xl, yb, z_offset )       #  SW
+    GL.Vertex3f( xr, yb, z_offset )       #  SE
 
-    glEnd()
+    GL.End()
   end
 
-   glPopMatrix()
+   GL.PopMatrix()
 
 end
 
 
 if __FILE__ == $0
-  glfwInit()
+  GLFW.load_lib(SampleUtil.glfw_library_path)
+  GLFW.Init()
 
-  glfwWindowHint(GLFW_DEPTH_BITS, 16)
+  GLFW.WindowHint(GLFW::DEPTH_BITS, 16)
 
-  window = glfwCreateWindow( 400, 400, "Boing (classic Amiga demo)", nil, nil )
+  window = GLFW.CreateWindow( 400, 400, "Boing (classic Amiga demo)", nil, nil )
 
-  glfwSetFramebufferSizeCallback(window, reshape)
-  glfwSetKeyCallback(window, key_callback)
-  glfwSetMouseButtonCallback(window, mouse_button_callback)
-  glfwSetCursorPosCallback(window, cursor_position_callback)
+  GLFW.SetFramebufferSizeCallback(window, reshape)
+  GLFW.SetKeyCallback(window, key_callback)
+  GLFW.SetMouseButtonCallback(window, mouse_button_callback)
+  GLFW.SetCursorPosCallback(window, cursor_position_callback)
 
-  glfwMakeContextCurrent( window )
-  glfwSwapInterval( 1 )
+  GLFW.MakeContextCurrent( window )
+  GLFW.SwapInterval( 1 )
+
+  GL.load_lib(SampleUtil.gl_library_path)
 
   width_ptr = ' ' * 8
   height_ptr = ' ' * 8
-  glfwGetFramebufferSize(window, width_ptr, height_ptr)
+  GLFW.GetFramebufferSize(window, width_ptr, height_ptr)
   $width = width_ptr.unpack('L')[0]
   $height = height_ptr.unpack('L')[0]
   reshape.call(window, $width, $height)
 
-  glfwSetTime(0.0)
+  GLFW.SetTime(0.0)
   init()
 
   while true
     # Timing
-    $t = glfwGetTime()
+    $t = GLFW.GetTime()
     $dt = $t - $t_old
     $t_old = $t
 
@@ -458,15 +460,15 @@ if __FILE__ == $0
     display()
 
     # Swap buffers
-    glfwSwapBuffers(window)
-    glfwPollEvents()
+    GLFW.SwapBuffers(window)
+    GLFW.PollEvents()
 
     # Check if we are still running
-    break if glfwWindowShouldClose(window) != 0
+    break if GLFW.WindowShouldClose(window) != 0
   end
 
-  glfwDestroyWindow( window )
-  glfwTerminate()
+  GLFW.DestroyWindow( window )
+  GLFW.Terminate()
 end
 
 

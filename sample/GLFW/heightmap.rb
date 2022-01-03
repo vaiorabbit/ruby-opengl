@@ -26,12 +26,11 @@ Original Copyright Notice:
 //
 //========================================================================
 =end
-require '../util/setup_dll'
-require '../util/rmath3d_plain'
 
-include RMath3D
-include OpenGL
-include GLFW
+require 'opengl'
+require 'glfw'
+require_relative '../util/setup_dll'
+require_relative '../util/rmath3d_plain'
 
 # Map height updates
 MAX_CIRCLE_SIZE = 5.0
@@ -139,20 +138,20 @@ def make_shader(type, text) # (GLenum type, const char* text)
   log_length_buf = ' ' * 4
   info_log = ' ' * 8192
 
-  shader = glCreateShader(type)
+  shader = GL.CreateShader(type)
   if (shader != 0)
 
-    glShaderSource(shader, 1, [text].pack('p'), nil)
-    glCompileShader(shader)
-    glGetShaderiv(shader, GL_COMPILE_STATUS, shader_ok_buf)
+    GL.ShaderSource(shader, 1, [text].pack('p'), nil)
+    GL.CompileShader(shader)
+    GL.GetShaderiv(shader, GL::COMPILE_STATUS, shader_ok_buf)
     shader_ok = shader_ok_buf.unpack('L')[0]
-    if shader_ok != GL_TRUE
+    if shader_ok != GL::TRUE
 
-      $stderr.printf( "ERROR: Failed to compile %s shader\n", (type == GL_FRAGMENT_SHADER) ? "fragment" : "vertex" )
-      glGetShaderInfoLog(shader, 8192, log_length_buf, info_log)
+      $stderr.printf( "ERROR: Failed to compile %s shader\n", (type == GL::FRAGMENT_SHADER) ? "fragment" : "vertex" )
+      GL.GetShaderInfoLog(shader, 8192, log_length_buf, info_log)
       log_length = log_length_buf.unpack('L')[0]
       $stderr.printf( "ERROR: \n%s\n\n", info_log)
-      glDeleteShader(shader)
+      GL.DeleteShader(shader)
       shader = 0
     end
   end
@@ -172,30 +171,30 @@ def make_shader_program(vs_text, fs_text) # (const char* vs_text, const char* fs
   log_length_buf = ' ' * 4
   info_log = ' ' * 8192
 
-  vertex_shader = make_shader(GL_VERTEX_SHADER, vs_text)
+  vertex_shader = make_shader(GL::VERTEX_SHADER, vs_text)
   if vertex_shader != 0
-    fragment_shader = make_shader(GL_FRAGMENT_SHADER, fs_text)
+    fragment_shader = make_shader(GL::FRAGMENT_SHADER, fs_text)
     if fragment_shader != 0
 
       # make the program that connect the two shader and link it
-      program = glCreateProgram()
+      program = GL.CreateProgram()
       if program != 0
 
         # attach both shader and link
-        glAttachShader(program, vertex_shader)
-        glAttachShader(program, fragment_shader)
-        glLinkProgram(program)
-        glGetProgramiv(program, GL_LINK_STATUS, program_ok_buf)
+        GL.AttachShader(program, vertex_shader)
+        GL.AttachShader(program, fragment_shader)
+        GL.LinkProgram(program)
+        GL.GetProgramiv(program, GL::LINK_STATUS, program_ok_buf)
         program_ok = program_ok_buf.unpack('L')[0]
 
-        if program_ok != GL_TRUE
+        if program_ok != GL::TRUE
           $stderr.printf( "ERROR, failed to link shader program\n")
-          glGetProgramInfoLog(program, 8192, log_length_buf, info_log)
+          GL.GetProgramInfoLog(program, 8192, log_length_buf, info_log)
           log_length = log_length_buf.unpack('L')[0]
           $stderr.printf( "ERROR: \n%s\n\n", info_log)
-          glDeleteProgram(program)
-          glDeleteShader(fragment_shader)
-          glDeleteShader(vertex_shader)
+          GL.DeleteProgram(program)
+          GL.DeleteShader(fragment_shader)
+          GL.DeleteShader(vertex_shader)
           program = 0
         end
       end
@@ -203,7 +202,7 @@ def make_shader_program(vs_text, fs_text) # (const char* vs_text, const char* fs
     else
 
       $stderr.printf( "ERROR: Unable to load fragment shader\n")
-      glDeleteShader(vertex_shader)
+      GL.DeleteShader(vertex_shader)
     end
   else
 
@@ -345,40 +344,40 @@ def make_mesh(program)
   attrloc = 0
 
   mesh_buf = ' ' * 4
-  glGenVertexArrays(1, mesh_buf)
+  GL.GenVertexArrays(1, mesh_buf)
   $mesh = mesh_buf.unpack('L')[0]
   mesh_vbo_buf = ' ' * 4 * 4
-  glGenBuffers(4, mesh_vbo_buf)
+  GL.GenBuffers(4, mesh_vbo_buf)
   $mesh_vbo = mesh_vbo_buf.unpack('L4')
 
-  glBindVertexArray($mesh)
+  GL.BindVertexArray($mesh)
   # Prepare the data for drawing through a buffer inidices
-  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, $mesh_vbo[3])
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, Fiddle::SIZEOF_INT * MAP_NUM_LINES * 2, $map_line_indices.pack('L*'), GL_STATIC_DRAW)
+  GL.BindBuffer(GL::ELEMENT_ARRAY_BUFFER, $mesh_vbo[3])
+  GL.BufferData(GL::ELEMENT_ARRAY_BUFFER, Fiddle::SIZEOF_INT * MAP_NUM_LINES * 2, $map_line_indices.pack('L*'), GL::STATIC_DRAW)
 
   # Prepare the attributes for rendering
-  attrloc = glGetAttribLocation(program, "x")
-  glBindBuffer(GL_ARRAY_BUFFER, $mesh_vbo[0])
-  glBufferData(GL_ARRAY_BUFFER, Fiddle::SIZEOF_FLOAT * MAP_NUM_TOTAL_VERTICES, $map_vertices[0].pack('F*'), GL_STATIC_DRAW)
-  glEnableVertexAttribArray(attrloc)
-  glVertexAttribPointer(attrloc, 1, GL_FLOAT, GL_FALSE, 0, nil)
+  attrloc = GL.GetAttribLocation(program, "x")
+  GL.BindBuffer(GL::ARRAY_BUFFER, $mesh_vbo[0])
+  GL.BufferData(GL::ARRAY_BUFFER, Fiddle::SIZEOF_FLOAT * MAP_NUM_TOTAL_VERTICES, $map_vertices[0].pack('F*'), GL::STATIC_DRAW)
+  GL.EnableVertexAttribArray(attrloc)
+  GL.VertexAttribPointer(attrloc, 1, GL::FLOAT, GL::FALSE, 0, nil)
 
-  attrloc = glGetAttribLocation(program, "z")
-  glBindBuffer(GL_ARRAY_BUFFER, $mesh_vbo[2])
-  glBufferData(GL_ARRAY_BUFFER, Fiddle::SIZEOF_FLOAT * MAP_NUM_TOTAL_VERTICES, $map_vertices[2].pack('F*'), GL_STATIC_DRAW)
-  glEnableVertexAttribArray(attrloc)
-  glVertexAttribPointer(attrloc, 1, GL_FLOAT, GL_FALSE, 0, nil)
+  attrloc = GL.GetAttribLocation(program, "z")
+  GL.BindBuffer(GL::ARRAY_BUFFER, $mesh_vbo[2])
+  GL.BufferData(GL::ARRAY_BUFFER, Fiddle::SIZEOF_FLOAT * MAP_NUM_TOTAL_VERTICES, $map_vertices[2].pack('F*'), GL::STATIC_DRAW)
+  GL.EnableVertexAttribArray(attrloc)
+  GL.VertexAttribPointer(attrloc, 1, GL::FLOAT, GL::FALSE, 0, nil)
 
-  attrloc = glGetAttribLocation(program, "y")
-  glBindBuffer(GL_ARRAY_BUFFER, $mesh_vbo[1])
-  glBufferData(GL_ARRAY_BUFFER, Fiddle::SIZEOF_FLOAT * MAP_NUM_TOTAL_VERTICES, $map_vertices[1].pack('F*'), GL_DYNAMIC_DRAW)
-  glEnableVertexAttribArray(attrloc)
-  glVertexAttribPointer(attrloc, 1, GL_FLOAT, GL_FALSE, 0, nil)
+  attrloc = GL.GetAttribLocation(program, "y")
+  GL.BindBuffer(GL::ARRAY_BUFFER, $mesh_vbo[1])
+  GL.BufferData(GL::ARRAY_BUFFER, Fiddle::SIZEOF_FLOAT * MAP_NUM_TOTAL_VERTICES, $map_vertices[1].pack('F*'), GL::DYNAMIC_DRAW)
+  GL.EnableVertexAttribArray(attrloc)
+  GL.VertexAttribPointer(attrloc, 1, GL::FLOAT, GL::FALSE, 0, nil)
 end
 
 # Update VBO vertices from source data
 def update_mesh()
-  glBufferSubData(GL_ARRAY_BUFFER, 0, Fiddle::SIZEOF_FLOAT * MAP_NUM_TOTAL_VERTICES, $map_vertices[1].pack('F*'))
+  GL.BufferSubData(GL::ARRAY_BUFFER, 0, Fiddle::SIZEOF_FLOAT * MAP_NUM_TOTAL_VERTICES, $map_vertices[1].pack('F*'))
 end
 
 =begin
@@ -389,8 +388,8 @@ end
 
 # Press ESC to exit.
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
-  if key == GLFW_KEY_ESCAPE && action == GLFW_PRESS
-    glfwSetWindowShouldClose(window_handle, 1)
+  if key == GLFW::KEY_ESCAPE && action == GLFW::PRESS
+    GLFW.SetWindowShouldClose(window_handle, 1)
   end
 end
 
@@ -399,37 +398,40 @@ error_callback = GLFW::create_callback(:GLFWerrorfun) do |error, description|
 end
 
 if __FILE__ == $0
-  glfwSetErrorCallback(error_callback)
+  GLFW.load_lib(SampleUtil.glfw_library_path)
+  GLFW.SetErrorCallback(error_callback)
 
-  glfwInit()
+  GLFW.Init()
 
-  glfwWindowHint(GLFW_RESIZABLE, GL_FALSE)
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3)
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2)
-  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE)
-  glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE)
+  GLFW.WindowHint(GLFW::RESIZABLE, GLFW::FALSE)
+  GLFW.WindowHint(GLFW::CONTEXT_VERSION_MAJOR, 3)
+  GLFW.WindowHint(GLFW::CONTEXT_VERSION_MINOR, 2)
+  GLFW.WindowHint(GLFW::OPENGL_PROFILE, GLFW::OPENGL_CORE_PROFILE)
+  GLFW.WindowHint(GLFW::OPENGL_FORWARD_COMPAT, GLFW::TRUE)
 
-  window = glfwCreateWindow(800, 600, "GLFW OpenGL3 Heightmap demo", nil, nil)
+  window = GLFW.CreateWindow(800, 600, "GLFW OpenGL3 Heightmap demo", nil, nil)
   if window == nil
-    glfwTerminate()
+    GLFW.Terminate()
     exit
   end
 
   # Register events callback
-  glfwSetKeyCallback(window, key_callback)
+  GLFW.SetKeyCallback(window, key_callback)
 
-  glfwMakeContextCurrent( window )
+  GLFW.MakeContextCurrent( window )
+
+  GL.load_lib(SampleUtil.gl_library_path)
 
   # Prepare opengl resources for rendering
   shader_program = make_shader_program(vertex_shader_text, fragment_shader_text)
   if shader_program == 0
-    glfwTerminate()
+    GLFW.Terminate()
     exit
   end
 
-  glUseProgram(shader_program)
-  uloc_project   = glGetUniformLocation(shader_program, "project")
-  uloc_modelview = glGetUniformLocation(shader_program, "modelview")
+  GL.UseProgram(shader_program)
+  uloc_project   = GL.GetUniformLocation(shader_program, "project")
+  uloc_modelview = GL.GetUniformLocation(shader_program, "modelview")
 
   # Compute the projection matrix 
   f = 1.0 / Math.tan($view_angle / 2.0)
@@ -438,13 +440,13 @@ if __FILE__ == $0
   $projection_matrix[10] = ($z_far + $z_near)/ ($z_near - $z_far)
   $projection_matrix[11] = -1.0
   $projection_matrix[14] = 2.0 * ($z_far * $z_near) / ($z_near - $z_far)
-  glUniformMatrix4fv(uloc_project, 1, GL_FALSE, $projection_matrix.pack('F16'));
+  GL.UniformMatrix4fv(uloc_project, 1, GL::FALSE, $projection_matrix.pack('F16'));
 
   # Set the camera position
   $modelview_matrix[12]  = -5.0
   $modelview_matrix[13]  = -5.0
   $modelview_matrix[14]  = -20.0
-  glUniformMatrix4fv(uloc_modelview, 1, GL_FALSE, $modelview_matrix.pack('F16'))
+  GL.UniformMatrix4fv(uloc_modelview, 1, GL::FALSE, $modelview_matrix.pack('F16'))
 
   # Create mesh data
   init_map()
@@ -455,25 +457,25 @@ if __FILE__ == $0
   /* Create the vbo to store all the information for the grid and the height */
 =end
 
-  glViewport(0, 0, 800, 600)
-  glClearColor(0.0, 0.0, 0.0, 0.0)
+  GL.Viewport(0, 0, 800, 600)
+  GL.ClearColor(0.0, 0.0, 0.0, 0.0)
 
   # main loop
   frame = 0
   iter = 0
-  last_update_time = glfwGetTime()
+  last_update_time = GLFW.GetTime()
 
-  while glfwWindowShouldClose(window) == 0
+  while GLFW.WindowShouldClose(window) == 0
     frame += 1
     # render the next frame
-    glClear(GL_COLOR_BUFFER_BIT)
-    glDrawElements(GL_LINES, 2 * MAP_NUM_LINES, GL_UNSIGNED_INT, 0)
+    GL.Clear(GL::COLOR_BUFFER_BIT)
+    GL.DrawElements(GL::LINES, 2 * MAP_NUM_LINES, GL::UNSIGNED_INT, 0)
 
     # display and process events through callbacks
-    glfwSwapBuffers(window)
-    glfwPollEvents()
+    GLFW.SwapBuffers(window)
+    GLFW.PollEvents()
     # Check the frame rate and update the heightmap if needed
-    dt = glfwGetTime()
+    dt = GLFW.GetTime()
     if (dt - last_update_time) > 0.2
 
       # generate the next iteration of the heightmap
@@ -487,6 +489,6 @@ if __FILE__ == $0
     end
   end
 
-  glfwDestroyWindow( window )
-  glfwTerminate()
+  GLFW.DestroyWindow( window )
+  GLFW.Terminate()
 end
