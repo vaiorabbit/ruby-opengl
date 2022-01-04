@@ -1,14 +1,12 @@
 require '../util/setup_dll'
-if opengl_bindings_gem_available?
-  require 'opengl_ext'
-else
-  require '../../lib/opengl_ext'
-end
+require 'opengl'
+require 'opengl_ext'
+require 'glfw'
 
 # Press ESC to exit.
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
-  if key == GLFW_KEY_ESCAPE && action == GLFW_PRESS
-    glfwSetWindowShouldClose(window_handle, 1)
+  if key == GLFW::KEY_ESCAPE && action == GLFW::PRESS
+    GLFW.SetWindowShouldClose(window_handle, 1)
   end
 end
 
@@ -26,51 +24,54 @@ typedef void (APIENTRY *DEBUGPROC)(GLenum source,
 cb_args = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
 cb_retval = Fiddle::TYPE_VOID
 
-$debug_log_callback = Fiddle::Closure::BlockCaller.new( cb_retval, cb_args, Fiddle::Function::DEFAULT) { |source, type, id, severity, length, message, userParam|
-#  p source, type, id, severity, length, message.to_s, userParam
+$debug_log_callback = Fiddle::Closure::BlockCaller.new(cb_retval, cb_args, Fiddle::Function::DEFAULT) { |source, type, id, severity, length, message, userParam|
+  #  p source, type, id, severity, length, message.to_s, userParam
   str_source = case source
-                 when GL_DEBUG_SOURCE_API; "API"
-                 when GL_DEBUG_SOURCE_WINDOW_SYSTEM; "Window System"
-                 when GL_DEBUG_SOURCE_SHADER_COMPILER; "Shader Compiler"
-                 when GL_DEBUG_SOURCE_THIRD_PARTY; "Third Party"
-                 when GL_DEBUG_SOURCE_APPLICATION; "Application"
-                 when GL_DEBUG_SOURCE_OTHER; "Other"
-                 else; "[Unknown]"
+               when GL::DEBUG_SOURCE_API; "API"
+               when GL::DEBUG_SOURCE_WINDOW_SYSTEM; "Window System"
+               when GL::DEBUG_SOURCE_SHADER_COMPILER; "Shader Compiler"
+               when GL::DEBUG_SOURCE_THIRD_PARTY; "Third Party"
+               when GL::DEBUG_SOURCE_APPLICATION; "Application"
+               when GL::DEBUG_SOURCE_OTHER; "Other"
+               else; "[Unknown]"
                end
 
   str_type = case type
-               when GL_DEBUG_TYPE_ERROR; "Type Error"
-               when GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR; "Deprecated Behavior"
-               when GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR; "Undefined Behavior"
-               when GL_DEBUG_TYPE_PORTABILITY; "Portability"
-               when GL_DEBUG_TYPE_PERFORMANCE; "Performance"
-               when GL_DEBUG_TYPE_OTHER; "Other"
-               when GL_DEBUG_TYPE_MARKER; "Marker"
-               when GL_DEBUG_TYPE_PUSH_GROUP; "Push Group"
-               when GL_DEBUG_TYPE_POP_GROUP; "Pop Group"
-               else; "[Unknown]"
+             when GL::DEBUG_TYPE_ERROR; "Type Error"
+             when GL::DEBUG_TYPE_DEPRECATED_BEHAVIOR; "Deprecated Behavior"
+             when GL::DEBUG_TYPE_UNDEFINED_BEHAVIOR; "Undefined Behavior"
+             when GL::DEBUG_TYPE_PORTABILITY; "Portability"
+             when GL::DEBUG_TYPE_PERFORMANCE; "Performance"
+             when GL::DEBUG_TYPE_OTHER; "Other"
+             when GL::DEBUG_TYPE_MARKER; "Marker"
+             when GL::DEBUG_TYPE_PUSH_GROUP; "Push Group"
+             when GL::DEBUG_TYPE_POP_GROUP; "Pop Group"
+             else; "[Unknown]"
              end
 
   str_severity = case severity
-                   when GL_DEBUG_SEVERITY_HIGH; "High"
-                   when GL_DEBUG_SEVERITY_MEDIUM; "Medium"
-                   when GL_DEBUG_SEVERITY_LOW; "Low"
-                   else; "[Unknown]"
+                 when GL::DEBUG_SEVERITY_HIGH; "High"
+                 when GL::DEBUG_SEVERITY_MEDIUM; "Medium"
+                 when GL::DEBUG_SEVERITY_LOW; "Low"
+                 else; "[Unknown]"
                  end
   puts  "[OpenGL Error] Source:#{str_source}, Type:#{str_type}, ID:#{id}, Severity:#{str_severity}"
   print "[OpenGL Error] Message: ", message.to_s, "\n"
 }
 
 if __FILE__ == $0
-  glfwInit()
-  glfwWindowHint( GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE )
-  window = glfwCreateWindow( 640, 480, "OpenGL Debug Context Test", nil, nil )
-  glfwSetWindowPos( window, 100, 100 )
-  glfwMakeContextCurrent( window )
-  glfwSetKeyCallback( window, key_callback )
+  GLFW.load_lib(SampleUtil.glfw_library_path)
+  GLFW.Init()
+  GLFW.WindowHint(GLFW::OPENGL_DEBUG_CONTEXT, GLFW::TRUE)
+  window = GLFW.CreateWindow(640, 480, "OpenGL Debug Context Test", nil, nil)
+  GLFW.SetWindowPos(window, 100, 100)
+  GLFW.MakeContextCurrent(window)
+  GLFW.SetKeyCallback(window, key_callback)
+
+  GL.load_lib()
 
   # Make sure that OpenGL 4.3 is supported by the driver
-  major,minor,*rest = glGetString(GL_VERSION).to_s.split(/\.| /)
+  major,minor,*rest = GL.GetString(GL::VERSION).to_s.split(/\.| /)
   puts "Supports OpenGL Version #{major}.#{minor} #{rest}"
   ext_available = ((major.to_i > 4) || (major.to_i == 4 && minor.to_i >= 3))
   unless ext_available
@@ -80,68 +81,68 @@ if __FILE__ == $0
   end
 
   # for OpenGL 4.3
-  glDebugMessageCallback( $debug_log_callback.to_i, nil )
-  glEnable( GL_DEBUG_OUTPUT_SYNCHRONOUS )
+  GL.DebugMessageCallback($debug_log_callback.to_i, nil)
+  GL.Enable(GL::DEBUG_OUTPUT_SYNCHRONOUS)
 
   # for OpenGL 3
 =begin
-  if OpenGL.check_extension( 'GL_ARB_debug_output' )
-    OpenGL.setup_extension( 'GL_ARB_debug_output' )
-    glDebugMessageCallbackARB( $debug_log_callback, nil )
-    glEnable( GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB )
-  end
+     if OpenGL.check_extension('GL_ARB_debug_output')
+       OpenGL.setup_extension('GL_ARB_debug_output')
+       GL.DebugMessageCallbackARB($debug_log_callback, nil)
+       GL.Enable(GL::DEBUG_OUTPUT_SYNCHRONOUS_ARB)
+     end
 =end
 
   # for OpenGL ES
 =begin
-  if OpenGL.check_extension('GL_KHR_debug')
-    OpenGL.setup_extension('GL_KHR_debug')
-    glDebugMessageCallback( $debug_log_callback, nil )
-    glEnable( GL_DEBUG_OUTPUT_SYNCHRONOUS )
-  end
+     if OpenGL.check_extension('GL_KHR_debug')
+       OpenGL.setup_extension('GL_KHR_debug')
+       GL.DebugMessageCallback($debug_log_callback, nil)
+       GL.Enable(GL::DEBUG_OUTPUT_SYNCHRONOUS)
+     end
 =end
 
   width_ptr = ' ' * 8
   height_ptr = ' ' * 8
-  glfwGetFramebufferSize(window, width_ptr, height_ptr)
+  GLFW.GetFramebufferSize(window, width_ptr, height_ptr)
   width = width_ptr.unpack('L')[0]
   height = height_ptr.unpack('L')[0]
   ratio = width.to_f / height.to_f
 
-  glViewport(0, 0, width, height)
+  GL.Viewport(0, 0, width, height)
 
-  while glfwWindowShouldClose( window ) == 0
-    glClear(GL_COLOR_BUFFER_BIT)
-    glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    glOrtho(-ratio, ratio, -1.0, 1.0, 1.0, -1.0)
-    glMatrixMode(GL_MODELVIEW)
+  while GLFW.WindowShouldClose(window) == 0
+    GL.Clear(GL::COLOR_BUFFER_BIT)
+    GL.MatrixMode(GL::PROJECTION)
+    GL.LoadIdentity()
+    GL.Ortho(-ratio, ratio, -1.0, 1.0, 1.0, -1.0)
+    GL.MatrixMode(GL::MODELVIEW)
 
-    glLoadIdentity()
-    glRotatef(glfwGetTime() * 50.0, 0.0, 0.0, 1.0)
+    GL.LoadIdentity()
+    GL.Rotatef(GLFW.GetTime() * 50.0, 0.0, 0.0, 1.0)
 
-    glBegin(GL_TRIANGLES)
-    glColor3f(1.0, 0.0, 0.0)
-    glVertex3f(-0.6, -0.4, 0.0)
-    glColor3f(0.0, 1.0, 0.0)
-    glVertex3f(0.6, -0.4, 0.0)
-    glColor3f(0.0, 0.0, 1.0)
-    glVertex3f(0.0, 0.6, 0.0)
-    glEnd()
+    GL.Begin(GL::TRIANGLES)
+    GL.Color3f(1.0, 0.0, 0.0)
+    GL.Vertex3f(-0.6, -0.4, 0.0)
+    GL.Color3f(0.0, 1.0, 0.0)
+    GL.Vertex3f(0.6, -0.4, 0.0)
+    GL.Color3f(0.0, 0.0, 1.0)
+    GL.Vertex3f(0.0, 0.6, 0.0)
+    GL.End()
 
-    glfwSwapBuffers( window )
-    glfwPollEvents()
+    GLFW.SwapBuffers(window)
+    GLFW.PollEvents()
 
     # *** ERROR ***
-    glEnable(GL_TEXTURE)
+    GL.Enable(GL::TEXTURE)
     # *** ERROR ***
 =begin
-    The above line will generate message like:
-        [OpenGL Error] Source:API, Type:Type Error, ID:1280, Severity:High
-        [OpenGL Error] Message: GL_INVALID_ENUM error generated. <cap> enum is invalid; expected GL_ALPHA_TEST, GL_BLEND, GL_COLOR_MATERIAL, GL_CULL_FACE, GL_DEPTH_TEST, GL_DITHER, GL_FOG, etc. (136 others).
+     The above line will generate message like:
+                                            [OpenGL Error] Source:API, Type:Type Error, ID:1280, Severity:High
+     [OpenGL Error] Message: GL_INVALID_ENUM error generated. <cap> enum is invalid; expected GL_ALPHA_TEST, GL_BLEND, GL_COLOR_MATERIAL, GL_CULL_FACE, GL_DEPTH_TEST, GL_DITHER, GL_FOG, etc. (136 others).
 =end
   end
 
-  glfwDestroyWindow( window )
-  glfwTerminate()
+  GLFW.DestroyWindow(window)
+  GLFW.Terminate()
 end

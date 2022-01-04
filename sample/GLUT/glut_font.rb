@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+require_relative '../util/setup_dll'
 require 'opengl'
 require 'glu'
 require 'glut'
@@ -34,18 +35,18 @@ def keyboard(key, x, y)
 end
 
 if __FILE__ == $PROGRAM_NAME
-  GLUT.load_lib()
+  GLUT.load_lib(SampleUtil.glut_library_path)
   GLUT.Init([1].pack('I'), [""].pack('p'))
   GLUT.InitDisplayMode(GLUT::DOUBLE | GLUT::RGBA | GLUT::DEPTH)
   GLUT.InitWindowSize(500, 100)
   GLUT.InitWindowPosition(100, 100)
   GLUT.CreateWindow("test")
+  GL.load_lib()
+  GLU.load_lib()
   GLUT.DisplayFunc(GLUT.create_callback(:GLUTDisplayFunc, method(:display).to_proc))
   GLUT.ReshapeFunc(GLUT.create_callback(:GLUTReshapeFunc, method(:reshape).to_proc))
   GLUT.KeyboardFunc(GLUT.create_callback(:GLUTKeyboardFunc, method(:keyboard).to_proc))
 
-  GL.load_lib()
-  GLU.load_lib()
 
   GL.ClearColor(0.0, 0.0, 0.0, 1)
 

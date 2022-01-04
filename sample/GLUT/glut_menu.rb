@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # Ref.: /freeglut-2.8.1/progs/demos/CallbackMaker
+require_relative '../util/setup_dll'
 require 'opengl'
 require 'glu'
 require 'glut'
@@ -45,12 +46,14 @@ $submenu_B = nil
 # Main
 
 if __FILE__ == $0
-  GLUT.load_lib(nil, true)
+  GLUT.load_lib(SampleUtil.glut_library_path)
   GLUT.Init([1].pack('I'), [""].pack('p'))
   GLUT.InitDisplayMode(GLUT::DOUBLE | GLUT::RGBA | GLUT::DEPTH)
   GLUT.InitWindowSize(500, 500);
   GLUT.InitWindowPosition(100, 100)
   GLUT.CreateWindow("test")
+  GL.load_lib()
+  GLU.load_lib()
   GLUT.DisplayFunc(GLUT.create_callback(:GLUTDisplayFunc, method(:display).to_proc))
   GLUT.ReshapeFunc(GLUT.create_callback(:GLUTReshapeFunc, method(:reshape).to_proc))
   GLUT.KeyboardFunc(GLUT.create_callback(:GLUTKeyboardFunc, method(:keyboard).to_proc))
@@ -78,9 +81,6 @@ if __FILE__ == $0
   GLUT.AddSubMenu("Enter sub menu B", $submenu_B)
 
   GLUT.AttachMenu(GLUT::LEFT_BUTTON)
-
-  GL.load_lib(nil, true)
-  GLU.load_lib(nil, true)
 
   GL.ClearColor(0.0, 0.0, 0.0, 1)
 

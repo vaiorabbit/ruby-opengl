@@ -51,12 +51,12 @@ if __FILE__ == $PROGRAM_NAME
   GLUT.InitWindowSize(640, 480);
   GLUT.InitWindowPosition(100, 100)
   GLUT.CreateWindow("Simple example")
+  GL.load_lib()
   GLUT.DisplayFunc(GLUT.create_callback(:GLUTDisplayFunc, method(:display).to_proc))
   GLUT.ReshapeFunc(GLUT.create_callback(:GLUTReshapeFunc, method(:reshape).to_proc))
   GLUT.KeyboardFunc(GLUT.create_callback(:GLUTKeyboardFunc, method(:keyboard).to_proc))
   GLUT.TimerFunc(0, GLUT.create_callback(:GLUTTimerFunc, method(:timer).to_proc), 0)
 
-  GL.load_lib()
 
   GL.ClearColor(0.0, 0.0, 0.0, 1)
 
