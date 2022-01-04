@@ -35,6 +35,8 @@
 # The source of the shaders itself are in plain text files. Files ending in
 # .vert are vertex shaders, and files ending in .frag are fragment shaders.
 
+require 'opengl'
+require 'glfw'
 require '../util/setup_dll'
 require '../util/WavefrontOBJ'
 
@@ -102,24 +104,24 @@ def drawCube
             ]
   end
 
-  glBegin(GL_QUADS)
+  GL.Begin(GL::QUADS)
   $cube.each do |side|
-    glNormal3fv(side[0])
+    GL.Normal3fv(side[0])
 
-    glTexCoord2f(1,1)
-    glVertex3fv(side[1])
-    glTexCoord2f(0,1)
-    glVertex3fv(side[2])
-    glTexCoord2f(0,0)
-    glVertex3fv(side[3])
-    glTexCoord2f(1,0)
-    glVertex3fv(side[4])
+    GL.TexCoord2f(1,1)
+    GL.Vertex3fv(side[1])
+    GL.TexCoord2f(0,1)
+    GL.Vertex3fv(side[2])
+    GL.TexCoord2f(0,0)
+    GL.Vertex3fv(side[3])
+    GL.TexCoord2f(1,0)
+    GL.Vertex3fv(side[4])
   end
-  glEnd()
+  GL.End()
 end
 
 def nextClearColor
-  glClearColor($clearColor[0][0],
+  GL.ClearColor($clearColor[0][0],
                $clearColor[0][1],
                $clearColor[0][2],
                $clearColor[0][3])
@@ -128,28 +130,28 @@ end
 
 
 play = lambda do
-  this_time = glfwGetTime()
+  this_time = GLFW.GetTime()
 
   $rotl+=(this_time - $last_time) * -0.001
   $last_time = this_time
 end
 
 display = lambda do
-  glLoadIdentity()
-  glTranslatef(0.0, 0.0, -5.0)
+  GL.LoadIdentity()
+  GL.Translatef(0.0, 0.0, -5.0)
 
-  glRotatef($fYDiff, 1,0,0)
-  glRotatef($fXDiff, 0,1,0)
-  glRotatef($fZDiff, 0,0,1)
+  GL.Rotatef($fYDiff, 1,0,0)
+  GL.Rotatef($fXDiff, 0,1,0)
+  GL.Rotatef($fZDiff, 0,0,1)
 
-  glScalef($fScale, $fScale, $fScale)
+  GL.Scalef($fScale, $fScale, $fScale)
 
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+  GL.Clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT)
 
   case $gleModel[0]
   when :teapot
     # glutSolidTeapot(0.6)
-    glScalef( 0.1, 0.1, 0.1 )
+    GL.Scalef(0.1, 0.1, 0.1)
     $teapot.render
 =begin
      when :torus :
@@ -160,27 +162,27 @@ display = lambda do
   when :cube
     drawCube()
   end
-  glFlush()
+  GL.Flush()
 end
 
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
 
   case key
-  when GLFW_KEY_ESCAPE, GLFW_KEY_Q
-    glfwSetWindowShouldClose(window_handle, 1)
+  when GLFW::KEY_ESCAPE, GLFW::KEY_Q
+    GLFW.SetWindowShouldClose(window_handle, 1)
 
-  when GLFW_KEY_B
-    if action == GLFW_PRESS
+  when GLFW::KEY_B
+    if action == GLFW::PRESS
       nextClearColor()
     end
 
-  when GLFW_KEY_T
-    if action == GLFW_PRESS
+  when GLFW::KEY_T
+    if action == GLFW::PRESS
       $gleModel << $gleModel.shift # rotate the array
     end
 
-  when GLFW_KEY_SPACE
-    if action == GLFW_PRESS
+  when GLFW::KEY_SPACE
+    if action == GLFW::PRESS
       $rotate = !$rotate
 
       if ($rotate==false)
@@ -197,21 +199,21 @@ key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scanco
       end
     end
 
-  when GLFW_KEY_EQUAL
+  when GLFW::KEY_EQUAL
     puts scancode
-    if action == GLFW_PRESS
-      if (mods & GLFW_MOD_SHIFT) != 0
+    if action == GLFW::PRESS
+      if (mods & GLFW::MOD_SHIFT) != 0
         $fScale += SCALE_INCREMENT
       end
     end
 
-  when GLFW_KEY_MINUS
-    if action == GLFW_PRESS
+  when GLFW::KEY_MINUS
+    if action == GLFW::PRESS
       $fScale -= SCALE_INCREMENT
     end
 
-  when GLFW_KEY_HOME
-    if action == GLFW_PRESS
+  when GLFW::KEY_HOME
+    if action == GLFW::PRESS
       $fXDiff = 0
       $fYDiff = 35
       $fZDiff = 0
@@ -222,20 +224,20 @@ key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scanco
       $fScale = 1.0
     end
 
-  when GLFW_KEY_LEFT
-    $fXDiff -= 1 if action == GLFW_PRESS
+  when GLFW::KEY_LEFT
+    $fXDiff -= 1 if action == GLFW::PRESS
 
-  when GLFW_KEY_RIGHT
-    $fXDiff += 1 if action == GLFW_PRESS
+  when GLFW::KEY_RIGHT
+    $fXDiff += 1 if action == GLFW::PRESS
 
-  when GLFW_KEY_UP
-    $fYDiff -= 1 if action == GLFW_PRESS
+  when GLFW::KEY_UP
+    $fYDiff -= 1 if action == GLFW::PRESS
 
-  when GLFW_KEY_DOWN
-    $fYDiff += 1 if action == GLFW_PRESS
+  when GLFW::KEY_DOWN
+    $fYDiff += 1 if action == GLFW::PRESS
 
   else
-    if action == GLFW_PRESS
+    if action == GLFW::PRESS
       puts "Keyboard commands:\n"
       puts "b - Toggle among background clear colors"
       puts "q, <esc> - Quit"
@@ -249,31 +251,31 @@ key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scanco
   end
 end
 
-size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do|window_handle, w, h|
+size_callback = GLFW::create_callback(:GLFWwindowsizefun) do|window_handle, w, h|
   vp = 0.8
   aspect = w.to_f/h.to_f
 
-  glViewport(0, 0, w, h)
-  glMatrixMode(GL_PROJECTION)
-  glLoadIdentity()
+  GL.Viewport(0, 0, w, h)
+  GL.MatrixMode(GL::PROJECTION)
+  GL.LoadIdentity()
 
-  glFrustum(-vp, vp, -vp / aspect, vp / aspect, 3, 10)
+  GL.Frustum(-vp, vp, -vp / aspect, vp / aspect, 3, 10)
 
-  glMatrixMode(GL_MODELVIEW)
-  glLoadIdentity()
-  glTranslatef(0.0, 0.0, -5.0)
+  GL.MatrixMode(GL::MODELVIEW)
+  GL.LoadIdentity()
+  GL.Translatef(0.0, 0.0, -5.0)
 end
 
-cursorenter_callback = GLFW::create_callback( :GLFWcursorenterfun ) do |window_handle, entered|
+cursorenter_callback = GLFW::create_callback(:GLFWcursorenterfun) do |window_handle, entered|
   $cursor_within_window = entered
 end
 
-cursorpos_callback = GLFW::create_callback( :GLFWcursorposfun ) do |window_handle, x, y|
+cursorpos_callback = GLFW::create_callback(:GLFWcursorposfun) do |window_handle, x, y|
   if $cursor_within_window != 0
     if ($xLast != -1 || $yLast != -1)
       $xLastIncr = x - $xLast
       $yLastIncr = y - $yLast
-      if ($bmModifiers & GLFW_MOD_CONTROL) != 0
+      if ($bmModifiers & GLFW::MOD_CONTROL) != 0
         if ($xLast != -1)
           $fZDiff += $xLastIncr
           $fScale += $yLastIncr*SCALE_FACTOR
@@ -290,10 +292,10 @@ cursorpos_callback = GLFW::create_callback( :GLFWcursorposfun ) do |window_handl
   end
 end
 
-mouse_callback = GLFW::create_callback( :GLFWmousebuttonfun ) do |window_handle, button, action, mods|
+mouse_callback = GLFW::create_callback(:GLFWmousebuttonfun) do |window_handle, button, action, mods|
   $bmModifiers = mods
-  if button == GLFW_MOUSE_BUTTON_LEFT
-    if action == GLFW_RELEASE
+  if button == GLFW::MOUSE_BUTTON_LEFT
+    if action == GLFW::RELEASE
       $xLast = -1
       $yLast = -1
       if $xLastIncr > INERTIA_THRESHOLD
@@ -327,7 +329,7 @@ timer = lambda do
 end
 
 def getUniLoc(program, name)
-  loc = glGetUniformLocation(program, name)
+  loc = GL.GetUniformLocation(program, name)
   if (loc == -1)
     puts "No such uniform named #{name}"
   end
@@ -336,105 +338,127 @@ end
 
 def installBrickShaders(vs_fname,fs_fname)
   # Create a vertex shader object and a fragment shader object
-  brickVS = glCreateShader(GL_VERTEX_SHADER)
-  brickFS = glCreateShader(GL_FRAGMENT_SHADER)
+  brickVS = GL.CreateShader(GL::VERTEX_SHADER)
+  brickFS = GL.CreateShader(GL::FRAGMENT_SHADER)
   # Load source code strings into shaders
   vs_srcs = [File.read(vs_fname)].pack('p')
   vs_lens = [File.size(vs_fname)].pack('I')
-  glShaderSource(brickVS, 1, vs_srcs, vs_lens)
+  GL.ShaderSource(brickVS, 1, vs_srcs, vs_lens)
 
   fs_srcs = [File.read(fs_fname)].pack('p')
   fs_lens = [File.size(fs_fname)].pack('I')
-  glShaderSource(brickFS, 1, fs_srcs, fs_lens)
+  GL.ShaderSource(brickFS, 1, fs_srcs, fs_lens)
 
   # Compile the brick vertex shader, and print out
   #	the compiler log file.
-  glCompileShader(brickVS)
-  vertCompiled_buf = '    '
-  glGetShaderiv(brickVS, GL_COMPILE_STATUS, vertCompiled_buf)
-  vertCompiled = vertCompiled_buf.unpack('L')[0]
+  GL.CompileShader(brickVS)
+  vertCompiled_buf = ' ' * 4
+  GL.GetShaderiv(brickVS, GL::COMPILE_STATUS, vertCompiled_buf)
+  vertCompiled = vertCompiled_buf.unpack1('L')
 
-  infoLog = ' ' * 64
-  glGetShaderInfoLog(brickVS, 64, nil, infoLog)
-  puts "Shader InfoLog:\n#{infoLog}\n"
+  vertCompileLogLength_buf = ' ' * 4
+  GL.GetShaderiv(brickVS, GL::INFO_LOG_LENGTH, vertCompileLogLength_buf)
+  vertCompileLogLength = vertCompileLogLength_buf.unpack1('L')
+
+  if vertCompiled == GL::FALSE
+    infoLog = ' ' * vertCompileLogLength
+    GL.GetShaderInfoLog(brickVS, vertCompileLogLength, nil, infoLog)
+    puts "Vertex Shader InfoLog:\n#{infoLog}\n"
+  end
 
   # Compile the brick fragment shader, and print out
   # the compiler log file.
-  glCompileShader(brickFS)
-  fragCompiled_buf = '    '
-  glGetShaderiv(brickFS, GL_COMPILE_STATUS, fragCompiled_buf)
-  fragCompiled = fragCompiled_buf.unpack('L')[0]
+  GL.CompileShader(brickFS)
+  fragCompiled_buf = ' ' * 4
+  GL.GetShaderiv(brickFS, GL::COMPILE_STATUS, fragCompiled_buf)
+  fragCompiled = fragCompiled_buf.unpack1('L')
 
-  infoLog = ' ' * 64
-  glGetShaderInfoLog(brickFS, 64, nil, infoLog)
-  puts "Shader InfoLog:\n#{infoLog}\n"
+  fragCompileLogLength_buf = ' ' * 4
+  GL.GetShaderiv(brickFS, GL::INFO_LOG_LENGTH, fragCompileLogLength_buf)
+  fragCompileLogLength = fragCompileLogLength_buf.unpack1('L')
+
+  if fragCompiled == GL::FALSE
+    infoLog = ' ' * fragCompileLogLength
+    GL.GetShaderInfoLog(brickFS, fragCompileLogLength, nil, infoLog)
+    puts "Fragment Shader InfoLog:\n#{infoLog}\n"
+  end
 
   return false if (vertCompiled == 0 || fragCompiled == 0)
 
   # Create a program object and attach the two compiled shaders
-  brickProg = glCreateProgram()
-  glAttachShader(brickProg,brickVS)
-  glAttachShader(brickProg,brickFS)
+  brickProg = GL.CreateProgram()
+  GL.AttachShader(brickProg,brickVS)
+  GL.AttachShader(brickProg,brickFS)
 
   # Link the program object and print out the info log
-  glLinkProgram(brickProg)
+  GL.LinkProgram(brickProg)
 
-  linked_buf = '    '
-  glGetProgramiv(brickProg, GL_LINK_STATUS, linked_buf)
-  linked = linked_buf.unpack('L')[0]
+  linked_buf = ' ' * 4
+  GL.GetProgramiv(brickProg, GL::LINK_STATUS, linked_buf)
+  linked = linked_buf.unpack1('L')
 
-  infoLog = ' ' * 64
-  glGetProgramInfoLog(brickProg, 64, nil, infoLog)
-  puts "Program InfoLog:\n#{infoLog}\n"
-  return false if linked==0
+  linkLogLength_buf = ' ' * 4
+  GL.GetShaderiv(brickProg, GL::INFO_LOG_LENGTH, linkLogLength_buf)
+  linkLogLength = linkLogLength_buf.unpack1('L')
+
+  if linked == GL::FALSE
+    infoLog = ' ' * [linkLogLength, 128 * 1024].min # On Windows `linkLogLength` returned 538976288 bytes of whitespace characters, so limit the output size here
+    GL.GetShaderInfoLog(brickProg, linkLogLength, nil, infoLog)
+    puts "Shader Linking InfoLog:\n#{infoLog}\n"
+  end
+
+  return false if linked == 0
 
   # Install program object as part of current state
-  glUseProgram(brickProg)
+  GL.UseProgram(brickProg)
 
   # Set up initial uniform values
-  glUniform3f(getUniLoc(brickProg, "BrickColor"), 1.0, 0.3, 0.2)
-  glUniform3f(getUniLoc(brickProg, "MortarColor"), 0.85, 0.86, 0.84)
-  glUniform2f(getUniLoc(brickProg, "BrickSize"), 0.30, 0.15)
-  glUniform2f(getUniLoc(brickProg, "BrickPct"), 0.90, 0.85)
-  glUniform3f(getUniLoc(brickProg, "LightPosition"), 0.0, 0.0, 4.0)
+  GL.Uniform3f(getUniLoc(brickProg, "BrickColor"), 1.0, 0.3, 0.2)
+  GL.Uniform3f(getUniLoc(brickProg, "MortarColor"), 0.85, 0.86, 0.84)
+  GL.Uniform2f(getUniLoc(brickProg, "BrickSize"), 0.30, 0.15)
+  GL.Uniform2f(getUniLoc(brickProg, "BrickPct"), 0.90, 0.85)
+  GL.Uniform3f(getUniLoc(brickProg, "LightPosition"), 0.0, 0.0, 4.0)
 
   return true
 end
 
 # Main
 
-if __FILE__ == $0
-  glfwInit()
-  window = glfwCreateWindow( 500, 500, "3Dlabs Brick Shader", nil, nil )
-  glfwSetWindowPos( window, 100, 100 )
-  glfwMakeContextCurrent( window )
-  glfwSetKeyCallback( window, key_callback )
-  glfwSetMouseButtonCallback( window, mouse_callback )
-  glfwSetCursorPosCallback( window, cursorpos_callback )
-  glfwSetCursorEnterCallback( window, cursorenter_callback )
-  glfwSetWindowSizeCallback( window, size_callback )
+if __FILE__ == $PROGRAM_NAME
+  GLFW.load_lib(SampleUtil.glfw_library_path)
+  GLFW.Init()
+  window = GLFW.CreateWindow(500, 500, "3Dlabs Brick Shader", nil, nil)
+  GLFW.SetWindowPos(window, 100, 100)
+  GLFW.MakeContextCurrent(window)
+  GLFW.SetKeyCallback(window, key_callback)
+  GLFW.SetMouseButtonCallback(window, mouse_callback)
+  GLFW.SetCursorPosCallback(window, cursorpos_callback)
+  GLFW.SetCursorEnterCallback(window, cursorenter_callback)
+  GLFW.SetWindowSizeCallback(window, size_callback)
+
+  GL.load_lib()
 
   width_ptr = ' ' * 4
   height_ptr = ' ' * 4
-  glfwGetFramebufferSize(window, width_ptr, height_ptr)
-  width = width_ptr.unpack('L')[0]
-  height = height_ptr.unpack('L')[0]
-  size_callback.call( window, width, height )
+  GLFW.GetFramebufferSize(window, width_ptr, height_ptr)
+  width = width_ptr.unpack1('L')
+  height = height_ptr.unpack1('L')
+  size_callback.call(window, width, height)
 
   # Make sure that OpenGL 2.0 is supported by the driver
-  major,minor,*rest = glGetString(GL_VERSION).to_s.split(/\.| /)
+  major,minor,*rest = GL.GetString(GL::VERSION).to_s.split(/\.| /)
   puts "Supports OpenGL Version #{major}.#{minor} #{rest}"
   if major.to_i < 2
-    puts "GL_VERSION major=#{major} minor=#{minor}"
+    puts "GL::VERSION major=#{major} minor=#{minor}"
     puts "Support for OpenGL 2.0 is required for this demo...exiting"
     exit(1)
   end
-  glDepthFunc(GL_LESS)
-  glEnable(GL_DEPTH_TEST)
+  GL.DepthFunc(GL::LESS)
+  GL.Enable(GL::DEPTH_TEST)
 
   nextClearColor()
 
-  key_callback.call(window, GLFW_KEY_UNKNOWN, 0, 0, 0)
+  key_callback.call(window, GLFW::KEY_UNKNOWN, 0, 0, 0)
 
   success = installBrickShaders("brick.vert","brick.frag")
   exit unless success
@@ -444,12 +468,12 @@ if __FILE__ == $0
   $teapot.setup
 
   time_start = Time.now
-  while glfwWindowShouldClose( window ) == 0
+  while GLFW.WindowShouldClose(window) == 0
     timer.call
     play.call
     display.call
-    glfwSwapBuffers( window )
-    glfwPollEvents()
+    GLFW.SwapBuffers(window)
+    GLFW.PollEvents()
 
     time_now = Time.now
     if time_now - time_start > 10
