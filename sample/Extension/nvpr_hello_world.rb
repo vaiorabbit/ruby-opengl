@@ -273,7 +273,7 @@ key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scanco
 end
 
 size_callback = GLFW::create_callback(:GLFWwindowsizefun) do|window_handle, w, h|
-  glViewport(0, 0, w, h)
+  GL.Viewport(0, 0, w, h)
   $window_width = w
   $window_height = h
   $aspect_ratio = $window_height.to_f / $window_width.to_f

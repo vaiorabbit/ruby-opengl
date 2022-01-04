@@ -256,7 +256,6 @@ module GLCodeGeneratorCommon
 
         # Convert by omitting the 'gl' prefix
         modified_api = api[2..-1]
-        pp [api, modified_api]
 
         # Arguments
         arg_names = []
@@ -270,17 +269,17 @@ module GLCodeGeneratorCommon
           end
           arg_names << ((is_ptr || is_array) ? 'Fiddle::TYPE_VOIDP' : resolved_gl_type)
         end
-        out.puts  "    GL::GL_FUNCTION_SYMBOLS << :#{modified_api}"
-        out.print "    GL::GL_FUNCTIONS_ARGS_MAP[:#{modified_api}] = ["
+        out.puts  "    GL::GL_FUNCTION_SYMBOLS << :#{api}"
+        out.print "    GL::GL_FUNCTIONS_ARGS_MAP[:#{api}] = ["
         arg_names.each_with_index do |a, i| out.printf "#{a}%s", (i < arg_names.length-1 ? ", " : "") end
         out.puts "]"
 
         # Return value
         is_ptr = map_entry.ret_name.end_with?( '*' )
-        out.puts "    GL::GL_FUNCTIONS_RETVAL_MAP[:#{modified_api}] = #{is_ptr ? 'Fiddle::TYPE_VOIDP' : GL::GL_TYPE_MAP[map_entry.ret_name]}"
+        out.puts "    GL::GL_FUNCTIONS_RETVAL_MAP[:#{api}] = #{is_ptr ? 'Fiddle::TYPE_VOIDP' : GL::GL_TYPE_MAP[map_entry.ret_name]}"
 
         # Import
-        out.puts "    GL.bind_command(:#{modified_api})"
+        out.puts "    GL.bind_command(:#{api})"
 
         # API entry
 
@@ -290,7 +289,7 @@ module GLCodeGeneratorCommon
 
         out.puts "    GL.module_eval(<<-SRC)"
         out.puts "      def self.#{modified_api}(#{vars})"
-        out.puts "        GL_FUNCTIONS_MAP[:#{modified_api}].call(#{vars})"
+        out.puts "        GL_FUNCTIONS_MAP[:#{api}].call(#{vars})"
         out.puts "      end"
         out.puts "    SRC"
         out.puts "" if (command_index + 1) != commands_count
@@ -305,7 +304,7 @@ module GLCodeGeneratorCommon
       ext_commands.each_pair do |api, map_entry|
         # Convert by omitting the 'gl' prefix
         modified_api = api[2..-1]
-        out.puts "      '#{modified_api}',"
+        out.puts "      '#{api}',"
       end
       out.puts "    ]"
       out.puts "  end # self.get_ext_command_#{ext_name}"

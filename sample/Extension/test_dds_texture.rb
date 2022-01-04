@@ -1,9 +1,7 @@
 require '../util/setup_dll'
-if opengl_bindings_gem_available?
-  require 'opengl_ext'
-else
-  require '../../lib/opengl_ext'
-end
+require 'opengl'
+require 'opengl_ext'
+require 'glfw'
 
 require_relative '../util/texture'
 
@@ -11,67 +9,67 @@ $texture = nil
 
 # Press ESC to exit.
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
-  if key == GLFW_KEY_ESCAPE && action == GLFW_PRESS
-    glfwSetWindowShouldClose(window_handle, 1)
-  end
+  GLFW.SetWindowShouldClose(window_handle, 1) if key == GLFW::KEY_ESCAPE && action == GLFW::PRESS
 end
 
-if __FILE__ == $0
-  glfwInit()
+if __FILE__ == $PROGRAM_NAME
+  GLFW.load_lib(SampleUtil.glfw_library_path)
+  GLFW.Init()
 
-  window = glfwCreateWindow( 640, 480, "OpenGL Extension example", nil, nil )
-  glfwMakeContextCurrent( window )
-  glfwSetKeyCallback( window, key_callback )
+  window = GLFW.CreateWindow(640, 480, "OpenGL Extension example", nil, nil)
+  GLFW.MakeContextCurrent(window)
+  GLFW.SetKeyCallback(window, key_callback)
 
-  OpenGL.setup_extension( 'GL_EXT_texture_compression_s3tc' )
+  GL.load_lib()
+
+  GL.setup_extension('GL_EXT_texture_compression_s3tc')
   Texture.enable_dds_support
-  $texture = Texture.new( '../data/256px-Globe.svg.dds' )
+  $texture = Texture.new('../data/256px-Globe.svg.dds')
   $texture.generate
-  while glfwWindowShouldClose( window ) == 0
-    width_ptr = ' ' * 8
-    height_ptr = ' ' * 8
-    glfwGetFramebufferSize(window, width_ptr, height_ptr)
-    width = width_ptr.unpack('L')[0]
-    height = height_ptr.unpack('L')[0]
+  width_buf = ' ' * 8
+  height_buf = ' ' * 8
+  while GLFW.WindowShouldClose(window) == 0
+    GLFW.GetFramebufferSize(window, width_buf, height_buf)
+    width = width_buf.unpack1('L')
+    height = height_buf.unpack1('L')
     ratio = width.to_f / height.to_f
 
-    glViewport(0, 0, width, height)
-    glClear(GL_COLOR_BUFFER_BIT)
-    glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    glOrtho(-ratio, ratio, -1.0, 1.0, 1.0, -1.0)
-    glMatrixMode(GL_MODELVIEW)
+    GL.Viewport(0, 0, width, height)
+    GL.Clear(GL::COLOR_BUFFER_BIT)
+    GL.MatrixMode(GL::PROJECTION)
+    GL.LoadIdentity()
+    GL.Ortho(-ratio, ratio, -1.0, 1.0, 1.0, -1.0)
+    GL.MatrixMode(GL::MODELVIEW)
 
-    glLoadIdentity()
-    glRotatef(glfwGetTime() * 50.0, 0.0, 0.0, 1.0)
+    GL.LoadIdentity()
+    GL.Rotatef(GLFW.GetTime() * 50.0, 0.0, 0.0, 1.0)
 
-    glEnable(GL_TEXTURE_2D)
+    GL.Enable(GL::TEXTURE_2D)
 
     $texture.bind
 
-    glBegin(GL_QUADS)
+    GL.Begin(GL::QUADS)
 
-    glTexCoord2f(0.0, 0.0)
-    glVertex3f(-1.0, -1.0, 0.0)
+    GL.TexCoord2f(0.0, 0.0)
+    GL.Vertex3f(-1.0, -1.0, 0.0)
 
-    glTexCoord2f(0.0, 1.0)
-    glVertex3f(-1.0, 1.0, 0.0)
+    GL.TexCoord2f(0.0, 1.0)
+    GL.Vertex3f(-1.0, 1.0, 0.0)
 
-    glTexCoord2f(1.0, 1.0)
-    glVertex3f(1.0, 1.0, 0.0)
+    GL.TexCoord2f(1.0, 1.0)
+    GL.Vertex3f(1.0, 1.0, 0.0)
 
-    glTexCoord2f(1.0, 0.0)
-    glVertex3f(1.0, -1.0, 0.0)
+    GL.TexCoord2f(1.0, 0.0)
+    GL.Vertex3f(1.0, -1.0, 0.0)
 
-    glEnd()
+    GL.End()
 
     $texture.unbind
 
-
-    glfwSwapBuffers( window )
-    glfwPollEvents()
+    GLFW.SwapBuffers(window)
+    GLFW.PollEvents()
   end
 
-  glfwDestroyWindow( window )
-  glfwTerminate()
+  GLFW.DestroyWindow(window)
+  GLFW.Terminate()
 end

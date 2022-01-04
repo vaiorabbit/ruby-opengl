@@ -15,6 +15,7 @@ For more samples, visit https://github.com/vaiorabbit/ruby-opengl/tree/master/sa
 
 *   Windows
 	*   Use freeglut (http://freeglut.sourceforge.net).
+	*   See https://sourceforge.net/p/freeglut/code/HEAD/tree/trunk/freeglut/freeglut/COPYING for copyright information
 	*   Put freeglut.dll here.
 	*   Windows pre-compiled binaries:
 		*   http://www.transmissionzero.co.uk/software/freeglut-devel/
