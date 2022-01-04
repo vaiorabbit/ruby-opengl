@@ -6,67 +6,59 @@
 require 'opengl'
 require 'glut'
 
-OpenGL.open_lib()
-GLUT.load_lib()
-
-include OpenGL
-include GLUT
-
 $radian = 0
 
 def display
-  glClear(GL_COLOR_BUFFER_BIT)
-  glLoadIdentity()
-  glRotatef($radian * 50.0, 0.0, 0.0, 1.0)
+  GL.Clear(GL::COLOR_BUFFER_BIT)
+  GL.LoadIdentity()
+  GL.Rotatef($radian * 50.0, 0.0, 0.0, 1.0)
 
-  glBegin(GL_TRIANGLES)
-  glColor3f(1.0, 0.0, 0.0)
-  glVertex3f(-0.6, -0.4, 0.0)
-  glColor3f(0.0, 1.0, 0.0)
-  glVertex3f(0.6, -0.4, 0.0)
-  glColor3f(0.0, 0.0, 1.0)
-  glVertex3f(0.0, 0.6, 0.0)
-  glEnd()
+  GL.Begin(GL::TRIANGLES)
+  GL.Color3f(1.0, 0.0, 0.0)
+  GL.Vertex3f(-0.6, -0.4, 0.0)
+  GL.Color3f(0.0, 1.0, 0.0)
+  GL.Vertex3f(0.6, -0.4, 0.0)
+  GL.Color3f(0.0, 0.0, 1.0)
+  GL.Vertex3f(0.0, 0.6, 0.0)
+  GL.End()
 
-  glutSwapBuffers()
+  GLUT.SwapBuffers()
 end
 
-def reshape( width, height )
+def reshape(width, height)
   ratio = width.to_f / height.to_f
-  glViewport(0, 0, width, height)
-  glMatrixMode(GL_PROJECTION)
-  glLoadIdentity()
-  glOrtho(-ratio, ratio, -1.0, 1.0, 1.0, -1.0)
-  glMatrixMode(GL_MODELVIEW)
+  GL.Viewport(0, 0, width, height)
+  GL.MatrixMode(GL::PROJECTION)
+  GL.LoadIdentity()
+  GL.Ortho(-ratio, ratio, -1.0, 1.0, 1.0, -1.0)
+  GL.MatrixMode(GL::MODELVIEW)
 end
 
-def keyboard( key, x, y )
-  case key
-  when 27 # Press ESC to exit.
-    exit
-  end
+def keyboard(key, x, y)
+  exit if key == 27 # Press ESC to exit.
 end
 
-def timer( value )
+def timer(value)
   $radian += (1.0 * Math::PI / 180.0)
-  glutTimerFunc(0, GLUT.create_callback(:GLUTTimerFunc, method(:timer).to_proc), value)
-  glutPostRedisplay()
+  GLUT.TimerFunc(0, GLUT.create_callback(:GLUTTimerFunc, method(:timer).to_proc), value)
+  GLUT.PostRedisplay()
 end
 
-if __FILE__ == $0
-  glutInit([1].pack('I'), [""].pack('p'))
-  glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH )
-  glutInitWindowSize(640, 480);
-  glutInitWindowPosition(100, 100)
-  glutCreateWindow("Simple example")
-  glutDisplayFunc(GLUT.create_callback(:GLUTDisplayFunc, method(:display).to_proc))
-  glutReshapeFunc(GLUT.create_callback(:GLUTReshapeFunc, method(:reshape).to_proc))
-  glutKeyboardFunc(GLUT.create_callback(:GLUTKeyboardFunc, method(:keyboard).to_proc))
-  glutTimerFunc(0, GLUT.create_callback(:GLUTTimerFunc, method(:timer).to_proc), 0)
+if __FILE__ == $PROGRAM_NAME
+  GLUT.load_lib()
+  GLUT.Init([1].pack('I'), [""].pack('p'))
+  GLUT.InitDisplayMode(GLUT::DOUBLE | GLUT::RGBA | GLUT::DEPTH)
+  GLUT.InitWindowSize(640, 480);
+  GLUT.InitWindowPosition(100, 100)
+  GLUT.CreateWindow("Simple example")
+  GLUT.DisplayFunc(GLUT.create_callback(:GLUTDisplayFunc, method(:display).to_proc))
+  GLUT.ReshapeFunc(GLUT.create_callback(:GLUTReshapeFunc, method(:reshape).to_proc))
+  GLUT.KeyboardFunc(GLUT.create_callback(:GLUTKeyboardFunc, method(:keyboard).to_proc))
+  GLUT.TimerFunc(0, GLUT.create_callback(:GLUTTimerFunc, method(:timer).to_proc), 0)
 
-  OpenGL.import_symbols()
+  GL.load_lib()
 
-  glClearColor( 0.0, 0.0, 0.0, 1 )
+  GL.ClearColor(0.0, 0.0, 0.0, 1)
 
-  glutMainLoop()
+  GLUT.MainLoop()
 end

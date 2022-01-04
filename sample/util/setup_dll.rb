@@ -26,6 +26,19 @@ module SampleUtil
     end
   end
 
+  def self.glut_library_path()
+    case GL.get_platform
+    when :OPENGL_PLATFORM_WINDOWS
+      Dir.pwd + '/../freeglut.dll'
+    when :OPENGL_PLATFORM_MACOSX
+      '/System/Library/Frameworks/GLUT.framework/GLUT'
+    when :OPENGL_PLATFORM_LINUX
+      'libglut.so' # not tested
+    else
+      raise RuntimeError, "Unsupported platform."
+    end
+  end
+
   def self.glfw_library_path()
     case GL.get_platform
     when :OPENGL_PLATFORM_WINDOWS

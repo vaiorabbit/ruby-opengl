@@ -31,23 +31,17 @@ module GL
     end
   end
 
-  # For compatibility with version 1.6 series
-  def self.load_lib(lib = nil, path = nil, output_import_error = false)
-    if lib == nil && path == nil
-      case self.get_platform
-      when :OPENGL_PLATFORM_WINDOWS
-        lib, path = 'opengl32.dll', 'C:/Windows/System32'
-      when :OPENGL_PLATFORM_MACOSX
-        lib, path = 'libGL.dylib','/System/Library/Frameworks/OpenGL.framework/Libraries'
-      else
-        lib = 'libGL.so'
-      end
+  def self.load_lib(lib_path = nil, output_import_error = false)
+    if lib_path == nil
+      lib_path = case self.get_platform
+                 when :OPENGL_PLATFORM_WINDOWS
+                   'C:/Windows/System32/opengl32.dll'
+                 when :OPENGL_PLATFORM_MACOSX
+                   '/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib'
+                 else
+                   libGL.so # not tested
+                 end
     end
-    lib_path = if path
-                 path + '/' + lib
-               else
-                 lib
-               end
 
     open_lib(lib_path: lib_path)
     import_symbols(output_error: output_import_error)

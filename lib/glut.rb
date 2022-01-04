@@ -338,15 +338,15 @@ module GLUT
     if lib_path == nil
       lib_path = case GL.get_platform
                  when :OPENGL_PLATFORM_WINDOWS
-                   lib_path = Dir.pwd + '/freeglut.dll'
+                   Dir.pwd + '/freeglut.dll'
                  when :OPENGL_PLATFORM_MACOSX
-                   lib_path = '/System/Library/Frameworks/GLUT.framework/GLUT'
+                   '/System/Library/Frameworks/GLUT.framework/GLUT'
                  else
-                   lib_path = 'libglut.so' # not tested
+                   'libglut.so' # not tested
                  end
     end
 
-    dlload (lib_path)
+    dlload(lib_path)
 
     import_symbols(output_error) unless @@glut_import_done
   end
@@ -538,7 +538,6 @@ module GLUT
           # We have to abandon name conversion like 'GL_2D, GL_3D_COLOR, GL_4_BYTES, etc.
           # Because constants can't start with a digit or underscore.
           # [Note] This rule has been inherited from Yoshi's very original ruby-opengl (confirmed with opengl-0.32g, 2004-07-17).
-          const_set(cs, GLUT.const_get(constant)) # GL_2D => GL_2D
         else
           # Convert by omitting the 'GLUT_' prefix
           const_set(cs[5..-1], GLUT.const_get(constant))

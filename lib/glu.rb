@@ -226,15 +226,15 @@ module GLU
     if lib_path == nil
       lib_path = case GL.get_platform
                  when :OPENGL_PLATFORM_WINDOWS
-                   lib_path = 'C:/Windows/System32/GLU32.dll'
+                   'C:/Windows/System32/GLU32.dll'
                  when :OPENGL_PLATFORM_MACOSX
-                   lib_path = '/System/Library/Frameworks/OpenGL.framework/Libraries/libGLU.dylib'
+                   '/System/Library/Frameworks/OpenGL.framework/Libraries/libGLU.dylib'
                  else
-                   lib = 'libGLU.so' # not tested
+                   'libGLU.so' # not tested
                  end
     end
 
-    dlload (lib_path)
+    dlload(lib_path)
 
     import_symbols(output_error) unless @@glu_import_done
   end
@@ -244,61 +244,61 @@ module GLU
     'void gluBeginPolygon (void*)',
     'void gluBeginSurface (void*)',
     'void gluBeginTrim (void*)',
-    'int gluBuild1DMipmapLevels (unsigned int, int, int, unsigned int, unsigned int, int, int, int, void*)', # Unavailable on Windows
-    'int gluBuild1DMipmaps (unsigned int, int, int, unsigned int, unsigned int,  void*)',
-    'int gluBuild2DMipmapLevels (unsigned int, int, int, int, unsigned int, unsigned int, int, int, int,  void*)', # Unavailable on Windows
-    'int gluBuild2DMipmaps (unsigned int, int, int, int, unsigned int, unsigned int,  void*)',
-    'int gluBuild3DMipmapLevels (unsigned int, int, int, int, int, unsigned int, unsigned int, int, int, int,  void*)', # Unavailable on Windows
-    'int gluBuild3DMipmaps (unsigned int, int, int, int, int, unsigned int, unsigned int,  void*)', # Unavailable on Windows
-    'unsigned char gluCheckExtension ( unsigned char*,  unsigned char*)', # Unavailable on Windows
-    'void gluCylinder (void*, double, double, double, int, int)',
+    'int32_t gluBuild1DMipmapLevels (uint32_t, int32_t, int32_t, uint32_t, uint32_t, int32_t, int32_t, int32_t, void*)', # Unavailable on Windows
+    'int32_t gluBuild1DMipmaps (uint32_t, int32_t, int32_t, uint32_t, uint32_t, void*)',
+    'int32_t gluBuild2DMipmapLevels (uint32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t, int32_t, int32_t, int32_t, void*)', # Unavailable on Windows
+    'int32_t gluBuild2DMipmaps (uint32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t,  void*)',
+    'int32_t gluBuild3DMipmapLevels (uint32_t, int32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t, int32_t, int32_t, int32_t, void*)', # Unavailable on Windows
+    'int32_t gluBuild3DMipmaps (uint32_t, int32_t, int32_t, int32_t, int32_t, uint32_t, uint32_t, void*)', # Unavailable on Windows
+    'uint8_t gluCheckExtension (uint8_t*,  uint8_t*)', # Unavailable on Windows
+    'void gluCylinder (void*, double, double, double, int32_t, int32_t)',
     'void gluDeleteNurbsRenderer (void*)',
     'void gluDeleteQuadric (void*)',
     'void gluDeleteTess (void*)',
-    'void gluDisk (void*, double, double, int, int)',
+    'void gluDisk (void*, double, double, int32_t, int32_t)',
     'void gluEndCurve (void*)',
     'void gluEndPolygon (void*)',
     'void gluEndSurface (void*)',
     'void gluEndTrim (void*)',
-    'unsigned char* gluErrorString (unsigned int)',
-    'void gluGetNurbsProperty (void*, unsigned int, float*)',
-    'unsigned char* gluGetString (unsigned int)',
-    'void gluGetTessProperty (void*, unsigned int, double*)',
-    'void gluLoadSamplingMatrices (void*,  float *,  float *,  int *)',
-    'void gluLookAt (double, double, double , double, double , double, double , double, double)',
+    'uint8_t* gluErrorString (uint32_t)',
+    'void gluGetNurbsProperty (void*, uint32_t, float*)',
+    'uint8_t* gluGetString (uint32_t)',
+    'void gluGetTessProperty (void*, uint32_t, double*)',
+    'void gluLoadSamplingMatrices (void*, float*, float*, int32_t*)',
+    'void gluLookAt (double, double, double, double, double, double, double, double, double)',
     'void* gluNewNurbsRenderer ()',
     'void* gluNewQuadric ()',
     'void* gluNewTess ()',
-    'void gluNextContour (void*, unsigned int)',
-    'void gluNurbsCallback (void*, unsigned int, void*)',
+    'void gluNextContour (void*, uint32_t)',
+    'void gluNurbsCallback (void*, uint32_t, void*)',
     'void gluNurbsCallbackData (void*, void*)', # Unavailable on Windows
     'void gluNurbsCallbackDataEXT (void*, void*)', # Unavailable on Windows
-    'void gluNurbsCurve (void*, int, float *, int, float* , int, unsigned int)',
-    'void gluNurbsProperty (void*, unsigned int, float)',
-    'void gluNurbsSurface (void*, int, float*, int, float*, int, int, float*, int, int, unsigned int)',
+    'void gluNurbsCurve (void*, int32_t, float*, int32_t, float*, int32_t, uint32_t)',
+    'void gluNurbsProperty (void*, uint32_t, float)',
+    'void gluNurbsSurface (void*, int32_t, float*, int32_t, float*, int32_t, int32_t, float*, int32_t, int32_t, uint32_t)',
     'void gluOrtho2D (double, double, double, double)',
-    'void gluPartialDisk (void*, double, double, int, int, double, double)',
+    'void gluPartialDisk (void*, double, double, int32_t, int32_t, double, double)',
     'void gluPerspective (double, double, double, double)',
-    'void gluPickMatrix (double, double, double, double, int *)',
-    'int gluProject (double, double, double,  double *,  double *, int *, double*, double*, double*)',
-    'void gluPwlCurve (void*, int, float*, int, unsigned int)',
-    'void gluQuadricCallback (void*, unsigned int, void*)',
-    'void gluQuadricDrawStyle (void*, unsigned int)',
-    'void gluQuadricNormals (void*, unsigned int)',
-    'void gluQuadricOrientation (void*, unsigned int)',
-    'void gluQuadricTexture (void*, unsigned char)',
-    'int gluScaleImage (unsigned int, int, int, unsigned int,  void*, int, int, unsigned int, void*)',
-    'void gluSphere (void*, double, int, int)',
+    'void gluPickMatrix (double, double, double, double, int32_t*)',
+    'int32_t gluProject (double, double, double, double*, double*, int32_t*, double*, double*, double*)',
+    'void gluPwlCurve (void*, int32_t, float*, int32_t, uint32_t)',
+    'void gluQuadricCallback (void*, uint32_t, void*)',
+    'void gluQuadricDrawStyle (void*, uint32_t)',
+    'void gluQuadricNormals (void*, uint32_t)',
+    'void gluQuadricOrientation (void*, uint32_t)',
+    'void gluQuadricTexture (void*, uint8_t)',
+    'int32_t gluScaleImage (uint32_t, int32_t, int32_t, uint32_t, void*, int32_t, int32_t, uint32_t, void*)',
+    'void gluSphere (void*, double, int32_t, int32_t)',
     'void gluTessBeginContour (void*)',
     'void gluTessBeginPolygon (void*, void*)',
-    'void gluTessCallback (void*, unsigned int, void*)',
+    'void gluTessCallback (void*, uint32_t, void*)',
     'void gluTessEndContour (void*)',
     'void gluTessEndPolygon (void*)',
     'void gluTessNormal (void*, double, double, double)',
-    'void gluTessProperty (void*, unsigned int, double)',
-    'void gluTessVertex (void*, double *, void*)',
-    'int gluUnProject (double, double, double,  double *,  double *,  int *, double*, double*, double*)',
-    'int gluUnProject4 (double, double, double, double,  double *,  double *,  int *, double, double, double*, double*, double*, double*)', # Unavailable on Windows
+    'void gluTessProperty (void*, uint32_t, double)',
+    'void gluTessVertex (void*, double*, void*)',
+    'int32_t gluUnProject (double, double, double, double*, double*, int32_t*, double*, double*, double*)',
+    'int32_t gluUnProject4 (double, double, double, double, double*, double*, int32_t*, double, double, double*, double*, double*, double*)', # Unavailable on Windows
   ]
 
   def self.import_symbols(output_error = false)
@@ -329,7 +329,6 @@ module GLU
           # We have to abandon name conversion like 'GL_2D, GL_3D_COLOR, GL_4_BYTES, etc.
           # Because constants can't start with a digit or underscore.
           # [Note] This rule has been inherited from Yoshi's very original ruby-opengl (confirmed with opengl-0.32g, 2004-07-17).
-          const_set(cs, GLU.const_get(constant)) # GL_2D => GL_2D
         else
           # Convert by omitting the 'GLU_' prefix
           const_set(cs[4..-1], GLU.const_get(constant))

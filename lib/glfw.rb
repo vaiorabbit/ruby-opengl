@@ -661,7 +661,6 @@ module GLFW
           # We have to abandon name conversion like 'GL_2D, GL_3D_COLOR, GL_4_BYTES, etc.
           # Because constants can't start with a digit or underscore.
           # [Note] This rule has been inherited from Yoshi's very original ruby-opengl (confirmed with opengl-0.32g, 2004-07-17).
-          const_set(cs, GLFW.const_get(constant)) # GL_2D => GL_2D
         else
           # Convert by omitting the 'GLFW_' prefix like GLFW::GLFW_KEY_ESCAPE into GLFW::KEY_ESCAPE
           const_set(cs[5..-1], GLFW.const_get(constant))

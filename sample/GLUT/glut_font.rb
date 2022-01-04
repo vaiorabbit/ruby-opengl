@@ -3,62 +3,54 @@ require 'opengl'
 require 'glu'
 require 'glut'
 
-include OpenGL
-include GLU
-include GLUT
-
-OpenGL.load_lib()
-GLU.load_lib()
-GLUT.load_lib()
-
-
 def display
-  glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT )
+  GL.Clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT)
 
-  glColor3f( 0.0, 1.0, 0.0 )
+  GL.Color3f(0.0, 1.0, 0.0)
   messages = ["opengl-bindings", "http://rubygems.org/gems/opengl-bindings", "http://github.com/vaiorabbit/ruby-opengl"]
   messages.each_with_index do |m, i|
-    glRasterPos2i( 10, 45 - 15 * i )
+    GL.RasterPos2i(10, 45 - 15 * i)
     m.each_char do |c|
-      glutBitmapCharacter( GLUT_BITMAP_9_BY_15, c.ord );
+      GLUT.BitmapCharacter(GLUT::BITMAP_9_BY_15, c.ord)
     end
   end
 
-  glutSwapBuffers()
+  GLUT.SwapBuffers()
 end
 
-def reshape( width, height )
-  glViewport( 0, 0, width, height )
+def reshape(width, height)
+  GL.Viewport(0, 0, width, height)
 
-  glMatrixMode( GL_PROJECTION )
-  glLoadIdentity
-  gluOrtho2D( 0.0, width.to_f, 0.0, height.to_f )
+  GL.MatrixMode(GL::PROJECTION)
+  GL.LoadIdentity()
+  GLU.Ortho2D(0.0, width.to_f, 0.0, height.to_f)
 
-  glMatrixMode( GL_MODELVIEW )
-  glLoadIdentity
+  GL.MatrixMode(GL::MODELVIEW)
+  GL.LoadIdentity()
 end
 
-def keyboard( key, x, y )
-  case key
-  when 27 # 27 == ESC
-    exit
-  end
+def keyboard(key, x, y)
+  exit if key == 27 # Press ESC to exit.
 end
 
-if __FILE__ == $0
-  glutInit([1].pack('I'), [""].pack('p'))
-  glutInitDisplayMode( GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH )
-  glutInitWindowSize(500, 100);
-  glutInitWindowPosition(100, 100)
-  glutCreateWindow("test")
-  glutDisplayFunc(GLUT.create_callback(:GLUTDisplayFunc, method(:display).to_proc))
-  glutReshapeFunc(GLUT.create_callback(:GLUTReshapeFunc, method(:reshape).to_proc))
-  glutKeyboardFunc(GLUT.create_callback(:GLUTKeyboardFunc, method(:keyboard).to_proc))
+if __FILE__ == $PROGRAM_NAME
+  GLUT.load_lib()
+  GLUT.Init([1].pack('I'), [""].pack('p'))
+  GLUT.InitDisplayMode(GLUT::DOUBLE | GLUT::RGBA | GLUT::DEPTH)
+  GLUT.InitWindowSize(500, 100)
+  GLUT.InitWindowPosition(100, 100)
+  GLUT.CreateWindow("test")
+  GLUT.DisplayFunc(GLUT.create_callback(:GLUTDisplayFunc, method(:display).to_proc))
+  GLUT.ReshapeFunc(GLUT.create_callback(:GLUTReshapeFunc, method(:reshape).to_proc))
+  GLUT.KeyboardFunc(GLUT.create_callback(:GLUTKeyboardFunc, method(:keyboard).to_proc))
 
-  glClearColor( 0.0, 0.0, 0.0, 1 )
+  GL.load_lib()
+  GLU.load_lib()
 
-  glEnable( GL_DEPTH_TEST )
-  glDepthFunc( GL_LESS )
+  GL.ClearColor(0.0, 0.0, 0.0, 1)
 
-  glutMainLoop()
+  GL.Enable(GL::DEPTH_TEST)
+  GL.DepthFunc(GL::LESS)
+
+  GLUT.MainLoop()
 end
