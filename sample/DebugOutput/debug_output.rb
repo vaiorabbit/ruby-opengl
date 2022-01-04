@@ -59,7 +59,7 @@ $debug_log_callback = Fiddle::Closure::BlockCaller.new(cb_retval, cb_args, Fiddl
   print "[OpenGL Error] Message: ", message.to_s, "\n"
 }
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   GLFW.load_lib(SampleUtil.glfw_library_path)
   GLFW.Init()
   GLFW.WindowHint(GLFW::OPENGL_DEBUG_CONTEXT, GLFW::TRUE)

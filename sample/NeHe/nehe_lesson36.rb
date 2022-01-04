@@ -1,6 +1,8 @@
 # Nehe Lesson 36 Code
 # modified from immediate mode to use vertex arrays for helix drawing
 require '../util/setup_dll'
+require 'opengl'
+require 'glfw'
 
 $window_width = nil
 $window_height = nil
@@ -298,7 +300,7 @@ idle = lambda do
 end
 
 # Main
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   glfwInit()
   window = glfwCreateWindow( 640, 480, "NeHe's Lesson 36", nil, nil )
   glfwSetWindowPos( window, 100, 100 )

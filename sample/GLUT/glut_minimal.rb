@@ -73,7 +73,7 @@ $keyboard = GLUT.create_callback(:GLUTKeyboardFunc) do |key, x, y|
   end
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   GLUT.load_lib(SampleUtil.glut_library_path)
   GLUT.Init([1].pack('I'), [""].pack('p'))
   GLUT.InitDisplayMode(GLUT::DOUBLE | GLUT::RGBA | GLUT::DEPTH)

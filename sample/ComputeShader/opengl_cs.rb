@@ -202,7 +202,7 @@ size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do|window_handle, w,
 	GL.Viewport(0, 0, w, h)
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   GLFW.load_lib(SampleUtil.glfw_library_path)
   GLFW.Init()
   window = GLFW.CreateWindow( WIN_WIDTH, WIN_HEIGHT, "OpenGL compute shader demo", nil, nil )

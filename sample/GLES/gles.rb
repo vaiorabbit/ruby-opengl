@@ -99,7 +99,7 @@ end
 
 # Main
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   GLFW.load_lib(SampleUtil.glfw_library_path)
   GLFW.Init()
   GLFW.WindowHint(GLFW::CONTEXT_VERSION_MAJOR, 3)
