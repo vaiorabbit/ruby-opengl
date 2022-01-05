@@ -1,3 +1,7 @@
+2022-01-05  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* Samples now use new style API
+
 2022-01-04  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* [Breaking Change] Changed naming conventions (glViewport -> GL.Viewport, GL_TRUE -> GL::TRUE)
