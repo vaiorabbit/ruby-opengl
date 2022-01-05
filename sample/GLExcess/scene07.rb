@@ -53,12 +53,12 @@ class Scene07
     @f_num=500 # const int
     @f_acn=250 # const int
 
-    @particles = Array.new( @f_num ) { Particle.new }
-    @accs = Array.new( @f_acn ) { Acc.new }
+    @particles = Array.new(@f_num) { Particle.new }
+    @accs = Array.new(@f_acn) { Acc.new }
 
   end
 
-  def f_initacc( naccs ) # naccs : int
+  def f_initacc(naccs) # naccs : int
     @accs[naccs].amod=rand()
     @accs[naccs].arot=rand(360)
     @accs[naccs].aalfa=rand()
@@ -109,35 +109,35 @@ class Scene07
     end
 
     for cycle in 0...@f_acn do
-      f_initacc( cycle )
+      f_initacc(cycle)
     end
 
-    glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    gluPerspective( 45.0, 4.0/3.0, 0.1, 100.0 )
-    glMatrixMode(GL_MODELVIEW)
-    glLoadIdentity()
+    GL.MatrixMode(GL::PROJECTION)
+    GL.LoadIdentity()
+    GLU.Perspective(45.0, 4.0/3.0, 0.1, 100.0)
+    GL.MatrixMode(GL::MODELVIEW)
+    GL.LoadIdentity()
 
-    glShadeModel(GL_FLAT)
-    glClearColor( 0.0, 0.0, 0.0, 0.0 )
-    glClearDepth(1.0)
-    glEnable(GL_DEPTH_TEST)
-    glDepthFunc(GL_LEQUAL)
-    glEnable (GL_CULL_FACE)
-    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
+    GL.ShadeModel(GL::FLAT)
+    GL.ClearColor(0.0, 0.0, 0.0, 0.0)
+    GL.ClearDepth(1.0)
+    GL.Enable(GL::DEPTH_TEST)
+    GL.DepthFunc(GL::LEQUAL)
+    GL.Enable (GL::CULL_FACE)
+    GL.Hint(GL::PERSPECTIVE_CORRECTION_HINT, GL::NICEST)
+    GL.PolygonMode(GL::FRONT_AND_BACK, GL::FILL)
 
-    glEnable(GL_TEXTURE_GEN_S)
-    glEnable(GL_TEXTURE_GEN_T)
-    glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP)
-    glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP)
-    glFogf(GL_FOG_MODE,GL_EXP2)
-    glFogf(GL_FOG_DENSITY,0.025)
-    glFogfv(GL_FOG_COLOR,[0.0, 0.0, 0.0, 1.0].pack('F4'))
-    glEnable(GL_FOG)
-    glEnable(GL_TEXTURE_2D)
+    GL.Enable(GL::TEXTURE_GEN_S)
+    GL.Enable(GL::TEXTURE_GEN_T)
+    GL.TexGeni(GL::T, GL::TEXTURE_GEN_MODE, GL::SPHERE_MAP)
+    GL.TexGeni(GL::S, GL::TEXTURE_GEN_MODE, GL::SPHERE_MAP)
+    GL.Fogf(GL::FOG_MODE,GL::EXP2)
+    GL.Fogf(GL::FOG_DENSITY,0.025)
+    GL.Fogfv(GL::FOG_COLOR,[0.0, 0.0, 0.0, 1.0].pack('F4'))
+    GL.Enable(GL::FOG)
+    GL.Enable(GL::TEXTURE_2D)
 
-    glBlendFunc(GL_SRC_ALPHA,GL_ONE)
+    GL.BlendFunc(GL::SRC_ALPHA,GL::ONE)
   end
 
   def clean
@@ -147,138 +147,138 @@ class Scene07
     @need_initialization   = true
   end
 
-   def f_drawquad( size ) # size : GLfloat
+   def f_drawquad(size) # size : GLfloat
      hs = 0.5*size
-     glBegin(GL_QUADS)
-     glTexCoord2f(0.0, 0.0)
-     glVertex3f(-hs,-hs,0)
-     glTexCoord2f(1.0, 0.0)
-     glVertex3f(-hs,hs,0)
-     glTexCoord2f(1.0, 1.0)
-     glVertex3f(hs,hs,0)
-     glTexCoord2f(0.0, 1.0)
-     glVertex3f(hs,-hs,0)
-     glEnd()
+     GL.Begin(GL::QUADS)
+     GL.TexCoord2f(0.0, 0.0)
+     GL.Vertex3f(-hs,-hs,0)
+     GL.TexCoord2f(1.0, 0.0)
+     GL.Vertex3f(-hs,hs,0)
+     GL.TexCoord2f(1.0, 1.0)
+     GL.Vertex3f(hs,hs,0)
+     GL.TexCoord2f(0.0, 1.0)
+     GL.Vertex3f(hs,-hs,0)
+     GL.End()
    end
 
-  def render( globtime )
-    if ( @need_initialization )
+  def render(globtime)
+    if (@need_initialization)
       initGL()
       @need_initialization = false
     end
 
     @f_time  = 10 * globtime
 
-    if ( @f_zeta < 32.5 )
-      if ( @f_timer < 1.0 )
+    if (@f_zeta < 32.5)
+      if (@f_timer < 1.0)
         @f_frames += 1
       else
         @f_factor = 20.0 / @f_frames
       end
-      glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
+      GL.Clear(GL::COLOR_BUFFER_BIT|GL::DEPTH_BUFFER_BIT)
 
-      glEnable(GL_TEXTURE_GEN_S)
-      glEnable(GL_TEXTURE_GEN_T)
-      glLoadIdentity()
-      gluLookAt(5,5,-3+@f_zeta,10,10,10,0,1,0)
+      GL.Enable(GL::TEXTURE_GEN_S)
+      GL.Enable(GL::TEXTURE_GEN_T)
+      GL.LoadIdentity()
+      GLU.LookAt(5,5,-3+@f_zeta,10,10,10,0,1,0)
 
-      glPushMatrix()
-      glTranslatef(10,10,10)
+      GL.PushMatrix()
+      GL.Translatef(10,10,10)
       @texture["text"].use
-      glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP)
-      glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_OBJECT_LINEAR)
-      glScalef(30,30,30)
-      glFrontFace(GL_CW)
-      glColor3ub(128,160,192)
-      glPushMatrix()
-      glRotatef(@f_rot,1,0,0)
-      glutSolidSphere(1,50,50)
-      glPopMatrix()
-      glPopMatrix()
+      GL.TexGeni(GL::S, GL::TEXTURE_GEN_MODE, GL::SPHERE_MAP)
+      GL.TexGeni(GL::T, GL::TEXTURE_GEN_MODE, GL::OBJECT_LINEAR)
+      GL.Scalef(30,30,30)
+      GL.FrontFace(GL::CW)
+      GL.Color3ub(128,160,192)
+      GL.PushMatrix()
+      GL.Rotatef(@f_rot,1,0,0)
+      geomSolidSphere(1,50,50)
+      GL.PopMatrix()
+      GL.PopMatrix()
 
-      glFrontFace(GL_CCW)
+      GL.FrontFace(GL::CCW)
       @texture["text"].use
-      glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP)
-      glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP)
-      glColor4ub(255,255,255,128)
+      GL.TexGeni(GL::T, GL::TEXTURE_GEN_MODE, GL::SPHERE_MAP)
+      GL.TexGeni(GL::S, GL::TEXTURE_GEN_MODE, GL::SPHERE_MAP)
+      GL.Color4ub(255,255,255,128)
       9.downto(0) do |f_x|
         9.downto(0) do |f_y|
           9.downto(0) do |f_z|
-            glPushMatrix()
-            glTranslatef(2*f_x/@f_end,2*f_y/@f_end,2*f_z/@f_end)
+            GL.PushMatrix()
+            GL.Translatef(2*f_x/@f_end,2*f_y/@f_end,2*f_z/@f_end)
             case @f_side[f_x][f_y][f_z]
             when 0
-              glRotatef( @f_rot, 1,0,0 )
+              GL.Rotatef(@f_rot, 1,0,0)
             when 1
-              glRotatef( @f_rot, 0,1,0 )
+              GL.Rotatef(@f_rot, 0,1,0)
             when 2
-              glRotatef( @f_rot, 0,0,1 )
+              GL.Rotatef(@f_rot, 0,0,1)
             when 3
-              glRotatef( @f_rot, 0,1,1 )
+              GL.Rotatef(@f_rot, 0,1,1)
             when 4
-              glRotatef( @f_rot, 1,0,1 )
+              GL.Rotatef(@f_rot, 1,0,1)
             when 5
-              glRotatef( @f_rot, 1,1,0 )
+              GL.Rotatef(@f_rot, 1,1,0)
             when 6
-              glRotatef( @f_rot, 1,1,1 )
+              GL.Rotatef(@f_rot, 1,1,1)
             end
 
-            if ( (@f_timer>12.75)&&(f_x==3)&&(f_y==3)&&(f_z==4)&&(@f_timer<17) )
-              glColor4f(1,0.65,0.35,0.75)
-              glDisable(GL_DEPTH_TEST)
-              glDisable(GL_CULL_FACE)
-              glEnable(GL_BLEND)
+            if ((@f_timer>12.75)&&(f_x==3)&&(f_y==3)&&(f_z==4)&&(@f_timer<17))
+              GL.Color4f(1,0.65,0.35,0.75)
+              GL.Disable(GL::DEPTH_TEST)
+              GL.Disable(GL::CULL_FACE)
+              GL.Enable(GL::BLEND)
               value=(@f_angle[f_x][f_y][f_z]/(360*2))
               tot=5
               for times in 0...tot do
-                glColor4f(1,0.65,0.35,1.0) if (times==0)
-                glColor4f(1,0.65,0.35,0.5-0.5*(times.to_f)/tot)
-                glutSolidCube(value+0.035*(times.to_f)/tot)
+                GL.Color4f(1,0.65,0.35,1.0) if (times==0)
+                GL.Color4f(1,0.65,0.35,0.5-0.5*(times.to_f)/tot)
+                geomSolidCube(value+0.035*(times.to_f)/tot)
               end
-              glDisable(GL_TEXTURE_GEN_S)
-              glDisable(GL_TEXTURE_GEN_T)
+              GL.Disable(GL::TEXTURE_GEN_S)
+              GL.Disable(GL::TEXTURE_GEN_T)
 
               @texture["circlefill"].use
-              glColor4f(1,1,1,1)
-              glRotatef(-70,0,1,0)
-              glRotatef(45,1,0,0)
+              GL.Color4f(1,1,1,1)
+              GL.Rotatef(-70,0,1,0)
+              GL.Rotatef(45,1,0,0)
               tm=@f_time
               for nac in 0...@f_acn do
                 arg = (tm - @accs[nac].ainit).to_f
                 asker = 1.5*@accs[nac].aspeed*(arg*arg)/1000000.0
-                glPushMatrix()
-                glRotatef(@accs[nac].arot,0,0,1)
-                glTranslatef(0.35*(@accs[nac].amod-asker),0,0)
-                glColor4f(0.5,0.5,0.5,@accs[nac].aalfa*asker*3.5)
-                f_drawquad( @accs[nac].arad/8.0+asker/10.0 )
-                glPopMatrix()
+                GL.PushMatrix()
+                GL.Rotatef(@accs[nac].arot,0,0,1)
+                GL.Translatef(0.35*(@accs[nac].amod-asker),0,0)
+                GL.Color4f(0.5,0.5,0.5,@accs[nac].aalfa*asker*3.5)
+                f_drawquad(@accs[nac].arad/8.0+asker/10.0)
+                GL.PopMatrix()
                 f_initacc(nac) if (0.35*(@accs[nac].amod-asker)<0)
               end
-              glColor4f(1,1,1,1)
+              GL.Color4f(1,1,1,1)
               f_drawquad(0.2+0.1*Math.sin(@f_timer))
 
-              glEnable(GL_DEPTH_TEST)
-              glEnable(GL_CULL_FACE)
-              glDisable(GL_BLEND)
-              glColor4ub(255,255,255,128)
+              GL.Enable(GL::DEPTH_TEST)
+              GL.Enable(GL::CULL_FACE)
+              GL.Disable(GL::BLEND)
+              GL.Color4ub(255,255,255,128)
             else
-              glutSolidCube( (@f_angle[f_x][f_y][f_z]/(360*2)) )
+              geomSolidCube((@f_angle[f_x][f_y][f_z]/(360*2)))
             end
-            glPopMatrix()
+            GL.PopMatrix()
           end
         end
       end
 
-      glFrontFace(GL_CW)
+      GL.FrontFace(GL::CW)
 
-      glLoadIdentity()
-      glTranslatef(0,0,-15)
-      glEnable(GL_BLEND)
-      glDisable(GL_TEXTURE_GEN_S)
-      glDisable(GL_TEXTURE_GEN_T)
-      glDisable(GL_DEPTH_TEST)
+      GL.LoadIdentity()
+      GL.Translatef(0,0,-15)
+      GL.Enable(GL::BLEND)
+      GL.Disable(GL::TEXTURE_GEN_S)
+      GL.Disable(GL::TEXTURE_GEN_T)
+      GL.Disable(GL::DEPTH_TEST)
       @f_shadetop = 255*(Math.sin((@f_zeta/40)*1.5*3.1415)) if (@f_zeta>0.0)
-      glRotatef(-100*Math.sqrt(Math.sqrt(@f_zeta*@f_zeta)),0,0,1)
+      GL.Rotatef(-100*Math.sqrt(Math.sqrt(@f_zeta*@f_zeta)),0,0,1)
 
       if (((@f_zeta>0)&&(@f_zeta<0.9))    ||
           ((@f_zeta>2.2)&&(@f_zeta<3.5))  ||
@@ -288,7 +288,7 @@ class Scene07
           ((@f_zeta>12.7)&&(@f_zeta<13.0))||
           ((@f_zeta>15.3)&&(@f_zeta<15.6))||
           ((@f_zeta>20.3)&&(@f_zeta<20.5))||
-          ((@f_zeta>22.2)&&(@f_zeta<23.5)) )
+          ((@f_zeta>22.2)&&(@f_zeta<23.5)))
         @f_factor=@f_factor/4.5 if ((@f_zeta>10)&&(@f_zeta<10.8))
         @f_shade-=(20.0*@f_factor).to_i
         @f_shade=0 if (@f_shade<0)
@@ -303,158 +303,158 @@ class Scene07
       end
       @f_shade = 0 if @f_shade < 0
 
-      glPushMatrix()
-      glRotatef(30,0,0,1)
-      glTranslatef(-0.2*@f_zeta,0,0)
-      glColor4ub(128,96,64,@f_shade)
+      GL.PushMatrix()
+      GL.Rotatef(30,0,0,1)
+      GL.Translatef(-0.2*@f_zeta,0,0)
+      GL.Color4ub(128,96,64,@f_shade)
 
       @texture["circlefill"].use
       f_drawquad(1.75)
-      glColor4ub(255,255,255,@f_shade)
+      GL.Color4ub(255,255,255,@f_shade)
       f_drawquad(1.0)
 
       @texture["circleempty"].use
-      glTranslatef(-0.1*@f_zeta,0,0)
-      glColor4ub(192,64,64,@f_shade)
+      GL.Translatef(-0.1*@f_zeta,0,0)
+      GL.Color4ub(192,64,64,@f_shade)
       f_drawquad(2.75)
 
       @texture["circlefill"].use
-      glTranslatef(-0.15*@f_zeta,0,0)
-      glColor4ub(128,212,64,@f_shade)
+      GL.Translatef(-0.15*@f_zeta,0,0)
+      GL.Color4ub(128,212,64,@f_shade)
       f_drawquad(0.5)
 
       @texture["circle"].use
-      glTranslatef(0.35*@f_zeta,0,0)
-      glColor4ub(128,128,128,@f_shade/2)
+      GL.Translatef(0.35*@f_zeta,0,0)
+      GL.Color4ub(128,128,128,@f_shade/2)
       f_drawquad(0.5)
-      glTranslatef(-0.025*@f_zeta,0,0)
-      glColor4ub(96,128,192,@f_shade/2)
+      GL.Translatef(-0.025*@f_zeta,0,0)
+      GL.Color4ub(96,128,192,@f_shade/2)
       f_drawquad(1.0)
-      glPopMatrix()
+      GL.PopMatrix()
 
-      glPushMatrix()
-      glRotatef(30,0,0,1)
-      glTranslatef(0.15*@f_zeta,0,0)
-      glColor4ub(128,128,128,@f_shade/2)
+      GL.PushMatrix()
+      GL.Rotatef(30,0,0,1)
+      GL.Translatef(0.15*@f_zeta,0,0)
+      GL.Color4ub(128,128,128,@f_shade/2)
       f_drawquad(1.75)
-      glTranslatef(0.05*@f_zeta,0,0)
+      GL.Translatef(0.05*@f_zeta,0,0)
       f_drawquad(1.25)
 
       @texture["circlefill"].use
-      glTranslatef(0.1*@f_zeta,0,0)
-      glColor4ub(64,64,192,@f_shade)
+      GL.Translatef(0.1*@f_zeta,0,0)
+      GL.Color4ub(64,64,192,@f_shade)
       f_drawquad(1.0)
-      glColor4ub(64,128,64,@f_shade)
+      GL.Color4ub(64,128,64,@f_shade)
       f_drawquad(0.8)
-      glColor4ub(64,64,128,@f_shade)
+      GL.Color4ub(64,64,128,@f_shade)
       f_drawquad(0.6)
-      glPopMatrix()
+      GL.PopMatrix()
 
       @texture["sground"].use
-      glColor4ub(255,255,255,@f_flare/1.5)
-      glPushMatrix()
-      glRotatef(3*@f_rot,0,0,1)
+      GL.Color4ub(255,255,255,@f_flare/1.5)
+      GL.PushMatrix()
+      GL.Rotatef(3*@f_rot,0,0,1)
       f_drawquad(5+10*Math.cos(@f_rot/10)*Math.cos(@f_rot/10))
       @texture["white"].use 
-      glColor4ub(255,255,255,@f_flare)
+      GL.Color4ub(255,255,255,@f_flare)
       f_drawquad(5+5*Math.cos(@f_rot/10)*Math.cos(@f_rot/10))
-      glRotatef(@f_rot,0,0,1)
+      GL.Rotatef(@f_rot,0,0,1)
       @texture["white"].use
       f_drawquad(2+5*Math.sin(@f_rot/10)*Math.sin(@f_rot/10))
       @texture["circlefill"].use
-      glColor4ub(255,255,255,@f_shade/2)
-      glPopMatrix()
+      GL.Color4ub(255,255,255,@f_shade/2)
+      GL.PopMatrix()
       f_drawquad(30.0)
 
-      if ( (@f_shadetop<0)&&(@f_zeta>0.0) )
+      if ((@f_shadetop<0)&&(@f_zeta>0.0))
         @particles.each_with_index do |p,cycle|
-          glPushMatrix()
-          glRotatef(p.mod*10.0*(1.0+100.0*p.f_speed),0,0,1)
-          glRotatef(p.alfa,0,0,1)
-          glTranslatef(cycle.to_f*(1.0+2.0*(@f_zeta-28.5))/@f_num+p.mod,0,0)
-          glColor4ub(cycle/2,cycle/2,cycle/2,p.f_shade)
+          GL.PushMatrix()
+          GL.Rotatef(p.mod*10.0*(1.0+100.0*p.f_speed),0,0,1)
+          GL.Rotatef(p.alfa,0,0,1)
+          GL.Translatef(cycle.to_f*(1.0+2.0*(@f_zeta-28.5))/@f_num+p.mod,0,0)
+          GL.Color4ub(cycle/2,cycle/2,cycle/2,p.f_shade)
           f_drawquad(0.1+0.5*(p.f_shade/128.0)) if (@f_zeta>28.5)
-          glPopMatrix()
+          GL.PopMatrix()
           p.mod = (@f_zeta-28.5)*(@f_zeta-28.5)/1.2
           @f_end += 0.000005*@f_factor
         end
       end
       @f_rot = 15.0 * @f_timer
 
-      if ( @f_zeta > 29.5 )
+      if (@f_zeta > 29.5)
         @f_density = 0.025 * (1.0+(@f_zeta-29.5)/10.0)
-        glFogf(GL_FOG_DENSITY,@f_density)
-        glLoadIdentity()
-        glTranslatef(0,0,-1)
-        glColor4f(1.0,1.0,1.0,(@f_zeta-29.5)/3.0)
+        GL.Fogf(GL::FOG_DENSITY,@f_density)
+        GL.LoadIdentity()
+        GL.Translatef(0,0,-1)
+        GL.Color4f(1.0,1.0,1.0,(@f_zeta-29.5)/3.0)
 
-        glDisable(GL_TEXTURE_2D)
+        GL.Disable(GL::TEXTURE_2D)
         f_drawquad(1.5)
-        glEnable(GL_TEXTURE_2D)
+        GL.Enable(GL::TEXTURE_2D)
       end
 
-    else # ( @f_zeta < 32.5 )
+    else # (@f_zeta < 32.5)
       c = 1.0-2.0*(@f_zeta-32.5)
-      glClearColor( c, c, c, 1 )
-      glClear(GL_COLOR_BUFFER_BIT)
-    end # ( @f_zeta < 32.5 )
+      GL.ClearColor(c, c, c, 1)
+      GL.Clear(GL::COLOR_BUFFER_BIT)
+    end # (@f_zeta < 32.5)
 
-    if ( @f_timer < 1.0 )
-      glDisable(GL_DEPTH_TEST)
-      glEnable(GL_BLEND)
-      glDisable(GL_TEXTURE_2D)
-      glLoadIdentity()
-      glTranslatef(0,0,-0.35)
-      glColor4f(1.0,1.0,1.0,1.0-@f_timer*2.0)
-      f_drawquad( 0.5 )
-      glEnable(GL_TEXTURE_2D)
+    if (@f_timer < 1.0)
+      GL.Disable(GL::DEPTH_TEST)
+      GL.Enable(GL::BLEND)
+      GL.Disable(GL::TEXTURE_2D)
+      GL.LoadIdentity()
+      GL.Translatef(0,0,-0.35)
+      GL.Color4f(1.0,1.0,1.0,1.0-@f_timer*2.0)
+      f_drawquad(0.5)
+      GL.Enable(GL::TEXTURE_2D)
     end
 
     if ((@f_timer>2.1)&&(@f_timer<3.1))
-      glDisable(GL_DEPTH_TEST)
-      glEnable(GL_BLEND)
-      glDisable(GL_TEXTURE_2D)
-      glLoadIdentity()
-      glTranslatef(0,0,-0.35)
-      glColor4f(1.0,1.0,1.0,0.45*(1.0-Math.cos((@f_timer-2.1)*3.1415*2.0)))
+      GL.Disable(GL::DEPTH_TEST)
+      GL.Enable(GL::BLEND)
+      GL.Disable(GL::TEXTURE_2D)
+      GL.LoadIdentity()
+      GL.Translatef(0,0,-0.35)
+      GL.Color4f(1.0,1.0,1.0,0.45*(1.0-Math.cos((@f_timer-2.1)*3.1415*2.0)))
       f_drawquad(0.5)
-      glEnable(GL_TEXTURE_2D)
+      GL.Enable(GL::TEXTURE_2D)
     end
 
     if ((@f_timer>12.25)&&(@f_timer<13.25))
-      glDisable(GL_DEPTH_TEST)
-      glEnable(GL_BLEND)
-      glDisable(GL_TEXTURE_2D)
-      glLoadIdentity()
-      glTranslatef(0,0,-0.35)
-      glColor4f(1.0,1.0,1.0,0.45*(1.0-Math.cos((@f_timer-12.25)*3.1415*2.0)))
+      GL.Disable(GL::DEPTH_TEST)
+      GL.Enable(GL::BLEND)
+      GL.Disable(GL::TEXTURE_2D)
+      GL.LoadIdentity()
+      GL.Translatef(0,0,-0.35)
+      GL.Color4f(1.0,1.0,1.0,0.45*(1.0-Math.cos((@f_timer-12.25)*3.1415*2.0)))
       f_drawquad(0.5)
-      glEnable(GL_TEXTURE_2D)
+      GL.Enable(GL::TEXTURE_2D)
     end
 
     if ((@f_timer>22.3)&&(@f_timer<28.3))
-      glMatrixMode(GL_PROJECTION)
-      glLoadIdentity()
+      GL.MatrixMode(GL::PROJECTION)
+      GL.LoadIdentity()
       if (@f_timer<23.3)
-        gluPerspective(45.0+25*(1.0-Math.cos((@f_timer-22.3)*3.1415)),4.0/3.0,0.1,100.0)
+        GLU.Perspective(45.0+25*(1.0-Math.cos((@f_timer-22.3)*3.1415)),4.0/3.0,0.1,100.0)
       else
-        gluPerspective(45.0+25*(1.0+Math.cos((@f_timer-23.3)*3.1415/5.0)),4.0/3.0,0.1,100.0)
+        GLU.Perspective(45.0+25*(1.0+Math.cos((@f_timer-23.3)*3.1415/5.0)),4.0/3.0,0.1,100.0)
       end
-      glMatrixMode(GL_MODELVIEW)
+      GL.MatrixMode(GL::MODELVIEW)
     end
 
-    glDisable(GL_BLEND)
-    glEnable(GL_DEPTH_TEST)
-    glFrontFace(GL_CCW)
+    GL.Disable(GL::BLEND)
+    GL.Enable(GL::DEPTH_TEST)
+    GL.FrontFace(GL::CCW)
 
-    if ( @f_timer < 1.4 )
+    if (@f_timer < 1.4)
       @f_zeta = -15.0 +15.0*(Math.sin(@f_timer*3.1415/2.8))
     else
       @f_zeta = 0.0 + (@f_timer-1.4)/1.24
     end
     @f_timer = @f_time / 1500.0
 
-    if ( @f_zeta > 33.0 )
+    if (@f_zeta > 33.0)
       return false
     end
 

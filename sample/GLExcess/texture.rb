@@ -26,7 +26,7 @@ class Texture
     @height = 0
   end
 
-  def pow2( exp )
+  def pow2(exp)
     result = 1
     return result if exp == 0
 
@@ -36,16 +36,16 @@ class Texture
   end
   private :pow2
 
-  def gen_texture( filename )
+  def gen_texture(filename)
     kill
     tex_name_buf = ' ' * 4
-    glGenTextures( 1, tex_name_buf ) # Note : glGenTextures returns Array instance.
-    @tex_name = tex_name_buf.unpack('L')[0]
-    glBindTexture( GL_TEXTURE_2D, @tex_name )
-    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT )
-    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT )
-    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR )
-    glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR )
+    GL.GenTextures(1, tex_name_buf) # Note : glGenTextures returns Array instance.
+    @tex_name = tex_name_buf.unpack1('L')
+    GL.BindTexture(GL::TEXTURE_2D, @tex_name)
+    GL.TexParameteri(GL::TEXTURE_2D, GL::TEXTURE_WRAP_S, GL::REPEAT)
+    GL.TexParameteri(GL::TEXTURE_2D, GL::TEXTURE_WRAP_T, GL::REPEAT)
+    GL.TexParameteri(GL::TEXTURE_2D, GL::TEXTURE_MAG_FILTER, GL::LINEAR)
+    GL.TexParameteri(GL::TEXTURE_2D, GL::TEXTURE_MIN_FILTER, GL::LINEAR_MIPMAP_LINEAR)
 
     return true;
   end
@@ -54,49 +54,49 @@ class Texture
   def kill
     if @tex_name != 0
       # Note : glDeleteTextures expects Array instance.
-      glDeleteTextures( 1, [@tex_name].pack('L') )
+      GL.DeleteTextures(1, [@tex_name].pack('L'))
       @tex_name = 0
     end
   end
 
   def use
-    glBindTexture( GL_TEXTURE_2D, @tex_name )
+    GL.BindTexture(GL::TEXTURE_2D, @tex_name)
   end
 
-  def load( filename )
+  def load(filename)
     return false if filename == nil
-    return false if gen_texture( filename ) == false
+    return false if gen_texture(filename) == false
 
-    f = File.new( filename, "rb" )
+    f = File.new(filename, "rb")
     return false if f == nil
 
-    w = f.read( 1 )
-    h = f.read( 1 )
+    w = f.read(1)
+    h = f.read(1)
 
     width  = nil
     height = nil
 
-    major, minor, micro = RUBY_VERSION.scan( /\d+/ )
+    major, minor, micro = RUBY_VERSION.scan(/\d+/)
 
-    if ( major == "1" && minor == "8" )
+    if (major == "1" && minor == "8")
       # for Ruby 1.8.
-      width  = pow2( w[0].to_i - "0"[0].to_i )
-      height = pow2( h[0].to_i - "0"[0].to_i )
+      width  = pow2(w[0].to_i - "0"[0].to_i)
+      height = pow2(h[0].to_i - "0"[0].to_i)
     else
       # for Ruby 1.9.
       # A little bit cryptic. In Ruby 1.9, String#to_i no longer returns
       # its character code.
-      width  = pow2( w[0].unpack("U")[0].to_i - "0"[0].unpack("U")[0].to_i )
-      height = pow2( h[0].unpack("U")[0].to_i - "0"[0].unpack("U")[0].to_i )
+      width  = pow2(w[0].unpack1("U").to_i - "0"[0].unpack1("U").to_i)
+      height = pow2(h[0].unpack1("U").to_i - "0"[0].unpack1("U").to_i)
     end
 
     size = width * height * 3
 
-    rgbdata = f.read( size )
+    rgbdata = f.read(size)
 
     f.close()
 
-    gluBuild2DMipmaps( GL_TEXTURE_2D, 3, width, height, GL_RGB, GL_UNSIGNED_BYTE, rgbdata )
+    GLU.Build2DMipmaps(GL::TEXTURE_2D, 3, width, height, GL::RGB, GL::UNSIGNED_BYTE, rgbdata)
 
     rgbdata = nil
 

@@ -1,8 +1,5 @@
-How to run (Mac OS X):
+How to run
 
-	$ brew install sdl2
-	$ brew install sdl2_ttf
-	$ brew install sdl2_image
-	$ brew install sdl2_mixer
-	$ gem install ruby-sdl2
-	$ ruby testgl_ruby-sdl2.rb
+* Set path to libSDL2.dylib (macOS) /SDL2.dll (Windows) according to your environment
+* $ gem install sdl2-bindings
+* $ ruby testgl_ruby-sdl2.rb

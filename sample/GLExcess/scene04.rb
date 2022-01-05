@@ -53,25 +53,25 @@ class Scene04
 
     @d_repeat = 11
 
-    @xp1 = Array.new( @d_repeat )
-    @xp2 = Array.new( @d_repeat )
-    @xp3 = Array.new( @d_repeat )
-    @xp4 = Array.new( @d_repeat )
-    @xp5 = Array.new( @d_repeat )
+    @xp1 = Array.new(@d_repeat)
+    @xp2 = Array.new(@d_repeat)
+    @xp3 = Array.new(@d_repeat)
+    @xp4 = Array.new(@d_repeat)
+    @xp5 = Array.new(@d_repeat)
 
     for i in 0...@d_repeat do
-      @xp1[i] = Array.new( @d_num1 ) { Particle.new }
-      @xp2[i] = Array.new( @d_num2 ) { Particle.new }
-      @xp3[i] = Array.new( @d_num3 ) { Particle.new }
-      @xp4[i] = Array.new( @d_num4 ) { Particle.new }
-      @xp5[i] = Array.new( @d_num5 ) { Particle.new }
+      @xp1[i] = Array.new(@d_num1) { Particle.new }
+      @xp2[i] = Array.new(@d_num2) { Particle.new }
+      @xp3[i] = Array.new(@d_num3) { Particle.new }
+      @xp4[i] = Array.new(@d_num4) { Particle.new }
+      @xp5[i] = Array.new(@d_num5) { Particle.new }
     end
 
-    @d_radius = Array.new( @d_repeat ) { -0.5 }
-    @d_off = Array.new( @d_repeat ) { 0.0 }
+    @d_radius = Array.new(@d_repeat) { -0.5 }
+    @d_off = Array.new(@d_repeat) { 0.0 }
   end
 
-  def d_rst1( i )
+  def d_rst1(i)
     @d_timer1 = 0
     @xp1[i].each do |p|
       p.size  = 0.0
@@ -87,7 +87,7 @@ class Scene04
     end
   end
 
-  def d_rst2( i )
+  def d_rst2(i)
     @d_timer2 = 0
     @xp2[i].each do |p|
       p.size  = 0.0
@@ -103,7 +103,7 @@ class Scene04
     end
   end
 
-  def d_rst3( i )
+  def d_rst3(i)
     @d_timer3 = 0
     @xp3[i].each do |p|
       p.size  = 0.0
@@ -119,7 +119,7 @@ class Scene04
     end
   end
 
-  def d_rst4( i )
+  def d_rst4(i)
     @d_timer4 = 0
     @xp4[i].each do |p|
       p.size  = 0.0
@@ -135,7 +135,7 @@ class Scene04
     end
   end
 
-  def d_rst5( i )
+  def d_rst5(i)
     @d_timer5 = 0
     @xp5[i].each do |p|
       p.size  = 0.1 + 0.00025*rand(1000)
@@ -198,68 +198,68 @@ class Scene04
     end
     d_rstoff()
 
-    glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    gluPerspective( 45.0, 4.0/3.0, 0.1, 90.0 )
-    glMatrixMode(GL_MODELVIEW)
-    glLoadIdentity()
+    GL.MatrixMode(GL::PROJECTION)
+    GL.LoadIdentity()
+    GLU.Perspective(45.0, 4.0/3.0, 0.1, 90.0)
+    GL.MatrixMode(GL::MODELVIEW)
+    GL.LoadIdentity()
 
-    glShadeModel(GL_FLAT)
-    glClearColor(0.0, 0.0, 0.0, 0.0)
-    glClearDepth(1.0)
-    glDisable(GL_DEPTH_TEST)
+    GL.ShadeModel(GL::FLAT)
+    GL.ClearColor(0.0, 0.0, 0.0, 0.0)
+    GL.ClearDepth(1.0)
+    GL.Disable(GL::DEPTH_TEST)
 
-    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)   # Really Nice Perspective Calculations
-    glPolygonMode(GL_FRONT, GL_FILL)
-    glEnable(GL_TEXTURE_2D)
-    glEnable(GL_CULL_FACE)
-    glFrontFace(GL_CCW)
-    glBlendFunc(GL_SRC_ALPHA,GL_ONE)
-    glEnable(GL_BLEND)
+    GL.Hint(GL::PERSPECTIVE_CORRECTION_HINT, GL::NICEST)   # Really Nice Perspective Calculations
+    GL.PolygonMode(GL::FRONT, GL::FILL)
+    GL.Enable(GL::TEXTURE_2D)
+    GL.Enable(GL::CULL_FACE)
+    GL.FrontFace(GL::CCW)
+    GL.BlendFunc(GL::SRC_ALPHA,GL::ONE)
+    GL.Enable(GL::BLEND)
   end
 
-  def drawquad( size )
+  def drawquad(size)
     hs = 0.5 * size
-    glBegin(GL_QUADS)
-    glTexCoord2f(0.0, 0.0)
-    glVertex3f(-hs,-hs,0.0)
-    glTexCoord2f(1.0, 0.0)
-    glVertex3f(hs,-hs,0.0)
-    glTexCoord2f(1.0, 1.0)
-    glVertex3f(hs,hs,0.0)
-    glTexCoord2f(0.0, 1.0)
-    glVertex3f(-hs,hs,0.0)
-    glEnd()
+    GL.Begin(GL::QUADS)
+    GL.TexCoord2f(0.0, 0.0)
+    GL.Vertex3f(-hs,-hs,0.0)
+    GL.TexCoord2f(1.0, 0.0)
+    GL.Vertex3f(hs,-hs,0.0)
+    GL.TexCoord2f(1.0, 1.0)
+    GL.Vertex3f(hs,hs,0.0)
+    GL.TexCoord2f(0.0, 1.0)
+    GL.Vertex3f(-hs,hs,0.0)
+    GL.End()
   end
 
   # void d_drawtri(int i,int d_y,GLfloat size,GLfloat xrot,GLfloat yrot,GLfloat zrot)
-  def drawtri( i, d_y, size, xrot, yrot, zrot )
-    glRotatef( @xp5[i][d_y].mod*xrot, 1,0,0 )
-    glRotatef( @xp5[i][d_y].mod*yrot, 0,1,0 )
-    glRotatef( @xp5[i][d_y].mod*zrot, 0,0,1 )
-    glBegin(GL_TRIANGLES)
+  def drawtri(i, d_y, size, xrot, yrot, zrot)
+    GL.Rotatef(@xp5[i][d_y].mod*xrot, 1,0,0)
+    GL.Rotatef(@xp5[i][d_y].mod*yrot, 0,1,0)
+    GL.Rotatef(@xp5[i][d_y].mod*zrot, 0,0,1)
+    GL.Begin(GL::TRIANGLES)
     hs = 0.5 * size
-    glVertex3f(-hs,-hs,0.0)
-    glVertex3f(hs,-hs*(d_y.to_f/@d_num5),0.0)
-    glVertex3f(hs*(d_y.to_f/@d_num5),hs,0.0)
-    glEnd()
+    GL.Vertex3f(-hs,-hs,0.0)
+    GL.Vertex3f(hs,-hs*(d_y.to_f/@d_num5),0.0)
+    GL.Vertex3f(hs*(d_y.to_f/@d_num5),hs,0.0)
+    GL.End()
   end
 
-  def d_xpls1( i )
+  def d_xpls1(i)
     @texture["xp4"].use
-    @d_timer1 += 1 if ( (@d_timer2>10) && (@d_timer1<@d_num1) )
+    @d_timer1 += 1 if ((@d_timer2>10) && (@d_timer1<@d_num1))
     for d_y in 0...@d_timer1 do
       p = @xp1[i][d_y]
 
       # DRAW PART
-      if ( p.a > 0 )
-        glPushMatrix()
-        glColor4ub(p.r, p.g, p.b, p.a)
-        glRotatef(p.phase, 0,0,1)
-        glTranslatef(p.mod,0,0)
-        glRotatef(p.axrot, 0,0,1)
+      if (p.a > 0)
+        GL.PushMatrix()
+        GL.Color4ub(p.r, p.g, p.b, p.a)
+        GL.Rotatef(p.phase, 0,0,1)
+        GL.Translatef(p.mod,0,0)
+        GL.Rotatef(p.axrot, 0,0,1)
         drawquad(p.size)
-        glPopMatrix()
+        GL.PopMatrix()
 
         # UPDATE VARS
         p.mod  += p.spd/3.0
@@ -271,25 +271,25 @@ class Scene04
         p.g -= 2 + 2*p.mod.to_i if (p.g>=90)
         p.b -= 4 + 4*p.mod.to_i if (p.b>=24)
         p.a -= 2
-        p.a = 0 if ( p.a < 1 )
+        p.a = 0 if (p.a < 1)
       end
     end
   end
 
-  def d_xpls2( i )
+  def d_xpls2(i)
     @texture["xp2"].use
-    @d_timer2 += 1 if ( @d_timer2 < @d_num2 )
+    @d_timer2 += 1 if (@d_timer2 < @d_num2)
     for d_y in 0...@d_timer2 do
       p = @xp2[i][d_y]
       # DRAW PART
       if (p.a>0)
-        glPushMatrix()
-        glColor4ub(p.r,p.g,p.b,p.a)
-        glRotatef(p.phase+2.0*(d_y.to_f/@d_num2),0,0,1)
-        glTranslatef(p.mod,0,0)
-        glRotatef(p.axrot*3,0,0,1)
+        GL.PushMatrix()
+        GL.Color4ub(p.r,p.g,p.b,p.a)
+        GL.Rotatef(p.phase+2.0*(d_y.to_f/@d_num2),0,0,1)
+        GL.Translatef(p.mod,0,0)
+        GL.Rotatef(p.axrot*3,0,0,1)
         drawquad(p.size)
-        glPopMatrix()
+        GL.PopMatrix()
 
         # UPDATE VARS
         p.mod  += p.spd/5.0
@@ -306,20 +306,20 @@ class Scene04
     end
   end
 
-  def d_xpls3( i )
+  def d_xpls3(i)
     @texture["xp1"].use
-    @d_timer3 += 1 if ( @d_timer3 < @d_num3 )
+    @d_timer3 += 1 if (@d_timer3 < @d_num3)
     for d_y in 0...@d_timer3 do
       p = @xp3[i][d_y]
       # DRAW PART
       if (p.a>0)
-        glPushMatrix()
-        glColor4ub(p.r,p.g,p.b,p.a)
-        glRotatef(p.phase,0,0,1)
-        glTranslatef(p.mod,0,0)
-        glRotatef(p.axrot*5,0,0,1)
+        GL.PushMatrix()
+        GL.Color4ub(p.r,p.g,p.b,p.a)
+        GL.Rotatef(p.phase,0,0,1)
+        GL.Translatef(p.mod,0,0)
+        GL.Rotatef(p.axrot*5,0,0,1)
         drawquad(p.size)
-        glPopMatrix()
+        GL.PopMatrix()
 
         # UPDATE VARS
         p.mod += p.spd/5.0
@@ -342,24 +342,24 @@ class Scene04
     end
   end
 
-  def d_xpls4( i )
+  def d_xpls4(i)
     @texture["xp8"].use
     @d_timer4 += 1 if (@d_timer4<@d_num4)
     for d_y in  0...@d_timer4 do
       p = @xp4[i][d_y]
       # DRAW PART
       if (p.a>0)
-        glPushMatrix()
-        glColor4ub(p.r,p.g,p.b,p.a)
-        glRotatef(p.phase,0,0,1)
-        glTranslatef(p.mod,0,0)
+        GL.PushMatrix()
+        GL.Color4ub(p.r,p.g,p.b,p.a)
+        GL.Rotatef(p.phase,0,0,1)
+        GL.Translatef(p.mod,0,0)
         if ((p.phase<270.0)&&(p.phase>90.0))
-          glRotatef(p.axrot*5+3.0*(d_y.to_f/@d_num4),0,0,1)
+          GL.Rotatef(p.axrot*5+3.0*(d_y.to_f/@d_num4),0,0,1)
         else
-          glRotatef(-p.axrot*5+3.0*(d_y.to_f/@d_num4),0,0,1)
+          GL.Rotatef(-p.axrot*5+3.0*(d_y.to_f/@d_num4),0,0,1)
         end
         drawquad(p.size)
-        glPopMatrix()
+        GL.PopMatrix()
 
         # UPDATE VARS
         p.mod += p.spd/0.9
@@ -377,26 +377,26 @@ class Scene04
     end
   end
 
-  def d_xpls5( i )
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
-    glEnable(GL_TEXTURE_GEN_S)
-    glEnable(GL_TEXTURE_GEN_T)
+  def d_xpls5(i)
+    GL.PolygonMode(GL::FRONT_AND_BACK, GL::FILL)
+    GL.Enable(GL::TEXTURE_GEN_S)
+    GL.Enable(GL::TEXTURE_GEN_T)
 
-    glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP)
-    glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP)
+    GL.TexGeni(GL::T, GL::TEXTURE_GEN_MODE, GL::SPHERE_MAP)
+    GL.TexGeni(GL::S, GL::TEXTURE_GEN_MODE, GL::SPHERE_MAP)
 
     @texture["envmap1"].use
-    glDisable(GL_CULL_FACE)
+    GL.Disable(GL::CULL_FACE)
 
     @d_timer5 += 1 if (@d_timer5<@d_num5)
     for d_y in  0...@d_timer5 do
       p = @xp5[i][d_y]
       # DRAW PART
       if (p.a>0)
-        glPushMatrix()
-        glColor4ub(255,224,208,p.a)
-        glRotatef(p.phase,0,0,1)
-        glTranslatef(p.mod/2.0,0,p.mod)
+        GL.PushMatrix()
+        GL.Color4ub(255,224,208,p.a)
+        GL.Rotatef(p.phase,0,0,1)
+        GL.Translatef(p.mod/2.0,0,p.mod)
         if ((d_y%2)==0)
           drawtri(i,d_y,p.size,p.axrot,0,0)
         elsif ((d_y%3)==0)
@@ -404,7 +404,7 @@ class Scene04
         else
           drawtri(i,d_y,p.size,p.axrot,p.axrot,0)
         end
-        glPopMatrix()
+        GL.PopMatrix()
 
         # UPDATE VARS
         p.mod += p.spd/3.0
@@ -414,12 +414,12 @@ class Scene04
         p.a = 0 if (p.a<1)
       end
     end
-    glDisable(GL_TEXTURE_GEN_S)
-    glDisable(GL_TEXTURE_GEN_T)
-    glEnable(GL_CULL_FACE)
-    glEnable(GL_TEXTURE_2D)
-    glEnable(GL_BLEND)
-    glPolygonMode(GL_FRONT, GL_FILL)
+    GL.Disable(GL::TEXTURE_GEN_S)
+    GL.Disable(GL::TEXTURE_GEN_T)
+    GL.Enable(GL::CULL_FACE)
+    GL.Enable(GL::TEXTURE_2D)
+    GL.Enable(GL::BLEND)
+    GL.PolygonMode(GL::FRONT, GL::FILL)
   end
 
   def clean
@@ -429,8 +429,8 @@ class Scene04
     @need_initialization   = true
   end
 
-  def render( globtime )
-    if ( @need_initialization )
+  def render(globtime)
+    if (@need_initialization)
       initGL()
       @need_initialization = false
     end
@@ -438,69 +438,69 @@ class Scene04
     @d_time += 1
     @d_ct   += 1
 
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+    GL.Clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT)
 
-    glLoadIdentity()
-    glTranslatef(0,0,-15)
-    glPushMatrix()
-    glLoadIdentity()
-    glTranslatef(0,0,-15)
-    glScalef(2,1,1)
+    GL.LoadIdentity()
+    GL.Translatef(0,0,-15)
+    GL.PushMatrix()
+    GL.LoadIdentity()
+    GL.Translatef(0,0,-15)
+    GL.Scalef(2,1,1)
     @texture["logocol"].use
-    glDisable(GL_BLEND)
+    GL.Disable(GL::BLEND)
 
     # fade out
-    if ( @d_ct < 300 )
-      glColor4ub(255,255,255,225)
+    if (@d_ct < 300)
+      GL.Color4ub(255,255,255,225)
     else
       c = 255 - 2.55*(@d_ct-300)
-      glColor4ub(c,c,c,225)
+      GL.Color4ub(c,c,c,225)
     end
-    drawquad( 5.0 )
-    glEnable(GL_BLEND)
-    glPopMatrix()
-    if ( (@d_offset<=@d_repeat-1) && (@d_time>20) )
+    drawquad(5.0)
+    GL.Enable(GL::BLEND)
+    GL.PopMatrix()
+    if ((@d_offset<=@d_repeat-1) && (@d_time>20))
       @d_offset += 1
       @d_time = 0
     end
 
 
     for i in 0...@d_offset do
-      glBlendFunc(GL_SRC_ALPHA,GL_ONE)
-      glPushMatrix()
-      if ( i != @d_repeat-1 )
-        glTranslatef(4*Math.cos(6.28*(i.to_f/(@d_repeat-1))),2*Math.sin(6.28*(i.to_f/(@d_repeat-1))),0)
+      GL.BlendFunc(GL::SRC_ALPHA,GL::ONE)
+      GL.PushMatrix()
+      if (i != @d_repeat-1)
+        GL.Translatef(4*Math.cos(6.28*(i.to_f/(@d_repeat-1))),2*Math.sin(6.28*(i.to_f/(@d_repeat-1))),0)
       end
 
-      glScalef(@d_off[i],@d_off[i],1)
-      glColor4ub(255,255,255,255)
-      glBlendFunc(GL_ZERO,GL_ONE_MINUS_SRC_COLOR)
+      GL.Scalef(@d_off[i],@d_off[i],1)
+      GL.Color4ub(255,255,255,255)
+      GL.BlendFunc(GL::ZERO,GL::ONE_MINUS_SRC_COLOR)
 
       @texture["smoke"].use
-      glPushMatrix()
-      glRotatef(4*@d_radius[i],0,0,1)
-      drawquad( @d_radius[i]/4 )
-      glPopMatrix()
-      glBlendFunc(GL_SRC_ALPHA,GL_ONE)
+      GL.PushMatrix()
+      GL.Rotatef(4*@d_radius[i],0,0,1)
+      drawquad(@d_radius[i]/4)
+      GL.PopMatrix()
+      GL.BlendFunc(GL::SRC_ALPHA,GL::ONE)
 
       @texture["xp9"].use
-      if ( (1.0-(@d_radius[i]/2.5)) > 0.0 )
-        glColor4f( 0.95, 0.9, 0.75, 1.0-(@d_radius[i]/2.5) )
-        drawquad( 4.0 + @d_radius[i]*5.0 )
+      if ((1.0-(@d_radius[i]/2.5)) > 0.0)
+        GL.Color4f(0.95, 0.9, 0.75, 1.0-(@d_radius[i]/2.5))
+        drawquad(4.0 + @d_radius[i]*5.0)
       end
-      glRotatef(@d_radius[i]*20,0,0,1)
-      if ( (1.0-(@d_radius[i]/2.5))/2.0 > 0.0 )
-        glColor4f( 0.95, 0.9, 0.75, (1.0-(@d_radius[i]/2.5))/2.0 )
-        drawquad( 4.0 + @d_radius[i]*8.0 )
+      GL.Rotatef(@d_radius[i]*20,0,0,1)
+      if ((1.0-(@d_radius[i]/2.5))/2.0 > 0.0)
+        GL.Color4f(0.95, 0.9, 0.75, (1.0-(@d_radius[i]/2.5))/2.0)
+        drawquad(4.0 + @d_radius[i]*8.0)
       end
-      glPopMatrix()
-      if ( @d_radius[i] > 0.0 )
-        glPushMatrix()
-        if ( i != @d_repeat-1 )
+      GL.PopMatrix()
+      if (@d_radius[i] > 0.0)
+        GL.PushMatrix()
+        if (i != @d_repeat-1)
           arg = 6.28*(i.to_f/(@d_repeat-1))
-          glTranslatef( 4*Math.cos(arg), 2*Math.sin(arg), 0 )
+          GL.Translatef(4*Math.cos(arg), 2*Math.sin(arg), 0)
         end
-        glScalef(@d_off[i],@d_off[i],1)
+        GL.Scalef(@d_off[i],@d_off[i],1)
 
         d_xpls1(i)
 
@@ -512,16 +512,16 @@ class Scene04
 
         d_xpls5(i)
 
-        glPopMatrix()
+        GL.PopMatrix()
       end
       @d_radius[i] += 0.25
     end
 
 
-    if ( @d_ct > 400 )
+    if (@d_ct > 400)
       return false
     end
-    sleep( 20.0/1000.0 )
+    sleep(20.0/1000.0)
 
     return true
   end

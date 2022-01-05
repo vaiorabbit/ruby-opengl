@@ -20,7 +20,10 @@
 
 require 'optparse'
 
-require '../util/setup_dll'
+require 'opengl'
+require 'glu'
+require 'glfw'
+require_relative '../util/setup_dll'
 
 require_relative '../util/geometry'
 require_relative 'texture'
@@ -41,21 +44,21 @@ $app = nil
 
 $key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
   case key
-  when GLFW_KEY_A
-    $app.step += 1 if action == GLFW_PRESS
-  when GLFW_KEY_Z
-    $app.step = [-1, $app.step-1].max if action == GLFW_PRESS
-  when GLFW_KEY_S
+  when GLFW::KEY_A
+    $app.step += 1 if action == GLFW::PRESS
+  when GLFW::KEY_Z
+    $app.step = [-1, $app.step-1].max if action == GLFW::PRESS
+  when GLFW::KEY_S
     # Suspend/Resume
-    $app.run = !$app.run if action == GLFW_PRESS
-  when GLFW_KEY_N
+    $app.run = !$app.run if action == GLFW::PRESS
+  when GLFW::KEY_N
     # Next Scene
-    $app.next_scene() if action == GLFW_PRESS
-  when GLFW_KEY_P
+    $app.next_scene() if action == GLFW::PRESS
+  when GLFW::KEY_P
     # Previous Scene
-    $app.prev_scene() if action == GLFW_PRESS
-  when GLFW_KEY_ESCAPE, GLFW_KEY_Q
-    glfwSetWindowShouldClose(window_handle, 1)
+    $app.prev_scene() if action == GLFW::PRESS
+  when GLFW::KEY_ESCAPE, GLFW::KEY_Q
+    GLFW.SetWindowShouldClose(window_handle, 1)
   end
 end
 
@@ -74,7 +77,7 @@ class GLExcess
       @current_scene += 1
       @current_scene %= 12
       @scene = @scenes[@current_scene].new
-      glfwSetWindowTitle( @window, "GLExcess/Ruby : " + @scene.class.to_s )
+      GLFW.SetWindowTitle(@window, "GLExcess/Ruby : " + @scene.class.to_s)
     end
   end
 
@@ -88,13 +91,13 @@ class GLExcess
       @current_scene -= 1
       @current_scene %= 12
       @scene = @scenes[@current_scene].new
-      glfwSetWindowTitle( @window, "GLExcess/Ruby : " + @scene.class.to_s )
+      GLFW.SetWindowTitle(@window, "GLExcess/Ruby : " + @scene.class.to_s)
     end
   end
 
   def draw
     if @run
-      if @scene != nil && !@scene.render( @timing )
+      if @scene != nil && !@scene.render(@timing)
         next_scene()
       end
       @timing += @step
@@ -102,10 +105,11 @@ class GLExcess
   end
 
   def initialize
+    GLFW.load_lib(SampleUtil.glfw_library_path)
     # Parse Option
     scene = 1
     ARGV.options do |opt|
-      opt.on( '-s', '--scene : # of Scene [1-12]', Integer, /1[0-2]|[1-9]/ ) { |v| scene = v.to_i }
+      opt.on('-s', '--scene : # of Scene [1-12]', Integer, /1[0-2]|[1-9]/) { |v| scene = v.to_i }
       opt.parse!
     end
 
@@ -117,35 +121,38 @@ class GLExcess
     @window_width  = 640
     @window_height = 480
 
-    @size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do|window_handle, w, h|
+    @size_callback = GLFW::create_callback(:GLFWwindowsizefun) do|window_handle, w, h|
       @window_width  = w
       @window_height = h
 
-      glViewport( 0, 0, @window_width, @window_height )
+      GL.Viewport(0, 0, @window_width, @window_height)
 
-      glMatrixMode( GL_PROJECTION )
-      glLoadIdentity
-      gluPerspective( 45.0, @window_width.to_f/@window_height.to_f, 0.1, 110.0 )
+      GL.MatrixMode(GL::PROJECTION)
+      GL.LoadIdentity
+      GLU.Perspective(45.0, @window_width.to_f/@window_height.to_f, 0.1, 110.0)
 
-      glMatrixMode( GL_MODELVIEW )
-      glLoadIdentity
+      GL.MatrixMode(GL::MODELVIEW)
+      GL.LoadIdentity
 
-      @scene.render( @timing ) if @scene != nil
+      @scene.render(@timing) if @scene != nil
     end
 
-    glfwInit()
-    @window = glfwCreateWindow( @window_width, @window_height, "OpenGL compute shader demo", nil, nil )
-    glfwSetWindowPos( @window, 100, 100 )
-    glfwMakeContextCurrent( @window )
-    glfwSetKeyCallback( @window, $key_callback )
-    glfwSetWindowSizeCallback( @window, @size_callback )
+    GLFW.Init()
+    @window = GLFW.CreateWindow(@window_width, @window_height, "OpenGL compute shader demo", nil, nil)
+    GLFW.SetWindowPos(@window, 100, 100)
+    GLFW.MakeContextCurrent(@window)
+    GLFW.SetKeyCallback(@window, $key_callback)
+    GLFW.SetWindowSizeCallback(@window, @size_callback)
+
+    GL.load_lib()
+    GLU.load_lib()
 
     width_ptr = ' ' * 4
     height_ptr = ' ' * 4
-    glfwGetFramebufferSize(@window, width_ptr, height_ptr)
+    GLFW.GetFramebufferSize(@window, width_ptr, height_ptr)
     width = width_ptr.unpack('L')[0]
     height = height_ptr.unpack('L')[0]
-    @size_callback.call( @window, width, height )
+    @size_callback.call(@window, width, height)
 
     @timing = 0.0
     @step   = 1.0
@@ -154,26 +161,26 @@ class GLExcess
 
     @scene = @scenes[@current_scene].new
     scene_name = (@scene == nil ? "" : @scene.class.to_s)
-    glfwSetWindowTitle( @window, "GLExcess/Ruby : " + scene_name)
+    GLFW.SetWindowTitle(@window, "GLExcess/Ruby : " + scene_name)
   end
 
   def main
-    while glfwWindowShouldClose( @window ) == 0
+    while GLFW.WindowShouldClose(@window) == 0
       draw()
-      glfwSwapBuffers( @window )
-      glfwPollEvents()
+      GLFW.SwapBuffers(@window)
+      GLFW.PollEvents()
     end
   end
 
   def destroy
-    glfwDestroyWindow( @window )
-    glfwTerminate()
+    GLFW.DestroyWindow(@window)
+    GLFW.Terminate()
   end
 
 end
 
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   $app = GLExcess.new
   begin
     $app.main

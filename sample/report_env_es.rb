@@ -1,27 +1,23 @@
 require 'opengl_es'
 require 'glfw'
 
-OpenGL.load_lib()
-GLFW.load_lib()
-
-include OpenGL
-include GLFW
-
 if __FILE__ == $0
-  glfwInit()
-  glfwWindowHint(GLFW_DECORATED, 0)
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3)
-  glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_ES_API)
-  window = glfwCreateWindow( 1, 1, "Report OpenGL Environment", nil, nil )
+  GLFW.load_lib()
+  GLFW.Init()
+  GLFW.WindowHint(GLFW::DECORATED, 0)
+  GLFW.WindowHint(GLFW::CONTEXT_VERSION_MAJOR, 3)
+  GLFW.WindowHint(GLFW::CLIENT_API, GLFW::OPENGL_ES_API)
+  window = GLFW.CreateWindow(1, 1, "Report OpenGL Environment", nil, nil)
   if window.null?
     puts "Failed to create the OpenGL ES 3 context. You may need to get a GPU/driver that is compliant with OpenGL 4.3 or higher."
     exit
   end
 
-  glfwMakeContextCurrent( window )
-  puts "Version: #{glGetString(GL_VERSION).to_s}"
+  GLFW.MakeContextCurrent(window)
+  GL.load_lib()
+  puts "Version: #{GL.GetString(GL::VERSION).to_s}"
   puts "Extensions:"
-  puts glGetString(GL_EXTENSIONS).to_s.split(/ /)
-  glfwDestroyWindow( window )
-  glfwTerminate()
+  puts GL.GetString(GL::EXTENSIONS).to_s.split(/ /)
+  GLFW.DestroyWindow(window)
+  GLFW.Terminate()
 end

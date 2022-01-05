@@ -22,18 +22,6 @@ require 'opengl'
 require 'glu'
 require 'glut'
 
-include OpenGL
-include GLU
-include GLUT
-
-OpenGL.load_lib()
-GLU.load_lib()
-if OpenGL.get_platform == :OPENGL_PLATFORM_WINDOWS
-  GLUT.load_lib('freeglut.dll', '..')
-else
-  GLUT.load_lib()
-end
-
 require 'optparse'
 
 require_relative 'texture'
@@ -66,7 +54,7 @@ class GLExcess
       @current_scene += 1
       @current_scene %= 12
       @scene = @scenes[@current_scene].new
-      glutSetWindowTitle( "GLExcess/Ruby : " + @scene.class.to_s )
+      GLUT.SetWindowTitle("GLExcess/Ruby : " + @scene.class.to_s)
     end
   end
 
@@ -80,26 +68,26 @@ class GLExcess
       @current_scene -= 1
       @current_scene %= 12
       @scene = @scenes[@current_scene].new
-      glutSetWindowTitle( "GLExcess/Ruby : " + @scene.class.to_s )
+      GLUT.SetWindowTitle("GLExcess/Ruby : " + @scene.class.to_s)
     end
   end
 
   def draw
     if @run
-      if @scene != nil && !@scene.render( @timing )
+      if @scene != nil && !@scene.render(@timing)
         next_scene()
       end
       @timing += @step
     end
 
-    glutSwapBuffers()
+    GLUT.SwapBuffers()
   end
 
   $idle = GLUT.create_callback(:GLUTIdleFunc) do
-    glutPostRedisplay()
+    GLUT.PostRedisplay()
   end
 
-  def key( key, x, y )
+  def key(key, x, y)
     case key.ord
     when ?a.ord
       @step += 1
@@ -120,29 +108,30 @@ class GLExcess
     end
   end
 
-  def reshape( width, height )
-    glViewport( 0, 0, width, height )
+  def reshape(width, height)
+    GL.Viewport(0, 0, width, height)
 
-    glMatrixMode( GL_PROJECTION )
-    glLoadIdentity
-    gluPerspective( 45.0, width.to_f/height.to_f, 0.1, 1000.0 )
+    GL.MatrixMode(GL::PROJECTION)
+    GL.LoadIdentity
+    GLU.Perspective(45.0, width.to_f/height.to_f, 0.1, 1000.0)
 
-    glMatrixMode( GL_MODELVIEW )
-    glLoadIdentity
+    GL.MatrixMode(GL::MODELVIEW)
+    GL.LoadIdentity
 
-    @scene.render( @timing )
+    @scene.render(@timing)
 
-    glutPostRedisplay()  end
+    GLUT.PostRedisplay()
+  end
 
-  def visible( vis )
-    glutIdleFunc( ( vis == GLUT_VISIBLE ? $idle : nil ) )
+  def visible(vis)
+    GLUT.IdleFunc((vis == GLUT::VISIBLE ? $idle : nil))
   end
 
   def initialize
     # Parse Option
     scene = 1
     ARGV.options do |opt|
-      opt.on( '-s', '--scene : # of Scene [1-12]', Integer, /1[0-2]|[1-9]/ ) { |v| scene = v.to_i }
+      opt.on('-s', '--scene : # of Scene [1-12]', Integer, /1[0-2]|[1-9]/) { |v| scene = v.to_i }
       opt.parse!
     end
 
@@ -154,17 +143,25 @@ class GLExcess
     @window_width  = 640
     @window_height = 480
 
-    glutInit([1].pack('I'), [""].pack('p'))
+    if GL.get_platform == :OPENGL_PLATFORM_WINDOWS
+      GLUT.load_lib(Dir.pwd + '/../freeglut.dll')
+    else
+      GLUT.load_lib()
+    end
+    GLUT.Init([1].pack('I'), [""].pack('p'))
 
-    glutInitDisplayMode( GLUT_RGBA | GLUT_DEPTH | GLUT_DOUBLE )
-    glutInitWindowPosition( 0, 0 )
-    glutInitWindowSize( @window_width, @window_height )
-    @window = glutCreateWindow("")
+    GLUT.InitDisplayMode(GLUT::RGBA | GLUT::DEPTH | GLUT::DOUBLE)
+    GLUT.InitWindowPosition(0, 0)
+    GLUT.InitWindowSize(@window_width, @window_height)
+    @window = GLUT.CreateWindow("")
 
-    glutDisplayFunc(GLUT.create_callback(:GLUTDisplayFunc, method(:draw).to_proc))
-    glutReshapeFunc(GLUT.create_callback(:GLUTReshapeFunc, method(:reshape).to_proc))
-    glutKeyboardFunc(GLUT.create_callback(:GLUTKeyboardFunc, method(:key).to_proc))
-    glutVisibilityFunc(GLUT.create_callback(:GLUTVisibilityFunc, method(:visible).to_proc))
+    GL.load_lib()
+    GLU.load_lib()
+
+    GLUT.DisplayFunc(GLUT.create_callback(:GLUTDisplayFunc, method(:draw).to_proc))
+    GLUT.ReshapeFunc(GLUT.create_callback(:GLUTReshapeFunc, method(:reshape).to_proc))
+    GLUT.KeyboardFunc(GLUT.create_callback(:GLUTKeyboardFunc, method(:key).to_proc))
+    GLUT.VisibilityFunc(GLUT.create_callback(:GLUTVisibilityFunc, method(:visible).to_proc))
 
     @timing = 0.0
     @step   = 1.0
@@ -173,21 +170,21 @@ class GLExcess
 
     @scene = @scenes[@current_scene].new
     scene_name = (@scene == nil ? "" : @scene.class.to_s)
-    glutSetWindowTitle( "GLExcess/Ruby : " + scene_name )
+    GLUT.SetWindowTitle("GLExcess/Ruby : " + scene_name)
   end
 
   def main
-    glutMainLoop()
+    GLUT.MainLoop()
   end
 
   def destroy
-    glutDestroyWindow( @window )
+    GLUT.DestroyWindow(@window)
   end
 
 end
 
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   $app = GLExcess.new
   begin
     $app.main

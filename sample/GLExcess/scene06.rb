@@ -26,7 +26,7 @@ class Scene06
 
     @e_time = 0
 
-    @dum = Array.new( 4 ) { true }
+    @dum = Array.new(4) { true }
     @e_lasers = false
     @e_scene = false
 
@@ -78,41 +78,41 @@ class Scene06
     @texture["ship"].load("data/ship.raw")
     @texture["sground"].load("data/sground.raw")
 
-    glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    gluPerspective(45.0, 4.0/3.0, 0.1, 90.0)
-    glMatrixMode(GL_MODELVIEW)
-    glLoadIdentity()
+    GL.MatrixMode(GL::PROJECTION)
+    GL.LoadIdentity()
+    GLU.Perspective(45.0, 4.0/3.0, 0.1, 90.0)
+    GL.MatrixMode(GL::MODELVIEW)
+    GL.LoadIdentity()
 
-    glShadeModel(GL_SMOOTH)
-    glClearColor(1.0, 1.0, 1.0, 1.0)
-    glClearColor(0.0, 0.0, 0.0, 1.0)
-    glClearDepth(1.0)
-    glEnable(GL_DEPTH_TEST)
-    glDepthFunc(GL_LEQUAL)
-    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL)
-    glEnable(GL_TEXTURE_2D)
-    glFogf(GL_FOG_MODE,GL_EXP2)
-    glFogf(GL_FOG_START,15.0)
-    glFogf(GL_FOG_END,25.0)
-    glFogf(GL_FOG_DENSITY,0.075)
+    GL.ShadeModel(GL::SMOOTH)
+    GL.ClearColor(1.0, 1.0, 1.0, 1.0)
+    GL.ClearColor(0.0, 0.0, 0.0, 1.0)
+    GL.ClearDepth(1.0)
+    GL.Enable(GL::DEPTH_TEST)
+    GL.DepthFunc(GL::LEQUAL)
+    GL.Hint(GL::PERSPECTIVE_CORRECTION_HINT, GL::NICEST)
+    GL.PolygonMode(GL::FRONT_AND_BACK, GL::FILL)
+    GL.Enable(GL::TEXTURE_2D)
+    GL.Fogf(GL::FOG_MODE,GL::EXP2)
+    GL.Fogf(GL::FOG_START,15.0)
+    GL.Fogf(GL::FOG_END,25.0)
+    GL.Fogf(GL::FOG_DENSITY,0.075)
     @e_FogColor[0]=0.0
     @e_FogColor[1]=0.0
     @e_FogColor[2]=0.0
-    glFogfv(GL_FOG_COLOR,@e_FogColor.pack('F3'))
-    glEnable(GL_FOG)
-    glDisable (GL_CULL_FACE)
-    glBlendFunc(GL_SRC_ALPHA,GL_ONE)
-    glEnable(GL_FOG)
-    glBlendFunc(GL_SRC_ALPHA,GL_ONE)
+    GL.Fogfv(GL::FOG_COLOR,@e_FogColor.pack('F3'))
+    GL.Enable(GL::FOG)
+    GL.Disable (GL::CULL_FACE)
+    GL.BlendFunc(GL::SRC_ALPHA,GL::ONE)
+    GL.Enable(GL::FOG)
+    GL.BlendFunc(GL::SRC_ALPHA,GL::ONE)
     @texture["star"].use
-    glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP)
-    glTexGeni(GL_S, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP)
+    GL.TexGeni(GL::T, GL::TEXTURE_GEN_MODE, GL::SPHERE_MAP)
+    GL.TexGeni(GL::S, GL::TEXTURE_GEN_MODE, GL::SPHERE_MAP)
   end
 
   def clean
-    glDeleteLists( @shiplist, 1 )
+    GL.DeleteLists(@shiplist, 1)
     @texture.each { |key,tex| tex.kill }
 
     @texture = nil
@@ -120,116 +120,116 @@ class Scene06
   end
 
   def genship
-    lid=glGenLists(1)
-    glNewList(lid, GL_COMPILE)
+    lid = GL.GenLists(1)
+    GL.NewList(lid, GL::COMPILE)
 
-    glBegin(GL_TRIANGLES)
+    GL.Begin(GL::TRIANGLES)
     for i in 0...@@face_indicies.length do
-      if ( (i%1) == 0 )
+      if ((i%1) == 0)
         for j in 0...3 do
           vi=@@face_indicies[i][j]
           ni=@@face_indicies[i][j+3] # Normal index
-          glNormal3f( @@normals[ni][0], @@normals[ni][1], @@normals[ni][2] )
-          glVertex3f( @@vertices[vi][0], @@vertices[vi][1], @@vertices[vi][2] )
+          GL.Normal3f(@@normals[ni][0], @@normals[ni][1], @@normals[ni][2])
+          GL.Vertex3f(@@vertices[vi][0], @@vertices[vi][1], @@vertices[vi][2])
         end
       end
     end
-    glEnd()
-    glEndList()
+    GL.End()
+    GL.EndList()
     return lid
   end
 
-  def e_drawquad( size ) # size : GLfloat
+  def e_drawquad(size) # size : GLfloat
     hs = 0.5*size
-    glBegin(GL_QUADS)
-    glTexCoord2f(0.0, 0.0)
-    glVertex3f(-hs,-hs,0.0)
-    glTexCoord2f(1.0, 0.0)
-    glVertex3f(hs,-hs,0.0)
-    glTexCoord2f(1.0, 1.0)
-    glVertex3f(hs,hs,0.0)
-    glTexCoord2f(0.0, 1.0)
-    glVertex3f(-hs,hs,0.0)
-    glEnd()
+    GL.Begin(GL::QUADS)
+    GL.TexCoord2f(0.0, 0.0)
+    GL.Vertex3f(-hs,-hs,0.0)
+    GL.TexCoord2f(1.0, 0.0)
+    GL.Vertex3f(hs,-hs,0.0)
+    GL.TexCoord2f(1.0, 1.0)
+    GL.Vertex3f(hs,hs,0.0)
+    GL.TexCoord2f(0.0, 1.0)
+    GL.Vertex3f(-hs,hs,0.0)
+    GL.End()
   end
 
-  def e_drawmquad( size,  mtex ) # size, mtex : GLfloat
-    hs = 0.5*size
-    zr = 0.1*@e_zeta*@e_rocca
-    glBegin(GL_QUADS)
-    glTexCoord2f(0.0, 0.0-zr)
-    glVertex3f(-hs,-hs,0.0)
-    glTexCoord2f(1.0, 0.0-zr)
-    glVertex3f(hs,-hs,0.0)
-    glTexCoord2f(1.0, 1.0*mtex-zr)
-    glVertex3f(hs,hs,0.0)
-    glTexCoord2f(0.0, 1.0*mtex-zr)
-    glVertex3f(-hs,hs,0.0)
-    glEnd()
-  end
-
-  def e_drawmquad1( size,  mtex ) # size, mtex : GLfloat
+  def e_drawmquad(size,  mtex) # size, mtex : GLfloat
     hs = 0.5*size
     zr = 0.1*@e_zeta*@e_rocca
-    glBegin(GL_QUADS)
-    glTexCoord2f(0.0+zr, 0.0)
-    glVertex3f(-hs,-hs,0.0)
-    glTexCoord2f(1.0*mtex+zr, 0.0)
-    glVertex3f(hs,-hs,0.0)
-    glTexCoord2f(1.0*mtex+zr, 1.0)
-    glVertex3f(hs,hs,0.0)
-    glTexCoord2f(0.0+zr, 1.0)
-    glVertex3f(-hs,hs,0.0)
-    glEnd()
+    GL.Begin(GL::QUADS)
+    GL.TexCoord2f(0.0, 0.0-zr)
+    GL.Vertex3f(-hs,-hs,0.0)
+    GL.TexCoord2f(1.0, 0.0-zr)
+    GL.Vertex3f(hs,-hs,0.0)
+    GL.TexCoord2f(1.0, 1.0*mtex-zr)
+    GL.Vertex3f(hs,hs,0.0)
+    GL.TexCoord2f(0.0, 1.0*mtex-zr)
+    GL.Vertex3f(-hs,hs,0.0)
+    GL.End()
   end
 
-  def e_drawtrail( tsz ) # tsz : GLfloat
+  def e_drawmquad1(size,  mtex) # size, mtex : GLfloat
+    hs = 0.5*size
+    zr = 0.1*@e_zeta*@e_rocca
+    GL.Begin(GL::QUADS)
+    GL.TexCoord2f(0.0+zr, 0.0)
+    GL.Vertex3f(-hs,-hs,0.0)
+    GL.TexCoord2f(1.0*mtex+zr, 0.0)
+    GL.Vertex3f(hs,-hs,0.0)
+    GL.TexCoord2f(1.0*mtex+zr, 1.0)
+    GL.Vertex3f(hs,hs,0.0)
+    GL.TexCoord2f(0.0+zr, 1.0)
+    GL.Vertex3f(-hs,hs,0.0)
+    GL.End()
+  end
+
+  def e_drawtrail(tsz) # tsz : GLfloat
     @texture["star"].use
-    glScalef(1/0.75,1/0.25,1/0.05)
+    GL.Scalef(1/0.75,1/0.25,1/0.05)
 
     for zx in 0...4 do
-      glPushMatrix()
-      glTranslatef(-0.3+zx/5.0,0,0)
-      glRotatef(-5*@e_yrot,0,1,0)
-      glRotatef(-90,0,1,0)
-      glRotatef(-45-@e_yrot*2,0,0,1)
+      GL.PushMatrix()
+      GL.Translatef(-0.3+zx/5.0,0,0)
+      GL.Rotatef(-5*@e_yrot,0,1,0)
+      GL.Rotatef(-90,0,1,0)
+      GL.Rotatef(-45-@e_yrot*2,0,0,1)
       e_drawquad(tsz)
-      glPopMatrix()
+      GL.PopMatrix()
     end
   end
 
-  def e_drawtrailup( tsz ) # tsz : GLfloat
+  def e_drawtrailup(tsz) # tsz : GLfloat
     @texture["star"].use
-    glScalef(1/0.25,1/0.75,1/0.05)
+    GL.Scalef(1/0.25,1/0.75,1/0.05)
 
     for zx in 0...4 do
-      glPushMatrix()
-      glTranslatef(0,-0.3+zx/5.0,0)
-      glRotatef(-5*@e_xrot,1,0,0)
-      glRotatef(-90,1,0,0)
-      glRotatef(-45-@e_xrot*2,0,0,1)
+      GL.PushMatrix()
+      GL.Translatef(0,-0.3+zx/5.0,0)
+      GL.Rotatef(-5*@e_xrot,1,0,0)
+      GL.Rotatef(-90,1,0,0)
+      GL.Rotatef(-45-@e_xrot*2,0,0,1)
       e_drawquad(tsz)
-      glPopMatrix()
+      GL.PopMatrix()
     end
   end
 
-  def e_Clear( quad ) # GLfloat
-    glDisable(GL_TEXTURE_2D)
-    glDisable(GL_DEPTH_TEST)
-    glEnable(GL_BLEND)
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
-    glLoadIdentity()
-    glTranslatef(0,0,-1.0)
-    glColor4f(0,0,0,1-quad)
+  def e_Clear(quad) # GLfloat
+    GL.Disable(GL::TEXTURE_2D)
+    GL.Disable(GL::DEPTH_TEST)
+    GL.Enable(GL::BLEND)
+    GL.BlendFunc(GL::SRC_ALPHA, GL::ONE_MINUS_SRC_ALPHA)
+    GL.LoadIdentity()
+    GL.Translatef(0,0,-1.0)
+    GL.Color4f(0,0,0,1-quad)
     e_drawquad(1.2)
-    glDisable(GL_BLEND)
-    glEnable(GL_DEPTH_TEST)
-    glBlendFunc(GL_SRC_ALPHA,GL_ONE)
-    glEnable(GL_TEXTURE_2D)
+    GL.Disable(GL::BLEND)
+    GL.Enable(GL::DEPTH_TEST)
+    GL.BlendFunc(GL::SRC_ALPHA,GL::ONE)
+    GL.Enable(GL::TEXTURE_2D)
   end
 
-  def render( globtime )
-    if ( @need_initialization )
+  def render(globtime)
+    if (@need_initialization)
       initGL()
       @need_initialization = false
     end
@@ -238,47 +238,47 @@ class Scene06
 
     eoffset = 4.75
 
-    if ( (@e_timer<eoffset) || (@e_timer>eoffset+2.0) )
-      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+    if ((@e_timer<eoffset) || (@e_timer>eoffset+2.0))
+      GL.Clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT)
     else
-      glClear(GL_DEPTH_BUFFER_BIT)
-      e_Clear( 1.0 - Math.cos((@e_timer-eoffset)*3.1415) )
+      GL.Clear(GL::DEPTH_BUFFER_BIT)
+      e_Clear(1.0 - Math.cos((@e_timer-eoffset)*3.1415))
     end
 
 
     @e_timer = -2.0 + @e_time/3300.0
-    if ( @e_scene )
-      glDisable(GL_DEPTH_TEST)
-      glLoadIdentity()
-      glDisable(GL_FOG)
-      glDisable(GL_TEXTURE_2D)
-      glRotatef(5*@e_zrot,0,0,1)
-      glRotatef(5*@e_yrot,0,1,0)
-      glRotatef(5*@e_xrot,1,0,0)
-      glTranslatef(0,0,-40)
-      glColor4f(@e_FogColor[0],@e_FogColor[0],@e_FogColor[0],1)
+    if (@e_scene)
+      GL.Disable(GL::DEPTH_TEST)
+      GL.LoadIdentity()
+      GL.Disable(GL::FOG)
+      GL.Disable(GL::TEXTURE_2D)
+      GL.Rotatef(5*@e_zrot,0,0,1)
+      GL.Rotatef(5*@e_yrot,0,1,0)
+      GL.Rotatef(5*@e_xrot,1,0,0)
+      GL.Translatef(0,0,-40)
+      GL.Color4f(@e_FogColor[0],@e_FogColor[0],@e_FogColor[0],1)
       e_drawquad(10.0) if ((@e_timer<1)||(@e_timer>13))
-      glEnable(GL_DEPTH_TEST)
-      glEnable(GL_TEXTURE_2D)
-      glEnable(GL_FOG)
+      GL.Enable(GL::DEPTH_TEST)
+      GL.Enable(GL::TEXTURE_2D)
+      GL.Enable(GL::FOG)
 
 
 
       @e_depth = 30+30*@e_radius
 
-      if ( @e_timer > -1.0 )
-        if ( (@e_timer<eoffset) || (@e_timer>eoffset+2) )
-          glDisable(GL_BLEND)
+      if (@e_timer > -1.0)
+        if ((@e_timer<eoffset) || (@e_timer>eoffset+2))
+          GL.Disable(GL::BLEND)
         else
-          glEnable(GL_BLEND)
+          GL.Enable(GL::BLEND)
         end
-        glLoadIdentity()
+        GL.LoadIdentity()
 
-        glTranslatef( 0.75*Math.sin(@e_timer), 0.35*Math.cos(@e_timer), 0 )
+        GL.Translatef(0.75*Math.sin(@e_timer), 0.35*Math.cos(@e_timer), 0)
 
-        glRotatef(5*@e_zrot,0,0,1)
-        glRotatef(5*@e_yrot,0,1,0)
-        glRotatef(5*@e_xrot,1,0,0)
+        GL.Rotatef(5*@e_zrot,0,0,1)
+        GL.Rotatef(5*@e_yrot,0,1,0)
+        GL.Rotatef(5*@e_xrot,1,0,0)
 
         @e_xrot=(6.0-((@e_timer-6.0)*1.5))*(Math.cos((@e_timer-6.0)*3.1415/2.0)-1.0) if ((@e_timer>6.0)&&(@e_timer<10.0))
         @e_yrot=(36.0-((@e_timer-5.0)*9.0))*(Math.cos((@e_timer-5.0)*3.1415/2.0)-1.0) if ((@e_timer>5.0)&&(@e_timer<9.0))
@@ -297,337 +297,337 @@ class Scene06
 
         @e_fade=(Math.cos((@e_timer-16.0)*3.1415/2.0+3.1415)+1.0)*20.0 if (@e_timer>16.0)
 
-        if ( (@e_timer>15.0) && (@dum[0]) )
+        if ((@e_timer>15.0) && (@dum[0]))
           @dum[0]=false
           @e_lasers=true
         end
 
         lim = 2
-        lim = 1 if ( @e_timer > 15.0 )
+        lim = 1 if (@e_timer > 15.0)
 
         for fb in 0...lim do
-          glTranslatef(0,0,@e_fade-@e_depth/2+fb*3*@e_depth/2)
+          GL.Translatef(0,0,@e_fade-@e_depth/2+fb*3*@e_depth/2)
 
-          glPushMatrix()
+          GL.PushMatrix()
           @texture["mtop"].use
-          glScalef(1.122,1,@e_depth)
-          glTranslatef(0,2.591,0)
-          glRotatef(90,1,0,0)
-          if ( @e_timer<1.0 )
-            glColor4f(@e_timer/2.0,@e_timer/2.0,@e_timer/2.0,@e_timer/2.0)
+          GL.Scalef(1.122,1,@e_depth)
+          GL.Translatef(0,2.591,0)
+          GL.Rotatef(90,1,0,0)
+          if (@e_timer<1.0)
+            GL.Color4f(@e_timer/2.0,@e_timer/2.0,@e_timer/2.0,@e_timer/2.0)
           else
-            glColor4f(0.5,0.5,0.5,0.5)
+            GL.Color4f(0.5,0.5,0.5,0.5)
           end
           e_drawmquad(1.0,6.0)				# ROOF TOP
-          glPopMatrix()
+          GL.PopMatrix()
 
-          glPushMatrix()
+          GL.PushMatrix()
           @texture["mfloor1"].use
-          glScalef(2,1,@e_depth)
-          glTranslatef(0,-1,0)
-          glRotatef(90,1,0,0)
-          if ( @e_timer < 1.0 )
-            glColor4f(@e_timer,@e_timer,@e_timer,@e_timer)
+          GL.Scalef(2,1,@e_depth)
+          GL.Translatef(0,-1,0)
+          GL.Rotatef(90,1,0,0)
+          if (@e_timer < 1.0)
+            GL.Color4f(@e_timer,@e_timer,@e_timer,@e_timer)
           else
-            glColor4f(1.0,1.0,1.0,1.0)
+            GL.Color4f(1.0,1.0,1.0,1.0)
           end
           e_drawmquad(1.0,6.0)				# FLOOR
-          glPopMatrix()
+          GL.PopMatrix()
 
           for pp in 0...2 do
-            glPushMatrix()
-            glScalef(-1,1,1) if (pp==1)
+            GL.PushMatrix()
+            GL.Scalef(-1,1,1) if (pp==1)
             @texture["rusty2"].use
-            glScalef(1,1,@e_depth)
-            glTranslatef(-1.35,-0.65,0)
-            glRotatef(45,0,0,1)
-            glRotatef(90,0,1,0)
+            GL.Scalef(1,1,@e_depth)
+            GL.Translatef(-1.35,-0.65,0)
+            GL.Rotatef(45,0,0,1)
+            GL.Rotatef(90,0,1,0)
             e_drawmquad1(1.0,3.0)				# BOTT LEFT
-            glPopMatrix()
+            GL.PopMatrix()
 
-            glPushMatrix()
-            glScalef(-1,1,1) if (pp==1)
+            GL.PushMatrix()
+            GL.Scalef(-1,1,1) if (pp==1)
             @texture["metal"].use
-            glScalef(1,3,@e_depth)
-            glTranslatef(-1.13,0.383,0)
-            glRotatef(-50,0,0,1)
-            glRotatef(90,0,1,0)
-            glScalef(1,1.5,1)
+            GL.Scalef(1,3,@e_depth)
+            GL.Translatef(-1.13,0.383,0)
+            GL.Rotatef(-50,0,0,1)
+            GL.Rotatef(90,0,1,0)
+            GL.Scalef(1,1.5,1)
             e_drawmquad1(1.0,6.0)				# TOP LEFT
-            glPopMatrix()
+            GL.PopMatrix()
           end
         end # for fb in 0...lim
 
-        glTranslatef(0,0,@e_zeta/1.75)
-        glEnable(GL_BLEND)
-        glDisable(GL_DEPTH_TEST)
-        glEnable(GL_TEXTURE_GEN_S)
-        glEnable(GL_TEXTURE_GEN_T)
-        glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_EYE_LINEAR)
+        GL.Translatef(0,0,@e_zeta/1.75)
+        GL.Enable(GL::BLEND)
+        GL.Disable(GL::DEPTH_TEST)
+        GL.Enable(GL::TEXTURE_GEN_S)
+        GL.Enable(GL::TEXTURE_GEN_T)
+        GL.TexGeni(GL::T, GL::TEXTURE_GEN_MODE, GL::EYE_LINEAR)
 
-        if ( (@e_timer>1.0) && (@e_timer<15.0) )
+        if ((@e_timer>1.0) && (@e_timer<15.0))
           var = 0.0
-          if ( (@e_timer>3) && (@e_timer<3.4) )
+          if ((@e_timer>3) && (@e_timer<3.4))
             var=0.5-0.5*Math.cos((@e_timer-3)*3.1415*5)
           end
 
           for pp in 0...2 do
-            glPushMatrix()
+            GL.PushMatrix()
             @texture["text2"].use
-            glScalef(1,1,3)
-            glTranslatef(-1.75+pp*3.5,-0.65,0)
+            GL.Scalef(1,1,3)
+            GL.Translatef(-1.75+pp*3.5,-0.65,0)
 
-            glRotatef(90,0,1,0)
+            GL.Rotatef(90,0,1,0)
 
-            glScalef(0.75,0.25,0.05)
-            glTranslatef(0,2,0.4)
+            GL.Scalef(0.75,0.25,0.05)
+            GL.Translatef(0,2,0.4)
             for zx in 0...21 do			# LIGHTS SIDE
 
-              glPushMatrix()
-              glTranslatef(20.0+zx*2.9,0,0)
-              glEnable(GL_TEXTURE_GEN_S)
-              glEnable(GL_TEXTURE_GEN_T)
+              GL.PushMatrix()
+              GL.Translatef(20.0+zx*2.9,0,0)
+              GL.Enable(GL::TEXTURE_GEN_S)
+              GL.Enable(GL::TEXTURE_GEN_T)
               @texture["text2"].use
 
 
-              glColor4f(1.0,1.0,1.0,0.25+0.75*var)
-              glutSolidCube(1)
-              glDisable(GL_TEXTURE_GEN_S)
-              glDisable(GL_TEXTURE_GEN_T)
-              glColor4f(1.0,1.0,1.0,1.0)
+              GL.Color4f(1.0,1.0,1.0,0.25+0.75*var)
+              geomSolidCube(1)
+              GL.Disable(GL::TEXTURE_GEN_S)
+              GL.Disable(GL::TEXTURE_GEN_T)
+              GL.Color4f(1.0,1.0,1.0,1.0)
               if (@e_timer>3)
                 e_drawtrail(0.75+1.5*var)
               elsif (@e_timer>2.625)
                 e_drawtrail(2*(@e_timer-2.625))
               end
-              glPopMatrix()
+              GL.PopMatrix()
             end
-            glPopMatrix()
+            GL.PopMatrix()
           end
 
-          glPushMatrix()
+          GL.PushMatrix()
           @texture["text2"].use
-          glScalef(1.122,1,3)
-          glTranslatef(0,2.591,0)
-          glRotatef(90,1,0,0)
+          GL.Scalef(1.122,1,3)
+          GL.Translatef(0,2.591,0)
+          GL.Rotatef(90,1,0,0)
           # LIGHTS TOP
-          glScalef(0.25,0.75,0.05)
-          glTranslatef(0,0,0.4)
+          GL.Scalef(0.25,0.75,0.05)
+          GL.Translatef(0,0,0.4)
           for zx in 0...21 do
 
-            glPushMatrix()
-            glTranslatef(0,-20.0-zx*3.0,0)
-            glEnable(GL_TEXTURE_GEN_S)
-            glEnable(GL_TEXTURE_GEN_T)
+            GL.PushMatrix()
+            GL.Translatef(0,-20.0-zx*3.0,0)
+            GL.Enable(GL::TEXTURE_GEN_S)
+            GL.Enable(GL::TEXTURE_GEN_T)
             @texture["text2"].use
 
-            glColor4f(1.0,1.0,1.0,0.25+0.75*var)
-            glutSolidCube(1)
-            glDisable(GL_TEXTURE_GEN_S)
-            glDisable(GL_TEXTURE_GEN_T)
-            glColor4f(1.0,1.0,1.0,1.0)
+            GL.Color4f(1.0,1.0,1.0,0.25+0.75*var)
+            geomSolidCube(1)
+            GL.Disable(GL::TEXTURE_GEN_S)
+            GL.Disable(GL::TEXTURE_GEN_T)
+            GL.Color4f(1.0,1.0,1.0,1.0)
             if (@e_timer>3)
               e_drawtrailup(0.75+1.5*var)
             elsif (@e_timer>2.625)
               e_drawtrailup(2*(@e_timer-2.625))
             end
-            glPopMatrix()
+            GL.PopMatrix()
           end
-          glPopMatrix()
-        end # ( (@e_timer>1.0) && (@e_timer<15.0) )
-        glDisable(GL_TEXTURE_GEN_S)
-        glDisable(GL_TEXTURE_GEN_T)
+          GL.PopMatrix()
+        end # ((@e_timer>1.0) && (@e_timer<15.0))
+        GL.Disable(GL::TEXTURE_GEN_S)
+        GL.Disable(GL::TEXTURE_GEN_T)
 
-        glTranslatef(0,0,1.9-@e_zeta/1.75)
+        GL.Translatef(0,0,1.9-@e_zeta/1.75)
 
-        glEnable(GL_DEPTH_TEST)
-        if ( @e_timer < 0.0 )
+        GL.Enable(GL::DEPTH_TEST)
+        if (@e_timer < 0.0)
           @e_radius = Math.cos(@e_timer*3.1415/2.0-3.1415/2.0)+1.0
-        elsif ( @e_timer < 1.0 )
+        elsif (@e_timer < 1.0)
           @e_radius = Math.cos(@e_timer*3.1415/2.0+3.1415/2.0)+1.0
         end
 
         @e_FogColor[0] = @e_radius
         @e_FogColor[1] = @e_radius
         @e_FogColor[2] = @e_radius
-        glFogfv(GL_FOG_COLOR,@e_FogColor.pack('F3'))
-        glFogf(GL_FOG_DENSITY, 0.075+(@e_timer-16.5)*(@e_timer-16.5)*3.0) if ( @e_timer>16.5 )
-        glFogf(GL_FOG_START, 10-11*@e_radius)
+        GL.Fogfv(GL::FOG_COLOR,@e_FogColor.pack('F3'))
+        GL.Fogf(GL::FOG_DENSITY, 0.075+(@e_timer-16.5)*(@e_timer-16.5)*3.0) if (@e_timer>16.5)
+        GL.Fogf(GL::FOG_START, 10-11*@e_radius)
 
-        if ( @e_timer<1.0 )
-          glLoadIdentity()		# LIGHT MASK
-          glTranslatef(0,0,-0.1)
-          glRotatef(@e_timer*200,0,0,1)
-          glRotatef(180,1,0,0)
-          glEnable(GL_TEXTURE_GEN_S)
-          glEnable(GL_TEXTURE_GEN_T)
-          glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP)
-          glColor4f(1.0,1.0,1.0,1.0-@e_timer/1.0)
+        if (@e_timer<1.0)
+          GL.LoadIdentity()		# LIGHT MASK
+          GL.Translatef(0,0,-0.1)
+          GL.Rotatef(@e_timer*200,0,0,1)
+          GL.Rotatef(180,1,0,0)
+          GL.Enable(GL::TEXTURE_GEN_S)
+          GL.Enable(GL::TEXTURE_GEN_T)
+          GL.TexGeni(GL::T, GL::TEXTURE_GEN_MODE, GL::SPHERE_MAP)
+          GL.Color4f(1.0,1.0,1.0,1.0-@e_timer/1.0)
           @texture["star"].use
-          glutSolidCone(0.2,@e_timer/3.5,20,20)
-          glDisable(GL_TEXTURE_GEN_S)
-          glDisable(GL_TEXTURE_GEN_T)
+          geomSolidCone(0.2,@e_timer/3.5,20,20)
+          GL.Disable(GL::TEXTURE_GEN_S)
+          GL.Disable(GL::TEXTURE_GEN_T)
         end
 
-        if ( @e_lasers )				# e_lasers
-          glEnable(GL_TEXTURE_GEN_S)
-          glEnable(GL_TEXTURE_GEN_T)
+        if (@e_lasers)				# e_lasers
+          GL.Enable(GL::TEXTURE_GEN_S)
+          GL.Enable(GL::TEXTURE_GEN_T)
           @texture["text2"].use
-          glDisable(GL_DEPTH_TEST)
-          glLoadIdentity()
-          glTranslatef(0,0,-0.1)
+          GL.Disable(GL::DEPTH_TEST)
+          GL.LoadIdentity()
+          GL.Translatef(0,0,-0.1)
 
-          glRotatef(5*@e_zrot,0,0,1)
-          glRotatef(5*@e_yrot,0,1,0)
-          glRotatef(5*@e_xrot,1,0,0)
+          GL.Rotatef(5*@e_zrot,0,0,1)
+          GL.Rotatef(5*@e_yrot,0,1,0)
+          GL.Rotatef(5*@e_xrot,1,0,0)
 
-          glPushMatrix()
-          glRotatef(@e_zeta*2.5,0,0,1)
-          glRotatef(179.5,1,0,0)
+          GL.PushMatrix()
+          GL.Rotatef(@e_zeta*2.5,0,0,1)
+          GL.Rotatef(179.5,1,0,0)
 
-          glColor4f(1.0,1.0,1.0,0.25+(@e_timer-16.0)/8.0)
-          glutSolidCone(0.25,100-(@e_zeta/10.0-100)/2.0,10,5)
-          glPopMatrix()
+          GL.Color4f(1.0,1.0,1.0,0.25+(@e_timer-16.0)/8.0)
+          geomSolidCone(0.25,100-(@e_zeta/10.0-100)/2.0,10,5)
+          GL.PopMatrix()
 
 
           @texture["cl"].use
 
-          glPushMatrix()
-          glRotatef(-@e_zeta*5.0,0,0,1)
-          glRotatef(179.25,1,0,0)
-          glColor4ub(128,255,128,64)
-          glColor4f(0.25,0.5,1.0,0.5)
-          glutSolidCone(0.25,200-(@e_zeta/1.5-200),10,3)
-          glPopMatrix()
+          GL.PushMatrix()
+          GL.Rotatef(-@e_zeta*5.0,0,0,1)
+          GL.Rotatef(179.25,1,0,0)
+          GL.Color4ub(128,255,128,64)
+          GL.Color4f(0.25,0.5,1.0,0.5)
+          geomSolidCone(0.25,200-(@e_zeta/1.5-200),10,3)
+          GL.PopMatrix()
 
-          glDisable(GL_TEXTURE_GEN_S)
-          glDisable(GL_TEXTURE_GEN_T)
-          glEnable(GL_TEXTURE_2D)
+          GL.Disable(GL::TEXTURE_GEN_S)
+          GL.Disable(GL::TEXTURE_GEN_T)
+          GL.Enable(GL::TEXTURE_2D)
         end
-      end # ( @e_timer > -1.0 )
+      end # (@e_timer > -1.0)
     else
-      if ( @e_timer < -1.25 )
-        glEnable(GL_BLEND)
-        glBlendFunc(GL_SRC_ALPHA,GL_ONE)
-        glDisable(GL_TEXTURE_2D)
-        glLoadIdentity()
-        glTranslatef(0,0,-1.0)
-        glColor4f(1,1,1,-2.0*(@e_timer+1.25))
+      if (@e_timer < -1.25)
+        GL.Enable(GL::BLEND)
+        GL.BlendFunc(GL::SRC_ALPHA,GL::ONE)
+        GL.Disable(GL::TEXTURE_2D)
+        GL.LoadIdentity()
+        GL.Translatef(0,0,-1.0)
+        GL.Color4f(1,1,1,-2.0*(@e_timer+1.25))
         e_drawquad(1.2)
-        glEnable(GL_TEXTURE_2D)
-        glDisable(GL_BLEND)
+        GL.Enable(GL::TEXTURE_2D)
+        GL.Disable(GL::BLEND)
       else
         @e_scene = true
       end
     end
 
     if ((@e_timer>6.5)&&(@e_timer<9.5))
-      glMatrixMode(GL_PROJECTION)
-      glLoadIdentity()
-      gluPerspective( 45.0+50*(0.5-0.5*Math.cos((@e_timer-6.5)*3.1415*2.0/3.0)), 4.0/3.0, 0.1, 90.0 )
-      glMatrixMode(GL_MODELVIEW)
+      GL.MatrixMode(GL::PROJECTION)
+      GL.LoadIdentity()
+      GLU.Perspective(45.0+50*(0.5-0.5*Math.cos((@e_timer-6.5)*3.1415*2.0/3.0)), 4.0/3.0, 0.1, 90.0)
+      GL.MatrixMode(GL::MODELVIEW)
     end
 
     if ((@e_timer>13)&&(@e_timer<15))
-      glMatrixMode(GL_PROJECTION)
-      glLoadIdentity()
-      gluPerspective( 45.0+15*(0.5-0.5*Math.cos((@e_timer-13)*3.1415/2.0)), 4.0/3.0, 0.1, 90.0 )
-      glMatrixMode(GL_MODELVIEW)
+      GL.MatrixMode(GL::PROJECTION)
+      GL.LoadIdentity()
+      GLU.Perspective(45.0+15*(0.5-0.5*Math.cos((@e_timer-13)*3.1415/2.0)), 4.0/3.0, 0.1, 90.0)
+      GL.MatrixMode(GL::MODELVIEW)
     end
 
-    if ( ((@e_timer>5)&&(@e_timer<9.75)) || ((@e_timer>12)&&(@e_timer<14.1)) )
+    if (((@e_timer>5)&&(@e_timer<9.75)) || ((@e_timer>12)&&(@e_timer<14.1)))
       @dum[1]=false if ((@e_timer>6.5)&&(@dum[1]))
       @dum[3]=false if ((@e_timer>12.4)&&(@dum[3]))
 
-      glLoadIdentity()
-      glTranslatef(0.75*Math.sin(@e_timer),0.35*Math.cos(@e_timer),0)
-      glRotatef(5*@e_zrot,0,0,1)
-      glRotatef(5*@e_yrot,0,1,0)
-      glRotatef(5*@e_xrot,1,0,0)
+      GL.LoadIdentity()
+      GL.Translatef(0.75*Math.sin(@e_timer),0.35*Math.cos(@e_timer),0)
+      GL.Rotatef(5*@e_zrot,0,0,1)
+      GL.Rotatef(5*@e_yrot,0,1,0)
+      GL.Rotatef(5*@e_xrot,1,0,0)
 
       if (@e_timer<7.7)
-        glTranslatef(-0.25-0.5*Math.sin(@e_timer), 0.5-0.5*Math.cos(@e_timer), 46-6*@e_timer)
+        GL.Translatef(-0.25-0.5*Math.sin(@e_timer), 0.5-0.5*Math.cos(@e_timer), 46-6*@e_timer)
       elsif (@e_timer<8.7)
-        glTranslatef(-0.25-0.5*Math.sin(@e_timer), 0.5-0.5*Math.cos(@e_timer), 46-6*@e_timer+4*(0.5-0.5*Math.cos((@e_timer-7.7)*3.1415)))
+        GL.Translatef(-0.25-0.5*Math.sin(@e_timer), 0.5-0.5*Math.cos(@e_timer), 46-6*@e_timer+4*(0.5-0.5*Math.cos((@e_timer-7.7)*3.1415)))
       elsif (@e_timer<11)
-        glTranslatef(-0.25-0.5*Math.sin(@e_timer)+(@e_timer-8.7)*(@e_timer-8.7), 0.5-0.5*Math.cos(@e_timer)-5*(@e_timer-8.7)*(@e_timer-8.7), 50-6*@e_timer-250*(@e_timer-8.7)*(@e_timer-8.7)*(@e_timer-8.7))
+        GL.Translatef(-0.25-0.5*Math.sin(@e_timer)+(@e_timer-8.7)*(@e_timer-8.7), 0.5-0.5*Math.cos(@e_timer)-5*(@e_timer-8.7)*(@e_timer-8.7), 50-6*@e_timer-250*(@e_timer-8.7)*(@e_timer-8.7)*(@e_timer-8.7))
       else
-        glTranslatef(0.5-0.5*Math.sin(@e_timer), 1-0.25*(@e_timer-12)*(@e_timer-12), -4*(@e_timer-12)*(@e_timer-12)*(@e_timer-12))
+        GL.Translatef(0.5-0.5*Math.sin(@e_timer), 1-0.25*(@e_timer-12)*(@e_timer-12), -4*(@e_timer-12)*(@e_timer-12)*(@e_timer-12))
       end
-      glPushMatrix()
-      if ( @e_timer<11 )
-        glRotatef(60*Math.sin(@e_timer*2.5)*Math.sin(@e_timer*1.5),0,0,1)
+      GL.PushMatrix()
+      if (@e_timer<11)
+        GL.Rotatef(60*Math.sin(@e_timer*2.5)*Math.sin(@e_timer*1.5),0,0,1)
       else
-        glRotatef(-70-120*Math.sin((@e_timer-11.7)*4.0),0,0,1)
+        GL.Rotatef(-70-120*Math.sin((@e_timer-11.7)*4.0),0,0,1)
       end
-      glDisable(GL_BLEND)
-      glTexGeni(GL_T, GL_TEXTURE_GEN_MODE, GL_SPHERE_MAP)
-      glEnable(GL_TEXTURE_GEN_S)
-      glEnable(GL_TEXTURE_GEN_T)
+      GL.Disable(GL::BLEND)
+      GL.TexGeni(GL::T, GL::TEXTURE_GEN_MODE, GL::SPHERE_MAP)
+      GL.Enable(GL::TEXTURE_GEN_S)
+      GL.Enable(GL::TEXTURE_GEN_T)
       @texture["ship"].use
-      glEnable(GL_DEPTH_TEST)
-      glEnable(GL_CULL_FACE)
-      glColor4f(1,1,1,1)
-      glScalef(1.5,1.5,1.5)
-      glCallList(@shiplist)
-      glPopMatrix();
-      glDisable(GL_TEXTURE_GEN_S)
-      glDisable(GL_TEXTURE_GEN_T)
-      glDisable(GL_DEPTH_TEST)
-      glDisable(GL_CULL_FACE)
-      glEnable(GL_BLEND)
+      GL.Enable(GL::DEPTH_TEST)
+      GL.Enable(GL::CULL_FACE)
+      GL.Color4f(1,1,1,1)
+      GL.Scalef(1.5,1.5,1.5)
+      GL.CallList(@shiplist)
+      GL.PopMatrix();
+      GL.Disable(GL::TEXTURE_GEN_S)
+      GL.Disable(GL::TEXTURE_GEN_T)
+      GL.Disable(GL::DEPTH_TEST)
+      GL.Disable(GL::CULL_FACE)
+      GL.Enable(GL::BLEND)
       @texture["star"].use
-      glTranslatef(0,0,0.5)
-      glEnable(GL_DEPTH_TEST) if (@e_timer<7.7)
-      glRotatef(-5*@e_yrot,0,1,0)
+      GL.Translatef(0,0,0.5)
+      GL.Enable(GL::DEPTH_TEST) if (@e_timer<7.7)
+      GL.Rotatef(-5*@e_yrot,0,1,0)
       if (@e_timer>8.6) 
         @dum[2]=false if (@dum[2])
 
         @texture["sground"].use
-        if ( @e_timer < 13 )
-          glColor4f(1,1,1,0.5)
+        if (@e_timer < 13)
+          GL.Color4f(1,1,1,0.5)
         else
-          glColor4f(1,1,1,0.5-0.5*(@e_timer-13.0)*1.1)
+          GL.Color4f(1,1,1,0.5-0.5*(@e_timer-13.0)*1.1)
         end
         if (@e_timer<8.7)
           e_drawquad((@e_timer-8.6)*20)
-          glRotatef(@e_timer*100,0,0,1)
+          GL.Rotatef(@e_timer*100,0,0,1)
           e_drawquad((@e_timer-8.6)*50)
         else
           e_drawquad(2.0)
-          glRotatef(@e_timer*100,0,0,1)
+          GL.Rotatef(@e_timer*100,0,0,1)
           e_drawquad(5.0)
         end
       end
-      glTranslatef(0,0,0.05)
+      GL.Translatef(0,0,0.05)
       if (@e_timer<13)
-        glColor4f(1,1,1,1)
+        GL.Color4f(1,1,1,1)
       else
-        glColor4f(1,1,1,1-1*(@e_timer-13.0)*1.1)
+        GL.Color4f(1,1,1,1-1*(@e_timer-13.0)*1.1)
       end
       @texture["star"].use
       e_drawquad(1.0)
     end
 
-    if ( (@e_timer>1.0)&&(@e_timer<2.0) )
+    if ((@e_timer>1.0)&&(@e_timer<2.0))
       @e_speed = Math.sin(3.1415*0.5*(@e_timer-1.0))*0.125
     end
 
     @e_zeta = @e_speed*(@e_timer-1.0)*174.0
 
-    if ( @e_timer > 16.75 )
-      glEnable(GL_BLEND)
-      glBlendFunc(GL_SRC_ALPHA,GL_ONE)
-      glDisable(GL_TEXTURE_2D)
-      glLoadIdentity()
-      glTranslatef(0,0,-1.0)
-      glColor4f(1,1,1,4.0*(@e_timer-16.75))
+    if (@e_timer > 16.75)
+      GL.Enable(GL::BLEND)
+      GL.BlendFunc(GL::SRC_ALPHA,GL::ONE)
+      GL.Disable(GL::TEXTURE_2D)
+      GL.LoadIdentity()
+      GL.Translatef(0,0,-1.0)
+      GL.Color4f(1,1,1,4.0*(@e_timer-16.75))
       e_drawquad(1.8)
-      glEnable(GL_TEXTURE_2D)
-      glDisable(GL_BLEND)
+      GL.Enable(GL::TEXTURE_2D)
+      GL.Disable(GL::BLEND)
     end
 
-    if ( @e_timer > 17.0 )
+    if (@e_timer > 17.0)
       return false
     end
 
