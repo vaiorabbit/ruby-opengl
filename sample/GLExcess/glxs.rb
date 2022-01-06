@@ -121,7 +121,7 @@ class GLExcess
     @window_width  = 640
     @window_height = 480
 
-    @size_callback = GLFW::create_callback(:GLFWwindowsizefun) do|window_handle, w, h|
+    @size_callback = GLFW::create_callback(:GLFWwindowsizefun) do |window_handle, w, h|
       @window_width  = w
       @window_height = h
 

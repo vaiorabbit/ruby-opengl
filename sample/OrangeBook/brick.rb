@@ -251,7 +251,7 @@ key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scanco
   end
 end
 
-size_callback = GLFW::create_callback(:GLFWwindowsizefun) do|window_handle, w, h|
+size_callback = GLFW::create_callback(:GLFWwindowsizefun) do |window_handle, w, h|
   vp = 0.8
   aspect = w.to_f/h.to_f
 

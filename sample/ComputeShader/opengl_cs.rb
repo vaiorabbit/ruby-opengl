@@ -147,8 +147,8 @@ def genRenderProg(texHandle)
   GL.BindBuffer(GL::ARRAY_BUFFER, posBuf.unpack('L')[0])
   data = [-1.0, -1.0,
           -1.0,  1.0,
-           1.0, -1.0,
-           1.0,  1.0]
+          1.0, -1.0,
+          1.0,  1.0]
 
   GL.BufferData(GL::ARRAY_BUFFER, 4*8, data.pack('F*'), GL::STREAM_DRAW)
   posPtr = GL.GetAttribLocation(progHandle, "pos");
@@ -198,8 +198,8 @@ key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scanco
   end
 end
 
-size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do|window_handle, w, h|
-	GL.Viewport(0, 0, w, h)
+size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do |window_handle, w, h|
+  GL.Viewport(0, 0, w, h)
 end
 
 if __FILE__ == $PROGRAM_NAME

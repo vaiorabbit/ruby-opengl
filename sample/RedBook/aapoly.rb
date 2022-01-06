@@ -111,7 +111,7 @@ display = proc do
   GL.PopMatrix()
 end
 
-size_callback = GLFW::create_callback(:GLFWwindowsizefun) do|window_handle, w, h|
+size_callback = GLFW::create_callback(:GLFWwindowsizefun) do |window_handle, w, h|
   GL.Viewport(0, 0, w, h)
   GL.MatrixMode(GL::PROJECTION)
   GL.LoadIdentity()

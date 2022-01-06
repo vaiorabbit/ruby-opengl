@@ -272,7 +272,7 @@ key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scanco
   end
 end
 
-size_callback = GLFW::create_callback(:GLFWwindowsizefun) do|window_handle, w, h|
+size_callback = GLFW::create_callback(:GLFWwindowsizefun) do |window_handle, w, h|
   GL.Viewport(0, 0, w, h)
   $window_width = w
   $window_height = h
