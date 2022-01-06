@@ -39,118 +39,126 @@
 # edges.  The special GL_SRC_ALPHA_SATURATE blending 
 # function is used.
 # Pressing the 't' key turns the antialiasing on and off.
-require '../util/setup_dll'
+
+require 'opengl'
+require 'glu'
+require 'glfw'
+require_relative '../util/setup_dll'
 
 $polySmooth = true
 
 def init
-    glCullFace(GL_BACK)
-    glEnable(GL_CULL_FACE)
-    glBlendFunc(GL_SRC_ALPHA_SATURATE, GL_ONE)
-    glClearColor(0.0, 0.0, 0.0, 0.0)
+  GL.CullFace(GL::BACK)
+  GL.Enable(GL::CULL_FACE)
+  GL.BlendFunc(GL::SRC_ALPHA_SATURATE, GL::ONE)
+  GL.ClearColor(0.0, 0.0, 0.0, 0.0)
 end
 
 NFACE=6
 NVERT=8
 $indices = [
-    [4, 5, 6, 7], [2, 3, 7, 6], [0, 4, 7, 3],
-    [0, 1, 5, 4], [1, 5, 6, 2], [0, 3, 2, 1]
+  [4, 5, 6, 7], [2, 3, 7, 6], [0, 4, 7, 3],
+  [0, 1, 5, 4], [1, 5, 6, 2], [0, 3, 2, 1]
 ]
 
 def drawCube(x0, x1, y0, y1, z0, z1)
-    v = [[],[],[],[],[],[],[],[]]
-    c = [
-        [0.0, 0.0, 0.0, 1.0], [1.0, 0.0, 0.0, 1.0],
-        [0.0, 1.0, 0.0, 1.0], [1.0, 1.0, 0.0, 1.0],
-        [0.0, 0.0, 1.0, 1.0], [1.0, 0.0, 1.0, 1.0],
-        [0.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0]
-    ]
-    
-    # indices of front, top, left, bottom, right, back faces
-    
-    v[0][0] = v[3][0] = v[4][0] = v[7][0] = x0
-    v[1][0] = v[2][0] = v[5][0] = v[6][0] = x1
-    v[0][1] = v[1][1] = v[4][1] = v[5][1] = y0
-    v[2][1] = v[3][1] = v[6][1] = v[7][1] = y1
-    v[0][2] = v[1][2] = v[2][2] = v[3][2] = z0
-    v[4][2] = v[5][2] = v[6][2] = v[7][2] = z1
+  v = [[],[],[],[],[],[],[],[]]
+  c = [
+    [0.0, 0.0, 0.0, 1.0], [1.0, 0.0, 0.0, 1.0],
+    [0.0, 1.0, 0.0, 1.0], [1.0, 1.0, 0.0, 1.0],
+    [0.0, 0.0, 1.0, 1.0], [1.0, 0.0, 1.0, 1.0],
+    [0.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0]
+  ]
 
-    glEnableClientState(GL_VERTEX_ARRAY)
-    glEnableClientState(GL_COLOR_ARRAY)
-    glVertexPointer(3, GL_FLOAT, 0, v.flatten!.pack("f*"))
-    glColorPointer(4, GL_FLOAT, 0, c.flatten!.pack("f*"))
-    glDrawElements(GL_QUADS, NFACE*4, GL_UNSIGNED_BYTE, $indices.flatten.pack("C*"))
-    glDisableClientState(GL_VERTEX_ARRAY)
-    glDisableClientState(GL_COLOR_ARRAY)
+  # indices of front, top, left, bottom, right, back faces
+
+  v[0][0] = v[3][0] = v[4][0] = v[7][0] = x0
+  v[1][0] = v[2][0] = v[5][0] = v[6][0] = x1
+  v[0][1] = v[1][1] = v[4][1] = v[5][1] = y0
+  v[2][1] = v[3][1] = v[6][1] = v[7][1] = y1
+  v[0][2] = v[1][2] = v[2][2] = v[3][2] = z0
+  v[4][2] = v[5][2] = v[6][2] = v[7][2] = z1
+
+  GL.EnableClientState(GL::VERTEX_ARRAY)
+  GL.EnableClientState(GL::COLOR_ARRAY)
+  GL.VertexPointer(3, GL::FLOAT, 0, v.flatten!.pack("f*"))
+  GL.ColorPointer(4, GL::FLOAT, 0, c.flatten!.pack("f*"))
+  GL.DrawElements(GL::QUADS, NFACE*4, GL::UNSIGNED_BYTE, $indices.flatten.pack("C*"))
+  GL.DisableClientState(GL::VERTEX_ARRAY)
+  GL.DisableClientState(GL::COLOR_ARRAY)
 end
 
 # Note:  polygons must be drawn from front to back
 # for proper blending.
 display = proc do
-    if ($polySmooth)
-        glClear(GL_COLOR_BUFFER_BIT)
-        glEnable(GL_BLEND)
-        glEnable(GL_POLYGON_SMOOTH)
-        glDisable(GL_DEPTH_TEST)
-    else
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        glDisable(GL_BLEND)
-        glDisable(GL_POLYGON_SMOOTH)
-        glEnable(GL_DEPTH_TEST)
-    end
+  if ($polySmooth)
+    GL.Clear(GL::COLOR_BUFFER_BIT)
+    GL.Enable(GL::BLEND)
+    GL.Enable(GL::POLYGON_SMOOTH)
+    GL.Disable(GL::DEPTH_TEST)
+  else
+    GL.Clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT)
+    GL.Disable(GL::BLEND)
+    GL.Disable(GL::POLYGON_SMOOTH)
+    GL.Enable(GL::DEPTH_TEST)
+  end
 
-    glPushMatrix()
-    glTranslated(0.0, 0.0, -8.0)
-    glRotated(30.0, 1.0, 0.0, 0.0)
-    glRotated(60.0, 0.0, 1.0, 0.0)
-    drawCube(-0.5, 0.5, -0.5, 0.5, -0.5, 0.5)
-    glPopMatrix()
+  GL.PushMatrix()
+  GL.Translated(0.0, 0.0, -8.0)
+  GL.Rotated(30.0, 1.0, 0.0, 0.0)
+  GL.Rotated(60.0, 0.0, 1.0, 0.0)
+  drawCube(-0.5, 0.5, -0.5, 0.5, -0.5, 0.5)
+  GL.PopMatrix()
 end
 
-size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do|window_handle, w, h|
-    glViewport(0, 0, w, h)
-    glMatrixMode(GL_PROJECTION)
-    glLoadIdentity()
-    gluPerspective(30.0,  w.to_f/ h.to_f, 1.0, 20.0)
-    glMatrixMode(GL_MODELVIEW)
-    glLoadIdentity()
+size_callback = GLFW::create_callback(:GLFWwindowsizefun) do|window_handle, w, h|
+  GL.Viewport(0, 0, w, h)
+  GL.MatrixMode(GL::PROJECTION)
+  GL.LoadIdentity()
+  GLU.Perspective(30.0,  w.to_f/ h.to_f, 1.0, 20.0)
+  GL.MatrixMode(GL::MODELVIEW)
+  GL.LoadIdentity()
 end
 
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
   case key
-  when GLFW_KEY_T
-    if action == GLFW_PRESS
+  when GLFW::KEY_T
+    if action == GLFW::PRESS
       $polySmooth = !$polySmooth
     end
-  when GLFW_KEY_ESCAPE
-    glfwSetWindowShouldClose(window_handle, 1)
+  when GLFW::KEY_ESCAPE
+    GLFW.SetWindowShouldClose(window_handle, 1)
   end
 end
 
 # Main Loop
-if __FILE__ == $0
-  glfwInit()
-  window = glfwCreateWindow( 500, 500, $0, nil, nil )
-  glfwSetWindowPos( window, 100, 100 )
-  glfwMakeContextCurrent( window )
-  glfwSetKeyCallback( window, key_callback )
-  glfwSetWindowSizeCallback( window, size_callback )
+if __FILE__ == $PROGRAM_NAME
+  GLFW.load_lib(SampleUtil.glfw_library_path)
+  GLFW.Init()
+  window = GLFW.CreateWindow(500, 500, $0, nil, nil)
+  GLFW.SetWindowPos(window, 100, 100)
+  GLFW.MakeContextCurrent(window)
+  GLFW.SetKeyCallback(window, key_callback)
+  GLFW.SetWindowSizeCallback(window, size_callback)
+
+  GL.load_lib()
+  GLU.load_lib()
 
   init()
 
   width_ptr = ' ' * 4
   height_ptr = ' ' * 4
-  glfwGetFramebufferSize(window, width_ptr, height_ptr)
-  width = width_ptr.unpack('L')[0]
-  height = height_ptr.unpack('L')[0]
-  size_callback.call( window, width, height )
+  GLFW.GetFramebufferSize(window, width_ptr, height_ptr)
+  width = width_ptr.unpack1('L')
+  height = height_ptr.unpack1('L')
+  size_callback.call(window, width, height)
 
-  while glfwWindowShouldClose( window ) == 0
+  while GLFW.WindowShouldClose(window) == 0
     display.call
-    glfwSwapBuffers( window )
-    glfwPollEvents()
+    GLFW.SwapBuffers(window)
+    GLFW.PollEvents()
   end
 
-  glfwDestroyWindow( window )
-  glfwTerminate()
+  GLFW.DestroyWindow(window)
+  GLFW.Terminate()
 end

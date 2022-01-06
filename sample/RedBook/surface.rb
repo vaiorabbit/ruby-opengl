@@ -39,6 +39,10 @@
 # This program draws a NURBS surface in the shape of a 
 # symmetrical hill.
 #
+
+require 'opengl'
+require 'glu'
+require 'glfw'
 require '../util/setup_dll'
 
 $ctlpoints = Array.new(4).collect { Array.new(4).collect { Array.new(3, nil) } } # 4*4*3 array
@@ -49,127 +53,131 @@ $theNurb = nil
 # Initializes the control points of the surface to a small hill.
 # The control points range from -3 to +3 in x, y, and z
 def init_surface
-	for u in 0..3
-		for v in 0..3
-			$ctlpoints[u][v][0] = 2.0*(u - 1.5)
-			$ctlpoints[u][v][1] = 2.0*(v - 1.5)
-			
-			if ( (u == 1 || u == 2) && (v == 1 || v == 2))
-				$ctlpoints[u][v][2] = 3
-			else
-				$ctlpoints[u][v][2] = -3
-			end
-		end
-	end
-end			
-			
+  for u in 0..3
+    for v in 0..3
+      $ctlpoints[u][v][0] = 2.0*(u - 1.5)
+      $ctlpoints[u][v][1] = 2.0*(v - 1.5)
+
+      if ((u == 1 || u == 2) && (v == 1 || v == 2))
+        $ctlpoints[u][v][2] = 3
+      else
+        $ctlpoints[u][v][2] = -3
+      end
+    end
+  end
+end
+
 # Initialize material property and depth buffer.
 def myinit
-	mat_diffuse = [ 0.7, 0.7, 0.7, 1.0 ]
-	mat_specular = [ 1.0, 1.0, 1.0, 1.0 ]
-	mat_shininess = 100.0
-	
-	glClearColor(0.0, 0.0, 0.0, 1.0)
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse.pack('F*'))
-	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular.pack('F*'))
-	glMaterialf(GL_FRONT, GL_SHININESS, mat_shininess)
-	
-	glEnable(GL_LIGHTING)
-	glEnable(GL_LIGHT0)
-	glDepthFunc(GL_LESS)
-	glEnable(GL_DEPTH_TEST)
-	glEnable(GL_AUTO_NORMAL)
-	glEnable(GL_NORMALIZE)
-	
-	init_surface()
-	
-	$theNurb = gluNewNurbsRenderer()
-	gluNurbsProperty($theNurb, GLU_SAMPLING_TOLERANCE, 25.0)
-	gluNurbsProperty($theNurb, GLU_DISPLAY_MODE, GLU_FILL)
+  mat_diffuse = [ 0.7, 0.7, 0.7, 1.0 ]
+  mat_specular = [ 1.0, 1.0, 1.0, 1.0 ]
+  mat_shininess = 100.0
+
+  GL.ClearColor(0.0, 0.0, 0.0, 1.0)
+  GL.Materialfv(GL::FRONT, GL::DIFFUSE, mat_diffuse.pack('F*'))
+  GL.Materialfv(GL::FRONT, GL::SPECULAR, mat_specular.pack('F*'))
+  GL.Materialf(GL::FRONT, GL::SHININESS, mat_shininess)
+
+  GL.Enable(GL::LIGHTING)
+  GL.Enable(GL::LIGHT0)
+  GL.DepthFunc(GL::LESS)
+  GL.Enable(GL::DEPTH_TEST)
+  GL.Enable(GL::AUTO_NORMAL)
+  GL.Enable(GL::NORMALIZE)
+
+  init_surface()
+
+  $theNurb = GLU.NewNurbsRenderer()
+  GLU.NurbsProperty($theNurb, GLU::SAMPLING_TOLERANCE, 25.0)
+  GLU.NurbsProperty($theNurb, GLU::DISPLAY_MODE, GLU::FILL)
 end
 
 display = Proc.new do
-	knots = [0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0]
-	
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-	
-	glPushMatrix()
-	glRotatef(330.0, 1.0,0.0,0.0)
-	glScalef(0.5, 0.5, 0.5)
-	
-	gluBeginSurface($theNurb)
-	gluNurbsSurface($theNurb, 
-		8, knots.pack('F*'),
-		8, knots.pack('F*'),
-		4 * 3,
-		3,
-		$ctlpoints.flatten.pack('F*'), 
-		4, 4,
-		GL_MAP2_VERTEX_3)
-	gluEndSurface($theNurb)
-	
-	if($showPoints==1)
-		glPointSize(5.0)
-		glDisable(GL_LIGHTING)
-		glColor3f(1.0, 1.0, 0.0)
-		glBegin(GL_POINTS)
-		for i in 0..3
-			for j in 0..3
-				glVertex3f($ctlpoints[i][j][0], $ctlpoints[i][j][1], $ctlpoints[i][j][2])
-			end
-		end
-		glEnd()
-		glEnable(GL_LIGHTING)
-	end
-		
-	glPopMatrix()
+  knots = [0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0]
+
+  GL.Clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT)
+
+  GL.PushMatrix()
+  GL.Rotatef(330.0, 1.0,0.0,0.0)
+  GL.Scalef(0.5, 0.5, 0.5)
+
+  GLU.BeginSurface($theNurb)
+  GLU.NurbsSurface($theNurb,
+                   8, knots.pack('F*'),
+                   8, knots.pack('F*'),
+                   4 * 3,
+                   3,
+                   $ctlpoints.flatten.pack('F*'),
+                   4, 4,
+                   GL::MAP2_VERTEX_3)
+  GLU.EndSurface($theNurb)
+
+  if($showPoints==1)
+    GL.PointSize(5.0)
+    GL.Disable(GL::LIGHTING)
+    GL.Color3f(1.0, 1.0, 0.0)
+    GL.Begin(GL::POINTS)
+    for i in 0..3
+      for j in 0..3
+        GL.Vertex3f($ctlpoints[i][j][0], $ctlpoints[i][j][1], $ctlpoints[i][j][2])
+      end
+    end
+    GL.End()
+    GL.Enable(GL::LIGHTING)
+  end
+
+  GL.PopMatrix()
 end
 
-size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do|window_handle, w, h|
-	glViewport(0, 0, w, h)
-	glMatrixMode(GL_PROJECTION)
-	glLoadIdentity()
-	gluPerspective(45.0, w/h, 3.0, 8.0)
-	
-	glMatrixMode(GL_MODELVIEW)
-	glLoadIdentity()
-	glTranslatef(0.0, 0.0, -5.0)
+size_callback = GLFW::create_callback(:GLFWwindowsizefun) do |window_handle, w, h|
+  GL.Viewport(0, 0, w, h)
+  GL.MatrixMode(GL::PROJECTION)
+  GL.LoadIdentity()
+  GLU.Perspective(45.0, w/h, 3.0, 8.0)
+
+  GL.MatrixMode(GL::MODELVIEW)
+  GL.LoadIdentity()
+  GL.Translatef(0.0, 0.0, -5.0)
 end
 
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
   case key
-  when GLFW_KEY_S
-    if action == GLFW_PRESS
+  when GLFW::KEY_S
+    if action == GLFW::PRESS
       $showPoints = ($showPoints == 0 ? 1 : 0)
     end
-  when GLFW_KEY_ESCAPE
-    glfwSetWindowShouldClose(window_handle, 1)
+  when GLFW::KEY_ESCAPE
+    GLFW.SetWindowShouldClose(window_handle, 1)
   end
 end
 
 if __FILE__ == $0
-  glfwInit()
-  window = glfwCreateWindow( 500, 500, $0, nil, nil )
-  glfwSetWindowPos( window, 100, 100 )
-  glfwMakeContextCurrent( window )
-  glfwSetKeyCallback( window, key_callback )
-  glfwSetWindowSizeCallback( window, size_callback )
+  GLFW.load_lib(SampleUtil.glfw_library_path)
+  GLFW.Init()
+  window = GLFW.CreateWindow(500, 500, $0, nil, nil)
+  GLFW.SetWindowPos(window, 100, 100)
+  GLFW.MakeContextCurrent(window)
+  GLFW.SetKeyCallback(window, key_callback)
+  GLFW.SetWindowSizeCallback(window, size_callback)
+
+  GL.load_lib()
+  GLU.load_lib()
 
   myinit()
 
   width_ptr = ' ' * 4
   height_ptr = ' ' * 4
-  glfwGetFramebufferSize(window, width_ptr, height_ptr)
+  GLFW.GetFramebufferSize(window, width_ptr, height_ptr)
   width = width_ptr.unpack('L')[0]
   height = height_ptr.unpack('L')[0]
-  size_callback.call( window, width, height )
+  size_callback.call(window, width, height)
 
-  while glfwWindowShouldClose( window ) == 0
+  while GLFW.WindowShouldClose(window) == 0
     display.call
-    glfwSwapBuffers( window )
-    glfwPollEvents()
+    GLFW.SwapBuffers(window)
+    GLFW.PollEvents()
   end
 
-  glfwDestroyWindow( window )
-  glfwTerminate()
+  GLFW.DestroyWindow(window)
+  GLFW.Terminate()
 end

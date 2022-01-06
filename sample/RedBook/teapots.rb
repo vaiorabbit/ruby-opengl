@@ -39,33 +39,36 @@
 # teapots.c
 # This program demonstrates lots of material properties.
 # A single light source illuminates the objects.
-require '../util/setup_dll'
+
+require 'opengl'
+require 'glfw'
+require_relative '../util/setup_dll'
 require_relative '../util/WavefrontOBJ'
 $teapot = nil
 
 # Initialize depth buffer, projection matrix, light source, and lighting
 # model.  Do not specify a material property here.
 def myinit
-	ambient = [0.0, 0.0, 0.0, 1.0]
-	diffuse = [1.0, 1.0, 1.0, 1.0]
-	position = [0.0, 3.0, 3.0, 0.0]
-	
-	lmodel_ambient = [0.2, 0.2, 0.2, 1.0]
-	local_view = [0.0]
-	
-	glLightfv(GL_LIGHT0, GL_AMBIENT, ambient.pack('F*'))
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuse.pack('F*'))
-	glLightfv(GL_LIGHT0, GL_POSITION, position.pack('F*'))
-	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient.pack('F*'))
-	glLightModelfv(GL_LIGHT_MODEL_LOCAL_VIEWER, local_view.pack('F*'))
-	
-	glFrontFace(GL_CW)
-	glEnable(GL_LIGHTING)
-	glEnable(GL_LIGHT0)
-	glEnable(GL_AUTO_NORMAL)
-	glEnable(GL_NORMALIZE)
-	glEnable(GL_DEPTH_TEST)
-	glDepthFunc(GL_LESS)
+  ambient = [0.0, 0.0, 0.0, 1.0]
+  diffuse = [1.0, 1.0, 1.0, 1.0]
+  position = [0.0, 3.0, 3.0, 0.0]
+
+  lmodel_ambient = [0.2, 0.2, 0.2, 1.0]
+  local_view = [0.0]
+
+  GL.Lightfv(GL::LIGHT0, GL::AMBIENT, ambient.pack('F*'))
+  GL.Lightfv(GL::LIGHT0, GL::DIFFUSE, diffuse.pack('F*'))
+  GL.Lightfv(GL::LIGHT0, GL::POSITION, position.pack('F*'))
+  GL.LightModelfv(GL::LIGHT_MODEL_AMBIENT, lmodel_ambient.pack('F*'))
+  GL.LightModelfv(GL::LIGHT_MODEL_LOCAL_VIEWER, local_view.pack('F*'))
+
+  GL.FrontFace(GL::CW)
+  GL.Enable(GL::LIGHTING)
+  GL.Enable(GL::LIGHT0)
+  GL.Enable(GL::AUTO_NORMAL)
+  GL.Enable(GL::NORMALIZE)
+  GL.Enable(GL::DEPTH_TEST)
+  GL.DepthFunc(GL::LESS)
 
   $teapot = WavefrontOBJ::Model.new
   $teapot.parse('../data/teapot.obj')
@@ -75,26 +78,26 @@ end
 # Move object into position.  Use 3rd through 12th parameters to specify the
 # material property.  Draw a teapot.
 def renderTeapot(x, y, ambr, ambg, ambb, difr, difg, difb, specr, specg, specb, shine)
-	mat = []
-	glPushMatrix()
-	glTranslatef(x, y, 0.0)
-    glScalef(0.1, 0.1, 0.1) # Added
-	mat[0] = ambr
-	mat[1] = ambg
-	mat[2] = ambb
-	mat[3] = 1.0
-	glMaterialfv(GL_FRONT, GL_AMBIENT, mat.pack('F*'))
-	mat[0] = difr
-	mat[1] = difg
-	mat[2] = difb
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat.pack('F*'))
-	mat[0] = specr
-	mat[1] = specg
-	mat[2] = specb
-	glMaterialfv(GL_FRONT, GL_SPECULAR, mat.pack('F*'))
-	glMaterialf(GL_FRONT, GL_SHININESS, shine * 128.0)
-	$teapot.render
-	glPopMatrix()
+  mat = []
+  GL.PushMatrix()
+  GL.Translatef(x, y, 0.0)
+  GL.Scalef(0.1, 0.1, 0.1) # Added
+  mat[0] = ambr
+  mat[1] = ambg
+  mat[2] = ambb
+  mat[3] = 1.0
+  GL.Materialfv(GL::FRONT, GL::AMBIENT, mat.pack('F*'))
+  mat[0] = difr
+  mat[1] = difg
+  mat[2] = difb
+  GL.Materialfv(GL::FRONT, GL::DIFFUSE, mat.pack('F*'))
+  mat[0] = specr
+  mat[1] = specg
+  mat[2] = specb
+  GL.Materialfv(GL::FRONT, GL::SPECULAR, mat.pack('F*'))
+  GL.Materialf(GL::FRONT, GL::SHININESS, shine * 128.0)
+  $teapot.render
+  GL.PopMatrix()
 end
 
 # First column:  emerald, jade, obsidian, pearl, ruby, turquoise
@@ -102,97 +105,100 @@ end
 # 3rd column:  black, cyan, green, red, white, yellow plastic
 # 4th column:  black, cyan, green, red, white, yellow rubber
 display = proc do
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-	renderTeapot(2.0, 17.0, 0.0215, 0.1745, 0.0215,
-		0.07568, 0.61424, 0.07568, 0.633, 0.727811, 0.633, 0.6)
-	renderTeapot(2.0, 14.0, 0.135, 0.2225, 0.1575,
-		0.54, 0.89, 0.63, 0.316228, 0.316228, 0.316228, 0.1)
-	renderTeapot(2.0, 11.0, 0.05375, 0.05, 0.06625,
-		0.18275, 0.17, 0.22525, 0.332741, 0.328634, 0.346435, 0.3)
-	renderTeapot(2.0, 8.0, 0.25, 0.20725, 0.20725,
-		1, 0.829, 0.829, 0.296648, 0.296648, 0.296648, 0.088)
-	renderTeapot(2.0, 5.0, 0.1745, 0.01175, 0.01175,
-		0.61424, 0.04136, 0.04136, 0.727811, 0.626959, 0.626959, 0.6)
-	renderTeapot(2.0, 2.0, 0.1, 0.18725, 0.1745,
-		0.396, 0.74151, 0.69102, 0.297254, 0.30829, 0.306678, 0.1)
-	renderTeapot(6.0, 17.0, 0.329412, 0.223529, 0.027451,
-		0.780392, 0.568627, 0.113725, 0.992157, 0.941176, 0.807843,
-		0.21794872)
-	renderTeapot(6.0, 14.0, 0.2125, 0.1275, 0.054,
-		0.714, 0.4284, 0.18144, 0.393548, 0.271906, 0.166721, 0.2)
-	renderTeapot(6.0, 11.0, 0.25, 0.25, 0.25,
-		0.4, 0.4, 0.4, 0.774597, 0.774597, 0.774597, 0.6)
-	renderTeapot(6.0, 8.0, 0.19125, 0.0735, 0.0225,
-		0.7038, 0.27048, 0.0828, 0.256777, 0.137622, 0.086014, 0.1)
-	renderTeapot(6.0, 5.0, 0.24725, 0.1995, 0.0745,
-		0.75164, 0.60648, 0.22648, 0.628281, 0.555802, 0.366065, 0.4)
-	renderTeapot(6.0, 2.0, 0.19225, 0.19225, 0.19225,
-		0.50754, 0.50754, 0.50754, 0.508273, 0.508273, 0.508273, 0.4)
-	renderTeapot(10.0, 17.0, 0.0, 0.0, 0.0, 0.01, 0.01, 0.01,
-		0.50, 0.50, 0.50, 0.25)
-	renderTeapot(10.0, 14.0, 0.0, 0.1, 0.06, 0.0, 0.50980392, 0.50980392,
-		0.50196078, 0.50196078, 0.50196078, 0.25)
-	renderTeapot(10.0, 11.0, 0.0, 0.0, 0.0,
-		0.1, 0.35, 0.1, 0.45, 0.55, 0.45, 0.25)
-	renderTeapot(10.0, 8.0, 0.0, 0.0, 0.0, 0.5, 0.0, 0.0,
-		0.7, 0.6, 0.6, 0.25)
-	renderTeapot(10.0, 5.0, 0.0, 0.0, 0.0, 0.55, 0.55, 0.55,
-		0.70, 0.70, 0.70, 0.25)
-	renderTeapot(10.0, 2.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.0,
-		0.60, 0.60, 0.50, 0.25)
-	renderTeapot(14.0, 17.0, 0.02, 0.02, 0.02, 0.01, 0.01, 0.01,
-		0.4, 0.4, 0.4, 0.078125)
-	renderTeapot(14.0, 14.0, 0.0, 0.05, 0.05, 0.4, 0.5, 0.5,
-		0.04, 0.7, 0.7, 0.078125)
-	renderTeapot(14.0, 11.0, 0.0, 0.05, 0.0, 0.4, 0.5, 0.4,
-		0.04, 0.7, 0.04, 0.078125)
-	renderTeapot(14.0, 8.0, 0.05, 0.0, 0.0, 0.5, 0.4, 0.4,
-		0.7, 0.04, 0.04, 0.078125)
-	renderTeapot(14.0, 5.0, 0.05, 0.05, 0.05, 0.5, 0.5, 0.5,
-		0.7, 0.7, 0.7, 0.078125)
-	renderTeapot(14.0, 2.0, 0.05, 0.05, 0.0, 0.5, 0.5, 0.4,
-		0.7, 0.7, 0.04, 0.078125)
+  GL.Clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT)
+  renderTeapot(2.0, 17.0, 0.0215, 0.1745, 0.0215,
+               0.07568, 0.61424, 0.07568, 0.633, 0.727811, 0.633, 0.6)
+  renderTeapot(2.0, 14.0, 0.135, 0.2225, 0.1575,
+               0.54, 0.89, 0.63, 0.316228, 0.316228, 0.316228, 0.1)
+  renderTeapot(2.0, 11.0, 0.05375, 0.05, 0.06625,
+               0.18275, 0.17, 0.22525, 0.332741, 0.328634, 0.346435, 0.3)
+  renderTeapot(2.0, 8.0, 0.25, 0.20725, 0.20725,
+               1, 0.829, 0.829, 0.296648, 0.296648, 0.296648, 0.088)
+  renderTeapot(2.0, 5.0, 0.1745, 0.01175, 0.01175,
+               0.61424, 0.04136, 0.04136, 0.727811, 0.626959, 0.626959, 0.6)
+  renderTeapot(2.0, 2.0, 0.1, 0.18725, 0.1745,
+               0.396, 0.74151, 0.69102, 0.297254, 0.30829, 0.306678, 0.1)
+  renderTeapot(6.0, 17.0, 0.329412, 0.223529, 0.027451,
+               0.780392, 0.568627, 0.113725, 0.992157, 0.941176, 0.807843,
+               0.21794872)
+  renderTeapot(6.0, 14.0, 0.2125, 0.1275, 0.054,
+               0.714, 0.4284, 0.18144, 0.393548, 0.271906, 0.166721, 0.2)
+  renderTeapot(6.0, 11.0, 0.25, 0.25, 0.25,
+               0.4, 0.4, 0.4, 0.774597, 0.774597, 0.774597, 0.6)
+  renderTeapot(6.0, 8.0, 0.19125, 0.0735, 0.0225,
+               0.7038, 0.27048, 0.0828, 0.256777, 0.137622, 0.086014, 0.1)
+  renderTeapot(6.0, 5.0, 0.24725, 0.1995, 0.0745,
+               0.75164, 0.60648, 0.22648, 0.628281, 0.555802, 0.366065, 0.4)
+  renderTeapot(6.0, 2.0, 0.19225, 0.19225, 0.19225,
+               0.50754, 0.50754, 0.50754, 0.508273, 0.508273, 0.508273, 0.4)
+  renderTeapot(10.0, 17.0, 0.0, 0.0, 0.0, 0.01, 0.01, 0.01,
+               0.50, 0.50, 0.50, 0.25)
+  renderTeapot(10.0, 14.0, 0.0, 0.1, 0.06, 0.0, 0.50980392, 0.50980392,
+               0.50196078, 0.50196078, 0.50196078, 0.25)
+  renderTeapot(10.0, 11.0, 0.0, 0.0, 0.0,
+               0.1, 0.35, 0.1, 0.45, 0.55, 0.45, 0.25)
+  renderTeapot(10.0, 8.0, 0.0, 0.0, 0.0, 0.5, 0.0, 0.0,
+               0.7, 0.6, 0.6, 0.25)
+  renderTeapot(10.0, 5.0, 0.0, 0.0, 0.0, 0.55, 0.55, 0.55,
+               0.70, 0.70, 0.70, 0.25)
+  renderTeapot(10.0, 2.0, 0.0, 0.0, 0.0, 0.5, 0.5, 0.0,
+               0.60, 0.60, 0.50, 0.25)
+  renderTeapot(14.0, 17.0, 0.02, 0.02, 0.02, 0.01, 0.01, 0.01,
+               0.4, 0.4, 0.4, 0.078125)
+  renderTeapot(14.0, 14.0, 0.0, 0.05, 0.05, 0.4, 0.5, 0.5,
+               0.04, 0.7, 0.7, 0.078125)
+  renderTeapot(14.0, 11.0, 0.0, 0.05, 0.0, 0.4, 0.5, 0.4,
+               0.04, 0.7, 0.04, 0.078125)
+  renderTeapot(14.0, 8.0, 0.05, 0.0, 0.0, 0.5, 0.4, 0.4,
+               0.7, 0.04, 0.04, 0.078125)
+  renderTeapot(14.0, 5.0, 0.05, 0.05, 0.05, 0.5, 0.5, 0.5,
+               0.7, 0.7, 0.7, 0.078125)
+  renderTeapot(14.0, 2.0, 0.05, 0.05, 0.0, 0.5, 0.5, 0.4,
+               0.7, 0.7, 0.04, 0.078125)
 end
 
-size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do|window_handle, w, h|
-	glViewport(0, 0, w, h)
-	glMatrixMode(GL_PROJECTION)
-	glLoadIdentity()
-	if (w <= h)
-		glOrtho(0.0, 16.0, 0.0, 16.0 *  h.to_f / w,	-10.0, 10.0)
-	else
-		glOrtho(0.0, 16.0 * w.to_f / h, 0.0, 16.0,-10.0, 10.0)
-	end
-	glMatrixMode(GL_MODELVIEW)
+size_callback = GLFW::create_callback(:GLFWwindowsizefun) do|window_handle, w, h|
+  GL.Viewport(0, 0, w, h)
+  GL.MatrixMode(GL::PROJECTION)
+  GL.LoadIdentity()
+  if (w <= h)
+    GL.Ortho(0.0, 16.0, 0.0, 16.0 *  h.to_f / w, -10.0, 10.0)
+  else
+    GL.Ortho(0.0, 16.0 * w.to_f / h, 0.0, 16.0,-10.0, 10.0)
+  end
+  GL.MatrixMode(GL::MODELVIEW)
 end
 
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
   case key
-  when GLFW_KEY_ESCAPE
-    glfwSetWindowShouldClose(window_handle, 1)
+  when GLFW::KEY_ESCAPE
+    GLFW.SetWindowShouldClose(window_handle, 1)
   end
 end
 
 if __FILE__ == $0
-  glfwInit()
-  window = glfwCreateWindow( 500, 500, $0, nil, nil )
-  glfwSetWindowPos( window, 100, 100 )
-  glfwMakeContextCurrent( window )
-  glfwSetKeyCallback( window, key_callback )
-  glfwSetWindowSizeCallback( window, size_callback )
+  GLFW.load_lib(SampleUtil.glfw_library_path)
+  GLFW.Init()
+  window = GLFW.CreateWindow(500, 500, $0, nil, nil)
+  GLFW.SetWindowPos(window, 100, 100)
+  GLFW.MakeContextCurrent(window)
+  GLFW.SetKeyCallback(window, key_callback)
+  GLFW.SetWindowSizeCallback(window, size_callback)
+
+  GL.load_lib()
 
   myinit()
 
   width_ptr = ' ' * 4
   height_ptr = ' ' * 4
-  glfwGetFramebufferSize(window, width_ptr, height_ptr)
+  GLFW.GetFramebufferSize(window, width_ptr, height_ptr)
   width = width_ptr.unpack('L')[0]
   height = height_ptr.unpack('L')[0]
-  size_callback.call( window, width, height )
+  size_callback.call(window, width, height)
 
-  while glfwWindowShouldClose( window ) == 0
+  while GLFW.WindowShouldClose(window) == 0
     display.call()
-    glfwSwapBuffers( window )
-    glfwPollEvents()
+    GLFW.SwapBuffers(window)
+    GLFW.PollEvents()
   end
 end

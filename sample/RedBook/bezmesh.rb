@@ -40,113 +40,119 @@
 # This program renders a lighted, filled Bezier surface,
 # using two-dimensional evaluators.
 #
+
+require 'opengl'
+require 'glfw'
 require '../util/setup_dll'
 
 $ctrlpoints = [
-	[
-		[-1.5, -1.5, 4.0],
-		[-0.5, -1.5, 2.0],
-		[0.5, -1.5, -1.0],
-		[1.5, -1.5, 2.0]],
-	[
-		[-1.5, -0.5, 1.0],
-		[-0.5, -0.5, 3.0],
-		[0.5, -0.5, 0.0],
-		[1.5, -0.5, -1.0]],
-	[
-		[-1.5, 0.5, 4.0],
-		[-0.5, 0.5, 0.0],
-		[0.5, 0.5, 3.0],
-		[1.5, 0.5, 4.0]],
-	[
-		[-1.5, 1.5, -2.0],
-		[-0.5, 1.5, -2.0],
-		[0.5, 1.5, 0.0],
-		[1.5, 1.5, -1.0]]
+  [
+    [-1.5, -1.5, 4.0],
+    [-0.5, -1.5, 2.0],
+    [0.5, -1.5, -1.0],
+    [1.5, -1.5, 2.0]],
+  [
+    [-1.5, -0.5, 1.0],
+    [-0.5, -0.5, 3.0],
+    [0.5, -0.5, 0.0],
+    [1.5, -0.5, -1.0]],
+  [
+    [-1.5, 0.5, 4.0],
+    [-0.5, 0.5, 0.0],
+    [0.5, 0.5, 3.0],
+    [1.5, 0.5, 4.0]],
+  [
+    [-1.5, 1.5, -2.0],
+    [-0.5, 1.5, -2.0],
+    [0.5, 1.5, 0.0],
+    [1.5, 1.5, -1.0]]
 ]
 
 def initlights
-	ambient = [0.2, 0.2, 0.2, 1.0]
-	position = [0.0, 0.0, 2.0, 1.0]
-	mat_diffuse = [0.6, 0.6, 0.6, 1.0]
-	mat_specular = [1.0, 1.0, 1.0, 1.0]
-	mat_shininess = [50.0]
-	
-	glEnable(GL_LIGHTING)
-	glEnable(GL_LIGHT0)
-	
-	glLightfv(GL_LIGHT0, GL_AMBIENT, ambient.pack('F*'))
-	glLightfv(GL_LIGHT0, GL_POSITION, position.pack('F*'))
-	
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse.pack('F*'))
-	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular.pack('F*'))
-	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess.pack('F*'))
+  ambient = [0.2, 0.2, 0.2, 1.0]
+  position = [0.0, 0.0, 2.0, 1.0]
+  mat_diffuse = [0.6, 0.6, 0.6, 1.0]
+  mat_specular = [1.0, 1.0, 1.0, 1.0]
+  mat_shininess = [50.0]
+
+  GL.Enable(GL::LIGHTING)
+  GL.Enable(GL::LIGHT0)
+
+  GL.Lightfv(GL::LIGHT0, GL::AMBIENT, ambient.pack('F*'))
+  GL.Lightfv(GL::LIGHT0, GL::POSITION, position.pack('F*'))
+
+  GL.Materialfv(GL::FRONT, GL::DIFFUSE, mat_diffuse.pack('F*'))
+  GL.Materialfv(GL::FRONT, GL::SPECULAR, mat_specular.pack('F*'))
+  GL.Materialfv(GL::FRONT, GL::SHININESS, mat_shininess.pack('F*'))
 end
 
 display = proc do
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-	glPushMatrix()
-	glRotatef(85.0, 1.0, 1.0, 1.0)
-	glEvalMesh2(GL_FILL, 0, 20, 0, 20)
-	glPopMatrix()
+  GL.Clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT)
+  GL.PushMatrix()
+  GL.Rotatef(85.0, 1.0, 1.0, 1.0)
+  GL.EvalMesh2(GL::FILL, 0, 20, 0, 20)
+  GL.PopMatrix()
 end
 
 def myinit
-	glClearColor(0.0, 0.0, 0.0, 1.0)
-	glEnable(GL_DEPTH_TEST)
-	glMap2d(GL_MAP2_VERTEX_3, 0, 1, 3, 4, 0, 1, 12, 4, $ctrlpoints.flatten.pack('D*'))
-	glEnable(GL_MAP2_VERTEX_3)
-	glEnable(GL_AUTO_NORMAL)
-	glEnable(GL_NORMALIZE)
-	glMapGrid2d(20, 0.0, 1.0, 20, 0.0, 1.0)
-	initlights() # for lighted version only
+  GL.ClearColor(0.0, 0.0, 0.0, 1.0)
+  GL.Enable(GL::DEPTH_TEST)
+  GL.Map2d(GL::MAP2_VERTEX_3, 0, 1, 3, 4, 0, 1, 12, 4, $ctrlpoints.flatten.pack('D*'))
+  GL.Enable(GL::MAP2_VERTEX_3)
+  GL.Enable(GL::AUTO_NORMAL)
+  GL.Enable(GL::NORMALIZE)
+  GL.MapGrid2d(20, 0.0, 1.0, 20, 0.0, 1.0)
+  initlights() # for lighted version only
 end
 
-size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do|window_handle, w, h|
-	glViewport(0, 0, w, h)
-	glMatrixMode(GL_PROJECTION)
-	glLoadIdentity()
-	if (w <= h)
-		glOrtho(-4.0, 4.0, -4.0 * h / w, 4.0 * h / w, -4.0, 4.0)
-	else
-		glOrtho(-4.0 * w / h, 4.0 * w / h, -4.0, 4.0, -4.0, 4.0)
-	end
-	glMatrixMode(GL_MODELVIEW)
-	glLoadIdentity()
+size_callback = GLFW::create_callback(:GLFWwindowsizefun) do |window_handle, w, h|
+  GL.Viewport(0, 0, w, h)
+  GL.MatrixMode(GL::PROJECTION)
+  GL.LoadIdentity()
+  if (w <= h)
+    GL.Ortho(-4.0, 4.0, -4.0 * h / w, 4.0 * h / w, -4.0, 4.0)
+  else
+    GL.Ortho(-4.0 * w / h, 4.0 * w / h, -4.0, 4.0, -4.0, 4.0)
+  end
+  GL.MatrixMode(GL::MODELVIEW)
+  GL.LoadIdentity()
 end
 
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
   case key
-  when GLFW_KEY_ESCAPE
-    glfwSetWindowShouldClose(window_handle, 1)
+  when GLFW::KEY_ESCAPE
+    GLFW.SetWindowShouldClose(window_handle, 1)
   end
 end
 
 if __FILE__ == $0
 
-  glfwInit()
-  window = glfwCreateWindow( 500, 500, $0, nil, nil )
-  glfwSetWindowPos( window, 100, 100 )
-  glfwMakeContextCurrent( window )
-  glfwSetKeyCallback( window, key_callback )
-  glfwSetWindowSizeCallback( window, size_callback )
+  GLFW.load_lib(SampleUtil.glfw_library_path)
+  GLFW.Init()
+  window = GLFW.CreateWindow(500, 500, $0, nil, nil)
+  GLFW.SetWindowPos(window, 100, 100)
+  GLFW.MakeContextCurrent(window)
+  GLFW.SetKeyCallback(window, key_callback)
+  GLFW.SetWindowSizeCallback(window, size_callback)
+
+  GL.load_lib()
 
   myinit()
 
   width_ptr = ' ' * 4
   height_ptr = ' ' * 4
-  glfwGetFramebufferSize(window, width_ptr, height_ptr)
+  GLFW.GetFramebufferSize(window, width_ptr, height_ptr)
   width = width_ptr.unpack('L')[0]
   height = height_ptr.unpack('L')[0]
-  size_callback.call( window, width, height )
+  size_callback.call(window, width, height)
 
-  while glfwWindowShouldClose( window ) == 0
+  while GLFW.WindowShouldClose(window) == 0
     display.call()
-    glfwSwapBuffers( window )
-    glfwPollEvents()
+    GLFW.SwapBuffers(window)
+    GLFW.PollEvents()
   end
 
-  glfwDestroyWindow( window )
-  glfwTerminate()
+  GLFW.DestroyWindow(window)
+  GLFW.Terminate()
 
 end

@@ -36,6 +36,10 @@
 #
 # varray.c
 # This program demonstrates vertex arrays.
+
+require 'opengl'
+require 'glu'
+require 'glfw'
 require '../util/setup_dll'
 
 POINTER=1
@@ -62,11 +66,11 @@ def setupPointers
              0.35, 0.35, 0.35,
              0.5, 0.5, 0.5].pack("f*")
 
-  glEnableClientState(GL_VERTEX_ARRAY)
-  glEnableClientState(GL_COLOR_ARRAY)
+  GL.EnableClientState(GL::VERTEX_ARRAY)
+  GL.EnableClientState(GL::COLOR_ARRAY)
 
-  glVertexPointer(2, GL_INT, 0, $vertices)
-  glColorPointer(3, GL_FLOAT, 0, $colors)
+  GL.VertexPointer(2, GL::INT, 0, $vertices)
+  GL.ColorPointer(3, GL::FLOAT, 0, $colors)
 end
 
 def  setupInterleave
@@ -78,42 +82,42 @@ def  setupInterleave
      0.2, 1.0, 1.0, 300.0, 200.0, 0.0,
      0.2, 0.2, 1.0, 200.0, 100.0, 0.0].pack("f*")
 
-  glInterleavedArrays(GL_C3F_V3F, 0, $intertwined)
+  GL.InterleavedArrays(GL::C3F_V3F, 0, $intertwined)
 end
 
 def init
-  glClearColor(0.0, 0.0, 0.0, 0.0)
-  glShadeModel(GL_SMOOTH)
+  GL.ClearColor(0.0, 0.0, 0.0, 0.0)
+  GL.ShadeModel(GL::SMOOTH)
   setupPointers()
 end
 
 display = proc do
-  glClear(GL_COLOR_BUFFER_BIT)
+  GL.Clear(GL::COLOR_BUFFER_BIT)
   if ($derefMethod == DRAWARRAY) 
-    glDrawArrays(GL_TRIANGLES, 0, 6)
+    GL.DrawArrays(GL::TRIANGLES, 0, 6)
   elsif ($derefMethod == ARRAYELEMENT)
-    glBegin(GL_TRIANGLES)
-    glArrayElement(2)
-    glArrayElement(3)
-    glArrayElement(5)
-    glEnd()
+    GL.Begin(GL::TRIANGLES)
+    GL.ArrayElement(2)
+    GL.ArrayElement(3)
+    GL.ArrayElement(5)
+    GL.End()
   elsif ($derefMethod == DRAWELEMENTS)
     $indices = [0, 1, 3, 4].pack("I*")
-    glDrawElements(GL_POLYGON, 4, GL_UNSIGNED_INT, $indices)
+    GL.DrawElements(GL::POLYGON, 4, GL::UNSIGNED_INT, $indices)
   end
 end
 
-size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do|window_handle, w, h|
-  glViewport(0, 0, w, h)
-  glMatrixMode(GL_PROJECTION)
-  glLoadIdentity()
-  gluOrtho2D(0.0, w, 0.0, h)
+size_callback = GLFW::create_callback(:GLFWwindowsizefun) do|window_handle, w, h|
+  GL.Viewport(0, 0, w, h)
+  GL.MatrixMode(GL::PROJECTION)
+  GL.LoadIdentity()
+  GLU.Ortho2D(0.0, w, 0.0, h)
 end
 
-mouse_callback = GLFW::create_callback( :GLFWmousebuttonfun ) do |window_handle, button, action, mods|
+mouse_callback = GLFW::create_callback(:GLFWmousebuttonfun) do |window_handle, button, action, mods|
   case button
-  when GLFW_MOUSE_BUTTON_LEFT
-    if action == GLFW_PRESS
+  when GLFW::MOUSE_BUTTON_LEFT
+    if action == GLFW::PRESS
       if $setupMethod == POINTER
         $setupMethod = INTERLEAVED
         setupInterleave()
@@ -122,8 +126,8 @@ mouse_callback = GLFW::create_callback( :GLFWmousebuttonfun ) do |window_handle,
         setupPointers()
       end
     end
-  when GLFW_MOUSE_BUTTON_MIDDLE,GLFW_MOUSE_BUTTON_RIGHT
-    if action == GLFW_PRESS
+  when GLFW::MOUSE_BUTTON_MIDDLE,GLFW::MOUSE_BUTTON_RIGHT
+    if action == GLFW::PRESS
       if $derefMethod == DRAWARRAY
         $derefMethod = ARRAYELEMENT
       elsif $derefMethod == ARRAYELEMENT
@@ -137,36 +141,40 @@ end
 
 key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scancode, action, mods|
   case key
-  when GLFW_KEY_ESCAPE
-    glfwSetWindowShouldClose(window_handle, 1)
+  when GLFW::KEY_ESCAPE
+    GLFW.SetWindowShouldClose(window_handle, 1)
   end
 end
 
 
 if __FILE__ == $0
-  glfwInit()
-  window = glfwCreateWindow( 350, 350, $0, nil, nil )
-  glfwSetWindowPos( window, 100, 100 )
-  glfwMakeContextCurrent( window )
-  glfwSetKeyCallback( window, key_callback )
-  glfwSetMouseButtonCallback( window, mouse_callback )
-  glfwSetWindowSizeCallback( window, size_callback )
+  GLFW.load_lib(SampleUtil.glfw_library_path)
+  GLFW.Init()
+  window = GLFW.CreateWindow(350, 350, $0, nil, nil)
+  GLFW.SetWindowPos(window, 100, 100)
+  GLFW.MakeContextCurrent(window)
+  GLFW.SetKeyCallback(window, key_callback)
+  GLFW.SetMouseButtonCallback(window, mouse_callback)
+  GLFW.SetWindowSizeCallback(window, size_callback)
+
+  GL.load_lib()
+  GLU.load_lib()
 
   init()
 
   width_ptr = ' ' * 4
   height_ptr = ' ' * 4
-  glfwGetFramebufferSize(window, width_ptr, height_ptr)
+  GLFW.GetFramebufferSize(window, width_ptr, height_ptr)
   width = width_ptr.unpack('L')[0]
   height = height_ptr.unpack('L')[0]
-  size_callback.call( window, width, height )
+  size_callback.call(window, width, height)
 
-  while glfwWindowShouldClose( window ) == 0
+  while GLFW.WindowShouldClose(window) == 0
     display.call()
-    glfwSwapBuffers( window )
-    glfwPollEvents()
+    GLFW.SwapBuffers(window)
+    GLFW.PollEvents()
   end
 
-  glfwDestroyWindow( window )
-  glfwTerminate()
+  GLFW.DestroyWindow(window)
+  GLFW.Terminate()
 end
