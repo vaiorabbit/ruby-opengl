@@ -1,11 +1,11 @@
 #
-# For Mac OS X + Xcode + CMake users.
+# For macOS + Xcode + CMake users.
 #
 # Ref.: https://github.com/malkia/ufo/blob/master/build/OSX/glfw.sh
 #
-wget https://github.com/glfw/glfw/releases/download/3.2.1/glfw-3.2.1.zip
-tar xvjf glfw-3.2.1.zip
-cd glfw-3.2.1/
+curl -O  https://github.com/glfw/glfw/releases/download/3.3.6/glfw-3.3.6.zip
+tar xvjf glfw-3.3.6.zip
+cd glfw-3.3.6/
 mkdir build
 cd build
 export MACOSX_DEPLOYMENT_TARGET=10.14
