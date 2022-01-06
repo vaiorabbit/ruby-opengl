@@ -3,7 +3,7 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
-  gem.name          = "opengl-bindings"
+  gem.name          = "opengl-bindings2"
   gem.version       = "2.0.0"
   gem.authors       = ["vaiorabbit"]
   gem.email         = ["vaiorabbit@gmail.com"]
@@ -19,5 +19,5 @@ Ruby bindings for OpenGL - 4.6, OpenGL ES - 3.2 and all extensions using Fiddle 
 
   gem.files = Dir.glob("lib/*.rb") +
               ["README.md", "LICENSE.txt", "ChangeLog"] +
-              ["sample/simple.rb", "sample/simple_glut.rb", "sample/report_env.rb", "sample/glfw_build.sh", "sample/glfw_build.bat", "sample/README.md"]
+              ["sample/simple.rb", "sample/report_env.rb", "sample/glfw_get.sh", "sample/glfw_get.bat", "sample/README.md"]
 end
