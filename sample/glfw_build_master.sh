@@ -3,8 +3,8 @@
 #
 # Ref.: https://github.com/malkia/ufo/blob/master/build/OSX/glfw.sh
 #
-git clone --depth=1 https://github.com/glfw/glfw.git glfw
-cd glfw/
+git clone --depth=1 https://github.com/glfw/glfw.git glfw_master
+cd glfw_master/
 mkdir build
 cd build
 export MACOSX_DEPLOYMENT_TARGET=10.14
