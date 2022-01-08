@@ -351,11 +351,11 @@ module GLFW
   }
 
   # Creates a callback as an instance of Fiddle::Function
-  def self.create_callback_function( sym, proc=nil, &blk )
+  def self.create_callback_function(sym, proc=nil, &blk)
     if block_given?
-      return bind( @@glfw_cb_function_signature[sym], nil, &blk )
+      return bind(@@glfw_cb_function_signature[sym], nil, &blk)
     else
-      return bind( @@glfw_cb_function_signature[sym], nil, &proc )
+      return bind(@@glfw_cb_function_signature[sym], nil, &proc)
     end
   end
 
@@ -421,7 +421,7 @@ module GLFW
   }
 
   # Creates a callback as an instance of Fiddle::Closure::BlockCaller
-  def self.create_callback_closure( sym, proc=nil, &blk )
+  def self.create_callback_closure(sym, proc=nil, &blk)
     cb_retval = @@glfw_cb_closure_signature[sym][0]
     cb_args   = @@glfw_cb_closure_signature[sym][1]
     if block_given?
@@ -432,7 +432,7 @@ module GLFW
   end
 
   # NOTE : Use 'create_callback_function' for backward compatibility.
-  def self.create_callback( sym, proc=nil, &blk )
+  def self.create_callback(sym, proc=nil, &blk)
     return self.create_callback_closure( sym, proc, &blk )
   end
 

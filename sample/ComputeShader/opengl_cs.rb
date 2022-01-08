@@ -198,18 +198,18 @@ key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scanco
   end
 end
 
-size_callback = GLFW::create_callback( :GLFWwindowsizefun ) do |window_handle, w, h|
+size_callback = GLFW::create_callback(:GLFWwindowsizefun)do |window_handle, w, h|
   GL.Viewport(0, 0, w, h)
 end
 
 if __FILE__ == $PROGRAM_NAME
   GLFW.load_lib(SampleUtil.glfw_library_path)
   GLFW.Init()
-  window = GLFW.CreateWindow( WIN_WIDTH, WIN_HEIGHT, "OpenGL compute shader demo", nil, nil )
-  GLFW.SetWindowPos( window, 100, 100 )
-  GLFW.MakeContextCurrent( window )
-  GLFW.SetKeyCallback( window, key_callback )
-  GLFW.SetWindowSizeCallback( window, size_callback )
+  window = GLFW.CreateWindow(WIN_WIDTH, WIN_HEIGHT, "OpenGL compute shader demo", nil, nil )
+  GLFW.SetWindowPos(window, 100, 100 )
+  GLFW.MakeContextCurrent(window )
+  GLFW.SetKeyCallback(window, key_callback )
+  GLFW.SetWindowSizeCallback(window, size_callback )
 
   GL.load_lib(SampleUtil.gl_library_path)
 
@@ -218,7 +218,7 @@ if __FILE__ == $PROGRAM_NAME
   GLFW.GetFramebufferSize(window, width_ptr, height_ptr)
   width = width_ptr.unpack('L')[0]
   height = height_ptr.unpack('L')[0]
-  size_callback.call( window, width, height )
+  size_callback.call(window, width, height )
 
   # Make sure that OpenGL 4.3 is supported by the driver
   major,minor,*rest = GL.GetString(GL::VERSION).to_s.split(/\.| /)
@@ -236,11 +236,11 @@ if __FILE__ == $PROGRAM_NAME
   $computeHandle = genComputeProg(texHandle)
 
   i = 0
-  while GLFW.WindowShouldClose( window ) == 0
+  while GLFW.WindowShouldClose(window)== 0
     updateTex(i)
     i = (i + 1) % 1024
     draw()
-    GLFW.SwapBuffers( window )
+    GLFW.SwapBuffers(window )
     GLFW.PollEvents()
   end
 end

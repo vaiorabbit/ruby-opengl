@@ -6,17 +6,17 @@ module GL
   WGL_FUNCTIONS_ARGS_MAP = {}
   WGL_FUNCTIONS_RETVAL_MAP = {}
 
-  def self.get_wgl_command( sym )
+  def self.get_wgl_command(sym)
     if WGL_FUNCTIONS_MAP[sym] == nil
-      bind_wgl_command( sym )
+      bind_wgl_command(sym)
     end
     return WGL_FUNCTIONS_MAP[sym]
   end
 
-  def self.bind_wgl_command( sym )
-    WGL_FUNCTIONS_MAP[sym] = Fiddle::Function.new( @@gl_dll[sym.to_s],
-                                                   WGL_FUNCTIONS_ARGS_MAP[sym],
-                                                   WGL_FUNCTIONS_RETVAL_MAP[sym] )
+  def self.bind_wgl_command(sym)
+    WGL_FUNCTIONS_MAP[sym] = Fiddle::Function.new(@@gl_dll[sym.to_s],
+                                                  WGL_FUNCTIONS_ARGS_MAP[sym],
+                                                  WGL_FUNCTIONS_RETVAL_MAP[sym])
     raise RuntimeError if WGL_FUNCTIONS_RETVAL_MAP[sym] == nil
   end
 

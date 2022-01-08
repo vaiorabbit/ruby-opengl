@@ -86,26 +86,26 @@ RAND_MAX = 4095
 
 
 # Truncate a degree.
-def TruncateDeg( deg )
+def TruncateDeg(deg)
   return deg >= 360.0 ? (deg - 360.0) : deg
 end
 
-def sin_deg( deg )
-  return Math.sin( deg * Math::PI / 180.0 )
+def sin_deg(deg)
+  return Math.sin(deg * Math::PI / 180.0)
 end
 
-def cos_deg( deg )
-  return Math.cos( deg * Math::PI / 180.0 )
+def cos_deg(deg)
+  return Math.cos(deg * Math::PI / 180.0)
 end
 
 def init()
   # Clear background.
-  GL.ClearColor( 0.55, 0.55, 0.55, 0.0 )
-  GL.ShadeModel( GL::FLAT )
+  GL.ClearColor(0.55, 0.55, 0.55, 0.0)
+  GL.ShadeModel(GL::FLAT)
 end
 
 def display()
-  GL.Clear( GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT )
+  GL.Clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT)
   GL.PushMatrix()
 
   $drawBallHow = DRAW_BALL_SHADOW
@@ -123,13 +123,13 @@ end
 $projection = RMath3D::RMtx4.new
 $view = RMath3D::RMtx4.new
 reshape = GLFW::create_callback(:GLFWframebuffersizefun) do |window, w, h|
-  GL.Viewport( 0, 0, w, h )
+  GL.Viewport(0, 0, w, h)
 
-  GL.MatrixMode( GL::PROJECTION )
-  $projection.perspectiveFovRH(2.0 * Math.atan2( RADIUS, 200.0 ), w / h, 1.0, VIEW_SCENE_DIST)
-  GL.LoadMatrixf( $projection.to_a.pack('F16') )
+  GL.MatrixMode(GL::PROJECTION)
+  $projection.perspectiveFovRH(2.0 * Math.atan2(RADIUS, 200.0), w / h, 1.0, VIEW_SCENE_DIST)
+  GL.LoadMatrixf($projection.to_a.pack('F16'))
 
-  GL.MatrixMode( GL::MODELVIEW )
+  GL.MatrixMode(GL::MODELVIEW)
 
   eye = RMath3D::RVec3.new(0.0, 0.0, VIEW_SCENE_DIST)
   center = RMath3D::RVec3.new(0.0, 0.0, 0.0)
@@ -146,7 +146,7 @@ key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scanco
   end
 end
 
-def set_ball_pos ( x, y )
+def set_ball_pos (x, y)
   $ball_x = ($width / 2) - x
   $ball_y = y - ($height / 2)
 end
@@ -184,47 +184,47 @@ def DrawBoingBall()
   dt2 = 0.0
 
   GL.PushMatrix()
-  GL.MatrixMode( GL::MODELVIEW )
+  GL.MatrixMode(GL::MODELVIEW)
 
   # Another relative Z translation to separate objects.
-  GL.Translatef( 0.0, 0.0, DIST_BALL )
+  GL.Translatef(0.0, 0.0, DIST_BALL)
 
   # Update ball position and rotation (iterate if necessary) 
   dt_total = $dt
   while dt_total > 0.0
     dt2 = dt_total > MAX_DELTA_T ? MAX_DELTA_T : dt_total
     dt_total -= dt2
-    BounceBall( dt2 )
-    $deg_rot_y = TruncateDeg( $deg_rot_y + $deg_rot_y_inc*(dt2*ANIMATION_SPEED) )
+    BounceBall(dt2)
+    $deg_rot_y = TruncateDeg($deg_rot_y + $deg_rot_y_inc*(dt2*ANIMATION_SPEED))
   end
 
   # Set ball position
-  GL.Translatef( $ball_x, $ball_y, 0.0 )
+  GL.Translatef($ball_x, $ball_y, 0.0)
 
   # Offset the shadow.
   if $drawBallHow == DRAW_BALL_SHADOW
-    GL.Translatef( SHADOW_OFFSET_X,
+    GL.Translatef(SHADOW_OFFSET_X,
                   SHADOW_OFFSET_Y,
-                  SHADOW_OFFSET_Z )
+                  SHADOW_OFFSET_Z)
   end
 
   # Tilt the ball.
-  GL.Rotatef( -20.0, 0.0, 0.0, 1.0 )
+  GL.Rotatef(-20.0, 0.0, 0.0, 1.0)
 
   # Continually rotate ball around Y axis.
-  GL.Rotatef( $deg_rot_y, 0.0, 1.0, 0.0 )
+  GL.Rotatef($deg_rot_y, 0.0, 1.0, 0.0)
 
   # Set OpenGL state for Boing ball.
-  GL.CullFace( GL::FRONT )
-  GL.Enable( GL::CULL_FACE )
-  GL.Enable( GL::NORMALIZE )
+  GL.CullFace(GL::FRONT)
+  GL.Enable(GL::CULL_FACE)
+  GL.Enable(GL::NORMALIZE)
 
   # Build a faceted latitude slice of the Boing ball,
   # stepping same-sized vertical bands of the sphere.
   lon_deg = 0
   while lon_deg < 180
     # Draw a latitude circle at this longitude.
-    DrawBoingBallBand( lon_deg, lon_deg + STEP_LONGITUDE )
+    DrawBoingBallBand(lon_deg, lon_deg + STEP_LONGITUDE)
     lon_deg += STEP_LONGITUDE
   end
 
@@ -237,14 +237,14 @@ end
  * Bounce the ball.
  *****************************************************************************/
 =end
-def BounceBall( delta_t )
+def BounceBall(delta_t)
   sign = 0.0
   deg = 0.0
 
   return if $override_pos
 
   # Bounce on walls
-  if $ball_x >  (BOUNCE_WIDTH/2 + WALL_R_OFFSET )
+  if $ball_x >  (BOUNCE_WIDTH/2 + WALL_R_OFFSET)
     $ball_x_inc = -0.5 - 0.75 * rand(RAND_MAX).to_f / RAND_MAX
     $deg_rot_y_inc = -$deg_rot_y_inc
   end
@@ -276,7 +276,7 @@ def BounceBall( delta_t )
   deg = 80 if deg > 80
   deg = 10 if deg < 10
 
-  $ball_y_inc = sign * 4.0 * sin_deg( deg )
+  $ball_y_inc = sign * 4.0 * sin_deg(deg)
 end
 
 =begin
@@ -288,7 +288,7 @@ end
  *****************************************************************************/
 =end
 $colorToggle = false
-def DrawBoingBallBand( long_lo, long_hi )
+def DrawBoingBallBand(long_lo, long_hi)
    vert_ne = RMath3D::RVec3.new
    vert_nw = RMath3D::RVec3.new
    vert_sw = RMath3D::RVec3.new
@@ -301,15 +301,15 @@ def DrawBoingBallBand( long_lo, long_hi )
    while lat_deg <= (360 - STEP_LATITUDE)
      # Color this polygon with red or white.
      if $colorToggle
-       GL.Color3f( 0.8, 0.1, 0.1 )
+       GL.Color3f(0.8, 0.1, 0.1)
      else
-       GL.Color3f( 0.95, 0.95, 0.95 )
+       GL.Color3f(0.95, 0.95, 0.95)
      end
      $colorToggle = !$colorToggle
 
      # Change color if drawing shadow.
      if $drawBallHow == DRAW_BALL_SHADOW
-       GL.Color3f( 0.35, 0.35, 0.35 )
+       GL.Color3f(0.35, 0.35, 0.35)
      end
      # Assign each Y.
      vert_ne.y = vert_nw.y = cos_deg(long_hi) * RADIUS
@@ -318,26 +318,26 @@ def DrawBoingBallBand( long_lo, long_hi )
      # Assign each X,Z with sin,cos values scaled by latitude radius indexed by longitude.
      # Eg, long=0 and long=180 are at the poles, so zero scale is sin(longitude),
      # while long=90 (sin(90)=1) is at equator.
-     vert_ne.x = cos_deg( lat_deg                 ) * (RADIUS * sin_deg( long_lo + STEP_LONGITUDE ))
-     vert_se.x = cos_deg( lat_deg                 ) * (RADIUS * sin_deg( long_lo                  ))
-     vert_nw.x = cos_deg( lat_deg + STEP_LATITUDE ) * (RADIUS * sin_deg( long_lo + STEP_LONGITUDE ))
-     vert_sw.x = cos_deg( lat_deg + STEP_LATITUDE ) * (RADIUS * sin_deg( long_lo                  ))
+     vert_ne.x = cos_deg(lat_deg                ) * (RADIUS * sin_deg(long_lo + STEP_LONGITUDE))
+     vert_se.x = cos_deg(lat_deg                ) * (RADIUS * sin_deg(long_lo                 ))
+     vert_nw.x = cos_deg(lat_deg + STEP_LATITUDE) * (RADIUS * sin_deg(long_lo + STEP_LONGITUDE))
+     vert_sw.x = cos_deg(lat_deg + STEP_LATITUDE) * (RADIUS * sin_deg(long_lo                 ))
 
-     vert_ne.z = sin_deg( lat_deg                 ) * (RADIUS * sin_deg( long_lo + STEP_LONGITUDE ))
-     vert_se.z = sin_deg( lat_deg                 ) * (RADIUS * sin_deg( long_lo                  ))
-     vert_nw.z = sin_deg( lat_deg + STEP_LATITUDE ) * (RADIUS * sin_deg( long_lo + STEP_LONGITUDE ))
-     vert_sw.z = sin_deg( lat_deg + STEP_LATITUDE ) * (RADIUS * sin_deg( long_lo                  ))
+     vert_ne.z = sin_deg(lat_deg                ) * (RADIUS * sin_deg(long_lo + STEP_LONGITUDE))
+     vert_se.z = sin_deg(lat_deg                ) * (RADIUS * sin_deg(long_lo                 ))
+     vert_nw.z = sin_deg(lat_deg + STEP_LATITUDE) * (RADIUS * sin_deg(long_lo + STEP_LONGITUDE))
+     vert_sw.z = sin_deg(lat_deg + STEP_LATITUDE) * (RADIUS * sin_deg(long_lo                 ))
 
      # Draw the facet.
-     GL.Begin( GL::POLYGON )
+     GL.Begin(GL::POLYGON)
 
      vert_norm = RMath3D::RVec3.cross((vert_nw - vert_ne), (vert_sw - vert_ne))
-     GL.Normal3f( vert_norm.x, vert_norm.y, vert_norm.z )
+     GL.Normal3f(vert_norm.x, vert_norm.y, vert_norm.z)
 
-     GL.Vertex3f( vert_ne.x, vert_ne.y, vert_ne.z )
-     GL.Vertex3f( vert_nw.x, vert_nw.y, vert_nw.z )
-     GL.Vertex3f( vert_sw.x, vert_sw.y, vert_sw.z )
-     GL.Vertex3f( vert_se.x, vert_se.y, vert_se.z )
+     GL.Vertex3f(vert_ne.x, vert_ne.y, vert_ne.z)
+     GL.Vertex3f(vert_nw.x, vert_nw.y, vert_nw.z)
+     GL.Vertex3f(vert_sw.x, vert_sw.y, vert_sw.z)
+     GL.Vertex3f(vert_se.x, vert_se.y, vert_se.z)
 
      GL.End()
 
@@ -370,10 +370,10 @@ def DrawGrid()
   yb = 0.0
 
   GL.PushMatrix()
-  GL.Disable( GL::CULL_FACE )
+  GL.Disable(GL::CULL_FACE)
 
   # Another relative Z translation to separate objects.
-  GL.Translatef( 0.0, 0.0, DIST_BALL )
+  GL.Translatef(0.0, 0.0, DIST_BALL)
 
   # Draw vertical lines (as skinny 3D rectangles).
   (0..colTotal).each do |col|
@@ -384,14 +384,14 @@ def DrawGrid()
     yt =  GRID_SIZE / 2
     yb = -GRID_SIZE / 2 - widthLine
 
-    GL.Begin( GL::POLYGON )
+    GL.Begin(GL::POLYGON)
 
-    GL.Color3f( 0.6, 0.1, 0.6 )        #  purple
+    GL.Color3f(0.6, 0.1, 0.6)        #  purple
 
-    GL.Vertex3f( xr, yt, z_offset )       #  NE
-    GL.Vertex3f( xl, yt, z_offset )       #  NW
-    GL.Vertex3f( xl, yb, z_offset )       #  SW
-    GL.Vertex3f( xr, yb, z_offset )       #  SE
+    GL.Vertex3f(xr, yt, z_offset)       #  NE
+    GL.Vertex3f(xl, yt, z_offset)       #  NW
+    GL.Vertex3f(xl, yb, z_offset)       #  SW
+    GL.Vertex3f(xr, yb, z_offset)       #  SE
 
     GL.End()
   end
@@ -405,14 +405,14 @@ def DrawGrid()
     xl = -GRID_SIZE / 2
     xr =  GRID_SIZE / 2 + widthLine
 
-    GL.Begin( GL::POLYGON )
+    GL.Begin(GL::POLYGON)
 
-    GL.Color3f( 0.6, 0.1, 0.6 )        #  purple
+    GL.Color3f(0.6, 0.1, 0.6)        #  purple
 
-    GL.Vertex3f( xr, yt, z_offset )       #  NE
-    GL.Vertex3f( xl, yt, z_offset )       #  NW
-    GL.Vertex3f( xl, yb, z_offset )       #  SW
-    GL.Vertex3f( xr, yb, z_offset )       #  SE
+    GL.Vertex3f(xr, yt, z_offset)       #  NE
+    GL.Vertex3f(xl, yt, z_offset)       #  NW
+    GL.Vertex3f(xl, yb, z_offset)       #  SW
+    GL.Vertex3f(xr, yb, z_offset)       #  SE
 
     GL.End()
   end
@@ -428,15 +428,15 @@ if __FILE__ == $PROGRAM_NAME
 
   GLFW.WindowHint(GLFW::DEPTH_BITS, 16)
 
-  window = GLFW.CreateWindow( 400, 400, "Boing (classic Amiga demo)", nil, nil )
+  window = GLFW.CreateWindow(400, 400, "Boing (classic Amiga demo)", nil, nil)
 
   GLFW.SetFramebufferSizeCallback(window, reshape)
   GLFW.SetKeyCallback(window, key_callback)
   GLFW.SetMouseButtonCallback(window, mouse_button_callback)
   GLFW.SetCursorPosCallback(window, cursor_position_callback)
 
-  GLFW.MakeContextCurrent( window )
-  GLFW.SwapInterval( 1 )
+  GLFW.MakeContextCurrent(window)
+  GLFW.SwapInterval(1)
 
   GL.load_lib(SampleUtil.gl_library_path)
 
@@ -467,7 +467,7 @@ if __FILE__ == $PROGRAM_NAME
     break if GLFW.WindowShouldClose(window) != 0
   end
 
-  GLFW.DestroyWindow( window )
+  GLFW.DestroyWindow(window)
   GLFW.Terminate()
 end
 

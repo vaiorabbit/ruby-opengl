@@ -1,7 +1,7 @@
 require 'opengl_es'
 require 'glfw'
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   GLFW.load_lib()
   GLFW.Init()
   GLFW.WindowHint(GLFW::DECORATED, 0)

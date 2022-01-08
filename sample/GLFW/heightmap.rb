@@ -140,17 +140,15 @@ def make_shader(type, text) # (GLenum type, const char* text)
 
   shader = GL.CreateShader(type)
   if (shader != 0)
-
     GL.ShaderSource(shader, 1, [text].pack('p'), nil)
     GL.CompileShader(shader)
     GL.GetShaderiv(shader, GL::COMPILE_STATUS, shader_ok_buf)
     shader_ok = shader_ok_buf.unpack('L')[0]
     if shader_ok != GL::TRUE
-
-      $stderr.printf( "ERROR: Failed to compile %s shader\n", (type == GL::FRAGMENT_SHADER) ? "fragment" : "vertex" )
+      $stderr.printf("ERROR: Failed to compile %s shader\n", (type == GL::FRAGMENT_SHADER) ? "fragment" : "vertex")
       GL.GetShaderInfoLog(shader, 8192, log_length_buf, info_log)
       log_length = log_length_buf.unpack('L')[0]
-      $stderr.printf( "ERROR: \n%s\n\n", info_log)
+      $stderr.printf("ERROR: \n%s\n\n", info_log)
       GL.DeleteShader(shader)
       shader = 0
     end
@@ -188,10 +186,10 @@ def make_shader_program(vs_text, fs_text) # (const char* vs_text, const char* fs
         program_ok = program_ok_buf.unpack('L')[0]
 
         if program_ok != GL::TRUE
-          $stderr.printf( "ERROR, failed to link shader program\n")
-          GL.GetProgramInfoLog(program, 8192, log_length_buf, info_log)
+          $stderr.printf("ERROR, failed to link shader program\n")
+          GL.GetProgramInfoLog(program, info_log.length, log_length_buf, info_log)
           log_length = log_length_buf.unpack('L')[0]
-          $stderr.printf( "ERROR: \n%s\n\n", info_log)
+          $stderr.printf("ERROR: \n%s\n\n", info_log)
           GL.DeleteProgram(program)
           GL.DeleteShader(fragment_shader)
           GL.DeleteShader(vertex_shader)
@@ -201,12 +199,12 @@ def make_shader_program(vs_text, fs_text) # (const char* vs_text, const char* fs
 
     else
 
-      $stderr.printf( "ERROR: Unable to load fragment shader\n")
+      $stderr.printf("ERROR: Unable to load fragment shader\n")
       GL.DeleteShader(vertex_shader)
     end
   else
 
-    $stderr.printf( "ERROR: Unable to load vertex shader\n")
+    $stderr.printf("ERROR: Unable to load vertex shader\n")
   end
 
   return program
@@ -394,7 +392,7 @@ key_callback = GLFW::create_callback(:GLFWkeyfun) do |window_handle, key, scanco
 end
 
 error_callback = GLFW::create_callback(:GLFWerrorfun) do |error, description|
-  $stderr.printf( "Error: %s\n", description)
+  $stderr.printf("Error: %s\n", description)
 end
 
 if __FILE__ == $PROGRAM_NAME
@@ -418,7 +416,7 @@ if __FILE__ == $PROGRAM_NAME
   # Register events callback
   GLFW.SetKeyCallback(window, key_callback)
 
-  GLFW.MakeContextCurrent( window )
+  GLFW.MakeContextCurrent(window)
 
   GL.load_lib(SampleUtil.gl_library_path)
 
@@ -489,6 +487,6 @@ if __FILE__ == $PROGRAM_NAME
     end
   end
 
-  GLFW.DestroyWindow( window )
+  GLFW.DestroyWindow(window)
   GLFW.Terminate()
 end

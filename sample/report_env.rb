@@ -7,7 +7,7 @@
 require 'opengl'
 require 'glfw'
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
 
   GLFW.load_lib()
   GLFW.Init()
@@ -35,14 +35,14 @@ if __FILE__ == $0
     GLFW.WindowHint(GLFW::CONTEXT_VERSION_MAJOR, ver_major)
     GLFW.WindowHint(GLFW::CONTEXT_VERSION_MINOR, ver_minor)
     GLFW.WindowHint(GLFW::DECORATED, 0)
-    window = GLFW.CreateWindow( 1, 1, "Report OpenGL Environment", nil, nil )
+    window = GLFW.CreateWindow(1, 1, "Report OpenGL Environment", nil, nil)
     break unless window.null?
   end
 
   if window.null?
     GLFW.DefaultWindowHints()
     GLFW.WindowHint(GLFW::DECORATED, 0)
-    window = GLFW.CreateWindow( 1, 1, "Report OpenGL Environment", nil, nil )
+    window = GLFW.CreateWindow(1, 1, "Report OpenGL Environment", nil, nil)
     if window.null?
       puts "Failed to create the OpenGL context."
       GLFW.Terminate()
@@ -50,7 +50,7 @@ if __FILE__ == $0
     end
   end
 
-  GLFW.MakeContextCurrent( window )
+  GLFW.MakeContextCurrent(window)
 
   GL.load_lib()
 
@@ -70,15 +70,15 @@ if __FILE__ == $0
     # glGetString(GL_EXTENSIONS) was deprecated in OpenGL 3.0
     # Ref.: http://sourceforge.net/p/glew/bugs/120/
     extensions_count_buf = '    '
-    GL::GetIntegerv( GL::NUM_EXTENSIONS, extensions_count_buf )
+    GL::GetIntegerv(GL::NUM_EXTENSIONS, extensions_count_buf)
     extensions_count = extensions_count_buf.unpack('L')[0]
     extensions_count.times do |i|
-      puts GL::GetStringi( GL::EXTENSIONS, i ).to_s
+      puts GL::GetStringi(GL::EXTENSIONS, i).to_s
     end
   else
     puts GL::GetString(GL::EXTENSIONS).to_s.split(/ /)
   end
 
-  GLFW.DestroyWindow( window )
+  GLFW.DestroyWindow(window)
   GLFW.Terminate()
 end

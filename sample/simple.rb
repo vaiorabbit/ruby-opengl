@@ -12,14 +12,14 @@ key_callback = GLFW::create_callback(:GLFWkeyfun) do |window, key, scancode, act
 end
 
 if __FILE__ == $PROGRAM_NAME
-  GLFW.load_lib()
+  GLFW.load_lib() # Give path to "glfw3.dll (Windows)" or "libglfw.dylib (macOS)" if needed
   GLFW.Init()
 
   window = GLFW.CreateWindow(640, 480, "Simple example", nil, nil)
   GLFW.MakeContextCurrent(window)
   GLFW.SetKeyCallback(window, key_callback)
 
-  GL.load_lib()
+  GL.load_lib() # Call GL.load_lib after OpenGL context is available
 
   width_buf = ' ' * 8
   height_buf = ' ' * 8

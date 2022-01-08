@@ -213,8 +213,8 @@ module GLU
     :QuadricCallback => "void CallBackFunc()",
     :TessCallback => "void CallBackFunc()",
   }
-  def self.create_callback( sym, *opts, &blk )
-    return bind( @@glu_cb_signature[sym], opts, &blk )
+  def self.create_callback(sym, *opts, &blk)
+    return bind(@@glu_cb_signature[sym], opts, &blk)
   end
 
   # struct

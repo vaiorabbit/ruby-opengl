@@ -8,20 +8,20 @@ module GL
 
   @@cgl_dll = nil
 
-  def self.get_cgl_command( sym )
+  def self.get_cgl_command(sym)
     if @@cgl_dll == nil
       @@cgl_dll = Fiddle.dlopen('/System/Library/Frameworks/OpenGL.framework/OpenGL')
     end
     if CGL_FUNCTIONS_MAP[sym] == nil
-      bind_cgl_command( sym )
+      bind_cgl_command(sym)
     end
     return CGL_FUNCTIONS_MAP[sym]
   end
 
-  def self.bind_cgl_command( sym )
-    CGL_FUNCTIONS_MAP[sym] = Fiddle::Function.new( @@cgl_dll[sym.to_s],
-                                                   CGL_FUNCTIONS_ARGS_MAP[sym],
-                                                   CGL_FUNCTIONS_RETVAL_MAP[sym] )
+  def self.bind_cgl_command(sym)
+    CGL_FUNCTIONS_MAP[sym] = Fiddle::Function.new(@@cgl_dll[sym.to_s],
+                                                  CGL_FUNCTIONS_ARGS_MAP[sym],
+                                                  CGL_FUNCTIONS_RETVAL_MAP[sym])
     raise RuntimeError if CGL_FUNCTIONS_RETVAL_MAP[sym] == nil
   end
 

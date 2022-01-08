@@ -158,14 +158,17 @@ end
 
 def geomSolidSphere(radius, slices, stacks) # Ref.: glutSolidSphere
   # Pre-computed circle
-  sint1, cost1 = generate_circle_table(-slices)
+  sint1, cost1 = generate_circle_table(slices)
   sint2, cost2 = generate_circle_table(stacks * 2)
+
+  slices = slices.abs
+  stacks = stacks.abs
 
   # The top stack is covered with a triangle fan
   z0 = 1.0
   z1 = cost2[stacks > 0 ? 1 : 0]
   r0 = 0.0
-  r1 = sint2[stacks>0 ? 1 : 0 ]
+  r1 = sint2[stacks > 0 ? 1 : 0 ]
 
   GL.Begin(GL::TRIANGLE_FAN)
   GL.Normal3d(0.0, 0.0, 1.0)
@@ -184,7 +187,7 @@ def geomSolidSphere(radius, slices, stacks) # Ref.: glutSolidSphere
     r1 = sint2[i+1]
 
     GL.Begin(GL::QUAD_STRIP)
-    slices.times do |j|
+    (slices + 1).times do |j|
       GL.Normal3d(cost1[j] * r1,          sint1[j] * r1,          z1         )
       GL.Vertex3d(cost1[j] * r1 * radius, sint1[j] * r1 * radius, z1 * radius)
       GL.Normal3d(cost1[j] * r0,          sint1[j] * r0,          z0         )

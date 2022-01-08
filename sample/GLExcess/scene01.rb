@@ -53,7 +53,7 @@ class Scene01
 
     GL.MatrixMode(GL::PROJECTION)
     GL.LoadIdentity()
-    GLU.Perspective( 45.0, 4.0/3.0, 0.1, 100.0 )
+    GLU.Perspective(45.0, 4.0/3.0, 0.1, 100.0)
     GL.MatrixMode(GL::MODELVIEW)
     GL.LoadIdentity()
 
@@ -79,7 +79,7 @@ class Scene01
     @need_initialization   = true
   end
 
-  def z_drawrect( b, h )
+  def z_drawrect(b, h)
     GL.Begin(GL::QUADS)
     GL.TexCoord2f(0.0,0.0)
     GL.Vertex3f(-b/2,-h/2,0.0)
@@ -92,7 +92,7 @@ class Scene01
     GL.End()
   end
 
-  def z_drawrectb( b, h, shs, sht )
+  def z_drawrectb(b, h, shs, sht)
     GL.Begin(GL::QUADS)
     GL.TexCoord2f(0.0+shs,0.0+sht)
     GL.Vertex3f(-b/2,-h/2,0.0)
@@ -105,7 +105,7 @@ class Scene01
     GL.End()
   end
 
-  def z_drawrectc( b, h )
+  def z_drawrectc(b, h)
     GL.Begin(GL::QUADS)
     GL.TexCoord2f(0.0,0.9)
     GL.Vertex3f(-b/2,0,0.0)
@@ -119,7 +119,7 @@ class Scene01
     GL.End()
   end
 
-  def z_draw( z_w, z_h, z_fact, z_tlt )
+  def z_draw(z_w, z_h, z_fact, z_tlt)
     GL.PushMatrix()
     GL.Translatef(-z_tlt, -z_tlt*z_h/z_w,0.0)
     GL.Begin(GL::TRIANGLE_FAN)
@@ -159,8 +159,8 @@ class Scene01
     GL.PopMatrix()
   end
 
-  def render( globtime )
-    if ( @need_initialization )
+  def render(globtime)
+    if (@need_initialization)
       initGL()
       @need_initialization = false
     end
@@ -207,11 +207,11 @@ class Scene01
         end
         GL.PushMatrix()
         GL.Translatef(i/(50.0-(@z_time-z_offset)*135.0),0,0)
-        if ( (@z_time-z_offset) < 0.1 )
-          z_draw( 0.5, 0.1, 0, 0 )
+        if ((@z_time-z_offset) < 0.1)
+          z_draw(0.5, 0.1, 0, 0)
         else 
           arg = 0.05 * (1.0-Math.cos(((@z_time-z_offset)-0.1)*12.5))
-          z_draw( 0.5, 0.1, arg, arg )
+          z_draw(0.5, 0.1, arg, arg)
         end
         GL.PopMatrix()
       end
@@ -427,7 +427,7 @@ class Scene01
       GL.Enable(GL::TEXTURE_2D)
     end
 
-    if ( @z_time > 0.92 )
+    if (@z_time > 0.92)
       fader=(@z_time-0.92)*75.0
       if (fader>1.0)
         # to ensure complete removal of screen artifacts

@@ -225,11 +225,11 @@ module GLUT
   }
 
   # Creates a callback as an instance of Fiddle::Function
-  def self.create_callback( sym, proc=nil, &blk )
+  def self.create_callback(sym, proc=nil, &blk)
     if block_given?
-      return bind( @@glut_cb_function_signature[sym], nil, &blk )
+      return bind(@@glut_cb_function_signature[sym], nil, &blk)
     else
-      return bind( @@glut_cb_function_signature[sym], nil, &proc )
+      return bind(@@glut_cb_function_signature[sym], nil, &proc)
     end
   end
 
@@ -316,19 +316,19 @@ module GLUT
   }
 
   # Creates a callback as an instance of Fiddle::Closure::BlockCaller
-  def self.create_callback_closure( sym, proc=nil, &blk )
+  def self.create_callback_closure(sym, proc=nil, &blk)
     cb_retval = @@glut_cb_closure_signature[sym][0]
     cb_args   = @@glut_cb_closure_signature[sym][1]
     if block_given?
-      return Fiddle::Closure::BlockCaller.new( cb_retval, cb_args, Fiddle::Function::DEFAULT, &blk )
+      return Fiddle::Closure::BlockCaller.new(cb_retval, cb_args, Fiddle::Function::DEFAULT, &blk)
     else
-      return Fiddle::Closure::BlockCaller.new( cb_retval, cb_args, Fiddle::Function::DEFAULT, &proc )
+      return Fiddle::Closure::BlockCaller.new(cb_retval, cb_args, Fiddle::Function::DEFAULT, &proc)
     end
   end
 
   # NOTE : Use 'create_callback_function' for backward compatibility.
-  def self.create_callback( sym, proc=nil, &blk )
-    return self.create_callback_closure( sym, proc, &blk )
+  def self.create_callback(sym, proc=nil, &blk)
+    return self.create_callback_closure(sym, proc, &blk)
   end
 
   @@glut_import_done = false
@@ -491,25 +491,25 @@ module GLUT
   def self.import_symbols(output_error = false)
     # defines
     if GL.get_platform == :OPENGL_PLATFORM_WINDOWS
-      const_set('GLUT_STROKE_ROMAN', Fiddle::Pointer.new(0x0000) )
-      const_set('GLUT_STROKE_MONO_ROMAN', Fiddle::Pointer.new(0x0001) )
-      const_set('GLUT_BITMAP_9_BY_15', Fiddle::Pointer.new(0x0002) )
-      const_set('GLUT_BITMAP_8_BY_13', Fiddle::Pointer.new(0x0003) )
-      const_set('GLUT_BITMAP_TIMES_ROMAN_10', Fiddle::Pointer.new(0x0004) )
-      const_set('GLUT_BITMAP_TIMES_ROMAN_24', Fiddle::Pointer.new(0x0005) )
-      const_set('GLUT_BITMAP_HELVETICA_10', Fiddle::Pointer.new(0x0006) )
-      const_set('GLUT_BITMAP_HELVETICA_12', Fiddle::Pointer.new(0x0007) )
-      const_set('GLUT_BITMAP_HELVETICA_18', Fiddle::Pointer.new(0x0008) )
+      const_set('GLUT_STROKE_ROMAN', Fiddle::Pointer.new(0x0000))
+      const_set('GLUT_STROKE_MONO_ROMAN', Fiddle::Pointer.new(0x0001))
+      const_set('GLUT_BITMAP_9_BY_15', Fiddle::Pointer.new(0x0002))
+      const_set('GLUT_BITMAP_8_BY_13', Fiddle::Pointer.new(0x0003))
+      const_set('GLUT_BITMAP_TIMES_ROMAN_10', Fiddle::Pointer.new(0x0004))
+      const_set('GLUT_BITMAP_TIMES_ROMAN_24', Fiddle::Pointer.new(0x0005))
+      const_set('GLUT_BITMAP_HELVETICA_10', Fiddle::Pointer.new(0x0006))
+      const_set('GLUT_BITMAP_HELVETICA_12', Fiddle::Pointer.new(0x0007))
+      const_set('GLUT_BITMAP_HELVETICA_18', Fiddle::Pointer.new(0x0008))
     else
-      const_set('GLUT_STROKE_ROMAN', import_symbol("glutStrokeRoman") )
-      const_set('GLUT_STROKE_MONO_ROMAN', import_symbol("glutStrokeMonoRoman") )
-      const_set('GLUT_BITMAP_9_BY_15', import_symbol("glutBitmap9By15") )
-      const_set('GLUT_BITMAP_8_BY_13', import_symbol("glutBitmap8By13") )
-      const_set('GLUT_BITMAP_TIMES_ROMAN_10', import_symbol("glutBitmapTimesRoman10") )
-      const_set('GLUT_BITMAP_TIMES_ROMAN_24', import_symbol("glutBitmapTimesRoman24") )
-      const_set('GLUT_BITMAP_HELVETICA_10', import_symbol("glutBitmapHelvetica10") )
-      const_set('GLUT_BITMAP_HELVETICA_12', import_symbol("glutBitmapHelvetica12") )
-      const_set('GLUT_BITMAP_HELVETICA_18', import_symbol("glutBitmapHelvetica18") )
+      const_set('GLUT_STROKE_ROMAN', import_symbol("glutStrokeRoman"))
+      const_set('GLUT_STROKE_MONO_ROMAN', import_symbol("glutStrokeMonoRoman"))
+      const_set('GLUT_BITMAP_9_BY_15', import_symbol("glutBitmap9By15"))
+      const_set('GLUT_BITMAP_8_BY_13', import_symbol("glutBitmap8By13"))
+      const_set('GLUT_BITMAP_TIMES_ROMAN_10', import_symbol("glutBitmapTimesRoman10"))
+      const_set('GLUT_BITMAP_TIMES_ROMAN_24', import_symbol("glutBitmapTimesRoman24"))
+      const_set('GLUT_BITMAP_HELVETICA_10', import_symbol("glutBitmapHelvetica10"))
+      const_set('GLUT_BITMAP_HELVETICA_12', import_symbol("glutBitmapHelvetica12"))
+      const_set('GLUT_BITMAP_HELVETICA_18', import_symbol("glutBitmapHelvetica18"))
     end
 
     # function

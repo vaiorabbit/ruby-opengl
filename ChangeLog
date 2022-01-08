@@ -1,3 +1,8 @@
+2022-01-08  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* Fixed minor formatting issue
+	* sample/util/geometry.rb: Fixed bug in geomSolidSphere
+
 2022-01-06  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated GLFW-related scripts

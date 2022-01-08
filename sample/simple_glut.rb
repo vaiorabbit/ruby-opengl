@@ -57,7 +57,6 @@ if __FILE__ == $PROGRAM_NAME
   GLUT.KeyboardFunc(GLUT.create_callback(:GLUTKeyboardFunc, method(:keyboard).to_proc))
   GLUT.TimerFunc(0, GLUT.create_callback(:GLUTTimerFunc, method(:timer).to_proc), 0)
 
-
   GL.ClearColor(0.0, 0.0, 0.0, 1)
 
   GLUT.MainLoop()
