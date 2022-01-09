@@ -68,7 +68,8 @@ module GL
 
 ## Features ##
 
-[![Gem Version](https://badge.fury.io/rb/opengl-bindings.svg)](https://badge.fury.io/rb/opengl-bindings) [![Gem](https://img.shields.io/gem/dt/opengl-bindings.svg)](opengl-bindings)
+* Version 1 [![Gem Version](https://badge.fury.io/rb/opengl-bindings.svg)](https://badge.fury.io/rb/opengl-bindings) [![Gem](https://img.shields.io/gem/dt/opengl-bindings.svg)](opengl-bindings)
+* Version 2 [![Gem Version](https://badge.fury.io/rb/opengl-bindings2.svg)](https://badge.fury.io/rb/opengl-bindings2) [![Gem](https://img.shields.io/gem/dt/opengl-bindings2.svg)](opengl-bindings2)
 
 <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/simple_rb.jpg" width="200"> <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/nehe_lesson36_rb.jpg" width="200"> <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/brick_rb.jpg" width="200"> <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/glxs_rb.jpg" width="200">
 
@@ -348,6 +349,63 @@ See sample/OrangeBook/3Dlabs-License.txt .
 -------------------------------------------------------------------------------
 
 # Ruby 用 OpenGL ラッパー (とその自動生成スクリプト) #
+
+## Version 2 が利用可能です ##
+
+[Version 1.6 系の opengl-bindings](https://rubygems.org/gems/opengl-bindings) も引き続き利用できるようにしますが、[opengl-bindings2](https://rubygems.org/gems/opengl-bindings2) への移行を検討してください。
+
+### API の修正
+
+Version 2 では OpenGL API が `module GL` の public メソッドとして定義され、`include OpenGL` を実行する必要がなくなりました。
+
+```ruby
+# opengl-bindings
+require 'opengl'
+include OpenGL
+# ...
+glEnable(GL_DEPTH_TEST)
+```
+↓
+```ruby
+# opengl-bindings2
+require 'opengl'
+# ...
+GL.Enable(GL::DEPTH_TEST)
+```
+
+### 効率の改善
+
+API を呼ぶたびに走っていた無駄な `nil` のチェックが Version 2 では削除されています。
+
+```ruby
+# opengl-bindings1
+module OpenGL
+  #...
+  def self.get_command( sym )
+    if GL_FUNCTIONS_MAP[sym] == nil
+      bind_command( sym )
+    end
+    return GL_FUNCTIONS_MAP[sym]
+  end
+
+  #...
+
+  def glEnable(_cap_)
+    f = OpenGL::get_command(:glEnable) # Every API call caused redundant nil check here
+    f.call(_cap_)
+  end
+```
+↓
+```ruby
+# opengl-bindings2
+module GL
+  #...
+  def self.Enable(_cap_)
+    GL_FUNCTIONS_MAP[:glEnable].call(_cap_) # Hashmap is built on initialization so there's no need to do nil check at every API call
+  end
+```
+
+---
 
 ## 特徴 ##
 
