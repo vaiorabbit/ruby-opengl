@@ -623,6 +623,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_EGL_image_storage
 
 
+  def self.define_ext_command_GL_EXT_EGL_image_storage_compression
+  end # self.define_ext_command_GL_EXT_EGL_image_storage_compression
+
+  def self.get_ext_command_GL_EXT_EGL_image_storage_compression
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_EGL_image_storage_compression
+
+
   def self.define_ext_command_GL_EXT_YUV_target
   end # self.define_ext_command_GL_EXT_YUV_target
 
@@ -3235,6 +3244,34 @@ module OpenGLExt
       'glTextureStorage3DEXT',
     ]
   end # self.get_ext_command_GL_EXT_texture_storage
+
+
+  def self.define_ext_command_GL_EXT_texture_storage_compression
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:TexStorageAttribs2DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:TexStorageAttribs2DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def TexStorageAttribs2DEXT(_target_, _levels_, _internalformat_, _width_, _height_, _attrib_list_)
+        f = OpenGL::get_command(:TexStorageAttribs2DEXT)
+        f.call(_target_, _levels_, _internalformat_, _width_, _height_, _attrib_list_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:TexStorageAttribs3DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:TexStorageAttribs3DEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def TexStorageAttribs3DEXT(_target_, _levels_, _internalformat_, _width_, _height_, _depth_, _attrib_list_)
+        f = OpenGL::get_command(:TexStorageAttribs3DEXT)
+        f.call(_target_, _levels_, _internalformat_, _width_, _height_, _depth_, _attrib_list_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_texture_storage_compression
+
+  def self.get_ext_command_GL_EXT_texture_storage_compression
+    [
+      'TexStorageAttribs2DEXT',
+      'TexStorageAttribs3DEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_texture_storage_compression
 
 
   def self.define_ext_command_GL_EXT_texture_type_2_10_10_10_REV
