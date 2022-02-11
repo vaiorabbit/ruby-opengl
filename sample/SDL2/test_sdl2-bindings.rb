@@ -106,7 +106,7 @@ def render()
 end
 
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   load_sdl2_lib()
   success = SDL2::SDL_Init(SDL2::SDL_INIT_EVERYTHING)
   exit if success < 0
