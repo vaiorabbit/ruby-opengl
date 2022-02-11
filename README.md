@@ -20,7 +20,7 @@ Though I will continue making this [version 1.6 series of opengl-bindings](https
 
 ### Redesigned API
 
-In verion 2, all OpenGL APIs are defined as public methods under `module GL`, so we don't have to `include OpenGL` and scatter OpenGL APIs under other modules any more:
+In version 2, all OpenGL APIs are defined as public methods under `module GL`, so we don't have to `include OpenGL` and scatter OpenGL APIs under other modules any more:
 
 ```ruby
 # opengl-bindings
@@ -39,7 +39,7 @@ GL.Enable(GL::DEPTH_TEST)
 
 ### Improved efficiency
 
-All redundant `nil` checks done on every API calls are removed in verion 2:
+All redundant `nil` checks done on every API calls are removed in version 2:
 
 ```ruby
 # opengl-bindings1
