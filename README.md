@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2022-01-22
+*   Last modified : 2022-03-27
 
 <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/simple_rb.jpg" width="200"> <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/nehe_lesson36_rb.jpg" width="200"> <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/brick_rb.jpg" width="200"> <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/glxs_rb.jpg" width="200">
 

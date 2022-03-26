@@ -3460,31 +3460,31 @@ module GLExt
 
 
   def self.define_ext_command_GL_EXT_texture_storage_compression
-    GL::GL_FUNCTION_SYMBOLS << :TexStorageAttribs2DEXT
-    GL::GL_FUNCTIONS_ARGS_MAP[:TexStorageAttribs2DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL::GL_FUNCTIONS_RETVAL_MAP[:TexStorageAttribs2DEXT] = Fiddle::TYPE_VOID
-    GL.bind_command(:TexStorageAttribs2DEXT)
+    GL::GL_FUNCTION_SYMBOLS << :glTexStorageAttribs2DEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glTexStorageAttribs2DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorageAttribs2DEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glTexStorageAttribs2DEXT)
     GL.module_eval(<<-SRC)
-      def self.xStorageAttribs2DEXT(_target_, _levels_, _internalformat_, _width_, _height_, _attrib_list_)
-        GL_FUNCTIONS_MAP[:TexStorageAttribs2DEXT].call(_target_, _levels_, _internalformat_, _width_, _height_, _attrib_list_)
+      def self.TexStorageAttribs2DEXT(_target_, _levels_, _internalformat_, _width_, _height_, _attrib_list_)
+        GL_FUNCTIONS_MAP[:glTexStorageAttribs2DEXT].call(_target_, _levels_, _internalformat_, _width_, _height_, _attrib_list_)
       end
     SRC
 
-    GL::GL_FUNCTION_SYMBOLS << :TexStorageAttribs3DEXT
-    GL::GL_FUNCTIONS_ARGS_MAP[:TexStorageAttribs3DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    GL::GL_FUNCTIONS_RETVAL_MAP[:TexStorageAttribs3DEXT] = Fiddle::TYPE_VOID
-    GL.bind_command(:TexStorageAttribs3DEXT)
+    GL::GL_FUNCTION_SYMBOLS << :glTexStorageAttribs3DEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glTexStorageAttribs3DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorageAttribs3DEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glTexStorageAttribs3DEXT)
     GL.module_eval(<<-SRC)
-      def self.xStorageAttribs3DEXT(_target_, _levels_, _internalformat_, _width_, _height_, _depth_, _attrib_list_)
-        GL_FUNCTIONS_MAP[:TexStorageAttribs3DEXT].call(_target_, _levels_, _internalformat_, _width_, _height_, _depth_, _attrib_list_)
+      def self.TexStorageAttribs3DEXT(_target_, _levels_, _internalformat_, _width_, _height_, _depth_, _attrib_list_)
+        GL_FUNCTIONS_MAP[:glTexStorageAttribs3DEXT].call(_target_, _levels_, _internalformat_, _width_, _height_, _depth_, _attrib_list_)
       end
     SRC
   end # self.define_ext_command_GL_EXT_texture_storage_compression
 
   def self.get_ext_command_GL_EXT_texture_storage_compression
     [
-      'TexStorageAttribs2DEXT',
-      'TexStorageAttribs3DEXT',
+      'glTexStorageAttribs2DEXT',
+      'glTexStorageAttribs3DEXT',
     ]
   end # self.get_ext_command_GL_EXT_texture_storage_compression
 
