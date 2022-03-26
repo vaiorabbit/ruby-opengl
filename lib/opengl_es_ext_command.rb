@@ -3247,20 +3247,20 @@ module OpenGLExt
 
 
   def self.define_ext_command_GL_EXT_texture_storage_compression
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:TexStorageAttribs2DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:TexStorageAttribs2DEXT] = Fiddle::TYPE_VOID
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexStorageAttribs2DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorageAttribs2DEXT] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def TexStorageAttribs2DEXT(_target_, _levels_, _internalformat_, _width_, _height_, _attrib_list_)
-        f = OpenGL::get_command(:TexStorageAttribs2DEXT)
+      def glTexStorageAttribs2DEXT(_target_, _levels_, _internalformat_, _width_, _height_, _attrib_list_)
+        f = OpenGL::get_command(:glTexStorageAttribs2DEXT)
         f.call(_target_, _levels_, _internalformat_, _width_, _height_, _attrib_list_)
       end
     SRC
 
-    OpenGL::GL_FUNCTIONS_ARGS_MAP[:TexStorageAttribs3DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
-    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:TexStorageAttribs3DEXT] = Fiddle::TYPE_VOID
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexStorageAttribs3DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorageAttribs3DEXT] = Fiddle::TYPE_VOID
     OpenGL.module_eval(<<-SRC)
-      def TexStorageAttribs3DEXT(_target_, _levels_, _internalformat_, _width_, _height_, _depth_, _attrib_list_)
-        f = OpenGL::get_command(:TexStorageAttribs3DEXT)
+      def glTexStorageAttribs3DEXT(_target_, _levels_, _internalformat_, _width_, _height_, _depth_, _attrib_list_)
+        f = OpenGL::get_command(:glTexStorageAttribs3DEXT)
         f.call(_target_, _levels_, _internalformat_, _width_, _height_, _depth_, _attrib_list_)
       end
     SRC
@@ -3268,8 +3268,8 @@ module OpenGLExt
 
   def self.get_ext_command_GL_EXT_texture_storage_compression
     [
-      'TexStorageAttribs2DEXT',
-      'TexStorageAttribs3DEXT',
+      'glTexStorageAttribs2DEXT',
+      'glTexStorageAttribs3DEXT',
     ]
   end # self.get_ext_command_GL_EXT_texture_storage_compression
 
