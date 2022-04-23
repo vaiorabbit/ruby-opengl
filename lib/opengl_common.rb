@@ -13,7 +13,7 @@ module GL
       when :OPENGL_PLATFORM_MACOSX
         lib_path = '/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib'
       else
-        lib_path = 'libGL.so' # not tested
+        lib_path = 'libGL.so'
       end
     end
     @@gl_dll = Fiddle.dlopen(lib_path)

@@ -469,7 +469,7 @@ module GLFW
                  when :OPENGL_PLATFORM_MACOSX
                    'libglfw.dylib'
                  else
-                   'libglfw.so' # not tested
+                   'libglfw.so.3'
                  end
     end
 
