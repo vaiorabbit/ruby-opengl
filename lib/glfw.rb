@@ -497,7 +497,7 @@ module GLFW
       when :OPENGL_PLATFORM_MACOSX
         lib, path = 'libglfw.dylib', Dir.pwd
       else
-        lib = 'libglfw.so'
+        lib = 'libglfw.so.3'
       end
     end
 
