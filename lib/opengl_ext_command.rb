@@ -17977,6 +17977,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_shader_integer_mix
 
 
+  def self.define_ext_command_GL_EXT_shader_samples_identical
+  end # self.define_ext_command_GL_EXT_shader_samples_identical
+
+  def self.get_ext_command_GL_EXT_shader_samples_identical
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_shader_samples_identical
+
+
   def self.define_ext_command_GL_EXT_shadow_funcs
   end # self.define_ext_command_GL_EXT_shadow_funcs
 

@@ -2231,6 +2231,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_sRGB_write_control
 
 
+  def self.define_ext_command_GL_EXT_separate_depth_stencil
+  end # self.define_ext_command_GL_EXT_separate_depth_stencil
+
+  def self.get_ext_command_GL_EXT_separate_depth_stencil
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_separate_depth_stencil
+
+
   def self.define_ext_command_GL_EXT_separate_shader_objects
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glUseShaderProgramEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glUseShaderProgramEXT] = Fiddle::TYPE_VOID
@@ -2826,6 +2835,15 @@ module OpenGLExt
       'glClearPixelLocalStorageuiEXT',
     ]
   end # self.get_ext_command_GL_EXT_shader_pixel_local_storage2
+
+
+  def self.define_ext_command_GL_EXT_shader_samples_identical
+  end # self.define_ext_command_GL_EXT_shader_samples_identical
+
+  def self.get_ext_command_GL_EXT_shader_samples_identical
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_shader_samples_identical
 
 
   def self.define_ext_command_GL_EXT_shader_texture_lod
