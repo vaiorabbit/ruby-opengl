@@ -1560,6 +1560,15 @@ module GLExt
   end # self.get_ext_enum_GL_EXT_sRGB_write_control
 
 
+  def self.define_ext_enum_GL_EXT_separate_depth_stencil
+  end # self.define_ext_enum_GL_EXT_separate_depth_stencil
+
+  def self.get_ext_enum_GL_EXT_separate_depth_stencil
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_separate_depth_stencil
+
+
   def self.define_ext_enum_GL_EXT_separate_shader_objects
     GL.const_set('ACTIVE_PROGRAM_EXT', 0x8B8D) unless defined?(GL::ACTIVE_PROGRAM_EXT)
     GL.const_set('VERTEX_SHADER_BIT_EXT', 0x00000001) unless defined?(GL::VERTEX_SHADER_BIT_EXT)
@@ -1676,6 +1685,15 @@ module GLExt
       'FRAMEBUFFER_INCOMPLETE_INSUFFICIENT_SHADER_COMBINED_LOCAL_STORAGE_EXT',
     ]
   end # self.get_ext_enum_GL_EXT_shader_pixel_local_storage2
+
+
+  def self.define_ext_enum_GL_EXT_shader_samples_identical
+  end # self.define_ext_enum_GL_EXT_shader_samples_identical
+
+  def self.get_ext_enum_GL_EXT_shader_samples_identical
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_shader_samples_identical
 
 
   def self.define_ext_enum_GL_EXT_shader_texture_lod
