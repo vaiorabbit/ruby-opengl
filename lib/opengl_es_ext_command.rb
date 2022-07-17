@@ -1331,6 +1331,54 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_float_blend
 
 
+  def self.define_ext_command_GL_EXT_fragment_shading_rate
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glGetFragmentShadingRatesEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glGetFragmentShadingRatesEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glGetFragmentShadingRatesEXT(_samples_, _maxCount_, _count_, _shadingRates_)
+        f = OpenGL::get_command(:glGetFragmentShadingRatesEXT)
+        f.call(_samples_, _maxCount_, _count_, _shadingRates_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateEXT] = [-Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glShadingRateEXT(_rate_)
+        f = OpenGL::get_command(:glShadingRateEXT)
+        f.call(_rate_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateCombinerOpsEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateCombinerOpsEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glShadingRateCombinerOpsEXT(_combinerOp0_, _combinerOp1_)
+        f = OpenGL::get_command(:glShadingRateCombinerOpsEXT)
+        f.call(_combinerOp0_, _combinerOp1_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferShadingRateEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferShadingRateEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glFramebufferShadingRateEXT(_target_, _attachment_, _texture_, _baseLayer_, _numLayers_, _texelWidth_, _texelHeight_)
+        f = OpenGL::get_command(:glFramebufferShadingRateEXT)
+        f.call(_target_, _attachment_, _texture_, _baseLayer_, _numLayers_, _texelWidth_, _texelHeight_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_fragment_shading_rate
+
+  def self.get_ext_command_GL_EXT_fragment_shading_rate
+    [
+      'glGetFragmentShadingRatesEXT',
+      'glShadingRateEXT',
+      'glShadingRateCombinerOpsEXT',
+      'glFramebufferShadingRateEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_fragment_shading_rate
+
+
   def self.define_ext_command_GL_EXT_geometry_point_size
   end # self.define_ext_command_GL_EXT_geometry_point_size
 
