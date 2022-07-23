@@ -10,9 +10,9 @@ if [%CMAKE%] == [] (
     set CMAKE="%PROGRAMFILES%\CMake\bin\cmake.exe"
 )
 
-curl -O -L https://github.com/glfw/glfw/releases/download/3.3.7/glfw-3.3.7.zip
-%WINDIR%\System32\tar.exe -xf glfw-3.3.7.zip
-cd glfw-3.3.7/
+curl -O -L https://github.com/glfw/glfw/releases/download/3.3.8/glfw-3.3.8.zip
+%WINDIR%\System32\tar.exe -xf glfw-3.3.8.zip
+cd glfw-3.3.8/
 mkdir build
 cd build
 %CMAKE% -G "MSYS Makefiles" -D CMAKE_BUILD_TYPE=Release -D GLFW_NATIVE_API=1 -D BUILD_SHARED_LIBS=ON -D CMAKE_C_COMPILER=gcc ../
