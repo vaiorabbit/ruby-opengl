@@ -321,7 +321,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 
 The zlib/libpng License ( http://opensource.org/licenses/Zlib ).
 
-    Copyright (c) 2013-2022 vaiorabbit <http://twitter.com/vaiorabbit>
+    Copyright (c) 2013-2023 vaiorabbit <http://twitter.com/vaiorabbit>
 
     This software is provided 'as-is', without any express or implied
     warranty. In no event will the authors be held liable for any damages
