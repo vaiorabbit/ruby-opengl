@@ -290,12 +290,6 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 
 </details>
 
-*   You can use any lib/path names by passing as arguments like:
-    *   OpenGL.load_lib( 'libGL.so', '/usr/lib' )
-    *   GLFW.load_lib( 'libglfw.so', '/usr/lib' )
-    *   GLU.load_lib( 'libGLU.so', '/usr/lib' )
-    *   GLUT.load_lib( 'libglut.so', '/usr/lib' )
-
 ## Note ##
 
 *   No Ruby-Style handy interfaces are available (like one in the ruby-opengl2 ( http://ruby-opengl.rubyforge.org/ ))
@@ -328,13 +322,22 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
     *   mittsu - A direct port of THREE.js from JavaScript/WebGL to Ruby/OpenGL
         *   https://rubygems.org/gems/mittsu
         *   https://github.com/jellymann/mittsu
+    *   open.gl.rb - A port of the https://open.gl/ tutorials to Ruby
+        *   https://github.com/mechazoidal/opendotgl_rb
     *   opencl-bindings - A Ruby binding for OpenCL 1.2
         *   https://rubygems.org/gems/opencl-bindings
         *   https://github.com/vaiorabbit/ruby-opencl
     *   perfume_dance - A BVH motion parser and playback implementation written in Ruby
         *   https://github.com/vaiorabbit/perfume_dance
-    *   open.gl.rb - A port of the https://open.gl/ tutorials to Ruby
-        *   https://github.com/mechazoidal/opendotgl_rb
+    *   imgui-bindings - ImGui wrapper for Ruby
+        *   https://rubygems.org/gems/imgui-bindings
+        *   https://github.com/vaiorabbit/ruby-imgui
+    *   nanovg-bindings - NanoVG wrapper for Ruby
+        *   https://rubygems.org/gems/nanovg-bindings
+        *   https://github.com/vaiorabbit/nanovg-bindings
+    *   raylib-bindings - Yet another raylib wrapper for Ruby
+        *   https://rubygems.org/gems/raylib-bindings
+        *   https://github.com/vaiorabbit/raylib-bindings
 
 *   Other informative projects
     *   argon | neon
@@ -674,13 +677,22 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
     *   mittsu - A direct port of THREE.js from JavaScript/WebGL to Ruby/OpenGL
         *   https://rubygems.org/gems/mittsu
         *   https://github.com/jellymann/mittsu
+    *   open.gl.rb - A port of the https://open.gl/ tutorials to Ruby
+        *   https://github.com/mechazoidal/opendotgl_rb
     *   opencl-bindings - A Ruby binding for OpenCL 1.2
         *   https://rubygems.org/gems/opencl-bindings
         *   https://github.com/vaiorabbit/ruby-opencl
     *   perfume_dance - A BVH motion parser and playback implementation written in Ruby
         *   https://github.com/vaiorabbit/perfume_dance
-    *   open.gl.rb - A port of the https://open.gl/ tutorials to Ruby
-        *   https://github.com/mechazoidal/opendotgl_rb
+    *   imgui-bindings - ImGui wrapper for Ruby
+        *   https://rubygems.org/gems/imgui-bindings
+        *   https://github.com/vaiorabbit/ruby-imgui
+    *   nanovg-bindings - NanoVG wrapper for Ruby
+        *   https://rubygems.org/gems/nanovg-bindings
+        *   https://github.com/vaiorabbit/nanovg-bindings
+    *   raylib-bindings - Yet another raylib wrapper for Ruby
+        *   https://rubygems.org/gems/raylib-bindings
+        *   https://github.com/vaiorabbit/raylib-bindings
 
 *   参考になりそうなプロジェクト
     *   argon | neon
