@@ -167,7 +167,48 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 ## Tested Environment ##
 
 *   Ruby
-    *   ruby 3.1.0p0 (2021-12-25 revision fb4df44d16) [arm64-darwin21]
+    *   ruby 3.2.0 (2022-12-25 revision a528908271) [arm64-darwin21]
+
+*   Windows 10 Home, 64-bit (Version 1909, OS Build 18363.778)
+    *   NVIDIA GeForce RTX 2060 SUPER
+        *   OpenGL 4.5
+
+                > ruby report_env.rb
+                Version    : 4.5.0 NVIDIA 436.30
+                Vendor     : NVIDIA Corporation
+                Renderer   : GeForce RTX 2060 SUPER/PCIe/SSE2
+                Shader     : 4.50 NVIDIA
+
+*   macOS 12.5.1, 64-bit
+    *   Mac mini (M1 2020)
+        *   OpenGL 4.1
+
+                $ ruby report_env.rb
+                Version    : 4.1 Metal - 76.3
+                Vendor     : Apple
+                Renderer   : Apple M1
+                Shader     : 4.10
+
+*   Arch Linux kernel 4.1.2-2-ARCH, Nvidia Driver, x86_64
+    *   NVIDIA GeForce GTS 450
+        *   OpenGL 4.5.0
+
+                $ ruby report_env.rb
+                Version: 4.5.0 NVIDIA 352.21
+
+*   Arch Linux kernel 4.1.4-1-ARCH, Nouveau Driver, x86_64
+    *   NVIDIA GeForce GTS 450
+        *   OpenGL 3.0
+
+                $ ruby report_env.rb
+                Version: 3.0 Mesa 10.6.3
+
+<details>
+<summary>Older versions</summary>
+
+*   Ruby
+    *   ruby 3.1.0p0 (2021-12-25 revision fb4df44d16) [arm64-darwin20]
+    *   ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [x64-mingw32]
     *   ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [arm64-darwin20]
     *   ruby 3.0.1p64 (2021-04-05 revision 0fb782ee38) [arm64-darwin20]
     *   ruby 3.0.0p0 (2020-12-25 revision 95aff21468) [x64-mingw32]
@@ -195,16 +236,6 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
     *   ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin12.0]
     *   ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin13.0.0]
     *   ruby 2.0.0p247 (2013-06-27) [i386-mingw32]
-
-*   Windows 10 Home, 64-bit (Version 1909, OS Build 18363.778)
-    *   NVIDIA GeForce RTX 2060 SUPER
-        *   OpenGL 4.5
-
-                > ruby report_env.rb
-                Version    : 4.5.0 NVIDIA 436.30
-                Vendor     : NVIDIA Corporation
-                Renderer   : GeForce RTX 2060 SUPER/PCIe/SSE2
-                Shader     : 4.50 NVIDIA
 
 *   Windows 10 Home, 64-bit (Version 1511, OS Build 10586.164)
     *   NVIDIA GeForce GTX 960
@@ -251,19 +282,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
                 Renderer   : Intel Iris OpenGL Engine
                 Shader     : 4.10
 
-*   Arch Linux kernel 4.1.2-2-ARCH, Nvidia Driver, x86_64
-    *   NVIDIA GeForce GTS 450
-        *   OpenGL 4.5.0
-
-                $ ruby report_env.rb
-                Version: 4.5.0 NVIDIA 352.21
-
-*   Arch Linux kernel 4.1.4-1-ARCH, Nouveau Driver, x86_64
-    *   NVIDIA GeForce GTS 450
-        *   OpenGL 3.0
-
-                $ ruby report_env.rb
-                Version: 3.0 Mesa 10.6.3
+</details>
 
 *   You can use any lib/path names by passing as arguments like:
     *   OpenGL.load_lib( 'libGL.so', '/usr/lib' )
