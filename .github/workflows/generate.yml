@@ -21,7 +21,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
       with:
-        ref: "#{{ github.event.inputs.branch }}"
+        ref: "${{ github.event.inputs.branch }}"
         fetch-depth: 1
         submodules: recursive
 
@@ -38,4 +38,4 @@ jobs:
         git config user.name "bot"
         git config user.email "bot"
         git commit -a -m "commit by bot"
-        git push --force-with-lease -u origin "#{{ github.event.inputs.branch }}"
+        git push --force-with-lease -u origin "${{ github.event.inputs.branch }}"
