@@ -18,6 +18,11 @@ jobs:
       max-parallel: 1
 
     steps:
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: "3.1"
+
     - name: Checkout
       uses: actions/checkout@v3
       with:
@@ -35,7 +40,7 @@ jobs:
     - name: Commit new libraries
       continue-on-error: true
       run: |
-        git config user.name "bot"
-        git config user.email "bot"
-        git commit -a -m "commit by bot"
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}"
+        git commit -a -m "commit by ${GITHUB_ACTOR} via GitHub Actions
         git push --force-with-lease -u origin "${{ github.event.inputs.branch }}"
