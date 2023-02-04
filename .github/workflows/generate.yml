@@ -36,12 +36,9 @@ jobs:
         which ruby
         which gem
         which rake
-        gem install -N rake
         cd ${GITHUB_WORKSPACE}/generator
-        pwd
-        ls -al
-        ruby rake clean
-        ruby rake
+        rake clean
+        rake
         cd ${GITHUB_WORKSPACE}
 
     - name: Commit new libraries
