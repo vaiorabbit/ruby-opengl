@@ -22,7 +22,6 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: "3.2"
-        bundler-cache: true
 
     - name: Checkout
       uses: actions/checkout@v3
@@ -37,6 +36,8 @@ jobs:
         which gem
         which rake
         cd ${GITHUB_WORKSPACE}/generator
+        curl -O https://raw.githubusercontent.com/KhronosGroup/OpenGL-Registry/master/xml/gl.xml
+        ls -al
         rake clean
         rake
         cd ${GITHUB_WORKSPACE}
@@ -46,5 +47,5 @@ jobs:
       run: |
         git config user.name "${GITHUB_ACTOR}"
         git config user.email "${GITHUB_ACTOR}"
-        git commit -a -m "commit by ${GITHUB_ACTOR} via GitHub Actions
+        git commit -a -m "commit by ${GITHUB_ACTOR} via GitHub Actions"
         git push --force-with-lease -u origin "${{ github.event.inputs.branch }}"
