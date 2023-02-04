@@ -1,0 +1,51 @@
+name: Update schema and regenerate codes
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'branch name'
+        default: 'version/2.0'
+        required: true
+
+jobs:
+  build:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+
+    steps:
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: "3.2"
+
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        ref: "${{ github.event.inputs.branch }}"
+        fetch-depth: 1
+        submodules: recursive
+
+    - name: Run rebuild script
+      run: |
+        which ruby
+        which gem
+        which rake
+        cd ${GITHUB_WORKSPACE}/generator
+        curl -O https://raw.githubusercontent.com/KhronosGroup/OpenGL-Registry/master/xml/gl.xml
+        ls -al
+        rake clean
+        rake
+        cd ${GITHUB_WORKSPACE}
+
+    - name: Commit new libraries
+      continue-on-error: true
+      run: |
+        git config user.name "${GITHUB_ACTOR}"
+        git config user.email "${GITHUB_ACTOR}"
+        git commit -a -m "commit by ${GITHUB_ACTOR} via GitHub Actions"
+        git push --force-with-lease -u origin "${{ github.event.inputs.branch }}"
