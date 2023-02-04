@@ -32,7 +32,10 @@ jobs:
 
     - name: Run rebuild script
       run: |
+        gem install -N rake
         cd ${GITHUB_WORKSPACE}/generator
+        pwd
+        ls -al
         ruby rake clean
         ruby rake
         cd ${GITHUB_WORKSPACE}
