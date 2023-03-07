@@ -15672,6 +15672,34 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_framebuffer_blit
 
 
+  def self.define_ext_command_GL_EXT_framebuffer_blit_layers
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glBlitFramebufferLayersEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glBlitFramebufferLayersEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glBlitFramebufferLayersEXT(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
+        f = OpenGL::get_command(:glBlitFramebufferLayersEXT)
+        f.call(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
+      end
+    SRC
+
+    OpenGL::GL_FUNCTIONS_ARGS_MAP[:glBlitFramebufferLayerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glBlitFramebufferLayerEXT] = Fiddle::TYPE_VOID
+    OpenGL.module_eval(<<-SRC)
+      def glBlitFramebufferLayerEXT(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _srcLayer_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _dstLayer_, _mask_, _filter_)
+        f = OpenGL::get_command(:glBlitFramebufferLayerEXT)
+        f.call(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _srcLayer_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _dstLayer_, _mask_, _filter_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_framebuffer_blit_layers
+
+  def self.get_ext_command_GL_EXT_framebuffer_blit_layers
+    [
+      'glBlitFramebufferLayersEXT',
+      'glBlitFramebufferLayerEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_framebuffer_blit_layers
+
+
   def self.define_ext_command_GL_EXT_framebuffer_multisample
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glRenderbufferStorageMultisampleEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glRenderbufferStorageMultisampleEXT] = Fiddle::TYPE_VOID

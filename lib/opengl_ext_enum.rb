@@ -6288,6 +6288,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_framebuffer_blit
 
 
+  def self.define_ext_enum_GL_EXT_framebuffer_blit_layers
+  end # self.define_ext_enum_GL_EXT_framebuffer_blit_layers
+
+  def self.get_ext_enum_GL_EXT_framebuffer_blit_layers
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_framebuffer_blit_layers
+
+
   def self.define_ext_enum_GL_EXT_framebuffer_multisample
     OpenGL.const_set('GL_RENDERBUFFER_SAMPLES_EXT', 0x8CAB) unless defined?(OpenGL::GL_RENDERBUFFER_SAMPLES_EXT)
     OpenGL.const_set('GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT', 0x8D56) unless defined?(OpenGL::GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE_EXT)
