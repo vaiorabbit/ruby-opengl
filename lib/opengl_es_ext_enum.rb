@@ -1057,6 +1057,15 @@ module GLExt
   end # self.get_ext_enum_GL_EXT_fragment_shading_rate
 
 
+  def self.define_ext_enum_GL_EXT_framebuffer_blit_layers
+  end # self.define_ext_enum_GL_EXT_framebuffer_blit_layers
+
+  def self.get_ext_enum_GL_EXT_framebuffer_blit_layers
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_framebuffer_blit_layers
+
+
   def self.define_ext_enum_GL_EXT_geometry_point_size
   end # self.define_ext_enum_GL_EXT_geometry_point_size
 
@@ -4819,6 +4828,21 @@ module GLExt
       'VIEWPORT_SWIZZLE_W_NV',
     ]
   end # self.get_ext_enum_GL_NV_viewport_swizzle
+
+
+  def self.define_ext_enum_GL_NV_pack_subimage
+    GL.const_set('PACK_ROW_LENGTH_NV', 0x0D02) unless defined?(GL::PACK_ROW_LENGTH_NV)
+    GL.const_set('PACK_SKIP_ROWS_NV', 0x0D03) unless defined?(GL::PACK_SKIP_ROWS_NV)
+    GL.const_set('PACK_SKIP_PIXELS_NV', 0x0D04) unless defined?(GL::PACK_SKIP_PIXELS_NV)
+  end # self.define_ext_enum_GL_NV_pack_subimage
+
+  def self.get_ext_enum_GL_NV_pack_subimage
+    [
+      'PACK_ROW_LENGTH_NV',
+      'PACK_SKIP_ROWS_NV',
+      'PACK_SKIP_PIXELS_NV',
+    ]
+  end # self.get_ext_enum_GL_NV_pack_subimage
 
 
   def self.define_ext_enum_GL_OES_EGL_image

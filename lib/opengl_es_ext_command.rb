@@ -1464,6 +1464,36 @@ module GLExt
   end # self.get_ext_command_GL_EXT_fragment_shading_rate
 
 
+  def self.define_ext_command_GL_EXT_framebuffer_blit_layers
+    GL::GL_FUNCTION_SYMBOLS << :glBlitFramebufferLayersEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glBlitFramebufferLayersEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glBlitFramebufferLayersEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glBlitFramebufferLayersEXT)
+    GL.module_eval(<<-SRC)
+      def self.BlitFramebufferLayersEXT(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
+        GL_FUNCTIONS_MAP[:glBlitFramebufferLayersEXT].call(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _mask_, _filter_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glBlitFramebufferLayerEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glBlitFramebufferLayerEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glBlitFramebufferLayerEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glBlitFramebufferLayerEXT)
+    GL.module_eval(<<-SRC)
+      def self.BlitFramebufferLayerEXT(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _srcLayer_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _dstLayer_, _mask_, _filter_)
+        GL_FUNCTIONS_MAP[:glBlitFramebufferLayerEXT].call(_srcX0_, _srcY0_, _srcX1_, _srcY1_, _srcLayer_, _dstX0_, _dstY0_, _dstX1_, _dstY1_, _dstLayer_, _mask_, _filter_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_framebuffer_blit_layers
+
+  def self.get_ext_command_GL_EXT_framebuffer_blit_layers
+    [
+      'glBlitFramebufferLayersEXT',
+      'glBlitFramebufferLayerEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_framebuffer_blit_layers
+
+
   def self.define_ext_command_GL_EXT_geometry_point_size
   end # self.define_ext_command_GL_EXT_geometry_point_size
 
@@ -7462,6 +7492,15 @@ module GLExt
       'glViewportSwizzleNV',
     ]
   end # self.get_ext_command_GL_NV_viewport_swizzle
+
+
+  def self.define_ext_command_GL_NV_pack_subimage
+  end # self.define_ext_command_GL_NV_pack_subimage
+
+  def self.get_ext_command_GL_NV_pack_subimage
+    [
+    ]
+  end # self.get_ext_command_GL_NV_pack_subimage
 
 
   def self.define_ext_command_GL_OES_EGL_image
