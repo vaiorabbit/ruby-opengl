@@ -24868,66 +24868,6 @@ module GLExt
       end
     SRC
 
-    GL::GL_FUNCTION_SYMBOLS << :glFogCoordhNV
-    GL::GL_FUNCTIONS_ARGS_MAP[:glFogCoordhNV] = [-Fiddle::TYPE_SHORT]
-    GL::GL_FUNCTIONS_RETVAL_MAP[:glFogCoordhNV] = Fiddle::TYPE_VOID
-    GL.bind_command(:glFogCoordhNV)
-    GL.module_eval(<<-SRC)
-      def self.FogCoordhNV(_fog_)
-        GL_FUNCTIONS_MAP[:glFogCoordhNV].call(_fog_)
-      end
-    SRC
-
-    GL::GL_FUNCTION_SYMBOLS << :glFogCoordhvNV
-    GL::GL_FUNCTIONS_ARGS_MAP[:glFogCoordhvNV] = [Fiddle::TYPE_VOIDP]
-    GL::GL_FUNCTIONS_RETVAL_MAP[:glFogCoordhvNV] = Fiddle::TYPE_VOID
-    GL.bind_command(:glFogCoordhvNV)
-    GL.module_eval(<<-SRC)
-      def self.FogCoordhvNV(_fog_)
-        GL_FUNCTIONS_MAP[:glFogCoordhvNV].call(_fog_)
-      end
-    SRC
-
-    GL::GL_FUNCTION_SYMBOLS << :glSecondaryColor3hNV
-    GL::GL_FUNCTIONS_ARGS_MAP[:glSecondaryColor3hNV] = [-Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
-    GL::GL_FUNCTIONS_RETVAL_MAP[:glSecondaryColor3hNV] = Fiddle::TYPE_VOID
-    GL.bind_command(:glSecondaryColor3hNV)
-    GL.module_eval(<<-SRC)
-      def self.SecondaryColor3hNV(_red_, _green_, _blue_)
-        GL_FUNCTIONS_MAP[:glSecondaryColor3hNV].call(_red_, _green_, _blue_)
-      end
-    SRC
-
-    GL::GL_FUNCTION_SYMBOLS << :glSecondaryColor3hvNV
-    GL::GL_FUNCTIONS_ARGS_MAP[:glSecondaryColor3hvNV] = [Fiddle::TYPE_VOIDP]
-    GL::GL_FUNCTIONS_RETVAL_MAP[:glSecondaryColor3hvNV] = Fiddle::TYPE_VOID
-    GL.bind_command(:glSecondaryColor3hvNV)
-    GL.module_eval(<<-SRC)
-      def self.SecondaryColor3hvNV(_v_)
-        GL_FUNCTIONS_MAP[:glSecondaryColor3hvNV].call(_v_)
-      end
-    SRC
-
-    GL::GL_FUNCTION_SYMBOLS << :glVertexWeighthNV
-    GL::GL_FUNCTIONS_ARGS_MAP[:glVertexWeighthNV] = [-Fiddle::TYPE_SHORT]
-    GL::GL_FUNCTIONS_RETVAL_MAP[:glVertexWeighthNV] = Fiddle::TYPE_VOID
-    GL.bind_command(:glVertexWeighthNV)
-    GL.module_eval(<<-SRC)
-      def self.VertexWeighthNV(_weight_)
-        GL_FUNCTIONS_MAP[:glVertexWeighthNV].call(_weight_)
-      end
-    SRC
-
-    GL::GL_FUNCTION_SYMBOLS << :glVertexWeighthvNV
-    GL::GL_FUNCTIONS_ARGS_MAP[:glVertexWeighthvNV] = [Fiddle::TYPE_VOIDP]
-    GL::GL_FUNCTIONS_RETVAL_MAP[:glVertexWeighthvNV] = Fiddle::TYPE_VOID
-    GL.bind_command(:glVertexWeighthvNV)
-    GL.module_eval(<<-SRC)
-      def self.VertexWeighthvNV(_weight_)
-        GL_FUNCTIONS_MAP[:glVertexWeighthvNV].call(_weight_)
-      end
-    SRC
-
     GL::GL_FUNCTION_SYMBOLS << :glVertexAttrib1hNV
     GL::GL_FUNCTIONS_ARGS_MAP[:glVertexAttrib1hNV] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_SHORT]
     GL::GL_FUNCTIONS_RETVAL_MAP[:glVertexAttrib1hNV] = Fiddle::TYPE_VOID
@@ -25047,6 +24987,66 @@ module GLExt
         GL_FUNCTIONS_MAP[:glVertexAttribs4hvNV].call(_index_, _n_, _v_)
       end
     SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glFogCoordhNV
+    GL::GL_FUNCTIONS_ARGS_MAP[:glFogCoordhNV] = [-Fiddle::TYPE_SHORT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glFogCoordhNV] = Fiddle::TYPE_VOID
+    GL.bind_command(:glFogCoordhNV)
+    GL.module_eval(<<-SRC)
+      def self.FogCoordhNV(_fog_)
+        GL_FUNCTIONS_MAP[:glFogCoordhNV].call(_fog_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glFogCoordhvNV
+    GL::GL_FUNCTIONS_ARGS_MAP[:glFogCoordhvNV] = [Fiddle::TYPE_VOIDP]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glFogCoordhvNV] = Fiddle::TYPE_VOID
+    GL.bind_command(:glFogCoordhvNV)
+    GL.module_eval(<<-SRC)
+      def self.FogCoordhvNV(_fog_)
+        GL_FUNCTIONS_MAP[:glFogCoordhvNV].call(_fog_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glSecondaryColor3hNV
+    GL::GL_FUNCTIONS_ARGS_MAP[:glSecondaryColor3hNV] = [-Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT, -Fiddle::TYPE_SHORT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glSecondaryColor3hNV] = Fiddle::TYPE_VOID
+    GL.bind_command(:glSecondaryColor3hNV)
+    GL.module_eval(<<-SRC)
+      def self.SecondaryColor3hNV(_red_, _green_, _blue_)
+        GL_FUNCTIONS_MAP[:glSecondaryColor3hNV].call(_red_, _green_, _blue_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glSecondaryColor3hvNV
+    GL::GL_FUNCTIONS_ARGS_MAP[:glSecondaryColor3hvNV] = [Fiddle::TYPE_VOIDP]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glSecondaryColor3hvNV] = Fiddle::TYPE_VOID
+    GL.bind_command(:glSecondaryColor3hvNV)
+    GL.module_eval(<<-SRC)
+      def self.SecondaryColor3hvNV(_v_)
+        GL_FUNCTIONS_MAP[:glSecondaryColor3hvNV].call(_v_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glVertexWeighthNV
+    GL::GL_FUNCTIONS_ARGS_MAP[:glVertexWeighthNV] = [-Fiddle::TYPE_SHORT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glVertexWeighthNV] = Fiddle::TYPE_VOID
+    GL.bind_command(:glVertexWeighthNV)
+    GL.module_eval(<<-SRC)
+      def self.VertexWeighthNV(_weight_)
+        GL_FUNCTIONS_MAP[:glVertexWeighthNV].call(_weight_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glVertexWeighthvNV
+    GL::GL_FUNCTIONS_ARGS_MAP[:glVertexWeighthvNV] = [Fiddle::TYPE_VOIDP]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glVertexWeighthvNV] = Fiddle::TYPE_VOID
+    GL.bind_command(:glVertexWeighthvNV)
+    GL.module_eval(<<-SRC)
+      def self.VertexWeighthvNV(_weight_)
+        GL_FUNCTIONS_MAP[:glVertexWeighthvNV].call(_weight_)
+      end
+    SRC
   end # self.define_ext_command_GL_NV_half_float
 
   def self.get_ext_command_GL_NV_half_float
@@ -25079,12 +25079,6 @@ module GLExt
       'glMultiTexCoord3hvNV',
       'glMultiTexCoord4hNV',
       'glMultiTexCoord4hvNV',
-      'glFogCoordhNV',
-      'glFogCoordhvNV',
-      'glSecondaryColor3hNV',
-      'glSecondaryColor3hvNV',
-      'glVertexWeighthNV',
-      'glVertexWeighthvNV',
       'glVertexAttrib1hNV',
       'glVertexAttrib1hvNV',
       'glVertexAttrib2hNV',
@@ -25097,6 +25091,12 @@ module GLExt
       'glVertexAttribs2hvNV',
       'glVertexAttribs3hvNV',
       'glVertexAttribs4hvNV',
+      'glFogCoordhNV',
+      'glFogCoordhvNV',
+      'glSecondaryColor3hNV',
+      'glSecondaryColor3hvNV',
+      'glVertexWeighthNV',
+      'glVertexWeighthvNV',
     ]
   end # self.get_ext_command_GL_NV_half_float
 
