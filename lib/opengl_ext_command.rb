@@ -25811,6 +25811,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_NV_transform_feedback2
 
 
+  def self.define_ext_command_GL_NV_uniform_buffer_std430_layout
+  end # self.define_ext_command_GL_NV_uniform_buffer_std430_layout
+
+  def self.get_ext_command_GL_NV_uniform_buffer_std430_layout
+    [
+    ]
+  end # self.get_ext_command_GL_NV_uniform_buffer_std430_layout
+
+
   def self.define_ext_command_GL_NV_uniform_buffer_unified_memory
   end # self.define_ext_command_GL_NV_uniform_buffer_unified_memory
 

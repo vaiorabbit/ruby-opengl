@@ -12259,6 +12259,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_NV_transform_feedback2
 
 
+  def self.define_ext_enum_GL_NV_uniform_buffer_std430_layout
+  end # self.define_ext_enum_GL_NV_uniform_buffer_std430_layout
+
+  def self.get_ext_enum_GL_NV_uniform_buffer_std430_layout
+    [
+    ]
+  end # self.get_ext_enum_GL_NV_uniform_buffer_std430_layout
+
+
   def self.define_ext_enum_GL_NV_uniform_buffer_unified_memory
     OpenGL.const_set('GL_UNIFORM_BUFFER_UNIFIED_NV', 0x936E) unless defined?(OpenGL::GL_UNIFORM_BUFFER_UNIFIED_NV)
     OpenGL.const_set('GL_UNIFORM_BUFFER_ADDRESS_NV', 0x936F) unless defined?(OpenGL::GL_UNIFORM_BUFFER_ADDRESS_NV)
