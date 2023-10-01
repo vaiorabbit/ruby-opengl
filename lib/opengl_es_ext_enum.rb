@@ -2270,6 +2270,15 @@ module GLExt
   end # self.get_ext_enum_GL_EXT_texture_sRGB_decode
 
 
+  def self.define_ext_enum_GL_EXT_texture_shadow_lod
+  end # self.define_ext_enum_GL_EXT_texture_shadow_lod
+
+  def self.get_ext_enum_GL_EXT_texture_shadow_lod
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_shadow_lod
+
+
   def self.define_ext_enum_GL_EXT_texture_storage
     GL.const_set('TEXTURE_IMMUTABLE_FORMAT_EXT', 0x912F) unless defined?(GL::TEXTURE_IMMUTABLE_FORMAT_EXT)
     GL.const_set('ALPHA8_EXT', 0x803C) unless defined?(GL::ALPHA8_EXT)
@@ -6017,6 +6026,15 @@ module GLExt
   end # self.get_ext_enum_GL_QCOM_render_shared_exponent
 
 
+  def self.define_ext_enum_GL_QCOM_render_sRGB_R8_RG8
+  end # self.define_ext_enum_GL_QCOM_render_sRGB_R8_RG8
+
+  def self.get_ext_enum_GL_QCOM_render_sRGB_R8_RG8
+    [
+    ]
+  end # self.get_ext_enum_GL_QCOM_render_sRGB_R8_RG8
+
+
   def self.define_ext_enum_GL_QCOM_texture_foveated
     GL.const_set('FOVEATION_ENABLE_BIT_QCOM', 0x00000001) unless defined?(GL::FOVEATION_ENABLE_BIT_QCOM)
     GL.const_set('FOVEATION_SCALED_BIN_METHOD_BIT_QCOM', 0x00000002) unless defined?(GL::FOVEATION_SCALED_BIN_METHOD_BIT_QCOM)
@@ -6062,6 +6080,17 @@ module GLExt
       'MAX_SHADER_SUBSAMPLED_IMAGE_UNITS_QCOM',
     ]
   end # self.get_ext_enum_GL_QCOM_texture_foveated_subsampled_layout
+
+
+  def self.define_ext_enum_GL_QCOM_texture_lod_bias
+    GL.const_set('TEXTURE_LOD_BIAS_QCOM', 0x8C96) unless defined?(GL::TEXTURE_LOD_BIAS_QCOM)
+  end # self.define_ext_enum_GL_QCOM_texture_lod_bias
+
+  def self.get_ext_enum_GL_QCOM_texture_lod_bias
+    [
+      'TEXTURE_LOD_BIAS_QCOM',
+    ]
+  end # self.get_ext_enum_GL_QCOM_texture_lod_bias
 
 
   def self.define_ext_enum_GL_QCOM_perfmon_global_mode
@@ -6222,15 +6251,6 @@ module GLExt
       'SHADER_BINARY_VIV',
     ]
   end # self.get_ext_enum_GL_VIV_shader_binary
-
-
-  def self.define_ext_enum_GL_EXT_texture_shadow_lod
-  end # self.define_ext_enum_GL_EXT_texture_shadow_lod
-
-  def self.get_ext_enum_GL_EXT_texture_shadow_lod
-    [
-    ]
-  end # self.get_ext_enum_GL_EXT_texture_shadow_lod
 
 
 
