@@ -8054,6 +8054,15 @@ module OpenGLExt
   end # self.get_ext_enum_GL_EXT_texture_sRGB_decode
 
 
+  def self.define_ext_enum_GL_EXT_texture_shadow_lod
+  end # self.define_ext_enum_GL_EXT_texture_shadow_lod
+
+  def self.get_ext_enum_GL_EXT_texture_shadow_lod
+    [
+    ]
+  end # self.get_ext_enum_GL_EXT_texture_shadow_lod
+
+
   def self.define_ext_enum_GL_EXT_texture_shared_exponent
     OpenGL.const_set('GL_RGB9_E5_EXT', 0x8C3D) unless defined?(OpenGL::GL_RGB9_E5_EXT)
     OpenGL.const_set('GL_UNSIGNED_INT_5_9_9_9_REV_EXT', 0x8C3E) unless defined?(OpenGL::GL_UNSIGNED_INT_5_9_9_9_REV_EXT)
@@ -14150,15 +14159,6 @@ module OpenGLExt
       'GL_FOG_SPECULAR_TEXTURE_WIN',
     ]
   end # self.get_ext_enum_GL_WIN_specular_fog
-
-
-  def self.define_ext_enum_GL_EXT_texture_shadow_lod
-  end # self.define_ext_enum_GL_EXT_texture_shadow_lod
-
-  def self.get_ext_enum_GL_EXT_texture_shadow_lod
-    [
-    ]
-  end # self.get_ext_enum_GL_EXT_texture_shadow_lod
 
 
 end

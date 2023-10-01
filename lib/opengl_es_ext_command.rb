@@ -3272,6 +3272,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_texture_sRGB_decode
 
 
+  def self.define_ext_command_GL_EXT_texture_shadow_lod
+  end # self.define_ext_command_GL_EXT_texture_shadow_lod
+
+  def self.get_ext_command_GL_EXT_texture_shadow_lod
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_texture_shadow_lod
+
+
   def self.define_ext_command_GL_EXT_texture_storage
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTexStorage1DEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTexStorage1DEXT] = Fiddle::TYPE_VOID
@@ -8378,6 +8387,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_QCOM_render_shared_exponent
 
 
+  def self.define_ext_command_GL_QCOM_render_sRGB_R8_RG8
+  end # self.define_ext_command_GL_QCOM_render_sRGB_R8_RG8
+
+  def self.get_ext_command_GL_QCOM_render_sRGB_R8_RG8
+    [
+    ]
+  end # self.get_ext_command_GL_QCOM_render_sRGB_R8_RG8
+
+
   def self.define_ext_command_GL_QCOM_texture_foveated
     OpenGL::GL_FUNCTIONS_ARGS_MAP[:glTextureFoveationParametersQCOM] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT, Fiddle::TYPE_FLOAT]
     OpenGL::GL_FUNCTIONS_RETVAL_MAP[:glTextureFoveationParametersQCOM] = Fiddle::TYPE_VOID
@@ -8412,6 +8430,15 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_QCOM_texture_foveated_subsampled_layout
+
+
+  def self.define_ext_command_GL_QCOM_texture_lod_bias
+  end # self.define_ext_command_GL_QCOM_texture_lod_bias
+
+  def self.get_ext_command_GL_QCOM_texture_lod_bias
+    [
+    ]
+  end # self.get_ext_command_GL_QCOM_texture_lod_bias
 
 
   def self.define_ext_command_GL_QCOM_perfmon_global_mode
@@ -8521,15 +8548,6 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_VIV_shader_binary
-
-
-  def self.define_ext_command_GL_EXT_texture_shadow_lod
-  end # self.define_ext_command_GL_EXT_texture_shadow_lod
-
-  def self.get_ext_command_GL_EXT_texture_shadow_lod
-    [
-    ]
-  end # self.get_ext_command_GL_EXT_texture_shadow_lod
 
 
 end

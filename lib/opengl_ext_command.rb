@@ -18476,6 +18476,15 @@ module OpenGLExt
   end # self.get_ext_command_GL_EXT_texture_sRGB_decode
 
 
+  def self.define_ext_command_GL_EXT_texture_shadow_lod
+  end # self.define_ext_command_GL_EXT_texture_shadow_lod
+
+  def self.get_ext_command_GL_EXT_texture_shadow_lod
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_texture_shadow_lod
+
+
   def self.define_ext_command_GL_EXT_texture_shared_exponent
   end # self.define_ext_command_GL_EXT_texture_shared_exponent
 
@@ -30810,15 +30819,6 @@ module OpenGLExt
     [
     ]
   end # self.get_ext_command_GL_WIN_specular_fog
-
-
-  def self.define_ext_command_GL_EXT_texture_shadow_lod
-  end # self.define_ext_command_GL_EXT_texture_shadow_lod
-
-  def self.get_ext_command_GL_EXT_texture_shadow_lod
-    [
-    ]
-  end # self.get_ext_command_GL_EXT_texture_shadow_lod
 
 
 end
