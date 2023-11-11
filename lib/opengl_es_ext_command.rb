@@ -4621,6 +4621,124 @@ module GLExt
   end # self.get_ext_command_GL_MESA_program_binary_formats
 
 
+  def self.define_ext_command_GL_MESA_sampler_objects
+    GL::GL_FUNCTION_SYMBOLS << :glGenSamplers
+    GL::GL_FUNCTIONS_ARGS_MAP[:glGenSamplers] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glGenSamplers] = Fiddle::TYPE_VOID
+    GL.bind_command(:glGenSamplers)
+    GL.module_eval(<<-SRC)
+      def self.GenSamplers(_count_, _samplers_)
+        GL_FUNCTIONS_MAP[:glGenSamplers].call(_count_, _samplers_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glDeleteSamplers
+    GL::GL_FUNCTIONS_ARGS_MAP[:glDeleteSamplers] = [Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glDeleteSamplers] = Fiddle::TYPE_VOID
+    GL.bind_command(:glDeleteSamplers)
+    GL.module_eval(<<-SRC)
+      def self.DeleteSamplers(_count_, _samplers_)
+        GL_FUNCTIONS_MAP[:glDeleteSamplers].call(_count_, _samplers_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glIsSampler
+    GL::GL_FUNCTIONS_ARGS_MAP[:glIsSampler] = [-Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glIsSampler] = -Fiddle::TYPE_CHAR
+    GL.bind_command(:glIsSampler)
+    GL.module_eval(<<-SRC)
+      def self.IsSampler(_sampler_)
+        GL_FUNCTIONS_MAP[:glIsSampler].call(_sampler_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glBindSampler
+    GL::GL_FUNCTIONS_ARGS_MAP[:glBindSampler] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glBindSampler] = Fiddle::TYPE_VOID
+    GL.bind_command(:glBindSampler)
+    GL.module_eval(<<-SRC)
+      def self.BindSampler(_unit_, _sampler_)
+        GL_FUNCTIONS_MAP[:glBindSampler].call(_unit_, _sampler_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glSamplerParameteri
+    GL::GL_FUNCTIONS_ARGS_MAP[:glSamplerParameteri] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glSamplerParameteri] = Fiddle::TYPE_VOID
+    GL.bind_command(:glSamplerParameteri)
+    GL.module_eval(<<-SRC)
+      def self.SamplerParameteri(_sampler_, _pname_, _param_)
+        GL_FUNCTIONS_MAP[:glSamplerParameteri].call(_sampler_, _pname_, _param_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glSamplerParameteriv
+    GL::GL_FUNCTIONS_ARGS_MAP[:glSamplerParameteriv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glSamplerParameteriv] = Fiddle::TYPE_VOID
+    GL.bind_command(:glSamplerParameteriv)
+    GL.module_eval(<<-SRC)
+      def self.SamplerParameteriv(_sampler_, _pname_, _param_)
+        GL_FUNCTIONS_MAP[:glSamplerParameteriv].call(_sampler_, _pname_, _param_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glSamplerParameterf
+    GL::GL_FUNCTIONS_ARGS_MAP[:glSamplerParameterf] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_FLOAT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glSamplerParameterf] = Fiddle::TYPE_VOID
+    GL.bind_command(:glSamplerParameterf)
+    GL.module_eval(<<-SRC)
+      def self.SamplerParameterf(_sampler_, _pname_, _param_)
+        GL_FUNCTIONS_MAP[:glSamplerParameterf].call(_sampler_, _pname_, _param_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glSamplerParameterfv
+    GL::GL_FUNCTIONS_ARGS_MAP[:glSamplerParameterfv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glSamplerParameterfv] = Fiddle::TYPE_VOID
+    GL.bind_command(:glSamplerParameterfv)
+    GL.module_eval(<<-SRC)
+      def self.SamplerParameterfv(_sampler_, _pname_, _param_)
+        GL_FUNCTIONS_MAP[:glSamplerParameterfv].call(_sampler_, _pname_, _param_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glGetSamplerParameteriv
+    GL::GL_FUNCTIONS_ARGS_MAP[:glGetSamplerParameteriv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glGetSamplerParameteriv] = Fiddle::TYPE_VOID
+    GL.bind_command(:glGetSamplerParameteriv)
+    GL.module_eval(<<-SRC)
+      def self.GetSamplerParameteriv(_sampler_, _pname_, _params_)
+        GL_FUNCTIONS_MAP[:glGetSamplerParameteriv].call(_sampler_, _pname_, _params_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glGetSamplerParameterfv
+    GL::GL_FUNCTIONS_ARGS_MAP[:glGetSamplerParameterfv] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glGetSamplerParameterfv] = Fiddle::TYPE_VOID
+    GL.bind_command(:glGetSamplerParameterfv)
+    GL.module_eval(<<-SRC)
+      def self.GetSamplerParameterfv(_sampler_, _pname_, _params_)
+        GL_FUNCTIONS_MAP[:glGetSamplerParameterfv].call(_sampler_, _pname_, _params_)
+      end
+    SRC
+  end # self.define_ext_command_GL_MESA_sampler_objects
+
+  def self.get_ext_command_GL_MESA_sampler_objects
+    [
+      'glGenSamplers',
+      'glDeleteSamplers',
+      'glIsSampler',
+      'glBindSampler',
+      'glSamplerParameteri',
+      'glSamplerParameteriv',
+      'glSamplerParameterf',
+      'glSamplerParameterfv',
+      'glGetSamplerParameteriv',
+      'glGetSamplerParameterfv',
+    ]
+  end # self.get_ext_command_GL_MESA_sampler_objects
+
+
   def self.define_ext_command_GL_MESA_shader_integer_functions
   end # self.define_ext_command_GL_MESA_shader_integer_functions
 
