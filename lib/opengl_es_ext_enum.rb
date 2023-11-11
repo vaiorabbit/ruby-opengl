@@ -3228,6 +3228,17 @@ module OpenGLExt
   end # self.get_ext_enum_GL_MESA_program_binary_formats
 
 
+  def self.define_ext_enum_GL_MESA_sampler_objects
+    OpenGL.const_set('GL_SAMPLER_BINDING', 0x8919) unless defined?(OpenGL::GL_SAMPLER_BINDING)
+  end # self.define_ext_enum_GL_MESA_sampler_objects
+
+  def self.get_ext_enum_GL_MESA_sampler_objects
+    [
+      'GL_SAMPLER_BINDING',
+    ]
+  end # self.get_ext_enum_GL_MESA_sampler_objects
+
+
   def self.define_ext_enum_GL_MESA_shader_integer_functions
   end # self.define_ext_enum_GL_MESA_shader_integer_functions
 
