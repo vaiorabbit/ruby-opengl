@@ -570,6 +570,25 @@ module GLExt
   end # self.get_ext_command_GL_ARM_rgba8
 
 
+  def self.define_ext_command_GL_ARM_shader_core_properties
+    GL::GL_FUNCTION_SYMBOLS << :glMaxActiveShaderCoresARM
+    GL::GL_FUNCTIONS_ARGS_MAP[:glMaxActiveShaderCoresARM] = [-Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glMaxActiveShaderCoresARM] = Fiddle::TYPE_VOID
+    GL.bind_command(:glMaxActiveShaderCoresARM)
+    GL.module_eval(<<-SRC)
+      def self.MaxActiveShaderCoresARM(_count_)
+        GL_FUNCTIONS_MAP[:glMaxActiveShaderCoresARM].call(_count_)
+      end
+    SRC
+  end # self.define_ext_command_GL_ARM_shader_core_properties
+
+  def self.get_ext_command_GL_ARM_shader_core_properties
+    [
+      'glMaxActiveShaderCoresARM',
+    ]
+  end # self.get_ext_command_GL_ARM_shader_core_properties
+
+
   def self.define_ext_command_GL_ARM_shader_framebuffer_fetch
   end # self.define_ext_command_GL_ARM_shader_framebuffer_fetch
 

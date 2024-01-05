@@ -432,6 +432,29 @@ module GLExt
   end # self.get_ext_enum_GL_ARM_rgba8
 
 
+  def self.define_ext_enum_GL_ARM_shader_core_properties
+    GL.const_set('SHADER_CORE_COUNT_ARM', 0x96F0) unless defined?(GL::SHADER_CORE_COUNT_ARM)
+    GL.const_set('SHADER_CORE_ACTIVE_COUNT_ARM', 0x96F1) unless defined?(GL::SHADER_CORE_ACTIVE_COUNT_ARM)
+    GL.const_set('SHADER_CORE_PRESENT_MASK_ARM', 0x96F2) unless defined?(GL::SHADER_CORE_PRESENT_MASK_ARM)
+    GL.const_set('SHADER_CORE_MAX_WARP_COUNT_ARM', 0x96F3) unless defined?(GL::SHADER_CORE_MAX_WARP_COUNT_ARM)
+    GL.const_set('SHADER_CORE_PIXEL_RATE_ARM', 0x96F4) unless defined?(GL::SHADER_CORE_PIXEL_RATE_ARM)
+    GL.const_set('SHADER_CORE_TEXEL_RATE_ARM', 0x96F5) unless defined?(GL::SHADER_CORE_TEXEL_RATE_ARM)
+    GL.const_set('SHADER_CORE_FMA_RATE_ARM', 0x96F6) unless defined?(GL::SHADER_CORE_FMA_RATE_ARM)
+  end # self.define_ext_enum_GL_ARM_shader_core_properties
+
+  def self.get_ext_enum_GL_ARM_shader_core_properties
+    [
+      'SHADER_CORE_COUNT_ARM',
+      'SHADER_CORE_ACTIVE_COUNT_ARM',
+      'SHADER_CORE_PRESENT_MASK_ARM',
+      'SHADER_CORE_MAX_WARP_COUNT_ARM',
+      'SHADER_CORE_PIXEL_RATE_ARM',
+      'SHADER_CORE_TEXEL_RATE_ARM',
+      'SHADER_CORE_FMA_RATE_ARM',
+    ]
+  end # self.get_ext_enum_GL_ARM_shader_core_properties
+
+
   def self.define_ext_enum_GL_ARM_shader_framebuffer_fetch
     GL.const_set('FETCH_PER_SAMPLE_ARM', 0x8F65) unless defined?(GL::FETCH_PER_SAMPLE_ARM)
     GL.const_set('FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM', 0x8F66) unless defined?(GL::FRAGMENT_SHADER_FRAMEBUFFER_FETCH_MRT_ARM)
