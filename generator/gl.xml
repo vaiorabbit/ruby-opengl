@@ -1097,7 +1097,7 @@ typedef unsigned int GLhandleARB;
         <enum value="0x2700" name="GL_NEAREST_MIPMAP_NEAREST" group="TextureMinFilter"/>
         <enum value="0x2701" name="GL_LINEAR_MIPMAP_NEAREST" group="TextureMinFilter"/>
         <enum value="0x2702" name="GL_NEAREST_MIPMAP_LINEAR" group="TextureMinFilter"/>
-        <enum value="0x2703" name="GL_LINEAR_MIPMAP_LINEAR" group="TextureWrapMode,TextureMinFilter"/>
+        <enum value="0x2703" name="GL_LINEAR_MIPMAP_LINEAR" group="TextureMinFilter"/>
             <unused start="0x2704" end="0x27FF" comment="Unused for TextureMinFilter"/>
         <enum value="0x2800" name="GL_TEXTURE_MAG_FILTER" group="SamplerParameterI,GetTextureParameter,TextureParameterName"/>
         <enum value="0x2801" name="GL_TEXTURE_MIN_FILTER" group="SamplerParameterI,GetTextureParameter,TextureParameterName"/>
@@ -1701,10 +1701,10 @@ typedef unsigned int GLhandleARB;
         <enum value="0x812C" name="GL_MAX_FOG_FUNC_POINTS_SGIS" group="GetPName"/>
         <enum value="0x812D" name="GL_CLAMP_TO_BORDER" group="TextureWrapMode"/>
         <enum value="0x812D" name="GL_CLAMP_TO_BORDER_ARB" group="TextureWrapMode"/>
-        <enum value="0x812D" name="GL_CLAMP_TO_BORDER_EXT"/>
+        <enum value="0x812D" name="GL_CLAMP_TO_BORDER_EXT" group="TextureWrapMode"/>
         <enum value="0x812D" name="GL_CLAMP_TO_BORDER_NV" group="TextureWrapMode"/>
         <enum value="0x812D" name="GL_CLAMP_TO_BORDER_SGIS" group="TextureWrapMode"/>
-        <enum value="0x812D" name="GL_CLAMP_TO_BORDER_OES"/>
+        <enum value="0x812D" name="GL_CLAMP_TO_BORDER_OES" group="TextureWrapMode"/>
         <enum value="0x812E" name="GL_TEXTURE_MULTI_BUFFER_HINT_SGIX" group="HintTarget"/>
         <enum value="0x812F" name="GL_CLAMP_TO_EDGE" group="TextureWrapMode"/>
         <enum value="0x812F" name="GL_CLAMP_TO_EDGE_SGIS" group="TextureWrapMode"/>
@@ -2451,9 +2451,9 @@ typedef unsigned int GLhandleARB;
                  this range. Lesson: assigned ranges belong to vendors,
                  not engineers! -->
         <enum value="0x8370" name="GL_MIRRORED_REPEAT" group="TextureWrapMode"/>
-        <enum value="0x8370" name="GL_MIRRORED_REPEAT_ARB"/>
-        <enum value="0x8370" name="GL_MIRRORED_REPEAT_IBM"/>
-        <enum value="0x8370" name="GL_MIRRORED_REPEAT_OES"/>
+        <enum value="0x8370" name="GL_MIRRORED_REPEAT_ARB" group="TextureWrapMode"/>
+        <enum value="0x8370" name="GL_MIRRORED_REPEAT_IBM" group="TextureWrapMode"/>
+        <enum value="0x8370" name="GL_MIRRORED_REPEAT_OES" group="TextureWrapMode"/>
             <unused start="0x8371" end="0x837F" vendor="HP"/>
     </enums>
 
@@ -7003,7 +7003,14 @@ typedef unsigned int GLhandleARB;
     </enums>
 
     <enums namespace="GL" start="0x96F0" end="0x96FF" vendor="ARM" comment="Contact Jan-Harald Fredriksen">
-            <unused start="0x96F0" end="0x96FF" vendor="ARM"/>
+        <enum value="0x96F0" name="GL_SHADER_CORE_COUNT_ARM" group="GetPName"/>
+        <enum value="0x96F1" name="GL_SHADER_CORE_ACTIVE_COUNT_ARM" group="GetPName"/>
+        <enum value="0x96F2" name="GL_SHADER_CORE_PRESENT_MASK_ARM" group="GetPName"/>
+        <enum value="0x96F3" name="GL_SHADER_CORE_MAX_WARP_COUNT_ARM" group="GetPName"/>
+        <enum value="0x96F4" name="GL_SHADER_CORE_PIXEL_RATE_ARM" group="GetPName"/>
+        <enum value="0x96F5" name="GL_SHADER_CORE_TEXEL_RATE_ARM" group="GetPName"/>
+        <enum value="0x96F6" name="GL_SHADER_CORE_FMA_RATE_ARM" group="GetPName"/>
+            <unused start="0x96F7" end="0x96FF" vendor="ARM"/>
     </enums>
 
 <!-- Enums reservable for future use. To reserve a new range, allocate one
@@ -17818,6 +17825,10 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLfloat</ptype> <name>z</name></param>
         </command>
         <command>
+            <proto>void <name>glMaxActiveShaderCoresARM</name></proto>
+            <param><ptype>GLuint</ptype> <name>count</name></param>
+        </command>
+        <command>
             <proto>void <name>glMaxShaderCompilerThreadsKHR</name></proto>
             <param><ptype>GLuint</ptype> <name>count</name></param>
         </command>
@@ -28208,7 +28219,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>size</name></param>
             <param group="VertexAttribIType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLsizei</ptype> <name>stride</name></param>
-            <param len="COMPSIZE(size,type,stride)">const void *<name>pointer</name></param>
+            <param>const void *<name>pointer</name></param>
             <alias name="glVertexAttribIPointer"/>
         </command>
         <command>
@@ -28441,7 +28452,7 @@ typedef unsigned int GLhandleARB;
             <param><ptype>GLint</ptype> <name>size</name></param>
             <param group="VertexAttribLType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLsizei</ptype> <name>stride</name></param>
-            <param len="size">const void *<name>pointer</name></param>
+            <param>const void *<name>pointer</name></param>
             <alias name="glVertexAttribLPointer"/>
         </command>
         <command>
@@ -28522,7 +28533,7 @@ typedef unsigned int GLhandleARB;
             <param group="VertexAttribPointerType"><ptype>GLenum</ptype> <name>type</name></param>
             <param><ptype>GLboolean</ptype> <name>normalized</name></param>
             <param><ptype>GLsizei</ptype> <name>stride</name></param>
-            <param len="COMPSIZE(size,type,stride)">const void *<name>pointer</name></param>
+            <param>const void *<name>pointer</name></param>
             <alias name="glVertexAttribPointer"/>
         </command>
         <command>
@@ -39625,6 +39636,18 @@ typedef unsigned int GLhandleARB;
             </require>
         </extension>
         <extension name="GL_ARM_rgba8" supported="gles1|gles2"/>
+        <extension name="GL_ARM_shader_core_properties" supported="gles2">
+            <require>
+                <enum name="GL_SHADER_CORE_COUNT_ARM"/>
+                <enum name="GL_SHADER_CORE_ACTIVE_COUNT_ARM"/>
+                <enum name="GL_SHADER_CORE_PRESENT_MASK_ARM"/>
+                <enum name="GL_SHADER_CORE_MAX_WARP_COUNT_ARM"/>
+                <enum name="GL_SHADER_CORE_PIXEL_RATE_ARM"/>
+                <enum name="GL_SHADER_CORE_TEXEL_RATE_ARM"/>
+                <enum name="GL_SHADER_CORE_FMA_RATE_ARM"/>
+                <command name="glMaxActiveShaderCoresARM"/>
+            </require>
+        </extension>
         <extension name="GL_ARM_shader_framebuffer_fetch" supported="gles2">
             <require>
                 <enum name="GL_FETCH_PER_SAMPLE_ARM"/>
