@@ -671,6 +671,7 @@ module GLFW
   when :OPENGL_PLATFORM_MACOSX
     @@lib_signature << 'unsigned int glfwGetCocoaMonitor(void*)'
     @@lib_signature << 'void* glfwGetCocoaWindow(void*)'
+    @@lib_signature << 'void* glfwGetCocoaView(void*)'
     @@lib_signature << 'void* glfwGetNSGLContext(void*)'
   when :OPENGL_PLATFORM_LINUX
     @@lib_signature << 'void* glfwGetX11Display()'
