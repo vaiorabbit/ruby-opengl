@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# A GLFW wrapper (for version 3.4)
+# A GLFW wrapper (for version 3.0 - 3.3)
 require 'fiddle/import'
 
 module GLFW
@@ -217,21 +217,17 @@ module GLFW
   GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER = 5  # Available since GLFW 3.3
   GLFW_GAMEPAD_AXIS_LAST          = GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER  # Available since GLFW 3.3
 
-  GLFW_NO_ERROR              = 0          # Available since GLFW 3.3
-  GLFW_NOT_INITIALIZED       = 0x00010001
-  GLFW_NO_CURRENT_CONTEXT    = 0x00010002
-  GLFW_INVALID_ENUM          = 0x00010003
-  GLFW_INVALID_VALUE         = 0x00010004
-  GLFW_OUT_OF_MEMORY         = 0x00010005
-  GLFW_API_UNAVAILABLE       = 0x00010006
-  GLFW_VERSION_UNAVAILABLE   = 0x00010007
-  GLFW_PLATFORM_ERROR        = 0x00010008
-  GLFW_FORMAT_UNAVAILABLE    = 0x00010009
-  GLFW_NO_WINDOW_CONTEXT     = 0x0001000A # Available since GLFW 3.2
-  GLFW_CURSOR_UNAVAILABLE    = 0x0001000B # Available since GLFW 3.4
-  GLFW_FEATURE_UNAVAILABLE   = 0x0001000C # Available since GLFW 3.4
-  GLFW_FEATURE_UNIMPLEMENTED = 0x0001000D # Available since GLFW 3.4
-  GLFW_PLATFORM_UNAVAILABLE  = 0x0001000E # Available since GLFW 3.4
+  GLFW_NO_ERROR             = 0          # Available since GLFW 3.3
+  GLFW_NOT_INITIALIZED      = 0x00010001
+  GLFW_NO_CURRENT_CONTEXT   = 0x00010002
+  GLFW_INVALID_ENUM         = 0x00010003
+  GLFW_INVALID_VALUE        = 0x00010004
+  GLFW_OUT_OF_MEMORY        = 0x00010005
+  GLFW_API_UNAVAILABLE      = 0x00010006
+  GLFW_VERSION_UNAVAILABLE  = 0x00010007
+  GLFW_PLATFORM_ERROR       = 0x00010008
+  GLFW_FORMAT_UNAVAILABLE   = 0x00010009
+  GLFW_NO_WINDOW_CONTEXT    = 0x0001000A # Available since GLFW 3.2
 
   GLFW_FOCUSED                 = 0x00020001
   GLFW_ICONIFIED               = 0x00020002
@@ -245,9 +241,6 @@ module GLFW
   GLFW_TRANSPARENT_FRAMEBUFFER = 0x0002000A # Available since GLFW 3.3
   GLFW_HOVERED                 = 0x0002000B # Available since GLFW 3.3
   GLFW_FOCUS_ON_SHOW           = 0x0002000C # Available since GLFW 3.3
-  GLFW_MOUSE_PASSTHROUGH       = 0x0002000D # Available since GLFW 3.4
-  GLFW_POSITION_X              = 0x0002000E # Available since GLFW 3.4
-  GLFW_POSITION_Y              = 0x0002000F # Available since GLFW 3.4
 
   GLFW_RED_BITS          = 0x00021001
   GLFW_GREEN_BITS        = 0x00021002
@@ -272,14 +265,12 @@ module GLFW
   GLFW_CONTEXT_REVISION          = 0x00022004
   GLFW_CONTEXT_ROBUSTNESS        = 0x00022005
   GLFW_OPENGL_FORWARD_COMPAT     = 0x00022006
-  GLFW_CONTEXT_DEBUG             = 0x00022007 # Renamed from GLFW_OPENGL_DEBUG_CONTEXT since GLFW 3.4
-  GLFW_OPENGL_DEBUG_CONTEXT      = GLFW_CONTEXT_DEBUG # Legacy name for compatibility added since GLFW 3.4
+  GLFW_OPENGL_DEBUG_CONTEXT      = 0x00022007
   GLFW_OPENGL_PROFILE            = 0x00022008
   GLFW_CONTEXT_RELEASE_BEHAVIOR  = 0x00022009
   GLFW_CONTEXT_NO_ERROR          = 0x0002200A
   GLFW_CONTEXT_CREATION_API      = 0x0002200B # Available since GLFW 3.2
   GLFW_SCALE_TO_MONITOR          = 0x0002200C # Available since GLFW 3.3
-  GLFW_SCALE_FRAMEBUFFER         = 0x0002200D # Available since GLFW 3.4
 
   GLFW_COCOA_RETINA_FRAMEBUFFER = 0x00023001 # Available since GLFW 3.3
   GLFW_COCOA_FRAME_NAME         = 0x00023002 # Available since GLFW 3.3
@@ -287,9 +278,6 @@ module GLFW
 
   GLFW_X11_CLASS_NAME         = 0x00024001 # Available since GLFW 3.3
   GLFW_X11_INSTANCE_NAME      = 0x00024002 # Available since GLFW 3.3
-  GLFW_WIN32_KEYBOARD_MENU    = 0x00025001 # Available since GLFW 3.4
-  GLFW_WIN32_SHOWDEFAULT      = 0x00025002 # Available since GLFW 3.4
-  GLFW_WAYLAND_APP_ID         = 0x00026001 # Available since GLFW 3.4
 
   GLFW_NO_API         = 0 # Available since GLFW 3.2
   GLFW_OPENGL_API     = 0x00030001
@@ -312,7 +300,6 @@ module GLFW
   GLFW_CURSOR_NORMAL    = 0x00034001
   GLFW_CURSOR_HIDDEN    = 0x00034002
   GLFW_CURSOR_DISABLED  = 0x00034003
-  GLFW_CURSOR_CAPTURED  = 0x00034004 # Available since GLFW 3.4
 
   GLFW_ANY_RELEASE_BEHAVIOR    = 0
   GLFW_RELEASE_BEHAVIOR_FLUSH  = 0x00035001
@@ -322,55 +309,25 @@ module GLFW
   GLFW_EGL_CONTEXT_API    = 0x00036002 # Available since GLFW 3.2
   GLFW_OSMESA_CONTEXT_API = 0x00036003 # Available since GLFW 3.3
 
-  GLFW_ANGLE_PLATFORM_TYPE_NONE     = 0x00037001 # Available since GLFW 3.4
-  GLFW_ANGLE_PLATFORM_TYPE_OPENGL   = 0x00037002 # Available since GLFW 3.4
-  GLFW_ANGLE_PLATFORM_TYPE_OPENGLES = 0x00037003 # Available since GLFW 3.4
-  GLFW_ANGLE_PLATFORM_TYPE_D3D9     = 0x00037004 # Available since GLFW 3.4
-  GLFW_ANGLE_PLATFORM_TYPE_D3D11    = 0x00037005 # Available since GLFW 3.4
-  GLFW_ANGLE_PLATFORM_TYPE_VULKAN   = 0x00037007 # Available since GLFW 3.4
-  GLFW_ANGLE_PLATFORM_TYPE_METAL    = 0x00037008 # Available since GLFW 3.4
-
   GLFW_WAYLAND_PREFER_LIBDECOR  = 0x00038001 # Available since GLFW 3.3.9
   GLFW_WAYLAND_DISABLE_LIBDECOR = 0x00038002 # Available since GLFW 3.3.9
 
-  GLFW_ANY_POSITION = 0x80000000 # Available since GLFW 3.4
-
-  GLFW_ARROW_CURSOR         = 0x00036001
-  GLFW_IBEAM_CURSOR         = 0x00036002
-  GLFW_CROSSHAIR_CURSOR     = 0x00036003
-  GLFW_POINTING_HAND_CURSOR = 0x00036004 # Renamed from GLFW_HAND_CURSOR since GLFW 3.4
-  GLFW_RESIZE_EW_CURSOR     = 0x00036005 # Renamed from GLFW_HRESIZE_CURSOR since GLFW 3.4
-  GLFW_RESIZE_NS_CURSOR     = 0x00036006 # Renamed from GLFW_VRESIZE_CURSOR since GLFW 3.4
-  GLFW_RESIZE_NWSE_CURSOR   = 0x00036007 # Available since GLFW 3.4
-  GLFW_RESIZE_NESW_CURSOR   = 0x00036008 # Available since GLFW 3.4
-  GLFW_RESIZE_ALL_CURSOR    = 0x00036009 # Available since GLFW 3.4
-  GLFW_NOT_ALLOWED_CURSOR   = 0x0003600A # Available since GLFW 3.4
-
-  GLFW_HRESIZE_CURSOR       = GLFW_RESIZE_EW_CURSOR     # Legacy name for compatibility added since GLFW 3.4
-  GLFW_VRESIZE_CURSOR       = GLFW_RESIZE_NS_CURSOR     # Legacy name for compatibility added since GLFW 3.4
-  GLFW_HAND_CURSOR          = GLFW_POINTING_HAND_CURSOR # Legacy name for compatibility added since GLFW 3.4
+  GLFW_ARROW_CURSOR      = 0x00036001
+  GLFW_IBEAM_CURSOR      = 0x00036002
+  GLFW_CROSSHAIR_CURSOR  = 0x00036003
+  GLFW_HAND_CURSOR       = 0x00036004
+  GLFW_HRESIZE_CURSOR    = 0x00036005
+  GLFW_VRESIZE_CURSOR    = 0x00036006
 
   GLFW_CONNECTED     = 0x00040001
   GLFW_DISCONNECTED  = 0x00040002
 
   GLFW_JOYSTICK_HAT_BUTTONS   = 0x00050001 # Available since GLFW 3.3
-  GLFW_ANGLE_PLATFORM_TYPE    = 0x00050002 # Available since GLFW 3.4
-  GLFW_PLATFORM               = 0x00050003 # Available since GLFW 3.4
-
 
   GLFW_COCOA_CHDIR_RESOURCES  = 0x00051001 # Available since GLFW 3.3
   GLFW_COCOA_MENUBAR          = 0x00051002 # Available since GLFW 3.3
 
-  GLFW_X11_XCB_VULKAN_SURFACE = 0x00052001 # Available since GLFW 3.4
-
   GLFW_WAYLAND_LIBDECOR = 0x00053001 # Available since GLFW 3.3.9
-
-  GLFW_ANY_PLATFORM     = 0x00060000 # Available since GLFW 3.4
-  GLFW_PLATFORM_WIN32   = 0x00060001 # Available since GLFW 3.4
-  GLFW_PLATFORM_COCOA   = 0x00060002 # Available since GLFW 3.4
-  GLFW_PLATFORM_WAYLAND = 0x00060003 # Available since GLFW 3.4
-  GLFW_PLATFORM_X11     = 0x00060004 # Available since GLFW 3.4
-  GLFW_PLATFORM_NULL    = 0x00060005 # Available since GLFW 3.4
 
   GLFW_DONT_CARE = -1
 
@@ -484,10 +441,6 @@ module GLFW
     return self.create_callback_closure( sym, proc, &blk )
   end
 
-  # NOTE : Memory allocation callbacks addin in GLFW 3.4
-  # (GLFWallocatefun, GLFWreallocatefun, GLFWdeallocatefun and struct GLFWallocator)
-  # will not be supported in this bindings.
-
   # struct
   GLFWvidmode = struct(["int width",
                         "int height",
@@ -538,8 +491,6 @@ module GLFW
     'const char* glfwGetVersionString()',
     'int glfwGetError(const char**)',                              # Available since GLFW 3.3
     'void* glfwSetErrorCallback(void*)',
-    'int glfwGetPlatform()',                                       # Available since GLFW 3.4
-    'int glfwPlatformSupported(int)',                              # Available since GLFW 3.4
     'void** glfwGetMonitors(int*)',
     'void* glfwGetPrimaryMonitor()',
     'void glfwGetMonitorPos(void*, int*, int*)',
@@ -562,7 +513,6 @@ module GLFW
     'void glfwDestroyWindow(void*)',                               # Available since GLFW 3.0
     'int glfwWindowShouldClose(void*)',                            # Available since GLFW 3.0
     'void glfwSetWindowShouldClose(void*, int)',                   # Available since GLFW 3.0
-    'const char* glfwGetWindowTitle(void*)',                       # Available since GLFW 3.4
     'void glfwSetWindowTitle(void*, const char*)',
     'void glfwSetWindowIcon(void*, int, void*)',                   # Available since GLFW 3.2
     'void glfwGetWindowPos(void*, int*, int*)',                    # Available since GLFW 3.0
@@ -655,11 +605,7 @@ module GLFW
   # 'GLFWvkproc glfwGetInstanceProcAddress(void*, const char*)',
   # 'int glfwGetPhysicalDevicePresentationSupport(void*, void*, unsigned int)',
   # 'VkResult glfwCreateWindowSurface(void*, void*, const void*, void*)',
-  # 'void glfwInitVulkanLoader(void*)',
     # <<< Vulkan <<<
-    # >>> Allocator >>>
-  # 'void glfwInitAllocator(void*)',
-    # <<< Allocator <<<
   ]
 
   case GL.get_platform
