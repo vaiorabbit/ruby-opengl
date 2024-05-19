@@ -8748,11 +8748,22 @@ module GLExt
         GL_FUNCTIONS_MAP[:glFramebufferTextureMultiviewOVR].call(_target_, _attachment_, _texture_, _level_, _baseViewIndex_, _numViews_)
       end
     SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glNamedFramebufferTextureMultiviewOVR
+    GL::GL_FUNCTIONS_ARGS_MAP[:glNamedFramebufferTextureMultiviewOVR] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glNamedFramebufferTextureMultiviewOVR] = Fiddle::TYPE_VOID
+    GL.bind_command(:glNamedFramebufferTextureMultiviewOVR)
+    GL.module_eval(<<-SRC)
+      def self.NamedFramebufferTextureMultiviewOVR(_framebuffer_, _attachment_, _texture_, _level_, _baseViewIndex_, _numViews_)
+        GL_FUNCTIONS_MAP[:glNamedFramebufferTextureMultiviewOVR].call(_framebuffer_, _attachment_, _texture_, _level_, _baseViewIndex_, _numViews_)
+      end
+    SRC
   end # self.define_ext_command_GL_OVR_multiview
 
   def self.get_ext_command_GL_OVR_multiview
     [
       'glFramebufferTextureMultiviewOVR',
+      'glNamedFramebufferTextureMultiviewOVR',
     ]
   end # self.get_ext_command_GL_OVR_multiview
 
