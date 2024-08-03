@@ -6116,6 +6116,19 @@ module GLExt
   end # self.get_ext_enum_GL_QCOM_texture_foveated_subsampled_layout
 
 
+  def self.define_ext_enum_GL_QCOM_ycbcr_degamma
+    GL.const_set('TEXTURE_Y_DEGAMMA_QCOM', 0x9710) unless defined?(GL::TEXTURE_Y_DEGAMMA_QCOM)
+    GL.const_set('TEXTURE_CBCR_DEGAMMA_QCOM', 0x9711) unless defined?(GL::TEXTURE_CBCR_DEGAMMA_QCOM)
+  end # self.define_ext_enum_GL_QCOM_ycbcr_degamma
+
+  def self.get_ext_enum_GL_QCOM_ycbcr_degamma
+    [
+      'TEXTURE_Y_DEGAMMA_QCOM',
+      'TEXTURE_CBCR_DEGAMMA_QCOM',
+    ]
+  end # self.get_ext_enum_GL_QCOM_ycbcr_degamma
+
+
   def self.define_ext_enum_GL_QCOM_texture_lod_bias
     GL.const_set('TEXTURE_LOD_BIAS_QCOM', 0x8C96) unless defined?(GL::TEXTURE_LOD_BIAS_QCOM)
   end # self.define_ext_enum_GL_QCOM_texture_lod_bias

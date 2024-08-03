@@ -9158,6 +9158,15 @@ module GLExt
   end # self.get_ext_command_GL_QCOM_texture_foveated_subsampled_layout
 
 
+  def self.define_ext_command_GL_QCOM_ycbcr_degamma
+  end # self.define_ext_command_GL_QCOM_ycbcr_degamma
+
+  def self.get_ext_command_GL_QCOM_ycbcr_degamma
+    [
+    ]
+  end # self.get_ext_command_GL_QCOM_ycbcr_degamma
+
+
   def self.define_ext_command_GL_QCOM_texture_lod_bias
   end # self.define_ext_command_GL_QCOM_texture_lod_bias
 
