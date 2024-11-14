@@ -21,4 +21,6 @@ Ruby bindings for OpenGL - 4.6, OpenGL ES - 3.2 and all extensions using Fiddle 
   gem.files = Dir.glob("lib/*.rb") +
               ["README.md", "LICENSE.txt", "ChangeLog"] +
               ["sample/simple.rb", "sample/simple_glut.rb", "sample/report_env.rb", "sample/glfw_build.sh", "sample/glfw_build.bat", "sample/README.md"]
+
+  gem.add_runtime_dependency "fiddle", "~> 1.0"
 end
