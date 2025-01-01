@@ -167,6 +167,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 
 *   Ruby
     *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [x64-mingw-ucrt]
+    *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
 
 *   Windows 11 Pro (Version 24H2, OS Build 26100.2605)
 
@@ -176,15 +177,13 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
         Renderer   : NVIDIA GeForce RTX 4080 Laptop GPU/PCIe/SSE2
         Shader     : 4.50 NVIDIA
 
-*   macOS 12.5.1, 64-bit
-    *   Mac mini (M1 2020)
-        *   OpenGL 4.1
+*   macOS 15.2 / Mac mini (M1 2020)
 
-                $ ruby report_env.rb
-                Version    : 4.1 Metal - 76.3
-                Vendor     : Apple
-                Renderer   : Apple M1
-                Shader     : 4.10
+        $ ruby report_env.rb
+        Version    : 4.1 Metal - 89.3
+        Vendor     : Apple
+        Renderer   : Apple M1
+        Shader     : 4.10
 
 *   Arch Linux kernel 4.1.2-2-ARCH, Nvidia Driver, x86_64
     *   NVIDIA GeForce GTS 450
@@ -289,6 +288,16 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
                 Version    : 4.1 INTEL-14.4.23
                 Vendor     : Intel Inc.
                 Renderer   : Intel Iris OpenGL Engine
+                Shader     : 4.10
+
+*   macOS 12.5.1, 64-bit
+    *   Mac mini (M1 2020)
+        *   OpenGL 4.1
+
+                $ ruby report_env.rb
+                Version    : 4.1 Metal - 76.3
+                Vendor     : Apple
+                Renderer   : Apple M1
                 Shader     : 4.10
 
 </details>
@@ -529,6 +538,7 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 
 *   Ruby
     *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [x64-mingw-ucrt]
+    *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
 
 *   Windows 11 Pro (Version 24H2, OS Build 26100.2605)
 
@@ -538,15 +548,13 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
         Renderer   : NVIDIA GeForce RTX 4080 Laptop GPU/PCIe/SSE2
         Shader     : 4.50 NVIDIA
 
-*   macOS 12.5.1, 64-bit
-    *   Mac mini (M1 2020)
-        *   OpenGL 4.1
+*   macOS 15.2 / Mac mini (M1 2020)
 
-                $ ruby report_env.rb
-                Version    : 4.1 Metal - 76.3
-                Vendor     : Apple
-                Renderer   : Apple M1
-                Shader     : 4.10
+        $ ruby report_env.rb
+        Version    : 4.1 Metal - 89.3
+        Vendor     : Apple
+        Renderer   : Apple M1
+        Shader     : 4.10
 
 *   Arch Linux kernel 4.1.2-2-ARCH, Nvidia Driver, x86_64
     *   NVIDIA GeForce GTS 450
@@ -650,6 +658,16 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
                 Version    : 4.1 INTEL-14.4.23
                 Vendor     : Intel Inc.
                 Renderer   : Intel Iris OpenGL Engine
+                Shader     : 4.10
+
+*   macOS 12.5.1, 64-bit
+    *   Mac mini (M1 2020)
+        *   OpenGL 4.1
+
+                $ ruby report_env.rb
+                Version    : 4.1 Metal - 76.3
+                Vendor     : Apple
+                Renderer   : Apple M1
                 Shader     : 4.10
 
 </details>
