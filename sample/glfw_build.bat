@@ -2,16 +2,15 @@
 :: For Windows + RubyInstaller2 with DevKit(MSYS2 gcc & make) + CMake users.
 :: - Use this script after "ridk enable"d. See https://github.com/oneclick/rubyinstaller2/wiki/The-ridk-tool for details.
 ::
-::@echo off
+@echo off
 setlocal EnableDelayedExpansion
 
 set CMAKE_EXE=%1
 if "%CMAKE_EXE%"=="" (
     set CMAKE_EXE="%PROGRAMFILES%\CMake\bin\cmake"
 )
-echo !CMAKE_EXE!
 
-curl -O -L https://github.com/glfw/glfw/releases/download/3.4/glfw-3.4.zip
+%WINDIR%\System32\curl -O -L https://github.com/glfw/glfw/releases/download/3.4/glfw-3.4.zip
 %WINDIR%\System32\tar.exe -xf glfw-3.4.zip
 cd glfw-3.4/
 if not exist build (
