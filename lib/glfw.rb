@@ -24,7 +24,6 @@ module GLFW
     rescue
       file, line = __FILE__, __LINE__+3
     end
-    args_str="*args"
     module_eval(<<-EOS, file, line)
       def #{name}(*args, &block)
         GLFW_FUNCTIONS_MAP['#{name}'].call(*args,&block)
@@ -255,7 +254,6 @@ module GLFW
   GLFW_VERSION_UNAVAILABLE   = 0x00010007
   GLFW_PLATFORM_ERROR        = 0x00010008
   GLFW_FORMAT_UNAVAILABLE    = 0x00010009
-  GLFW_NO_WINDOW_CONTEXT     = 0x0001000A # Available since GLFW 3.2
   GLFW_NO_WINDOW_CONTEXT     = 0x0001000A # Available since GLFW 3.2
   GLFW_CURSOR_UNAVAILABLE    = 0x0001000B # Available since GLFW 3.4
   GLFW_FEATURE_UNAVAILABLE   = 0x0001000C # Available since GLFW 3.4
@@ -744,7 +742,7 @@ end
 
 =begin
 Ruby-OpenGL : Yet another OpenGL wrapper for Ruby (and wrapper code generator)
-Copyright (c) 2013-2024 vaiorabbit <http://twitter.com/vaiorabbit>
+Copyright (c) 2013-2025 vaiorabbit <http://twitter.com/vaiorabbit>
 
 This software is provided 'as-is', without any express or implied
 warranty. In no event will the authors be held liable for any damages

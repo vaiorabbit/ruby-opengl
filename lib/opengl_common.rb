@@ -40,7 +40,7 @@ module OpenGL
       GL_FUNCTIONS_MAP[sym] = Fiddle::Function.new( @@gl_dll[sym.to_s], 
                                                     GL_FUNCTIONS_ARGS_MAP[sym],
                                                     GL_FUNCTIONS_RETVAL_MAP[sym] )
-    rescue Exception => e
+    rescue Exception
       if self.get_platform == :OPENGL_PLATFORM_WINDOWS
         func_ptr = wglGetProcAddress(sym.to_s)
         GL_FUNCTIONS_MAP[sym] = Fiddle::Function.new( func_ptr,
