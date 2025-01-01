@@ -1,3 +1,7 @@
+2025-01-01  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* glfw.rb: Fixed warnings
+
 2024-02-25  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* GLFW 3.4
