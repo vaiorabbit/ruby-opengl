@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2024-02-25
+*   Last modified : 2025-01-01
 
 <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/simple_rb.jpg" width="200"> <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/nehe_lesson36_rb.jpg" width="200"> <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/brick_rb.jpg" width="200"> <img src="https://raw.githubusercontent.com/vaiorabbit/ruby-opengl/master/doc/glxs_rb.jpg" width="200">
 
@@ -79,7 +79,7 @@ module GL
 * Version 2 [![Gem Version](https://badge.fury.io/rb/opengl-bindings2.svg)](https://badge.fury.io/rb/opengl-bindings2) [![Gem](https://img.shields.io/gem/dt/opengl-bindings2.svg)](opengl-bindings2)
 * Version 1 [![Gem Version](https://badge.fury.io/rb/opengl-bindings.svg)](https://badge.fury.io/rb/opengl-bindings) [![Gem](https://img.shields.io/gem/dt/opengl-bindings.svg)](opengl-bindings)
 
-*   Uses Fiddle (One of the Ruby standard libraries that wraps libffi)
+*   Uses Fiddle (One of the Ruby libraries that wraps libffi)
     *   Unlike opengl ( https://rubygems.org/gems/opengl ), you don't need to build C extension library
 
 *   Uses Khronos XML API registry ( https://github.com/KhronosGroup/OpenGL-Registry )
@@ -154,7 +154,6 @@ https://github.com/vaiorabbit/ruby-opengl
 
 *   Fiddle
     *   A libffi wrapper
-    *   Standard library since Ruby 2.0.0
     *   I recommend you to use Ruby 2.1.2 and later, which fixed Fiddle's memory leak issue (https://bugs.ruby-lang.org/issues/9599).
 
 ### For sample ###
@@ -173,17 +172,15 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 ## Tested Environment ##
 
 *   Ruby
-    *   ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [arm64-darwin23]
+    *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [x64-mingw-ucrt]
 
-*   Windows 10 Home, 64-bit (Version 1909, OS Build 18363.778)
-    *   NVIDIA GeForce RTX 2060 SUPER
-        *   OpenGL 4.5
+*   Windows 11 Pro (Version 24H2, OS Build 26100.2605)
 
-                > ruby report_env.rb
-                Version    : 4.5.0 NVIDIA 436.30
-                Vendor     : NVIDIA Corporation
-                Renderer   : GeForce RTX 2060 SUPER/PCIe/SSE2
-                Shader     : 4.50 NVIDIA
+        > ruby report_env.rb
+        Version    : 4.5.0 NVIDIA 560.94
+        Vendor     : NVIDIA Corporation
+        Renderer   : NVIDIA GeForce RTX 4080 Laptop GPU/PCIe/SSE2
+        Shader     : 4.50 NVIDIA
 
 *   macOS 12.5.1, 64-bit
     *   Mac mini (M1 2020)
@@ -213,6 +210,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 <summary>Older versions</summary>
 
 *   Ruby
+    *   ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [arm64-darwin23]
     *   ruby 3.2.0 (2022-12-25 revision a528908271) [arm64-darwin21]
     *   ruby 3.1.0p0 (2021-12-25 revision fb4df44d16) [arm64-darwin20]
     *   ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [x64-mingw32]
@@ -243,6 +241,16 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
     *   ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin12.0]
     *   ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin13.0.0]
     *   ruby 2.0.0p247 (2013-06-27) [i386-mingw32]
+
+*   Windows 10 Home, 64-bit (Version 1909, OS Build 18363.778)
+    *   NVIDIA GeForce RTX 2060 SUPER
+        *   OpenGL 4.5
+
+                > ruby report_env.rb
+                Version    : 4.5.0 NVIDIA 436.30
+                Vendor     : NVIDIA Corporation
+                Renderer   : GeForce RTX 2060 SUPER/PCIe/SSE2
+                Shader     : 4.50 NVIDIA
 
 *   Windows 10 Home, 64-bit (Version 1511, OS Build 10586.164)
     *   NVIDIA GeForce GTX 960
@@ -350,7 +358,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 
 The zlib/libpng License ( http://opensource.org/licenses/Zlib ).
 
-    Copyright (c) 2013-2024 vaiorabbit <http://twitter.com/vaiorabbit>
+    Copyright (c) 2013-2025 vaiorabbit <http://twitter.com/vaiorabbit>
 
     This software is provided 'as-is', without any express or implied
     warranty. In no event will the authors be held liable for any damages
@@ -446,7 +454,7 @@ module GL
 
 ## 特徴 ##
 
-*   標準ライブラリ Fiddle を使っています ⇒ opengl ( https://rubygems.org/gems/opengl ) のように拡張ライブラリをビルドする必要がありません
+*   Fiddle を使っています ⇒ opengl ( https://rubygems.org/gems/opengl ) のように拡張ライブラリをビルドする必要がありません
 *   関数とenumのラッパーコードは Khronos の XML API registry  ( https://github.com/KhronosGroup/OpenGL-Registry ) の gl.xml から自動生成しています
 
 
@@ -518,7 +526,6 @@ https://github.com/vaiorabbit/ruby-opengl
 
 *   Fiddle
     *   libffi のラッパーです
-    *   Ruby 2.0.0 以降で標準ライブラリになりました
     *   Fiddle のメモリリーク問題 (https://bugs.ruby-lang.org/issues/9599) が修正された Ruby 2.1.2 以降での利用を推奨します
 
 ### サンプル用 ###
@@ -537,17 +544,15 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 ## テストした環境 ##
 
 *   Ruby
-    *   ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [arm64-darwin23]
+    *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [x64-mingw-ucrt]
 
-*   Windows 10 Home, 64-bit (Version 1909, OS Build 18363.778)
-    *   NVIDIA GeForce RTX 2060 SUPER
-        *   OpenGL 4.5
+*   Windows 11 Pro (Version 24H2, OS Build 26100.2605)
 
-                > ruby report_env.rb
-                Version    : 4.5.0 NVIDIA 436.30
-                Vendor     : NVIDIA Corporation
-                Renderer   : GeForce RTX 2060 SUPER/PCIe/SSE2
-                Shader     : 4.50 NVIDIA
+        > ruby report_env.rb
+        Version    : 4.5.0 NVIDIA 560.94
+        Vendor     : NVIDIA Corporation
+        Renderer   : NVIDIA GeForce RTX 4080 Laptop GPU/PCIe/SSE2
+        Shader     : 4.50 NVIDIA
 
 *   macOS 12.5.1, 64-bit
     *   Mac mini (M1 2020)
@@ -577,6 +582,7 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 <summary>以前のバージョン</summary>
 
 *   Ruby
+    *   ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [arm64-darwin23]
     *   ruby 3.2.0 (2022-12-25 revision a528908271) [arm64-darwin21]
     *   ruby 3.1.0p0 (2021-12-25 revision fb4df44d16) [arm64-darwin20]
     *   ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [x64-mingw32]
@@ -607,6 +613,16 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
     *   ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin12.0]
     *   ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin13.0.0]
     *   ruby 2.0.0p247 (2013-06-27) [i386-mingw32]
+
+*   Windows 10 Home, 64-bit (Version 1909, OS Build 18363.778)
+    *   NVIDIA GeForce RTX 2060 SUPER
+        *   OpenGL 4.5
+
+                > ruby report_env.rb
+                Version    : 4.5.0 NVIDIA 436.30
+                Vendor     : NVIDIA Corporation
+                Renderer   : GeForce RTX 2060 SUPER/PCIe/SSE2
+                Shader     : 4.50 NVIDIA
 
 *   Windows 10 Home, 64-bit (Version 1511, OS Build 10586.164)
     *   NVIDIA GeForce GTX 960
