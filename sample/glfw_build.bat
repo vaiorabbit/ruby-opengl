@@ -5,16 +5,19 @@
 @echo off
 setlocal EnableDelayedExpansion
 
-set CMAKE=%1
-if [%CMAKE%] == [] (
-    set CMAKE="%PROGRAMFILES%\CMake\bin\cmake.exe"
+set CMAKE_EXE=%1
+if "%CMAKE_EXE%"=="" (
+    set CMAKE_EXE="%PROGRAMFILES%\CMake\bin\cmake"
 )
 
-curl -O -L https://github.com/glfw/glfw/releases/download/3.3.9/glfw-3.3.9.zip
-%WINDIR%\System32\tar.exe -xf glfw-3.3.9.zip
-cd glfw-3.3.9/
-mkdir build
+%WINDIR%\System32\curl -O -L https://github.com/glfw/glfw/releases/download/3.4/glfw-3.4.zip
+%WINDIR%\System32\tar.exe -xf glfw-3.4.zip
+cd glfw-3.4/
+if not exist build (
+    mkdir build
+)
 cd build
-%CMAKE% -G "MSYS Makefiles" -D CMAKE_BUILD_TYPE=Release -D GLFW_NATIVE_API=1 -D BUILD_SHARED_LIBS=ON -D CMAKE_C_COMPILER=gcc ../
-make
+%CMAKE_EXE% -G "MSYS Makefiles" -D CMAKE_BUILD_TYPE=Release -D GLFW_NATIVE_API=1 -D GLFW_BUILD_EXAMPLES=OFF -D GLFW_BUILD_TESTS=OFF -D GLFW_BUILD_DOCS=OFF -D GLFW_INSTALL=OFF -D BUILD_SHARED_LIBS=ON -D CMAKE_C_COMPILER=gcc ..
+
+cmake --build .
 cp -R src/glfw3.dll ../..
