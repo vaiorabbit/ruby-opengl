@@ -1,6 +1,6 @@
 module GL
 
-  GL_FUNCTIONS_MAP = {}
+  GL_FUNCTIONS_MAP = Hash.new { |hash, sym| hash[sym] = bind_command(sym) }
   @@gl_dll = nil
 
   # Open dll/dylib/so for symbol import
@@ -70,11 +70,13 @@ module GL
     rescue
       if self.get_platform == :OPENGL_PLATFORM_WINDOWS
         func_ptr = wglGetProcAddress(sym.to_s)
+        raise RuntimeError, "wglGetProcAddress(#{sym}) returned NULL" if func_ptr.null?
         GL_FUNCTIONS_MAP[sym] = Fiddle::Function.new(func_ptr,
                                                      GL_FUNCTIONS_ARGS_MAP[sym],
                                                      GL_FUNCTIONS_RETVAL_MAP[sym])
+      else
+        raise
       end
-      raise RuntimeError if GL_FUNCTIONS_MAP[sym] == nil
     end
   end
 
