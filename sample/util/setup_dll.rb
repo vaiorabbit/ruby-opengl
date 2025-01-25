@@ -7,7 +7,7 @@ module SampleUtil
     when :OPENGL_PLATFORM_MACOSX
       '/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib'
     when :OPENGL_PLATFORM_LINUX
-      '/usr/lib/x86_64-linux-gnulibGL.so'
+      '/usr/lib/x86_64-linux-gnu/libGL.so'
     else
       raise RuntimeError, "Unsupported platform."
     end
@@ -46,7 +46,7 @@ module SampleUtil
     when :OPENGL_PLATFORM_MACOSX
       '../libglfw.dylib'
     when :OPENGL_PLATFORM_LINUX
-      '/usr/lib/x86_64-linux-gnu/libglfw.so'
+      '/usr/lib/x86_64-linux-gnu/libglfw.so.3'
     else
       raise RuntimeError, "Unsupported platform."
     end
