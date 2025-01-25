@@ -1,3 +1,7 @@
+2025-01-25  vaiorabbit  <http://twitter.com/vaiorabbit>
+
+	* Fixed the function pointer resolving method ( https://github.com/vaiorabbit/ruby-opengl/pull/40 ) to address issues observed on PCs with Intel HD Graphics drivers ( https://github.com/vaiorabbit/ruby-opengl/issues/39 )
+
 2025-01-01  vaiorabbit  <http://twitter.com/vaiorabbit>
 
 	* Updated documents

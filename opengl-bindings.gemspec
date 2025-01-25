@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |gem|
   gem.name          = "opengl-bindings2"
-  gem.version       = "2.0.3"
+  gem.version       = "2.0.4"
   gem.authors       = ["vaiorabbit"]
   gem.email         = ["vaiorabbit@gmail.com"]
   gem.summary       = %q{Bindings for OpenGL/GLFW/GLUT/GLU}
