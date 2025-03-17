@@ -1,7 +1,9 @@
 require 'rbconfig'
 
 module GL
-  @@opengl_platform = case RbConfig::CONFIG['host_os']
+  host_os = RbConfig::CONFIG['host_os']
+
+  @@opengl_platform = case host_os
                       when /mswin|msys|mingw|cygwin/
                         :OPENGL_PLATFORM_WINDOWS
                       when /darwin/
