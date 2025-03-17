@@ -109,13 +109,13 @@ https://github.com/vaiorabbit/ruby-opengl
 ## Contents ##
 
 *   'opengl.rb' includes these scripts:
-    *   'opengl_command.rb'      : OpenGL command wrapper (glDrawRangeElements, etc.). Generated via generator/generate_command.rb.
-    *   'opengl_enum.rb'         : OpenGL enum wrapper (GL_TRIANGLE_STRIP, etc.). Generated via generator/generate_enum.rb.
-    *   'opengl_common.rb'       : Provides utility functions.
-    *   'opengl_platform.rb'     : Provides platform check functions (OpneGL.get_platform).
-    *   'opengl_windows.rb'      : Provides functions for Windows platform (wglGetProcAddress, wglGetCurrentContext, wglGetCurrentDC).
-    *   'opengl_macosx.rb'       : Provides functions for Mac OS X platform (CGLGetCurrentContext, CGLGetShareGroup).
-    *   'opengl_linux.rb'        : Provides functions for Linux (X Window) platform (glXGetCurrentContext, glXGetCurrentDisplay).
+    *   'opengl_command.rb'          : OpenGL command wrapper (glDrawRangeElements, etc.). Generated via generator/generate_command.rb.
+    *   'opengl_enum.rb'             : OpenGL enum wrapper (GL_TRIANGLE_STRIP, etc.). Generated via generator/generate_enum.rb.
+    *   'opengl_common.rb'           : Provides utility functions.
+    *   'opengl_platform.rb'         : Provides platform check functions (OpneGL.get_platform).
+    *   'opengl_interface_cgl.rb'    : Provides functions for the Mac OS X platform (CGLGetCurrentContext, CGLGetShareGroup).
+    *   'opengl_interface_glx.rb'    : Provides functions for various X11 platforms (glXGetCurrentContext, glXGetCurrentDisplay).
+    *   'opengl_interface_wgl.rb'    : Provides functions for the Windows platform (wglGetProcAddress, wglGetCurrentContext, wglGetCurrentDC).
 
 *   'opengl_es.rb' is almost the same with 'opengl.rb', except for including 'opengl_es_command.rb' and 'opengl_es_enum.rb'.
 
@@ -489,13 +489,13 @@ https://github.com/vaiorabbit/ruby-opengl
 ## 内容 ##
 
 *   'opengl.rb' を require することで下記のスクリプトを取り込みます:
-    *   'opengl_command.rb'      : OpenGL 関数のラッパーコード (glDrawRangeElements, etc.)。 generator/generate_command.rb で自動生成されたものです。
-    *   'opengl_enum.rb'         : OpenGL enum のラッパーコード (GL_TRIANGLE_STRIP, etc.)。 generator/generate_enum.rb で自動生成されたものです。
-    *   'opengl_common.rb'       : 共通のユーティリティ関数を提供しています。
-    *   'opengl_platform.rb'     : 動作プラットフォームの判別機能を提供しています (OpneGL.get_platform)。
-    *   'opengl_windows.rb'      : Windows 用の機能を提供しています (wglGetProcAddress, wglGetCurrentContext, wglGetCurrentDC).
-    *   'opengl_macosx.rb'       : Mac OS X 用の機能を提供しています (CGLGetCurrentContext, CGLGetShareGroup).
-    *   'opengl_linux.rb'        : Linux (X Window) 用の機能を提供しています (glXGetCurrentContext, glXGetCurrentDisplay).
+    *   'opengl_command.rb'          : OpenGL 関数のラッパーコード (glDrawRangeElements, etc.)。 generator/generate_command.rb で自動生成されたものです。
+    *   'opengl_enum.rb'             : OpenGL enum のラッパーコード (GL_TRIANGLE_STRIP, etc.)。 generator/generate_enum.rb で自動生成されたものです。
+    *   'opengl_common.rb'           : 共通のユーティリティ関数を提供しています。
+    *   'opengl_platform.rb'         : 動作プラットフォームの判別機能を提供しています (OpneGL.get_platform)。
+    *   'opengl_interface_cgl.rb'    : Mac OS X 用の機能を提供しています (CGLGetCurrentContext, CGLGetShareGroup).
+    *   'opengl_interface_glx.rb'    : X11 用の機能を提供しています (glXGetCurrentContext, glXGetCurrentDisplay).
+    *   'opengl_interface_wgl.rb'    : Windows 用の機能を提供しています (wglGetProcAddress, wglGetCurrentContext, wglGetCurrentDC).
 
 *   'opengl_es.rb' は 'opengl_es_command.rb' と 'opengl_es_enum.rb' を取り込む以外は 'opengl.rb' と同じです。
 
