@@ -7,7 +7,7 @@ when :OPENGL_PLATFORM_WINDOWS
   require_relative 'opengl_interface_wgl'
 when :OPENGL_PLATFORM_MACOSX
   require_relative 'opengl_interface_cgl'
-when :OPENGL_PLATFORM_LINUX
+when :OPENGL_PLATFORM_LINUX, :OPENGL_PLATFORM_FREEBSD
   require_relative 'opengl_interface_glx'
 end
 

@@ -10,6 +10,8 @@ module GL
                         :OPENGL_PLATFORM_MACOSX
                       when /linux/
                         :OPENGL_PLATFORM_LINUX
+                      when /freebsd/
+                        :OPENGL_PLATFORM_FREEBSD
                       else
                         raise RuntimeError, "OpenGL : Unknown OS: #{host_os.inspect}"
                       end
