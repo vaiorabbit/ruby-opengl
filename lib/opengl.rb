@@ -4,11 +4,11 @@ require_relative 'opengl_enum'
 require_relative 'opengl_command'
 case GL.get_platform
 when :OPENGL_PLATFORM_WINDOWS
-  require_relative 'opengl_windows'
+  require_relative 'opengl_interface_wgl'
 when :OPENGL_PLATFORM_MACOSX
-  require_relative 'opengl_macosx'
-when :OPENGL_PLATFORM_LINUX
-  require_relative 'opengl_linux'
+  require_relative 'opengl_interface_cgl'
+when :OPENGL_PLATFORM_LINUX, :OPENGL_PLATFORM_FREEBSD
+  require_relative 'opengl_interface_glx'
 end
 
 =begin
