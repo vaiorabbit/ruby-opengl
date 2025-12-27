@@ -1887,6 +1887,58 @@ module GLExt
   end # self.get_ext_command_GL_EXT_memory_object_win32
 
 
+  def self.define_ext_command_GL_EXT_mesh_shader
+    GL::GL_FUNCTION_SYMBOLS << :glDrawMeshTasksEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glDrawMeshTasksEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glDrawMeshTasksEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glDrawMeshTasksEXT)
+    GL.module_eval(<<-SRC)
+      def self.DrawMeshTasksEXT(_num_groups_x_, _num_groups_y_, _num_groups_z_)
+        GL_FUNCTIONS_MAP[:glDrawMeshTasksEXT].call(_num_groups_x_, _num_groups_y_, _num_groups_z_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glDrawMeshTasksIndirectEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glDrawMeshTasksIndirectEXT] = [Fiddle::TYPE_PTRDIFF_T]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glDrawMeshTasksIndirectEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glDrawMeshTasksIndirectEXT)
+    GL.module_eval(<<-SRC)
+      def self.DrawMeshTasksIndirectEXT(_indirect_)
+        GL_FUNCTIONS_MAP[:glDrawMeshTasksIndirectEXT].call(_indirect_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glMultiDrawMeshTasksIndirectEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawMeshTasksIndirectEXT] = [Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawMeshTasksIndirectEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glMultiDrawMeshTasksIndirectEXT)
+    GL.module_eval(<<-SRC)
+      def self.MultiDrawMeshTasksIndirectEXT(_indirect_, _drawcount_, _stride_)
+        GL_FUNCTIONS_MAP[:glMultiDrawMeshTasksIndirectEXT].call(_indirect_, _drawcount_, _stride_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glMultiDrawMeshTasksIndirectCountEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawMeshTasksIndirectCountEXT] = [Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawMeshTasksIndirectCountEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glMultiDrawMeshTasksIndirectCountEXT)
+    GL.module_eval(<<-SRC)
+      def self.MultiDrawMeshTasksIndirectCountEXT(_indirect_, _drawcount_, _maxdrawcount_, _stride_)
+        GL_FUNCTIONS_MAP[:glMultiDrawMeshTasksIndirectCountEXT].call(_indirect_, _drawcount_, _maxdrawcount_, _stride_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_mesh_shader
+
+  def self.get_ext_command_GL_EXT_mesh_shader
+    [
+      'glDrawMeshTasksEXT',
+      'glDrawMeshTasksIndirectEXT',
+      'glMultiDrawMeshTasksIndirectEXT',
+      'glMultiDrawMeshTasksIndirectCountEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_mesh_shader
+
+
   def self.define_ext_command_GL_EXT_multi_draw_arrays
     GL::GL_FUNCTION_SYMBOLS << :glMultiDrawArraysEXT
     GL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawArraysEXT] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP, Fiddle::TYPE_INT]
@@ -3151,6 +3203,15 @@ module GLExt
   end # self.get_ext_command_GL_EXT_shader_texture_lod
 
 
+  def self.define_ext_command_GL_EXT_shader_texture_samples
+  end # self.define_ext_command_GL_EXT_shader_texture_samples
+
+  def self.get_ext_command_GL_EXT_shader_texture_samples
+    [
+    ]
+  end # self.get_ext_command_GL_EXT_shader_texture_samples
+
+
   def self.define_ext_command_GL_EXT_shadow_samplers
   end # self.define_ext_command_GL_EXT_shadow_samplers
 
@@ -3751,6 +3812,24 @@ module GLExt
     [
     ]
   end # self.get_ext_command_GL_FJ_shader_binary_GCCSO
+
+
+  def self.define_ext_command_GL_HUAWEI_program_binary
+  end # self.define_ext_command_GL_HUAWEI_program_binary
+
+  def self.get_ext_command_GL_HUAWEI_program_binary
+    [
+    ]
+  end # self.get_ext_command_GL_HUAWEI_program_binary
+
+
+  def self.define_ext_command_GL_HUAWEI_shader_binary
+  end # self.define_ext_command_GL_HUAWEI_shader_binary
+
+  def self.get_ext_command_GL_HUAWEI_shader_binary
+    [
+    ]
+  end # self.get_ext_command_GL_HUAWEI_shader_binary
 
 
   def self.define_ext_command_GL_IMG_bindless_texture
@@ -4765,6 +4844,15 @@ module GLExt
     [
     ]
   end # self.get_ext_command_GL_MESA_shader_integer_functions
+
+
+  def self.define_ext_command_GL_MESA_texture_const_bandwidth
+  end # self.define_ext_command_GL_MESA_texture_const_bandwidth
+
+  def self.get_ext_command_GL_MESA_texture_const_bandwidth
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_texture_const_bandwidth
 
 
   def self.define_ext_command_GL_NVX_blend_equation_advanced_multi_draw_buffers
@@ -7445,6 +7533,25 @@ module GLExt
   end # self.get_ext_command_GL_NV_stereo_view_rendering
 
 
+  def self.define_ext_command_GL_NV_texture_barrier
+    GL::GL_FUNCTION_SYMBOLS << :glTextureBarrierNV
+    GL::GL_FUNCTIONS_ARGS_MAP[:glTextureBarrierNV] = []
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glTextureBarrierNV] = Fiddle::TYPE_VOID
+    GL.bind_command(:glTextureBarrierNV)
+    GL.module_eval(<<-SRC)
+      def self.TextureBarrierNV()
+        GL_FUNCTIONS_MAP[:glTextureBarrierNV].call()
+      end
+    SRC
+  end # self.define_ext_command_GL_NV_texture_barrier
+
+  def self.get_ext_command_GL_NV_texture_barrier
+    [
+      'glTextureBarrierNV',
+    ]
+  end # self.get_ext_command_GL_NV_texture_barrier
+
+
   def self.define_ext_command_GL_NV_texture_border_clamp
   end # self.define_ext_command_GL_NV_texture_border_clamp
 
@@ -7680,10 +7787,20 @@ module GLExt
 
 
   def self.define_ext_command_GL_OES_EGL_image_external
+    GL::GL_FUNCTION_SYMBOLS << :glEGLImageTargetTexture2DOES
+    GL::GL_FUNCTIONS_ARGS_MAP[:glEGLImageTargetTexture2DOES] = [-Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glEGLImageTargetTexture2DOES] = Fiddle::TYPE_VOID
+    GL.bind_command(:glEGLImageTargetTexture2DOES)
+    GL.module_eval(<<-SRC)
+      def self.EGLImageTargetTexture2DOES(_target_, _image_)
+        GL_FUNCTIONS_MAP[:glEGLImageTargetTexture2DOES].call(_target_, _image_)
+      end
+    SRC
   end # self.define_ext_command_GL_OES_EGL_image_external
 
   def self.get_ext_command_GL_OES_EGL_image_external
     [
+      'glEGLImageTargetTexture2DOES',
     ]
   end # self.get_ext_command_GL_OES_EGL_image_external
 

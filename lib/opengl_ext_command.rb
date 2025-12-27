@@ -16989,6 +16989,58 @@ module GLExt
   end # self.get_ext_command_GL_EXT_fog_coord
 
 
+  def self.define_ext_command_GL_EXT_fragment_shading_rate
+    GL::GL_FUNCTION_SYMBOLS << :glGetFragmentShadingRatesEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glGetFragmentShadingRatesEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_VOIDP, Fiddle::TYPE_VOIDP]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glGetFragmentShadingRatesEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glGetFragmentShadingRatesEXT)
+    GL.module_eval(<<-SRC)
+      def self.GetFragmentShadingRatesEXT(_samples_, _maxCount_, _count_, _shadingRates_)
+        GL_FUNCTIONS_MAP[:glGetFragmentShadingRatesEXT].call(_samples_, _maxCount_, _count_, _shadingRates_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glShadingRateEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateEXT] = [-Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glShadingRateEXT)
+    GL.module_eval(<<-SRC)
+      def self.ShadingRateEXT(_rate_)
+        GL_FUNCTIONS_MAP[:glShadingRateEXT].call(_rate_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glShadingRateCombinerOpsEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glShadingRateCombinerOpsEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glShadingRateCombinerOpsEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glShadingRateCombinerOpsEXT)
+    GL.module_eval(<<-SRC)
+      def self.ShadingRateCombinerOpsEXT(_combinerOp0_, _combinerOp1_)
+        GL_FUNCTIONS_MAP[:glShadingRateCombinerOpsEXT].call(_combinerOp0_, _combinerOp1_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glFramebufferShadingRateEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glFramebufferShadingRateEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glFramebufferShadingRateEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glFramebufferShadingRateEXT)
+    GL.module_eval(<<-SRC)
+      def self.FramebufferShadingRateEXT(_target_, _attachment_, _texture_, _baseLayer_, _numLayers_, _texelWidth_, _texelHeight_)
+        GL_FUNCTIONS_MAP[:glFramebufferShadingRateEXT].call(_target_, _attachment_, _texture_, _baseLayer_, _numLayers_, _texelWidth_, _texelHeight_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_fragment_shading_rate
+
+  def self.get_ext_command_GL_EXT_fragment_shading_rate
+    [
+      'glGetFragmentShadingRatesEXT',
+      'glShadingRateEXT',
+      'glShadingRateCombinerOpsEXT',
+      'glFramebufferShadingRateEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_fragment_shading_rate
+
+
   def self.define_ext_command_GL_EXT_framebuffer_blit
     GL::GL_FUNCTION_SYMBOLS << :glBlitFramebufferEXT
     GL::GL_FUNCTIONS_ARGS_MAP[:glBlitFramebufferEXT] = [Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
@@ -18180,6 +18232,58 @@ module GLExt
       'glImportMemoryWin32NameEXT',
     ]
   end # self.get_ext_command_GL_EXT_memory_object_win32
+
+
+  def self.define_ext_command_GL_EXT_mesh_shader
+    GL::GL_FUNCTION_SYMBOLS << :glDrawMeshTasksEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glDrawMeshTasksEXT] = [-Fiddle::TYPE_INT, -Fiddle::TYPE_INT, -Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glDrawMeshTasksEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glDrawMeshTasksEXT)
+    GL.module_eval(<<-SRC)
+      def self.DrawMeshTasksEXT(_num_groups_x_, _num_groups_y_, _num_groups_z_)
+        GL_FUNCTIONS_MAP[:glDrawMeshTasksEXT].call(_num_groups_x_, _num_groups_y_, _num_groups_z_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glDrawMeshTasksIndirectEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glDrawMeshTasksIndirectEXT] = [Fiddle::TYPE_PTRDIFF_T]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glDrawMeshTasksIndirectEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glDrawMeshTasksIndirectEXT)
+    GL.module_eval(<<-SRC)
+      def self.DrawMeshTasksIndirectEXT(_indirect_)
+        GL_FUNCTIONS_MAP[:glDrawMeshTasksIndirectEXT].call(_indirect_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glMultiDrawMeshTasksIndirectEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawMeshTasksIndirectEXT] = [Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawMeshTasksIndirectEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glMultiDrawMeshTasksIndirectEXT)
+    GL.module_eval(<<-SRC)
+      def self.MultiDrawMeshTasksIndirectEXT(_indirect_, _drawcount_, _stride_)
+        GL_FUNCTIONS_MAP[:glMultiDrawMeshTasksIndirectEXT].call(_indirect_, _drawcount_, _stride_)
+      end
+    SRC
+
+    GL::GL_FUNCTION_SYMBOLS << :glMultiDrawMeshTasksIndirectCountEXT
+    GL::GL_FUNCTIONS_ARGS_MAP[:glMultiDrawMeshTasksIndirectCountEXT] = [Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_PTRDIFF_T, Fiddle::TYPE_INT, Fiddle::TYPE_INT]
+    GL::GL_FUNCTIONS_RETVAL_MAP[:glMultiDrawMeshTasksIndirectCountEXT] = Fiddle::TYPE_VOID
+    GL.bind_command(:glMultiDrawMeshTasksIndirectCountEXT)
+    GL.module_eval(<<-SRC)
+      def self.MultiDrawMeshTasksIndirectCountEXT(_indirect_, _drawcount_, _maxdrawcount_, _stride_)
+        GL_FUNCTIONS_MAP[:glMultiDrawMeshTasksIndirectCountEXT].call(_indirect_, _drawcount_, _maxdrawcount_, _stride_)
+      end
+    SRC
+  end # self.define_ext_command_GL_EXT_mesh_shader
+
+  def self.get_ext_command_GL_EXT_mesh_shader
+    [
+      'glDrawMeshTasksEXT',
+      'glDrawMeshTasksIndirectEXT',
+      'glMultiDrawMeshTasksIndirectEXT',
+      'glMultiDrawMeshTasksIndirectCountEXT',
+    ]
+  end # self.get_ext_command_GL_EXT_mesh_shader
 
 
   def self.define_ext_command_GL_EXT_misc_attribute
@@ -22289,6 +22393,15 @@ module GLExt
     [
     ]
   end # self.get_ext_command_GL_MESA_shader_integer_functions
+
+
+  def self.define_ext_command_GL_MESA_texture_const_bandwidth
+  end # self.define_ext_command_GL_MESA_texture_const_bandwidth
+
+  def self.get_ext_command_GL_MESA_texture_const_bandwidth
+    [
+    ]
+  end # self.get_ext_command_GL_MESA_texture_const_bandwidth
 
 
   def self.define_ext_command_GL_MESA_tile_raster_order
