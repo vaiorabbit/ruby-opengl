@@ -5,7 +5,7 @@
 ...and wrapper code generator.
 
 *   Created : 2013-08-28
-*   Last modified : 2025-01-01
+*   Last modified : 2026-01-10
 
 ---
 
@@ -166,13 +166,13 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 ## Tested Environment ##
 
 *   Ruby
-    *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [x64-mingw-ucrt]
+    *   ruby 4.0.0 (2025-12-25 revision 553f1675f3) +PRISM [x64-mingw-ucrt]
     *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
 
-*   Windows 11 Pro (Version 24H2, OS Build 26100.2605)
+*   Windows 11 Pro (Version 25H2, OS Build 26200.7462)
 
         > ruby report_env.rb
-        Version    : 4.5.0 NVIDIA 560.94
+        Version    : 4.5.0 NVIDIA 591.44
         Vendor     : NVIDIA Corporation
         Renderer   : NVIDIA GeForce RTX 4080 Laptop GPU/PCIe/SSE2
         Shader     : 4.50 NVIDIA
@@ -203,6 +203,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 <summary>Older versions</summary>
 
 *   Ruby
+    *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [x64-mingw-ucrt]
     *   ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [arm64-darwin23]
     *   ruby 3.2.0 (2022-12-25 revision a528908271) [arm64-darwin21]
     *   ruby 3.1.0p0 (2021-12-25 revision fb4df44d16) [arm64-darwin20]
@@ -234,6 +235,14 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
     *   ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin12.0]
     *   ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin13.0.0]
     *   ruby 2.0.0p247 (2013-06-27) [i386-mingw32]
+
+*   Windows 11 Pro (Version 24H2, OS Build 26100.2605)
+
+        > ruby report_env.rb
+        Version    : 4.5.0 NVIDIA 560.94
+        Vendor     : NVIDIA Corporation
+        Renderer   : NVIDIA GeForce RTX 4080 Laptop GPU/PCIe/SSE2
+        Shader     : 4.50 NVIDIA
 
 *   Windows 10 Home, 64-bit (Version 1909, OS Build 18363.778)
     *   NVIDIA GeForce RTX 2060 SUPER
@@ -358,7 +367,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 
 The zlib/libpng License ( http://opensource.org/licenses/Zlib ).
 
-    Copyright (c) 2013-2025 vaiorabbit <http://twitter.com/vaiorabbit>
+    Copyright (c) 2013-2026 vaiorabbit <http://twitter.com/vaiorabbit>
 
     This software is provided 'as-is', without any express or implied
     warranty. In no event will the authors be held liable for any damages
@@ -540,10 +549,10 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
     *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [x64-mingw-ucrt]
     *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
 
-*   Windows 11 Pro (Version 24H2, OS Build 26100.2605)
+*   Windows 11 Pro (Version 25H2, OS Build 26200.7462)
 
         > ruby report_env.rb
-        Version    : 4.5.0 NVIDIA 560.94
+        Version    : 4.5.0 NVIDIA 591.44
         Vendor     : NVIDIA Corporation
         Renderer   : NVIDIA GeForce RTX 4080 Laptop GPU/PCIe/SSE2
         Shader     : 4.50 NVIDIA
@@ -574,6 +583,8 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 <summary>以前のバージョン</summary>
 
 *   Ruby
+    *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [x64-mingw-ucrt]
+    *   ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [arm64-darwin23]
     *   ruby 3.2.0 (2022-12-25 revision a528908271) [arm64-darwin21]
     *   ruby 3.1.0p0 (2021-12-25 revision fb4df44d16) [arm64-darwin20]
     *   ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [x64-mingw32]
@@ -604,6 +615,14 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
     *   ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin12.0]
     *   ruby 2.0.0p353 (2013-11-22 revision 43784) [x86_64-darwin13.0.0]
     *   ruby 2.0.0p247 (2013-06-27) [i386-mingw32]
+
+*   Windows 11 Pro (Version 24H2, OS Build 26100.2605)
+
+        > ruby report_env.rb
+        Version    : 4.5.0 NVIDIA 560.94
+        Vendor     : NVIDIA Corporation
+        Renderer   : NVIDIA GeForce RTX 4080 Laptop GPU/PCIe/SSE2
+        Shader     : 4.50 NVIDIA
 
 *   Windows 10 Home, 64-bit (Version 1909, OS Build 18363.778)
     *   NVIDIA GeForce RTX 2060 SUPER
