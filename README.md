@@ -173,7 +173,7 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
 
 *   Ruby
     *   ruby 4.0.0 (2025-12-25 revision 553f1675f3) +PRISM [x64-mingw-ucrt]
-    *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
+    *   ruby 4.0.0 (2025-12-25 revision 553f1675f3) +PRISM [arm64-darwin25]
 
 *   Windows 11 Pro (Version 25H2, OS Build 26200.7462)
 
@@ -183,10 +183,10 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
         Renderer   : NVIDIA GeForce RTX 4080 Laptop GPU/PCIe/SSE2
         Shader     : 4.50 NVIDIA
 
-*   macOS 15.2 / Mac mini (M1 2020)
+*   macOS 26.2 / Mac mini (M1 2020)
 
         $ ruby report_env.rb
-        Version    : 4.1 Metal - 89.3
+        Version    : 4.1 Metal - 90.5
         Vendor     : Apple
         Renderer   : Apple M1
         Shader     : 4.10
@@ -314,6 +314,14 @@ Use GLFW or GLUT for creating windows and OpenGL rendering contexts.
                 Vendor     : Apple
                 Renderer   : Apple M1
                 Shader     : 4.10
+
+*   macOS 15.2 / Mac mini (M1 2020)
+
+        $ ruby report_env.rb
+        Version    : 4.1 Metal - 89.3
+        Vendor     : Apple
+        Renderer   : Apple M1
+        Shader     : 4.10
 
 </details>
 
@@ -563,7 +571,7 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
 
 *   Ruby
     *   ruby 4.0.0 (2025-12-25 revision 553f1675f3) +PRISM [x64-mingw-ucrt]
-    *   ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
+    *   ruby 4.0.0 (2025-12-25 revision 553f1675f3) +PRISM [arm64-darwin25]
 
 *   Windows 11 Pro (Version 25H2, OS Build 26200.7462)
 
@@ -573,10 +581,10 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
         Renderer   : NVIDIA GeForce RTX 4080 Laptop GPU/PCIe/SSE2
         Shader     : 4.50 NVIDIA
 
-*   macOS 15.2 / Mac mini (M1 2020)
+*   macOS 26.2 / Mac mini (M1 2020)
 
         $ ruby report_env.rb
-        Version    : 4.1 Metal - 89.3
+        Version    : 4.1 Metal - 90.5
         Vendor     : Apple
         Renderer   : Apple M1
         Shader     : 4.10
@@ -704,6 +712,14 @@ GLFW か GLUT を用意してください。ウィンドウやレンダリング
                 Vendor     : Apple
                 Renderer   : Apple M1
                 Shader     : 4.10
+
+*   macOS 15.2 / Mac mini (M1 2020)
+
+        $ ruby report_env.rb
+        Version    : 4.1 Metal - 89.3
+        Vendor     : Apple
+        Renderer   : Apple M1
+        Shader     : 4.10
 
 </details>
 
